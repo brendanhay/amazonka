@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ElasticSearch
+-- Module      : Amazonka.ElasticSearch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
 -- a current list of supported regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions Regions and Endpoints>.
-module Network.AWS.ElasticSearch
+module Amazonka.ElasticSearch
   ( -- * Service Configuration
     defaultService,
 
@@ -671,49 +671,49 @@ module Network.AWS.ElasticSearch
   )
 where
 
-import Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.AddTags
-import Network.AWS.ElasticSearch.AssociatePackage
-import Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
-import Network.AWS.ElasticSearch.CreateElasticsearchDomain
-import Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.CreatePackage
-import Network.AWS.ElasticSearch.DeleteElasticsearchDomain
-import Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
-import Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.DeletePackage
-import Network.AWS.ElasticSearch.DescribeDomainAutoTunes
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomain
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomains
-import Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
-import Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections
-import Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
-import Network.AWS.ElasticSearch.DescribePackages
-import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
-import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
-import Network.AWS.ElasticSearch.DissociatePackage
-import Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
-import Network.AWS.ElasticSearch.GetPackageVersionHistory
-import Network.AWS.ElasticSearch.GetUpgradeHistory
-import Network.AWS.ElasticSearch.GetUpgradeStatus
-import Network.AWS.ElasticSearch.Lens
-import Network.AWS.ElasticSearch.ListDomainNames
-import Network.AWS.ElasticSearch.ListDomainsForPackage
-import Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
-import Network.AWS.ElasticSearch.ListElasticsearchVersions
-import Network.AWS.ElasticSearch.ListPackagesForDomain
-import Network.AWS.ElasticSearch.ListTags
-import Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
-import Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.RemoveTags
-import Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
-import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
-import Network.AWS.ElasticSearch.UpdatePackage
-import Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
-import Network.AWS.ElasticSearch.Waiters
+import Amazonka.ElasticSearch.AcceptInboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.AddTags
+import Amazonka.ElasticSearch.AssociatePackage
+import Amazonka.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
+import Amazonka.ElasticSearch.CreateElasticsearchDomain
+import Amazonka.ElasticSearch.CreateOutboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.CreatePackage
+import Amazonka.ElasticSearch.DeleteElasticsearchDomain
+import Amazonka.ElasticSearch.DeleteElasticsearchServiceRole
+import Amazonka.ElasticSearch.DeleteInboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.DeletePackage
+import Amazonka.ElasticSearch.DescribeDomainAutoTunes
+import Amazonka.ElasticSearch.DescribeElasticsearchDomain
+import Amazonka.ElasticSearch.DescribeElasticsearchDomainConfig
+import Amazonka.ElasticSearch.DescribeElasticsearchDomains
+import Amazonka.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
+import Amazonka.ElasticSearch.DescribeInboundCrossClusterSearchConnections
+import Amazonka.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
+import Amazonka.ElasticSearch.DescribePackages
+import Amazonka.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
+import Amazonka.ElasticSearch.DescribeReservedElasticsearchInstances
+import Amazonka.ElasticSearch.DissociatePackage
+import Amazonka.ElasticSearch.GetCompatibleElasticsearchVersions
+import Amazonka.ElasticSearch.GetPackageVersionHistory
+import Amazonka.ElasticSearch.GetUpgradeHistory
+import Amazonka.ElasticSearch.GetUpgradeStatus
+import Amazonka.ElasticSearch.Lens
+import Amazonka.ElasticSearch.ListDomainNames
+import Amazonka.ElasticSearch.ListDomainsForPackage
+import Amazonka.ElasticSearch.ListElasticsearchInstanceTypes
+import Amazonka.ElasticSearch.ListElasticsearchVersions
+import Amazonka.ElasticSearch.ListPackagesForDomain
+import Amazonka.ElasticSearch.ListTags
+import Amazonka.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
+import Amazonka.ElasticSearch.RejectInboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.RemoveTags
+import Amazonka.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
+import Amazonka.ElasticSearch.Types
+import Amazonka.ElasticSearch.UpdateElasticsearchDomainConfig
+import Amazonka.ElasticSearch.UpdatePackage
+import Amazonka.ElasticSearch.UpgradeElasticsearchDomain
+import Amazonka.ElasticSearch.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

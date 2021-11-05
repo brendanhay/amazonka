@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+-- Module      : Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus where
+module Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the coonection status of an inbound cross-cluster search
 -- connection.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+-- Module      : Amazonka.ElasticSearch.GetCompatibleElasticsearchVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a list of upgrade compatible Elastisearch versions. You can
 -- optionally pass a @ DomainName @ to get all upgrade compatible
 -- Elasticsearch versions for that specific domain.
-module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+module Amazonka.ElasticSearch.GetCompatibleElasticsearchVersions
   ( -- * Creating a Request
     GetCompatibleElasticsearchVersions (..),
     newGetCompatibleElasticsearchVersions,
@@ -41,12 +41,12 @@ module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for request parameters to
 -- @ GetCompatibleElasticsearchVersions @ operation.

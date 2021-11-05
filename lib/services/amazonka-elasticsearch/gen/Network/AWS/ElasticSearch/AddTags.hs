@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.AddTags
+-- Module      : Amazonka.ElasticSearch.AddTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- case-sensitive key value pairs. An Elasticsearch domain may have up to
 -- 10 tags. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
-module Network.AWS.ElasticSearch.AddTags
+module Amazonka.ElasticSearch.AddTags
   ( -- * Creating a Request
     AddTags (..),
     newAddTags,
@@ -39,12 +39,12 @@ module Network.AWS.ElasticSearch.AddTags
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @AddTags@ operation. Specify the
 -- tags that you want to attach to the Elasticsearch domain.

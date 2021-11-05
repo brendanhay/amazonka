@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
+-- Module      : Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection where
+module Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnection where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.DomainInformation
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.DomainInformation
+import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies details of an inbound connection.
 --

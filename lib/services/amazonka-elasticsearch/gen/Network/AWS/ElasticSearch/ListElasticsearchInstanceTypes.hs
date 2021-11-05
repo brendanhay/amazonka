@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+-- Module      : Amazonka.ElasticSearch.ListElasticsearchInstanceTypes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- ElasticsearchVersion
 --
 -- This operation returns paginated results.
-module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+module Amazonka.ElasticSearch.ListElasticsearchInstanceTypes
   ( -- * Creating a Request
     ListElasticsearchInstanceTypes (..),
     newListElasticsearchInstanceTypes,
@@ -46,12 +46,12 @@ module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @ ListElasticsearchInstanceTypes @
 -- operation.

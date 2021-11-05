@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
+-- Module      : Amazonka.ElasticSearch.DeleteElasticsearchServiceRole
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- before deleting the role. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr Deleting Elasticsearch Service Role>
 -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/.
-module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
+module Amazonka.ElasticSearch.DeleteElasticsearchServiceRole
   ( -- * Creating a Request
     DeleteElasticsearchServiceRole (..),
     newDeleteElasticsearchServiceRole,
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteElasticsearchServiceRole' smart constructor.
 data DeleteElasticsearchServiceRole = DeleteElasticsearchServiceRole'

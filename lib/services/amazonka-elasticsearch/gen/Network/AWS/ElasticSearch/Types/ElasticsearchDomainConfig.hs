@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
+-- Module      : Amazonka.ElasticSearch.Types.ElasticsearchDomainConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig where
+module Amazonka.ElasticSearch.Types.ElasticsearchDomainConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.AccessPoliciesStatus
-import Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
-import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
-import Network.AWS.ElasticSearch.Types.AutoTuneOptionsStatus
-import Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
-import Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.ElasticSearch.Types.EBSOptionsStatus
-import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
-import Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
-import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
-import Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
-import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
-import Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
-import Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
+import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
+import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus
+import Amazonka.ElasticSearch.Types.CognitoOptionsStatus
+import Amazonka.ElasticSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.ElasticSearch.Types.EBSOptionsStatus
+import Amazonka.ElasticSearch.Types.ElasticsearchClusterConfigStatus
+import Amazonka.ElasticSearch.Types.ElasticsearchVersionStatus
+import Amazonka.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+import Amazonka.ElasticSearch.Types.LogPublishingOptionsStatus
+import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.ElasticSearch.Types.SnapshotOptionsStatus
+import Amazonka.ElasticSearch.Types.VPCDerivedInfoStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of an Elasticsearch domain.
 --

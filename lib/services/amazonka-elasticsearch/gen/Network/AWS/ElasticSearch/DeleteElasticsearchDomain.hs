@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.DeleteElasticsearchDomain
+-- Module      : Amazonka.ElasticSearch.DeleteElasticsearchDomain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Permanently deletes the specified Elasticsearch domain and all of its
 -- data. Once a domain is deleted, it cannot be recovered.
-module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
+module Amazonka.ElasticSearch.DeleteElasticsearchDomain
   ( -- * Creating a Request
     DeleteElasticsearchDomain (..),
     newDeleteElasticsearchDomain,
@@ -40,12 +40,12 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @DeleteElasticsearchDomain@
 -- operation. Specifies the name of the Elasticsearch domain that you want

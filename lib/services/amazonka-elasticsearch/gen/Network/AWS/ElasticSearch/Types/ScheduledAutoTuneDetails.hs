@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails
+-- Module      : Amazonka.ElasticSearch.Types.ScheduledAutoTuneDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails where
+module Amazonka.ElasticSearch.Types.ScheduledAutoTuneDetails where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType
-import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneSeverityType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.ScheduledAutoTuneActionType
+import Amazonka.ElasticSearch.Types.ScheduledAutoTuneSeverityType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies details of the scheduled Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>

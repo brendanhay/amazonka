@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.AutoTuneOptionsInput
+-- Module      : Amazonka.ElasticSearch.Types.AutoTuneOptionsInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.AutoTuneOptionsInput where
+module Amazonka.ElasticSearch.Types.AutoTuneOptionsInput where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.AutoTuneDesiredState
-import Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.AutoTuneDesiredState
+import Amazonka.ElasticSearch.Types.AutoTuneMaintenanceSchedule
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the Auto-Tune options: the Auto-Tune desired state for the
 -- domain and list of maintenance schedules.

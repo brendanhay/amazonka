@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticSearch where
 
+import Amazonka.ElasticSearch
 import qualified Data.Proxy as Proxy
-import Network.AWS.ElasticSearch
 import Test.AWS.ElasticSearch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

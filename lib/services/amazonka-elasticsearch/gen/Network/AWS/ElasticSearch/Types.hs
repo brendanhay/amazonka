@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types
+-- Module      : Amazonka.ElasticSearch.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types
+module Amazonka.ElasticSearch.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -648,105 +648,105 @@ module Network.AWS.ElasticSearch.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.AccessPoliciesStatus
-import Network.AWS.ElasticSearch.Types.AdditionalLimit
-import Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
-import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
-import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
-import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
-import Network.AWS.ElasticSearch.Types.AutoTune
-import Network.AWS.ElasticSearch.Types.AutoTuneDesiredState
-import Network.AWS.ElasticSearch.Types.AutoTuneDetails
-import Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule
-import Network.AWS.ElasticSearch.Types.AutoTuneOptions
-import Network.AWS.ElasticSearch.Types.AutoTuneOptionsInput
-import Network.AWS.ElasticSearch.Types.AutoTuneOptionsOutput
-import Network.AWS.ElasticSearch.Types.AutoTuneOptionsStatus
-import Network.AWS.ElasticSearch.Types.AutoTuneState
-import Network.AWS.ElasticSearch.Types.AutoTuneStatus
-import Network.AWS.ElasticSearch.Types.AutoTuneType
-import Network.AWS.ElasticSearch.Types.CognitoOptions
-import Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
-import Network.AWS.ElasticSearch.Types.ColdStorageOptions
-import Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
-import Network.AWS.ElasticSearch.Types.DeploymentStatus
-import Network.AWS.ElasticSearch.Types.DescribePackagesFilter
-import Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
-import Network.AWS.ElasticSearch.Types.DomainEndpointOptions
-import Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.ElasticSearch.Types.DomainInfo
-import Network.AWS.ElasticSearch.Types.DomainInformation
-import Network.AWS.ElasticSearch.Types.DomainPackageDetails
-import Network.AWS.ElasticSearch.Types.DomainPackageStatus
-import Network.AWS.ElasticSearch.Types.Duration
-import Network.AWS.ElasticSearch.Types.EBSOptions
-import Network.AWS.ElasticSearch.Types.EBSOptionsStatus
-import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
-import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
-import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
-import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
-import Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
-import Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
-import Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
-import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
-import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
-import Network.AWS.ElasticSearch.Types.EngineType
-import Network.AWS.ElasticSearch.Types.ErrorDetails
-import Network.AWS.ElasticSearch.Types.Filter
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
-import Network.AWS.ElasticSearch.Types.InstanceCountLimits
-import Network.AWS.ElasticSearch.Types.InstanceLimits
-import Network.AWS.ElasticSearch.Types.Limits
-import Network.AWS.ElasticSearch.Types.LogPublishingOption
-import Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
-import Network.AWS.ElasticSearch.Types.LogType
-import Network.AWS.ElasticSearch.Types.MasterUserOptions
-import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
-import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
-import Network.AWS.ElasticSearch.Types.OptionState
-import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
-import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
-import Network.AWS.ElasticSearch.Types.PackageDetails
-import Network.AWS.ElasticSearch.Types.PackageSource
-import Network.AWS.ElasticSearch.Types.PackageStatus
-import Network.AWS.ElasticSearch.Types.PackageType
-import Network.AWS.ElasticSearch.Types.PackageVersionHistory
-import Network.AWS.ElasticSearch.Types.RecurringCharge
-import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstance
-import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
-import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
-import Network.AWS.ElasticSearch.Types.RollbackOnDisable
-import Network.AWS.ElasticSearch.Types.SAMLIdp
-import Network.AWS.ElasticSearch.Types.SAMLOptionsInput
-import Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
-import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType
-import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails
-import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneSeverityType
-import Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
-import Network.AWS.ElasticSearch.Types.SnapshotOptions
-import Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
-import Network.AWS.ElasticSearch.Types.StorageType
-import Network.AWS.ElasticSearch.Types.StorageTypeLimit
-import Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
-import Network.AWS.ElasticSearch.Types.Tag
-import Network.AWS.ElasticSearch.Types.TimeUnit
-import Network.AWS.ElasticSearch.Types.UpgradeHistory
-import Network.AWS.ElasticSearch.Types.UpgradeStatus
-import Network.AWS.ElasticSearch.Types.UpgradeStep
-import Network.AWS.ElasticSearch.Types.UpgradeStepItem
-import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
-import Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
-import Network.AWS.ElasticSearch.Types.VPCOptions
-import Network.AWS.ElasticSearch.Types.VolumeType
-import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
+import Amazonka.ElasticSearch.Types.AdditionalLimit
+import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
+import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
+import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsInput
+import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.ElasticSearch.Types.AutoTune
+import Amazonka.ElasticSearch.Types.AutoTuneDesiredState
+import Amazonka.ElasticSearch.Types.AutoTuneDetails
+import Amazonka.ElasticSearch.Types.AutoTuneMaintenanceSchedule
+import Amazonka.ElasticSearch.Types.AutoTuneOptions
+import Amazonka.ElasticSearch.Types.AutoTuneOptionsInput
+import Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput
+import Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus
+import Amazonka.ElasticSearch.Types.AutoTuneState
+import Amazonka.ElasticSearch.Types.AutoTuneStatus
+import Amazonka.ElasticSearch.Types.AutoTuneType
+import Amazonka.ElasticSearch.Types.CognitoOptions
+import Amazonka.ElasticSearch.Types.CognitoOptionsStatus
+import Amazonka.ElasticSearch.Types.ColdStorageOptions
+import Amazonka.ElasticSearch.Types.CompatibleVersionsMap
+import Amazonka.ElasticSearch.Types.DeploymentStatus
+import Amazonka.ElasticSearch.Types.DescribePackagesFilter
+import Amazonka.ElasticSearch.Types.DescribePackagesFilterName
+import Amazonka.ElasticSearch.Types.DomainEndpointOptions
+import Amazonka.ElasticSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.ElasticSearch.Types.DomainInfo
+import Amazonka.ElasticSearch.Types.DomainInformation
+import Amazonka.ElasticSearch.Types.DomainPackageDetails
+import Amazonka.ElasticSearch.Types.DomainPackageStatus
+import Amazonka.ElasticSearch.Types.Duration
+import Amazonka.ElasticSearch.Types.EBSOptions
+import Amazonka.ElasticSearch.Types.EBSOptionsStatus
+import Amazonka.ElasticSearch.Types.ESPartitionInstanceType
+import Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType
+import Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig
+import Amazonka.ElasticSearch.Types.ElasticsearchClusterConfigStatus
+import Amazonka.ElasticSearch.Types.ElasticsearchDomainConfig
+import Amazonka.ElasticSearch.Types.ElasticsearchDomainStatus
+import Amazonka.ElasticSearch.Types.ElasticsearchVersionStatus
+import Amazonka.ElasticSearch.Types.EncryptionAtRestOptions
+import Amazonka.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+import Amazonka.ElasticSearch.Types.EngineType
+import Amazonka.ElasticSearch.Types.ErrorDetails
+import Amazonka.ElasticSearch.Types.Filter
+import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
+import Amazonka.ElasticSearch.Types.InstanceCountLimits
+import Amazonka.ElasticSearch.Types.InstanceLimits
+import Amazonka.ElasticSearch.Types.Limits
+import Amazonka.ElasticSearch.Types.LogPublishingOption
+import Amazonka.ElasticSearch.Types.LogPublishingOptionsStatus
+import Amazonka.ElasticSearch.Types.LogType
+import Amazonka.ElasticSearch.Types.MasterUserOptions
+import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptions
+import Amazonka.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.ElasticSearch.Types.OptionState
+import Amazonka.ElasticSearch.Types.OptionStatus
+import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnection
+import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
+import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+import Amazonka.ElasticSearch.Types.PackageDetails
+import Amazonka.ElasticSearch.Types.PackageSource
+import Amazonka.ElasticSearch.Types.PackageStatus
+import Amazonka.ElasticSearch.Types.PackageType
+import Amazonka.ElasticSearch.Types.PackageVersionHistory
+import Amazonka.ElasticSearch.Types.RecurringCharge
+import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstance
+import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
+import Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
+import Amazonka.ElasticSearch.Types.RollbackOnDisable
+import Amazonka.ElasticSearch.Types.SAMLIdp
+import Amazonka.ElasticSearch.Types.SAMLOptionsInput
+import Amazonka.ElasticSearch.Types.SAMLOptionsOutput
+import Amazonka.ElasticSearch.Types.ScheduledAutoTuneActionType
+import Amazonka.ElasticSearch.Types.ScheduledAutoTuneDetails
+import Amazonka.ElasticSearch.Types.ScheduledAutoTuneSeverityType
+import Amazonka.ElasticSearch.Types.ServiceSoftwareOptions
+import Amazonka.ElasticSearch.Types.SnapshotOptions
+import Amazonka.ElasticSearch.Types.SnapshotOptionsStatus
+import Amazonka.ElasticSearch.Types.StorageType
+import Amazonka.ElasticSearch.Types.StorageTypeLimit
+import Amazonka.ElasticSearch.Types.TLSSecurityPolicy
+import Amazonka.ElasticSearch.Types.Tag
+import Amazonka.ElasticSearch.Types.TimeUnit
+import Amazonka.ElasticSearch.Types.UpgradeHistory
+import Amazonka.ElasticSearch.Types.UpgradeStatus
+import Amazonka.ElasticSearch.Types.UpgradeStep
+import Amazonka.ElasticSearch.Types.UpgradeStepItem
+import Amazonka.ElasticSearch.Types.VPCDerivedInfo
+import Amazonka.ElasticSearch.Types.VPCDerivedInfoStatus
+import Amazonka.ElasticSearch.Types.VPCOptions
+import Amazonka.ElasticSearch.Types.VolumeType
+import Amazonka.ElasticSearch.Types.ZoneAwarenessConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-01-01@ of the Amazon Elasticsearch Service SDK configuration.
 defaultService :: Core.Service

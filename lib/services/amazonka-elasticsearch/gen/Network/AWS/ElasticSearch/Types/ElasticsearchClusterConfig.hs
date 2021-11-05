@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
+-- Module      : Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig where
+module Amazonka.ElasticSearch.Types.ElasticsearchClusterConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticSearch.Types.ColdStorageOptions
-import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
-import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
-import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticSearch.Types.ColdStorageOptions
+import Amazonka.ElasticSearch.Types.ESPartitionInstanceType
+import Amazonka.ElasticSearch.Types.ESWarmPartitionInstanceType
+import Amazonka.ElasticSearch.Types.ZoneAwarenessConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration for the domain cluster, such as the type and
 -- number of instances.

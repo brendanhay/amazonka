@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.UpdateAssetProperty
+-- Module      : Amazonka.IoTSiteWise.UpdateAssetProperty
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- notification state, you must include the existing values in the
 -- UpdateAssetProperty request. For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetProperty.html DescribeAssetProperty>.
-module Network.AWS.IoTSiteWise.UpdateAssetProperty
+module Amazonka.IoTSiteWise.UpdateAssetProperty
   ( -- * Creating a Request
     UpdateAssetProperty (..),
     newUpdateAssetProperty,
@@ -45,12 +45,12 @@ module Network.AWS.IoTSiteWise.UpdateAssetProperty
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssetProperty' smart constructor.
 data UpdateAssetProperty = UpdateAssetProperty'

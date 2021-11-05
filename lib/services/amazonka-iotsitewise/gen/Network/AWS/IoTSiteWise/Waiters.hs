@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Waiters
+-- Module      : Amazonka.IoTSiteWise.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Waiters where
+module Amazonka.IoTSiteWise.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.DescribeAsset
-import Network.AWS.IoTSiteWise.DescribeAssetModel
-import Network.AWS.IoTSiteWise.DescribePortal
-import Network.AWS.IoTSiteWise.Lens
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.DescribeAsset
+import Amazonka.IoTSiteWise.DescribeAssetModel
+import Amazonka.IoTSiteWise.DescribePortal
+import Amazonka.IoTSiteWise.Lens
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newAssetModelNotExists :: Core.Wait DescribeAssetModel
 newAssetModelNotExists =
   Core.Wait
@@ -38,7 +38,7 @@ newAssetModelNotExists =
         ]
     }
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newAssetNotExists :: Core.Wait DescribeAsset
 newAssetNotExists =
   Core.Wait
@@ -52,7 +52,7 @@ newAssetNotExists =
         ]
     }
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAssetModel' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newAssetModelActive :: Core.Wait DescribeAssetModel
 newAssetModelActive =
   Core.Wait
@@ -77,7 +77,7 @@ newAssetModelActive =
         ]
     }
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newPortalNotExists :: Core.Wait DescribePortal
 newPortalNotExists =
   Core.Wait
@@ -91,7 +91,7 @@ newPortalNotExists =
         ]
     }
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribeAsset' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newAssetActive :: Core.Wait DescribeAsset
 newAssetActive =
   Core.Wait
@@ -116,7 +116,7 @@ newAssetActive =
         ]
     }
 
--- | Polls 'Network.AWS.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IoTSiteWise.DescribePortal' every 3 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newPortalActive :: Core.Wait DescribePortal
 newPortalActive =
   Core.Wait

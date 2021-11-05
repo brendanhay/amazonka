@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus
+-- Module      : Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus
+module Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
   ( CapabilitySyncStatus
       ( ..,
         CapabilitySyncStatus_IN_SYNC,
@@ -28,8 +28,8 @@ module Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype CapabilitySyncStatus = CapabilitySyncStatus'
   { fromCapabilitySyncStatus ::

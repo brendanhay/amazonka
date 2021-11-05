@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.AccessPolicySummary
+-- Module      : Amazonka.IoTSiteWise.Types.AccessPolicySummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.AccessPolicySummary where
+module Amazonka.IoTSiteWise.Types.AccessPolicySummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types.Identity
-import Network.AWS.IoTSiteWise.Types.Permission
-import Network.AWS.IoTSiteWise.Types.Resource
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types.Identity
+import Amazonka.IoTSiteWise.Types.Permission
+import Amazonka.IoTSiteWise.Types.Resource
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an access policy that defines an identity\'s access to an IoT
 -- SiteWise Monitor resource.

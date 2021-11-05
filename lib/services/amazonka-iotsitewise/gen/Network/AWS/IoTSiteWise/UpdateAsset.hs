@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.UpdateAsset
+-- Module      : Amazonka.IoTSiteWise.UpdateAsset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates an asset\'s name. For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html Updating assets and models>
 -- in the /IoT SiteWise User Guide/.
-module Network.AWS.IoTSiteWise.UpdateAsset
+module Amazonka.IoTSiteWise.UpdateAsset
   ( -- * Creating a Request
     UpdateAsset (..),
     newUpdateAsset,
@@ -43,12 +43,12 @@ module Network.AWS.IoTSiteWise.UpdateAsset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAsset' smart constructor.
 data UpdateAsset = UpdateAsset'

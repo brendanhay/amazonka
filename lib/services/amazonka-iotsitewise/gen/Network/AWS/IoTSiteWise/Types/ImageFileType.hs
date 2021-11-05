@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.ImageFileType
+-- Module      : Amazonka.IoTSiteWise.Types.ImageFileType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.ImageFileType
+module Amazonka.IoTSiteWise.Types.ImageFileType
   ( ImageFileType
       ( ..,
         ImageFileType_PNG
@@ -25,8 +25,8 @@ module Network.AWS.IoTSiteWise.Types.ImageFileType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ImageFileType = ImageFileType'
   { fromImageFileType ::

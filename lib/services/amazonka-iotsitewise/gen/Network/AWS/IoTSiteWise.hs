@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTSiteWise
+-- Module      : Amazonka.IoTSiteWise
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- For information about IoT SiteWise quotas, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
 -- in the /IoT SiteWise User Guide/.
-module Network.AWS.IoTSiteWise
+module Amazonka.IoTSiteWise
   ( -- * Service Configuration
     defaultService,
 
@@ -820,69 +820,69 @@ module Network.AWS.IoTSiteWise
   )
 where
 
-import Network.AWS.IoTSiteWise.AssociateAssets
-import Network.AWS.IoTSiteWise.BatchAssociateProjectAssets
-import Network.AWS.IoTSiteWise.BatchDisassociateProjectAssets
-import Network.AWS.IoTSiteWise.BatchPutAssetPropertyValue
-import Network.AWS.IoTSiteWise.CreateAccessPolicy
-import Network.AWS.IoTSiteWise.CreateAsset
-import Network.AWS.IoTSiteWise.CreateAssetModel
-import Network.AWS.IoTSiteWise.CreateDashboard
-import Network.AWS.IoTSiteWise.CreateGateway
-import Network.AWS.IoTSiteWise.CreatePortal
-import Network.AWS.IoTSiteWise.CreateProject
-import Network.AWS.IoTSiteWise.DeleteAccessPolicy
-import Network.AWS.IoTSiteWise.DeleteAsset
-import Network.AWS.IoTSiteWise.DeleteAssetModel
-import Network.AWS.IoTSiteWise.DeleteDashboard
-import Network.AWS.IoTSiteWise.DeleteGateway
-import Network.AWS.IoTSiteWise.DeletePortal
-import Network.AWS.IoTSiteWise.DeleteProject
-import Network.AWS.IoTSiteWise.DescribeAccessPolicy
-import Network.AWS.IoTSiteWise.DescribeAsset
-import Network.AWS.IoTSiteWise.DescribeAssetModel
-import Network.AWS.IoTSiteWise.DescribeAssetProperty
-import Network.AWS.IoTSiteWise.DescribeDashboard
-import Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
-import Network.AWS.IoTSiteWise.DescribeGateway
-import Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration
-import Network.AWS.IoTSiteWise.DescribeLoggingOptions
-import Network.AWS.IoTSiteWise.DescribePortal
-import Network.AWS.IoTSiteWise.DescribeProject
-import Network.AWS.IoTSiteWise.DescribeStorageConfiguration
-import Network.AWS.IoTSiteWise.DisassociateAssets
-import Network.AWS.IoTSiteWise.GetAssetPropertyAggregates
-import Network.AWS.IoTSiteWise.GetAssetPropertyValue
-import Network.AWS.IoTSiteWise.GetAssetPropertyValueHistory
-import Network.AWS.IoTSiteWise.GetInterpolatedAssetPropertyValues
-import Network.AWS.IoTSiteWise.Lens
-import Network.AWS.IoTSiteWise.ListAccessPolicies
-import Network.AWS.IoTSiteWise.ListAssetModels
-import Network.AWS.IoTSiteWise.ListAssetRelationships
-import Network.AWS.IoTSiteWise.ListAssets
-import Network.AWS.IoTSiteWise.ListAssociatedAssets
-import Network.AWS.IoTSiteWise.ListDashboards
-import Network.AWS.IoTSiteWise.ListGateways
-import Network.AWS.IoTSiteWise.ListPortals
-import Network.AWS.IoTSiteWise.ListProjectAssets
-import Network.AWS.IoTSiteWise.ListProjects
-import Network.AWS.IoTSiteWise.ListTagsForResource
-import Network.AWS.IoTSiteWise.PutDefaultEncryptionConfiguration
-import Network.AWS.IoTSiteWise.PutLoggingOptions
-import Network.AWS.IoTSiteWise.PutStorageConfiguration
-import Network.AWS.IoTSiteWise.TagResource
-import Network.AWS.IoTSiteWise.Types
-import Network.AWS.IoTSiteWise.UntagResource
-import Network.AWS.IoTSiteWise.UpdateAccessPolicy
-import Network.AWS.IoTSiteWise.UpdateAsset
-import Network.AWS.IoTSiteWise.UpdateAssetModel
-import Network.AWS.IoTSiteWise.UpdateAssetProperty
-import Network.AWS.IoTSiteWise.UpdateDashboard
-import Network.AWS.IoTSiteWise.UpdateGateway
-import Network.AWS.IoTSiteWise.UpdateGatewayCapabilityConfiguration
-import Network.AWS.IoTSiteWise.UpdatePortal
-import Network.AWS.IoTSiteWise.UpdateProject
-import Network.AWS.IoTSiteWise.Waiters
+import Amazonka.IoTSiteWise.AssociateAssets
+import Amazonka.IoTSiteWise.BatchAssociateProjectAssets
+import Amazonka.IoTSiteWise.BatchDisassociateProjectAssets
+import Amazonka.IoTSiteWise.BatchPutAssetPropertyValue
+import Amazonka.IoTSiteWise.CreateAccessPolicy
+import Amazonka.IoTSiteWise.CreateAsset
+import Amazonka.IoTSiteWise.CreateAssetModel
+import Amazonka.IoTSiteWise.CreateDashboard
+import Amazonka.IoTSiteWise.CreateGateway
+import Amazonka.IoTSiteWise.CreatePortal
+import Amazonka.IoTSiteWise.CreateProject
+import Amazonka.IoTSiteWise.DeleteAccessPolicy
+import Amazonka.IoTSiteWise.DeleteAsset
+import Amazonka.IoTSiteWise.DeleteAssetModel
+import Amazonka.IoTSiteWise.DeleteDashboard
+import Amazonka.IoTSiteWise.DeleteGateway
+import Amazonka.IoTSiteWise.DeletePortal
+import Amazonka.IoTSiteWise.DeleteProject
+import Amazonka.IoTSiteWise.DescribeAccessPolicy
+import Amazonka.IoTSiteWise.DescribeAsset
+import Amazonka.IoTSiteWise.DescribeAssetModel
+import Amazonka.IoTSiteWise.DescribeAssetProperty
+import Amazonka.IoTSiteWise.DescribeDashboard
+import Amazonka.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+import Amazonka.IoTSiteWise.DescribeGateway
+import Amazonka.IoTSiteWise.DescribeGatewayCapabilityConfiguration
+import Amazonka.IoTSiteWise.DescribeLoggingOptions
+import Amazonka.IoTSiteWise.DescribePortal
+import Amazonka.IoTSiteWise.DescribeProject
+import Amazonka.IoTSiteWise.DescribeStorageConfiguration
+import Amazonka.IoTSiteWise.DisassociateAssets
+import Amazonka.IoTSiteWise.GetAssetPropertyAggregates
+import Amazonka.IoTSiteWise.GetAssetPropertyValue
+import Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
+import Amazonka.IoTSiteWise.GetInterpolatedAssetPropertyValues
+import Amazonka.IoTSiteWise.Lens
+import Amazonka.IoTSiteWise.ListAccessPolicies
+import Amazonka.IoTSiteWise.ListAssetModels
+import Amazonka.IoTSiteWise.ListAssetRelationships
+import Amazonka.IoTSiteWise.ListAssets
+import Amazonka.IoTSiteWise.ListAssociatedAssets
+import Amazonka.IoTSiteWise.ListDashboards
+import Amazonka.IoTSiteWise.ListGateways
+import Amazonka.IoTSiteWise.ListPortals
+import Amazonka.IoTSiteWise.ListProjectAssets
+import Amazonka.IoTSiteWise.ListProjects
+import Amazonka.IoTSiteWise.ListTagsForResource
+import Amazonka.IoTSiteWise.PutDefaultEncryptionConfiguration
+import Amazonka.IoTSiteWise.PutLoggingOptions
+import Amazonka.IoTSiteWise.PutStorageConfiguration
+import Amazonka.IoTSiteWise.TagResource
+import Amazonka.IoTSiteWise.Types
+import Amazonka.IoTSiteWise.UntagResource
+import Amazonka.IoTSiteWise.UpdateAccessPolicy
+import Amazonka.IoTSiteWise.UpdateAsset
+import Amazonka.IoTSiteWise.UpdateAssetModel
+import Amazonka.IoTSiteWise.UpdateAssetProperty
+import Amazonka.IoTSiteWise.UpdateDashboard
+import Amazonka.IoTSiteWise.UpdateGateway
+import Amazonka.IoTSiteWise.UpdateGatewayCapabilityConfiguration
+import Amazonka.IoTSiteWise.UpdatePortal
+import Amazonka.IoTSiteWise.UpdateProject
+import Amazonka.IoTSiteWise.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

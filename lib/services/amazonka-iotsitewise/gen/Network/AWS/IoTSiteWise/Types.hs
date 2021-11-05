@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types
+-- Module      : Amazonka.IoTSiteWise.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types
+module Amazonka.IoTSiteWise.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -616,111 +616,111 @@ module Network.AWS.IoTSiteWise.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types.AccessPolicySummary
-import Network.AWS.IoTSiteWise.Types.AggregateType
-import Network.AWS.IoTSiteWise.Types.AggregatedValue
-import Network.AWS.IoTSiteWise.Types.Aggregates
-import Network.AWS.IoTSiteWise.Types.Alarms
-import Network.AWS.IoTSiteWise.Types.AssetCompositeModel
-import Network.AWS.IoTSiteWise.Types.AssetErrorCode
-import Network.AWS.IoTSiteWise.Types.AssetErrorDetails
-import Network.AWS.IoTSiteWise.Types.AssetHierarchy
-import Network.AWS.IoTSiteWise.Types.AssetHierarchyInfo
-import Network.AWS.IoTSiteWise.Types.AssetModelCompositeModel
-import Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition
-import Network.AWS.IoTSiteWise.Types.AssetModelHierarchy
-import Network.AWS.IoTSiteWise.Types.AssetModelHierarchyDefinition
-import Network.AWS.IoTSiteWise.Types.AssetModelProperty
-import Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition
-import Network.AWS.IoTSiteWise.Types.AssetModelState
-import Network.AWS.IoTSiteWise.Types.AssetModelStatus
-import Network.AWS.IoTSiteWise.Types.AssetModelSummary
-import Network.AWS.IoTSiteWise.Types.AssetProperty
-import Network.AWS.IoTSiteWise.Types.AssetPropertyValue
-import Network.AWS.IoTSiteWise.Types.AssetRelationshipSummary
-import Network.AWS.IoTSiteWise.Types.AssetRelationshipType
-import Network.AWS.IoTSiteWise.Types.AssetState
-import Network.AWS.IoTSiteWise.Types.AssetStatus
-import Network.AWS.IoTSiteWise.Types.AssetSummary
-import Network.AWS.IoTSiteWise.Types.AssociatedAssetsSummary
-import Network.AWS.IoTSiteWise.Types.Attribute
-import Network.AWS.IoTSiteWise.Types.AuthMode
-import Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyError
-import Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry
-import Network.AWS.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
-import Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus
-import Network.AWS.IoTSiteWise.Types.CompositeModelProperty
-import Network.AWS.IoTSiteWise.Types.ComputeLocation
-import Network.AWS.IoTSiteWise.Types.ConfigurationErrorDetails
-import Network.AWS.IoTSiteWise.Types.ConfigurationState
-import Network.AWS.IoTSiteWise.Types.ConfigurationStatus
-import Network.AWS.IoTSiteWise.Types.CustomerManagedS3Storage
-import Network.AWS.IoTSiteWise.Types.DashboardSummary
-import Network.AWS.IoTSiteWise.Types.DetailedError
-import Network.AWS.IoTSiteWise.Types.DetailedErrorCode
-import Network.AWS.IoTSiteWise.Types.EncryptionType
-import Network.AWS.IoTSiteWise.Types.ErrorCode
-import Network.AWS.IoTSiteWise.Types.ErrorDetails
-import Network.AWS.IoTSiteWise.Types.ExpressionVariable
-import Network.AWS.IoTSiteWise.Types.ForwardingConfig
-import Network.AWS.IoTSiteWise.Types.ForwardingConfigState
-import Network.AWS.IoTSiteWise.Types.GatewayCapabilitySummary
-import Network.AWS.IoTSiteWise.Types.GatewayPlatform
-import Network.AWS.IoTSiteWise.Types.GatewaySummary
-import Network.AWS.IoTSiteWise.Types.Greengrass
-import Network.AWS.IoTSiteWise.Types.GreengrassV2
-import Network.AWS.IoTSiteWise.Types.GroupIdentity
-import Network.AWS.IoTSiteWise.Types.IAMRoleIdentity
-import Network.AWS.IoTSiteWise.Types.IAMUserIdentity
-import Network.AWS.IoTSiteWise.Types.Identity
-import Network.AWS.IoTSiteWise.Types.IdentityType
-import Network.AWS.IoTSiteWise.Types.Image
-import Network.AWS.IoTSiteWise.Types.ImageFile
-import Network.AWS.IoTSiteWise.Types.ImageFileType
-import Network.AWS.IoTSiteWise.Types.ImageLocation
-import Network.AWS.IoTSiteWise.Types.InterpolatedAssetPropertyValue
-import Network.AWS.IoTSiteWise.Types.ListAssetsFilter
-import Network.AWS.IoTSiteWise.Types.LoggingLevel
-import Network.AWS.IoTSiteWise.Types.LoggingOptions
-import Network.AWS.IoTSiteWise.Types.Measurement
-import Network.AWS.IoTSiteWise.Types.MeasurementProcessingConfig
-import Network.AWS.IoTSiteWise.Types.Metric
-import Network.AWS.IoTSiteWise.Types.MetricProcessingConfig
-import Network.AWS.IoTSiteWise.Types.MetricWindow
-import Network.AWS.IoTSiteWise.Types.MonitorErrorCode
-import Network.AWS.IoTSiteWise.Types.MonitorErrorDetails
-import Network.AWS.IoTSiteWise.Types.MultiLayerStorage
-import Network.AWS.IoTSiteWise.Types.Permission
-import Network.AWS.IoTSiteWise.Types.PortalResource
-import Network.AWS.IoTSiteWise.Types.PortalState
-import Network.AWS.IoTSiteWise.Types.PortalStatus
-import Network.AWS.IoTSiteWise.Types.PortalSummary
-import Network.AWS.IoTSiteWise.Types.ProjectResource
-import Network.AWS.IoTSiteWise.Types.ProjectSummary
-import Network.AWS.IoTSiteWise.Types.Property
-import Network.AWS.IoTSiteWise.Types.PropertyDataType
-import Network.AWS.IoTSiteWise.Types.PropertyNotification
-import Network.AWS.IoTSiteWise.Types.PropertyNotificationState
-import Network.AWS.IoTSiteWise.Types.PropertyType
-import Network.AWS.IoTSiteWise.Types.PutAssetPropertyValueEntry
-import Network.AWS.IoTSiteWise.Types.Quality
-import Network.AWS.IoTSiteWise.Types.Resource
-import Network.AWS.IoTSiteWise.Types.ResourceType
-import Network.AWS.IoTSiteWise.Types.StorageType
-import Network.AWS.IoTSiteWise.Types.TimeInNanos
-import Network.AWS.IoTSiteWise.Types.TimeOrdering
-import Network.AWS.IoTSiteWise.Types.Transform
-import Network.AWS.IoTSiteWise.Types.TransformProcessingConfig
-import Network.AWS.IoTSiteWise.Types.TraversalDirection
-import Network.AWS.IoTSiteWise.Types.TraversalType
-import Network.AWS.IoTSiteWise.Types.TumblingWindow
-import Network.AWS.IoTSiteWise.Types.UserIdentity
-import Network.AWS.IoTSiteWise.Types.VariableValue
-import Network.AWS.IoTSiteWise.Types.Variant
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types.AccessPolicySummary
+import Amazonka.IoTSiteWise.Types.AggregateType
+import Amazonka.IoTSiteWise.Types.AggregatedValue
+import Amazonka.IoTSiteWise.Types.Aggregates
+import Amazonka.IoTSiteWise.Types.Alarms
+import Amazonka.IoTSiteWise.Types.AssetCompositeModel
+import Amazonka.IoTSiteWise.Types.AssetErrorCode
+import Amazonka.IoTSiteWise.Types.AssetErrorDetails
+import Amazonka.IoTSiteWise.Types.AssetHierarchy
+import Amazonka.IoTSiteWise.Types.AssetHierarchyInfo
+import Amazonka.IoTSiteWise.Types.AssetModelCompositeModel
+import Amazonka.IoTSiteWise.Types.AssetModelCompositeModelDefinition
+import Amazonka.IoTSiteWise.Types.AssetModelHierarchy
+import Amazonka.IoTSiteWise.Types.AssetModelHierarchyDefinition
+import Amazonka.IoTSiteWise.Types.AssetModelProperty
+import Amazonka.IoTSiteWise.Types.AssetModelPropertyDefinition
+import Amazonka.IoTSiteWise.Types.AssetModelState
+import Amazonka.IoTSiteWise.Types.AssetModelStatus
+import Amazonka.IoTSiteWise.Types.AssetModelSummary
+import Amazonka.IoTSiteWise.Types.AssetProperty
+import Amazonka.IoTSiteWise.Types.AssetPropertyValue
+import Amazonka.IoTSiteWise.Types.AssetRelationshipSummary
+import Amazonka.IoTSiteWise.Types.AssetRelationshipType
+import Amazonka.IoTSiteWise.Types.AssetState
+import Amazonka.IoTSiteWise.Types.AssetStatus
+import Amazonka.IoTSiteWise.Types.AssetSummary
+import Amazonka.IoTSiteWise.Types.AssociatedAssetsSummary
+import Amazonka.IoTSiteWise.Types.Attribute
+import Amazonka.IoTSiteWise.Types.AuthMode
+import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyError
+import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry
+import Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyValueErrorCode
+import Amazonka.IoTSiteWise.Types.CapabilitySyncStatus
+import Amazonka.IoTSiteWise.Types.CompositeModelProperty
+import Amazonka.IoTSiteWise.Types.ComputeLocation
+import Amazonka.IoTSiteWise.Types.ConfigurationErrorDetails
+import Amazonka.IoTSiteWise.Types.ConfigurationState
+import Amazonka.IoTSiteWise.Types.ConfigurationStatus
+import Amazonka.IoTSiteWise.Types.CustomerManagedS3Storage
+import Amazonka.IoTSiteWise.Types.DashboardSummary
+import Amazonka.IoTSiteWise.Types.DetailedError
+import Amazonka.IoTSiteWise.Types.DetailedErrorCode
+import Amazonka.IoTSiteWise.Types.EncryptionType
+import Amazonka.IoTSiteWise.Types.ErrorCode
+import Amazonka.IoTSiteWise.Types.ErrorDetails
+import Amazonka.IoTSiteWise.Types.ExpressionVariable
+import Amazonka.IoTSiteWise.Types.ForwardingConfig
+import Amazonka.IoTSiteWise.Types.ForwardingConfigState
+import Amazonka.IoTSiteWise.Types.GatewayCapabilitySummary
+import Amazonka.IoTSiteWise.Types.GatewayPlatform
+import Amazonka.IoTSiteWise.Types.GatewaySummary
+import Amazonka.IoTSiteWise.Types.Greengrass
+import Amazonka.IoTSiteWise.Types.GreengrassV2
+import Amazonka.IoTSiteWise.Types.GroupIdentity
+import Amazonka.IoTSiteWise.Types.IAMRoleIdentity
+import Amazonka.IoTSiteWise.Types.IAMUserIdentity
+import Amazonka.IoTSiteWise.Types.Identity
+import Amazonka.IoTSiteWise.Types.IdentityType
+import Amazonka.IoTSiteWise.Types.Image
+import Amazonka.IoTSiteWise.Types.ImageFile
+import Amazonka.IoTSiteWise.Types.ImageFileType
+import Amazonka.IoTSiteWise.Types.ImageLocation
+import Amazonka.IoTSiteWise.Types.InterpolatedAssetPropertyValue
+import Amazonka.IoTSiteWise.Types.ListAssetsFilter
+import Amazonka.IoTSiteWise.Types.LoggingLevel
+import Amazonka.IoTSiteWise.Types.LoggingOptions
+import Amazonka.IoTSiteWise.Types.Measurement
+import Amazonka.IoTSiteWise.Types.MeasurementProcessingConfig
+import Amazonka.IoTSiteWise.Types.Metric
+import Amazonka.IoTSiteWise.Types.MetricProcessingConfig
+import Amazonka.IoTSiteWise.Types.MetricWindow
+import Amazonka.IoTSiteWise.Types.MonitorErrorCode
+import Amazonka.IoTSiteWise.Types.MonitorErrorDetails
+import Amazonka.IoTSiteWise.Types.MultiLayerStorage
+import Amazonka.IoTSiteWise.Types.Permission
+import Amazonka.IoTSiteWise.Types.PortalResource
+import Amazonka.IoTSiteWise.Types.PortalState
+import Amazonka.IoTSiteWise.Types.PortalStatus
+import Amazonka.IoTSiteWise.Types.PortalSummary
+import Amazonka.IoTSiteWise.Types.ProjectResource
+import Amazonka.IoTSiteWise.Types.ProjectSummary
+import Amazonka.IoTSiteWise.Types.Property
+import Amazonka.IoTSiteWise.Types.PropertyDataType
+import Amazonka.IoTSiteWise.Types.PropertyNotification
+import Amazonka.IoTSiteWise.Types.PropertyNotificationState
+import Amazonka.IoTSiteWise.Types.PropertyType
+import Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry
+import Amazonka.IoTSiteWise.Types.Quality
+import Amazonka.IoTSiteWise.Types.Resource
+import Amazonka.IoTSiteWise.Types.ResourceType
+import Amazonka.IoTSiteWise.Types.StorageType
+import Amazonka.IoTSiteWise.Types.TimeInNanos
+import Amazonka.IoTSiteWise.Types.TimeOrdering
+import Amazonka.IoTSiteWise.Types.Transform
+import Amazonka.IoTSiteWise.Types.TransformProcessingConfig
+import Amazonka.IoTSiteWise.Types.TraversalDirection
+import Amazonka.IoTSiteWise.Types.TraversalType
+import Amazonka.IoTSiteWise.Types.TumblingWindow
+import Amazonka.IoTSiteWise.Types.UserIdentity
+import Amazonka.IoTSiteWise.Types.VariableValue
+import Amazonka.IoTSiteWise.Types.Variant
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-02@ of the Amazon IoT SiteWise SDK configuration.
 defaultService :: Core.Service

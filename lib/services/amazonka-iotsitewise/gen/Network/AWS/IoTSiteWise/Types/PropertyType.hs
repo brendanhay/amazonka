@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.PropertyType
+-- Module      : Amazonka.IoTSiteWise.Types.PropertyType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.PropertyType where
+module Amazonka.IoTSiteWise.Types.PropertyType where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types.Attribute
-import Network.AWS.IoTSiteWise.Types.Measurement
-import Network.AWS.IoTSiteWise.Types.Metric
-import Network.AWS.IoTSiteWise.Types.Transform
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types.Attribute
+import Amazonka.IoTSiteWise.Types.Measurement
+import Amazonka.IoTSiteWise.Types.Metric
+import Amazonka.IoTSiteWise.Types.Transform
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a property type, which can be one of @attribute@,
 -- @measurement@, @metric@, or @transform@.

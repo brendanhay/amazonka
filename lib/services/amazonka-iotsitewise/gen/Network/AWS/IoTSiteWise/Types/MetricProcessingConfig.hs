@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.MetricProcessingConfig
+-- Module      : Amazonka.IoTSiteWise.Types.MetricProcessingConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.MetricProcessingConfig where
+module Amazonka.IoTSiteWise.Types.MetricProcessingConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types.ComputeLocation
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types.ComputeLocation
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The processing configuration for the given metric property. You can
 -- configure metrics to be computed at the edge or in the Amazon Web

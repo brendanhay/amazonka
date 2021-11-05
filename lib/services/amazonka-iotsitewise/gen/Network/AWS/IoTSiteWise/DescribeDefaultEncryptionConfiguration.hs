@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+-- Module      : Amazonka.IoTSiteWise.DescribeDefaultEncryptionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html Key management>
 -- in the /IoT SiteWise User Guide/.
-module Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
+module Amazonka.IoTSiteWise.DescribeDefaultEncryptionConfiguration
   ( -- * Creating a Request
     DescribeDefaultEncryptionConfiguration (..),
     newDescribeDefaultEncryptionConfiguration,
@@ -42,12 +42,12 @@ module Network.AWS.IoTSiteWise.DescribeDefaultEncryptionConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDefaultEncryptionConfiguration' smart constructor.
 data DescribeDefaultEncryptionConfiguration = DescribeDefaultEncryptionConfiguration'

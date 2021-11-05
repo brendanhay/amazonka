@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.Types.Transform
+-- Module      : Amazonka.IoTSiteWise.Types.Transform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSiteWise.Types.Transform where
+module Amazonka.IoTSiteWise.Types.Transform where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types.ExpressionVariable
-import Network.AWS.IoTSiteWise.Types.TransformProcessingConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types.ExpressionVariable
+import Amazonka.IoTSiteWise.Types.TransformProcessingConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an asset transform property. A transform is a one-to-one
 -- mapping of a property\'s data points from one form to another. For

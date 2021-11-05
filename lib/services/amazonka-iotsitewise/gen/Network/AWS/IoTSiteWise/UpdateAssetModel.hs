@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.UpdateAssetModel
+-- Module      : Amazonka.IoTSiteWise.UpdateAssetModel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- from an asset model, IoT SiteWise disassociates every asset associated
 -- with that hierarchy. You can\'t change the type or data type of an
 -- existing property.
-module Network.AWS.IoTSiteWise.UpdateAssetModel
+module Amazonka.IoTSiteWise.UpdateAssetModel
   ( -- * Creating a Request
     UpdateAssetModel (..),
     newUpdateAssetModel,
@@ -61,12 +61,12 @@ module Network.AWS.IoTSiteWise.UpdateAssetModel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssetModel' smart constructor.
 data UpdateAssetModel = UpdateAssetModel'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTSiteWise where
 
+import Amazonka.IoTSiteWise
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoTSiteWise
 import Test.AWS.Fixture
 import Test.AWS.IoTSiteWise.Internal
 import Test.AWS.Prelude

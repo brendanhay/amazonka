@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSiteWise.DeleteGateway
+-- Module      : Amazonka.IoTSiteWise.DeleteGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes a gateway from IoT SiteWise. When you delete a gateway, some of
 -- the gateway\'s files remain in your gateway\'s file system.
-module Network.AWS.IoTSiteWise.DeleteGateway
+module Amazonka.IoTSiteWise.DeleteGateway
   ( -- * Creating a Request
     DeleteGateway (..),
     newDeleteGateway,
@@ -36,12 +36,12 @@ module Network.AWS.IoTSiteWise.DeleteGateway
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSiteWise.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSiteWise.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteGateway' smart constructor.
 data DeleteGateway = DeleteGateway'

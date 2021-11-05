@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.ModifyInstanceGroups
+-- Module      : Amazonka.EMR.ModifyInstanceGroups
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- settings of an instance group. The input parameters include the new
 -- target instance count for the group and the instance group ID. The call
 -- will either succeed or fail atomically.
-module Network.AWS.EMR.ModifyInstanceGroups
+module Amazonka.EMR.ModifyInstanceGroups
   ( -- * Creating a Request
     ModifyInstanceGroups (..),
     newModifyInstanceGroups,
@@ -39,12 +39,12 @@ module Network.AWS.EMR.ModifyInstanceGroups
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Change the size of some instance groups.
 --

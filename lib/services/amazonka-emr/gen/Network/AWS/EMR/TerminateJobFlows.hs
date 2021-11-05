@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.TerminateJobFlows
+-- Module      : Amazonka.EMR.TerminateJobFlows
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- @TerminateJobFlows@ is asynchronous. Depending on the configuration of
 -- the cluster, it may take up to 1-5 minutes for the cluster to completely
 -- terminate and release allocated resources, such as Amazon EC2 instances.
-module Network.AWS.EMR.TerminateJobFlows
+module Amazonka.EMR.TerminateJobFlows
   ( -- * Creating a Request
     TerminateJobFlows (..),
     newTerminateJobFlows,
@@ -44,12 +44,12 @@ module Network.AWS.EMR.TerminateJobFlows
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Input to the TerminateJobFlows operation.
 --

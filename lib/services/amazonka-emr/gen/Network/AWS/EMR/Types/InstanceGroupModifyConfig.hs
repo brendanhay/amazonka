@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.InstanceGroupModifyConfig
+-- Module      : Amazonka.EMR.Types.InstanceGroupModifyConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceGroupModifyConfig where
+module Amazonka.EMR.Types.InstanceGroupModifyConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.Configuration
-import Network.AWS.EMR.Types.ShrinkPolicy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.ShrinkPolicy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Modify the size or configurations of an instance group.
 --

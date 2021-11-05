@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.SpotProvisioningSpecification
+-- Module      : Amazonka.EMR.Types.SpotProvisioningSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.SpotProvisioningSpecification where
+module Amazonka.EMR.Types.SpotProvisioningSpecification where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
-import Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
+import Amazonka.EMR.Types.SpotProvisioningTimeoutAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The launch specification for Spot Instances in the instance fleet, which
 -- determines the defined duration, provisioning timeout behavior, and

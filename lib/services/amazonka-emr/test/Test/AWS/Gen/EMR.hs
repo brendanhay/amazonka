@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.EMR where
 
+import Amazonka.EMR
 import qualified Data.Proxy as Proxy
-import Network.AWS.EMR
 import Test.AWS.EMR.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

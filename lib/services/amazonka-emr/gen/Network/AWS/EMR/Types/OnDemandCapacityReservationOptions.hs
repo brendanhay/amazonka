@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.OnDemandCapacityReservationOptions
+-- Module      : Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.OnDemandCapacityReservationOptions where
+module Amazonka.EMR.Types.OnDemandCapacityReservationOptions where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.OnDemandCapacityReservationPreference
-import Network.AWS.EMR.Types.OnDemandCapacityReservationUsageStrategy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
+import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the strategy for using unused Capacity Reservations for
 -- fulfilling On-Demand capacity.

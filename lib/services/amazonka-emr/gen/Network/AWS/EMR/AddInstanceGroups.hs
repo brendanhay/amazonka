@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.AddInstanceGroups
+-- Module      : Amazonka.EMR.AddInstanceGroups
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more instance groups to a running cluster.
-module Network.AWS.EMR.AddInstanceGroups
+module Amazonka.EMR.AddInstanceGroups
   ( -- * Creating a Request
     AddInstanceGroups (..),
     newAddInstanceGroups,
@@ -42,12 +42,12 @@ module Network.AWS.EMR.AddInstanceGroups
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Input to an AddInstanceGroups call.
 --

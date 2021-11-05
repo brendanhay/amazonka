@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.PlacementGroupConfig
+-- Module      : Amazonka.EMR.Types.PlacementGroupConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.PlacementGroupConfig where
+module Amazonka.EMR.Types.PlacementGroupConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.InstanceRoleType
-import Network.AWS.EMR.Types.PlacementGroupStrategy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.InstanceRoleType
+import Amazonka.EMR.Types.PlacementGroupStrategy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Placement group configuration for an Amazon EMR cluster. The
 -- configuration specifies the placement strategy that can be applied to

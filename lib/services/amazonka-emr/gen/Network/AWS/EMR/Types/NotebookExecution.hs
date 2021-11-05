@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.NotebookExecution
+-- Module      : Amazonka.EMR.Types.NotebookExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.NotebookExecution where
+module Amazonka.EMR.Types.NotebookExecution where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.ExecutionEngineConfig
-import Network.AWS.EMR.Types.NotebookExecutionStatus
-import Network.AWS.EMR.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.ExecutionEngineConfig
+import Amazonka.EMR.Types.NotebookExecutionStatus
+import Amazonka.EMR.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A notebook execution. An execution is a specific instance that an EMR
 -- Notebook is run using the @StartNotebookExecution@ action.

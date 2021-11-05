@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.InstanceTypeConfig
+-- Module      : Amazonka.EMR.Types.InstanceTypeConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceTypeConfig where
+module Amazonka.EMR.Types.InstanceTypeConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.Configuration
-import Network.AWS.EMR.Types.EbsConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.EbsConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An instance type configuration for each instance type in an instance
 -- fleet, which determines the EC2 instances Amazon EMR attempts to

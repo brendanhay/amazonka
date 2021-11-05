@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.CancelStepsInfo
+-- Module      : Amazonka.EMR.Types.CancelStepsInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.CancelStepsInfo where
+module Amazonka.EMR.Types.CancelStepsInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.CancelStepsRequestStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.CancelStepsRequestStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specification of the status of a CancelSteps request. Available only in
 -- Amazon EMR version 4.8.0 and later, excluding version 5.0.0.

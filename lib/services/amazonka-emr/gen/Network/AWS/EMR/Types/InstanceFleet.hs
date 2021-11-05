@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.InstanceFleet
+-- Module      : Amazonka.EMR.Types.InstanceFleet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceFleet where
+module Amazonka.EMR.Types.InstanceFleet where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
-import Network.AWS.EMR.Types.InstanceFleetStatus
-import Network.AWS.EMR.Types.InstanceFleetType
-import Network.AWS.EMR.Types.InstanceTypeSpecification
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+import Amazonka.EMR.Types.InstanceFleetStatus
+import Amazonka.EMR.Types.InstanceFleetType
+import Amazonka.EMR.Types.InstanceTypeSpecification
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance fleet, which is a group of EC2 instances that host
 -- a particular node type (master, core, or task) in an Amazon EMR cluster.

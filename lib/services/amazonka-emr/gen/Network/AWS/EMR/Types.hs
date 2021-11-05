@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types
+-- Module      : Amazonka.EMR.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types
+module Amazonka.EMR.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -847,131 +847,131 @@ module Network.AWS.EMR.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.ActionOnFailure
-import Network.AWS.EMR.Types.AdjustmentType
-import Network.AWS.EMR.Types.Application
-import Network.AWS.EMR.Types.AuthMode
-import Network.AWS.EMR.Types.AutoScalingPolicy
-import Network.AWS.EMR.Types.AutoScalingPolicyDescription
-import Network.AWS.EMR.Types.AutoScalingPolicyState
-import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
-import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
-import Network.AWS.EMR.Types.AutoScalingPolicyStatus
-import Network.AWS.EMR.Types.AutoTerminationPolicy
-import Network.AWS.EMR.Types.BlockPublicAccessConfiguration
-import Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
-import Network.AWS.EMR.Types.BootstrapActionConfig
-import Network.AWS.EMR.Types.CancelStepsInfo
-import Network.AWS.EMR.Types.CancelStepsRequestStatus
-import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
-import Network.AWS.EMR.Types.Cluster
-import Network.AWS.EMR.Types.ClusterState
-import Network.AWS.EMR.Types.ClusterStateChangeReason
-import Network.AWS.EMR.Types.ClusterStateChangeReasonCode
-import Network.AWS.EMR.Types.ClusterStatus
-import Network.AWS.EMR.Types.ClusterSummary
-import Network.AWS.EMR.Types.ClusterTimeline
-import Network.AWS.EMR.Types.Command
-import Network.AWS.EMR.Types.ComparisonOperator
-import Network.AWS.EMR.Types.ComputeLimits
-import Network.AWS.EMR.Types.ComputeLimitsUnitType
-import Network.AWS.EMR.Types.Configuration
-import Network.AWS.EMR.Types.EbsBlockDevice
-import Network.AWS.EMR.Types.EbsBlockDeviceConfig
-import Network.AWS.EMR.Types.EbsConfiguration
-import Network.AWS.EMR.Types.EbsVolume
-import Network.AWS.EMR.Types.Ec2InstanceAttributes
-import Network.AWS.EMR.Types.ExecutionEngineConfig
-import Network.AWS.EMR.Types.ExecutionEngineType
-import Network.AWS.EMR.Types.FailureDetails
-import Network.AWS.EMR.Types.HadoopJarStepConfig
-import Network.AWS.EMR.Types.HadoopStepConfig
-import Network.AWS.EMR.Types.IdentityType
-import Network.AWS.EMR.Types.Instance
-import Network.AWS.EMR.Types.InstanceCollectionType
-import Network.AWS.EMR.Types.InstanceFleet
-import Network.AWS.EMR.Types.InstanceFleetConfig
-import Network.AWS.EMR.Types.InstanceFleetModifyConfig
-import Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
-import Network.AWS.EMR.Types.InstanceFleetState
-import Network.AWS.EMR.Types.InstanceFleetStateChangeReason
-import Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
-import Network.AWS.EMR.Types.InstanceFleetStatus
-import Network.AWS.EMR.Types.InstanceFleetTimeline
-import Network.AWS.EMR.Types.InstanceFleetType
-import Network.AWS.EMR.Types.InstanceGroup
-import Network.AWS.EMR.Types.InstanceGroupConfig
-import Network.AWS.EMR.Types.InstanceGroupModifyConfig
-import Network.AWS.EMR.Types.InstanceGroupState
-import Network.AWS.EMR.Types.InstanceGroupStateChangeReason
-import Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
-import Network.AWS.EMR.Types.InstanceGroupStatus
-import Network.AWS.EMR.Types.InstanceGroupTimeline
-import Network.AWS.EMR.Types.InstanceGroupType
-import Network.AWS.EMR.Types.InstanceResizePolicy
-import Network.AWS.EMR.Types.InstanceRoleType
-import Network.AWS.EMR.Types.InstanceState
-import Network.AWS.EMR.Types.InstanceStateChangeReason
-import Network.AWS.EMR.Types.InstanceStateChangeReasonCode
-import Network.AWS.EMR.Types.InstanceStatus
-import Network.AWS.EMR.Types.InstanceTimeline
-import Network.AWS.EMR.Types.InstanceTypeConfig
-import Network.AWS.EMR.Types.InstanceTypeSpecification
-import Network.AWS.EMR.Types.JobFlowInstancesConfig
-import Network.AWS.EMR.Types.KerberosAttributes
-import Network.AWS.EMR.Types.KeyValue
-import Network.AWS.EMR.Types.ManagedScalingPolicy
-import Network.AWS.EMR.Types.MarketType
-import Network.AWS.EMR.Types.MetricDimension
-import Network.AWS.EMR.Types.NotebookExecution
-import Network.AWS.EMR.Types.NotebookExecutionStatus
-import Network.AWS.EMR.Types.NotebookExecutionSummary
-import Network.AWS.EMR.Types.OnDemandCapacityReservationOptions
-import Network.AWS.EMR.Types.OnDemandCapacityReservationPreference
-import Network.AWS.EMR.Types.OnDemandCapacityReservationUsageStrategy
-import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
-import Network.AWS.EMR.Types.OnDemandProvisioningSpecification
-import Network.AWS.EMR.Types.PlacementGroupConfig
-import Network.AWS.EMR.Types.PlacementGroupStrategy
-import Network.AWS.EMR.Types.PlacementType
-import Network.AWS.EMR.Types.PortRange
-import Network.AWS.EMR.Types.ReleaseLabelFilter
-import Network.AWS.EMR.Types.RepoUpgradeOnBoot
-import Network.AWS.EMR.Types.ScaleDownBehavior
-import Network.AWS.EMR.Types.ScalingAction
-import Network.AWS.EMR.Types.ScalingConstraints
-import Network.AWS.EMR.Types.ScalingRule
-import Network.AWS.EMR.Types.ScalingTrigger
-import Network.AWS.EMR.Types.ScriptBootstrapActionConfig
-import Network.AWS.EMR.Types.SecurityConfigurationSummary
-import Network.AWS.EMR.Types.SessionMappingDetail
-import Network.AWS.EMR.Types.SessionMappingSummary
-import Network.AWS.EMR.Types.ShrinkPolicy
-import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
-import Network.AWS.EMR.Types.SimplifiedApplication
-import Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
-import Network.AWS.EMR.Types.SpotProvisioningSpecification
-import Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
-import Network.AWS.EMR.Types.Statistic
-import Network.AWS.EMR.Types.Step
-import Network.AWS.EMR.Types.StepCancellationOption
-import Network.AWS.EMR.Types.StepConfig
-import Network.AWS.EMR.Types.StepState
-import Network.AWS.EMR.Types.StepStateChangeReason
-import Network.AWS.EMR.Types.StepStateChangeReasonCode
-import Network.AWS.EMR.Types.StepStatus
-import Network.AWS.EMR.Types.StepSummary
-import Network.AWS.EMR.Types.StepTimeline
-import Network.AWS.EMR.Types.Studio
-import Network.AWS.EMR.Types.StudioSummary
-import Network.AWS.EMR.Types.SupportedProductConfig
-import Network.AWS.EMR.Types.Tag
-import Network.AWS.EMR.Types.Unit
-import Network.AWS.EMR.Types.VolumeSpecification
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.ActionOnFailure
+import Amazonka.EMR.Types.AdjustmentType
+import Amazonka.EMR.Types.Application
+import Amazonka.EMR.Types.AuthMode
+import Amazonka.EMR.Types.AutoScalingPolicy
+import Amazonka.EMR.Types.AutoScalingPolicyDescription
+import Amazonka.EMR.Types.AutoScalingPolicyState
+import Amazonka.EMR.Types.AutoScalingPolicyStateChangeReason
+import Amazonka.EMR.Types.AutoScalingPolicyStateChangeReasonCode
+import Amazonka.EMR.Types.AutoScalingPolicyStatus
+import Amazonka.EMR.Types.AutoTerminationPolicy
+import Amazonka.EMR.Types.BlockPublicAccessConfiguration
+import Amazonka.EMR.Types.BlockPublicAccessConfigurationMetadata
+import Amazonka.EMR.Types.BootstrapActionConfig
+import Amazonka.EMR.Types.CancelStepsInfo
+import Amazonka.EMR.Types.CancelStepsRequestStatus
+import Amazonka.EMR.Types.CloudWatchAlarmDefinition
+import Amazonka.EMR.Types.Cluster
+import Amazonka.EMR.Types.ClusterState
+import Amazonka.EMR.Types.ClusterStateChangeReason
+import Amazonka.EMR.Types.ClusterStateChangeReasonCode
+import Amazonka.EMR.Types.ClusterStatus
+import Amazonka.EMR.Types.ClusterSummary
+import Amazonka.EMR.Types.ClusterTimeline
+import Amazonka.EMR.Types.Command
+import Amazonka.EMR.Types.ComparisonOperator
+import Amazonka.EMR.Types.ComputeLimits
+import Amazonka.EMR.Types.ComputeLimitsUnitType
+import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.EbsBlockDevice
+import Amazonka.EMR.Types.EbsBlockDeviceConfig
+import Amazonka.EMR.Types.EbsConfiguration
+import Amazonka.EMR.Types.EbsVolume
+import Amazonka.EMR.Types.Ec2InstanceAttributes
+import Amazonka.EMR.Types.ExecutionEngineConfig
+import Amazonka.EMR.Types.ExecutionEngineType
+import Amazonka.EMR.Types.FailureDetails
+import Amazonka.EMR.Types.HadoopJarStepConfig
+import Amazonka.EMR.Types.HadoopStepConfig
+import Amazonka.EMR.Types.IdentityType
+import Amazonka.EMR.Types.Instance
+import Amazonka.EMR.Types.InstanceCollectionType
+import Amazonka.EMR.Types.InstanceFleet
+import Amazonka.EMR.Types.InstanceFleetConfig
+import Amazonka.EMR.Types.InstanceFleetModifyConfig
+import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+import Amazonka.EMR.Types.InstanceFleetState
+import Amazonka.EMR.Types.InstanceFleetStateChangeReason
+import Amazonka.EMR.Types.InstanceFleetStateChangeReasonCode
+import Amazonka.EMR.Types.InstanceFleetStatus
+import Amazonka.EMR.Types.InstanceFleetTimeline
+import Amazonka.EMR.Types.InstanceFleetType
+import Amazonka.EMR.Types.InstanceGroup
+import Amazonka.EMR.Types.InstanceGroupConfig
+import Amazonka.EMR.Types.InstanceGroupModifyConfig
+import Amazonka.EMR.Types.InstanceGroupState
+import Amazonka.EMR.Types.InstanceGroupStateChangeReason
+import Amazonka.EMR.Types.InstanceGroupStateChangeReasonCode
+import Amazonka.EMR.Types.InstanceGroupStatus
+import Amazonka.EMR.Types.InstanceGroupTimeline
+import Amazonka.EMR.Types.InstanceGroupType
+import Amazonka.EMR.Types.InstanceResizePolicy
+import Amazonka.EMR.Types.InstanceRoleType
+import Amazonka.EMR.Types.InstanceState
+import Amazonka.EMR.Types.InstanceStateChangeReason
+import Amazonka.EMR.Types.InstanceStateChangeReasonCode
+import Amazonka.EMR.Types.InstanceStatus
+import Amazonka.EMR.Types.InstanceTimeline
+import Amazonka.EMR.Types.InstanceTypeConfig
+import Amazonka.EMR.Types.InstanceTypeSpecification
+import Amazonka.EMR.Types.JobFlowInstancesConfig
+import Amazonka.EMR.Types.KerberosAttributes
+import Amazonka.EMR.Types.KeyValue
+import Amazonka.EMR.Types.ManagedScalingPolicy
+import Amazonka.EMR.Types.MarketType
+import Amazonka.EMR.Types.MetricDimension
+import Amazonka.EMR.Types.NotebookExecution
+import Amazonka.EMR.Types.NotebookExecutionStatus
+import Amazonka.EMR.Types.NotebookExecutionSummary
+import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
+import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
+import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
+import Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
+import Amazonka.EMR.Types.OnDemandProvisioningSpecification
+import Amazonka.EMR.Types.PlacementGroupConfig
+import Amazonka.EMR.Types.PlacementGroupStrategy
+import Amazonka.EMR.Types.PlacementType
+import Amazonka.EMR.Types.PortRange
+import Amazonka.EMR.Types.ReleaseLabelFilter
+import Amazonka.EMR.Types.RepoUpgradeOnBoot
+import Amazonka.EMR.Types.ScaleDownBehavior
+import Amazonka.EMR.Types.ScalingAction
+import Amazonka.EMR.Types.ScalingConstraints
+import Amazonka.EMR.Types.ScalingRule
+import Amazonka.EMR.Types.ScalingTrigger
+import Amazonka.EMR.Types.ScriptBootstrapActionConfig
+import Amazonka.EMR.Types.SecurityConfigurationSummary
+import Amazonka.EMR.Types.SessionMappingDetail
+import Amazonka.EMR.Types.SessionMappingSummary
+import Amazonka.EMR.Types.ShrinkPolicy
+import Amazonka.EMR.Types.SimpleScalingPolicyConfiguration
+import Amazonka.EMR.Types.SimplifiedApplication
+import Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
+import Amazonka.EMR.Types.SpotProvisioningSpecification
+import Amazonka.EMR.Types.SpotProvisioningTimeoutAction
+import Amazonka.EMR.Types.Statistic
+import Amazonka.EMR.Types.Step
+import Amazonka.EMR.Types.StepCancellationOption
+import Amazonka.EMR.Types.StepConfig
+import Amazonka.EMR.Types.StepState
+import Amazonka.EMR.Types.StepStateChangeReason
+import Amazonka.EMR.Types.StepStateChangeReasonCode
+import Amazonka.EMR.Types.StepStatus
+import Amazonka.EMR.Types.StepSummary
+import Amazonka.EMR.Types.StepTimeline
+import Amazonka.EMR.Types.Studio
+import Amazonka.EMR.Types.StudioSummary
+import Amazonka.EMR.Types.SupportedProductConfig
+import Amazonka.EMR.Types.Tag
+import Amazonka.EMR.Types.Unit
+import Amazonka.EMR.Types.VolumeSpecification
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2009-03-31@ of the Amazon EMR SDK configuration.
 defaultService :: Core.Service

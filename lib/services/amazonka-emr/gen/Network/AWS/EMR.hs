@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EMR
+-- Module      : Amazonka.EMR
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- with several Amazon Web Services services to do tasks such as web
 -- indexing, data mining, log file analysis, machine learning, scientific
 -- simulation, and data warehouse management.
-module Network.AWS.EMR
+module Amazonka.EMR
   ( -- * Service Configuration
     defaultService,
 
@@ -804,60 +804,60 @@ module Network.AWS.EMR
   )
 where
 
-import Network.AWS.EMR.AddInstanceFleet
-import Network.AWS.EMR.AddInstanceGroups
-import Network.AWS.EMR.AddJobFlowSteps
-import Network.AWS.EMR.AddTags
-import Network.AWS.EMR.CancelSteps
-import Network.AWS.EMR.CreateSecurityConfiguration
-import Network.AWS.EMR.CreateStudio
-import Network.AWS.EMR.CreateStudioSessionMapping
-import Network.AWS.EMR.DeleteSecurityConfiguration
-import Network.AWS.EMR.DeleteStudio
-import Network.AWS.EMR.DeleteStudioSessionMapping
-import Network.AWS.EMR.DescribeCluster
-import Network.AWS.EMR.DescribeNotebookExecution
-import Network.AWS.EMR.DescribeReleaseLabel
-import Network.AWS.EMR.DescribeSecurityConfiguration
-import Network.AWS.EMR.DescribeStep
-import Network.AWS.EMR.DescribeStudio
-import Network.AWS.EMR.GetAutoTerminationPolicy
-import Network.AWS.EMR.GetBlockPublicAccessConfiguration
-import Network.AWS.EMR.GetManagedScalingPolicy
-import Network.AWS.EMR.GetStudioSessionMapping
-import Network.AWS.EMR.Lens
-import Network.AWS.EMR.ListBootstrapActions
-import Network.AWS.EMR.ListClusters
-import Network.AWS.EMR.ListInstanceFleets
-import Network.AWS.EMR.ListInstanceGroups
-import Network.AWS.EMR.ListInstances
-import Network.AWS.EMR.ListNotebookExecutions
-import Network.AWS.EMR.ListReleaseLabels
-import Network.AWS.EMR.ListSecurityConfigurations
-import Network.AWS.EMR.ListSteps
-import Network.AWS.EMR.ListStudioSessionMappings
-import Network.AWS.EMR.ListStudios
-import Network.AWS.EMR.ModifyCluster
-import Network.AWS.EMR.ModifyInstanceFleet
-import Network.AWS.EMR.ModifyInstanceGroups
-import Network.AWS.EMR.PutAutoScalingPolicy
-import Network.AWS.EMR.PutAutoTerminationPolicy
-import Network.AWS.EMR.PutBlockPublicAccessConfiguration
-import Network.AWS.EMR.PutManagedScalingPolicy
-import Network.AWS.EMR.RemoveAutoScalingPolicy
-import Network.AWS.EMR.RemoveAutoTerminationPolicy
-import Network.AWS.EMR.RemoveManagedScalingPolicy
-import Network.AWS.EMR.RemoveTags
-import Network.AWS.EMR.RunJobFlow
-import Network.AWS.EMR.SetTerminationProtection
-import Network.AWS.EMR.SetVisibleToAllUsers
-import Network.AWS.EMR.StartNotebookExecution
-import Network.AWS.EMR.StopNotebookExecution
-import Network.AWS.EMR.TerminateJobFlows
-import Network.AWS.EMR.Types
-import Network.AWS.EMR.UpdateStudio
-import Network.AWS.EMR.UpdateStudioSessionMapping
-import Network.AWS.EMR.Waiters
+import Amazonka.EMR.AddInstanceFleet
+import Amazonka.EMR.AddInstanceGroups
+import Amazonka.EMR.AddJobFlowSteps
+import Amazonka.EMR.AddTags
+import Amazonka.EMR.CancelSteps
+import Amazonka.EMR.CreateSecurityConfiguration
+import Amazonka.EMR.CreateStudio
+import Amazonka.EMR.CreateStudioSessionMapping
+import Amazonka.EMR.DeleteSecurityConfiguration
+import Amazonka.EMR.DeleteStudio
+import Amazonka.EMR.DeleteStudioSessionMapping
+import Amazonka.EMR.DescribeCluster
+import Amazonka.EMR.DescribeNotebookExecution
+import Amazonka.EMR.DescribeReleaseLabel
+import Amazonka.EMR.DescribeSecurityConfiguration
+import Amazonka.EMR.DescribeStep
+import Amazonka.EMR.DescribeStudio
+import Amazonka.EMR.GetAutoTerminationPolicy
+import Amazonka.EMR.GetBlockPublicAccessConfiguration
+import Amazonka.EMR.GetManagedScalingPolicy
+import Amazonka.EMR.GetStudioSessionMapping
+import Amazonka.EMR.Lens
+import Amazonka.EMR.ListBootstrapActions
+import Amazonka.EMR.ListClusters
+import Amazonka.EMR.ListInstanceFleets
+import Amazonka.EMR.ListInstanceGroups
+import Amazonka.EMR.ListInstances
+import Amazonka.EMR.ListNotebookExecutions
+import Amazonka.EMR.ListReleaseLabels
+import Amazonka.EMR.ListSecurityConfigurations
+import Amazonka.EMR.ListSteps
+import Amazonka.EMR.ListStudioSessionMappings
+import Amazonka.EMR.ListStudios
+import Amazonka.EMR.ModifyCluster
+import Amazonka.EMR.ModifyInstanceFleet
+import Amazonka.EMR.ModifyInstanceGroups
+import Amazonka.EMR.PutAutoScalingPolicy
+import Amazonka.EMR.PutAutoTerminationPolicy
+import Amazonka.EMR.PutBlockPublicAccessConfiguration
+import Amazonka.EMR.PutManagedScalingPolicy
+import Amazonka.EMR.RemoveAutoScalingPolicy
+import Amazonka.EMR.RemoveAutoTerminationPolicy
+import Amazonka.EMR.RemoveManagedScalingPolicy
+import Amazonka.EMR.RemoveTags
+import Amazonka.EMR.RunJobFlow
+import Amazonka.EMR.SetTerminationProtection
+import Amazonka.EMR.SetVisibleToAllUsers
+import Amazonka.EMR.StartNotebookExecution
+import Amazonka.EMR.StopNotebookExecution
+import Amazonka.EMR.TerminateJobFlows
+import Amazonka.EMR.Types
+import Amazonka.EMR.UpdateStudio
+import Amazonka.EMR.UpdateStudioSessionMapping
+import Amazonka.EMR.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

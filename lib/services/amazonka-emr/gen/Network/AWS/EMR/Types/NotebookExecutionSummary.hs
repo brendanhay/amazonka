@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.NotebookExecutionSummary
+-- Module      : Amazonka.EMR.Types.NotebookExecutionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.NotebookExecutionSummary where
+module Amazonka.EMR.Types.NotebookExecutionSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.NotebookExecutionStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.NotebookExecutionStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a notebook execution. The details include information such
 -- as the unique ID and status of the notebook execution.

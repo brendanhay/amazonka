@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.PutManagedScalingPolicy
+-- Module      : Amazonka.EMR.PutManagedScalingPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- instances that can be added or terminated from a cluster. The policy
 -- only applies to the core and task nodes. The master node cannot be
 -- scaled after initial configuration.
-module Network.AWS.EMR.PutManagedScalingPolicy
+module Amazonka.EMR.PutManagedScalingPolicy
   ( -- * Creating a Request
     PutManagedScalingPolicy (..),
     newPutManagedScalingPolicy,
@@ -43,12 +43,12 @@ module Network.AWS.EMR.PutManagedScalingPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutManagedScalingPolicy' smart constructor.
 data PutManagedScalingPolicy = PutManagedScalingPolicy'

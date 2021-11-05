@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.ScalingRule
+-- Module      : Amazonka.EMR.Types.ScalingRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ScalingRule where
+module Amazonka.EMR.Types.ScalingRule where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.ScalingAction
-import Network.AWS.EMR.Types.ScalingTrigger
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.ScalingAction
+import Amazonka.EMR.Types.ScalingTrigger
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A scale-in or scale-out rule that defines scaling activity, including
 -- the CloudWatch metric alarm that triggers activity, how EC2 instances

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.CreateStudioSessionMapping
+-- Module      : Amazonka.EMR.CreateStudioSessionMapping
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- when you use Amazon Web Services SSO authentication. For instructions on
 -- how to assign users to a Studio when you use IAM authentication, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-manage-users.html#emr-studio-assign-users-groups Assign a user or group to your EMR Studio>.
-module Network.AWS.EMR.CreateStudioSessionMapping
+module Amazonka.EMR.CreateStudioSessionMapping
   ( -- * Creating a Request
     CreateStudioSessionMapping (..),
     newCreateStudioSessionMapping,
@@ -44,12 +44,12 @@ module Network.AWS.EMR.CreateStudioSessionMapping
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStudioSessionMapping' smart constructor.
 data CreateStudioSessionMapping = CreateStudioSessionMapping'

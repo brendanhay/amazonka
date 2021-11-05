@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.StepStatus
+-- Module      : Amazonka.EMR.Types.StepStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepStatus where
+module Amazonka.EMR.Types.StepStatus where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.FailureDetails
-import Network.AWS.EMR.Types.StepState
-import Network.AWS.EMR.Types.StepStateChangeReason
-import Network.AWS.EMR.Types.StepTimeline
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.FailureDetails
+import Amazonka.EMR.Types.StepState
+import Amazonka.EMR.Types.StepStateChangeReason
+import Amazonka.EMR.Types.StepTimeline
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The execution status details of the cluster step.
 --

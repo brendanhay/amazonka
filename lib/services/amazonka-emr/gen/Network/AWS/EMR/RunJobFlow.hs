@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.RunJobFlow
+-- Module      : Amazonka.EMR.RunJobFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -51,7 +51,7 @@
 -- versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow
 -- request can contain InstanceFleets parameters or InstanceGroups
 -- parameters, but not both.
-module Network.AWS.EMR.RunJobFlow
+module Amazonka.EMR.RunJobFlow
   ( -- * Creating a Request
     RunJobFlow (..),
     newRunJobFlow,
@@ -97,12 +97,12 @@ module Network.AWS.EMR.RunJobFlow
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Input to the RunJobFlow operation.
 --

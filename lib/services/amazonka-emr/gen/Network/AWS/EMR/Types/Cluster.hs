@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMR.Types.Cluster
+-- Module      : Amazonka.EMR.Types.Cluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.Cluster where
+module Amazonka.EMR.Types.Cluster where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMR.Types.Application
-import Network.AWS.EMR.Types.ClusterStatus
-import Network.AWS.EMR.Types.Configuration
-import Network.AWS.EMR.Types.Ec2InstanceAttributes
-import Network.AWS.EMR.Types.InstanceCollectionType
-import Network.AWS.EMR.Types.KerberosAttributes
-import Network.AWS.EMR.Types.PlacementGroupConfig
-import Network.AWS.EMR.Types.RepoUpgradeOnBoot
-import Network.AWS.EMR.Types.ScaleDownBehavior
-import Network.AWS.EMR.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMR.Types.Application
+import Amazonka.EMR.Types.ClusterStatus
+import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.Ec2InstanceAttributes
+import Amazonka.EMR.Types.InstanceCollectionType
+import Amazonka.EMR.Types.KerberosAttributes
+import Amazonka.EMR.Types.PlacementGroupConfig
+import Amazonka.EMR.Types.RepoUpgradeOnBoot
+import Amazonka.EMR.Types.ScaleDownBehavior
+import Amazonka.EMR.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed description of the cluster.
 --

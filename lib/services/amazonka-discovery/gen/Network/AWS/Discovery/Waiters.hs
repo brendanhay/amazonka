@@ -7,16 +7,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.Waiters
+-- Module      : Amazonka.Discovery.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Waiters where
+module Amazonka.Discovery.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Lens
-import Network.AWS.Discovery.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Lens
+import Amazonka.Discovery.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude

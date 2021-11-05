@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.DescribeConfigurations
+-- Module      : Amazonka.Discovery.DescribeConfigurations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -41,7 +41,7 @@
 -- For a complete list of outputs for each asset type, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations Using the DescribeConfigurations Action>
 -- in the /AWS Application Discovery Service User Guide/.
-module Network.AWS.Discovery.DescribeConfigurations
+module Amazonka.Discovery.DescribeConfigurations
   ( -- * Creating a Request
     DescribeConfigurations (..),
     newDescribeConfigurations,
@@ -59,12 +59,12 @@ module Network.AWS.Discovery.DescribeConfigurations
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConfigurations' smart constructor.
 data DescribeConfigurations = DescribeConfigurations'

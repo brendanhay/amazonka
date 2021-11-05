@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.Types
+-- Module      : Amazonka.Discovery.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types
+module Amazonka.Discovery.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -212,37 +212,37 @@ module Network.AWS.Discovery.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types.AgentConfigurationStatus
-import Network.AWS.Discovery.Types.AgentInfo
-import Network.AWS.Discovery.Types.AgentNetworkInfo
-import Network.AWS.Discovery.Types.AgentStatus
-import Network.AWS.Discovery.Types.BatchDeleteImportDataError
-import Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
-import Network.AWS.Discovery.Types.ConfigurationItemType
-import Network.AWS.Discovery.Types.ConfigurationTag
-import Network.AWS.Discovery.Types.ContinuousExportDescription
-import Network.AWS.Discovery.Types.ContinuousExportStatus
-import Network.AWS.Discovery.Types.CustomerAgentInfo
-import Network.AWS.Discovery.Types.CustomerConnectorInfo
-import Network.AWS.Discovery.Types.DataSource
-import Network.AWS.Discovery.Types.ExportDataFormat
-import Network.AWS.Discovery.Types.ExportFilter
-import Network.AWS.Discovery.Types.ExportInfo
-import Network.AWS.Discovery.Types.ExportStatus
-import Network.AWS.Discovery.Types.Filter
-import Network.AWS.Discovery.Types.ImportStatus
-import Network.AWS.Discovery.Types.ImportTask
-import Network.AWS.Discovery.Types.ImportTaskFilter
-import Network.AWS.Discovery.Types.ImportTaskFilterName
-import Network.AWS.Discovery.Types.NeighborConnectionDetail
-import Network.AWS.Discovery.Types.OrderByElement
-import Network.AWS.Discovery.Types.OrderString
-import Network.AWS.Discovery.Types.Tag
-import Network.AWS.Discovery.Types.TagFilter
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types.AgentConfigurationStatus
+import Amazonka.Discovery.Types.AgentInfo
+import Amazonka.Discovery.Types.AgentNetworkInfo
+import Amazonka.Discovery.Types.AgentStatus
+import Amazonka.Discovery.Types.BatchDeleteImportDataError
+import Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode
+import Amazonka.Discovery.Types.ConfigurationItemType
+import Amazonka.Discovery.Types.ConfigurationTag
+import Amazonka.Discovery.Types.ContinuousExportDescription
+import Amazonka.Discovery.Types.ContinuousExportStatus
+import Amazonka.Discovery.Types.CustomerAgentInfo
+import Amazonka.Discovery.Types.CustomerConnectorInfo
+import Amazonka.Discovery.Types.DataSource
+import Amazonka.Discovery.Types.ExportDataFormat
+import Amazonka.Discovery.Types.ExportFilter
+import Amazonka.Discovery.Types.ExportInfo
+import Amazonka.Discovery.Types.ExportStatus
+import Amazonka.Discovery.Types.Filter
+import Amazonka.Discovery.Types.ImportStatus
+import Amazonka.Discovery.Types.ImportTask
+import Amazonka.Discovery.Types.ImportTaskFilter
+import Amazonka.Discovery.Types.ImportTaskFilterName
+import Amazonka.Discovery.Types.NeighborConnectionDetail
+import Amazonka.Discovery.Types.OrderByElement
+import Amazonka.Discovery.Types.OrderString
+import Amazonka.Discovery.Types.Tag
+import Amazonka.Discovery.Types.TagFilter
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-11-01@ of the Amazon Application Discovery Service SDK configuration.
 defaultService :: Core.Service

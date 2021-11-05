@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.DescribeImportTasks
+-- Module      : Amazonka.Discovery.DescribeImportTasks
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns an array of import tasks for your account, including status
 -- information, times, IDs, the Amazon S3 Object URL for the import file,
 -- and more.
-module Network.AWS.Discovery.DescribeImportTasks
+module Amazonka.Discovery.DescribeImportTasks
   ( -- * Creating a Request
     DescribeImportTasks (..),
     newDescribeImportTasks,
@@ -44,12 +44,12 @@ module Network.AWS.Discovery.DescribeImportTasks
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImportTasks' smart constructor.
 data DescribeImportTasks = DescribeImportTasks'

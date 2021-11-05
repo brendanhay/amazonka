@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Discovery where
 
+import Amazonka.Discovery
 import qualified Data.Proxy as Proxy
-import Network.AWS.Discovery
 import Test.AWS.Discovery.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.StartExportTask
+-- Module      : Amazonka.Discovery.StartExportTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- that includes both AWS Agentless Discovery Connector data and summary
 -- data from AWS Discovery Agents. Export of summary data is limited to two
 -- exports per day.
-module Network.AWS.Discovery.StartExportTask
+module Amazonka.Discovery.StartExportTask
   ( -- * Creating a Request
     StartExportTask (..),
     newStartExportTask,
@@ -54,12 +54,12 @@ module Network.AWS.Discovery.StartExportTask
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartExportTask' smart constructor.
 data StartExportTask = StartExportTask'

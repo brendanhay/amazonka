@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+-- Module      : Amazonka.Discovery.AssociateConfigurationItemsToApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates one or more configuration items with an application.
-module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+module Amazonka.Discovery.AssociateConfigurationItemsToApplication
   ( -- * Creating a Request
     AssociateConfigurationItemsToApplication (..),
     newAssociateConfigurationItemsToApplication,
@@ -39,12 +39,12 @@ module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateConfigurationItemsToApplication' smart constructor.
 data AssociateConfigurationItemsToApplication = AssociateConfigurationItemsToApplication'

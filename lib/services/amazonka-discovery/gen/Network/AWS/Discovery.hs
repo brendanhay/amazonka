@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Discovery
+-- Module      : Amazonka.Discovery
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -101,7 +101,7 @@
 -- <http://aws.amazon.com/privacy/ AWS Privacy Policy>. You can operate
 -- Application Discovery Service offline to inspect collected data before
 -- it is shared with the service.
-module Network.AWS.Discovery
+module Amazonka.Discovery
   ( -- * Service Configuration
     defaultService,
 
@@ -381,32 +381,32 @@ module Network.AWS.Discovery
   )
 where
 
-import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
-import Network.AWS.Discovery.BatchDeleteImportData
-import Network.AWS.Discovery.CreateApplication
-import Network.AWS.Discovery.CreateTags
-import Network.AWS.Discovery.DeleteApplications
-import Network.AWS.Discovery.DeleteTags
-import Network.AWS.Discovery.DescribeAgents
-import Network.AWS.Discovery.DescribeConfigurations
-import Network.AWS.Discovery.DescribeContinuousExports
-import Network.AWS.Discovery.DescribeExportTasks
-import Network.AWS.Discovery.DescribeImportTasks
-import Network.AWS.Discovery.DescribeTags
-import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-import Network.AWS.Discovery.GetDiscoverySummary
-import Network.AWS.Discovery.Lens
-import Network.AWS.Discovery.ListConfigurations
-import Network.AWS.Discovery.ListServerNeighbors
-import Network.AWS.Discovery.StartContinuousExport
-import Network.AWS.Discovery.StartDataCollectionByAgentIds
-import Network.AWS.Discovery.StartExportTask
-import Network.AWS.Discovery.StartImportTask
-import Network.AWS.Discovery.StopContinuousExport
-import Network.AWS.Discovery.StopDataCollectionByAgentIds
-import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.UpdateApplication
-import Network.AWS.Discovery.Waiters
+import Amazonka.Discovery.AssociateConfigurationItemsToApplication
+import Amazonka.Discovery.BatchDeleteImportData
+import Amazonka.Discovery.CreateApplication
+import Amazonka.Discovery.CreateTags
+import Amazonka.Discovery.DeleteApplications
+import Amazonka.Discovery.DeleteTags
+import Amazonka.Discovery.DescribeAgents
+import Amazonka.Discovery.DescribeConfigurations
+import Amazonka.Discovery.DescribeContinuousExports
+import Amazonka.Discovery.DescribeExportTasks
+import Amazonka.Discovery.DescribeImportTasks
+import Amazonka.Discovery.DescribeTags
+import Amazonka.Discovery.DisassociateConfigurationItemsFromApplication
+import Amazonka.Discovery.GetDiscoverySummary
+import Amazonka.Discovery.Lens
+import Amazonka.Discovery.ListConfigurations
+import Amazonka.Discovery.ListServerNeighbors
+import Amazonka.Discovery.StartContinuousExport
+import Amazonka.Discovery.StartDataCollectionByAgentIds
+import Amazonka.Discovery.StartExportTask
+import Amazonka.Discovery.StartImportTask
+import Amazonka.Discovery.StopContinuousExport
+import Amazonka.Discovery.StopDataCollectionByAgentIds
+import Amazonka.Discovery.Types
+import Amazonka.Discovery.UpdateApplication
+import Amazonka.Discovery.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.Types.AgentInfo
+-- Module      : Amazonka.Discovery.Types.AgentInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.AgentInfo where
+module Amazonka.Discovery.Types.AgentInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types.AgentNetworkInfo
-import Network.AWS.Discovery.Types.AgentStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types.AgentNetworkInfo
+import Amazonka.Discovery.Types.AgentStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about agents or connectors associated with the user’s AWS
 -- account. Information includes agent or connector IDs, IP addresses,

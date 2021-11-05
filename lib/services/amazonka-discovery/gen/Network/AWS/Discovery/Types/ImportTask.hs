@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.Types.ImportTask
+-- Module      : Amazonka.Discovery.Types.ImportTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ImportTask where
+module Amazonka.Discovery.Types.ImportTask where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Discovery.Types.ImportStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Discovery.Types.ImportStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An array of information related to the import task request that includes
 -- status information, times, IDs, the Amazon S3 Object URL for the import

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Discovery.Lens
+-- Module      : Amazonka.Discovery.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Lens
+module Amazonka.Discovery.Lens
   ( -- * Operations
 
     -- ** DescribeTags
@@ -294,43 +294,43 @@ module Network.AWS.Discovery.Lens
   )
 where
 
-import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
-import Network.AWS.Discovery.BatchDeleteImportData
-import Network.AWS.Discovery.CreateApplication
-import Network.AWS.Discovery.CreateTags
-import Network.AWS.Discovery.DeleteApplications
-import Network.AWS.Discovery.DeleteTags
-import Network.AWS.Discovery.DescribeAgents
-import Network.AWS.Discovery.DescribeConfigurations
-import Network.AWS.Discovery.DescribeContinuousExports
-import Network.AWS.Discovery.DescribeExportTasks
-import Network.AWS.Discovery.DescribeImportTasks
-import Network.AWS.Discovery.DescribeTags
-import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-import Network.AWS.Discovery.GetDiscoverySummary
-import Network.AWS.Discovery.ListConfigurations
-import Network.AWS.Discovery.ListServerNeighbors
-import Network.AWS.Discovery.StartContinuousExport
-import Network.AWS.Discovery.StartDataCollectionByAgentIds
-import Network.AWS.Discovery.StartExportTask
-import Network.AWS.Discovery.StartImportTask
-import Network.AWS.Discovery.StopContinuousExport
-import Network.AWS.Discovery.StopDataCollectionByAgentIds
-import Network.AWS.Discovery.Types.AgentConfigurationStatus
-import Network.AWS.Discovery.Types.AgentInfo
-import Network.AWS.Discovery.Types.AgentNetworkInfo
-import Network.AWS.Discovery.Types.BatchDeleteImportDataError
-import Network.AWS.Discovery.Types.ConfigurationTag
-import Network.AWS.Discovery.Types.ContinuousExportDescription
-import Network.AWS.Discovery.Types.CustomerAgentInfo
-import Network.AWS.Discovery.Types.CustomerConnectorInfo
-import Network.AWS.Discovery.Types.ExportFilter
-import Network.AWS.Discovery.Types.ExportInfo
-import Network.AWS.Discovery.Types.Filter
-import Network.AWS.Discovery.Types.ImportTask
-import Network.AWS.Discovery.Types.ImportTaskFilter
-import Network.AWS.Discovery.Types.NeighborConnectionDetail
-import Network.AWS.Discovery.Types.OrderByElement
-import Network.AWS.Discovery.Types.Tag
-import Network.AWS.Discovery.Types.TagFilter
-import Network.AWS.Discovery.UpdateApplication
+import Amazonka.Discovery.AssociateConfigurationItemsToApplication
+import Amazonka.Discovery.BatchDeleteImportData
+import Amazonka.Discovery.CreateApplication
+import Amazonka.Discovery.CreateTags
+import Amazonka.Discovery.DeleteApplications
+import Amazonka.Discovery.DeleteTags
+import Amazonka.Discovery.DescribeAgents
+import Amazonka.Discovery.DescribeConfigurations
+import Amazonka.Discovery.DescribeContinuousExports
+import Amazonka.Discovery.DescribeExportTasks
+import Amazonka.Discovery.DescribeImportTasks
+import Amazonka.Discovery.DescribeTags
+import Amazonka.Discovery.DisassociateConfigurationItemsFromApplication
+import Amazonka.Discovery.GetDiscoverySummary
+import Amazonka.Discovery.ListConfigurations
+import Amazonka.Discovery.ListServerNeighbors
+import Amazonka.Discovery.StartContinuousExport
+import Amazonka.Discovery.StartDataCollectionByAgentIds
+import Amazonka.Discovery.StartExportTask
+import Amazonka.Discovery.StartImportTask
+import Amazonka.Discovery.StopContinuousExport
+import Amazonka.Discovery.StopDataCollectionByAgentIds
+import Amazonka.Discovery.Types.AgentConfigurationStatus
+import Amazonka.Discovery.Types.AgentInfo
+import Amazonka.Discovery.Types.AgentNetworkInfo
+import Amazonka.Discovery.Types.BatchDeleteImportDataError
+import Amazonka.Discovery.Types.ConfigurationTag
+import Amazonka.Discovery.Types.ContinuousExportDescription
+import Amazonka.Discovery.Types.CustomerAgentInfo
+import Amazonka.Discovery.Types.CustomerConnectorInfo
+import Amazonka.Discovery.Types.ExportFilter
+import Amazonka.Discovery.Types.ExportInfo
+import Amazonka.Discovery.Types.Filter
+import Amazonka.Discovery.Types.ImportTask
+import Amazonka.Discovery.Types.ImportTaskFilter
+import Amazonka.Discovery.Types.NeighborConnectionDetail
+import Amazonka.Discovery.Types.OrderByElement
+import Amazonka.Discovery.Types.Tag
+import Amazonka.Discovery.Types.TagFilter
+import Amazonka.Discovery.UpdateApplication

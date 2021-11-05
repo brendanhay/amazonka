@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.APIGatewayManagementAPI
+-- Module      : Amazonka.APIGatewayManagementAPI
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- https:\/\/{api-id}.execute-api.{region}.amazonaws.com\/{stage}, or will
 -- be the endpoint corresponding to your API\'s custom domain and base
 -- path, if applicable.
-module Network.AWS.APIGatewayManagementAPI
+module Amazonka.APIGatewayManagementAPI
   ( -- * Service Configuration
     defaultService,
 
@@ -69,12 +69,12 @@ module Network.AWS.APIGatewayManagementAPI
   )
 where
 
-import Network.AWS.APIGatewayManagementAPI.DeleteConnection
-import Network.AWS.APIGatewayManagementAPI.GetConnection
-import Network.AWS.APIGatewayManagementAPI.Lens
-import Network.AWS.APIGatewayManagementAPI.PostToConnection
-import Network.AWS.APIGatewayManagementAPI.Types
-import Network.AWS.APIGatewayManagementAPI.Waiters
+import Amazonka.APIGatewayManagementAPI.DeleteConnection
+import Amazonka.APIGatewayManagementAPI.GetConnection
+import Amazonka.APIGatewayManagementAPI.Lens
+import Amazonka.APIGatewayManagementAPI.PostToConnection
+import Amazonka.APIGatewayManagementAPI.Types
+import Amazonka.APIGatewayManagementAPI.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGatewayManagementAPI.Lens
+-- Module      : Amazonka.APIGatewayManagementAPI.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGatewayManagementAPI.Lens
+module Amazonka.APIGatewayManagementAPI.Lens
   ( -- * Operations
 
     -- ** DeleteConnection
@@ -36,7 +36,7 @@ module Network.AWS.APIGatewayManagementAPI.Lens
   )
 where
 
-import Network.AWS.APIGatewayManagementAPI.DeleteConnection
-import Network.AWS.APIGatewayManagementAPI.GetConnection
-import Network.AWS.APIGatewayManagementAPI.PostToConnection
-import Network.AWS.APIGatewayManagementAPI.Types.Identity
+import Amazonka.APIGatewayManagementAPI.DeleteConnection
+import Amazonka.APIGatewayManagementAPI.GetConnection
+import Amazonka.APIGatewayManagementAPI.PostToConnection
+import Amazonka.APIGatewayManagementAPI.Types.Identity

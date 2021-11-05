@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexRuntime.Types.IntentSummary
+-- Module      : Amazonka.LexRuntime.Types.IntentSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.IntentSummary where
+module Amazonka.LexRuntime.Types.IntentSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.ConfirmationStatus
-import Network.AWS.LexRuntime.Types.DialogActionType
-import Network.AWS.LexRuntime.Types.FulfillmentState
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexRuntime.Types.ConfirmationStatus
+import Amazonka.LexRuntime.Types.DialogActionType
+import Amazonka.LexRuntime.Types.FulfillmentState
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the state of an intent. You can use this
 -- information to get the current state of an intent so that you can

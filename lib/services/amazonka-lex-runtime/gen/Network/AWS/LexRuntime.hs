@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LexRuntime
+-- Module      : Amazonka.LexRuntime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- you configured when you created the bot). You use the build-time API to
 -- create and manage your Amazon Lex bot. For a list of build-time
 -- operations, see the build-time API, .
-module Network.AWS.LexRuntime
+module Amazonka.LexRuntime
   ( -- * Service Configuration
     defaultService,
 
@@ -161,14 +161,14 @@ module Network.AWS.LexRuntime
   )
 where
 
-import Network.AWS.LexRuntime.DeleteSession
-import Network.AWS.LexRuntime.GetSession
-import Network.AWS.LexRuntime.Lens
-import Network.AWS.LexRuntime.PostContent
-import Network.AWS.LexRuntime.PostText
-import Network.AWS.LexRuntime.PutSession
-import Network.AWS.LexRuntime.Types
-import Network.AWS.LexRuntime.Waiters
+import Amazonka.LexRuntime.DeleteSession
+import Amazonka.LexRuntime.GetSession
+import Amazonka.LexRuntime.Lens
+import Amazonka.LexRuntime.PostContent
+import Amazonka.LexRuntime.PostText
+import Amazonka.LexRuntime.PutSession
+import Amazonka.LexRuntime.Types
+import Amazonka.LexRuntime.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

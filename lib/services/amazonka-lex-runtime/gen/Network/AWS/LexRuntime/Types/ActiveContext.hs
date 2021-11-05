@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexRuntime.Types.ActiveContext
+-- Module      : Amazonka.LexRuntime.Types.ActiveContext
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ActiveContext where
+module Amazonka.LexRuntime.Types.ActiveContext where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexRuntime.Types.ActiveContextTimeToLive
+import qualified Amazonka.Prelude as Prelude
 
 -- | A context is a variable that contains information about the current
 -- state of the conversation between a user and Amazon Lex. Context can be

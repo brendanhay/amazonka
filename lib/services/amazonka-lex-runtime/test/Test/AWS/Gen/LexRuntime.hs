@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LexRuntime where
 
+import Amazonka.LexRuntime
 import qualified Data.Proxy as Proxy
-import Network.AWS.LexRuntime
 import Test.AWS.Fixture
 import Test.AWS.LexRuntime.Internal
 import Test.AWS.Prelude

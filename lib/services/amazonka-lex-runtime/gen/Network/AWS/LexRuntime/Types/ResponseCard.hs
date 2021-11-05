@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexRuntime.Types.ResponseCard
+-- Module      : Amazonka.LexRuntime.Types.ResponseCard
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ResponseCard where
+module Amazonka.LexRuntime.Types.ResponseCard where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.ContentType
-import Network.AWS.LexRuntime.Types.GenericAttachment
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexRuntime.Types.ContentType
+import Amazonka.LexRuntime.Types.GenericAttachment
+import qualified Amazonka.Prelude as Prelude
 
 -- | If you configure a response card when creating your bots, Amazon Lex
 -- substitutes the session attributes and slot values that are available,

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexRuntime.Types.DialogAction
+-- Module      : Amazonka.LexRuntime.Types.DialogAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.DialogAction where
+module Amazonka.LexRuntime.Types.DialogAction where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.DialogActionType
-import Network.AWS.LexRuntime.Types.FulfillmentState
-import Network.AWS.LexRuntime.Types.MessageFormatType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexRuntime.Types.DialogActionType
+import Amazonka.LexRuntime.Types.FulfillmentState
+import Amazonka.LexRuntime.Types.MessageFormatType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the next action that the bot should take in its interaction
 -- with the user and provides information about the context in which the

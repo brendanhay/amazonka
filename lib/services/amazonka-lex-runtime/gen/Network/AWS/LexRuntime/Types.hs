@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexRuntime.Types
+-- Module      : Amazonka.LexRuntime.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types
+module Amazonka.LexRuntime.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -124,26 +124,26 @@ module Network.AWS.LexRuntime.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.ActiveContext
-import Network.AWS.LexRuntime.Types.ActiveContextTimeToLive
-import Network.AWS.LexRuntime.Types.Button
-import Network.AWS.LexRuntime.Types.ConfirmationStatus
-import Network.AWS.LexRuntime.Types.ContentType
-import Network.AWS.LexRuntime.Types.DialogAction
-import Network.AWS.LexRuntime.Types.DialogActionType
-import Network.AWS.LexRuntime.Types.DialogState
-import Network.AWS.LexRuntime.Types.FulfillmentState
-import Network.AWS.LexRuntime.Types.GenericAttachment
-import Network.AWS.LexRuntime.Types.IntentConfidence
-import Network.AWS.LexRuntime.Types.IntentSummary
-import Network.AWS.LexRuntime.Types.MessageFormatType
-import Network.AWS.LexRuntime.Types.PredictedIntent
-import Network.AWS.LexRuntime.Types.ResponseCard
-import Network.AWS.LexRuntime.Types.SentimentResponse
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexRuntime.Types.ActiveContext
+import Amazonka.LexRuntime.Types.ActiveContextTimeToLive
+import Amazonka.LexRuntime.Types.Button
+import Amazonka.LexRuntime.Types.ConfirmationStatus
+import Amazonka.LexRuntime.Types.ContentType
+import Amazonka.LexRuntime.Types.DialogAction
+import Amazonka.LexRuntime.Types.DialogActionType
+import Amazonka.LexRuntime.Types.DialogState
+import Amazonka.LexRuntime.Types.FulfillmentState
+import Amazonka.LexRuntime.Types.GenericAttachment
+import Amazonka.LexRuntime.Types.IntentConfidence
+import Amazonka.LexRuntime.Types.IntentSummary
+import Amazonka.LexRuntime.Types.MessageFormatType
+import Amazonka.LexRuntime.Types.PredictedIntent
+import Amazonka.LexRuntime.Types.ResponseCard
+import Amazonka.LexRuntime.Types.SentimentResponse
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-11-28@ of the Amazon Lex Runtime Service SDK configuration.
 defaultService :: Core.Service

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.Types
+-- Module      : Amazonka.ApplicationAutoScaling.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types
+module Amazonka.ApplicationAutoScaling.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -173,31 +173,31 @@ module Network.AWS.ApplicationAutoScaling.Types
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
-import Network.AWS.ApplicationAutoScaling.Types.Alarm
-import Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
-import Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
-import Network.AWS.ApplicationAutoScaling.Types.MetricDimension
-import Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
-import Network.AWS.ApplicationAutoScaling.Types.MetricType
-import Network.AWS.ApplicationAutoScaling.Types.PolicyType
-import Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
-import Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
-import Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
-import Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
-import Network.AWS.ApplicationAutoScaling.Types.ScalingActivity
-import Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
-import Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy
-import Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
-import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
-import Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
-import Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
-import Network.AWS.ApplicationAutoScaling.Types.SuspendedState
-import Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ApplicationAutoScaling.Types.AdjustmentType
+import Amazonka.ApplicationAutoScaling.Types.Alarm
+import Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
+import Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
+import Amazonka.ApplicationAutoScaling.Types.MetricDimension
+import Amazonka.ApplicationAutoScaling.Types.MetricStatistic
+import Amazonka.ApplicationAutoScaling.Types.MetricType
+import Amazonka.ApplicationAutoScaling.Types.PolicyType
+import Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+import Amazonka.ApplicationAutoScaling.Types.ScalableDimension
+import Amazonka.ApplicationAutoScaling.Types.ScalableTarget
+import Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
+import Amazonka.ApplicationAutoScaling.Types.ScalingActivity
+import Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode
+import Amazonka.ApplicationAutoScaling.Types.ScalingPolicy
+import Amazonka.ApplicationAutoScaling.Types.ScheduledAction
+import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
+import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
+import Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
+import Amazonka.ApplicationAutoScaling.Types.SuspendedState
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-02-06@ of the Amazon Application Auto Scaling SDK configuration.
 defaultService :: Core.Service

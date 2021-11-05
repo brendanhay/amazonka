@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
+-- Module      : Amazonka.ApplicationAutoScaling.Types.ScheduledAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.ScheduledAction where
+module Amazonka.ApplicationAutoScaling.Types.ScheduledAction where
 
-import Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
-import Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
-import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ApplicationAutoScaling.Types.ScalableDimension
+import Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
+import Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scheduled action.
 --

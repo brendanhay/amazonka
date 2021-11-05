@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+-- Module      : Amazonka.ApplicationAutoScaling.DeleteScheduledAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action Delete a scheduled action>
 -- in the /Application Auto Scaling User Guide/.
-module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+module Amazonka.ApplicationAutoScaling.DeleteScheduledAction
   ( -- * Creating a Request
     DeleteScheduledAction (..),
     newDeleteScheduledAction,
@@ -46,12 +46,12 @@ module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationAutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'

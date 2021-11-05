@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling
+-- Module      : Amazonka.ApplicationAutoScaling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -72,7 +72,7 @@
 -- about granting IAM users required permissions for Application Auto
 -- Scaling actions, see the
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide>.
-module Network.AWS.ApplicationAutoScaling
+module Amazonka.ApplicationAutoScaling
   ( -- * Service Configuration
     defaultService,
 
@@ -246,19 +246,19 @@ module Network.AWS.ApplicationAutoScaling
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-import Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
-import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-import Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
-import Network.AWS.ApplicationAutoScaling.Lens
-import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-import Network.AWS.ApplicationAutoScaling.PutScheduledAction
-import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Waiters
+import Amazonka.ApplicationAutoScaling.DeleteScalingPolicy
+import Amazonka.ApplicationAutoScaling.DeleteScheduledAction
+import Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
+import Amazonka.ApplicationAutoScaling.DescribeScalableTargets
+import Amazonka.ApplicationAutoScaling.DescribeScalingActivities
+import Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
+import Amazonka.ApplicationAutoScaling.DescribeScheduledActions
+import Amazonka.ApplicationAutoScaling.Lens
+import Amazonka.ApplicationAutoScaling.PutScalingPolicy
+import Amazonka.ApplicationAutoScaling.PutScheduledAction
+import Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+import Amazonka.ApplicationAutoScaling.Types
+import Amazonka.ApplicationAutoScaling.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+-- Module      : Amazonka.ApplicationAutoScaling.PutScalingPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 -- If a scalable target is deregistered, the scalable target is no longer
 -- available to execute scaling policies. Any scaling policies that were
 -- specified for the scalable target are deleted.
-module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+module Amazonka.ApplicationAutoScaling.PutScalingPolicy
   ( -- * Creating a Request
     PutScalingPolicy (..),
     newPutScalingPolicy,
@@ -81,12 +81,12 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationAutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'

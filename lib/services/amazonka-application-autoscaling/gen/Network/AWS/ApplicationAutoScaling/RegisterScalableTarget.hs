@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+-- Module      : Amazonka.ApplicationAutoScaling.RegisterScalableTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -52,7 +52,7 @@
 -- maximum capacity, Application Auto Scaling adjusts the capacity of the
 -- scalable target to place it within these bounds, even if you don\'t
 -- include the @MinCapacity@ or @MaxCapacity@ request parameters.
-module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
   ( -- * Creating a Request
     RegisterScalableTarget (..),
     newRegisterScalableTarget,
@@ -75,12 +75,12 @@ module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationAutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'

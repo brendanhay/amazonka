@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.Lens
+-- Module      : Amazonka.ApplicationAutoScaling.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Lens
+module Amazonka.ApplicationAutoScaling.Lens
   ( -- * Operations
 
     -- ** DeleteScalingPolicy
@@ -210,26 +210,26 @@ module Network.AWS.ApplicationAutoScaling.Lens
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-import Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
-import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-import Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
-import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-import Network.AWS.ApplicationAutoScaling.PutScheduledAction
-import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.Types.Alarm
-import Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
-import Network.AWS.ApplicationAutoScaling.Types.MetricDimension
-import Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
-import Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
-import Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
-import Network.AWS.ApplicationAutoScaling.Types.ScalingActivity
-import Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy
-import Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
-import Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
-import Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
-import Network.AWS.ApplicationAutoScaling.Types.SuspendedState
-import Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+import Amazonka.ApplicationAutoScaling.DeleteScalingPolicy
+import Amazonka.ApplicationAutoScaling.DeleteScheduledAction
+import Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
+import Amazonka.ApplicationAutoScaling.DescribeScalableTargets
+import Amazonka.ApplicationAutoScaling.DescribeScalingActivities
+import Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
+import Amazonka.ApplicationAutoScaling.DescribeScheduledActions
+import Amazonka.ApplicationAutoScaling.PutScalingPolicy
+import Amazonka.ApplicationAutoScaling.PutScheduledAction
+import Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+import Amazonka.ApplicationAutoScaling.Types.Alarm
+import Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
+import Amazonka.ApplicationAutoScaling.Types.MetricDimension
+import Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+import Amazonka.ApplicationAutoScaling.Types.ScalableTarget
+import Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
+import Amazonka.ApplicationAutoScaling.Types.ScalingActivity
+import Amazonka.ApplicationAutoScaling.Types.ScalingPolicy
+import Amazonka.ApplicationAutoScaling.Types.ScheduledAction
+import Amazonka.ApplicationAutoScaling.Types.StepAdjustment
+import Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
+import Amazonka.ApplicationAutoScaling.Types.SuspendedState
+import Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration

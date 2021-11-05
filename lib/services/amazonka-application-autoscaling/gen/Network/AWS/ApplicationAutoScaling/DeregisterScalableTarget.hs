@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+-- Module      : Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- Deregistering a scalable target deletes the scaling policies and the
 -- scheduled actions that are associated with it.
-module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+module Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
   ( -- * Creating a Request
     DeregisterScalableTarget (..),
     newDeregisterScalableTarget,
@@ -45,12 +45,12 @@ module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationAutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterScalableTarget' smart constructor.
 data DeregisterScalableTarget = DeregisterScalableTarget'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.XRay
+-- Module      : Amazonka.XRay
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon Web Services X-Ray provides APIs for managing debug traces and
 -- retrieving service maps and other data created by processing those
 -- traces.
-module Network.AWS.XRay
+module Amazonka.XRay
   ( -- * Service Configuration
     defaultService,
 
@@ -442,36 +442,36 @@ module Network.AWS.XRay
   )
 where
 
-import Network.AWS.XRay.BatchGetTraces
-import Network.AWS.XRay.CreateGroup
-import Network.AWS.XRay.CreateSamplingRule
-import Network.AWS.XRay.DeleteGroup
-import Network.AWS.XRay.DeleteSamplingRule
-import Network.AWS.XRay.GetEncryptionConfig
-import Network.AWS.XRay.GetGroup
-import Network.AWS.XRay.GetGroups
-import Network.AWS.XRay.GetInsight
-import Network.AWS.XRay.GetInsightEvents
-import Network.AWS.XRay.GetInsightImpactGraph
-import Network.AWS.XRay.GetInsightSummaries
-import Network.AWS.XRay.GetSamplingRules
-import Network.AWS.XRay.GetSamplingStatisticSummaries
-import Network.AWS.XRay.GetSamplingTargets
-import Network.AWS.XRay.GetServiceGraph
-import Network.AWS.XRay.GetTimeSeriesServiceStatistics
-import Network.AWS.XRay.GetTraceGraph
-import Network.AWS.XRay.GetTraceSummaries
-import Network.AWS.XRay.Lens
-import Network.AWS.XRay.ListTagsForResource
-import Network.AWS.XRay.PutEncryptionConfig
-import Network.AWS.XRay.PutTelemetryRecords
-import Network.AWS.XRay.PutTraceSegments
-import Network.AWS.XRay.TagResource
-import Network.AWS.XRay.Types
-import Network.AWS.XRay.UntagResource
-import Network.AWS.XRay.UpdateGroup
-import Network.AWS.XRay.UpdateSamplingRule
-import Network.AWS.XRay.Waiters
+import Amazonka.XRay.BatchGetTraces
+import Amazonka.XRay.CreateGroup
+import Amazonka.XRay.CreateSamplingRule
+import Amazonka.XRay.DeleteGroup
+import Amazonka.XRay.DeleteSamplingRule
+import Amazonka.XRay.GetEncryptionConfig
+import Amazonka.XRay.GetGroup
+import Amazonka.XRay.GetGroups
+import Amazonka.XRay.GetInsight
+import Amazonka.XRay.GetInsightEvents
+import Amazonka.XRay.GetInsightImpactGraph
+import Amazonka.XRay.GetInsightSummaries
+import Amazonka.XRay.GetSamplingRules
+import Amazonka.XRay.GetSamplingStatisticSummaries
+import Amazonka.XRay.GetSamplingTargets
+import Amazonka.XRay.GetServiceGraph
+import Amazonka.XRay.GetTimeSeriesServiceStatistics
+import Amazonka.XRay.GetTraceGraph
+import Amazonka.XRay.GetTraceSummaries
+import Amazonka.XRay.Lens
+import Amazonka.XRay.ListTagsForResource
+import Amazonka.XRay.PutEncryptionConfig
+import Amazonka.XRay.PutTelemetryRecords
+import Amazonka.XRay.PutTraceSegments
+import Amazonka.XRay.TagResource
+import Amazonka.XRay.Types
+import Amazonka.XRay.UntagResource
+import Amazonka.XRay.UpdateGroup
+import Amazonka.XRay.UpdateSamplingRule
+import Amazonka.XRay.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

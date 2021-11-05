@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.XRay.Types.TraceSummary
+-- Module      : Amazonka.XRay.Types.TraceSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TraceSummary where
+module Amazonka.XRay.Types.TraceSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.XRay.Types.AvailabilityZoneDetail
-import Network.AWS.XRay.Types.ErrorRootCause
-import Network.AWS.XRay.Types.FaultRootCause
-import Network.AWS.XRay.Types.Http
-import Network.AWS.XRay.Types.InstanceIdDetail
-import Network.AWS.XRay.Types.ResourceARNDetail
-import Network.AWS.XRay.Types.ResponseTimeRootCause
-import Network.AWS.XRay.Types.ServiceId
-import Network.AWS.XRay.Types.TraceUser
-import Network.AWS.XRay.Types.ValueWithServiceIds
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.XRay.Types.AvailabilityZoneDetail
+import Amazonka.XRay.Types.ErrorRootCause
+import Amazonka.XRay.Types.FaultRootCause
+import Amazonka.XRay.Types.Http
+import Amazonka.XRay.Types.InstanceIdDetail
+import Amazonka.XRay.Types.ResourceARNDetail
+import Amazonka.XRay.Types.ResponseTimeRootCause
+import Amazonka.XRay.Types.ServiceId
+import Amazonka.XRay.Types.TraceUser
+import Amazonka.XRay.Types.ValueWithServiceIds
 
 -- | Metadata generated from the segment documents in a trace.
 --

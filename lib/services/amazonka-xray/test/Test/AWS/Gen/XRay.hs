@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.XRay where
 
+import Amazonka.XRay
 import qualified Data.Proxy as Proxy
-import Network.AWS.XRay
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.XRay.Internal

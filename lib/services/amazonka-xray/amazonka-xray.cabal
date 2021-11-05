@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.XRay.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.XRay.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.XRay" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.XRay" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,99 +45,99 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.XRay
-    Network.AWS.XRay.BatchGetTraces
-    Network.AWS.XRay.CreateGroup
-    Network.AWS.XRay.CreateSamplingRule
-    Network.AWS.XRay.DeleteGroup
-    Network.AWS.XRay.DeleteSamplingRule
-    Network.AWS.XRay.GetEncryptionConfig
-    Network.AWS.XRay.GetGroup
-    Network.AWS.XRay.GetGroups
-    Network.AWS.XRay.GetInsight
-    Network.AWS.XRay.GetInsightEvents
-    Network.AWS.XRay.GetInsightImpactGraph
-    Network.AWS.XRay.GetInsightSummaries
-    Network.AWS.XRay.GetSamplingRules
-    Network.AWS.XRay.GetSamplingStatisticSummaries
-    Network.AWS.XRay.GetSamplingTargets
-    Network.AWS.XRay.GetServiceGraph
-    Network.AWS.XRay.GetTimeSeriesServiceStatistics
-    Network.AWS.XRay.GetTraceGraph
-    Network.AWS.XRay.GetTraceSummaries
-    Network.AWS.XRay.Lens
-    Network.AWS.XRay.ListTagsForResource
-    Network.AWS.XRay.PutEncryptionConfig
-    Network.AWS.XRay.PutTelemetryRecords
-    Network.AWS.XRay.PutTraceSegments
-    Network.AWS.XRay.TagResource
-    Network.AWS.XRay.Types
-    Network.AWS.XRay.Types.Alias
-    Network.AWS.XRay.Types.AnnotationValue
-    Network.AWS.XRay.Types.AnomalousService
-    Network.AWS.XRay.Types.AvailabilityZoneDetail
-    Network.AWS.XRay.Types.BackendConnectionErrors
-    Network.AWS.XRay.Types.Edge
-    Network.AWS.XRay.Types.EdgeStatistics
-    Network.AWS.XRay.Types.EncryptionConfig
-    Network.AWS.XRay.Types.EncryptionStatus
-    Network.AWS.XRay.Types.EncryptionType
-    Network.AWS.XRay.Types.ErrorRootCause
-    Network.AWS.XRay.Types.ErrorRootCauseEntity
-    Network.AWS.XRay.Types.ErrorRootCauseService
-    Network.AWS.XRay.Types.ErrorStatistics
-    Network.AWS.XRay.Types.FaultRootCause
-    Network.AWS.XRay.Types.FaultRootCauseEntity
-    Network.AWS.XRay.Types.FaultRootCauseService
-    Network.AWS.XRay.Types.FaultStatistics
-    Network.AWS.XRay.Types.ForecastStatistics
-    Network.AWS.XRay.Types.Group
-    Network.AWS.XRay.Types.GroupSummary
-    Network.AWS.XRay.Types.HistogramEntry
-    Network.AWS.XRay.Types.Http
-    Network.AWS.XRay.Types.Insight
-    Network.AWS.XRay.Types.InsightCategory
-    Network.AWS.XRay.Types.InsightEvent
-    Network.AWS.XRay.Types.InsightImpactGraphEdge
-    Network.AWS.XRay.Types.InsightImpactGraphService
-    Network.AWS.XRay.Types.InsightsConfiguration
-    Network.AWS.XRay.Types.InsightState
-    Network.AWS.XRay.Types.InsightSummary
-    Network.AWS.XRay.Types.InstanceIdDetail
-    Network.AWS.XRay.Types.RequestImpactStatistics
-    Network.AWS.XRay.Types.ResourceARNDetail
-    Network.AWS.XRay.Types.ResponseTimeRootCause
-    Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
-    Network.AWS.XRay.Types.ResponseTimeRootCauseService
-    Network.AWS.XRay.Types.RootCauseException
-    Network.AWS.XRay.Types.SamplingRule
-    Network.AWS.XRay.Types.SamplingRuleRecord
-    Network.AWS.XRay.Types.SamplingRuleUpdate
-    Network.AWS.XRay.Types.SamplingStatisticsDocument
-    Network.AWS.XRay.Types.SamplingStatisticSummary
-    Network.AWS.XRay.Types.SamplingStrategy
-    Network.AWS.XRay.Types.SamplingStrategyName
-    Network.AWS.XRay.Types.SamplingTargetDocument
-    Network.AWS.XRay.Types.Segment
-    Network.AWS.XRay.Types.ServiceId
-    Network.AWS.XRay.Types.ServiceInfo
-    Network.AWS.XRay.Types.ServiceStatistics
-    Network.AWS.XRay.Types.Tag
-    Network.AWS.XRay.Types.TelemetryRecord
-    Network.AWS.XRay.Types.TimeRangeType
-    Network.AWS.XRay.Types.TimeSeriesServiceStatistics
-    Network.AWS.XRay.Types.Trace
-    Network.AWS.XRay.Types.TraceSummary
-    Network.AWS.XRay.Types.TraceUser
-    Network.AWS.XRay.Types.UnprocessedStatistics
-    Network.AWS.XRay.Types.UnprocessedTraceSegment
-    Network.AWS.XRay.Types.ValueWithServiceIds
-    Network.AWS.XRay.UntagResource
-    Network.AWS.XRay.UpdateGroup
-    Network.AWS.XRay.UpdateSamplingRule
-    Network.AWS.XRay.Waiters
+    Amazonka.XRay
+    Amazonka.XRay.BatchGetTraces
+    Amazonka.XRay.CreateGroup
+    Amazonka.XRay.CreateSamplingRule
+    Amazonka.XRay.DeleteGroup
+    Amazonka.XRay.DeleteSamplingRule
+    Amazonka.XRay.GetEncryptionConfig
+    Amazonka.XRay.GetGroup
+    Amazonka.XRay.GetGroups
+    Amazonka.XRay.GetInsight
+    Amazonka.XRay.GetInsightEvents
+    Amazonka.XRay.GetInsightImpactGraph
+    Amazonka.XRay.GetInsightSummaries
+    Amazonka.XRay.GetSamplingRules
+    Amazonka.XRay.GetSamplingStatisticSummaries
+    Amazonka.XRay.GetSamplingTargets
+    Amazonka.XRay.GetServiceGraph
+    Amazonka.XRay.GetTimeSeriesServiceStatistics
+    Amazonka.XRay.GetTraceGraph
+    Amazonka.XRay.GetTraceSummaries
+    Amazonka.XRay.Lens
+    Amazonka.XRay.ListTagsForResource
+    Amazonka.XRay.PutEncryptionConfig
+    Amazonka.XRay.PutTelemetryRecords
+    Amazonka.XRay.PutTraceSegments
+    Amazonka.XRay.TagResource
+    Amazonka.XRay.Types
+    Amazonka.XRay.Types.Alias
+    Amazonka.XRay.Types.AnnotationValue
+    Amazonka.XRay.Types.AnomalousService
+    Amazonka.XRay.Types.AvailabilityZoneDetail
+    Amazonka.XRay.Types.BackendConnectionErrors
+    Amazonka.XRay.Types.Edge
+    Amazonka.XRay.Types.EdgeStatistics
+    Amazonka.XRay.Types.EncryptionConfig
+    Amazonka.XRay.Types.EncryptionStatus
+    Amazonka.XRay.Types.EncryptionType
+    Amazonka.XRay.Types.ErrorRootCause
+    Amazonka.XRay.Types.ErrorRootCauseEntity
+    Amazonka.XRay.Types.ErrorRootCauseService
+    Amazonka.XRay.Types.ErrorStatistics
+    Amazonka.XRay.Types.FaultRootCause
+    Amazonka.XRay.Types.FaultRootCauseEntity
+    Amazonka.XRay.Types.FaultRootCauseService
+    Amazonka.XRay.Types.FaultStatistics
+    Amazonka.XRay.Types.ForecastStatistics
+    Amazonka.XRay.Types.Group
+    Amazonka.XRay.Types.GroupSummary
+    Amazonka.XRay.Types.HistogramEntry
+    Amazonka.XRay.Types.Http
+    Amazonka.XRay.Types.Insight
+    Amazonka.XRay.Types.InsightCategory
+    Amazonka.XRay.Types.InsightEvent
+    Amazonka.XRay.Types.InsightImpactGraphEdge
+    Amazonka.XRay.Types.InsightImpactGraphService
+    Amazonka.XRay.Types.InsightsConfiguration
+    Amazonka.XRay.Types.InsightState
+    Amazonka.XRay.Types.InsightSummary
+    Amazonka.XRay.Types.InstanceIdDetail
+    Amazonka.XRay.Types.RequestImpactStatistics
+    Amazonka.XRay.Types.ResourceARNDetail
+    Amazonka.XRay.Types.ResponseTimeRootCause
+    Amazonka.XRay.Types.ResponseTimeRootCauseEntity
+    Amazonka.XRay.Types.ResponseTimeRootCauseService
+    Amazonka.XRay.Types.RootCauseException
+    Amazonka.XRay.Types.SamplingRule
+    Amazonka.XRay.Types.SamplingRuleRecord
+    Amazonka.XRay.Types.SamplingRuleUpdate
+    Amazonka.XRay.Types.SamplingStatisticsDocument
+    Amazonka.XRay.Types.SamplingStatisticSummary
+    Amazonka.XRay.Types.SamplingStrategy
+    Amazonka.XRay.Types.SamplingStrategyName
+    Amazonka.XRay.Types.SamplingTargetDocument
+    Amazonka.XRay.Types.Segment
+    Amazonka.XRay.Types.ServiceId
+    Amazonka.XRay.Types.ServiceInfo
+    Amazonka.XRay.Types.ServiceStatistics
+    Amazonka.XRay.Types.Tag
+    Amazonka.XRay.Types.TelemetryRecord
+    Amazonka.XRay.Types.TimeRangeType
+    Amazonka.XRay.Types.TimeSeriesServiceStatistics
+    Amazonka.XRay.Types.Trace
+    Amazonka.XRay.Types.TraceSummary
+    Amazonka.XRay.Types.TraceUser
+    Amazonka.XRay.Types.UnprocessedStatistics
+    Amazonka.XRay.Types.UnprocessedTraceSegment
+    Amazonka.XRay.Types.ValueWithServiceIds
+    Amazonka.XRay.UntagResource
+    Amazonka.XRay.UpdateGroup
+    Amazonka.XRay.UpdateSamplingRule
+    Amazonka.XRay.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

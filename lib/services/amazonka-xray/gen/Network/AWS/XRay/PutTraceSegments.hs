@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.XRay.PutTraceSegments
+-- Module      : Amazonka.XRay.PutTraceSegments
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -69,7 +69,7 @@
 --
 -- -   A 96-bit identifier for the trace, globally unique, in 24
 --     hexadecimal digits.
-module Network.AWS.XRay.PutTraceSegments
+module Amazonka.XRay.PutTraceSegments
   ( -- * Creating a Request
     PutTraceSegments (..),
     newPutTraceSegments,
@@ -87,12 +87,12 @@ module Network.AWS.XRay.PutTraceSegments
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.XRay.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.XRay.Types
 
 -- | /See:/ 'newPutTraceSegments' smart constructor.
 data PutTraceSegments = PutTraceSegments'

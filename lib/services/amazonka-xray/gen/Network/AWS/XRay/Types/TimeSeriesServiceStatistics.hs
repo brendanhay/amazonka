@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.XRay.Types.TimeSeriesServiceStatistics
+-- Module      : Amazonka.XRay.Types.TimeSeriesServiceStatistics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TimeSeriesServiceStatistics where
+module Amazonka.XRay.Types.TimeSeriesServiceStatistics where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.XRay.Types.EdgeStatistics
-import Network.AWS.XRay.Types.ForecastStatistics
-import Network.AWS.XRay.Types.HistogramEntry
-import Network.AWS.XRay.Types.ServiceStatistics
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.XRay.Types.EdgeStatistics
+import Amazonka.XRay.Types.ForecastStatistics
+import Amazonka.XRay.Types.HistogramEntry
+import Amazonka.XRay.Types.ServiceStatistics
 
 -- | A list of TimeSeriesStatistic structures.
 --

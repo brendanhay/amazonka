@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.XRay.PutTelemetryRecords
+-- Module      : Amazonka.XRay.PutTelemetryRecords
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Used by the Amazon Web Services X-Ray daemon to upload telemetry.
-module Network.AWS.XRay.PutTelemetryRecords
+module Amazonka.XRay.PutTelemetryRecords
   ( -- * Creating a Request
     PutTelemetryRecords (..),
     newPutTelemetryRecords,
@@ -41,12 +41,12 @@ module Network.AWS.XRay.PutTelemetryRecords
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.XRay.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.XRay.Types
 
 -- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'

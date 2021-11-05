@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.XRay.Types
+-- Module      : Amazonka.XRay.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types
+module Amazonka.XRay.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -505,70 +505,70 @@ module Network.AWS.XRay.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.XRay.Types.Alias
-import Network.AWS.XRay.Types.AnnotationValue
-import Network.AWS.XRay.Types.AnomalousService
-import Network.AWS.XRay.Types.AvailabilityZoneDetail
-import Network.AWS.XRay.Types.BackendConnectionErrors
-import Network.AWS.XRay.Types.Edge
-import Network.AWS.XRay.Types.EdgeStatistics
-import Network.AWS.XRay.Types.EncryptionConfig
-import Network.AWS.XRay.Types.EncryptionStatus
-import Network.AWS.XRay.Types.EncryptionType
-import Network.AWS.XRay.Types.ErrorRootCause
-import Network.AWS.XRay.Types.ErrorRootCauseEntity
-import Network.AWS.XRay.Types.ErrorRootCauseService
-import Network.AWS.XRay.Types.ErrorStatistics
-import Network.AWS.XRay.Types.FaultRootCause
-import Network.AWS.XRay.Types.FaultRootCauseEntity
-import Network.AWS.XRay.Types.FaultRootCauseService
-import Network.AWS.XRay.Types.FaultStatistics
-import Network.AWS.XRay.Types.ForecastStatistics
-import Network.AWS.XRay.Types.Group
-import Network.AWS.XRay.Types.GroupSummary
-import Network.AWS.XRay.Types.HistogramEntry
-import Network.AWS.XRay.Types.Http
-import Network.AWS.XRay.Types.Insight
-import Network.AWS.XRay.Types.InsightCategory
-import Network.AWS.XRay.Types.InsightEvent
-import Network.AWS.XRay.Types.InsightImpactGraphEdge
-import Network.AWS.XRay.Types.InsightImpactGraphService
-import Network.AWS.XRay.Types.InsightState
-import Network.AWS.XRay.Types.InsightSummary
-import Network.AWS.XRay.Types.InsightsConfiguration
-import Network.AWS.XRay.Types.InstanceIdDetail
-import Network.AWS.XRay.Types.RequestImpactStatistics
-import Network.AWS.XRay.Types.ResourceARNDetail
-import Network.AWS.XRay.Types.ResponseTimeRootCause
-import Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
-import Network.AWS.XRay.Types.ResponseTimeRootCauseService
-import Network.AWS.XRay.Types.RootCauseException
-import Network.AWS.XRay.Types.SamplingRule
-import Network.AWS.XRay.Types.SamplingRuleRecord
-import Network.AWS.XRay.Types.SamplingRuleUpdate
-import Network.AWS.XRay.Types.SamplingStatisticSummary
-import Network.AWS.XRay.Types.SamplingStatisticsDocument
-import Network.AWS.XRay.Types.SamplingStrategy
-import Network.AWS.XRay.Types.SamplingStrategyName
-import Network.AWS.XRay.Types.SamplingTargetDocument
-import Network.AWS.XRay.Types.Segment
-import Network.AWS.XRay.Types.ServiceId
-import Network.AWS.XRay.Types.ServiceInfo
-import Network.AWS.XRay.Types.ServiceStatistics
-import Network.AWS.XRay.Types.Tag
-import Network.AWS.XRay.Types.TelemetryRecord
-import Network.AWS.XRay.Types.TimeRangeType
-import Network.AWS.XRay.Types.TimeSeriesServiceStatistics
-import Network.AWS.XRay.Types.Trace
-import Network.AWS.XRay.Types.TraceSummary
-import Network.AWS.XRay.Types.TraceUser
-import Network.AWS.XRay.Types.UnprocessedStatistics
-import Network.AWS.XRay.Types.UnprocessedTraceSegment
-import Network.AWS.XRay.Types.ValueWithServiceIds
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.XRay.Types.Alias
+import Amazonka.XRay.Types.AnnotationValue
+import Amazonka.XRay.Types.AnomalousService
+import Amazonka.XRay.Types.AvailabilityZoneDetail
+import Amazonka.XRay.Types.BackendConnectionErrors
+import Amazonka.XRay.Types.Edge
+import Amazonka.XRay.Types.EdgeStatistics
+import Amazonka.XRay.Types.EncryptionConfig
+import Amazonka.XRay.Types.EncryptionStatus
+import Amazonka.XRay.Types.EncryptionType
+import Amazonka.XRay.Types.ErrorRootCause
+import Amazonka.XRay.Types.ErrorRootCauseEntity
+import Amazonka.XRay.Types.ErrorRootCauseService
+import Amazonka.XRay.Types.ErrorStatistics
+import Amazonka.XRay.Types.FaultRootCause
+import Amazonka.XRay.Types.FaultRootCauseEntity
+import Amazonka.XRay.Types.FaultRootCauseService
+import Amazonka.XRay.Types.FaultStatistics
+import Amazonka.XRay.Types.ForecastStatistics
+import Amazonka.XRay.Types.Group
+import Amazonka.XRay.Types.GroupSummary
+import Amazonka.XRay.Types.HistogramEntry
+import Amazonka.XRay.Types.Http
+import Amazonka.XRay.Types.Insight
+import Amazonka.XRay.Types.InsightCategory
+import Amazonka.XRay.Types.InsightEvent
+import Amazonka.XRay.Types.InsightImpactGraphEdge
+import Amazonka.XRay.Types.InsightImpactGraphService
+import Amazonka.XRay.Types.InsightState
+import Amazonka.XRay.Types.InsightSummary
+import Amazonka.XRay.Types.InsightsConfiguration
+import Amazonka.XRay.Types.InstanceIdDetail
+import Amazonka.XRay.Types.RequestImpactStatistics
+import Amazonka.XRay.Types.ResourceARNDetail
+import Amazonka.XRay.Types.ResponseTimeRootCause
+import Amazonka.XRay.Types.ResponseTimeRootCauseEntity
+import Amazonka.XRay.Types.ResponseTimeRootCauseService
+import Amazonka.XRay.Types.RootCauseException
+import Amazonka.XRay.Types.SamplingRule
+import Amazonka.XRay.Types.SamplingRuleRecord
+import Amazonka.XRay.Types.SamplingRuleUpdate
+import Amazonka.XRay.Types.SamplingStatisticSummary
+import Amazonka.XRay.Types.SamplingStatisticsDocument
+import Amazonka.XRay.Types.SamplingStrategy
+import Amazonka.XRay.Types.SamplingStrategyName
+import Amazonka.XRay.Types.SamplingTargetDocument
+import Amazonka.XRay.Types.Segment
+import Amazonka.XRay.Types.ServiceId
+import Amazonka.XRay.Types.ServiceInfo
+import Amazonka.XRay.Types.ServiceStatistics
+import Amazonka.XRay.Types.Tag
+import Amazonka.XRay.Types.TelemetryRecord
+import Amazonka.XRay.Types.TimeRangeType
+import Amazonka.XRay.Types.TimeSeriesServiceStatistics
+import Amazonka.XRay.Types.Trace
+import Amazonka.XRay.Types.TraceSummary
+import Amazonka.XRay.Types.TraceUser
+import Amazonka.XRay.Types.UnprocessedStatistics
+import Amazonka.XRay.Types.UnprocessedTraceSegment
+import Amazonka.XRay.Types.ValueWithServiceIds
 
 -- | API version @2016-04-12@ of the Amazon X-Ray SDK configuration.
 defaultService :: Core.Service

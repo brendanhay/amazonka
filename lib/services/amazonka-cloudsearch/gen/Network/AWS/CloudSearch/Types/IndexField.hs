@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Types.IndexField
+-- Module      : Amazonka.CloudSearch.Types.IndexField
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.IndexField where
+module Amazonka.CloudSearch.Types.IndexField where
 
-import Network.AWS.CloudSearch.Types.DateArrayOptions
-import Network.AWS.CloudSearch.Types.DateOptions
-import Network.AWS.CloudSearch.Types.DoubleArrayOptions
-import Network.AWS.CloudSearch.Types.DoubleOptions
-import Network.AWS.CloudSearch.Types.IndexFieldType
-import Network.AWS.CloudSearch.Types.IntArrayOptions
-import Network.AWS.CloudSearch.Types.IntOptions
-import Network.AWS.CloudSearch.Types.LatLonOptions
-import Network.AWS.CloudSearch.Types.LiteralArrayOptions
-import Network.AWS.CloudSearch.Types.LiteralOptions
-import Network.AWS.CloudSearch.Types.TextArrayOptions
-import Network.AWS.CloudSearch.Types.TextOptions
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudSearch.Types.DateArrayOptions
+import Amazonka.CloudSearch.Types.DateOptions
+import Amazonka.CloudSearch.Types.DoubleArrayOptions
+import Amazonka.CloudSearch.Types.DoubleOptions
+import Amazonka.CloudSearch.Types.IndexFieldType
+import Amazonka.CloudSearch.Types.IntArrayOptions
+import Amazonka.CloudSearch.Types.IntOptions
+import Amazonka.CloudSearch.Types.LatLonOptions
+import Amazonka.CloudSearch.Types.LiteralArrayOptions
+import Amazonka.CloudSearch.Types.LiteralOptions
+import Amazonka.CloudSearch.Types.TextArrayOptions
+import Amazonka.CloudSearch.Types.TextOptions
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the @IndexFieldType@.

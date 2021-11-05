@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Lens
+-- Module      : Amazonka.CloudSearch.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Lens
+module Amazonka.CloudSearch.Lens
   ( -- * Operations
 
     -- ** DescribeAvailabilityOptions
@@ -363,60 +363,60 @@ module Network.AWS.CloudSearch.Lens
   )
 where
 
-import Network.AWS.CloudSearch.BuildSuggesters
-import Network.AWS.CloudSearch.CreateDomain
-import Network.AWS.CloudSearch.DefineAnalysisScheme
-import Network.AWS.CloudSearch.DefineExpression
-import Network.AWS.CloudSearch.DefineIndexField
-import Network.AWS.CloudSearch.DefineSuggester
-import Network.AWS.CloudSearch.DeleteAnalysisScheme
-import Network.AWS.CloudSearch.DeleteDomain
-import Network.AWS.CloudSearch.DeleteExpression
-import Network.AWS.CloudSearch.DeleteIndexField
-import Network.AWS.CloudSearch.DeleteSuggester
-import Network.AWS.CloudSearch.DescribeAnalysisSchemes
-import Network.AWS.CloudSearch.DescribeAvailabilityOptions
-import Network.AWS.CloudSearch.DescribeDomainEndpointOptions
-import Network.AWS.CloudSearch.DescribeDomains
-import Network.AWS.CloudSearch.DescribeExpressions
-import Network.AWS.CloudSearch.DescribeIndexFields
-import Network.AWS.CloudSearch.DescribeScalingParameters
-import Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-import Network.AWS.CloudSearch.DescribeSuggesters
-import Network.AWS.CloudSearch.IndexDocuments
-import Network.AWS.CloudSearch.ListDomainNames
-import Network.AWS.CloudSearch.Types.AccessPoliciesStatus
-import Network.AWS.CloudSearch.Types.AnalysisOptions
-import Network.AWS.CloudSearch.Types.AnalysisScheme
-import Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
-import Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
-import Network.AWS.CloudSearch.Types.DateArrayOptions
-import Network.AWS.CloudSearch.Types.DateOptions
-import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
-import Network.AWS.CloudSearch.Types.DomainEndpointOptions
-import Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.CloudSearch.Types.DomainStatus
-import Network.AWS.CloudSearch.Types.DoubleArrayOptions
-import Network.AWS.CloudSearch.Types.DoubleOptions
-import Network.AWS.CloudSearch.Types.Expression
-import Network.AWS.CloudSearch.Types.ExpressionStatus
-import Network.AWS.CloudSearch.Types.IndexField
-import Network.AWS.CloudSearch.Types.IndexFieldStatus
-import Network.AWS.CloudSearch.Types.IntArrayOptions
-import Network.AWS.CloudSearch.Types.IntOptions
-import Network.AWS.CloudSearch.Types.LatLonOptions
-import Network.AWS.CloudSearch.Types.Limits
-import Network.AWS.CloudSearch.Types.LiteralArrayOptions
-import Network.AWS.CloudSearch.Types.LiteralOptions
-import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.CloudSearch.Types.ScalingParameters
-import Network.AWS.CloudSearch.Types.ScalingParametersStatus
-import Network.AWS.CloudSearch.Types.ServiceEndpoint
-import Network.AWS.CloudSearch.Types.Suggester
-import Network.AWS.CloudSearch.Types.SuggesterStatus
-import Network.AWS.CloudSearch.Types.TextArrayOptions
-import Network.AWS.CloudSearch.Types.TextOptions
-import Network.AWS.CloudSearch.UpdateAvailabilityOptions
-import Network.AWS.CloudSearch.UpdateDomainEndpointOptions
-import Network.AWS.CloudSearch.UpdateScalingParameters
-import Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+import Amazonka.CloudSearch.BuildSuggesters
+import Amazonka.CloudSearch.CreateDomain
+import Amazonka.CloudSearch.DefineAnalysisScheme
+import Amazonka.CloudSearch.DefineExpression
+import Amazonka.CloudSearch.DefineIndexField
+import Amazonka.CloudSearch.DefineSuggester
+import Amazonka.CloudSearch.DeleteAnalysisScheme
+import Amazonka.CloudSearch.DeleteDomain
+import Amazonka.CloudSearch.DeleteExpression
+import Amazonka.CloudSearch.DeleteIndexField
+import Amazonka.CloudSearch.DeleteSuggester
+import Amazonka.CloudSearch.DescribeAnalysisSchemes
+import Amazonka.CloudSearch.DescribeAvailabilityOptions
+import Amazonka.CloudSearch.DescribeDomainEndpointOptions
+import Amazonka.CloudSearch.DescribeDomains
+import Amazonka.CloudSearch.DescribeExpressions
+import Amazonka.CloudSearch.DescribeIndexFields
+import Amazonka.CloudSearch.DescribeScalingParameters
+import Amazonka.CloudSearch.DescribeServiceAccessPolicies
+import Amazonka.CloudSearch.DescribeSuggesters
+import Amazonka.CloudSearch.IndexDocuments
+import Amazonka.CloudSearch.ListDomainNames
+import Amazonka.CloudSearch.Types.AccessPoliciesStatus
+import Amazonka.CloudSearch.Types.AnalysisOptions
+import Amazonka.CloudSearch.Types.AnalysisScheme
+import Amazonka.CloudSearch.Types.AnalysisSchemeStatus
+import Amazonka.CloudSearch.Types.AvailabilityOptionsStatus
+import Amazonka.CloudSearch.Types.DateArrayOptions
+import Amazonka.CloudSearch.Types.DateOptions
+import Amazonka.CloudSearch.Types.DocumentSuggesterOptions
+import Amazonka.CloudSearch.Types.DomainEndpointOptions
+import Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.CloudSearch.Types.DomainStatus
+import Amazonka.CloudSearch.Types.DoubleArrayOptions
+import Amazonka.CloudSearch.Types.DoubleOptions
+import Amazonka.CloudSearch.Types.Expression
+import Amazonka.CloudSearch.Types.ExpressionStatus
+import Amazonka.CloudSearch.Types.IndexField
+import Amazonka.CloudSearch.Types.IndexFieldStatus
+import Amazonka.CloudSearch.Types.IntArrayOptions
+import Amazonka.CloudSearch.Types.IntOptions
+import Amazonka.CloudSearch.Types.LatLonOptions
+import Amazonka.CloudSearch.Types.Limits
+import Amazonka.CloudSearch.Types.LiteralArrayOptions
+import Amazonka.CloudSearch.Types.LiteralOptions
+import Amazonka.CloudSearch.Types.OptionStatus
+import Amazonka.CloudSearch.Types.ScalingParameters
+import Amazonka.CloudSearch.Types.ScalingParametersStatus
+import Amazonka.CloudSearch.Types.ServiceEndpoint
+import Amazonka.CloudSearch.Types.Suggester
+import Amazonka.CloudSearch.Types.SuggesterStatus
+import Amazonka.CloudSearch.Types.TextArrayOptions
+import Amazonka.CloudSearch.Types.TextOptions
+import Amazonka.CloudSearch.UpdateAvailabilityOptions
+import Amazonka.CloudSearch.UpdateDomainEndpointOptions
+import Amazonka.CloudSearch.UpdateScalingParameters
+import Amazonka.CloudSearch.UpdateServiceAccessPolicies

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.UpdateDomainEndpointOptions
+-- Module      : Amazonka.CloudSearch.UpdateDomainEndpointOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- requests to the domain must arrive over HTTPS. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html Configuring Domain Endpoint Options>
 -- in the /Amazon CloudSearch Developer Guide/.
-module Network.AWS.CloudSearch.UpdateDomainEndpointOptions
+module Amazonka.CloudSearch.UpdateDomainEndpointOptions
   ( -- * Creating a Request
     UpdateDomainEndpointOptions (..),
     newUpdateDomainEndpointOptions,
@@ -43,12 +43,12 @@ module Network.AWS.CloudSearch.UpdateDomainEndpointOptions
   )
 where
 
-import Network.AWS.CloudSearch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudSearch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @UpdateDomainEndpointOptions@
 -- operation. Specifies the name of the domain you want to update and the

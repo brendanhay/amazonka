@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Types.SuggesterStatus
+-- Module      : Amazonka.CloudSearch.Types.SuggesterStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.SuggesterStatus where
+module Amazonka.CloudSearch.Types.SuggesterStatus where
 
-import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.CloudSearch.Types.Suggester
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudSearch.Types.OptionStatus
+import Amazonka.CloudSearch.Types.Suggester
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a @Suggester@ and its current status.
 --

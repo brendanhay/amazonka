@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Types.AnalysisOptions
+-- Module      : Amazonka.CloudSearch.Types.AnalysisOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.AnalysisOptions where
+module Amazonka.CloudSearch.Types.AnalysisOptions where
 
-import Network.AWS.CloudSearch.Types.AlgorithmicStemming
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudSearch.Types.AlgorithmicStemming
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 -- Includes tokenization dictionary for Japanese.

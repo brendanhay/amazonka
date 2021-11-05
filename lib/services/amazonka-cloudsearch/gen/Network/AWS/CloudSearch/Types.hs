@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Types
+-- Module      : Amazonka.CloudSearch.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types
+module Amazonka.CloudSearch.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -304,48 +304,48 @@ module Network.AWS.CloudSearch.Types
   )
 where
 
-import Network.AWS.CloudSearch.Types.AccessPoliciesStatus
-import Network.AWS.CloudSearch.Types.AlgorithmicStemming
-import Network.AWS.CloudSearch.Types.AnalysisOptions
-import Network.AWS.CloudSearch.Types.AnalysisScheme
-import Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
-import Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
-import Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
-import Network.AWS.CloudSearch.Types.DateArrayOptions
-import Network.AWS.CloudSearch.Types.DateOptions
-import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
-import Network.AWS.CloudSearch.Types.DomainEndpointOptions
-import Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.CloudSearch.Types.DomainStatus
-import Network.AWS.CloudSearch.Types.DoubleArrayOptions
-import Network.AWS.CloudSearch.Types.DoubleOptions
-import Network.AWS.CloudSearch.Types.Expression
-import Network.AWS.CloudSearch.Types.ExpressionStatus
-import Network.AWS.CloudSearch.Types.IndexField
-import Network.AWS.CloudSearch.Types.IndexFieldStatus
-import Network.AWS.CloudSearch.Types.IndexFieldType
-import Network.AWS.CloudSearch.Types.IntArrayOptions
-import Network.AWS.CloudSearch.Types.IntOptions
-import Network.AWS.CloudSearch.Types.LatLonOptions
-import Network.AWS.CloudSearch.Types.Limits
-import Network.AWS.CloudSearch.Types.LiteralArrayOptions
-import Network.AWS.CloudSearch.Types.LiteralOptions
-import Network.AWS.CloudSearch.Types.OptionState
-import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.CloudSearch.Types.PartitionInstanceType
-import Network.AWS.CloudSearch.Types.ScalingParameters
-import Network.AWS.CloudSearch.Types.ScalingParametersStatus
-import Network.AWS.CloudSearch.Types.ServiceEndpoint
-import Network.AWS.CloudSearch.Types.Suggester
-import Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
-import Network.AWS.CloudSearch.Types.SuggesterStatus
-import Network.AWS.CloudSearch.Types.TLSSecurityPolicy
-import Network.AWS.CloudSearch.Types.TextArrayOptions
-import Network.AWS.CloudSearch.Types.TextOptions
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudSearch.Types.AccessPoliciesStatus
+import Amazonka.CloudSearch.Types.AlgorithmicStemming
+import Amazonka.CloudSearch.Types.AnalysisOptions
+import Amazonka.CloudSearch.Types.AnalysisScheme
+import Amazonka.CloudSearch.Types.AnalysisSchemeLanguage
+import Amazonka.CloudSearch.Types.AnalysisSchemeStatus
+import Amazonka.CloudSearch.Types.AvailabilityOptionsStatus
+import Amazonka.CloudSearch.Types.DateArrayOptions
+import Amazonka.CloudSearch.Types.DateOptions
+import Amazonka.CloudSearch.Types.DocumentSuggesterOptions
+import Amazonka.CloudSearch.Types.DomainEndpointOptions
+import Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.CloudSearch.Types.DomainStatus
+import Amazonka.CloudSearch.Types.DoubleArrayOptions
+import Amazonka.CloudSearch.Types.DoubleOptions
+import Amazonka.CloudSearch.Types.Expression
+import Amazonka.CloudSearch.Types.ExpressionStatus
+import Amazonka.CloudSearch.Types.IndexField
+import Amazonka.CloudSearch.Types.IndexFieldStatus
+import Amazonka.CloudSearch.Types.IndexFieldType
+import Amazonka.CloudSearch.Types.IntArrayOptions
+import Amazonka.CloudSearch.Types.IntOptions
+import Amazonka.CloudSearch.Types.LatLonOptions
+import Amazonka.CloudSearch.Types.Limits
+import Amazonka.CloudSearch.Types.LiteralArrayOptions
+import Amazonka.CloudSearch.Types.LiteralOptions
+import Amazonka.CloudSearch.Types.OptionState
+import Amazonka.CloudSearch.Types.OptionStatus
+import Amazonka.CloudSearch.Types.PartitionInstanceType
+import Amazonka.CloudSearch.Types.ScalingParameters
+import Amazonka.CloudSearch.Types.ScalingParametersStatus
+import Amazonka.CloudSearch.Types.ServiceEndpoint
+import Amazonka.CloudSearch.Types.Suggester
+import Amazonka.CloudSearch.Types.SuggesterFuzzyMatching
+import Amazonka.CloudSearch.Types.SuggesterStatus
+import Amazonka.CloudSearch.Types.TLSSecurityPolicy
+import Amazonka.CloudSearch.Types.TextArrayOptions
+import Amazonka.CloudSearch.Types.TextOptions
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch SDK configuration.
 defaultService :: Core.Service

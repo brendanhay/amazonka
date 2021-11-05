@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudSearch
+-- Module      : Amazonka.CloudSearch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- cloudsearch.us-east-1.amazonaws.com. For a current list of supported
 -- regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
-module Network.AWS.CloudSearch
+module Amazonka.CloudSearch
   ( -- * Service Configuration
     defaultService,
 
@@ -366,35 +366,35 @@ module Network.AWS.CloudSearch
   )
 where
 
-import Network.AWS.CloudSearch.BuildSuggesters
-import Network.AWS.CloudSearch.CreateDomain
-import Network.AWS.CloudSearch.DefineAnalysisScheme
-import Network.AWS.CloudSearch.DefineExpression
-import Network.AWS.CloudSearch.DefineIndexField
-import Network.AWS.CloudSearch.DefineSuggester
-import Network.AWS.CloudSearch.DeleteAnalysisScheme
-import Network.AWS.CloudSearch.DeleteDomain
-import Network.AWS.CloudSearch.DeleteExpression
-import Network.AWS.CloudSearch.DeleteIndexField
-import Network.AWS.CloudSearch.DeleteSuggester
-import Network.AWS.CloudSearch.DescribeAnalysisSchemes
-import Network.AWS.CloudSearch.DescribeAvailabilityOptions
-import Network.AWS.CloudSearch.DescribeDomainEndpointOptions
-import Network.AWS.CloudSearch.DescribeDomains
-import Network.AWS.CloudSearch.DescribeExpressions
-import Network.AWS.CloudSearch.DescribeIndexFields
-import Network.AWS.CloudSearch.DescribeScalingParameters
-import Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-import Network.AWS.CloudSearch.DescribeSuggesters
-import Network.AWS.CloudSearch.IndexDocuments
-import Network.AWS.CloudSearch.Lens
-import Network.AWS.CloudSearch.ListDomainNames
-import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.UpdateAvailabilityOptions
-import Network.AWS.CloudSearch.UpdateDomainEndpointOptions
-import Network.AWS.CloudSearch.UpdateScalingParameters
-import Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-import Network.AWS.CloudSearch.Waiters
+import Amazonka.CloudSearch.BuildSuggesters
+import Amazonka.CloudSearch.CreateDomain
+import Amazonka.CloudSearch.DefineAnalysisScheme
+import Amazonka.CloudSearch.DefineExpression
+import Amazonka.CloudSearch.DefineIndexField
+import Amazonka.CloudSearch.DefineSuggester
+import Amazonka.CloudSearch.DeleteAnalysisScheme
+import Amazonka.CloudSearch.DeleteDomain
+import Amazonka.CloudSearch.DeleteExpression
+import Amazonka.CloudSearch.DeleteIndexField
+import Amazonka.CloudSearch.DeleteSuggester
+import Amazonka.CloudSearch.DescribeAnalysisSchemes
+import Amazonka.CloudSearch.DescribeAvailabilityOptions
+import Amazonka.CloudSearch.DescribeDomainEndpointOptions
+import Amazonka.CloudSearch.DescribeDomains
+import Amazonka.CloudSearch.DescribeExpressions
+import Amazonka.CloudSearch.DescribeIndexFields
+import Amazonka.CloudSearch.DescribeScalingParameters
+import Amazonka.CloudSearch.DescribeServiceAccessPolicies
+import Amazonka.CloudSearch.DescribeSuggesters
+import Amazonka.CloudSearch.IndexDocuments
+import Amazonka.CloudSearch.Lens
+import Amazonka.CloudSearch.ListDomainNames
+import Amazonka.CloudSearch.Types
+import Amazonka.CloudSearch.UpdateAvailabilityOptions
+import Amazonka.CloudSearch.UpdateDomainEndpointOptions
+import Amazonka.CloudSearch.UpdateScalingParameters
+import Amazonka.CloudSearch.UpdateServiceAccessPolicies
+import Amazonka.CloudSearch.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

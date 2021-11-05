@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+-- Module      : Amazonka.CloudSearch.UpdateServiceAccessPolicies
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Configures the access rules that control access to the domain\'s
 -- document and search endpoints. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
-module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+module Amazonka.CloudSearch.UpdateServiceAccessPolicies
   ( -- * Creating a Request
     UpdateServiceAccessPolicies (..),
     newUpdateServiceAccessPolicies,
@@ -42,12 +42,12 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
   )
 where
 
-import Network.AWS.CloudSearch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudSearch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @UpdateServiceAccessPolicies@
 -- operation. Specifies the name of the domain you want to update and the

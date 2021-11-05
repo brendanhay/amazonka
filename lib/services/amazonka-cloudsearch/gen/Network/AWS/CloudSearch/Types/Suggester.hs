@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearch.Types.Suggester
+-- Module      : Amazonka.CloudSearch.Types.Suggester
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.Suggester where
+module Amazonka.CloudSearch.Types.Suggester where
 
-import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudSearch.Types.DocumentSuggesterOptions
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for

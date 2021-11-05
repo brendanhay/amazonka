@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
+-- Module      : Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
+module Amazonka.WellArchitected.Types.WorkloadImprovementStatus
   ( WorkloadImprovementStatus
       ( ..,
         WorkloadImprovementStatus_COMPLETE,
@@ -29,8 +29,8 @@ module Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The improvement status for a workload.
 newtype WorkloadImprovementStatus = WorkloadImprovementStatus'

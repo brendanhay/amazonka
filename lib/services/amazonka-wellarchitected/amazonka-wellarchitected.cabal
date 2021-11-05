@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.WellArchitected.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.WellArchitected.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.WellArchitected" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.WellArchitected" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,80 +45,80 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.WellArchitected
-    Network.AWS.WellArchitected.AssociateLenses
-    Network.AWS.WellArchitected.CreateMilestone
-    Network.AWS.WellArchitected.CreateWorkload
-    Network.AWS.WellArchitected.CreateWorkloadShare
-    Network.AWS.WellArchitected.DeleteWorkload
-    Network.AWS.WellArchitected.DeleteWorkloadShare
-    Network.AWS.WellArchitected.DisassociateLenses
-    Network.AWS.WellArchitected.GetAnswer
-    Network.AWS.WellArchitected.GetLensReview
-    Network.AWS.WellArchitected.GetLensReviewReport
-    Network.AWS.WellArchitected.GetLensVersionDifference
-    Network.AWS.WellArchitected.GetMilestone
-    Network.AWS.WellArchitected.GetWorkload
-    Network.AWS.WellArchitected.Lens
-    Network.AWS.WellArchitected.ListAnswers
-    Network.AWS.WellArchitected.ListLenses
-    Network.AWS.WellArchitected.ListLensReviewImprovements
-    Network.AWS.WellArchitected.ListLensReviews
-    Network.AWS.WellArchitected.ListMilestones
-    Network.AWS.WellArchitected.ListNotifications
-    Network.AWS.WellArchitected.ListShareInvitations
-    Network.AWS.WellArchitected.ListTagsForResource
-    Network.AWS.WellArchitected.ListWorkloads
-    Network.AWS.WellArchitected.ListWorkloadShares
-    Network.AWS.WellArchitected.TagResource
-    Network.AWS.WellArchitected.Types
-    Network.AWS.WellArchitected.Types.Answer
-    Network.AWS.WellArchitected.Types.AnswerReason
-    Network.AWS.WellArchitected.Types.AnswerSummary
-    Network.AWS.WellArchitected.Types.Choice
-    Network.AWS.WellArchitected.Types.ChoiceAnswer
-    Network.AWS.WellArchitected.Types.ChoiceAnswerSummary
-    Network.AWS.WellArchitected.Types.ChoiceReason
-    Network.AWS.WellArchitected.Types.ChoiceStatus
-    Network.AWS.WellArchitected.Types.ChoiceUpdate
-    Network.AWS.WellArchitected.Types.DifferenceStatus
-    Network.AWS.WellArchitected.Types.ImprovementSummary
-    Network.AWS.WellArchitected.Types.LensReview
-    Network.AWS.WellArchitected.Types.LensReviewReport
-    Network.AWS.WellArchitected.Types.LensReviewSummary
-    Network.AWS.WellArchitected.Types.LensStatus
-    Network.AWS.WellArchitected.Types.LensSummary
-    Network.AWS.WellArchitected.Types.LensUpgradeSummary
-    Network.AWS.WellArchitected.Types.Milestone
-    Network.AWS.WellArchitected.Types.MilestoneSummary
-    Network.AWS.WellArchitected.Types.NotificationSummary
-    Network.AWS.WellArchitected.Types.NotificationType
-    Network.AWS.WellArchitected.Types.PermissionType
-    Network.AWS.WellArchitected.Types.PillarDifference
-    Network.AWS.WellArchitected.Types.PillarReviewSummary
-    Network.AWS.WellArchitected.Types.QuestionDifference
-    Network.AWS.WellArchitected.Types.Risk
-    Network.AWS.WellArchitected.Types.ShareInvitation
-    Network.AWS.WellArchitected.Types.ShareInvitationAction
-    Network.AWS.WellArchitected.Types.ShareInvitationSummary
-    Network.AWS.WellArchitected.Types.ShareStatus
-    Network.AWS.WellArchitected.Types.VersionDifferences
-    Network.AWS.WellArchitected.Types.Workload
-    Network.AWS.WellArchitected.Types.WorkloadEnvironment
-    Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
-    Network.AWS.WellArchitected.Types.WorkloadShare
-    Network.AWS.WellArchitected.Types.WorkloadShareSummary
-    Network.AWS.WellArchitected.Types.WorkloadSummary
-    Network.AWS.WellArchitected.UntagResource
-    Network.AWS.WellArchitected.UpdateAnswer
-    Network.AWS.WellArchitected.UpdateLensReview
-    Network.AWS.WellArchitected.UpdateShareInvitation
-    Network.AWS.WellArchitected.UpdateWorkload
-    Network.AWS.WellArchitected.UpdateWorkloadShare
-    Network.AWS.WellArchitected.UpgradeLensReview
-    Network.AWS.WellArchitected.Waiters
+    Amazonka.WellArchitected
+    Amazonka.WellArchitected.AssociateLenses
+    Amazonka.WellArchitected.CreateMilestone
+    Amazonka.WellArchitected.CreateWorkload
+    Amazonka.WellArchitected.CreateWorkloadShare
+    Amazonka.WellArchitected.DeleteWorkload
+    Amazonka.WellArchitected.DeleteWorkloadShare
+    Amazonka.WellArchitected.DisassociateLenses
+    Amazonka.WellArchitected.GetAnswer
+    Amazonka.WellArchitected.GetLensReview
+    Amazonka.WellArchitected.GetLensReviewReport
+    Amazonka.WellArchitected.GetLensVersionDifference
+    Amazonka.WellArchitected.GetMilestone
+    Amazonka.WellArchitected.GetWorkload
+    Amazonka.WellArchitected.Lens
+    Amazonka.WellArchitected.ListAnswers
+    Amazonka.WellArchitected.ListLenses
+    Amazonka.WellArchitected.ListLensReviewImprovements
+    Amazonka.WellArchitected.ListLensReviews
+    Amazonka.WellArchitected.ListMilestones
+    Amazonka.WellArchitected.ListNotifications
+    Amazonka.WellArchitected.ListShareInvitations
+    Amazonka.WellArchitected.ListTagsForResource
+    Amazonka.WellArchitected.ListWorkloads
+    Amazonka.WellArchitected.ListWorkloadShares
+    Amazonka.WellArchitected.TagResource
+    Amazonka.WellArchitected.Types
+    Amazonka.WellArchitected.Types.Answer
+    Amazonka.WellArchitected.Types.AnswerReason
+    Amazonka.WellArchitected.Types.AnswerSummary
+    Amazonka.WellArchitected.Types.Choice
+    Amazonka.WellArchitected.Types.ChoiceAnswer
+    Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+    Amazonka.WellArchitected.Types.ChoiceReason
+    Amazonka.WellArchitected.Types.ChoiceStatus
+    Amazonka.WellArchitected.Types.ChoiceUpdate
+    Amazonka.WellArchitected.Types.DifferenceStatus
+    Amazonka.WellArchitected.Types.ImprovementSummary
+    Amazonka.WellArchitected.Types.LensReview
+    Amazonka.WellArchitected.Types.LensReviewReport
+    Amazonka.WellArchitected.Types.LensReviewSummary
+    Amazonka.WellArchitected.Types.LensStatus
+    Amazonka.WellArchitected.Types.LensSummary
+    Amazonka.WellArchitected.Types.LensUpgradeSummary
+    Amazonka.WellArchitected.Types.Milestone
+    Amazonka.WellArchitected.Types.MilestoneSummary
+    Amazonka.WellArchitected.Types.NotificationSummary
+    Amazonka.WellArchitected.Types.NotificationType
+    Amazonka.WellArchitected.Types.PermissionType
+    Amazonka.WellArchitected.Types.PillarDifference
+    Amazonka.WellArchitected.Types.PillarReviewSummary
+    Amazonka.WellArchitected.Types.QuestionDifference
+    Amazonka.WellArchitected.Types.Risk
+    Amazonka.WellArchitected.Types.ShareInvitation
+    Amazonka.WellArchitected.Types.ShareInvitationAction
+    Amazonka.WellArchitected.Types.ShareInvitationSummary
+    Amazonka.WellArchitected.Types.ShareStatus
+    Amazonka.WellArchitected.Types.VersionDifferences
+    Amazonka.WellArchitected.Types.Workload
+    Amazonka.WellArchitected.Types.WorkloadEnvironment
+    Amazonka.WellArchitected.Types.WorkloadImprovementStatus
+    Amazonka.WellArchitected.Types.WorkloadShare
+    Amazonka.WellArchitected.Types.WorkloadShareSummary
+    Amazonka.WellArchitected.Types.WorkloadSummary
+    Amazonka.WellArchitected.UntagResource
+    Amazonka.WellArchitected.UpdateAnswer
+    Amazonka.WellArchitected.UpdateLensReview
+    Amazonka.WellArchitected.UpdateShareInvitation
+    Amazonka.WellArchitected.UpdateWorkload
+    Amazonka.WellArchitected.UpdateWorkloadShare
+    Amazonka.WellArchitected.UpgradeLensReview
+    Amazonka.WellArchitected.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

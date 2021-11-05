@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WellArchitected.Types.AnswerSummary
+-- Module      : Amazonka.WellArchitected.Types.AnswerSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WellArchitected.Types.AnswerSummary where
+module Amazonka.WellArchitected.Types.AnswerSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WellArchitected.Types.AnswerReason
-import Network.AWS.WellArchitected.Types.Choice
-import Network.AWS.WellArchitected.Types.ChoiceAnswerSummary
-import Network.AWS.WellArchitected.Types.Risk
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WellArchitected.Types.AnswerReason
+import Amazonka.WellArchitected.Types.Choice
+import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+import Amazonka.WellArchitected.Types.Risk
 
 -- | An answer summary of a lens review in a workload.
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WellArchitected.Lens
+-- Module      : Amazonka.WellArchitected.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WellArchitected.Lens
+module Amazonka.WellArchitected.Lens
   ( -- * Operations
 
     -- ** ListNotifications
@@ -475,59 +475,59 @@ module Network.AWS.WellArchitected.Lens
   )
 where
 
-import Network.AWS.WellArchitected.AssociateLenses
-import Network.AWS.WellArchitected.CreateMilestone
-import Network.AWS.WellArchitected.CreateWorkload
-import Network.AWS.WellArchitected.CreateWorkloadShare
-import Network.AWS.WellArchitected.DeleteWorkload
-import Network.AWS.WellArchitected.DeleteWorkloadShare
-import Network.AWS.WellArchitected.DisassociateLenses
-import Network.AWS.WellArchitected.GetAnswer
-import Network.AWS.WellArchitected.GetLensReview
-import Network.AWS.WellArchitected.GetLensReviewReport
-import Network.AWS.WellArchitected.GetLensVersionDifference
-import Network.AWS.WellArchitected.GetMilestone
-import Network.AWS.WellArchitected.GetWorkload
-import Network.AWS.WellArchitected.ListAnswers
-import Network.AWS.WellArchitected.ListLensReviewImprovements
-import Network.AWS.WellArchitected.ListLensReviews
-import Network.AWS.WellArchitected.ListLenses
-import Network.AWS.WellArchitected.ListMilestones
-import Network.AWS.WellArchitected.ListNotifications
-import Network.AWS.WellArchitected.ListShareInvitations
-import Network.AWS.WellArchitected.ListTagsForResource
-import Network.AWS.WellArchitected.ListWorkloadShares
-import Network.AWS.WellArchitected.ListWorkloads
-import Network.AWS.WellArchitected.TagResource
-import Network.AWS.WellArchitected.Types.Answer
-import Network.AWS.WellArchitected.Types.AnswerSummary
-import Network.AWS.WellArchitected.Types.Choice
-import Network.AWS.WellArchitected.Types.ChoiceAnswer
-import Network.AWS.WellArchitected.Types.ChoiceAnswerSummary
-import Network.AWS.WellArchitected.Types.ChoiceUpdate
-import Network.AWS.WellArchitected.Types.ImprovementSummary
-import Network.AWS.WellArchitected.Types.LensReview
-import Network.AWS.WellArchitected.Types.LensReviewReport
-import Network.AWS.WellArchitected.Types.LensReviewSummary
-import Network.AWS.WellArchitected.Types.LensSummary
-import Network.AWS.WellArchitected.Types.LensUpgradeSummary
-import Network.AWS.WellArchitected.Types.Milestone
-import Network.AWS.WellArchitected.Types.MilestoneSummary
-import Network.AWS.WellArchitected.Types.NotificationSummary
-import Network.AWS.WellArchitected.Types.PillarDifference
-import Network.AWS.WellArchitected.Types.PillarReviewSummary
-import Network.AWS.WellArchitected.Types.QuestionDifference
-import Network.AWS.WellArchitected.Types.ShareInvitation
-import Network.AWS.WellArchitected.Types.ShareInvitationSummary
-import Network.AWS.WellArchitected.Types.VersionDifferences
-import Network.AWS.WellArchitected.Types.Workload
-import Network.AWS.WellArchitected.Types.WorkloadShare
-import Network.AWS.WellArchitected.Types.WorkloadShareSummary
-import Network.AWS.WellArchitected.Types.WorkloadSummary
-import Network.AWS.WellArchitected.UntagResource
-import Network.AWS.WellArchitected.UpdateAnswer
-import Network.AWS.WellArchitected.UpdateLensReview
-import Network.AWS.WellArchitected.UpdateShareInvitation
-import Network.AWS.WellArchitected.UpdateWorkload
-import Network.AWS.WellArchitected.UpdateWorkloadShare
-import Network.AWS.WellArchitected.UpgradeLensReview
+import Amazonka.WellArchitected.AssociateLenses
+import Amazonka.WellArchitected.CreateMilestone
+import Amazonka.WellArchitected.CreateWorkload
+import Amazonka.WellArchitected.CreateWorkloadShare
+import Amazonka.WellArchitected.DeleteWorkload
+import Amazonka.WellArchitected.DeleteWorkloadShare
+import Amazonka.WellArchitected.DisassociateLenses
+import Amazonka.WellArchitected.GetAnswer
+import Amazonka.WellArchitected.GetLensReview
+import Amazonka.WellArchitected.GetLensReviewReport
+import Amazonka.WellArchitected.GetLensVersionDifference
+import Amazonka.WellArchitected.GetMilestone
+import Amazonka.WellArchitected.GetWorkload
+import Amazonka.WellArchitected.ListAnswers
+import Amazonka.WellArchitected.ListLensReviewImprovements
+import Amazonka.WellArchitected.ListLensReviews
+import Amazonka.WellArchitected.ListLenses
+import Amazonka.WellArchitected.ListMilestones
+import Amazonka.WellArchitected.ListNotifications
+import Amazonka.WellArchitected.ListShareInvitations
+import Amazonka.WellArchitected.ListTagsForResource
+import Amazonka.WellArchitected.ListWorkloadShares
+import Amazonka.WellArchitected.ListWorkloads
+import Amazonka.WellArchitected.TagResource
+import Amazonka.WellArchitected.Types.Answer
+import Amazonka.WellArchitected.Types.AnswerSummary
+import Amazonka.WellArchitected.Types.Choice
+import Amazonka.WellArchitected.Types.ChoiceAnswer
+import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+import Amazonka.WellArchitected.Types.ChoiceUpdate
+import Amazonka.WellArchitected.Types.ImprovementSummary
+import Amazonka.WellArchitected.Types.LensReview
+import Amazonka.WellArchitected.Types.LensReviewReport
+import Amazonka.WellArchitected.Types.LensReviewSummary
+import Amazonka.WellArchitected.Types.LensSummary
+import Amazonka.WellArchitected.Types.LensUpgradeSummary
+import Amazonka.WellArchitected.Types.Milestone
+import Amazonka.WellArchitected.Types.MilestoneSummary
+import Amazonka.WellArchitected.Types.NotificationSummary
+import Amazonka.WellArchitected.Types.PillarDifference
+import Amazonka.WellArchitected.Types.PillarReviewSummary
+import Amazonka.WellArchitected.Types.QuestionDifference
+import Amazonka.WellArchitected.Types.ShareInvitation
+import Amazonka.WellArchitected.Types.ShareInvitationSummary
+import Amazonka.WellArchitected.Types.VersionDifferences
+import Amazonka.WellArchitected.Types.Workload
+import Amazonka.WellArchitected.Types.WorkloadShare
+import Amazonka.WellArchitected.Types.WorkloadShareSummary
+import Amazonka.WellArchitected.Types.WorkloadSummary
+import Amazonka.WellArchitected.UntagResource
+import Amazonka.WellArchitected.UpdateAnswer
+import Amazonka.WellArchitected.UpdateLensReview
+import Amazonka.WellArchitected.UpdateShareInvitation
+import Amazonka.WellArchitected.UpdateWorkload
+import Amazonka.WellArchitected.UpdateWorkloadShare
+import Amazonka.WellArchitected.UpgradeLensReview

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WellArchitected.Types
+-- Module      : Amazonka.WellArchitected.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WellArchitected.Types
+module Amazonka.WellArchitected.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -300,47 +300,47 @@ module Network.AWS.WellArchitected.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WellArchitected.Types.Answer
-import Network.AWS.WellArchitected.Types.AnswerReason
-import Network.AWS.WellArchitected.Types.AnswerSummary
-import Network.AWS.WellArchitected.Types.Choice
-import Network.AWS.WellArchitected.Types.ChoiceAnswer
-import Network.AWS.WellArchitected.Types.ChoiceAnswerSummary
-import Network.AWS.WellArchitected.Types.ChoiceReason
-import Network.AWS.WellArchitected.Types.ChoiceStatus
-import Network.AWS.WellArchitected.Types.ChoiceUpdate
-import Network.AWS.WellArchitected.Types.DifferenceStatus
-import Network.AWS.WellArchitected.Types.ImprovementSummary
-import Network.AWS.WellArchitected.Types.LensReview
-import Network.AWS.WellArchitected.Types.LensReviewReport
-import Network.AWS.WellArchitected.Types.LensReviewSummary
-import Network.AWS.WellArchitected.Types.LensStatus
-import Network.AWS.WellArchitected.Types.LensSummary
-import Network.AWS.WellArchitected.Types.LensUpgradeSummary
-import Network.AWS.WellArchitected.Types.Milestone
-import Network.AWS.WellArchitected.Types.MilestoneSummary
-import Network.AWS.WellArchitected.Types.NotificationSummary
-import Network.AWS.WellArchitected.Types.NotificationType
-import Network.AWS.WellArchitected.Types.PermissionType
-import Network.AWS.WellArchitected.Types.PillarDifference
-import Network.AWS.WellArchitected.Types.PillarReviewSummary
-import Network.AWS.WellArchitected.Types.QuestionDifference
-import Network.AWS.WellArchitected.Types.Risk
-import Network.AWS.WellArchitected.Types.ShareInvitation
-import Network.AWS.WellArchitected.Types.ShareInvitationAction
-import Network.AWS.WellArchitected.Types.ShareInvitationSummary
-import Network.AWS.WellArchitected.Types.ShareStatus
-import Network.AWS.WellArchitected.Types.VersionDifferences
-import Network.AWS.WellArchitected.Types.Workload
-import Network.AWS.WellArchitected.Types.WorkloadEnvironment
-import Network.AWS.WellArchitected.Types.WorkloadImprovementStatus
-import Network.AWS.WellArchitected.Types.WorkloadShare
-import Network.AWS.WellArchitected.Types.WorkloadShareSummary
-import Network.AWS.WellArchitected.Types.WorkloadSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WellArchitected.Types.Answer
+import Amazonka.WellArchitected.Types.AnswerReason
+import Amazonka.WellArchitected.Types.AnswerSummary
+import Amazonka.WellArchitected.Types.Choice
+import Amazonka.WellArchitected.Types.ChoiceAnswer
+import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+import Amazonka.WellArchitected.Types.ChoiceReason
+import Amazonka.WellArchitected.Types.ChoiceStatus
+import Amazonka.WellArchitected.Types.ChoiceUpdate
+import Amazonka.WellArchitected.Types.DifferenceStatus
+import Amazonka.WellArchitected.Types.ImprovementSummary
+import Amazonka.WellArchitected.Types.LensReview
+import Amazonka.WellArchitected.Types.LensReviewReport
+import Amazonka.WellArchitected.Types.LensReviewSummary
+import Amazonka.WellArchitected.Types.LensStatus
+import Amazonka.WellArchitected.Types.LensSummary
+import Amazonka.WellArchitected.Types.LensUpgradeSummary
+import Amazonka.WellArchitected.Types.Milestone
+import Amazonka.WellArchitected.Types.MilestoneSummary
+import Amazonka.WellArchitected.Types.NotificationSummary
+import Amazonka.WellArchitected.Types.NotificationType
+import Amazonka.WellArchitected.Types.PermissionType
+import Amazonka.WellArchitected.Types.PillarDifference
+import Amazonka.WellArchitected.Types.PillarReviewSummary
+import Amazonka.WellArchitected.Types.QuestionDifference
+import Amazonka.WellArchitected.Types.Risk
+import Amazonka.WellArchitected.Types.ShareInvitation
+import Amazonka.WellArchitected.Types.ShareInvitationAction
+import Amazonka.WellArchitected.Types.ShareInvitationSummary
+import Amazonka.WellArchitected.Types.ShareStatus
+import Amazonka.WellArchitected.Types.VersionDifferences
+import Amazonka.WellArchitected.Types.Workload
+import Amazonka.WellArchitected.Types.WorkloadEnvironment
+import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
+import Amazonka.WellArchitected.Types.WorkloadShare
+import Amazonka.WellArchitected.Types.WorkloadShareSummary
+import Amazonka.WellArchitected.Types.WorkloadSummary
 
 -- | API version @2020-03-31@ of the Amazon Well-Architected Tool SDK configuration.
 defaultService :: Core.Service

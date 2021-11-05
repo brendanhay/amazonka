@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WellArchitected
+-- Module      : Amazonka.WellArchitected
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- <https://console.aws.amazon.com/wellarchitected AWS Management Console>.
 -- For information about the AWS Well-Architected Tool, see the
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html AWS Well-Architected Tool User Guide>.
-module Network.AWS.WellArchitected
+module Amazonka.WellArchitected
   ( -- * Service Configuration
     defaultService,
 
@@ -380,40 +380,40 @@ module Network.AWS.WellArchitected
   )
 where
 
-import Network.AWS.WellArchitected.AssociateLenses
-import Network.AWS.WellArchitected.CreateMilestone
-import Network.AWS.WellArchitected.CreateWorkload
-import Network.AWS.WellArchitected.CreateWorkloadShare
-import Network.AWS.WellArchitected.DeleteWorkload
-import Network.AWS.WellArchitected.DeleteWorkloadShare
-import Network.AWS.WellArchitected.DisassociateLenses
-import Network.AWS.WellArchitected.GetAnswer
-import Network.AWS.WellArchitected.GetLensReview
-import Network.AWS.WellArchitected.GetLensReviewReport
-import Network.AWS.WellArchitected.GetLensVersionDifference
-import Network.AWS.WellArchitected.GetMilestone
-import Network.AWS.WellArchitected.GetWorkload
-import Network.AWS.WellArchitected.Lens
-import Network.AWS.WellArchitected.ListAnswers
-import Network.AWS.WellArchitected.ListLensReviewImprovements
-import Network.AWS.WellArchitected.ListLensReviews
-import Network.AWS.WellArchitected.ListLenses
-import Network.AWS.WellArchitected.ListMilestones
-import Network.AWS.WellArchitected.ListNotifications
-import Network.AWS.WellArchitected.ListShareInvitations
-import Network.AWS.WellArchitected.ListTagsForResource
-import Network.AWS.WellArchitected.ListWorkloadShares
-import Network.AWS.WellArchitected.ListWorkloads
-import Network.AWS.WellArchitected.TagResource
-import Network.AWS.WellArchitected.Types
-import Network.AWS.WellArchitected.UntagResource
-import Network.AWS.WellArchitected.UpdateAnswer
-import Network.AWS.WellArchitected.UpdateLensReview
-import Network.AWS.WellArchitected.UpdateShareInvitation
-import Network.AWS.WellArchitected.UpdateWorkload
-import Network.AWS.WellArchitected.UpdateWorkloadShare
-import Network.AWS.WellArchitected.UpgradeLensReview
-import Network.AWS.WellArchitected.Waiters
+import Amazonka.WellArchitected.AssociateLenses
+import Amazonka.WellArchitected.CreateMilestone
+import Amazonka.WellArchitected.CreateWorkload
+import Amazonka.WellArchitected.CreateWorkloadShare
+import Amazonka.WellArchitected.DeleteWorkload
+import Amazonka.WellArchitected.DeleteWorkloadShare
+import Amazonka.WellArchitected.DisassociateLenses
+import Amazonka.WellArchitected.GetAnswer
+import Amazonka.WellArchitected.GetLensReview
+import Amazonka.WellArchitected.GetLensReviewReport
+import Amazonka.WellArchitected.GetLensVersionDifference
+import Amazonka.WellArchitected.GetMilestone
+import Amazonka.WellArchitected.GetWorkload
+import Amazonka.WellArchitected.Lens
+import Amazonka.WellArchitected.ListAnswers
+import Amazonka.WellArchitected.ListLensReviewImprovements
+import Amazonka.WellArchitected.ListLensReviews
+import Amazonka.WellArchitected.ListLenses
+import Amazonka.WellArchitected.ListMilestones
+import Amazonka.WellArchitected.ListNotifications
+import Amazonka.WellArchitected.ListShareInvitations
+import Amazonka.WellArchitected.ListTagsForResource
+import Amazonka.WellArchitected.ListWorkloadShares
+import Amazonka.WellArchitected.ListWorkloads
+import Amazonka.WellArchitected.TagResource
+import Amazonka.WellArchitected.Types
+import Amazonka.WellArchitected.UntagResource
+import Amazonka.WellArchitected.UpdateAnswer
+import Amazonka.WellArchitected.UpdateLensReview
+import Amazonka.WellArchitected.UpdateShareInvitation
+import Amazonka.WellArchitected.UpdateWorkload
+import Amazonka.WellArchitected.UpdateWorkloadShare
+import Amazonka.WellArchitected.UpgradeLensReview
+import Amazonka.WellArchitected.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

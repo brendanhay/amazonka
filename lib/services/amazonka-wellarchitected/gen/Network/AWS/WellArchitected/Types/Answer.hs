@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WellArchitected.Types.Answer
+-- Module      : Amazonka.WellArchitected.Types.Answer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WellArchitected.Types.Answer where
+module Amazonka.WellArchitected.Types.Answer where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WellArchitected.Types.AnswerReason
-import Network.AWS.WellArchitected.Types.Choice
-import Network.AWS.WellArchitected.Types.ChoiceAnswer
-import Network.AWS.WellArchitected.Types.Risk
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WellArchitected.Types.AnswerReason
+import Amazonka.WellArchitected.Types.Choice
+import Amazonka.WellArchitected.Types.ChoiceAnswer
+import Amazonka.WellArchitected.Types.Risk
 
 -- | An answer of the question.
 --

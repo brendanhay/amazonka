@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WellArchitected where
 
+import Amazonka.WellArchitected
 import qualified Data.Proxy as Proxy
-import Network.AWS.WellArchitected
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.WellArchitected.Internal

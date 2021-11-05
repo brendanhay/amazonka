@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.DisassociateTrackerConsumer
+-- Module      : Amazonka.Location.DisassociateTrackerConsumer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Once you unlink a tracker resource from a geofence collection, the
 -- tracker positions will no longer be automatically evaluated against
 -- geofences.
-module Network.AWS.Location.DisassociateTrackerConsumer
+module Amazonka.Location.DisassociateTrackerConsumer
   ( -- * Creating a Request
     DisassociateTrackerConsumer (..),
     newDisassociateTrackerConsumer,
@@ -44,12 +44,12 @@ module Network.AWS.Location.DisassociateTrackerConsumer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateTrackerConsumer' smart constructor.
 data DisassociateTrackerConsumer = DisassociateTrackerConsumer'

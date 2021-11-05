@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Location where
 
+import Amazonka.Location
 import qualified Data.Proxy as Proxy
-import Network.AWS.Location
 import Test.AWS.Fixture
 import Test.AWS.Location.Internal
 import Test.AWS.Prelude

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.Types.Leg
+-- Module      : Amazonka.Location.Types.Leg
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Location.Types.Leg where
+module Amazonka.Location.Types.Leg where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types.LegGeometry
-import Network.AWS.Location.Types.Step
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types.LegGeometry
+import Amazonka.Location.Types.Step
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the calculated route\'s details for each path between a pair of
 -- positions. The number of legs returned corresponds to one fewer than the

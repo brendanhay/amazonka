@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.GetMapSprites
+-- Module      : Amazonka.Location.GetMapSprites
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves the sprite sheet corresponding to a map resource. The sprite
 -- sheet is a PNG image paired with a JSON document describing the offsets
 -- of individual icons that will be displayed on a rendered map.
-module Network.AWS.Location.GetMapSprites
+module Amazonka.Location.GetMapSprites
   ( -- * Creating a Request
     GetMapSprites (..),
     newGetMapSprites,
@@ -43,12 +43,12 @@ module Network.AWS.Location.GetMapSprites
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapSprites' smart constructor.
 data GetMapSprites = GetMapSprites'

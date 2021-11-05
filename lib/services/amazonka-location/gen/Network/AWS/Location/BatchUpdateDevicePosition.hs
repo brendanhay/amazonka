@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.BatchUpdateDevicePosition
+-- Module      : Amazonka.Location.BatchUpdateDevicePosition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- @PositionFiltering@ is set to @DistanceBased@ filtering, location data
 -- is stored and evaluated against linked geofence collections only if the
 -- device has moved more than 30 m (98.4 ft).
-module Network.AWS.Location.BatchUpdateDevicePosition
+module Amazonka.Location.BatchUpdateDevicePosition
   ( -- * Creating a Request
     BatchUpdateDevicePosition (..),
     newBatchUpdateDevicePosition,
@@ -53,12 +53,12 @@ module Network.AWS.Location.BatchUpdateDevicePosition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchUpdateDevicePosition' smart constructor.
 data BatchUpdateDevicePosition = BatchUpdateDevicePosition'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.BatchPutGeofence
+-- Module      : Amazonka.Location.BatchPutGeofence
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- A batch request for storing geofence geometries into a given geofence
 -- collection, or updates the geometry of an existing geofence if a
 -- geofence ID is included in the request.
-module Network.AWS.Location.BatchPutGeofence
+module Amazonka.Location.BatchPutGeofence
   ( -- * Creating a Request
     BatchPutGeofence (..),
     newBatchPutGeofence,
@@ -43,12 +43,12 @@ module Network.AWS.Location.BatchPutGeofence
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchPutGeofence' smart constructor.
 data BatchPutGeofence = BatchPutGeofence'

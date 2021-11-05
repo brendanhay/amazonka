@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Location.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Location.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Location" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Location" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,105 +45,105 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Location
-    Network.AWS.Location.AssociateTrackerConsumer
-    Network.AWS.Location.BatchDeleteDevicePositionHistory
-    Network.AWS.Location.BatchDeleteGeofence
-    Network.AWS.Location.BatchEvaluateGeofences
-    Network.AWS.Location.BatchGetDevicePosition
-    Network.AWS.Location.BatchPutGeofence
-    Network.AWS.Location.BatchUpdateDevicePosition
-    Network.AWS.Location.CalculateRoute
-    Network.AWS.Location.CreateGeofenceCollection
-    Network.AWS.Location.CreateMap
-    Network.AWS.Location.CreatePlaceIndex
-    Network.AWS.Location.CreateRouteCalculator
-    Network.AWS.Location.CreateTracker
-    Network.AWS.Location.DeleteGeofenceCollection
-    Network.AWS.Location.DeleteMap
-    Network.AWS.Location.DeletePlaceIndex
-    Network.AWS.Location.DeleteRouteCalculator
-    Network.AWS.Location.DeleteTracker
-    Network.AWS.Location.DescribeGeofenceCollection
-    Network.AWS.Location.DescribeMap
-    Network.AWS.Location.DescribePlaceIndex
-    Network.AWS.Location.DescribeRouteCalculator
-    Network.AWS.Location.DescribeTracker
-    Network.AWS.Location.DisassociateTrackerConsumer
-    Network.AWS.Location.GetDevicePosition
-    Network.AWS.Location.GetDevicePositionHistory
-    Network.AWS.Location.GetGeofence
-    Network.AWS.Location.GetMapGlyphs
-    Network.AWS.Location.GetMapSprites
-    Network.AWS.Location.GetMapStyleDescriptor
-    Network.AWS.Location.GetMapTile
-    Network.AWS.Location.Lens
-    Network.AWS.Location.ListDevicePositions
-    Network.AWS.Location.ListGeofenceCollections
-    Network.AWS.Location.ListGeofences
-    Network.AWS.Location.ListMaps
-    Network.AWS.Location.ListPlaceIndexes
-    Network.AWS.Location.ListRouteCalculators
-    Network.AWS.Location.ListTagsForResource
-    Network.AWS.Location.ListTrackerConsumers
-    Network.AWS.Location.ListTrackers
-    Network.AWS.Location.PutGeofence
-    Network.AWS.Location.SearchPlaceIndexForPosition
-    Network.AWS.Location.SearchPlaceIndexForText
-    Network.AWS.Location.TagResource
-    Network.AWS.Location.Types
-    Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError
-    Network.AWS.Location.Types.BatchDeleteGeofenceError
-    Network.AWS.Location.Types.BatchEvaluateGeofencesError
-    Network.AWS.Location.Types.BatchGetDevicePositionError
-    Network.AWS.Location.Types.BatchItemError
-    Network.AWS.Location.Types.BatchItemErrorCode
-    Network.AWS.Location.Types.BatchPutGeofenceError
-    Network.AWS.Location.Types.BatchPutGeofenceRequestEntry
-    Network.AWS.Location.Types.BatchPutGeofenceSuccess
-    Network.AWS.Location.Types.BatchUpdateDevicePositionError
-    Network.AWS.Location.Types.CalculateRouteCarModeOptions
-    Network.AWS.Location.Types.CalculateRouteSummary
-    Network.AWS.Location.Types.CalculateRouteTruckModeOptions
-    Network.AWS.Location.Types.DataSourceConfiguration
-    Network.AWS.Location.Types.DevicePosition
-    Network.AWS.Location.Types.DevicePositionUpdate
-    Network.AWS.Location.Types.DimensionUnit
-    Network.AWS.Location.Types.DistanceUnit
-    Network.AWS.Location.Types.GeofenceGeometry
-    Network.AWS.Location.Types.IntendedUse
-    Network.AWS.Location.Types.Leg
-    Network.AWS.Location.Types.LegGeometry
-    Network.AWS.Location.Types.ListDevicePositionsResponseEntry
-    Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry
-    Network.AWS.Location.Types.ListGeofenceResponseEntry
-    Network.AWS.Location.Types.ListMapsResponseEntry
-    Network.AWS.Location.Types.ListPlaceIndexesResponseEntry
-    Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry
-    Network.AWS.Location.Types.ListTrackersResponseEntry
-    Network.AWS.Location.Types.MapConfiguration
-    Network.AWS.Location.Types.Place
-    Network.AWS.Location.Types.PlaceGeometry
-    Network.AWS.Location.Types.PositionFiltering
-    Network.AWS.Location.Types.PricingPlan
-    Network.AWS.Location.Types.SearchForPositionResult
-    Network.AWS.Location.Types.SearchForTextResult
-    Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary
-    Network.AWS.Location.Types.SearchPlaceIndexForTextSummary
-    Network.AWS.Location.Types.Step
-    Network.AWS.Location.Types.TravelMode
-    Network.AWS.Location.Types.TruckDimensions
-    Network.AWS.Location.Types.TruckWeight
-    Network.AWS.Location.Types.VehicleWeightUnit
-    Network.AWS.Location.UntagResource
-    Network.AWS.Location.UpdateGeofenceCollection
-    Network.AWS.Location.UpdateMap
-    Network.AWS.Location.UpdatePlaceIndex
-    Network.AWS.Location.UpdateRouteCalculator
-    Network.AWS.Location.UpdateTracker
-    Network.AWS.Location.Waiters
+    Amazonka.Location
+    Amazonka.Location.AssociateTrackerConsumer
+    Amazonka.Location.BatchDeleteDevicePositionHistory
+    Amazonka.Location.BatchDeleteGeofence
+    Amazonka.Location.BatchEvaluateGeofences
+    Amazonka.Location.BatchGetDevicePosition
+    Amazonka.Location.BatchPutGeofence
+    Amazonka.Location.BatchUpdateDevicePosition
+    Amazonka.Location.CalculateRoute
+    Amazonka.Location.CreateGeofenceCollection
+    Amazonka.Location.CreateMap
+    Amazonka.Location.CreatePlaceIndex
+    Amazonka.Location.CreateRouteCalculator
+    Amazonka.Location.CreateTracker
+    Amazonka.Location.DeleteGeofenceCollection
+    Amazonka.Location.DeleteMap
+    Amazonka.Location.DeletePlaceIndex
+    Amazonka.Location.DeleteRouteCalculator
+    Amazonka.Location.DeleteTracker
+    Amazonka.Location.DescribeGeofenceCollection
+    Amazonka.Location.DescribeMap
+    Amazonka.Location.DescribePlaceIndex
+    Amazonka.Location.DescribeRouteCalculator
+    Amazonka.Location.DescribeTracker
+    Amazonka.Location.DisassociateTrackerConsumer
+    Amazonka.Location.GetDevicePosition
+    Amazonka.Location.GetDevicePositionHistory
+    Amazonka.Location.GetGeofence
+    Amazonka.Location.GetMapGlyphs
+    Amazonka.Location.GetMapSprites
+    Amazonka.Location.GetMapStyleDescriptor
+    Amazonka.Location.GetMapTile
+    Amazonka.Location.Lens
+    Amazonka.Location.ListDevicePositions
+    Amazonka.Location.ListGeofenceCollections
+    Amazonka.Location.ListGeofences
+    Amazonka.Location.ListMaps
+    Amazonka.Location.ListPlaceIndexes
+    Amazonka.Location.ListRouteCalculators
+    Amazonka.Location.ListTagsForResource
+    Amazonka.Location.ListTrackerConsumers
+    Amazonka.Location.ListTrackers
+    Amazonka.Location.PutGeofence
+    Amazonka.Location.SearchPlaceIndexForPosition
+    Amazonka.Location.SearchPlaceIndexForText
+    Amazonka.Location.TagResource
+    Amazonka.Location.Types
+    Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError
+    Amazonka.Location.Types.BatchDeleteGeofenceError
+    Amazonka.Location.Types.BatchEvaluateGeofencesError
+    Amazonka.Location.Types.BatchGetDevicePositionError
+    Amazonka.Location.Types.BatchItemError
+    Amazonka.Location.Types.BatchItemErrorCode
+    Amazonka.Location.Types.BatchPutGeofenceError
+    Amazonka.Location.Types.BatchPutGeofenceRequestEntry
+    Amazonka.Location.Types.BatchPutGeofenceSuccess
+    Amazonka.Location.Types.BatchUpdateDevicePositionError
+    Amazonka.Location.Types.CalculateRouteCarModeOptions
+    Amazonka.Location.Types.CalculateRouteSummary
+    Amazonka.Location.Types.CalculateRouteTruckModeOptions
+    Amazonka.Location.Types.DataSourceConfiguration
+    Amazonka.Location.Types.DevicePosition
+    Amazonka.Location.Types.DevicePositionUpdate
+    Amazonka.Location.Types.DimensionUnit
+    Amazonka.Location.Types.DistanceUnit
+    Amazonka.Location.Types.GeofenceGeometry
+    Amazonka.Location.Types.IntendedUse
+    Amazonka.Location.Types.Leg
+    Amazonka.Location.Types.LegGeometry
+    Amazonka.Location.Types.ListDevicePositionsResponseEntry
+    Amazonka.Location.Types.ListGeofenceCollectionsResponseEntry
+    Amazonka.Location.Types.ListGeofenceResponseEntry
+    Amazonka.Location.Types.ListMapsResponseEntry
+    Amazonka.Location.Types.ListPlaceIndexesResponseEntry
+    Amazonka.Location.Types.ListRouteCalculatorsResponseEntry
+    Amazonka.Location.Types.ListTrackersResponseEntry
+    Amazonka.Location.Types.MapConfiguration
+    Amazonka.Location.Types.Place
+    Amazonka.Location.Types.PlaceGeometry
+    Amazonka.Location.Types.PositionFiltering
+    Amazonka.Location.Types.PricingPlan
+    Amazonka.Location.Types.SearchForPositionResult
+    Amazonka.Location.Types.SearchForTextResult
+    Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
+    Amazonka.Location.Types.SearchPlaceIndexForTextSummary
+    Amazonka.Location.Types.Step
+    Amazonka.Location.Types.TravelMode
+    Amazonka.Location.Types.TruckDimensions
+    Amazonka.Location.Types.TruckWeight
+    Amazonka.Location.Types.VehicleWeightUnit
+    Amazonka.Location.UntagResource
+    Amazonka.Location.UpdateGeofenceCollection
+    Amazonka.Location.UpdateMap
+    Amazonka.Location.UpdatePlaceIndex
+    Amazonka.Location.UpdateRouteCalculator
+    Amazonka.Location.UpdateTracker
+    Amazonka.Location.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

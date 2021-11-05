@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Location
+-- Module      : Amazonka.Location
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- Suite of geospatial services including Maps, Places, Routes, Tracking,
 -- and Geofencing
-module Network.AWS.Location
+module Amazonka.Location
   ( -- * Service Configuration
     defaultService,
 
@@ -515,59 +515,59 @@ module Network.AWS.Location
   )
 where
 
-import Network.AWS.Location.AssociateTrackerConsumer
-import Network.AWS.Location.BatchDeleteDevicePositionHistory
-import Network.AWS.Location.BatchDeleteGeofence
-import Network.AWS.Location.BatchEvaluateGeofences
-import Network.AWS.Location.BatchGetDevicePosition
-import Network.AWS.Location.BatchPutGeofence
-import Network.AWS.Location.BatchUpdateDevicePosition
-import Network.AWS.Location.CalculateRoute
-import Network.AWS.Location.CreateGeofenceCollection
-import Network.AWS.Location.CreateMap
-import Network.AWS.Location.CreatePlaceIndex
-import Network.AWS.Location.CreateRouteCalculator
-import Network.AWS.Location.CreateTracker
-import Network.AWS.Location.DeleteGeofenceCollection
-import Network.AWS.Location.DeleteMap
-import Network.AWS.Location.DeletePlaceIndex
-import Network.AWS.Location.DeleteRouteCalculator
-import Network.AWS.Location.DeleteTracker
-import Network.AWS.Location.DescribeGeofenceCollection
-import Network.AWS.Location.DescribeMap
-import Network.AWS.Location.DescribePlaceIndex
-import Network.AWS.Location.DescribeRouteCalculator
-import Network.AWS.Location.DescribeTracker
-import Network.AWS.Location.DisassociateTrackerConsumer
-import Network.AWS.Location.GetDevicePosition
-import Network.AWS.Location.GetDevicePositionHistory
-import Network.AWS.Location.GetGeofence
-import Network.AWS.Location.GetMapGlyphs
-import Network.AWS.Location.GetMapSprites
-import Network.AWS.Location.GetMapStyleDescriptor
-import Network.AWS.Location.GetMapTile
-import Network.AWS.Location.Lens
-import Network.AWS.Location.ListDevicePositions
-import Network.AWS.Location.ListGeofenceCollections
-import Network.AWS.Location.ListGeofences
-import Network.AWS.Location.ListMaps
-import Network.AWS.Location.ListPlaceIndexes
-import Network.AWS.Location.ListRouteCalculators
-import Network.AWS.Location.ListTagsForResource
-import Network.AWS.Location.ListTrackerConsumers
-import Network.AWS.Location.ListTrackers
-import Network.AWS.Location.PutGeofence
-import Network.AWS.Location.SearchPlaceIndexForPosition
-import Network.AWS.Location.SearchPlaceIndexForText
-import Network.AWS.Location.TagResource
-import Network.AWS.Location.Types
-import Network.AWS.Location.UntagResource
-import Network.AWS.Location.UpdateGeofenceCollection
-import Network.AWS.Location.UpdateMap
-import Network.AWS.Location.UpdatePlaceIndex
-import Network.AWS.Location.UpdateRouteCalculator
-import Network.AWS.Location.UpdateTracker
-import Network.AWS.Location.Waiters
+import Amazonka.Location.AssociateTrackerConsumer
+import Amazonka.Location.BatchDeleteDevicePositionHistory
+import Amazonka.Location.BatchDeleteGeofence
+import Amazonka.Location.BatchEvaluateGeofences
+import Amazonka.Location.BatchGetDevicePosition
+import Amazonka.Location.BatchPutGeofence
+import Amazonka.Location.BatchUpdateDevicePosition
+import Amazonka.Location.CalculateRoute
+import Amazonka.Location.CreateGeofenceCollection
+import Amazonka.Location.CreateMap
+import Amazonka.Location.CreatePlaceIndex
+import Amazonka.Location.CreateRouteCalculator
+import Amazonka.Location.CreateTracker
+import Amazonka.Location.DeleteGeofenceCollection
+import Amazonka.Location.DeleteMap
+import Amazonka.Location.DeletePlaceIndex
+import Amazonka.Location.DeleteRouteCalculator
+import Amazonka.Location.DeleteTracker
+import Amazonka.Location.DescribeGeofenceCollection
+import Amazonka.Location.DescribeMap
+import Amazonka.Location.DescribePlaceIndex
+import Amazonka.Location.DescribeRouteCalculator
+import Amazonka.Location.DescribeTracker
+import Amazonka.Location.DisassociateTrackerConsumer
+import Amazonka.Location.GetDevicePosition
+import Amazonka.Location.GetDevicePositionHistory
+import Amazonka.Location.GetGeofence
+import Amazonka.Location.GetMapGlyphs
+import Amazonka.Location.GetMapSprites
+import Amazonka.Location.GetMapStyleDescriptor
+import Amazonka.Location.GetMapTile
+import Amazonka.Location.Lens
+import Amazonka.Location.ListDevicePositions
+import Amazonka.Location.ListGeofenceCollections
+import Amazonka.Location.ListGeofences
+import Amazonka.Location.ListMaps
+import Amazonka.Location.ListPlaceIndexes
+import Amazonka.Location.ListRouteCalculators
+import Amazonka.Location.ListTagsForResource
+import Amazonka.Location.ListTrackerConsumers
+import Amazonka.Location.ListTrackers
+import Amazonka.Location.PutGeofence
+import Amazonka.Location.SearchPlaceIndexForPosition
+import Amazonka.Location.SearchPlaceIndexForText
+import Amazonka.Location.TagResource
+import Amazonka.Location.Types
+import Amazonka.Location.UntagResource
+import Amazonka.Location.UpdateGeofenceCollection
+import Amazonka.Location.UpdateMap
+import Amazonka.Location.UpdatePlaceIndex
+import Amazonka.Location.UpdateRouteCalculator
+import Amazonka.Location.UpdateTracker
+import Amazonka.Location.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

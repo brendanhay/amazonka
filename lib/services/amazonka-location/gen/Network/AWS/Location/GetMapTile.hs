@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.GetMapTile
+-- Module      : Amazonka.Location.GetMapTile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- by 1 doubles both the X and Y dimensions, so a tile containing data for
 -- the entire world at (0\/0\/0) will be split into 4 tiles at zoom 1
 -- (1\/0\/0, 1\/0\/1, 1\/1\/0, 1\/1\/1).
-module Network.AWS.Location.GetMapTile
+module Amazonka.Location.GetMapTile
   ( -- * Creating a Request
     GetMapTile (..),
     newGetMapTile,
@@ -50,12 +50,12 @@ module Network.AWS.Location.GetMapTile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapTile' smart constructor.
 data GetMapTile = GetMapTile'

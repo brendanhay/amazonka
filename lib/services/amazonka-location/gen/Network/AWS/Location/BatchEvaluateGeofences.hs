@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.BatchEvaluateGeofences
+-- Module      : Amazonka.Location.BatchEvaluateGeofences
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 --
 -- The last geofence that a device was observed within is tracked for 30
 -- days after the most recent device position update.
-module Network.AWS.Location.BatchEvaluateGeofences
+module Amazonka.Location.BatchEvaluateGeofences
   ( -- * Creating a Request
     BatchEvaluateGeofences (..),
     newBatchEvaluateGeofences,
@@ -55,12 +55,12 @@ module Network.AWS.Location.BatchEvaluateGeofences
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchEvaluateGeofences' smart constructor.
 data BatchEvaluateGeofences = BatchEvaluateGeofences'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.Types
+-- Module      : Amazonka.Location.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Location.Types
+module Amazonka.Location.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -312,53 +312,53 @@ module Network.AWS.Location.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError
-import Network.AWS.Location.Types.BatchDeleteGeofenceError
-import Network.AWS.Location.Types.BatchEvaluateGeofencesError
-import Network.AWS.Location.Types.BatchGetDevicePositionError
-import Network.AWS.Location.Types.BatchItemError
-import Network.AWS.Location.Types.BatchItemErrorCode
-import Network.AWS.Location.Types.BatchPutGeofenceError
-import Network.AWS.Location.Types.BatchPutGeofenceRequestEntry
-import Network.AWS.Location.Types.BatchPutGeofenceSuccess
-import Network.AWS.Location.Types.BatchUpdateDevicePositionError
-import Network.AWS.Location.Types.CalculateRouteCarModeOptions
-import Network.AWS.Location.Types.CalculateRouteSummary
-import Network.AWS.Location.Types.CalculateRouteTruckModeOptions
-import Network.AWS.Location.Types.DataSourceConfiguration
-import Network.AWS.Location.Types.DevicePosition
-import Network.AWS.Location.Types.DevicePositionUpdate
-import Network.AWS.Location.Types.DimensionUnit
-import Network.AWS.Location.Types.DistanceUnit
-import Network.AWS.Location.Types.GeofenceGeometry
-import Network.AWS.Location.Types.IntendedUse
-import Network.AWS.Location.Types.Leg
-import Network.AWS.Location.Types.LegGeometry
-import Network.AWS.Location.Types.ListDevicePositionsResponseEntry
-import Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry
-import Network.AWS.Location.Types.ListGeofenceResponseEntry
-import Network.AWS.Location.Types.ListMapsResponseEntry
-import Network.AWS.Location.Types.ListPlaceIndexesResponseEntry
-import Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry
-import Network.AWS.Location.Types.ListTrackersResponseEntry
-import Network.AWS.Location.Types.MapConfiguration
-import Network.AWS.Location.Types.Place
-import Network.AWS.Location.Types.PlaceGeometry
-import Network.AWS.Location.Types.PositionFiltering
-import Network.AWS.Location.Types.PricingPlan
-import Network.AWS.Location.Types.SearchForPositionResult
-import Network.AWS.Location.Types.SearchForTextResult
-import Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary
-import Network.AWS.Location.Types.SearchPlaceIndexForTextSummary
-import Network.AWS.Location.Types.Step
-import Network.AWS.Location.Types.TravelMode
-import Network.AWS.Location.Types.TruckDimensions
-import Network.AWS.Location.Types.TruckWeight
-import Network.AWS.Location.Types.VehicleWeightUnit
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError
+import Amazonka.Location.Types.BatchDeleteGeofenceError
+import Amazonka.Location.Types.BatchEvaluateGeofencesError
+import Amazonka.Location.Types.BatchGetDevicePositionError
+import Amazonka.Location.Types.BatchItemError
+import Amazonka.Location.Types.BatchItemErrorCode
+import Amazonka.Location.Types.BatchPutGeofenceError
+import Amazonka.Location.Types.BatchPutGeofenceRequestEntry
+import Amazonka.Location.Types.BatchPutGeofenceSuccess
+import Amazonka.Location.Types.BatchUpdateDevicePositionError
+import Amazonka.Location.Types.CalculateRouteCarModeOptions
+import Amazonka.Location.Types.CalculateRouteSummary
+import Amazonka.Location.Types.CalculateRouteTruckModeOptions
+import Amazonka.Location.Types.DataSourceConfiguration
+import Amazonka.Location.Types.DevicePosition
+import Amazonka.Location.Types.DevicePositionUpdate
+import Amazonka.Location.Types.DimensionUnit
+import Amazonka.Location.Types.DistanceUnit
+import Amazonka.Location.Types.GeofenceGeometry
+import Amazonka.Location.Types.IntendedUse
+import Amazonka.Location.Types.Leg
+import Amazonka.Location.Types.LegGeometry
+import Amazonka.Location.Types.ListDevicePositionsResponseEntry
+import Amazonka.Location.Types.ListGeofenceCollectionsResponseEntry
+import Amazonka.Location.Types.ListGeofenceResponseEntry
+import Amazonka.Location.Types.ListMapsResponseEntry
+import Amazonka.Location.Types.ListPlaceIndexesResponseEntry
+import Amazonka.Location.Types.ListRouteCalculatorsResponseEntry
+import Amazonka.Location.Types.ListTrackersResponseEntry
+import Amazonka.Location.Types.MapConfiguration
+import Amazonka.Location.Types.Place
+import Amazonka.Location.Types.PlaceGeometry
+import Amazonka.Location.Types.PositionFiltering
+import Amazonka.Location.Types.PricingPlan
+import Amazonka.Location.Types.SearchForPositionResult
+import Amazonka.Location.Types.SearchForTextResult
+import Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
+import Amazonka.Location.Types.SearchPlaceIndexForTextSummary
+import Amazonka.Location.Types.Step
+import Amazonka.Location.Types.TravelMode
+import Amazonka.Location.Types.TruckDimensions
+import Amazonka.Location.Types.TruckWeight
+import Amazonka.Location.Types.VehicleWeightUnit
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-11-19@ of the Amazon Location Service SDK configuration.
 defaultService :: Core.Service

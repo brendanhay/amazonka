@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.Types.SearchForPositionResult
+-- Module      : Amazonka.Location.Types.SearchForPositionResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Location.Types.SearchForPositionResult where
+module Amazonka.Location.Types.SearchForPositionResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types.Place
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types.Place
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a single point of interest, or Place as a result of a search
 -- query obtained from a dataset configured in the place index resource.

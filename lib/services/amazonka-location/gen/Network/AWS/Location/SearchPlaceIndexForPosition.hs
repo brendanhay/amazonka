@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Location.SearchPlaceIndexForPosition
+-- Module      : Amazonka.Location.SearchPlaceIndexForPosition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Reverse geocodes a given coordinate and returns a legible address.
 -- Allows you to search for Places or points of interest near a given
 -- position.
-module Network.AWS.Location.SearchPlaceIndexForPosition
+module Amazonka.Location.SearchPlaceIndexForPosition
   ( -- * Creating a Request
     SearchPlaceIndexForPosition (..),
     newSearchPlaceIndexForPosition,
@@ -44,12 +44,12 @@ module Network.AWS.Location.SearchPlaceIndexForPosition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Location.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchPlaceIndexForPosition' smart constructor.
 data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.MatchAttributes
+-- Module      : Amazonka.NetworkFirewall.Types.MatchAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.MatchAttributes where
+module Amazonka.NetworkFirewall.Types.MatchAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.Address
-import Network.AWS.NetworkFirewall.Types.PortRange
-import Network.AWS.NetworkFirewall.Types.TCPFlagField
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.Address
+import Amazonka.NetworkFirewall.Types.PortRange
+import Amazonka.NetworkFirewall.Types.TCPFlagField
+import qualified Amazonka.Prelude as Prelude
 
 -- | Criteria for Network Firewall to use to inspect an individual packet in
 -- stateless rule inspection. Each match attributes set can include one or

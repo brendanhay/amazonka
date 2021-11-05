@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types
+-- Module      : Amazonka.NetworkFirewall.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types
+module Amazonka.NetworkFirewall.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -346,64 +346,64 @@ module Network.AWS.NetworkFirewall.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.ActionDefinition
-import Network.AWS.NetworkFirewall.Types.Address
-import Network.AWS.NetworkFirewall.Types.Attachment
-import Network.AWS.NetworkFirewall.Types.AttachmentStatus
-import Network.AWS.NetworkFirewall.Types.ConfigurationSyncState
-import Network.AWS.NetworkFirewall.Types.CustomAction
-import Network.AWS.NetworkFirewall.Types.Dimension
-import Network.AWS.NetworkFirewall.Types.Firewall
-import Network.AWS.NetworkFirewall.Types.FirewallMetadata
-import Network.AWS.NetworkFirewall.Types.FirewallPolicy
-import Network.AWS.NetworkFirewall.Types.FirewallPolicyMetadata
-import Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse
-import Network.AWS.NetworkFirewall.Types.FirewallStatus
-import Network.AWS.NetworkFirewall.Types.FirewallStatusValue
-import Network.AWS.NetworkFirewall.Types.GeneratedRulesType
-import Network.AWS.NetworkFirewall.Types.Header
-import Network.AWS.NetworkFirewall.Types.IPSet
-import Network.AWS.NetworkFirewall.Types.LogDestinationConfig
-import Network.AWS.NetworkFirewall.Types.LogDestinationType
-import Network.AWS.NetworkFirewall.Types.LogType
-import Network.AWS.NetworkFirewall.Types.LoggingConfiguration
-import Network.AWS.NetworkFirewall.Types.MatchAttributes
-import Network.AWS.NetworkFirewall.Types.PerObjectStatus
-import Network.AWS.NetworkFirewall.Types.PerObjectSyncStatus
-import Network.AWS.NetworkFirewall.Types.PortRange
-import Network.AWS.NetworkFirewall.Types.PortSet
-import Network.AWS.NetworkFirewall.Types.PublishMetricAction
-import Network.AWS.NetworkFirewall.Types.ResourceStatus
-import Network.AWS.NetworkFirewall.Types.RuleDefinition
-import Network.AWS.NetworkFirewall.Types.RuleGroup
-import Network.AWS.NetworkFirewall.Types.RuleGroupMetadata
-import Network.AWS.NetworkFirewall.Types.RuleGroupResponse
-import Network.AWS.NetworkFirewall.Types.RuleGroupType
-import Network.AWS.NetworkFirewall.Types.RuleOption
-import Network.AWS.NetworkFirewall.Types.RuleOrder
-import Network.AWS.NetworkFirewall.Types.RuleVariables
-import Network.AWS.NetworkFirewall.Types.RulesSource
-import Network.AWS.NetworkFirewall.Types.RulesSourceList
-import Network.AWS.NetworkFirewall.Types.StatefulAction
-import Network.AWS.NetworkFirewall.Types.StatefulEngineOptions
-import Network.AWS.NetworkFirewall.Types.StatefulRule
-import Network.AWS.NetworkFirewall.Types.StatefulRuleDirection
-import Network.AWS.NetworkFirewall.Types.StatefulRuleGroupReference
-import Network.AWS.NetworkFirewall.Types.StatefulRuleOptions
-import Network.AWS.NetworkFirewall.Types.StatefulRuleProtocol
-import Network.AWS.NetworkFirewall.Types.StatelessRule
-import Network.AWS.NetworkFirewall.Types.StatelessRuleGroupReference
-import Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions
-import Network.AWS.NetworkFirewall.Types.SubnetMapping
-import Network.AWS.NetworkFirewall.Types.SyncState
-import Network.AWS.NetworkFirewall.Types.TCPFlag
-import Network.AWS.NetworkFirewall.Types.TCPFlagField
-import Network.AWS.NetworkFirewall.Types.Tag
-import Network.AWS.NetworkFirewall.Types.TargetType
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.ActionDefinition
+import Amazonka.NetworkFirewall.Types.Address
+import Amazonka.NetworkFirewall.Types.Attachment
+import Amazonka.NetworkFirewall.Types.AttachmentStatus
+import Amazonka.NetworkFirewall.Types.ConfigurationSyncState
+import Amazonka.NetworkFirewall.Types.CustomAction
+import Amazonka.NetworkFirewall.Types.Dimension
+import Amazonka.NetworkFirewall.Types.Firewall
+import Amazonka.NetworkFirewall.Types.FirewallMetadata
+import Amazonka.NetworkFirewall.Types.FirewallPolicy
+import Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata
+import Amazonka.NetworkFirewall.Types.FirewallPolicyResponse
+import Amazonka.NetworkFirewall.Types.FirewallStatus
+import Amazonka.NetworkFirewall.Types.FirewallStatusValue
+import Amazonka.NetworkFirewall.Types.GeneratedRulesType
+import Amazonka.NetworkFirewall.Types.Header
+import Amazonka.NetworkFirewall.Types.IPSet
+import Amazonka.NetworkFirewall.Types.LogDestinationConfig
+import Amazonka.NetworkFirewall.Types.LogDestinationType
+import Amazonka.NetworkFirewall.Types.LogType
+import Amazonka.NetworkFirewall.Types.LoggingConfiguration
+import Amazonka.NetworkFirewall.Types.MatchAttributes
+import Amazonka.NetworkFirewall.Types.PerObjectStatus
+import Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
+import Amazonka.NetworkFirewall.Types.PortRange
+import Amazonka.NetworkFirewall.Types.PortSet
+import Amazonka.NetworkFirewall.Types.PublishMetricAction
+import Amazonka.NetworkFirewall.Types.ResourceStatus
+import Amazonka.NetworkFirewall.Types.RuleDefinition
+import Amazonka.NetworkFirewall.Types.RuleGroup
+import Amazonka.NetworkFirewall.Types.RuleGroupMetadata
+import Amazonka.NetworkFirewall.Types.RuleGroupResponse
+import Amazonka.NetworkFirewall.Types.RuleGroupType
+import Amazonka.NetworkFirewall.Types.RuleOption
+import Amazonka.NetworkFirewall.Types.RuleOrder
+import Amazonka.NetworkFirewall.Types.RuleVariables
+import Amazonka.NetworkFirewall.Types.RulesSource
+import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.StatefulAction
+import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
+import Amazonka.NetworkFirewall.Types.StatefulRule
+import Amazonka.NetworkFirewall.Types.StatefulRuleDirection
+import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
+import Amazonka.NetworkFirewall.Types.StatefulRuleOptions
+import Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
+import Amazonka.NetworkFirewall.Types.StatelessRule
+import Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference
+import Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
+import Amazonka.NetworkFirewall.Types.SubnetMapping
+import Amazonka.NetworkFirewall.Types.SyncState
+import Amazonka.NetworkFirewall.Types.TCPFlag
+import Amazonka.NetworkFirewall.Types.TCPFlagField
+import Amazonka.NetworkFirewall.Types.Tag
+import Amazonka.NetworkFirewall.Types.TargetType
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-11-12@ of the Amazon Network Firewall SDK configuration.
 defaultService :: Core.Service

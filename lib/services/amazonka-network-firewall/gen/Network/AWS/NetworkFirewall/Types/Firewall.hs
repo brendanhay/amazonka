@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.Firewall
+-- Module      : Amazonka.NetworkFirewall.Types.Firewall
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.Firewall where
+module Amazonka.NetworkFirewall.Types.Firewall where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.SubnetMapping
-import Network.AWS.NetworkFirewall.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.SubnetMapping
+import Amazonka.NetworkFirewall.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | The firewall defines the configuration settings for an AWS Network
 -- Firewall firewall. These settings include the firewall policy, the

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse
+-- Module      : Amazonka.NetworkFirewall.Types.FirewallPolicyResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse where
+module Amazonka.NetworkFirewall.Types.FirewallPolicyResponse where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.ResourceStatus
-import Network.AWS.NetworkFirewall.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.ResourceStatus
+import Amazonka.NetworkFirewall.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | The high-level properties of a firewall policy. This, along with the
 -- FirewallPolicy, define the policy. You can retrieve all objects for a

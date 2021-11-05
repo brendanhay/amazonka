@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.PutResourcePolicy
+-- Module      : Amazonka.NetworkFirewall.PutResourcePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --
 -- For additional information about resource sharing using RAM, see
 -- <https://docs.aws.amazon.com/ram/latest/userguide/what-is.html AWS Resource Access Manager User Guide>.
-module Network.AWS.NetworkFirewall.PutResourcePolicy
+module Amazonka.NetworkFirewall.PutResourcePolicy
   ( -- * Creating a Request
     PutResourcePolicy (..),
     newPutResourcePolicy,
@@ -62,12 +62,12 @@ module Network.AWS.NetworkFirewall.PutResourcePolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'

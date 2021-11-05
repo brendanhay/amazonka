@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.FirewallPolicy
+-- Module      : Amazonka.NetworkFirewall.Types.FirewallPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.FirewallPolicy where
+module Amazonka.NetworkFirewall.Types.FirewallPolicy where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.CustomAction
-import Network.AWS.NetworkFirewall.Types.StatefulEngineOptions
-import Network.AWS.NetworkFirewall.Types.StatefulRuleGroupReference
-import Network.AWS.NetworkFirewall.Types.StatelessRuleGroupReference
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.CustomAction
+import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
+import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
+import Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference
+import qualified Amazonka.Prelude as Prelude
 
 -- | The firewall policy defines the behavior of a firewall using a
 -- collection of stateless and stateful rule groups and other settings. You

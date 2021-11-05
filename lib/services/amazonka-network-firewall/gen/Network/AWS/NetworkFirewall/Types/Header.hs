@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.Header
+-- Module      : Amazonka.NetworkFirewall.Types.Header
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.Header where
+module Amazonka.NetworkFirewall.Types.Header where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.StatefulRuleDirection
-import Network.AWS.NetworkFirewall.Types.StatefulRuleProtocol
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.StatefulRuleDirection
+import Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
+import qualified Amazonka.Prelude as Prelude
 
 -- | The basic rule criteria for AWS Network Firewall to use to inspect
 -- packet headers in stateful traffic flow inspection. Traffic flows that

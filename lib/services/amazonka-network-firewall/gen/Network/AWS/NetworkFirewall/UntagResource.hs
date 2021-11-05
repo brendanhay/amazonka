@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.UntagResource
+-- Module      : Amazonka.NetworkFirewall.UntagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 --
 -- You can manage tags for the AWS resources that you manage through AWS
 -- Network Firewall: firewalls, firewall policies, and rule groups.
-module Network.AWS.NetworkFirewall.UntagResource
+module Amazonka.NetworkFirewall.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
     newUntagResource,
@@ -47,12 +47,12 @@ module Network.AWS.NetworkFirewall.UntagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'

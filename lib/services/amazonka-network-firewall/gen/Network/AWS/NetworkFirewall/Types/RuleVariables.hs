@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.RuleVariables
+-- Module      : Amazonka.NetworkFirewall.Types.RuleVariables
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.RuleVariables where
+module Amazonka.NetworkFirewall.Types.RuleVariables where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.IPSet
-import Network.AWS.NetworkFirewall.Types.PortSet
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.IPSet
+import Amazonka.NetworkFirewall.Types.PortSet
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings that are available for use in the rules in the RuleGroup where
 -- this is defined.

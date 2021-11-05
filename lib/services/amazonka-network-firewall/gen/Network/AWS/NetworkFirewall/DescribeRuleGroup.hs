@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.DescribeRuleGroup
+-- Module      : Amazonka.NetworkFirewall.DescribeRuleGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the data objects for the specified rule group.
-module Network.AWS.NetworkFirewall.DescribeRuleGroup
+module Amazonka.NetworkFirewall.DescribeRuleGroup
   ( -- * Creating a Request
     DescribeRuleGroup (..),
     newDescribeRuleGroup,
@@ -43,12 +43,12 @@ module Network.AWS.NetworkFirewall.DescribeRuleGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRuleGroup' smart constructor.
 data DescribeRuleGroup = DescribeRuleGroup'

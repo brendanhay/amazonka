@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.NetworkFirewall
+-- Module      : Amazonka.NetworkFirewall
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -86,7 +86,7 @@
 --
 -- 6.  In Amazon VPC, use ingress routing enhancements to route traffic
 --     through the new firewall endpoints.
-module Network.AWS.NetworkFirewall
+module Amazonka.NetworkFirewall
   ( -- * Service Configuration
     defaultService,
 
@@ -514,38 +514,38 @@ module Network.AWS.NetworkFirewall
   )
 where
 
-import Network.AWS.NetworkFirewall.AssociateFirewallPolicy
-import Network.AWS.NetworkFirewall.AssociateSubnets
-import Network.AWS.NetworkFirewall.CreateFirewall
-import Network.AWS.NetworkFirewall.CreateFirewallPolicy
-import Network.AWS.NetworkFirewall.CreateRuleGroup
-import Network.AWS.NetworkFirewall.DeleteFirewall
-import Network.AWS.NetworkFirewall.DeleteFirewallPolicy
-import Network.AWS.NetworkFirewall.DeleteResourcePolicy
-import Network.AWS.NetworkFirewall.DeleteRuleGroup
-import Network.AWS.NetworkFirewall.DescribeFirewall
-import Network.AWS.NetworkFirewall.DescribeFirewallPolicy
-import Network.AWS.NetworkFirewall.DescribeLoggingConfiguration
-import Network.AWS.NetworkFirewall.DescribeResourcePolicy
-import Network.AWS.NetworkFirewall.DescribeRuleGroup
-import Network.AWS.NetworkFirewall.DisassociateSubnets
-import Network.AWS.NetworkFirewall.Lens
-import Network.AWS.NetworkFirewall.ListFirewallPolicies
-import Network.AWS.NetworkFirewall.ListFirewalls
-import Network.AWS.NetworkFirewall.ListRuleGroups
-import Network.AWS.NetworkFirewall.ListTagsForResource
-import Network.AWS.NetworkFirewall.PutResourcePolicy
-import Network.AWS.NetworkFirewall.TagResource
-import Network.AWS.NetworkFirewall.Types
-import Network.AWS.NetworkFirewall.UntagResource
-import Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
-import Network.AWS.NetworkFirewall.UpdateFirewallDescription
-import Network.AWS.NetworkFirewall.UpdateFirewallPolicy
-import Network.AWS.NetworkFirewall.UpdateFirewallPolicyChangeProtection
-import Network.AWS.NetworkFirewall.UpdateLoggingConfiguration
-import Network.AWS.NetworkFirewall.UpdateRuleGroup
-import Network.AWS.NetworkFirewall.UpdateSubnetChangeProtection
-import Network.AWS.NetworkFirewall.Waiters
+import Amazonka.NetworkFirewall.AssociateFirewallPolicy
+import Amazonka.NetworkFirewall.AssociateSubnets
+import Amazonka.NetworkFirewall.CreateFirewall
+import Amazonka.NetworkFirewall.CreateFirewallPolicy
+import Amazonka.NetworkFirewall.CreateRuleGroup
+import Amazonka.NetworkFirewall.DeleteFirewall
+import Amazonka.NetworkFirewall.DeleteFirewallPolicy
+import Amazonka.NetworkFirewall.DeleteResourcePolicy
+import Amazonka.NetworkFirewall.DeleteRuleGroup
+import Amazonka.NetworkFirewall.DescribeFirewall
+import Amazonka.NetworkFirewall.DescribeFirewallPolicy
+import Amazonka.NetworkFirewall.DescribeLoggingConfiguration
+import Amazonka.NetworkFirewall.DescribeResourcePolicy
+import Amazonka.NetworkFirewall.DescribeRuleGroup
+import Amazonka.NetworkFirewall.DisassociateSubnets
+import Amazonka.NetworkFirewall.Lens
+import Amazonka.NetworkFirewall.ListFirewallPolicies
+import Amazonka.NetworkFirewall.ListFirewalls
+import Amazonka.NetworkFirewall.ListRuleGroups
+import Amazonka.NetworkFirewall.ListTagsForResource
+import Amazonka.NetworkFirewall.PutResourcePolicy
+import Amazonka.NetworkFirewall.TagResource
+import Amazonka.NetworkFirewall.Types
+import Amazonka.NetworkFirewall.UntagResource
+import Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
+import Amazonka.NetworkFirewall.UpdateFirewallDescription
+import Amazonka.NetworkFirewall.UpdateFirewallPolicy
+import Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
+import Amazonka.NetworkFirewall.UpdateLoggingConfiguration
+import Amazonka.NetworkFirewall.UpdateRuleGroup
+import Amazonka.NetworkFirewall.UpdateSubnetChangeProtection
+import Amazonka.NetworkFirewall.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

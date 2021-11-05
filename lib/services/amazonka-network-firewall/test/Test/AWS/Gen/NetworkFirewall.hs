@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.NetworkFirewall where
 
+import Amazonka.NetworkFirewall
 import qualified Data.Proxy as Proxy
-import Network.AWS.NetworkFirewall
 import Test.AWS.Fixture
 import Test.AWS.NetworkFirewall.Internal
 import Test.AWS.Prelude

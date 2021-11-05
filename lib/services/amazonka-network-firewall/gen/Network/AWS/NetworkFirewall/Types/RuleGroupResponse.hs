@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.RuleGroupResponse
+-- Module      : Amazonka.NetworkFirewall.Types.RuleGroupResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.RuleGroupResponse where
+module Amazonka.NetworkFirewall.Types.RuleGroupResponse where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.ResourceStatus
-import Network.AWS.NetworkFirewall.Types.RuleGroupType
-import Network.AWS.NetworkFirewall.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.ResourceStatus
+import Amazonka.NetworkFirewall.Types.RuleGroupType
+import Amazonka.NetworkFirewall.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | The high-level properties of a rule group. This, along with the
 -- RuleGroup, define the rule group. You can retrieve all objects for a

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.LogDestinationConfig
+-- Module      : Amazonka.NetworkFirewall.Types.LogDestinationConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.LogDestinationConfig where
+module Amazonka.NetworkFirewall.Types.LogDestinationConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.LogDestinationType
-import Network.AWS.NetworkFirewall.Types.LogType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.LogDestinationType
+import Amazonka.NetworkFirewall.Types.LogType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Defines where AWS Network Firewall sends logs for the firewall for one
 -- log type. This is used in LoggingConfiguration. You can send each type

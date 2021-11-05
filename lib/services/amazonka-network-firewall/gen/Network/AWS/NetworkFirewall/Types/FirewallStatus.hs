@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.FirewallStatus
+-- Module      : Amazonka.NetworkFirewall.Types.FirewallStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.FirewallStatus where
+module Amazonka.NetworkFirewall.Types.FirewallStatus where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.ConfigurationSyncState
-import Network.AWS.NetworkFirewall.Types.FirewallStatusValue
-import Network.AWS.NetworkFirewall.Types.SyncState
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.ConfigurationSyncState
+import Amazonka.NetworkFirewall.Types.FirewallStatusValue
+import Amazonka.NetworkFirewall.Types.SyncState
+import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the current status of a Firewall. You can
 -- retrieve this for a firewall by calling DescribeFirewall and providing

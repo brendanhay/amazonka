@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.SyncState
+-- Module      : Amazonka.NetworkFirewall.Types.SyncState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.SyncState where
+module Amazonka.NetworkFirewall.Types.SyncState where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.Attachment
-import Network.AWS.NetworkFirewall.Types.PerObjectStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.Attachment
+import Amazonka.NetworkFirewall.Types.PerObjectStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the firewall endpoint and firewall policy configuration
 -- for a single VPC subnet.

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.StatefulEngineOptions
+-- Module      : Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.StatefulEngineOptions where
+module Amazonka.NetworkFirewall.Types.StatefulEngineOptions where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.RuleOrder
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.RuleOrder
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration settings for the handling of the stateful rule groups in a
 -- firewall policy.

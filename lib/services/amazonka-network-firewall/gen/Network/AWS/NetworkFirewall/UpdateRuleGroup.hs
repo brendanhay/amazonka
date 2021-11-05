@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.UpdateRuleGroup
+-- Module      : Amazonka.NetworkFirewall.UpdateRuleGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- To update a rule group, first call DescribeRuleGroup to retrieve the
 -- current RuleGroup object, update the object as needed, and then provide
 -- the updated object to this call.
-module Network.AWS.NetworkFirewall.UpdateRuleGroup
+module Amazonka.NetworkFirewall.UpdateRuleGroup
   ( -- * Creating a Request
     UpdateRuleGroup (..),
     newUpdateRuleGroup,
@@ -53,12 +53,12 @@ module Network.AWS.NetworkFirewall.UpdateRuleGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRuleGroup' smart constructor.
 data UpdateRuleGroup = UpdateRuleGroup'

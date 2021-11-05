@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
+-- Module      : Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- possible to delete the firewall. If the flag is set to @TRUE@, the
 -- firewall is protected against deletion. This setting helps protect
 -- against accidentally deleting a firewall that\'s in use.
-module Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
+module Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
   ( -- * Creating a Request
     UpdateFirewallDeleteProtection (..),
     newUpdateFirewallDeleteProtection,
@@ -48,12 +48,12 @@ module Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFirewallDeleteProtection' smart constructor.
 data UpdateFirewallDeleteProtection = UpdateFirewallDeleteProtection'

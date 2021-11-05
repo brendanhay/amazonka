@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.NetworkFirewall.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.NetworkFirewall.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.NetworkFirewall" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.NetworkFirewall" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,95 +45,95 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.NetworkFirewall
-    Network.AWS.NetworkFirewall.AssociateFirewallPolicy
-    Network.AWS.NetworkFirewall.AssociateSubnets
-    Network.AWS.NetworkFirewall.CreateFirewall
-    Network.AWS.NetworkFirewall.CreateFirewallPolicy
-    Network.AWS.NetworkFirewall.CreateRuleGroup
-    Network.AWS.NetworkFirewall.DeleteFirewall
-    Network.AWS.NetworkFirewall.DeleteFirewallPolicy
-    Network.AWS.NetworkFirewall.DeleteResourcePolicy
-    Network.AWS.NetworkFirewall.DeleteRuleGroup
-    Network.AWS.NetworkFirewall.DescribeFirewall
-    Network.AWS.NetworkFirewall.DescribeFirewallPolicy
-    Network.AWS.NetworkFirewall.DescribeLoggingConfiguration
-    Network.AWS.NetworkFirewall.DescribeResourcePolicy
-    Network.AWS.NetworkFirewall.DescribeRuleGroup
-    Network.AWS.NetworkFirewall.DisassociateSubnets
-    Network.AWS.NetworkFirewall.Lens
-    Network.AWS.NetworkFirewall.ListFirewallPolicies
-    Network.AWS.NetworkFirewall.ListFirewalls
-    Network.AWS.NetworkFirewall.ListRuleGroups
-    Network.AWS.NetworkFirewall.ListTagsForResource
-    Network.AWS.NetworkFirewall.PutResourcePolicy
-    Network.AWS.NetworkFirewall.TagResource
-    Network.AWS.NetworkFirewall.Types
-    Network.AWS.NetworkFirewall.Types.ActionDefinition
-    Network.AWS.NetworkFirewall.Types.Address
-    Network.AWS.NetworkFirewall.Types.Attachment
-    Network.AWS.NetworkFirewall.Types.AttachmentStatus
-    Network.AWS.NetworkFirewall.Types.ConfigurationSyncState
-    Network.AWS.NetworkFirewall.Types.CustomAction
-    Network.AWS.NetworkFirewall.Types.Dimension
-    Network.AWS.NetworkFirewall.Types.Firewall
-    Network.AWS.NetworkFirewall.Types.FirewallMetadata
-    Network.AWS.NetworkFirewall.Types.FirewallPolicy
-    Network.AWS.NetworkFirewall.Types.FirewallPolicyMetadata
-    Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse
-    Network.AWS.NetworkFirewall.Types.FirewallStatus
-    Network.AWS.NetworkFirewall.Types.FirewallStatusValue
-    Network.AWS.NetworkFirewall.Types.GeneratedRulesType
-    Network.AWS.NetworkFirewall.Types.Header
-    Network.AWS.NetworkFirewall.Types.IPSet
-    Network.AWS.NetworkFirewall.Types.LogDestinationConfig
-    Network.AWS.NetworkFirewall.Types.LogDestinationType
-    Network.AWS.NetworkFirewall.Types.LoggingConfiguration
-    Network.AWS.NetworkFirewall.Types.LogType
-    Network.AWS.NetworkFirewall.Types.MatchAttributes
-    Network.AWS.NetworkFirewall.Types.PerObjectStatus
-    Network.AWS.NetworkFirewall.Types.PerObjectSyncStatus
-    Network.AWS.NetworkFirewall.Types.PortRange
-    Network.AWS.NetworkFirewall.Types.PortSet
-    Network.AWS.NetworkFirewall.Types.PublishMetricAction
-    Network.AWS.NetworkFirewall.Types.ResourceStatus
-    Network.AWS.NetworkFirewall.Types.RuleDefinition
-    Network.AWS.NetworkFirewall.Types.RuleGroup
-    Network.AWS.NetworkFirewall.Types.RuleGroupMetadata
-    Network.AWS.NetworkFirewall.Types.RuleGroupResponse
-    Network.AWS.NetworkFirewall.Types.RuleGroupType
-    Network.AWS.NetworkFirewall.Types.RuleOption
-    Network.AWS.NetworkFirewall.Types.RuleOrder
-    Network.AWS.NetworkFirewall.Types.RulesSource
-    Network.AWS.NetworkFirewall.Types.RulesSourceList
-    Network.AWS.NetworkFirewall.Types.RuleVariables
-    Network.AWS.NetworkFirewall.Types.StatefulAction
-    Network.AWS.NetworkFirewall.Types.StatefulEngineOptions
-    Network.AWS.NetworkFirewall.Types.StatefulRule
-    Network.AWS.NetworkFirewall.Types.StatefulRuleDirection
-    Network.AWS.NetworkFirewall.Types.StatefulRuleGroupReference
-    Network.AWS.NetworkFirewall.Types.StatefulRuleOptions
-    Network.AWS.NetworkFirewall.Types.StatefulRuleProtocol
-    Network.AWS.NetworkFirewall.Types.StatelessRule
-    Network.AWS.NetworkFirewall.Types.StatelessRuleGroupReference
-    Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions
-    Network.AWS.NetworkFirewall.Types.SubnetMapping
-    Network.AWS.NetworkFirewall.Types.SyncState
-    Network.AWS.NetworkFirewall.Types.Tag
-    Network.AWS.NetworkFirewall.Types.TargetType
-    Network.AWS.NetworkFirewall.Types.TCPFlag
-    Network.AWS.NetworkFirewall.Types.TCPFlagField
-    Network.AWS.NetworkFirewall.UntagResource
-    Network.AWS.NetworkFirewall.UpdateFirewallDeleteProtection
-    Network.AWS.NetworkFirewall.UpdateFirewallDescription
-    Network.AWS.NetworkFirewall.UpdateFirewallPolicy
-    Network.AWS.NetworkFirewall.UpdateFirewallPolicyChangeProtection
-    Network.AWS.NetworkFirewall.UpdateLoggingConfiguration
-    Network.AWS.NetworkFirewall.UpdateRuleGroup
-    Network.AWS.NetworkFirewall.UpdateSubnetChangeProtection
-    Network.AWS.NetworkFirewall.Waiters
+    Amazonka.NetworkFirewall
+    Amazonka.NetworkFirewall.AssociateFirewallPolicy
+    Amazonka.NetworkFirewall.AssociateSubnets
+    Amazonka.NetworkFirewall.CreateFirewall
+    Amazonka.NetworkFirewall.CreateFirewallPolicy
+    Amazonka.NetworkFirewall.CreateRuleGroup
+    Amazonka.NetworkFirewall.DeleteFirewall
+    Amazonka.NetworkFirewall.DeleteFirewallPolicy
+    Amazonka.NetworkFirewall.DeleteResourcePolicy
+    Amazonka.NetworkFirewall.DeleteRuleGroup
+    Amazonka.NetworkFirewall.DescribeFirewall
+    Amazonka.NetworkFirewall.DescribeFirewallPolicy
+    Amazonka.NetworkFirewall.DescribeLoggingConfiguration
+    Amazonka.NetworkFirewall.DescribeResourcePolicy
+    Amazonka.NetworkFirewall.DescribeRuleGroup
+    Amazonka.NetworkFirewall.DisassociateSubnets
+    Amazonka.NetworkFirewall.Lens
+    Amazonka.NetworkFirewall.ListFirewallPolicies
+    Amazonka.NetworkFirewall.ListFirewalls
+    Amazonka.NetworkFirewall.ListRuleGroups
+    Amazonka.NetworkFirewall.ListTagsForResource
+    Amazonka.NetworkFirewall.PutResourcePolicy
+    Amazonka.NetworkFirewall.TagResource
+    Amazonka.NetworkFirewall.Types
+    Amazonka.NetworkFirewall.Types.ActionDefinition
+    Amazonka.NetworkFirewall.Types.Address
+    Amazonka.NetworkFirewall.Types.Attachment
+    Amazonka.NetworkFirewall.Types.AttachmentStatus
+    Amazonka.NetworkFirewall.Types.ConfigurationSyncState
+    Amazonka.NetworkFirewall.Types.CustomAction
+    Amazonka.NetworkFirewall.Types.Dimension
+    Amazonka.NetworkFirewall.Types.Firewall
+    Amazonka.NetworkFirewall.Types.FirewallMetadata
+    Amazonka.NetworkFirewall.Types.FirewallPolicy
+    Amazonka.NetworkFirewall.Types.FirewallPolicyMetadata
+    Amazonka.NetworkFirewall.Types.FirewallPolicyResponse
+    Amazonka.NetworkFirewall.Types.FirewallStatus
+    Amazonka.NetworkFirewall.Types.FirewallStatusValue
+    Amazonka.NetworkFirewall.Types.GeneratedRulesType
+    Amazonka.NetworkFirewall.Types.Header
+    Amazonka.NetworkFirewall.Types.IPSet
+    Amazonka.NetworkFirewall.Types.LogDestinationConfig
+    Amazonka.NetworkFirewall.Types.LogDestinationType
+    Amazonka.NetworkFirewall.Types.LoggingConfiguration
+    Amazonka.NetworkFirewall.Types.LogType
+    Amazonka.NetworkFirewall.Types.MatchAttributes
+    Amazonka.NetworkFirewall.Types.PerObjectStatus
+    Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
+    Amazonka.NetworkFirewall.Types.PortRange
+    Amazonka.NetworkFirewall.Types.PortSet
+    Amazonka.NetworkFirewall.Types.PublishMetricAction
+    Amazonka.NetworkFirewall.Types.ResourceStatus
+    Amazonka.NetworkFirewall.Types.RuleDefinition
+    Amazonka.NetworkFirewall.Types.RuleGroup
+    Amazonka.NetworkFirewall.Types.RuleGroupMetadata
+    Amazonka.NetworkFirewall.Types.RuleGroupResponse
+    Amazonka.NetworkFirewall.Types.RuleGroupType
+    Amazonka.NetworkFirewall.Types.RuleOption
+    Amazonka.NetworkFirewall.Types.RuleOrder
+    Amazonka.NetworkFirewall.Types.RulesSource
+    Amazonka.NetworkFirewall.Types.RulesSourceList
+    Amazonka.NetworkFirewall.Types.RuleVariables
+    Amazonka.NetworkFirewall.Types.StatefulAction
+    Amazonka.NetworkFirewall.Types.StatefulEngineOptions
+    Amazonka.NetworkFirewall.Types.StatefulRule
+    Amazonka.NetworkFirewall.Types.StatefulRuleDirection
+    Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
+    Amazonka.NetworkFirewall.Types.StatefulRuleOptions
+    Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
+    Amazonka.NetworkFirewall.Types.StatelessRule
+    Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference
+    Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
+    Amazonka.NetworkFirewall.Types.SubnetMapping
+    Amazonka.NetworkFirewall.Types.SyncState
+    Amazonka.NetworkFirewall.Types.Tag
+    Amazonka.NetworkFirewall.Types.TargetType
+    Amazonka.NetworkFirewall.Types.TCPFlag
+    Amazonka.NetworkFirewall.Types.TCPFlagField
+    Amazonka.NetworkFirewall.UntagResource
+    Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
+    Amazonka.NetworkFirewall.UpdateFirewallDescription
+    Amazonka.NetworkFirewall.UpdateFirewallPolicy
+    Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
+    Amazonka.NetworkFirewall.UpdateLoggingConfiguration
+    Amazonka.NetworkFirewall.UpdateRuleGroup
+    Amazonka.NetworkFirewall.UpdateSubnetChangeProtection
+    Amazonka.NetworkFirewall.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkFirewall.Types.RulesSource
+-- Module      : Amazonka.NetworkFirewall.Types.RulesSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkFirewall.Types.RulesSource where
+module Amazonka.NetworkFirewall.Types.RulesSource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkFirewall.Types.RulesSourceList
-import Network.AWS.NetworkFirewall.Types.StatefulRule
-import Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.StatefulRule
+import Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
+import qualified Amazonka.Prelude as Prelude
 
 -- | The stateless or stateful rules definitions for use in a single rule
 -- group. Each rule group requires a single @RulesSource@. You can use an

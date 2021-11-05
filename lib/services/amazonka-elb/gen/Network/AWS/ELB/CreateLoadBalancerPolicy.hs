@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
+-- Module      : Amazonka.ELB.CreateLoadBalancerPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Policies are settings that are saved for your load balancer and that can
 -- be applied to the listener or the application server, depending on the
 -- policy type.
-module Network.AWS.ELB.CreateLoadBalancerPolicy
+module Amazonka.ELB.CreateLoadBalancerPolicy
   ( -- * Creating a Request
     CreateLoadBalancerPolicy (..),
     newCreateLoadBalancerPolicy,
@@ -46,12 +46,12 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for CreateLoadBalancerPolicy.
 --

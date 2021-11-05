@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.Types
+-- Module      : Amazonka.ELB.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types
+module Amazonka.ELB.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -41,7 +41,7 @@ module Network.AWS.ELB.Types
     _CertificateNotFoundException,
 
     -- * Re-exported Types
-    module Network.AWS.ELB.Internal,
+    module Amazonka.ELB.Internal,
 
     -- * AccessLog
     AccessLog (..),
@@ -230,37 +230,37 @@ module Network.AWS.ELB.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.Internal
-import Network.AWS.ELB.Types.AccessLog
-import Network.AWS.ELB.Types.AdditionalAttribute
-import Network.AWS.ELB.Types.AppCookieStickinessPolicy
-import Network.AWS.ELB.Types.BackendServerDescription
-import Network.AWS.ELB.Types.ConnectionDraining
-import Network.AWS.ELB.Types.ConnectionSettings
-import Network.AWS.ELB.Types.CrossZoneLoadBalancing
-import Network.AWS.ELB.Types.HealthCheck
-import Network.AWS.ELB.Types.Instance
-import Network.AWS.ELB.Types.InstanceState
-import Network.AWS.ELB.Types.LBCookieStickinessPolicy
-import Network.AWS.ELB.Types.Limit
-import Network.AWS.ELB.Types.Listener
-import Network.AWS.ELB.Types.ListenerDescription
-import Network.AWS.ELB.Types.LoadBalancerAttributes
-import Network.AWS.ELB.Types.LoadBalancerDescription
-import Network.AWS.ELB.Types.Policies
-import Network.AWS.ELB.Types.PolicyAttribute
-import Network.AWS.ELB.Types.PolicyAttributeDescription
-import Network.AWS.ELB.Types.PolicyAttributeTypeDescription
-import Network.AWS.ELB.Types.PolicyDescription
-import Network.AWS.ELB.Types.PolicyTypeDescription
-import Network.AWS.ELB.Types.SourceSecurityGroup
-import Network.AWS.ELB.Types.Tag
-import Network.AWS.ELB.Types.TagDescription
-import Network.AWS.ELB.Types.TagKeyOnly
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.Internal
+import Amazonka.ELB.Types.AccessLog
+import Amazonka.ELB.Types.AdditionalAttribute
+import Amazonka.ELB.Types.AppCookieStickinessPolicy
+import Amazonka.ELB.Types.BackendServerDescription
+import Amazonka.ELB.Types.ConnectionDraining
+import Amazonka.ELB.Types.ConnectionSettings
+import Amazonka.ELB.Types.CrossZoneLoadBalancing
+import Amazonka.ELB.Types.HealthCheck
+import Amazonka.ELB.Types.Instance
+import Amazonka.ELB.Types.InstanceState
+import Amazonka.ELB.Types.LBCookieStickinessPolicy
+import Amazonka.ELB.Types.Limit
+import Amazonka.ELB.Types.Listener
+import Amazonka.ELB.Types.ListenerDescription
+import Amazonka.ELB.Types.LoadBalancerAttributes
+import Amazonka.ELB.Types.LoadBalancerDescription
+import Amazonka.ELB.Types.Policies
+import Amazonka.ELB.Types.PolicyAttribute
+import Amazonka.ELB.Types.PolicyAttributeDescription
+import Amazonka.ELB.Types.PolicyAttributeTypeDescription
+import Amazonka.ELB.Types.PolicyDescription
+import Amazonka.ELB.Types.PolicyTypeDescription
+import Amazonka.ELB.Types.SourceSecurityGroup
+import Amazonka.ELB.Types.Tag
+import Amazonka.ELB.Types.TagDescription
+import Amazonka.ELB.Types.TagKeyOnly
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Elastic Load Balancing SDK configuration.
 defaultService :: Core.Service

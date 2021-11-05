@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.Types.LoadBalancerAttributes
+-- Module      : Amazonka.ELB.Types.LoadBalancerAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.LoadBalancerAttributes where
+module Amazonka.ELB.Types.LoadBalancerAttributes where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.Internal
-import Network.AWS.ELB.Types.AccessLog
-import Network.AWS.ELB.Types.AdditionalAttribute
-import Network.AWS.ELB.Types.ConnectionDraining
-import Network.AWS.ELB.Types.ConnectionSettings
-import Network.AWS.ELB.Types.CrossZoneLoadBalancing
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.Internal
+import Amazonka.ELB.Types.AccessLog
+import Amazonka.ELB.Types.AdditionalAttribute
+import Amazonka.ELB.Types.ConnectionDraining
+import Amazonka.ELB.Types.ConnectionSettings
+import Amazonka.ELB.Types.CrossZoneLoadBalancing
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The attributes for a load balancer.
 --

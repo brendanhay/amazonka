@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.Lens
+-- Module      : Amazonka.ELB.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Lens
+module Amazonka.ELB.Lens
   ( -- * Operations
 
     -- ** DescribeLoadBalancers
@@ -325,58 +325,58 @@ module Network.AWS.ELB.Lens
   )
 where
 
-import Network.AWS.ELB.AddTags
-import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import Network.AWS.ELB.AttachLoadBalancerToSubnets
-import Network.AWS.ELB.ConfigureHealthCheck
-import Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import Network.AWS.ELB.CreateLoadBalancer
-import Network.AWS.ELB.CreateLoadBalancerListeners
-import Network.AWS.ELB.CreateLoadBalancerPolicy
-import Network.AWS.ELB.DeleteLoadBalancer
-import Network.AWS.ELB.DeleteLoadBalancerListeners
-import Network.AWS.ELB.DeleteLoadBalancerPolicy
-import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import Network.AWS.ELB.DescribeAccountLimits
-import Network.AWS.ELB.DescribeInstanceHealth
-import Network.AWS.ELB.DescribeLoadBalancerAttributes
-import Network.AWS.ELB.DescribeLoadBalancerPolicies
-import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import Network.AWS.ELB.DescribeLoadBalancers
-import Network.AWS.ELB.DescribeTags
-import Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.ModifyLoadBalancerAttributes
-import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import Network.AWS.ELB.RemoveTags
-import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import Network.AWS.ELB.Types.AccessLog
-import Network.AWS.ELB.Types.AdditionalAttribute
-import Network.AWS.ELB.Types.AppCookieStickinessPolicy
-import Network.AWS.ELB.Types.BackendServerDescription
-import Network.AWS.ELB.Types.ConnectionDraining
-import Network.AWS.ELB.Types.ConnectionSettings
-import Network.AWS.ELB.Types.CrossZoneLoadBalancing
-import Network.AWS.ELB.Types.HealthCheck
-import Network.AWS.ELB.Types.Instance
-import Network.AWS.ELB.Types.InstanceState
-import Network.AWS.ELB.Types.LBCookieStickinessPolicy
-import Network.AWS.ELB.Types.Limit
-import Network.AWS.ELB.Types.Listener
-import Network.AWS.ELB.Types.ListenerDescription
-import Network.AWS.ELB.Types.LoadBalancerAttributes
-import Network.AWS.ELB.Types.LoadBalancerDescription
-import Network.AWS.ELB.Types.Policies
-import Network.AWS.ELB.Types.PolicyAttribute
-import Network.AWS.ELB.Types.PolicyAttributeDescription
-import Network.AWS.ELB.Types.PolicyAttributeTypeDescription
-import Network.AWS.ELB.Types.PolicyDescription
-import Network.AWS.ELB.Types.PolicyTypeDescription
-import Network.AWS.ELB.Types.SourceSecurityGroup
-import Network.AWS.ELB.Types.Tag
-import Network.AWS.ELB.Types.TagDescription
-import Network.AWS.ELB.Types.TagKeyOnly
+import Amazonka.ELB.AddTags
+import Amazonka.ELB.ApplySecurityGroupsToLoadBalancer
+import Amazonka.ELB.AttachLoadBalancerToSubnets
+import Amazonka.ELB.ConfigureHealthCheck
+import Amazonka.ELB.CreateAppCookieStickinessPolicy
+import Amazonka.ELB.CreateLBCookieStickinessPolicy
+import Amazonka.ELB.CreateLoadBalancer
+import Amazonka.ELB.CreateLoadBalancerListeners
+import Amazonka.ELB.CreateLoadBalancerPolicy
+import Amazonka.ELB.DeleteLoadBalancer
+import Amazonka.ELB.DeleteLoadBalancerListeners
+import Amazonka.ELB.DeleteLoadBalancerPolicy
+import Amazonka.ELB.DeregisterInstancesFromLoadBalancer
+import Amazonka.ELB.DescribeAccountLimits
+import Amazonka.ELB.DescribeInstanceHealth
+import Amazonka.ELB.DescribeLoadBalancerAttributes
+import Amazonka.ELB.DescribeLoadBalancerPolicies
+import Amazonka.ELB.DescribeLoadBalancerPolicyTypes
+import Amazonka.ELB.DescribeLoadBalancers
+import Amazonka.ELB.DescribeTags
+import Amazonka.ELB.DetachLoadBalancerFromSubnets
+import Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer
+import Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
+import Amazonka.ELB.ModifyLoadBalancerAttributes
+import Amazonka.ELB.RegisterInstancesWithLoadBalancer
+import Amazonka.ELB.RemoveTags
+import Amazonka.ELB.SetLoadBalancerListenerSSLCertificate
+import Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer
+import Amazonka.ELB.SetLoadBalancerPoliciesOfListener
+import Amazonka.ELB.Types.AccessLog
+import Amazonka.ELB.Types.AdditionalAttribute
+import Amazonka.ELB.Types.AppCookieStickinessPolicy
+import Amazonka.ELB.Types.BackendServerDescription
+import Amazonka.ELB.Types.ConnectionDraining
+import Amazonka.ELB.Types.ConnectionSettings
+import Amazonka.ELB.Types.CrossZoneLoadBalancing
+import Amazonka.ELB.Types.HealthCheck
+import Amazonka.ELB.Types.Instance
+import Amazonka.ELB.Types.InstanceState
+import Amazonka.ELB.Types.LBCookieStickinessPolicy
+import Amazonka.ELB.Types.Limit
+import Amazonka.ELB.Types.Listener
+import Amazonka.ELB.Types.ListenerDescription
+import Amazonka.ELB.Types.LoadBalancerAttributes
+import Amazonka.ELB.Types.LoadBalancerDescription
+import Amazonka.ELB.Types.Policies
+import Amazonka.ELB.Types.PolicyAttribute
+import Amazonka.ELB.Types.PolicyAttributeDescription
+import Amazonka.ELB.Types.PolicyAttributeTypeDescription
+import Amazonka.ELB.Types.PolicyDescription
+import Amazonka.ELB.Types.PolicyTypeDescription
+import Amazonka.ELB.Types.SourceSecurityGroup
+import Amazonka.ELB.Types.Tag
+import Amazonka.ELB.Types.TagDescription
+import Amazonka.ELB.Types.TagKeyOnly

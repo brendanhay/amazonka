@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+-- Module      : Amazonka.ELB.DescribeLoadBalancerPolicyTypes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- for any of these policy types. Then, depending on the policy type, use
 -- either SetLoadBalancerPoliciesOfListener or
 -- SetLoadBalancerPoliciesForBackendServer to set the policy.
-module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+module Amazonka.ELB.DescribeLoadBalancerPolicyTypes
   ( -- * Creating a Request
     DescribeLoadBalancerPolicyTypes (..),
     newDescribeLoadBalancerPolicyTypes,
@@ -50,12 +50,12 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
 --

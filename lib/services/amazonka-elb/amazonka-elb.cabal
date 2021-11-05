@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ELB.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ELB.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ELB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ELB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,68 +45,68 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ELB
-    Network.AWS.ELB.AddTags
-    Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-    Network.AWS.ELB.AttachLoadBalancerToSubnets
-    Network.AWS.ELB.ConfigureHealthCheck
-    Network.AWS.ELB.CreateAppCookieStickinessPolicy
-    Network.AWS.ELB.CreateLBCookieStickinessPolicy
-    Network.AWS.ELB.CreateLoadBalancer
-    Network.AWS.ELB.CreateLoadBalancerListeners
-    Network.AWS.ELB.CreateLoadBalancerPolicy
-    Network.AWS.ELB.DeleteLoadBalancer
-    Network.AWS.ELB.DeleteLoadBalancerListeners
-    Network.AWS.ELB.DeleteLoadBalancerPolicy
-    Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-    Network.AWS.ELB.DescribeAccountLimits
-    Network.AWS.ELB.DescribeInstanceHealth
-    Network.AWS.ELB.DescribeLoadBalancerAttributes
-    Network.AWS.ELB.DescribeLoadBalancerPolicies
-    Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-    Network.AWS.ELB.DescribeLoadBalancers
-    Network.AWS.ELB.DescribeTags
-    Network.AWS.ELB.DetachLoadBalancerFromSubnets
-    Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-    Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-    Network.AWS.ELB.Internal
-    Network.AWS.ELB.Lens
-    Network.AWS.ELB.ModifyLoadBalancerAttributes
-    Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-    Network.AWS.ELB.RemoveTags
-    Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-    Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-    Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-    Network.AWS.ELB.Types
-    Network.AWS.ELB.Types.AccessLog
-    Network.AWS.ELB.Types.AdditionalAttribute
-    Network.AWS.ELB.Types.AppCookieStickinessPolicy
-    Network.AWS.ELB.Types.BackendServerDescription
-    Network.AWS.ELB.Types.ConnectionDraining
-    Network.AWS.ELB.Types.ConnectionSettings
-    Network.AWS.ELB.Types.CrossZoneLoadBalancing
-    Network.AWS.ELB.Types.HealthCheck
-    Network.AWS.ELB.Types.Instance
-    Network.AWS.ELB.Types.InstanceState
-    Network.AWS.ELB.Types.LBCookieStickinessPolicy
-    Network.AWS.ELB.Types.Limit
-    Network.AWS.ELB.Types.Listener
-    Network.AWS.ELB.Types.ListenerDescription
-    Network.AWS.ELB.Types.LoadBalancerAttributes
-    Network.AWS.ELB.Types.LoadBalancerDescription
-    Network.AWS.ELB.Types.Policies
-    Network.AWS.ELB.Types.PolicyAttribute
-    Network.AWS.ELB.Types.PolicyAttributeDescription
-    Network.AWS.ELB.Types.PolicyAttributeTypeDescription
-    Network.AWS.ELB.Types.PolicyDescription
-    Network.AWS.ELB.Types.PolicyTypeDescription
-    Network.AWS.ELB.Types.SourceSecurityGroup
-    Network.AWS.ELB.Types.Tag
-    Network.AWS.ELB.Types.TagDescription
-    Network.AWS.ELB.Types.TagKeyOnly
-    Network.AWS.ELB.Waiters
+    Amazonka.ELB
+    Amazonka.ELB.AddTags
+    Amazonka.ELB.ApplySecurityGroupsToLoadBalancer
+    Amazonka.ELB.AttachLoadBalancerToSubnets
+    Amazonka.ELB.ConfigureHealthCheck
+    Amazonka.ELB.CreateAppCookieStickinessPolicy
+    Amazonka.ELB.CreateLBCookieStickinessPolicy
+    Amazonka.ELB.CreateLoadBalancer
+    Amazonka.ELB.CreateLoadBalancerListeners
+    Amazonka.ELB.CreateLoadBalancerPolicy
+    Amazonka.ELB.DeleteLoadBalancer
+    Amazonka.ELB.DeleteLoadBalancerListeners
+    Amazonka.ELB.DeleteLoadBalancerPolicy
+    Amazonka.ELB.DeregisterInstancesFromLoadBalancer
+    Amazonka.ELB.DescribeAccountLimits
+    Amazonka.ELB.DescribeInstanceHealth
+    Amazonka.ELB.DescribeLoadBalancerAttributes
+    Amazonka.ELB.DescribeLoadBalancerPolicies
+    Amazonka.ELB.DescribeLoadBalancerPolicyTypes
+    Amazonka.ELB.DescribeLoadBalancers
+    Amazonka.ELB.DescribeTags
+    Amazonka.ELB.DetachLoadBalancerFromSubnets
+    Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer
+    Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
+    Amazonka.ELB.Internal
+    Amazonka.ELB.Lens
+    Amazonka.ELB.ModifyLoadBalancerAttributes
+    Amazonka.ELB.RegisterInstancesWithLoadBalancer
+    Amazonka.ELB.RemoveTags
+    Amazonka.ELB.SetLoadBalancerListenerSSLCertificate
+    Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer
+    Amazonka.ELB.SetLoadBalancerPoliciesOfListener
+    Amazonka.ELB.Types
+    Amazonka.ELB.Types.AccessLog
+    Amazonka.ELB.Types.AdditionalAttribute
+    Amazonka.ELB.Types.AppCookieStickinessPolicy
+    Amazonka.ELB.Types.BackendServerDescription
+    Amazonka.ELB.Types.ConnectionDraining
+    Amazonka.ELB.Types.ConnectionSettings
+    Amazonka.ELB.Types.CrossZoneLoadBalancing
+    Amazonka.ELB.Types.HealthCheck
+    Amazonka.ELB.Types.Instance
+    Amazonka.ELB.Types.InstanceState
+    Amazonka.ELB.Types.LBCookieStickinessPolicy
+    Amazonka.ELB.Types.Limit
+    Amazonka.ELB.Types.Listener
+    Amazonka.ELB.Types.ListenerDescription
+    Amazonka.ELB.Types.LoadBalancerAttributes
+    Amazonka.ELB.Types.LoadBalancerDescription
+    Amazonka.ELB.Types.Policies
+    Amazonka.ELB.Types.PolicyAttribute
+    Amazonka.ELB.Types.PolicyAttributeDescription
+    Amazonka.ELB.Types.PolicyAttributeTypeDescription
+    Amazonka.ELB.Types.PolicyDescription
+    Amazonka.ELB.Types.PolicyTypeDescription
+    Amazonka.ELB.Types.SourceSecurityGroup
+    Amazonka.ELB.Types.Tag
+    Amazonka.ELB.Types.TagDescription
+    Amazonka.ELB.Types.TagKeyOnly
+    Amazonka.ELB.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

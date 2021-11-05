@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ELB
+-- Module      : Amazonka.ELB
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- All Elastic Load Balancing operations are /idempotent/, which means that
 -- they complete at most one time. If you repeat an operation, it succeeds
 -- with a 200 OK response code.
-module Network.AWS.ELB
+module Amazonka.ELB
   ( -- * Service Configuration
     defaultService,
 
@@ -305,7 +305,7 @@ module Network.AWS.ELB
     -- * Types
 
     -- ** Common
-    module Network.AWS.ELB.Internal,
+    module Amazonka.ELB.Internal,
 
     -- ** AccessLog
     AccessLog (AccessLog'),
@@ -413,39 +413,39 @@ module Network.AWS.ELB
   )
 where
 
-import Network.AWS.ELB.AddTags
-import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import Network.AWS.ELB.AttachLoadBalancerToSubnets
-import Network.AWS.ELB.ConfigureHealthCheck
-import Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import Network.AWS.ELB.CreateLoadBalancer
-import Network.AWS.ELB.CreateLoadBalancerListeners
-import Network.AWS.ELB.CreateLoadBalancerPolicy
-import Network.AWS.ELB.DeleteLoadBalancer
-import Network.AWS.ELB.DeleteLoadBalancerListeners
-import Network.AWS.ELB.DeleteLoadBalancerPolicy
-import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import Network.AWS.ELB.DescribeAccountLimits
-import Network.AWS.ELB.DescribeInstanceHealth
-import Network.AWS.ELB.DescribeLoadBalancerAttributes
-import Network.AWS.ELB.DescribeLoadBalancerPolicies
-import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import Network.AWS.ELB.DescribeLoadBalancers
-import Network.AWS.ELB.DescribeTags
-import Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.Internal
-import Network.AWS.ELB.Lens
-import Network.AWS.ELB.ModifyLoadBalancerAttributes
-import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import Network.AWS.ELB.RemoveTags
-import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import Network.AWS.ELB.Types
-import Network.AWS.ELB.Waiters
+import Amazonka.ELB.AddTags
+import Amazonka.ELB.ApplySecurityGroupsToLoadBalancer
+import Amazonka.ELB.AttachLoadBalancerToSubnets
+import Amazonka.ELB.ConfigureHealthCheck
+import Amazonka.ELB.CreateAppCookieStickinessPolicy
+import Amazonka.ELB.CreateLBCookieStickinessPolicy
+import Amazonka.ELB.CreateLoadBalancer
+import Amazonka.ELB.CreateLoadBalancerListeners
+import Amazonka.ELB.CreateLoadBalancerPolicy
+import Amazonka.ELB.DeleteLoadBalancer
+import Amazonka.ELB.DeleteLoadBalancerListeners
+import Amazonka.ELB.DeleteLoadBalancerPolicy
+import Amazonka.ELB.DeregisterInstancesFromLoadBalancer
+import Amazonka.ELB.DescribeAccountLimits
+import Amazonka.ELB.DescribeInstanceHealth
+import Amazonka.ELB.DescribeLoadBalancerAttributes
+import Amazonka.ELB.DescribeLoadBalancerPolicies
+import Amazonka.ELB.DescribeLoadBalancerPolicyTypes
+import Amazonka.ELB.DescribeLoadBalancers
+import Amazonka.ELB.DescribeTags
+import Amazonka.ELB.DetachLoadBalancerFromSubnets
+import Amazonka.ELB.DisableAvailabilityZonesForLoadBalancer
+import Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
+import Amazonka.ELB.Internal
+import Amazonka.ELB.Lens
+import Amazonka.ELB.ModifyLoadBalancerAttributes
+import Amazonka.ELB.RegisterInstancesWithLoadBalancer
+import Amazonka.ELB.RemoveTags
+import Amazonka.ELB.SetLoadBalancerListenerSSLCertificate
+import Amazonka.ELB.SetLoadBalancerPoliciesForBackendServer
+import Amazonka.ELB.SetLoadBalancerPoliciesOfListener
+import Amazonka.ELB.Types
+import Amazonka.ELB.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

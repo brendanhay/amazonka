@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+-- Module      : Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- Availability Zones that contain instances. For more information, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones>
 -- in the /Classic Load Balancers Guide/.
-module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+module Amazonka.ELB.EnableAvailabilityZonesForLoadBalancer
   ( -- * Creating a Request
     EnableAvailabilityZonesForLoadBalancer (..),
     newEnableAvailabilityZonesForLoadBalancer,
@@ -49,12 +49,12 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for EnableAvailabilityZonesForLoadBalancer.
 --

@@ -7,22 +7,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELB.Waiters
+-- Module      : Amazonka.ELB.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Waiters where
+module Amazonka.ELB.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELB.DescribeInstanceHealth
-import Network.AWS.ELB.Lens
-import Network.AWS.ELB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ELB.DescribeInstanceHealth
+import Amazonka.ELB.Lens
+import Amazonka.ELB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newAnyInstanceInService :: Core.Wait DescribeInstanceHealth
 newAnyInstanceInService =
   Core.Wait
@@ -46,7 +46,7 @@ newAnyInstanceInService =
         ]
     }
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceDeregistered :: Core.Wait DescribeInstanceHealth
 newInstanceDeregistered =
   Core.Wait
@@ -73,7 +73,7 @@ newInstanceDeregistered =
         ]
     }
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceInService :: Core.Wait DescribeInstanceHealth
 newInstanceInService =
   Core.Wait

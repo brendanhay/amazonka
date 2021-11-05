@@ -4,18 +4,18 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Network.AWS.ELB.Internal
+-- Module      : Amazonka.ELB.Internal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.ELB.Internal
+module Amazonka.ELB.Internal
     ( getAccountId
     ) where
 
-import Network.AWS.Core
+import Amazonka.Core
 
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing ELB to upload and write access logs.

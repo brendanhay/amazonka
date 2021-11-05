@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ELB where
 
+import Amazonka.ELB
 import qualified Data.Proxy as Proxy
-import Network.AWS.ELB
 import Test.AWS.ELB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

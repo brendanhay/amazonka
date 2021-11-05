@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.Types
+-- Module      : Amazonka.DirectoryService.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types
+module Amazonka.DirectoryService.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -430,68 +430,68 @@ module Network.AWS.DirectoryService.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types.Attribute
-import Network.AWS.DirectoryService.Types.Certificate
-import Network.AWS.DirectoryService.Types.CertificateInfo
-import Network.AWS.DirectoryService.Types.CertificateState
-import Network.AWS.DirectoryService.Types.CertificateType
-import Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo
-import Network.AWS.DirectoryService.Types.ClientAuthenticationStatus
-import Network.AWS.DirectoryService.Types.ClientAuthenticationType
-import Network.AWS.DirectoryService.Types.ClientCertAuthSettings
-import Network.AWS.DirectoryService.Types.Computer
-import Network.AWS.DirectoryService.Types.ConditionalForwarder
-import Network.AWS.DirectoryService.Types.DirectoryConnectSettings
-import Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
-import Network.AWS.DirectoryService.Types.DirectoryDescription
-import Network.AWS.DirectoryService.Types.DirectoryEdition
-import Network.AWS.DirectoryService.Types.DirectoryLimits
-import Network.AWS.DirectoryService.Types.DirectorySize
-import Network.AWS.DirectoryService.Types.DirectoryStage
-import Network.AWS.DirectoryService.Types.DirectoryType
-import Network.AWS.DirectoryService.Types.DirectoryVpcSettings
-import Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription
-import Network.AWS.DirectoryService.Types.DomainController
-import Network.AWS.DirectoryService.Types.DomainControllerStatus
-import Network.AWS.DirectoryService.Types.EventTopic
-import Network.AWS.DirectoryService.Types.IpRoute
-import Network.AWS.DirectoryService.Types.IpRouteInfo
-import Network.AWS.DirectoryService.Types.IpRouteStatusMsg
-import Network.AWS.DirectoryService.Types.LDAPSSettingInfo
-import Network.AWS.DirectoryService.Types.LDAPSStatus
-import Network.AWS.DirectoryService.Types.LDAPSType
-import Network.AWS.DirectoryService.Types.LogSubscription
-import Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
-import Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
-import Network.AWS.DirectoryService.Types.RadiusSettings
-import Network.AWS.DirectoryService.Types.RadiusStatus
-import Network.AWS.DirectoryService.Types.RegionDescription
-import Network.AWS.DirectoryService.Types.RegionType
-import Network.AWS.DirectoryService.Types.RegionsInfo
-import Network.AWS.DirectoryService.Types.ReplicationScope
-import Network.AWS.DirectoryService.Types.SchemaExtensionInfo
-import Network.AWS.DirectoryService.Types.SchemaExtensionStatus
-import Network.AWS.DirectoryService.Types.SelectiveAuth
-import Network.AWS.DirectoryService.Types.ShareMethod
-import Network.AWS.DirectoryService.Types.ShareStatus
-import Network.AWS.DirectoryService.Types.ShareTarget
-import Network.AWS.DirectoryService.Types.SharedDirectory
-import Network.AWS.DirectoryService.Types.Snapshot
-import Network.AWS.DirectoryService.Types.SnapshotLimits
-import Network.AWS.DirectoryService.Types.SnapshotStatus
-import Network.AWS.DirectoryService.Types.SnapshotType
-import Network.AWS.DirectoryService.Types.Tag
-import Network.AWS.DirectoryService.Types.TargetType
-import Network.AWS.DirectoryService.Types.TopicStatus
-import Network.AWS.DirectoryService.Types.Trust
-import Network.AWS.DirectoryService.Types.TrustDirection
-import Network.AWS.DirectoryService.Types.TrustState
-import Network.AWS.DirectoryService.Types.TrustType
-import Network.AWS.DirectoryService.Types.UnshareTarget
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types.Attribute
+import Amazonka.DirectoryService.Types.Certificate
+import Amazonka.DirectoryService.Types.CertificateInfo
+import Amazonka.DirectoryService.Types.CertificateState
+import Amazonka.DirectoryService.Types.CertificateType
+import Amazonka.DirectoryService.Types.ClientAuthenticationSettingInfo
+import Amazonka.DirectoryService.Types.ClientAuthenticationStatus
+import Amazonka.DirectoryService.Types.ClientAuthenticationType
+import Amazonka.DirectoryService.Types.ClientCertAuthSettings
+import Amazonka.DirectoryService.Types.Computer
+import Amazonka.DirectoryService.Types.ConditionalForwarder
+import Amazonka.DirectoryService.Types.DirectoryConnectSettings
+import Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
+import Amazonka.DirectoryService.Types.DirectoryDescription
+import Amazonka.DirectoryService.Types.DirectoryEdition
+import Amazonka.DirectoryService.Types.DirectoryLimits
+import Amazonka.DirectoryService.Types.DirectorySize
+import Amazonka.DirectoryService.Types.DirectoryStage
+import Amazonka.DirectoryService.Types.DirectoryType
+import Amazonka.DirectoryService.Types.DirectoryVpcSettings
+import Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription
+import Amazonka.DirectoryService.Types.DomainController
+import Amazonka.DirectoryService.Types.DomainControllerStatus
+import Amazonka.DirectoryService.Types.EventTopic
+import Amazonka.DirectoryService.Types.IpRoute
+import Amazonka.DirectoryService.Types.IpRouteInfo
+import Amazonka.DirectoryService.Types.IpRouteStatusMsg
+import Amazonka.DirectoryService.Types.LDAPSSettingInfo
+import Amazonka.DirectoryService.Types.LDAPSStatus
+import Amazonka.DirectoryService.Types.LDAPSType
+import Amazonka.DirectoryService.Types.LogSubscription
+import Amazonka.DirectoryService.Types.OwnerDirectoryDescription
+import Amazonka.DirectoryService.Types.RadiusAuthenticationProtocol
+import Amazonka.DirectoryService.Types.RadiusSettings
+import Amazonka.DirectoryService.Types.RadiusStatus
+import Amazonka.DirectoryService.Types.RegionDescription
+import Amazonka.DirectoryService.Types.RegionType
+import Amazonka.DirectoryService.Types.RegionsInfo
+import Amazonka.DirectoryService.Types.ReplicationScope
+import Amazonka.DirectoryService.Types.SchemaExtensionInfo
+import Amazonka.DirectoryService.Types.SchemaExtensionStatus
+import Amazonka.DirectoryService.Types.SelectiveAuth
+import Amazonka.DirectoryService.Types.ShareMethod
+import Amazonka.DirectoryService.Types.ShareStatus
+import Amazonka.DirectoryService.Types.ShareTarget
+import Amazonka.DirectoryService.Types.SharedDirectory
+import Amazonka.DirectoryService.Types.Snapshot
+import Amazonka.DirectoryService.Types.SnapshotLimits
+import Amazonka.DirectoryService.Types.SnapshotStatus
+import Amazonka.DirectoryService.Types.SnapshotType
+import Amazonka.DirectoryService.Types.Tag
+import Amazonka.DirectoryService.Types.TargetType
+import Amazonka.DirectoryService.Types.TopicStatus
+import Amazonka.DirectoryService.Types.Trust
+import Amazonka.DirectoryService.Types.TrustDirection
+import Amazonka.DirectoryService.Types.TrustState
+import Amazonka.DirectoryService.Types.TrustType
+import Amazonka.DirectoryService.Types.UnshareTarget
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-04-16@ of the Amazon Directory Service SDK configuration.
 defaultService :: Core.Service

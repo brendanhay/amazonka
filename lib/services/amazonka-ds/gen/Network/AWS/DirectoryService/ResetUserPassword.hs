@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.ResetUserPassword
+-- Module      : Amazonka.DirectoryService.ResetUserPassword
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 --     directory, see
 --     <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html What Gets Created>
 --     in the /Directory Service Administration Guide/.
-module Network.AWS.DirectoryService.ResetUserPassword
+module Amazonka.DirectoryService.ResetUserPassword
   ( -- * Creating a Request
     ResetUserPassword (..),
     newResetUserPassword,
@@ -57,12 +57,12 @@ module Network.AWS.DirectoryService.ResetUserPassword
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResetUserPassword' smart constructor.
 data ResetUserPassword = ResetUserPassword'

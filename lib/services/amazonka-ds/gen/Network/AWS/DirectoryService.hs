@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DirectoryService
+-- Module      : Amazonka.DirectoryService
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- services. For more information about the Amazon Web Services SDKs,
 -- including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-module Network.AWS.DirectoryService
+module Amazonka.DirectoryService
   ( -- * Service Configuration
     defaultService,
 
@@ -731,72 +731,72 @@ module Network.AWS.DirectoryService
   )
 where
 
-import Network.AWS.DirectoryService.AcceptSharedDirectory
-import Network.AWS.DirectoryService.AddIpRoutes
-import Network.AWS.DirectoryService.AddRegion
-import Network.AWS.DirectoryService.AddTagsToResource
-import Network.AWS.DirectoryService.CancelSchemaExtension
-import Network.AWS.DirectoryService.ConnectDirectory
-import Network.AWS.DirectoryService.CreateAlias
-import Network.AWS.DirectoryService.CreateComputer
-import Network.AWS.DirectoryService.CreateConditionalForwarder
-import Network.AWS.DirectoryService.CreateDirectory
-import Network.AWS.DirectoryService.CreateLogSubscription
-import Network.AWS.DirectoryService.CreateMicrosoftAD
-import Network.AWS.DirectoryService.CreateSnapshot
-import Network.AWS.DirectoryService.CreateTrust
-import Network.AWS.DirectoryService.DeleteConditionalForwarder
-import Network.AWS.DirectoryService.DeleteDirectory
-import Network.AWS.DirectoryService.DeleteLogSubscription
-import Network.AWS.DirectoryService.DeleteSnapshot
-import Network.AWS.DirectoryService.DeleteTrust
-import Network.AWS.DirectoryService.DeregisterCertificate
-import Network.AWS.DirectoryService.DeregisterEventTopic
-import Network.AWS.DirectoryService.DescribeCertificate
-import Network.AWS.DirectoryService.DescribeClientAuthenticationSettings
-import Network.AWS.DirectoryService.DescribeConditionalForwarders
-import Network.AWS.DirectoryService.DescribeDirectories
-import Network.AWS.DirectoryService.DescribeDomainControllers
-import Network.AWS.DirectoryService.DescribeEventTopics
-import Network.AWS.DirectoryService.DescribeLDAPSSettings
-import Network.AWS.DirectoryService.DescribeRegions
-import Network.AWS.DirectoryService.DescribeSharedDirectories
-import Network.AWS.DirectoryService.DescribeSnapshots
-import Network.AWS.DirectoryService.DescribeTrusts
-import Network.AWS.DirectoryService.DisableClientAuthentication
-import Network.AWS.DirectoryService.DisableLDAPS
-import Network.AWS.DirectoryService.DisableRadius
-import Network.AWS.DirectoryService.DisableSso
-import Network.AWS.DirectoryService.EnableClientAuthentication
-import Network.AWS.DirectoryService.EnableLDAPS
-import Network.AWS.DirectoryService.EnableRadius
-import Network.AWS.DirectoryService.EnableSso
-import Network.AWS.DirectoryService.GetDirectoryLimits
-import Network.AWS.DirectoryService.GetSnapshotLimits
-import Network.AWS.DirectoryService.Lens
-import Network.AWS.DirectoryService.ListCertificates
-import Network.AWS.DirectoryService.ListIpRoutes
-import Network.AWS.DirectoryService.ListLogSubscriptions
-import Network.AWS.DirectoryService.ListSchemaExtensions
-import Network.AWS.DirectoryService.ListTagsForResource
-import Network.AWS.DirectoryService.RegisterCertificate
-import Network.AWS.DirectoryService.RegisterEventTopic
-import Network.AWS.DirectoryService.RejectSharedDirectory
-import Network.AWS.DirectoryService.RemoveIpRoutes
-import Network.AWS.DirectoryService.RemoveRegion
-import Network.AWS.DirectoryService.RemoveTagsFromResource
-import Network.AWS.DirectoryService.ResetUserPassword
-import Network.AWS.DirectoryService.RestoreFromSnapshot
-import Network.AWS.DirectoryService.ShareDirectory
-import Network.AWS.DirectoryService.StartSchemaExtension
-import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.UnshareDirectory
-import Network.AWS.DirectoryService.UpdateConditionalForwarder
-import Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
-import Network.AWS.DirectoryService.UpdateRadius
-import Network.AWS.DirectoryService.UpdateTrust
-import Network.AWS.DirectoryService.VerifyTrust
-import Network.AWS.DirectoryService.Waiters
+import Amazonka.DirectoryService.AcceptSharedDirectory
+import Amazonka.DirectoryService.AddIpRoutes
+import Amazonka.DirectoryService.AddRegion
+import Amazonka.DirectoryService.AddTagsToResource
+import Amazonka.DirectoryService.CancelSchemaExtension
+import Amazonka.DirectoryService.ConnectDirectory
+import Amazonka.DirectoryService.CreateAlias
+import Amazonka.DirectoryService.CreateComputer
+import Amazonka.DirectoryService.CreateConditionalForwarder
+import Amazonka.DirectoryService.CreateDirectory
+import Amazonka.DirectoryService.CreateLogSubscription
+import Amazonka.DirectoryService.CreateMicrosoftAD
+import Amazonka.DirectoryService.CreateSnapshot
+import Amazonka.DirectoryService.CreateTrust
+import Amazonka.DirectoryService.DeleteConditionalForwarder
+import Amazonka.DirectoryService.DeleteDirectory
+import Amazonka.DirectoryService.DeleteLogSubscription
+import Amazonka.DirectoryService.DeleteSnapshot
+import Amazonka.DirectoryService.DeleteTrust
+import Amazonka.DirectoryService.DeregisterCertificate
+import Amazonka.DirectoryService.DeregisterEventTopic
+import Amazonka.DirectoryService.DescribeCertificate
+import Amazonka.DirectoryService.DescribeClientAuthenticationSettings
+import Amazonka.DirectoryService.DescribeConditionalForwarders
+import Amazonka.DirectoryService.DescribeDirectories
+import Amazonka.DirectoryService.DescribeDomainControllers
+import Amazonka.DirectoryService.DescribeEventTopics
+import Amazonka.DirectoryService.DescribeLDAPSSettings
+import Amazonka.DirectoryService.DescribeRegions
+import Amazonka.DirectoryService.DescribeSharedDirectories
+import Amazonka.DirectoryService.DescribeSnapshots
+import Amazonka.DirectoryService.DescribeTrusts
+import Amazonka.DirectoryService.DisableClientAuthentication
+import Amazonka.DirectoryService.DisableLDAPS
+import Amazonka.DirectoryService.DisableRadius
+import Amazonka.DirectoryService.DisableSso
+import Amazonka.DirectoryService.EnableClientAuthentication
+import Amazonka.DirectoryService.EnableLDAPS
+import Amazonka.DirectoryService.EnableRadius
+import Amazonka.DirectoryService.EnableSso
+import Amazonka.DirectoryService.GetDirectoryLimits
+import Amazonka.DirectoryService.GetSnapshotLimits
+import Amazonka.DirectoryService.Lens
+import Amazonka.DirectoryService.ListCertificates
+import Amazonka.DirectoryService.ListIpRoutes
+import Amazonka.DirectoryService.ListLogSubscriptions
+import Amazonka.DirectoryService.ListSchemaExtensions
+import Amazonka.DirectoryService.ListTagsForResource
+import Amazonka.DirectoryService.RegisterCertificate
+import Amazonka.DirectoryService.RegisterEventTopic
+import Amazonka.DirectoryService.RejectSharedDirectory
+import Amazonka.DirectoryService.RemoveIpRoutes
+import Amazonka.DirectoryService.RemoveRegion
+import Amazonka.DirectoryService.RemoveTagsFromResource
+import Amazonka.DirectoryService.ResetUserPassword
+import Amazonka.DirectoryService.RestoreFromSnapshot
+import Amazonka.DirectoryService.ShareDirectory
+import Amazonka.DirectoryService.StartSchemaExtension
+import Amazonka.DirectoryService.Types
+import Amazonka.DirectoryService.UnshareDirectory
+import Amazonka.DirectoryService.UpdateConditionalForwarder
+import Amazonka.DirectoryService.UpdateNumberOfDomainControllers
+import Amazonka.DirectoryService.UpdateRadius
+import Amazonka.DirectoryService.UpdateTrust
+import Amazonka.DirectoryService.VerifyTrust
+import Amazonka.DirectoryService.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

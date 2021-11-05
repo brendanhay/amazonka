@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
+-- Module      : Amazonka.DirectoryService.UpdateNumberOfDomainControllers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- up to 45 minutes for any new domain controllers to become fully active
 -- once the requested number of domain controllers is updated. During this
 -- time, you cannot make another update request.
-module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
+module Amazonka.DirectoryService.UpdateNumberOfDomainControllers
   ( -- * Creating a Request
     UpdateNumberOfDomainControllers (..),
     newUpdateNumberOfDomainControllers,
@@ -44,12 +44,12 @@ module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateNumberOfDomainControllers' smart constructor.
 data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'

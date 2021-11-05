@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.DescribeEventTopics
+-- Module      : Amazonka.DirectoryService.DescribeEventTopics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- If no input parameters are provided, such as DirectoryId or TopicName,
 -- this request describes all of the associations in the account.
-module Network.AWS.DirectoryService.DescribeEventTopics
+module Amazonka.DirectoryService.DescribeEventTopics
   ( -- * Creating a Request
     DescribeEventTopics (..),
     newDescribeEventTopics,
@@ -44,12 +44,12 @@ module Network.AWS.DirectoryService.DescribeEventTopics
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Describes event topics.
 --

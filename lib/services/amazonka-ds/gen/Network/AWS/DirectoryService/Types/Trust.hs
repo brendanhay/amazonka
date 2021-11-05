@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.Types.Trust
+-- Module      : Amazonka.DirectoryService.Types.Trust
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.Trust where
+module Amazonka.DirectoryService.Types.Trust where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types.SelectiveAuth
-import Network.AWS.DirectoryService.Types.TrustDirection
-import Network.AWS.DirectoryService.Types.TrustState
-import Network.AWS.DirectoryService.Types.TrustType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types.SelectiveAuth
+import Amazonka.DirectoryService.Types.TrustDirection
+import Amazonka.DirectoryService.Types.TrustState
+import Amazonka.DirectoryService.Types.TrustType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a trust relationship between an Managed Microsoft AD directory
 -- and an external domain.

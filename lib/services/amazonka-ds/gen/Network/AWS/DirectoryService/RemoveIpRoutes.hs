@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.RemoveIpRoutes
+-- Module      : Amazonka.DirectoryService.RemoveIpRoutes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes IP address blocks from a directory.
-module Network.AWS.DirectoryService.RemoveIpRoutes
+module Amazonka.DirectoryService.RemoveIpRoutes
   ( -- * Creating a Request
     RemoveIpRoutes (..),
     newRemoveIpRoutes,
@@ -39,12 +39,12 @@ module Network.AWS.DirectoryService.RemoveIpRoutes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemoveIpRoutes' smart constructor.
 data RemoveIpRoutes = RemoveIpRoutes'

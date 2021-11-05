@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.Types.ConditionalForwarder
+-- Module      : Amazonka.DirectoryService.Types.ConditionalForwarder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.ConditionalForwarder where
+module Amazonka.DirectoryService.Types.ConditionalForwarder where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types.ReplicationScope
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types.ReplicationScope
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Points to a remote domain with which you are setting up a trust
 -- relationship. Conditional forwarders are required in order to set up a

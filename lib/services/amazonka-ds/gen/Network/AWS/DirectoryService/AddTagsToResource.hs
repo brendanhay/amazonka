@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.AddTagsToResource
+-- Module      : Amazonka.DirectoryService.AddTagsToResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Adds or overwrites one or more tags for the specified directory. Each
 -- directory can have a maximum of 50 tags. Each tag consists of a key and
 -- optional value. Tag keys must be unique to each resource.
-module Network.AWS.DirectoryService.AddTagsToResource
+module Amazonka.DirectoryService.AddTagsToResource
   ( -- * Creating a Request
     AddTagsToResource (..),
     newAddTagsToResource,
@@ -41,12 +41,12 @@ module Network.AWS.DirectoryService.AddTagsToResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'

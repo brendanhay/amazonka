@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.Types.DirectoryDescription
+-- Module      : Amazonka.DirectoryService.Types.DirectoryDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectoryDescription where
+module Amazonka.DirectoryService.Types.DirectoryDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
-import Network.AWS.DirectoryService.Types.DirectoryEdition
-import Network.AWS.DirectoryService.Types.DirectorySize
-import Network.AWS.DirectoryService.Types.DirectoryStage
-import Network.AWS.DirectoryService.Types.DirectoryType
-import Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription
-import Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
-import Network.AWS.DirectoryService.Types.RadiusSettings
-import Network.AWS.DirectoryService.Types.RadiusStatus
-import Network.AWS.DirectoryService.Types.RegionsInfo
-import Network.AWS.DirectoryService.Types.ShareMethod
-import Network.AWS.DirectoryService.Types.ShareStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
+import Amazonka.DirectoryService.Types.DirectoryEdition
+import Amazonka.DirectoryService.Types.DirectorySize
+import Amazonka.DirectoryService.Types.DirectoryStage
+import Amazonka.DirectoryService.Types.DirectoryType
+import Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription
+import Amazonka.DirectoryService.Types.OwnerDirectoryDescription
+import Amazonka.DirectoryService.Types.RadiusSettings
+import Amazonka.DirectoryService.Types.RadiusStatus
+import Amazonka.DirectoryService.Types.RegionsInfo
+import Amazonka.DirectoryService.Types.ShareMethod
+import Amazonka.DirectoryService.Types.ShareStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Directory Service directory.
 --

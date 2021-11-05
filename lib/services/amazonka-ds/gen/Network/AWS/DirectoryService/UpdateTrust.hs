@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.UpdateTrust
+-- Module      : Amazonka.DirectoryService.UpdateTrust
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates the trust that has been set up between your Managed Microsoft AD
 -- directory and an self-managed Active Directory.
-module Network.AWS.DirectoryService.UpdateTrust
+module Amazonka.DirectoryService.UpdateTrust
   ( -- * Creating a Request
     UpdateTrust (..),
     newUpdateTrust,
@@ -42,12 +42,12 @@ module Network.AWS.DirectoryService.UpdateTrust
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTrust' smart constructor.
 data UpdateTrust = UpdateTrust'

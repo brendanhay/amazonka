@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.DescribeSharedDirectories
+-- Module      : Amazonka.DirectoryService.DescribeSharedDirectories
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the shared directories in your account.
 --
 -- This operation returns paginated results.
-module Network.AWS.DirectoryService.DescribeSharedDirectories
+module Amazonka.DirectoryService.DescribeSharedDirectories
   ( -- * Creating a Request
     DescribeSharedDirectories (..),
     newDescribeSharedDirectories,
@@ -45,12 +45,12 @@ module Network.AWS.DirectoryService.DescribeSharedDirectories
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSharedDirectories' smart constructor.
 data DescribeSharedDirectories = DescribeSharedDirectories'

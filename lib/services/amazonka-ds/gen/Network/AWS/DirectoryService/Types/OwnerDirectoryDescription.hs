@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
+-- Module      : Amazonka.DirectoryService.Types.OwnerDirectoryDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.OwnerDirectoryDescription where
+module Amazonka.DirectoryService.Types.OwnerDirectoryDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription
-import Network.AWS.DirectoryService.Types.RadiusSettings
-import Network.AWS.DirectoryService.Types.RadiusStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectoryService.Types.DirectoryVpcSettingsDescription
+import Amazonka.DirectoryService.Types.RadiusSettings
+import Amazonka.DirectoryService.Types.RadiusStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the directory owner account details that have been shared to
 -- the directory consumer account.

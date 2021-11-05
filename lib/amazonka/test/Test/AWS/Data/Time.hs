@@ -8,8 +8,8 @@
 module Test.AWS.Data.Time (tests) where
 
 import qualified Data.Time as Time
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Prelude
 import Test.AWS.Util
 import Test.Tasty
 

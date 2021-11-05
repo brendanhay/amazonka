@@ -7,8 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Query (tests) where
 
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Prelude
 import Test.Tasty
 import Test.Tasty.HUnit (testCase, (@?=))
 

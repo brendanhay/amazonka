@@ -1,22 +1,22 @@
 -- |
--- Module      : Network.AWS.S3.Encryption.Decrypt
+-- Module      : Amazonka.S3.Encryption.Decrypt
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Encryption.Decrypt where
+module Amazonka.S3.Encryption.Decrypt where
 
 import Control.Lens ((%~), (^.))
 import qualified Control.Monad.Except as Except
-import qualified Network.AWS as AWS
-import Network.AWS.Core
-import Network.AWS.Prelude
-import qualified Network.AWS.S3 as S3
-import Network.AWS.S3.Encryption.Envelope
-import Network.AWS.S3.Encryption.Instructions
-import Network.AWS.S3.Encryption.Types
-import qualified Network.AWS.S3.Lens as S3
+import qualified Amazonka as AWS
+import Amazonka.Core
+import Amazonka.Prelude
+import qualified Amazonka.S3 as S3
+import Amazonka.S3.Encryption.Envelope
+import Amazonka.S3.Encryption.Instructions
+import Amazonka.S3.Encryption.Types
+import qualified Amazonka.S3.Lens as S3
 import qualified Network.HTTP.Client as Client
 
 decrypted :: S3.GetObject -> (Decrypt S3.GetObject, GetInstructions)

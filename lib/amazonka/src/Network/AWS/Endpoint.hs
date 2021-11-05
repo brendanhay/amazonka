@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Endpoint
+-- Module      : Amazonka.Endpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Endpoint
+module Amazonka.Endpoint
   ( -- * Endpoint
     setEndpoint,
     defaultEndpoint,
@@ -13,10 +13,10 @@ module Network.AWS.Endpoint
 where
 
 import qualified Data.CaseInsensitive as CI
-import Network.AWS.Data.ByteString
-import Network.AWS.Lens ((%~), (.~))
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data.ByteString
+import Amazonka.Lens ((%~), (.~))
+import Amazonka.Prelude
+import Amazonka.Types
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --

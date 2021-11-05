@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Prelude
+-- Module      : Amazonka.Prelude
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 --
 -- Try and avoid any value, operator, or symbol exports, if possible. Most of
 -- the ones here exist to ease legacy code-migration.
-module Network.AWS.Prelude
+module Amazonka.Prelude
   ( module Export,
     TextLazy,
     TextBuilder,

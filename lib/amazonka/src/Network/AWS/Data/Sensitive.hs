@@ -1,22 +1,22 @@
 -- |
--- Module      : Network.AWS.Data.Sensitive
+-- Module      : Amazonka.Data.Sensitive
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Sensitive where
+module Amazonka.Data.Sensitive where
 
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Log
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text
-import Network.AWS.Data.XML
-import Network.AWS.Lens (iso)
-import Network.AWS.Prelude
+import Amazonka.Data.Body
+import Amazonka.Data.ByteString
+import Amazonka.Data.Headers
+import Amazonka.Data.JSON
+import Amazonka.Data.Log
+import Amazonka.Data.Query
+import Amazonka.Data.Text
+import Amazonka.Data.XML
+import Amazonka.Lens (iso)
+import Amazonka.Prelude
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive {fromSensitive :: a}

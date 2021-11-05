@@ -1,26 +1,26 @@
 -- |
--- Module      : Network.AWS.Data.Base64
+-- Module      : Amazonka.Data.Base64
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Base64
+module Amazonka.Data.Base64
   ( Base64 (..),
     _Base64,
   )
 where
 
 import qualified Data.Text.Encoding as Text
-import qualified Network.AWS.Bytes as Bytes
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text
-import Network.AWS.Data.XML
-import Network.AWS.Lens (iso)
-import Network.AWS.Prelude
+import qualified Amazonka.Bytes as Bytes
+import Amazonka.Data.Body
+import Amazonka.Data.ByteString
+import Amazonka.Data.JSON
+import Amazonka.Data.Query
+import Amazonka.Data.Text
+import Amazonka.Data.XML
+import Amazonka.Lens (iso)
+import Amazonka.Prelude
 
 -- | Base64 encoded binary data.
 --

@@ -16,8 +16,8 @@ module Test.AWS.TH where
 import Data.Time (Day (..), DiffTime, UTCTime (..))
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
-import Network.AWS.Core
-import Network.AWS.Lens (view)
+import Amazonka.Core
+import Amazonka.Lens (view)
 
 mkTime :: Text -> Q Exp
 mkTime x =

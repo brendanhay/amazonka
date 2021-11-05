@@ -15,8 +15,8 @@ import Data.Generics.Product
 import Data.List.NonEmpty (NonEmpty (..))
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Network.AWS
-import Network.AWS.DynamoDB
+import Amazonka
+import Amazonka.DynamoDB
 import System.IO
 
 exceptions ::

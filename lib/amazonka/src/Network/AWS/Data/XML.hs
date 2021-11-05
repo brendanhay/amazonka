@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.XML
+-- Module      : Amazonka.Data.XML
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.XML where
+module Amazonka.Data.XML where
 
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Conduit as Conduit
@@ -14,9 +14,9 @@ import qualified Data.Conduit.List as Conduit.List
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List.NonEmpty as NonEmpty
 import Data.XML.Types (Event (..))
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
 import qualified Text.XML.Stream.Render as XML.Stream

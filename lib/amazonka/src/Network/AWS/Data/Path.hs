@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.Path
+-- Module      : Amazonka.Data.Path
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Path
+module Amazonka.Data.Path
   ( -- * Path Types
     Path (..),
     RawPath,
@@ -23,9 +23,9 @@ where
 
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Network.HTTP.Types.URI as URI
 
 class ToPath a where

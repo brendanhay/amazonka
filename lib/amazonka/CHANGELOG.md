@@ -12,12 +12,12 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 
 - Naming
   - Record smart constructors (previously `describeInstances`, `getObject`, etc.) are now strictly prefixed with `new`, such as `newDescribeInstances`.
-  - Generated lenses are no longer exported from the top-level `Network.AWS.<name>` module - instead a `Network.AWS.<name>.Lens` module is provided.
+  - Generated lenses are no longer exported from the top-level `Amazonka.<name>` module - instead a `Amazonka.<name>.Lens` module is provided.
   - Generated lenses no longer use mnemonic or heuristically assigned prefixes such as `dirsrsInstances` and instead strictly prefix using the type name `describeInstances_instances` - following the form `<type>_<field>`.
   - You may prefer to use a library like [`generic-lens`](https://hackage.haskell.org/package/generic-lens) instead of the long lens names.
 
 - Exports
-  - Every `amazonka-*` package re-exports the `Network.AWS.Prelude` module.
+  - Every `amazonka-*` package re-exports the `Amazonka.Prelude` module.
   - All type constructors (Such as record constructors) are now exported by default.
 
 - CI

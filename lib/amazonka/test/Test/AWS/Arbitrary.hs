@@ -15,9 +15,9 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time (Day (..), UTCTime (..))
-import Network.AWS.Core
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Amazonka.Core
+import Amazonka.Prelude
+import Amazonka.Sign.V4
 import Network.HTTP.Types (StdMethod (..))
 import Test.QuickCheck.Gen as QC
 import qualified Test.QuickCheck.Unicode as Unicode

@@ -35,7 +35,7 @@
         ]
     },
     "typeModules": [
-        "Network.AWS.S3.Internal"
+        "Amazonka.S3.Internal"
     ],
     "typeOverrides": {
         "GetBucketPolicyOutput": {

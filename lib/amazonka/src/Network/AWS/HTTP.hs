@@ -1,13 +1,13 @@
 {-# LANGUAGE BangPatterns #-}
 
 -- |
--- Module      : Network.AWS.HTTP
+-- Module      : Amazonka.HTTP
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HTTP
+module Amazonka.HTTP
   ( retryRequest,
     awaitRequest,
     httpRequest,
@@ -23,13 +23,13 @@ import qualified Control.Retry as Retry
 import qualified Data.List as List
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Time as Time
-import Network.AWS.Data.Body (isStreaming)
-import Network.AWS.Env
-import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
-import Network.AWS.Logger
-import Network.AWS.Prelude
-import Network.AWS.Types
-import Network.AWS.Waiter
+import Amazonka.Data.Body (isStreaming)
+import Amazonka.Env
+import Amazonka.Lens (to, (%~), (^.), (^?), _Just)
+import Amazonka.Logger
+import Amazonka.Prelude
+import Amazonka.Types
+import Amazonka.Waiter
 import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::

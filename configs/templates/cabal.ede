@@ -20,12 +20,12 @@ description:
     .
     It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
     .
-    Generated lenses for legacy behaviour can be found in "Network.AWS.{{ serviceAbbrev }}.Lens"
+    Generated lenses for legacy behaviour can be found in "Amazonka.{{ serviceAbbrev }}.Lens"
     and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+    Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
     .
-    See "Network.AWS.{{ serviceAbbrev }}" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+    See "Amazonka.{{ serviceAbbrev }}" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
     type:              git
@@ -43,7 +43,7 @@ library
         -funbox-strict-fields
 
     exposed-modules:
-          Network.AWS.{{ serviceAbbrev }}
+          Amazonka.{{ serviceAbbrev }}
 
       {% for module in exposedModules %}
         , {{ module.value }}
@@ -54,7 +54,7 @@ library
       {% endfor %}
 
     reexported-modules:
-      Network.AWS
+      Amazonka
 
     build-depends:
           amazonka == {{ clientVersion }}.*

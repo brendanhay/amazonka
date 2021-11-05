@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Sign.V2Header.Base
+-- Module      : Amazonka.Sign.V2Header.Base
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -8,8 +8,8 @@
 --
 -- This module provides auxiliary functions necessary for the AWS compliant V2
 -- Header request signer.
--- /See/: "Network.AWS.Sign.V2Header"
-module Network.AWS.Sign.V2Header.Base
+-- /See/: "Amazonka.Sign.V2Header"
+module Amazonka.Sign.V2Header.Base
   ( newSigner,
 
     -- * Testing
@@ -27,8 +27,8 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Function as Function
 import qualified Data.List as List
-import qualified Network.AWS.Data.Query as Query
-import Network.AWS.Prelude
+import qualified Amazonka.Data.Query as Query
+import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Network.HTTP.Types.URI as URI
 

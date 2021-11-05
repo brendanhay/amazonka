@@ -26,8 +26,8 @@ import qualified Data.List as List
 import qualified Data.Ord as Ord
 import qualified Data.Text.Encoding as Text
 import qualified Data.Yaml as YAML
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Prelude
 import qualified Network.HTTP.Client.Internal as Client
 import Network.HTTP.Types (Method)
 import qualified Network.HTTP.Types as HTTP

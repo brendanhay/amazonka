@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Types
+-- Module      : Amazonka.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Types
+module Amazonka.Types
   ( -- * Authentication
 
     -- ** Credentials
@@ -143,9 +143,9 @@ import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
-import Network.AWS.Data
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Prelude
+import Amazonka.Data
+import qualified Amazonka.Lens as Lens
+import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)

@@ -10,12 +10,12 @@ module Test.AWS.Sign.V4.Chunked (tests) where
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Conduit.List as Conduit
 import qualified Data.Foldable as Fold
-import Network.AWS.Core
-import Network.AWS.Lens ((.~))
-import Network.AWS.Prelude hiding
+import Amazonka.Core
+import Amazonka.Lens ((.~))
+import Amazonka.Prelude hiding
   ( elem,
   )
-import Network.AWS.Sign.V4
+import Amazonka.Sign.V4
 import qualified Network.HTTP.Conduit as Client
 import Numeric (showHex)
 import Test.AWS.Arbitrary ()

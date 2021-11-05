@@ -7,8 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.List (tests) where
 
-import Network.AWS.Core
-import Network.AWS.Prelude hiding
+import Amazonka.Core
+import Amazonka.Prelude hiding
   ( Item,
   )
 import Test.AWS.Util

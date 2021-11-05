@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.Text
+-- Module      : Amazonka.Data.Text
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Text
+module Amazonka.Data.Text
   ( Text,
 
     -- * Deserialisation
@@ -27,9 +27,9 @@ import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
-import Network.AWS.Prelude
+import qualified Amazonka.Bytes as Bytes
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

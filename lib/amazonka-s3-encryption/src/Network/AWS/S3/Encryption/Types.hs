@@ -1,13 +1,13 @@
 {-# LANGUAGE TemplateHaskell #-}
 
 -- |
--- Module      : Network.AWS.S3.Encryption.Types
+-- Module      : Amazonka.S3.Encryption.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Encryption.Types where
+module Amazonka.S3.Encryption.Types where
 
 import qualified Control.Exception.Lens as Exception.Lens
 import qualified Control.Lens as Lens
@@ -17,9 +17,9 @@ import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Network.AWS.Core
-import Network.AWS.Prelude
-import qualified Network.AWS.S3 as S3
+import Amazonka.Core
+import Amazonka.Prelude
+import qualified Amazonka.S3 as S3
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError

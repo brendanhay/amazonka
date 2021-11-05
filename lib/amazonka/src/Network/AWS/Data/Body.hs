@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.Body
+-- Module      : Amazonka.Data.Body
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Body where
+module Amazonka.Data.Body where
 
 import Control.Monad.Trans.Resource (ResourceT, runResourceT)
 import qualified Data.Aeson as Aeson
@@ -17,15 +17,15 @@ import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy.Encoding as LText
-import qualified Network.AWS.Bytes as Bytes
-import Network.AWS.Crypto (Digest, SHA256)
-import qualified Network.AWS.Crypto as Crypto
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Log
-import Network.AWS.Data.Query (QueryString)
-import Network.AWS.Data.XML (encodeXML)
-import Network.AWS.Lens (AReview, lens, to, un)
-import Network.AWS.Prelude
+import qualified Amazonka.Bytes as Bytes
+import Amazonka.Crypto (Digest, SHA256)
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Data.ByteString
+import Amazonka.Data.Log
+import Amazonka.Data.Query (QueryString)
+import Amazonka.Data.XML (encodeXML)
+import Amazonka.Lens (AReview, lens, to, un)
+import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified System.IO as IO

@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Logger
+-- Module      : Amazonka.Logger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Types and functions for constructing loggers and emitting log messages.
-module Network.AWS.Logger
+module Amazonka.Logger
   ( -- * Constructing a Logger
     Logger,
     newLogger,
@@ -27,9 +27,9 @@ where
 
 import qualified Control.Monad as Monad
 import qualified Data.ByteString.Builder as Build
-import Network.AWS.Data
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified System.IO as IO
 
 -- | This is a primitive logger which can be used to log builds to a 'Handle'.

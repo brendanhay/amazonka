@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.S3.Encryption.Envelope
+-- Module      : Amazonka.S3.Encryption.Envelope
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Encryption.Envelope where
+module Amazonka.S3.Encryption.Envelope where
 
 import Conduit ((.|))
 import qualified Conduit
@@ -26,13 +26,13 @@ import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
-import qualified Network.AWS as AWS
-import Network.AWS.Core
-import qualified Network.AWS.KMS as KMS
-import qualified Network.AWS.KMS.Lens as KMS
-import Network.AWS.Prelude
-import Network.AWS.S3.Encryption.Body
-import Network.AWS.S3.Encryption.Types
+import qualified Amazonka as AWS
+import Amazonka.Core
+import qualified Amazonka.KMS as KMS
+import qualified Amazonka.KMS.Lens as KMS
+import Amazonka.Prelude
+import Amazonka.S3.Encryption.Body
+import Amazonka.S3.Encryption.Types
 
 data V1Envelope = V1Envelope
   { -- | @x-amz-key@: Content encrypting key (cek) in encrypted form, base64

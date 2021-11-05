@@ -11,7 +11,7 @@ module Test.AWS.Prelude
 where
 
 import Data.Traversable as Export (traverse)
-import Network.AWS.Lens as Export
+import Amazonka.Lens as Export
 import Test.AWS.Assert as Export
 import Test.AWS.Orphans as Export ()
 import Test.AWS.TH as Export

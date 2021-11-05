@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Sign.V2Header
+-- Module      : Amazonka.Sign.V2Header
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
@@ -10,17 +10,17 @@
 --
 -- Notice: Limitations include an inability to sign with a security token and
 -- inability to overwrite the @Date@ header with an expiry.
-module Network.AWS.Sign.V2Header
+module Amazonka.Sign.V2Header
   ( v2Header,
   )
 where
 
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
-import Network.AWS.Data
-import Network.AWS.Prelude
-import qualified Network.AWS.Sign.V2Header.Base as V2
-import Network.AWS.Types
+import qualified Amazonka.Bytes as Bytes
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Data
+import Amazonka.Prelude
+import qualified Amazonka.Sign.V2Header.Base as V2
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 

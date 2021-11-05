@@ -18,20 +18,20 @@ import Gen.Types
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l _o =
   Set.toList . Set.fromList $
-    "qualified Network.AWS.Request as Request" :
-    "qualified Network.AWS.Response as Response" :
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Amazonka.Request as Request" :
+    "qualified Amazonka.Response as Response" :
+    "qualified Amazonka.Lens as Lens" :
+    "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
 
 typeImports :: Library -> [NS]
 typeImports l =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Amazonka.Lens as Lens" :
+    "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Prelude as Prelude" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
 
@@ -42,16 +42,16 @@ lensImports l =
 sumImports :: Library -> [NS]
 sumImports l =
   sort $
-    "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Amazonka.Lens as Lens" :
+    "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules
       ++ productDependencies l p
 
@@ -70,9 +70,9 @@ moduleShapes l =
 waiterImports :: Library -> [NS]
 waiterImports l =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Amazonka.Lens as Lens" :
+    "qualified Amazonka.Core as Core" :
+    "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. lensNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . each)
@@ -81,8 +81,8 @@ waiterImports l =
 
 signatureImport :: Signature -> NS
 signatureImport = \case
-  V2 -> "qualified Network.AWS.Sign.V2 as Sign"
-  _ -> "qualified Network.AWS.Sign.V4 as Sign"
+  V2 -> "qualified Amazonka.Sign.V2 as Sign"
+  _ -> "qualified Amazonka.Sign.V4 as Sign"
 
 testImports :: Library -> [NS]
 testImports l =

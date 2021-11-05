@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.JSON
+-- Module      : Amazonka.Data.JSON
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.JSON
+module Amazonka.Data.JSON
   ( -- * FromJSON
     Aeson.FromJSON (..),
     Aeson.FromJSONKey (..),
@@ -37,8 +37,8 @@ where
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.HashMap.Strict as HashMap
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.Text
+import Amazonka.Prelude
 
 parseJSONText :: FromText a => String -> Aeson.Value -> Aeson.Types.Parser a
 parseJSONText n = Aeson.withText n (either fail pure . fromText)

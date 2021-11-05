@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Pager
+-- Module      : Amazonka.Pager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pager
+module Amazonka.Pager
   ( AWSPager (..),
     AWSTruncated (..),
     stop,
@@ -14,10 +14,10 @@ module Network.AWS.Pager
 where
 
 import qualified Data.HashMap.Strict as HashMap
-import Network.AWS.Data (ToText (..))
-import Network.AWS.Lens (Getter, to)
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data (ToText (..))
+import Amazonka.Lens (Getter, to)
+import Amazonka.Prelude
+import Amazonka.Types
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.

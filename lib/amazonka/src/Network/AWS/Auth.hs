@@ -1,7 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 
 -- |
--- Module      : Network.AWS.Auth
+-- Module      : Amazonka.Auth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- The format of environment variables and the credentials file follows the official
 -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs AWS SDK guidelines>.
-module Network.AWS.Auth
+module Amazonka.Auth
   ( -- * Authentication
 
     -- ** Retrieving Authentication
@@ -76,11 +76,11 @@ import qualified Data.Ini as INI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Time as Time
-import Network.AWS.Data
-import Network.AWS.EC2.Metadata
-import Network.AWS.Lens (catching, catching_, exception, prism, throwingM, _IOException)
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data
+import Amazonka.EC2.Metadata
+import Amazonka.Lens (catching, catching_, exception, prism, throwingM, _IOException)
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import qualified System.Directory as Directory
 import qualified System.Environment as Environment

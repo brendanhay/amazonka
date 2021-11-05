@@ -18,8 +18,8 @@ import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Network.AWS
-import Network.AWS.DynamoDB as DynamoDB
+import Amazonka
+import Amazonka.DynamoDB as DynamoDB
 import System.IO
 
 printTables ::

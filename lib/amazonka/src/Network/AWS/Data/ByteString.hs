@@ -1,13 +1,13 @@
 --
 
 -- |
--- Module      : Network.AWS.Data.ByteString
+-- Module      : Amazonka.Data.ByteString
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.ByteString
+module Amazonka.Data.ByteString
   ( -- * ByteString
     ByteString,
     ByteStringLazy,
@@ -23,8 +23,8 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Char as Char
 import qualified Data.Text.Encoding as Text
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

@@ -16,8 +16,8 @@ import qualified Data.Foldable as Fold
 import Data.Generics.Product
 import qualified Data.Text.IO as Text
 import Data.Time
-import Network.AWS
-import Network.AWS.S3
+import Amazonka
+import Amazonka.S3
 import System.IO
 
 getPresignedURL ::

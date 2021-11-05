@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Presign
+-- Module      : Amazonka.Presign
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -9,15 +9,15 @@
 -- This module contains functions for presigning requests using 'MonadIO' and
 -- not one of the AWS specific transformers.
 --
--- It is intended for use directly with "Network.AWS.Auth" when only presigning
+-- It is intended for use directly with "Amazonka.Auth" when only presigning
 -- and no other AWS actions are required.
-module Network.AWS.Presign where
+module Amazonka.Presign where
 
-import Network.AWS.Data
-import Network.AWS.Lens ((%~))
-import Network.AWS.Prelude
-import Network.AWS.Request (clientRequestURL)
-import Network.AWS.Types
+import Amazonka.Data
+import Amazonka.Lens ((%~))
+import Amazonka.Prelude
+import Amazonka.Request (clientRequestURL)
+import Amazonka.Types
 import qualified Network.HTTP.Types as HTTP
 
 -- | Presign an URL that is valid from the specified time until the

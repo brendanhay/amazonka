@@ -14,9 +14,9 @@ import qualified Data.ByteString as BS
 import Data.Conduit
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
-import Network.AWS.Core
-import Network.AWS.S3.Encryption.Envelope
-import Network.AWS.S3.Encryption.Types
+import Amazonka.Core
+import Amazonka.S3.Encryption.Envelope
+import Amazonka.S3.Encryption.Types
 import Test.AWS.Prelude
 import Test.QuickCheck.Instances.ByteString ()
 import qualified Test.QuickCheck.Monadic as QC

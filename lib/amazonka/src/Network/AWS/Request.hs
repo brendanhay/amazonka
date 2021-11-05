@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Request
+-- Module      : Amazonka.Request
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Request
+module Amazonka.Request
   ( -- * Requests
     head',
     delete,
@@ -42,9 +42,9 @@ module Network.AWS.Request
 where
 
 import qualified Data.ByteString.Char8 as B8
-import Network.AWS.Core
-import Network.AWS.Lens ((%~), (.~))
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Lens ((%~), (.~))
+import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
 import qualified Network.HTTP.Types as HTTP

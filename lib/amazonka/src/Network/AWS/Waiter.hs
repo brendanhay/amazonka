@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Waiter
+-- Module      : Amazonka.Waiter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Waiter
+module Amazonka.Waiter
   ( -- * Types
     Acceptor,
     Accept (..),
@@ -27,9 +27,9 @@ module Network.AWS.Waiter
 where
 
 import qualified Data.Text as Text
-import Network.AWS.Data
-import Network.AWS.Error (_HttpStatus)
-import Network.AWS.Lens
+import Amazonka.Data
+import Amazonka.Error (_HttpStatus)
+import Amazonka.Lens
   ( Fold,
     allOf,
     anyOf,
@@ -37,8 +37,8 @@ import Network.AWS.Lens
     (^..),
     (^?),
   )
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 
 type Acceptor a = Request a -> Either Error (ClientResponse (AWSResponse a)) -> Maybe Accept

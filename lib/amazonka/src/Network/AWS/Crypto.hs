@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Crypto
+-- Module      : Amazonka.Crypto
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Crypto
+module Amazonka.Crypto
   ( -- * HMAC
     Key,
     hmacSHA1,
@@ -32,7 +32,7 @@ import qualified Crypto.MAC.HMAC as HMAC
 import Data.ByteArray (ByteArrayAccess)
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
-import Network.AWS.Prelude
+import Amazonka.Prelude
 
 type Key = ByteString
 

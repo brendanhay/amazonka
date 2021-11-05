@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Data.Log
+-- Module      : Amazonka.Data.Log
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Log where
+module Amazonka.Data.Log where
 
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Builder as Build
@@ -16,12 +16,12 @@ import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.ByteString
+import Amazonka.Data.Headers
+import Amazonka.Data.Path
+import Amazonka.Data.Query
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric as Numeric

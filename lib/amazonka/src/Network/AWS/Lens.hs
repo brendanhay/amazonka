@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Lens
+-- Module      : Amazonka.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lens (module Export) where
+module Amazonka.Lens (module Export) where
 
 import Control.Exception.Lens as Export
   ( catching,

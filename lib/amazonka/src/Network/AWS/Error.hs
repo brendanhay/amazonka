@@ -1,19 +1,19 @@
 -- |
--- Module      : Network.AWS.Error
+-- Module      : Amazonka.Error
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Error where
+module Amazonka.Error where
 
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
-import Network.AWS.Data
-import Network.AWS.Lens (Choice, Getting, Optic', filtered)
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data
+import Amazonka.Lens (Choice, Getting, Optic', filtered)
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
@@ -21,12 +21,12 @@ import Network.HTTP.Types.Status (Status (..))
 -- identified by the opaque service abbreviation and error code.
 --
 -- This can be used if the generated error prisms provided by
--- @Network.AWS.<ServiceName>.Types@ do not cover all the thrown error codes.
+-- @Amazonka.<ServiceName>.Types@ do not cover all the thrown error codes.
 -- For example to define a new error prism:
 --
 -- > {-# LANGUAGE OverloadedStrings #-}
 -- >
--- > import Network.AWS.S3 (ServiceError, s3)
+-- > import Amazonka.S3 (ServiceError, s3)
 -- >
 -- > _NoSuchBucketPolicy :: AsError a => Getting (First ServiceError) a ServiceError
 -- > _NoSuchBucketPolicy = _MatchServiceError s3 "NoSuchBucketPolicy"

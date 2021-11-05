@@ -1,24 +1,24 @@
 -- |
--- Module      : Network.AWS.S3.Encryption.Instructions
+-- Module      : Amazonka.S3.Encryption.Instructions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Encryption.Instructions where
+module Amazonka.S3.Encryption.Instructions where
 
 import Control.Arrow ((&&&))
 import Control.Lens ((%~))
 import qualified Control.Lens as Lens
 import qualified Data.Aeson.Types as Aeson
-import qualified Network.AWS as AWS
-import Network.AWS.Core
-import Network.AWS.Prelude
-import qualified Network.AWS.Response as Response
-import qualified Network.AWS.S3 as S3
-import Network.AWS.S3.Encryption.Envelope
-import Network.AWS.S3.Encryption.Types
-import qualified Network.AWS.S3.Lens as S3
+import qualified Amazonka as AWS
+import Amazonka.Core
+import Amazonka.Prelude
+import qualified Amazonka.Response as Response
+import qualified Amazonka.S3 as S3
+import Amazonka.S3.Encryption.Envelope
+import Amazonka.S3.Encryption.Types
+import qualified Amazonka.S3.Lens as S3
 
 newtype Instructions = Instructions
   { runInstructions :: forall m. MonadResource m => Key -> AWS.Env -> m Envelope

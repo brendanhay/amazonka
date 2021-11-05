@@ -1,17 +1,17 @@
 -- |
--- Module      : Network.AWS.S3.Encryption.Body
+-- Module      : Amazonka.S3.Encryption.Body
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Encryption.Body where
+module Amazonka.S3.Encryption.Body where
 
 import Conduit ((.|))
 import qualified Conduit
 import qualified Data.ByteString as BS
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Prelude
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.

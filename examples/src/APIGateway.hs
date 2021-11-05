@@ -9,8 +9,8 @@ module APIGateway where
 
 import Control.Lens
 import Data.Generics.Product
-import Network.AWS
-import Network.AWS.APIGateway
+import Amazonka
+import Amazonka.APIGateway
 import System.IO
 
 main :: Region -> IO Method

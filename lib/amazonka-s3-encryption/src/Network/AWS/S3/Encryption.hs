@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.S3.Encryption
+-- Module      : Amazonka.S3.Encryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,7 +48,7 @@
 -- encryption options are supported. Therefore assuming defaults, objects stored
 -- with this library should be retrievable by any of the other official SDKs, and
 -- vice versa.
-module Network.AWS.S3.Encryption
+module Amazonka.S3.Encryption
   ( -- * Usage
     -- $usage
 
@@ -88,14 +88,14 @@ import Control.Lens
 import Control.Monad.Reader
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
-import Network.AWS as AWS
-import Network.AWS.Prelude
-import Network.AWS.S3
-import Network.AWS.S3.Encryption.Decrypt
-import Network.AWS.S3.Encryption.Encrypt
-import Network.AWS.S3.Encryption.Envelope
-import Network.AWS.S3.Encryption.Instructions
-import Network.AWS.S3.Encryption.Types
+import Amazonka as AWS
+import Amazonka.Prelude
+import Amazonka.S3
+import Amazonka.S3.Encryption.Decrypt
+import Amazonka.S3.Encryption.Encrypt
+import Amazonka.S3.Encryption.Envelope
+import Amazonka.S3.Encryption.Instructions
+import Amazonka.S3.Encryption.Types
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -263,9 +263,9 @@ cleanupInstructions env x = do
 -- 'AWS' environment is required. You can specify this environment as follows:
 --
 -- @
--- import Network.AWS
--- import Network.AWS.S3
--- import Network.AWS.S3.Encryption
+-- import Amazonka
+-- import Amazonka.S3
+-- import Amazonka.S3.Encryption
 -- import System.IO
 --
 -- example :: Key -> IO GetObjectResponse

@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Env
+-- Module      : Amazonka.Env
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -7,8 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Environment and AWS specific configuration for the
--- 'Network.AWS.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
-module Network.AWS.Env
+-- 'Amazonka.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
+module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
     newEnvWith,
@@ -30,11 +30,11 @@ where
 
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
-import Network.AWS.Auth
-import Network.AWS.Lens ((.~), (?~))
-import Network.AWS.Logger
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Auth
+import Amazonka.Lens ((.~), (?~))
+import Amazonka.Logger
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 
@@ -120,7 +120,7 @@ override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 -- supplied service will use this configuration instead of the default.
 --
 -- It's suggested you modify the default service configuration,
--- such as @Network.AWS.DynamoDB.dynamoDB@.
+-- such as @Amazonka.DynamoDB.dynamoDB@.
 configure :: Service -> Env -> Env
 configure s = override f
   where

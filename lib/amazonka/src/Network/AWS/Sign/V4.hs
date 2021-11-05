@@ -1,28 +1,28 @@
 -- |
--- Module      : Network.AWS.Sign.V4
+-- Module      : Amazonka.Sign.V4
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Sign.V4
+module Amazonka.Sign.V4
   ( V4 (..),
     v4,
   )
 where
 
 import qualified Data.CaseInsensitive as CI
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Query
-import Network.AWS.Data.Time
-import Network.AWS.Lens ((%~), (<>~))
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Sign.V4.Base
-import Network.AWS.Sign.V4.Chunked
-import Network.AWS.Types
+import Amazonka.Data.Body
+import Amazonka.Data.ByteString
+import Amazonka.Data.Headers
+import Amazonka.Data.Query
+import Amazonka.Data.Time
+import Amazonka.Lens ((%~), (<>~))
+import Amazonka.Prelude
+import Amazonka.Request
+import Amazonka.Sign.V4.Base
+import Amazonka.Sign.V4.Chunked
+import Amazonka.Types
 
 v4 :: Signer
 v4 = Signer sign presign

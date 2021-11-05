@@ -1,12 +1,12 @@
 -- |
--- Module      : Network.AWS.Data.Headers
+-- Module      : Amazonka.Data.Headers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Headers
-  ( module Network.AWS.Data.Headers,
+module Amazonka.Data.Headers
+  ( module Amazonka.Data.Headers,
     HeaderName,
     Header,
     HTTP.hContentType,
@@ -18,9 +18,9 @@ import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text.Encoding as Text
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import Network.HTTP.Types (Header, HeaderName, ResponseHeaders)
 import qualified Network.HTTP.Types as HTTP
 

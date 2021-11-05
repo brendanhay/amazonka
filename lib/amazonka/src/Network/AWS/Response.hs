@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Response
+-- Module      : Amazonka.Response
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- body manually if they want the connection to be closed promptly.
 --
 -- Note that using 'runResourceT' will always close the connection.
-module Network.AWS.Response
+module Amazonka.Response
   ( receiveNull,
     receiveEmpty,
     receiveXMLWrapper,
@@ -34,9 +34,9 @@ import qualified Data.ByteString.Lazy as LBS
 import Data.Conduit ()
 import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
-import Network.AWS.Data
-import Network.AWS.Prelude
-import Network.AWS.Types
+import Amazonka.Data
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (ResponseHeaders)
 import qualified Text.XML as XML

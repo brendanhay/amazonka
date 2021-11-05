@@ -1,7 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 
 -- |
--- Module      : Network.AWS.EC2.Metadata
+-- Module      : Amazonka.EC2.Metadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,8 +12,8 @@
 -- instance's local metadata endpoint.
 --
 -- It is intended to be used when you need to make metadata calls prior to
--- initialisation of the 'Network.AWS.Env.Env'.
-module Network.AWS.EC2.Metadata
+-- initialisation of the 'Amazonka.Env.Env'.
+module Amazonka.EC2.Metadata
   ( -- * EC2 Instance Check
     isEC2,
 
@@ -55,10 +55,10 @@ import qualified Control.Exception as Exception
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Text as Text
-import Network.AWS.Data
-import Network.AWS.Lens (lens, mapping)
-import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import Amazonka.Data
+import Amazonka.Lens (lens, mapping)
+import Amazonka.Prelude
+import Amazonka.Types (Region)
 import qualified Network.HTTP.Client as Client
 
 data Dynamic
@@ -334,7 +334,7 @@ userdata m =
 --
 -- /Note:/ Fields such as '_instanceType' are represented as unparsed 'Text' and
 -- will need to be manually parsed using 'fromText' when the relevant types
--- from a library such as "Network.AWS.EC2" are brought into scope.
+-- from a library such as "Amazonka.EC2" are brought into scope.
 data IdentityDocument = IdentityDocument
   { _devpayProductCodes :: Maybe [Text],
     _billingProducts :: Maybe [Text],

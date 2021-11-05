@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Core
+-- Module      : Amazonka.Core
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -7,25 +7,25 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Types and values referenced by generated code.
-module Network.AWS.Core
-  ( module Network.AWS.Types,
-    module Network.AWS.Endpoint,
-    module Network.AWS.Data,
-    module Network.AWS.Pager,
-    module Network.AWS.Waiter,
-    module Network.AWS.Error,
+module Amazonka.Core
+  ( module Amazonka.Types,
+    module Amazonka.Endpoint,
+    module Amazonka.Data,
+    module Amazonka.Pager,
+    module Amazonka.Waiter,
+    module Amazonka.Error,
     (.!@),
     may,
   )
 where
 
-import Network.AWS.Data
-import Network.AWS.Endpoint
-import Network.AWS.Error
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Types
-import Network.AWS.Waiter
+import Amazonka.Data
+import Amazonka.Endpoint
+import Amazonka.Error
+import Amazonka.Pager
+import Amazonka.Prelude
+import Amazonka.Types
+import Amazonka.Waiter
 
 -- Legacy code generation operators
 

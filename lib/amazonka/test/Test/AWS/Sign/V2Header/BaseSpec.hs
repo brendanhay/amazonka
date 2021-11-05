@@ -9,11 +9,11 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.List as List
 import Data.List.Ordered (subset)
 import qualified Data.Text as Text
-import Network.AWS.Core hiding
+import Amazonka.Core hiding
   ( nonEmptyText,
   )
-import Network.AWS.Prelude
-import Network.AWS.Sign.V2Header.Base
+import Amazonka.Prelude
+import Amazonka.Sign.V2Header.Base
 import qualified Network.HTTP.Types as HTTP
 import qualified Test.QuickCheck as QC
 import Test.Tasty (TestTree, testGroup)

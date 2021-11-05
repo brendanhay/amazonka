@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- |
--- Module      : Network.AWS
+-- Module      : Amazonka
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -11,7 +11,7 @@
 -- This module provides simple 'Env' and 'IO'-based operations which
 -- can be performed against remote Amazon Web Services APIs, for use with the types
 -- supplied by the various @amazonka-*@ libraries.
-module Network.AWS
+module Amazonka
   ( -- * Usage
     -- $usage
 
@@ -127,7 +127,7 @@ module Network.AWS
     newLogger,
 
     -- * Re-exported Types
-    module Network.AWS.Core,
+    module Amazonka.Core,
   )
 where
 
@@ -136,23 +136,23 @@ import Control.Monad.Trans.Resource (runResourceT)
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
 import Data.Monoid (Dual (..), Endo (..))
-import Network.AWS.Auth
-import Network.AWS.Core
-import qualified Network.AWS.Crypto as Crypto
-import qualified Network.AWS.Data.Body as Body
-import qualified Network.AWS.EC2.Metadata as EC2
-import qualified Network.AWS.Endpoint as Endpoint
-import Network.AWS.Env (Env)
-import qualified Network.AWS.Env as Env
-import qualified Network.AWS.Error as Error
-import qualified Network.AWS.HTTP as HTTP
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Logger
-import qualified Network.AWS.Pager as Pager
-import Network.AWS.Prelude
-import qualified Network.AWS.Presign as Presign
-import Network.AWS.Request (clientRequestURL)
-import qualified Network.AWS.Waiter as Waiter
+import Amazonka.Auth
+import Amazonka.Core
+import qualified Amazonka.Crypto as Crypto
+import qualified Amazonka.Data.Body as Body
+import qualified Amazonka.EC2.Metadata as EC2
+import qualified Amazonka.Endpoint as Endpoint
+import Amazonka.Env (Env)
+import qualified Amazonka.Env as Env
+import qualified Amazonka.Error as Error
+import qualified Amazonka.HTTP as HTTP
+import qualified Amazonka.Lens as Lens
+import Amazonka.Logger
+import qualified Amazonka.Pager as Pager
+import Amazonka.Prelude
+import qualified Amazonka.Presign as Presign
+import Amazonka.Request (clientRequestURL)
+import qualified Amazonka.Waiter as Waiter
 import qualified Network.HTTP.Client as Client
 
 -- $usage
@@ -178,8 +178,8 @@ import qualified Network.HTTP.Client as Client
 -- @
 -- {-# LANGUAGE OverloadedStrings #-}
 --
--- import qualified Network.AWS as AWS
--- import qualified Network.AWS.S3 as S3
+-- import qualified Amazonka as AWS
+-- import qualified Amazonka.S3 as S3
 -- import qualified System.IO as IO
 --
 -- example :: IO S3.PutObjectResponse
@@ -219,7 +219,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- When running on an EC2 instance and using 'FromProfile' or 'Discover', a thread
 -- is forked which transparently handles the expiry and subsequent refresh of IAM
--- profile information. See 'Network.AWS.Auth.fromProfileName' for more information.
+-- profile information. See 'Amazonka.Auth.fromProfileName' for more information.
 
 -- $sending
 -- To send a request you need to create a value of the desired operation type using
@@ -258,13 +258,13 @@ import qualified Network.HTTP.Client as Client
 -- or the first successful response that fulfills the success condition will be
 -- returned.
 --
--- 'Wait' specifications can be found under the @Network.AWS.{ServiceName}.Waiters@
+-- 'Wait' specifications can be found under the @Amazonka.{ServiceName}.Waiters@
 -- namespace for services which support 'await'.
 
 -- $service
 -- When a request is sent, various values such as the endpoint,
 -- retry strategy, timeout and error handlers are taken from the associated 'Service'
--- for a request. For example, 'DynamoDB' will use the 'Network.AWS.DynamoDB.defaultService'
+-- for a request. For example, 'DynamoDB' will use the 'Amazonka.DynamoDB.defaultService'
 -- configuration when sending 'PutItem', 'Query' and all other operations.
 --
 -- You can modify a specific 'Service''s default configuration by using
@@ -275,8 +275,8 @@ import qualified Network.HTTP.Client as Client
 -- use non-SSL localhost as the endpoint:
 --
 --
--- > import qualified Network.AWS as AWS
--- > import qualified Network.AWS.DynamoDB as Dynamo
+-- > import qualified Amazonka as AWS
+-- > import qualified Amazonka.DynamoDB as Dynamo
 -- >
 -- > let dynamo :: AWS.Service
 -- >     dynamo = AWS.setEndpoint False "localhost" 8000 DynamoDB.defaultService
@@ -343,8 +343,8 @@ import qualified Network.HTTP.Client as Client
 --
 -- @
 -- {-# LANGUAGE OverloadedStrings #-}
--- import qualified Network.AWS as AWS
--- import qualified Network.AWS.S3 as S3
+-- import qualified Amazonka as AWS
+-- import qualified Amazonka.S3 as S3
 -- import qualified UnliftIO.Async as Async
 --
 -- let requestA = S3.newGetObject "bucket" "prefix/object-a"

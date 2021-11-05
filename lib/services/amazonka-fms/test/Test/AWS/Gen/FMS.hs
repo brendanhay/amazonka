@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FMS where
 
+import Amazonka.FMS
 import qualified Data.Proxy as Proxy
-import Network.AWS.FMS
 import Test.AWS.FMS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

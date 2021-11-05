@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+-- Module      : Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation where
+module Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.Route
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.Route
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for an internet gateway route with an inactive state in
 -- the customer subnet route table or Network Firewall subnet route table.

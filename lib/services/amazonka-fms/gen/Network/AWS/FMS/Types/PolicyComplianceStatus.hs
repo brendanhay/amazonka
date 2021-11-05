@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.PolicyComplianceStatus
+-- Module      : Amazonka.FMS.Types.PolicyComplianceStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.PolicyComplianceStatus where
+module Amazonka.FMS.Types.PolicyComplianceStatus where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.DependentServiceName
-import Network.AWS.FMS.Types.EvaluationResult
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.DependentServiceName
+import Amazonka.FMS.Types.EvaluationResult
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether the account is compliant with the specified policy. An
 -- account is considered noncompliant if it includes resources that are not

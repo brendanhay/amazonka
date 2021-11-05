@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
+-- Module      : Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation where
+module Amazonka.FMS.Types.AwsVPCSecurityGroupViolation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.PartialMatch
-import Network.AWS.FMS.Types.SecurityGroupRemediationAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.PartialMatch
+import Amazonka.FMS.Types.SecurityGroupRemediationAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for the rule violation in a security group when
 -- compared to the primary security group of the Firewall Manager policy.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.PutAppsList
+-- Module      : Amazonka.FMS.PutAppsList
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an Firewall Manager applications list.
-module Network.AWS.FMS.PutAppsList
+module Amazonka.FMS.PutAppsList
   ( -- * Creating a Request
     PutAppsList (..),
     newPutAppsList,
@@ -41,12 +41,12 @@ module Network.AWS.FMS.PutAppsList
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutAppsList' smart constructor.
 data PutAppsList = PutAppsList'

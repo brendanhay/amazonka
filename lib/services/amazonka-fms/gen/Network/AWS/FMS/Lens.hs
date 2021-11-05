@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Lens
+-- Module      : Amazonka.FMS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Lens
+module Amazonka.FMS.Lens
   ( -- * Operations
 
     -- ** ListPolicies
@@ -528,81 +528,81 @@ module Network.AWS.FMS.Lens
   )
 where
 
-import Network.AWS.FMS.AssociateAdminAccount
-import Network.AWS.FMS.DeleteAppsList
-import Network.AWS.FMS.DeleteNotificationChannel
-import Network.AWS.FMS.DeletePolicy
-import Network.AWS.FMS.DeleteProtocolsList
-import Network.AWS.FMS.DisassociateAdminAccount
-import Network.AWS.FMS.GetAdminAccount
-import Network.AWS.FMS.GetAppsList
-import Network.AWS.FMS.GetComplianceDetail
-import Network.AWS.FMS.GetNotificationChannel
-import Network.AWS.FMS.GetPolicy
-import Network.AWS.FMS.GetProtectionStatus
-import Network.AWS.FMS.GetProtocolsList
-import Network.AWS.FMS.GetViolationDetails
-import Network.AWS.FMS.ListAppsLists
-import Network.AWS.FMS.ListComplianceStatus
-import Network.AWS.FMS.ListMemberAccounts
-import Network.AWS.FMS.ListPolicies
-import Network.AWS.FMS.ListProtocolsLists
-import Network.AWS.FMS.ListTagsForResource
-import Network.AWS.FMS.PutAppsList
-import Network.AWS.FMS.PutNotificationChannel
-import Network.AWS.FMS.PutPolicy
-import Network.AWS.FMS.PutProtocolsList
-import Network.AWS.FMS.TagResource
-import Network.AWS.FMS.Types.ActionTarget
-import Network.AWS.FMS.Types.App
-import Network.AWS.FMS.Types.AppsListData
-import Network.AWS.FMS.Types.AppsListDataSummary
-import Network.AWS.FMS.Types.AwsEc2InstanceViolation
-import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
-import Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
-import Network.AWS.FMS.Types.ComplianceViolator
-import Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation
-import Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation
-import Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation
-import Network.AWS.FMS.Types.EC2AssociateRouteTableAction
-import Network.AWS.FMS.Types.EC2CopyRouteTableAction
-import Network.AWS.FMS.Types.EC2CreateRouteAction
-import Network.AWS.FMS.Types.EC2CreateRouteTableAction
-import Network.AWS.FMS.Types.EC2DeleteRouteAction
-import Network.AWS.FMS.Types.EC2ReplaceRouteAction
-import Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction
-import Network.AWS.FMS.Types.EvaluationResult
-import Network.AWS.FMS.Types.ExpectedRoute
-import Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
-import Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
-import Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
-import Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
-import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
-import Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
-import Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
-import Network.AWS.FMS.Types.PartialMatch
-import Network.AWS.FMS.Types.Policy
-import Network.AWS.FMS.Types.PolicyComplianceDetail
-import Network.AWS.FMS.Types.PolicyComplianceStatus
-import Network.AWS.FMS.Types.PolicySummary
-import Network.AWS.FMS.Types.PossibleRemediationAction
-import Network.AWS.FMS.Types.PossibleRemediationActions
-import Network.AWS.FMS.Types.ProtocolsListData
-import Network.AWS.FMS.Types.ProtocolsListDataSummary
-import Network.AWS.FMS.Types.RemediationAction
-import Network.AWS.FMS.Types.RemediationActionWithOrder
-import Network.AWS.FMS.Types.ResourceTag
-import Network.AWS.FMS.Types.ResourceViolation
-import Network.AWS.FMS.Types.Route
-import Network.AWS.FMS.Types.SecurityGroupRemediationAction
-import Network.AWS.FMS.Types.SecurityGroupRuleDescription
-import Network.AWS.FMS.Types.SecurityServicePolicyData
-import Network.AWS.FMS.Types.StatefulRuleGroup
-import Network.AWS.FMS.Types.StatelessRuleGroup
-import Network.AWS.FMS.Types.Tag
-import Network.AWS.FMS.Types.ViolationDetail
-import Network.AWS.FMS.UntagResource
+import Amazonka.FMS.AssociateAdminAccount
+import Amazonka.FMS.DeleteAppsList
+import Amazonka.FMS.DeleteNotificationChannel
+import Amazonka.FMS.DeletePolicy
+import Amazonka.FMS.DeleteProtocolsList
+import Amazonka.FMS.DisassociateAdminAccount
+import Amazonka.FMS.GetAdminAccount
+import Amazonka.FMS.GetAppsList
+import Amazonka.FMS.GetComplianceDetail
+import Amazonka.FMS.GetNotificationChannel
+import Amazonka.FMS.GetPolicy
+import Amazonka.FMS.GetProtectionStatus
+import Amazonka.FMS.GetProtocolsList
+import Amazonka.FMS.GetViolationDetails
+import Amazonka.FMS.ListAppsLists
+import Amazonka.FMS.ListComplianceStatus
+import Amazonka.FMS.ListMemberAccounts
+import Amazonka.FMS.ListPolicies
+import Amazonka.FMS.ListProtocolsLists
+import Amazonka.FMS.ListTagsForResource
+import Amazonka.FMS.PutAppsList
+import Amazonka.FMS.PutNotificationChannel
+import Amazonka.FMS.PutPolicy
+import Amazonka.FMS.PutProtocolsList
+import Amazonka.FMS.TagResource
+import Amazonka.FMS.Types.ActionTarget
+import Amazonka.FMS.Types.App
+import Amazonka.FMS.Types.AppsListData
+import Amazonka.FMS.Types.AppsListDataSummary
+import Amazonka.FMS.Types.AwsEc2InstanceViolation
+import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
+import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
+import Amazonka.FMS.Types.ComplianceViolator
+import Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
+import Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
+import Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
+import Amazonka.FMS.Types.EC2AssociateRouteTableAction
+import Amazonka.FMS.Types.EC2CopyRouteTableAction
+import Amazonka.FMS.Types.EC2CreateRouteAction
+import Amazonka.FMS.Types.EC2CreateRouteTableAction
+import Amazonka.FMS.Types.EC2DeleteRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
+import Amazonka.FMS.Types.EvaluationResult
+import Amazonka.FMS.Types.ExpectedRoute
+import Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+import Amazonka.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
+import Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+import Amazonka.FMS.Types.NetworkFirewallPolicyDescription
+import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
+import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
+import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+import Amazonka.FMS.Types.PartialMatch
+import Amazonka.FMS.Types.Policy
+import Amazonka.FMS.Types.PolicyComplianceDetail
+import Amazonka.FMS.Types.PolicyComplianceStatus
+import Amazonka.FMS.Types.PolicySummary
+import Amazonka.FMS.Types.PossibleRemediationAction
+import Amazonka.FMS.Types.PossibleRemediationActions
+import Amazonka.FMS.Types.ProtocolsListData
+import Amazonka.FMS.Types.ProtocolsListDataSummary
+import Amazonka.FMS.Types.RemediationAction
+import Amazonka.FMS.Types.RemediationActionWithOrder
+import Amazonka.FMS.Types.ResourceTag
+import Amazonka.FMS.Types.ResourceViolation
+import Amazonka.FMS.Types.Route
+import Amazonka.FMS.Types.SecurityGroupRemediationAction
+import Amazonka.FMS.Types.SecurityGroupRuleDescription
+import Amazonka.FMS.Types.SecurityServicePolicyData
+import Amazonka.FMS.Types.StatefulRuleGroup
+import Amazonka.FMS.Types.StatelessRuleGroup
+import Amazonka.FMS.Types.Tag
+import Amazonka.FMS.Types.ViolationDetail
+import Amazonka.FMS.UntagResource

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
+-- Module      : Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation where
+module Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.ExpectedRoute
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.ExpectedRoute
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail for an expected route missing in Network Firewall.
 --

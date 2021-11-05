@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.GetAdminAccount
+-- Module      : Amazonka.FMS.GetAdminAccount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns the Organizations account that is associated with Firewall
 -- Manager as the Firewall Manager administrator.
-module Network.AWS.FMS.GetAdminAccount
+module Amazonka.FMS.GetAdminAccount
   ( -- * Creating a Request
     GetAdminAccount (..),
     newGetAdminAccount,
@@ -38,12 +38,12 @@ module Network.AWS.FMS.GetAdminAccount
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAdminAccount' smart constructor.
 data GetAdminAccount = GetAdminAccount'

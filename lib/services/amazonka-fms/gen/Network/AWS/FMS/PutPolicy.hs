@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.PutPolicy
+-- Module      : Amazonka.FMS.PutPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 -- You must be subscribed to Shield Advanced to create a Shield Advanced
 -- policy. For more information about subscribing to Shield Advanced, see
 -- <https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html CreateSubscription>.
-module Network.AWS.FMS.PutPolicy
+module Amazonka.FMS.PutPolicy
   ( -- * Creating a Request
     PutPolicy (..),
     newPutPolicy,
@@ -69,12 +69,12 @@ module Network.AWS.FMS.PutPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'

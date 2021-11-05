@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.RemediationAction
+-- Module      : Amazonka.FMS.Types.RemediationAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.RemediationAction where
+module Amazonka.FMS.Types.RemediationAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.EC2AssociateRouteTableAction
-import Network.AWS.FMS.Types.EC2CopyRouteTableAction
-import Network.AWS.FMS.Types.EC2CreateRouteAction
-import Network.AWS.FMS.Types.EC2CreateRouteTableAction
-import Network.AWS.FMS.Types.EC2DeleteRouteAction
-import Network.AWS.FMS.Types.EC2ReplaceRouteAction
-import Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.EC2AssociateRouteTableAction
+import Amazonka.FMS.Types.EC2CopyRouteTableAction
+import Amazonka.FMS.Types.EC2CreateRouteAction
+import Amazonka.FMS.Types.EC2CreateRouteTableAction
+import Amazonka.FMS.Types.EC2DeleteRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an individual action you can take to remediate a
 -- violation.

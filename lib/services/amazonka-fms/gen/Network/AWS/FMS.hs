@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.FMS
+-- Module      : Amazonka.FMS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- Some API actions require explicit resource permissions. For information,
 -- see the developer guide topic
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions>.
-module Network.AWS.FMS
+module Amazonka.FMS
   ( -- * Service Configuration
     defaultService,
 
@@ -446,35 +446,35 @@ module Network.AWS.FMS
   )
 where
 
-import Network.AWS.FMS.AssociateAdminAccount
-import Network.AWS.FMS.DeleteAppsList
-import Network.AWS.FMS.DeleteNotificationChannel
-import Network.AWS.FMS.DeletePolicy
-import Network.AWS.FMS.DeleteProtocolsList
-import Network.AWS.FMS.DisassociateAdminAccount
-import Network.AWS.FMS.GetAdminAccount
-import Network.AWS.FMS.GetAppsList
-import Network.AWS.FMS.GetComplianceDetail
-import Network.AWS.FMS.GetNotificationChannel
-import Network.AWS.FMS.GetPolicy
-import Network.AWS.FMS.GetProtectionStatus
-import Network.AWS.FMS.GetProtocolsList
-import Network.AWS.FMS.GetViolationDetails
-import Network.AWS.FMS.Lens
-import Network.AWS.FMS.ListAppsLists
-import Network.AWS.FMS.ListComplianceStatus
-import Network.AWS.FMS.ListMemberAccounts
-import Network.AWS.FMS.ListPolicies
-import Network.AWS.FMS.ListProtocolsLists
-import Network.AWS.FMS.ListTagsForResource
-import Network.AWS.FMS.PutAppsList
-import Network.AWS.FMS.PutNotificationChannel
-import Network.AWS.FMS.PutPolicy
-import Network.AWS.FMS.PutProtocolsList
-import Network.AWS.FMS.TagResource
-import Network.AWS.FMS.Types
-import Network.AWS.FMS.UntagResource
-import Network.AWS.FMS.Waiters
+import Amazonka.FMS.AssociateAdminAccount
+import Amazonka.FMS.DeleteAppsList
+import Amazonka.FMS.DeleteNotificationChannel
+import Amazonka.FMS.DeletePolicy
+import Amazonka.FMS.DeleteProtocolsList
+import Amazonka.FMS.DisassociateAdminAccount
+import Amazonka.FMS.GetAdminAccount
+import Amazonka.FMS.GetAppsList
+import Amazonka.FMS.GetComplianceDetail
+import Amazonka.FMS.GetNotificationChannel
+import Amazonka.FMS.GetPolicy
+import Amazonka.FMS.GetProtectionStatus
+import Amazonka.FMS.GetProtocolsList
+import Amazonka.FMS.GetViolationDetails
+import Amazonka.FMS.Lens
+import Amazonka.FMS.ListAppsLists
+import Amazonka.FMS.ListComplianceStatus
+import Amazonka.FMS.ListMemberAccounts
+import Amazonka.FMS.ListPolicies
+import Amazonka.FMS.ListProtocolsLists
+import Amazonka.FMS.ListTagsForResource
+import Amazonka.FMS.PutAppsList
+import Amazonka.FMS.PutNotificationChannel
+import Amazonka.FMS.PutPolicy
+import Amazonka.FMS.PutProtocolsList
+import Amazonka.FMS.TagResource
+import Amazonka.FMS.Types
+import Amazonka.FMS.UntagResource
+import Amazonka.FMS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

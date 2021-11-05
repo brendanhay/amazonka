@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.GetNotificationChannel
+-- Module      : Amazonka.FMS.GetNotificationChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Information about the Amazon Simple Notification Service (SNS) topic
 -- that is used to record Firewall Manager SNS logs.
-module Network.AWS.FMS.GetNotificationChannel
+module Amazonka.FMS.GetNotificationChannel
   ( -- * Creating a Request
     GetNotificationChannel (..),
     newGetNotificationChannel,
@@ -38,12 +38,12 @@ module Network.AWS.FMS.GetNotificationChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetNotificationChannel' smart constructor.
 data GetNotificationChannel = GetNotificationChannel'

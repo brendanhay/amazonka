@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.PutNotificationChannel
+-- Module      : Amazonka.FMS.PutNotificationChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- publish SNS logs. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions>
 -- in the /Firewall Manager Developer Guide/.
-module Network.AWS.FMS.PutNotificationChannel
+module Amazonka.FMS.PutNotificationChannel
   ( -- * Creating a Request
     PutNotificationChannel (..),
     newPutNotificationChannel,
@@ -43,12 +43,12 @@ module Network.AWS.FMS.PutNotificationChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutNotificationChannel' smart constructor.
 data PutNotificationChannel = PutNotificationChannel'

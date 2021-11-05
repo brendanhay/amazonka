@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.GetProtocolsList
+-- Module      : Amazonka.FMS.GetProtocolsList
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the specified Firewall Manager protocols list.
-module Network.AWS.FMS.GetProtocolsList
+module Amazonka.FMS.GetProtocolsList
   ( -- * Creating a Request
     GetProtocolsList (..),
     newGetProtocolsList,
@@ -41,12 +41,12 @@ module Network.AWS.FMS.GetProtocolsList
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetProtocolsList' smart constructor.
 data GetProtocolsList = GetProtocolsList'

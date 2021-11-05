@@ -11,34 +11,34 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.Types.ResourceViolation
+-- Module      : Amazonka.FMS.Types.ResourceViolation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.ResourceViolation where
+module Amazonka.FMS.Types.ResourceViolation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types.AwsEc2InstanceViolation
-import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
-import Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
-import Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation
-import Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation
-import Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation
-import Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
-import Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
-import Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
-import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
-import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
-import Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
-import Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
-import Network.AWS.FMS.Types.PossibleRemediationActions
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.AwsEc2InstanceViolation
+import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
+import Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
+import Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
+import Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
+import Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
+import Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+import Amazonka.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
+import Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
+import Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
+import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
+import Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+import Amazonka.FMS.Types.PossibleRemediationActions
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Violation detail based on resource type.
 --

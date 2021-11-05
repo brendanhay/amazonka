@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FMS.GetComplianceDetail
+-- Module      : Amazonka.FMS.GetComplianceDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -41,7 +41,7 @@
 -- -   Resources are considered noncompliant for DNS Firewall policies if a
 --     DNS Firewall rule group is missing from the rule group associations
 --     for the VPC.
-module Network.AWS.FMS.GetComplianceDetail
+module Amazonka.FMS.GetComplianceDetail
   ( -- * Creating a Request
     GetComplianceDetail (..),
     newGetComplianceDetail,
@@ -60,12 +60,12 @@ module Network.AWS.FMS.GetComplianceDetail
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FMS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetComplianceDetail' smart constructor.
 data GetComplianceDetail = GetComplianceDetail'

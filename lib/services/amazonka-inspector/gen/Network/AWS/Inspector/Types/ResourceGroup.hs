@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.ResourceGroup
+-- Module      : Amazonka.Inspector.Types.ResourceGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.ResourceGroup where
+module Amazonka.Inspector.Types.ResourceGroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.ResourceGroupTag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.ResourceGroupTag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a resource group. The resource group defines
 -- a set of tags that, when queried, identify the AWS resources that make

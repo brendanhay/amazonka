@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Inspector
+-- Module      : Amazonka.Inspector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- resources and to identify potential security issues. For more
 -- information, see
 -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
-module Network.AWS.Inspector
+module Amazonka.Inspector
   ( -- * Service Configuration
     defaultService,
 
@@ -462,46 +462,46 @@ module Network.AWS.Inspector
   )
 where
 
-import Network.AWS.Inspector.AddAttributesToFindings
-import Network.AWS.Inspector.CreateAssessmentTarget
-import Network.AWS.Inspector.CreateAssessmentTemplate
-import Network.AWS.Inspector.CreateExclusionsPreview
-import Network.AWS.Inspector.CreateResourceGroup
-import Network.AWS.Inspector.DeleteAssessmentRun
-import Network.AWS.Inspector.DeleteAssessmentTarget
-import Network.AWS.Inspector.DeleteAssessmentTemplate
-import Network.AWS.Inspector.DescribeAssessmentRuns
-import Network.AWS.Inspector.DescribeAssessmentTargets
-import Network.AWS.Inspector.DescribeAssessmentTemplates
-import Network.AWS.Inspector.DescribeCrossAccountAccessRole
-import Network.AWS.Inspector.DescribeExclusions
-import Network.AWS.Inspector.DescribeFindings
-import Network.AWS.Inspector.DescribeResourceGroups
-import Network.AWS.Inspector.DescribeRulesPackages
-import Network.AWS.Inspector.GetAssessmentReport
-import Network.AWS.Inspector.GetExclusionsPreview
-import Network.AWS.Inspector.GetTelemetryMetadata
-import Network.AWS.Inspector.Lens
-import Network.AWS.Inspector.ListAssessmentRunAgents
-import Network.AWS.Inspector.ListAssessmentRuns
-import Network.AWS.Inspector.ListAssessmentTargets
-import Network.AWS.Inspector.ListAssessmentTemplates
-import Network.AWS.Inspector.ListEventSubscriptions
-import Network.AWS.Inspector.ListExclusions
-import Network.AWS.Inspector.ListFindings
-import Network.AWS.Inspector.ListRulesPackages
-import Network.AWS.Inspector.ListTagsForResource
-import Network.AWS.Inspector.PreviewAgents
-import Network.AWS.Inspector.RegisterCrossAccountAccessRole
-import Network.AWS.Inspector.RemoveAttributesFromFindings
-import Network.AWS.Inspector.SetTagsForResource
-import Network.AWS.Inspector.StartAssessmentRun
-import Network.AWS.Inspector.StopAssessmentRun
-import Network.AWS.Inspector.SubscribeToEvent
-import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.UnsubscribeFromEvent
-import Network.AWS.Inspector.UpdateAssessmentTarget
-import Network.AWS.Inspector.Waiters
+import Amazonka.Inspector.AddAttributesToFindings
+import Amazonka.Inspector.CreateAssessmentTarget
+import Amazonka.Inspector.CreateAssessmentTemplate
+import Amazonka.Inspector.CreateExclusionsPreview
+import Amazonka.Inspector.CreateResourceGroup
+import Amazonka.Inspector.DeleteAssessmentRun
+import Amazonka.Inspector.DeleteAssessmentTarget
+import Amazonka.Inspector.DeleteAssessmentTemplate
+import Amazonka.Inspector.DescribeAssessmentRuns
+import Amazonka.Inspector.DescribeAssessmentTargets
+import Amazonka.Inspector.DescribeAssessmentTemplates
+import Amazonka.Inspector.DescribeCrossAccountAccessRole
+import Amazonka.Inspector.DescribeExclusions
+import Amazonka.Inspector.DescribeFindings
+import Amazonka.Inspector.DescribeResourceGroups
+import Amazonka.Inspector.DescribeRulesPackages
+import Amazonka.Inspector.GetAssessmentReport
+import Amazonka.Inspector.GetExclusionsPreview
+import Amazonka.Inspector.GetTelemetryMetadata
+import Amazonka.Inspector.Lens
+import Amazonka.Inspector.ListAssessmentRunAgents
+import Amazonka.Inspector.ListAssessmentRuns
+import Amazonka.Inspector.ListAssessmentTargets
+import Amazonka.Inspector.ListAssessmentTemplates
+import Amazonka.Inspector.ListEventSubscriptions
+import Amazonka.Inspector.ListExclusions
+import Amazonka.Inspector.ListFindings
+import Amazonka.Inspector.ListRulesPackages
+import Amazonka.Inspector.ListTagsForResource
+import Amazonka.Inspector.PreviewAgents
+import Amazonka.Inspector.RegisterCrossAccountAccessRole
+import Amazonka.Inspector.RemoveAttributesFromFindings
+import Amazonka.Inspector.SetTagsForResource
+import Amazonka.Inspector.StartAssessmentRun
+import Amazonka.Inspector.StopAssessmentRun
+import Amazonka.Inspector.SubscribeToEvent
+import Amazonka.Inspector.Types
+import Amazonka.Inspector.UnsubscribeFromEvent
+import Amazonka.Inspector.UpdateAssessmentTarget
+import Amazonka.Inspector.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

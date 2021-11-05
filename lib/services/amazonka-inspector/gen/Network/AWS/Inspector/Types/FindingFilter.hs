@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.FindingFilter
+-- Module      : Amazonka.Inspector.Types.FindingFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.FindingFilter where
+module Amazonka.Inspector.Types.FindingFilter where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.Severity
-import Network.AWS.Inspector.Types.TimestampRange
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.Attribute
+import Amazonka.Inspector.Types.Severity
+import Amazonka.Inspector.Types.TimestampRange
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a request parameter in the ListFindings
 -- action.

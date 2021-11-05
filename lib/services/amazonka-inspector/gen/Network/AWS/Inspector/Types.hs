@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types
+-- Module      : Amazonka.Inspector.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types
+module Amazonka.Inspector.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -361,57 +361,57 @@ module Network.AWS.Inspector.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.AgentFilter
-import Network.AWS.Inspector.Types.AgentHealth
-import Network.AWS.Inspector.Types.AgentHealthCode
-import Network.AWS.Inspector.Types.AgentPreview
-import Network.AWS.Inspector.Types.AssessmentRun
-import Network.AWS.Inspector.Types.AssessmentRunAgent
-import Network.AWS.Inspector.Types.AssessmentRunFilter
-import Network.AWS.Inspector.Types.AssessmentRunNotification
-import Network.AWS.Inspector.Types.AssessmentRunNotificationSnsStatusCode
-import Network.AWS.Inspector.Types.AssessmentRunState
-import Network.AWS.Inspector.Types.AssessmentRunStateChange
-import Network.AWS.Inspector.Types.AssessmentTarget
-import Network.AWS.Inspector.Types.AssessmentTargetFilter
-import Network.AWS.Inspector.Types.AssessmentTemplate
-import Network.AWS.Inspector.Types.AssessmentTemplateFilter
-import Network.AWS.Inspector.Types.AssetAttributes
-import Network.AWS.Inspector.Types.AssetType
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.DurationRange
-import Network.AWS.Inspector.Types.EventSubscription
-import Network.AWS.Inspector.Types.Exclusion
-import Network.AWS.Inspector.Types.ExclusionPreview
-import Network.AWS.Inspector.Types.FailedItemDetails
-import Network.AWS.Inspector.Types.FailedItemErrorCode
-import Network.AWS.Inspector.Types.Finding
-import Network.AWS.Inspector.Types.FindingFilter
-import Network.AWS.Inspector.Types.InspectorEvent
-import Network.AWS.Inspector.Types.InspectorServiceAttributes
-import Network.AWS.Inspector.Types.Locale
-import Network.AWS.Inspector.Types.NetworkInterface
-import Network.AWS.Inspector.Types.PreviewStatus
-import Network.AWS.Inspector.Types.PrivateIp
-import Network.AWS.Inspector.Types.ReportFileFormat
-import Network.AWS.Inspector.Types.ReportStatus
-import Network.AWS.Inspector.Types.ReportType
-import Network.AWS.Inspector.Types.ResourceGroup
-import Network.AWS.Inspector.Types.ResourceGroupTag
-import Network.AWS.Inspector.Types.RulesPackage
-import Network.AWS.Inspector.Types.Scope
-import Network.AWS.Inspector.Types.ScopeType
-import Network.AWS.Inspector.Types.SecurityGroup
-import Network.AWS.Inspector.Types.Severity
-import Network.AWS.Inspector.Types.StopAction
-import Network.AWS.Inspector.Types.Subscription
-import Network.AWS.Inspector.Types.Tag
-import Network.AWS.Inspector.Types.TelemetryMetadata
-import Network.AWS.Inspector.Types.TimestampRange
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.AgentFilter
+import Amazonka.Inspector.Types.AgentHealth
+import Amazonka.Inspector.Types.AgentHealthCode
+import Amazonka.Inspector.Types.AgentPreview
+import Amazonka.Inspector.Types.AssessmentRun
+import Amazonka.Inspector.Types.AssessmentRunAgent
+import Amazonka.Inspector.Types.AssessmentRunFilter
+import Amazonka.Inspector.Types.AssessmentRunNotification
+import Amazonka.Inspector.Types.AssessmentRunNotificationSnsStatusCode
+import Amazonka.Inspector.Types.AssessmentRunState
+import Amazonka.Inspector.Types.AssessmentRunStateChange
+import Amazonka.Inspector.Types.AssessmentTarget
+import Amazonka.Inspector.Types.AssessmentTargetFilter
+import Amazonka.Inspector.Types.AssessmentTemplate
+import Amazonka.Inspector.Types.AssessmentTemplateFilter
+import Amazonka.Inspector.Types.AssetAttributes
+import Amazonka.Inspector.Types.AssetType
+import Amazonka.Inspector.Types.Attribute
+import Amazonka.Inspector.Types.DurationRange
+import Amazonka.Inspector.Types.EventSubscription
+import Amazonka.Inspector.Types.Exclusion
+import Amazonka.Inspector.Types.ExclusionPreview
+import Amazonka.Inspector.Types.FailedItemDetails
+import Amazonka.Inspector.Types.FailedItemErrorCode
+import Amazonka.Inspector.Types.Finding
+import Amazonka.Inspector.Types.FindingFilter
+import Amazonka.Inspector.Types.InspectorEvent
+import Amazonka.Inspector.Types.InspectorServiceAttributes
+import Amazonka.Inspector.Types.Locale
+import Amazonka.Inspector.Types.NetworkInterface
+import Amazonka.Inspector.Types.PreviewStatus
+import Amazonka.Inspector.Types.PrivateIp
+import Amazonka.Inspector.Types.ReportFileFormat
+import Amazonka.Inspector.Types.ReportStatus
+import Amazonka.Inspector.Types.ReportType
+import Amazonka.Inspector.Types.ResourceGroup
+import Amazonka.Inspector.Types.ResourceGroupTag
+import Amazonka.Inspector.Types.RulesPackage
+import Amazonka.Inspector.Types.Scope
+import Amazonka.Inspector.Types.ScopeType
+import Amazonka.Inspector.Types.SecurityGroup
+import Amazonka.Inspector.Types.Severity
+import Amazonka.Inspector.Types.StopAction
+import Amazonka.Inspector.Types.Subscription
+import Amazonka.Inspector.Types.Tag
+import Amazonka.Inspector.Types.TelemetryMetadata
+import Amazonka.Inspector.Types.TimestampRange
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-02-16@ of the Amazon Inspector SDK configuration.
 defaultService :: Core.Service

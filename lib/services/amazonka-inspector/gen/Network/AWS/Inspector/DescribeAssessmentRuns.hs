@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.DescribeAssessmentRuns
+-- Module      : Amazonka.Inspector.DescribeAssessmentRuns
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Describes the assessment runs that are specified by the ARNs of the
 -- assessment runs.
-module Network.AWS.Inspector.DescribeAssessmentRuns
+module Amazonka.Inspector.DescribeAssessmentRuns
   ( -- * Creating a Request
     DescribeAssessmentRuns (..),
     newDescribeAssessmentRuns,
@@ -41,12 +41,12 @@ module Network.AWS.Inspector.DescribeAssessmentRuns
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAssessmentRuns' smart constructor.
 data DescribeAssessmentRuns = DescribeAssessmentRuns'

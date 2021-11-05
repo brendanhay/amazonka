@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.GetAssessmentReport
+-- Module      : Amazonka.Inspector.GetAssessmentReport
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Produces an assessment report that includes detailed and comprehensive
 -- results of a specified assessment run.
-module Network.AWS.Inspector.GetAssessmentReport
+module Amazonka.Inspector.GetAssessmentReport
   ( -- * Creating a Request
     GetAssessmentReport (..),
     newGetAssessmentReport,
@@ -43,12 +43,12 @@ module Network.AWS.Inspector.GetAssessmentReport
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssessmentReport' smart constructor.
 data GetAssessmentReport = GetAssessmentReport'

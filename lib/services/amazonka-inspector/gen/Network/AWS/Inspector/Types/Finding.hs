@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.Finding
+-- Module      : Amazonka.Inspector.Types.Finding
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.Finding where
+module Amazonka.Inspector.Types.Finding where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.AssetAttributes
-import Network.AWS.Inspector.Types.AssetType
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.InspectorServiceAttributes
-import Network.AWS.Inspector.Types.Severity
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.AssetAttributes
+import Amazonka.Inspector.Types.AssetType
+import Amazonka.Inspector.Types.Attribute
+import Amazonka.Inspector.Types.InspectorServiceAttributes
+import Amazonka.Inspector.Types.Severity
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector finding. This data type
 -- is used as the response element in the DescribeFindings action.

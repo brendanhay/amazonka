@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.AssetAttributes
+-- Module      : Amazonka.Inspector.Types.AssetAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssetAttributes where
+module Amazonka.Inspector.Types.AssetAttributes where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.NetworkInterface
-import Network.AWS.Inspector.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.NetworkInterface
+import Amazonka.Inspector.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of attributes of the host from which the finding is
 -- generated.

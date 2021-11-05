@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.DeleteAssessmentTarget
+-- Module      : Amazonka.Inspector.DeleteAssessmentTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes the assessment target that is specified by the ARN of the
 -- assessment target.
-module Network.AWS.Inspector.DeleteAssessmentTarget
+module Amazonka.Inspector.DeleteAssessmentTarget
   ( -- * Creating a Request
     DeleteAssessmentTarget (..),
     newDeleteAssessmentTarget,
@@ -36,12 +36,12 @@ module Network.AWS.Inspector.DeleteAssessmentTarget
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAssessmentTarget' smart constructor.
 data DeleteAssessmentTarget = DeleteAssessmentTarget'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.CreateAssessmentTarget
+-- Module      : Amazonka.Inspector.CreateAssessmentTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- assessment targets per AWS account. You can run up to 500 concurrent
 -- agents per AWS account. For more information, see
 -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html Amazon Inspector Assessment Targets>.
-module Network.AWS.Inspector.CreateAssessmentTarget
+module Amazonka.Inspector.CreateAssessmentTarget
   ( -- * Creating a Request
     CreateAssessmentTarget (..),
     newCreateAssessmentTarget,
@@ -50,12 +50,12 @@ module Network.AWS.Inspector.CreateAssessmentTarget
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAssessmentTarget' smart constructor.
 data CreateAssessmentTarget = CreateAssessmentTarget'

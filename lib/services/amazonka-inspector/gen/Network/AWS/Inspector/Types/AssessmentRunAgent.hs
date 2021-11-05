@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.AssessmentRunAgent
+-- Module      : Amazonka.Inspector.Types.AssessmentRunAgent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssessmentRunAgent where
+module Amazonka.Inspector.Types.AssessmentRunAgent where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.AgentHealth
-import Network.AWS.Inspector.Types.AgentHealthCode
-import Network.AWS.Inspector.Types.TelemetryMetadata
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.AgentHealth
+import Amazonka.Inspector.Types.AgentHealthCode
+import Amazonka.Inspector.Types.TelemetryMetadata
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector agent. This data type is
 -- used as a response element in the ListAssessmentRunAgents action.

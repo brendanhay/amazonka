@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.ListAssessmentTemplates
+-- Module      : Amazonka.Inspector.ListAssessmentTemplates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- that are specified by the ARNs of the assessment targets.
 --
 -- This operation returns paginated results.
-module Network.AWS.Inspector.ListAssessmentTemplates
+module Amazonka.Inspector.ListAssessmentTemplates
   ( -- * Creating a Request
     ListAssessmentTemplates (..),
     newListAssessmentTemplates,
@@ -46,12 +46,12 @@ module Network.AWS.Inspector.ListAssessmentTemplates
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssessmentTemplates' smart constructor.
 data ListAssessmentTemplates = ListAssessmentTemplates'

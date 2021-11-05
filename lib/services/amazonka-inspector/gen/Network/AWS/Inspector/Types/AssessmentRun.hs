@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Types.AssessmentRun
+-- Module      : Amazonka.Inspector.Types.AssessmentRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssessmentRun where
+module Amazonka.Inspector.Types.AssessmentRun where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Inspector.Types.AssessmentRunNotification
-import Network.AWS.Inspector.Types.AssessmentRunState
-import Network.AWS.Inspector.Types.AssessmentRunStateChange
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.Severity
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Inspector.Types.AssessmentRunNotification
+import Amazonka.Inspector.Types.AssessmentRunState
+import Amazonka.Inspector.Types.AssessmentRunStateChange
+import Amazonka.Inspector.Types.Attribute
+import Amazonka.Inspector.Types.Severity
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of an Amazon Inspector assessment run that contains the
 -- findings of the assessment run .

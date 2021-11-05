@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Inspector.Lens
+-- Module      : Amazonka.Inspector.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Lens
+module Amazonka.Inspector.Lens
   ( -- * Operations
 
     -- ** GetTelemetryMetadata
@@ -472,72 +472,72 @@ module Network.AWS.Inspector.Lens
   )
 where
 
-import Network.AWS.Inspector.AddAttributesToFindings
-import Network.AWS.Inspector.CreateAssessmentTarget
-import Network.AWS.Inspector.CreateAssessmentTemplate
-import Network.AWS.Inspector.CreateExclusionsPreview
-import Network.AWS.Inspector.CreateResourceGroup
-import Network.AWS.Inspector.DeleteAssessmentRun
-import Network.AWS.Inspector.DeleteAssessmentTarget
-import Network.AWS.Inspector.DeleteAssessmentTemplate
-import Network.AWS.Inspector.DescribeAssessmentRuns
-import Network.AWS.Inspector.DescribeAssessmentTargets
-import Network.AWS.Inspector.DescribeAssessmentTemplates
-import Network.AWS.Inspector.DescribeCrossAccountAccessRole
-import Network.AWS.Inspector.DescribeExclusions
-import Network.AWS.Inspector.DescribeFindings
-import Network.AWS.Inspector.DescribeResourceGroups
-import Network.AWS.Inspector.DescribeRulesPackages
-import Network.AWS.Inspector.GetAssessmentReport
-import Network.AWS.Inspector.GetExclusionsPreview
-import Network.AWS.Inspector.GetTelemetryMetadata
-import Network.AWS.Inspector.ListAssessmentRunAgents
-import Network.AWS.Inspector.ListAssessmentRuns
-import Network.AWS.Inspector.ListAssessmentTargets
-import Network.AWS.Inspector.ListAssessmentTemplates
-import Network.AWS.Inspector.ListEventSubscriptions
-import Network.AWS.Inspector.ListExclusions
-import Network.AWS.Inspector.ListFindings
-import Network.AWS.Inspector.ListRulesPackages
-import Network.AWS.Inspector.ListTagsForResource
-import Network.AWS.Inspector.PreviewAgents
-import Network.AWS.Inspector.RegisterCrossAccountAccessRole
-import Network.AWS.Inspector.RemoveAttributesFromFindings
-import Network.AWS.Inspector.SetTagsForResource
-import Network.AWS.Inspector.StartAssessmentRun
-import Network.AWS.Inspector.StopAssessmentRun
-import Network.AWS.Inspector.SubscribeToEvent
-import Network.AWS.Inspector.Types.AgentFilter
-import Network.AWS.Inspector.Types.AgentPreview
-import Network.AWS.Inspector.Types.AssessmentRun
-import Network.AWS.Inspector.Types.AssessmentRunAgent
-import Network.AWS.Inspector.Types.AssessmentRunFilter
-import Network.AWS.Inspector.Types.AssessmentRunNotification
-import Network.AWS.Inspector.Types.AssessmentRunStateChange
-import Network.AWS.Inspector.Types.AssessmentTarget
-import Network.AWS.Inspector.Types.AssessmentTargetFilter
-import Network.AWS.Inspector.Types.AssessmentTemplate
-import Network.AWS.Inspector.Types.AssessmentTemplateFilter
-import Network.AWS.Inspector.Types.AssetAttributes
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.DurationRange
-import Network.AWS.Inspector.Types.EventSubscription
-import Network.AWS.Inspector.Types.Exclusion
-import Network.AWS.Inspector.Types.ExclusionPreview
-import Network.AWS.Inspector.Types.FailedItemDetails
-import Network.AWS.Inspector.Types.Finding
-import Network.AWS.Inspector.Types.FindingFilter
-import Network.AWS.Inspector.Types.InspectorServiceAttributes
-import Network.AWS.Inspector.Types.NetworkInterface
-import Network.AWS.Inspector.Types.PrivateIp
-import Network.AWS.Inspector.Types.ResourceGroup
-import Network.AWS.Inspector.Types.ResourceGroupTag
-import Network.AWS.Inspector.Types.RulesPackage
-import Network.AWS.Inspector.Types.Scope
-import Network.AWS.Inspector.Types.SecurityGroup
-import Network.AWS.Inspector.Types.Subscription
-import Network.AWS.Inspector.Types.Tag
-import Network.AWS.Inspector.Types.TelemetryMetadata
-import Network.AWS.Inspector.Types.TimestampRange
-import Network.AWS.Inspector.UnsubscribeFromEvent
-import Network.AWS.Inspector.UpdateAssessmentTarget
+import Amazonka.Inspector.AddAttributesToFindings
+import Amazonka.Inspector.CreateAssessmentTarget
+import Amazonka.Inspector.CreateAssessmentTemplate
+import Amazonka.Inspector.CreateExclusionsPreview
+import Amazonka.Inspector.CreateResourceGroup
+import Amazonka.Inspector.DeleteAssessmentRun
+import Amazonka.Inspector.DeleteAssessmentTarget
+import Amazonka.Inspector.DeleteAssessmentTemplate
+import Amazonka.Inspector.DescribeAssessmentRuns
+import Amazonka.Inspector.DescribeAssessmentTargets
+import Amazonka.Inspector.DescribeAssessmentTemplates
+import Amazonka.Inspector.DescribeCrossAccountAccessRole
+import Amazonka.Inspector.DescribeExclusions
+import Amazonka.Inspector.DescribeFindings
+import Amazonka.Inspector.DescribeResourceGroups
+import Amazonka.Inspector.DescribeRulesPackages
+import Amazonka.Inspector.GetAssessmentReport
+import Amazonka.Inspector.GetExclusionsPreview
+import Amazonka.Inspector.GetTelemetryMetadata
+import Amazonka.Inspector.ListAssessmentRunAgents
+import Amazonka.Inspector.ListAssessmentRuns
+import Amazonka.Inspector.ListAssessmentTargets
+import Amazonka.Inspector.ListAssessmentTemplates
+import Amazonka.Inspector.ListEventSubscriptions
+import Amazonka.Inspector.ListExclusions
+import Amazonka.Inspector.ListFindings
+import Amazonka.Inspector.ListRulesPackages
+import Amazonka.Inspector.ListTagsForResource
+import Amazonka.Inspector.PreviewAgents
+import Amazonka.Inspector.RegisterCrossAccountAccessRole
+import Amazonka.Inspector.RemoveAttributesFromFindings
+import Amazonka.Inspector.SetTagsForResource
+import Amazonka.Inspector.StartAssessmentRun
+import Amazonka.Inspector.StopAssessmentRun
+import Amazonka.Inspector.SubscribeToEvent
+import Amazonka.Inspector.Types.AgentFilter
+import Amazonka.Inspector.Types.AgentPreview
+import Amazonka.Inspector.Types.AssessmentRun
+import Amazonka.Inspector.Types.AssessmentRunAgent
+import Amazonka.Inspector.Types.AssessmentRunFilter
+import Amazonka.Inspector.Types.AssessmentRunNotification
+import Amazonka.Inspector.Types.AssessmentRunStateChange
+import Amazonka.Inspector.Types.AssessmentTarget
+import Amazonka.Inspector.Types.AssessmentTargetFilter
+import Amazonka.Inspector.Types.AssessmentTemplate
+import Amazonka.Inspector.Types.AssessmentTemplateFilter
+import Amazonka.Inspector.Types.AssetAttributes
+import Amazonka.Inspector.Types.Attribute
+import Amazonka.Inspector.Types.DurationRange
+import Amazonka.Inspector.Types.EventSubscription
+import Amazonka.Inspector.Types.Exclusion
+import Amazonka.Inspector.Types.ExclusionPreview
+import Amazonka.Inspector.Types.FailedItemDetails
+import Amazonka.Inspector.Types.Finding
+import Amazonka.Inspector.Types.FindingFilter
+import Amazonka.Inspector.Types.InspectorServiceAttributes
+import Amazonka.Inspector.Types.NetworkInterface
+import Amazonka.Inspector.Types.PrivateIp
+import Amazonka.Inspector.Types.ResourceGroup
+import Amazonka.Inspector.Types.ResourceGroupTag
+import Amazonka.Inspector.Types.RulesPackage
+import Amazonka.Inspector.Types.Scope
+import Amazonka.Inspector.Types.SecurityGroup
+import Amazonka.Inspector.Types.Subscription
+import Amazonka.Inspector.Types.Tag
+import Amazonka.Inspector.Types.TelemetryMetadata
+import Amazonka.Inspector.Types.TimestampRange
+import Amazonka.Inspector.UnsubscribeFromEvent
+import Amazonka.Inspector.UpdateAssessmentTarget

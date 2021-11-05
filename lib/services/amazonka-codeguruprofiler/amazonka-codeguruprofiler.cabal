@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeGuruProfiler.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeGuruProfiler.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeGuruProfiler" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeGuruProfiler" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,63 +45,63 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeGuruProfiler
-    Network.AWS.CodeGuruProfiler.AddNotificationChannels
-    Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData
-    Network.AWS.CodeGuruProfiler.ConfigureAgent
-    Network.AWS.CodeGuruProfiler.CreateProfilingGroup
-    Network.AWS.CodeGuruProfiler.DeleteProfilingGroup
-    Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
-    Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary
-    Network.AWS.CodeGuruProfiler.GetNotificationConfiguration
-    Network.AWS.CodeGuruProfiler.GetPolicy
-    Network.AWS.CodeGuruProfiler.GetProfile
-    Network.AWS.CodeGuruProfiler.GetRecommendations
-    Network.AWS.CodeGuruProfiler.Lens
-    Network.AWS.CodeGuruProfiler.ListFindingsReports
-    Network.AWS.CodeGuruProfiler.ListProfileTimes
-    Network.AWS.CodeGuruProfiler.ListProfilingGroups
-    Network.AWS.CodeGuruProfiler.ListTagsForResource
-    Network.AWS.CodeGuruProfiler.PostAgentProfile
-    Network.AWS.CodeGuruProfiler.PutPermission
-    Network.AWS.CodeGuruProfiler.RemoveNotificationChannel
-    Network.AWS.CodeGuruProfiler.RemovePermission
-    Network.AWS.CodeGuruProfiler.SubmitFeedback
-    Network.AWS.CodeGuruProfiler.TagResource
-    Network.AWS.CodeGuruProfiler.Types
-    Network.AWS.CodeGuruProfiler.Types.ActionGroup
-    Network.AWS.CodeGuruProfiler.Types.AgentConfiguration
-    Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig
-    Network.AWS.CodeGuruProfiler.Types.AgentParameterField
-    Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime
-    Network.AWS.CodeGuruProfiler.Types.AggregationPeriod
-    Network.AWS.CodeGuruProfiler.Types.Anomaly
-    Network.AWS.CodeGuruProfiler.Types.AnomalyInstance
-    Network.AWS.CodeGuruProfiler.Types.Channel
-    Network.AWS.CodeGuruProfiler.Types.ComputePlatform
-    Network.AWS.CodeGuruProfiler.Types.EventPublisher
-    Network.AWS.CodeGuruProfiler.Types.FeedbackType
-    Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary
-    Network.AWS.CodeGuruProfiler.Types.FrameMetric
-    Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum
-    Network.AWS.CodeGuruProfiler.Types.Match
-    Network.AWS.CodeGuruProfiler.Types.MetadataField
-    Network.AWS.CodeGuruProfiler.Types.Metric
-    Network.AWS.CodeGuruProfiler.Types.MetricType
-    Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration
-    Network.AWS.CodeGuruProfiler.Types.OrderBy
-    Network.AWS.CodeGuruProfiler.Types.Pattern
-    Network.AWS.CodeGuruProfiler.Types.ProfileTime
-    Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription
-    Network.AWS.CodeGuruProfiler.Types.ProfilingStatus
-    Network.AWS.CodeGuruProfiler.Types.Recommendation
-    Network.AWS.CodeGuruProfiler.Types.TimestampStructure
-    Network.AWS.CodeGuruProfiler.Types.UserFeedback
-    Network.AWS.CodeGuruProfiler.UntagResource
-    Network.AWS.CodeGuruProfiler.UpdateProfilingGroup
-    Network.AWS.CodeGuruProfiler.Waiters
+    Amazonka.CodeGuruProfiler
+    Amazonka.CodeGuruProfiler.AddNotificationChannels
+    Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
+    Amazonka.CodeGuruProfiler.ConfigureAgent
+    Amazonka.CodeGuruProfiler.CreateProfilingGroup
+    Amazonka.CodeGuruProfiler.DeleteProfilingGroup
+    Amazonka.CodeGuruProfiler.DescribeProfilingGroup
+    Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary
+    Amazonka.CodeGuruProfiler.GetNotificationConfiguration
+    Amazonka.CodeGuruProfiler.GetPolicy
+    Amazonka.CodeGuruProfiler.GetProfile
+    Amazonka.CodeGuruProfiler.GetRecommendations
+    Amazonka.CodeGuruProfiler.Lens
+    Amazonka.CodeGuruProfiler.ListFindingsReports
+    Amazonka.CodeGuruProfiler.ListProfileTimes
+    Amazonka.CodeGuruProfiler.ListProfilingGroups
+    Amazonka.CodeGuruProfiler.ListTagsForResource
+    Amazonka.CodeGuruProfiler.PostAgentProfile
+    Amazonka.CodeGuruProfiler.PutPermission
+    Amazonka.CodeGuruProfiler.RemoveNotificationChannel
+    Amazonka.CodeGuruProfiler.RemovePermission
+    Amazonka.CodeGuruProfiler.SubmitFeedback
+    Amazonka.CodeGuruProfiler.TagResource
+    Amazonka.CodeGuruProfiler.Types
+    Amazonka.CodeGuruProfiler.Types.ActionGroup
+    Amazonka.CodeGuruProfiler.Types.AgentConfiguration
+    Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig
+    Amazonka.CodeGuruProfiler.Types.AgentParameterField
+    Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
+    Amazonka.CodeGuruProfiler.Types.AggregationPeriod
+    Amazonka.CodeGuruProfiler.Types.Anomaly
+    Amazonka.CodeGuruProfiler.Types.AnomalyInstance
+    Amazonka.CodeGuruProfiler.Types.Channel
+    Amazonka.CodeGuruProfiler.Types.ComputePlatform
+    Amazonka.CodeGuruProfiler.Types.EventPublisher
+    Amazonka.CodeGuruProfiler.Types.FeedbackType
+    Amazonka.CodeGuruProfiler.Types.FindingsReportSummary
+    Amazonka.CodeGuruProfiler.Types.FrameMetric
+    Amazonka.CodeGuruProfiler.Types.FrameMetricDatum
+    Amazonka.CodeGuruProfiler.Types.Match
+    Amazonka.CodeGuruProfiler.Types.MetadataField
+    Amazonka.CodeGuruProfiler.Types.Metric
+    Amazonka.CodeGuruProfiler.Types.MetricType
+    Amazonka.CodeGuruProfiler.Types.NotificationConfiguration
+    Amazonka.CodeGuruProfiler.Types.OrderBy
+    Amazonka.CodeGuruProfiler.Types.Pattern
+    Amazonka.CodeGuruProfiler.Types.ProfileTime
+    Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription
+    Amazonka.CodeGuruProfiler.Types.ProfilingStatus
+    Amazonka.CodeGuruProfiler.Types.Recommendation
+    Amazonka.CodeGuruProfiler.Types.TimestampStructure
+    Amazonka.CodeGuruProfiler.Types.UserFeedback
+    Amazonka.CodeGuruProfiler.UntagResource
+    Amazonka.CodeGuruProfiler.UpdateProfilingGroup
+    Amazonka.CodeGuruProfiler.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

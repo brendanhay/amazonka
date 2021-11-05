@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.Types.ActionGroup
+-- Module      : Amazonka.CodeGuruProfiler.Types.ActionGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruProfiler.Types.ActionGroup
+module Amazonka.CodeGuruProfiler.Types.ActionGroup
   ( ActionGroup
       ( ..,
         ActionGroup_AgentPermissions
@@ -25,8 +25,8 @@ module Network.AWS.CodeGuruProfiler.Types.ActionGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ActionGroup = ActionGroup'
   { fromActionGroup ::

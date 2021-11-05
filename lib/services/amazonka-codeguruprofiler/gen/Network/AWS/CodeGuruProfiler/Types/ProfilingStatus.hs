@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.Types.ProfilingStatus
+-- Module      : Amazonka.CodeGuruProfiler.Types.ProfilingStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruProfiler.Types.ProfilingStatus where
+module Amazonka.CodeGuruProfiler.Types.ProfilingStatus where
 
-import Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Profiling status includes information about the last time a profile
 -- agent pinged back, the last time a profile was received, and the

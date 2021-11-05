@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.ConfigureAgent
+-- Module      : Amazonka.CodeGuruProfiler.ConfigureAgent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- remote configuration updates. For example, @ConfigureAgent@ can be used
 -- to tell an agent whether to profile or not and for how long to return
 -- profiling data.
-module Network.AWS.CodeGuruProfiler.ConfigureAgent
+module Amazonka.CodeGuruProfiler.ConfigureAgent
   ( -- * Creating a Request
     ConfigureAgent (..),
     newConfigureAgent,
@@ -44,12 +44,12 @@ module Network.AWS.CodeGuruProfiler.ConfigureAgent
   )
 where
 
-import Network.AWS.CodeGuruProfiler.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeGuruProfiler.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The structure representing the configureAgentRequest.
 --

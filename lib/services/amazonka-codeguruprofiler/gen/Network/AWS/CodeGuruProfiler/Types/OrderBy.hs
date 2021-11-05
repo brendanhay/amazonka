@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.Types.OrderBy
+-- Module      : Amazonka.CodeGuruProfiler.Types.OrderBy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruProfiler.Types.OrderBy
+module Amazonka.CodeGuruProfiler.Types.OrderBy
   ( OrderBy
       ( ..,
         OrderBy_TimestampAscending,
@@ -26,8 +26,8 @@ module Network.AWS.CodeGuruProfiler.Types.OrderBy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype OrderBy = OrderBy' {fromOrderBy :: Core.Text}
   deriving stock

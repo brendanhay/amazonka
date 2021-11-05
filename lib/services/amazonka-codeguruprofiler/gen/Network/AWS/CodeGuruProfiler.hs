@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler
+-- Module      : Amazonka.CodeGuruProfiler
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html What is Amazon CodeGuru Profiler>
 -- in the /Amazon CodeGuru Profiler User Guide/.
-module Network.AWS.CodeGuruProfiler
+module Amazonka.CodeGuruProfiler
   ( -- * Service Configuration
     defaultService,
 
@@ -311,32 +311,32 @@ module Network.AWS.CodeGuruProfiler
   )
 where
 
-import Network.AWS.CodeGuruProfiler.AddNotificationChannels
-import Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData
-import Network.AWS.CodeGuruProfiler.ConfigureAgent
-import Network.AWS.CodeGuruProfiler.CreateProfilingGroup
-import Network.AWS.CodeGuruProfiler.DeleteProfilingGroup
-import Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
-import Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary
-import Network.AWS.CodeGuruProfiler.GetNotificationConfiguration
-import Network.AWS.CodeGuruProfiler.GetPolicy
-import Network.AWS.CodeGuruProfiler.GetProfile
-import Network.AWS.CodeGuruProfiler.GetRecommendations
-import Network.AWS.CodeGuruProfiler.Lens
-import Network.AWS.CodeGuruProfiler.ListFindingsReports
-import Network.AWS.CodeGuruProfiler.ListProfileTimes
-import Network.AWS.CodeGuruProfiler.ListProfilingGroups
-import Network.AWS.CodeGuruProfiler.ListTagsForResource
-import Network.AWS.CodeGuruProfiler.PostAgentProfile
-import Network.AWS.CodeGuruProfiler.PutPermission
-import Network.AWS.CodeGuruProfiler.RemoveNotificationChannel
-import Network.AWS.CodeGuruProfiler.RemovePermission
-import Network.AWS.CodeGuruProfiler.SubmitFeedback
-import Network.AWS.CodeGuruProfiler.TagResource
-import Network.AWS.CodeGuruProfiler.Types
-import Network.AWS.CodeGuruProfiler.UntagResource
-import Network.AWS.CodeGuruProfiler.UpdateProfilingGroup
-import Network.AWS.CodeGuruProfiler.Waiters
+import Amazonka.CodeGuruProfiler.AddNotificationChannels
+import Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
+import Amazonka.CodeGuruProfiler.ConfigureAgent
+import Amazonka.CodeGuruProfiler.CreateProfilingGroup
+import Amazonka.CodeGuruProfiler.DeleteProfilingGroup
+import Amazonka.CodeGuruProfiler.DescribeProfilingGroup
+import Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary
+import Amazonka.CodeGuruProfiler.GetNotificationConfiguration
+import Amazonka.CodeGuruProfiler.GetPolicy
+import Amazonka.CodeGuruProfiler.GetProfile
+import Amazonka.CodeGuruProfiler.GetRecommendations
+import Amazonka.CodeGuruProfiler.Lens
+import Amazonka.CodeGuruProfiler.ListFindingsReports
+import Amazonka.CodeGuruProfiler.ListProfileTimes
+import Amazonka.CodeGuruProfiler.ListProfilingGroups
+import Amazonka.CodeGuruProfiler.ListTagsForResource
+import Amazonka.CodeGuruProfiler.PostAgentProfile
+import Amazonka.CodeGuruProfiler.PutPermission
+import Amazonka.CodeGuruProfiler.RemoveNotificationChannel
+import Amazonka.CodeGuruProfiler.RemovePermission
+import Amazonka.CodeGuruProfiler.SubmitFeedback
+import Amazonka.CodeGuruProfiler.TagResource
+import Amazonka.CodeGuruProfiler.Types
+import Amazonka.CodeGuruProfiler.UntagResource
+import Amazonka.CodeGuruProfiler.UpdateProfilingGroup
+import Amazonka.CodeGuruProfiler.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

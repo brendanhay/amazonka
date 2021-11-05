@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
+-- Module      : Amazonka.CodeGuruProfiler.DescribeProfilingGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
 -- object that contains information about the requested profiling group.
-module Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
+module Amazonka.CodeGuruProfiler.DescribeProfilingGroup
   ( -- * Creating a Request
     DescribeProfilingGroup (..),
     newDescribeProfilingGroup,
@@ -41,12 +41,12 @@ module Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
   )
 where
 
-import Network.AWS.CodeGuruProfiler.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeGuruProfiler.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The structure representing the describeProfilingGroupRequest.
 --

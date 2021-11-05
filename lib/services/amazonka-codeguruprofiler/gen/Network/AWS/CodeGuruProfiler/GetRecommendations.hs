@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.GetRecommendations
+-- Module      : Amazonka.CodeGuruProfiler.GetRecommendations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Anomaly.html Anomaly>
 -- objects that contains details about anomalies detected in the profiling
 -- group for the same time period is also returned.
-module Network.AWS.CodeGuruProfiler.GetRecommendations
+module Amazonka.CodeGuruProfiler.GetRecommendations
   ( -- * Creating a Request
     GetRecommendations (..),
     newGetRecommendations,
@@ -52,12 +52,12 @@ module Network.AWS.CodeGuruProfiler.GetRecommendations
   )
 where
 
-import Network.AWS.CodeGuruProfiler.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeGuruProfiler.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The structure representing the GetRecommendationsRequest.
 --

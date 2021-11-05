@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.Lens
+-- Module      : Amazonka.CodeGuruProfiler.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruProfiler.Lens
+module Amazonka.CodeGuruProfiler.Lens
   ( -- * Operations
 
     -- ** GetRecommendations
@@ -295,45 +295,45 @@ module Network.AWS.CodeGuruProfiler.Lens
   )
 where
 
-import Network.AWS.CodeGuruProfiler.AddNotificationChannels
-import Network.AWS.CodeGuruProfiler.BatchGetFrameMetricData
-import Network.AWS.CodeGuruProfiler.ConfigureAgent
-import Network.AWS.CodeGuruProfiler.CreateProfilingGroup
-import Network.AWS.CodeGuruProfiler.DeleteProfilingGroup
-import Network.AWS.CodeGuruProfiler.DescribeProfilingGroup
-import Network.AWS.CodeGuruProfiler.GetFindingsReportAccountSummary
-import Network.AWS.CodeGuruProfiler.GetNotificationConfiguration
-import Network.AWS.CodeGuruProfiler.GetPolicy
-import Network.AWS.CodeGuruProfiler.GetProfile
-import Network.AWS.CodeGuruProfiler.GetRecommendations
-import Network.AWS.CodeGuruProfiler.ListFindingsReports
-import Network.AWS.CodeGuruProfiler.ListProfileTimes
-import Network.AWS.CodeGuruProfiler.ListProfilingGroups
-import Network.AWS.CodeGuruProfiler.ListTagsForResource
-import Network.AWS.CodeGuruProfiler.PostAgentProfile
-import Network.AWS.CodeGuruProfiler.PutPermission
-import Network.AWS.CodeGuruProfiler.RemoveNotificationChannel
-import Network.AWS.CodeGuruProfiler.RemovePermission
-import Network.AWS.CodeGuruProfiler.SubmitFeedback
-import Network.AWS.CodeGuruProfiler.TagResource
-import Network.AWS.CodeGuruProfiler.Types.AgentConfiguration
-import Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig
-import Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime
-import Network.AWS.CodeGuruProfiler.Types.Anomaly
-import Network.AWS.CodeGuruProfiler.Types.AnomalyInstance
-import Network.AWS.CodeGuruProfiler.Types.Channel
-import Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary
-import Network.AWS.CodeGuruProfiler.Types.FrameMetric
-import Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum
-import Network.AWS.CodeGuruProfiler.Types.Match
-import Network.AWS.CodeGuruProfiler.Types.Metric
-import Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration
-import Network.AWS.CodeGuruProfiler.Types.Pattern
-import Network.AWS.CodeGuruProfiler.Types.ProfileTime
-import Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription
-import Network.AWS.CodeGuruProfiler.Types.ProfilingStatus
-import Network.AWS.CodeGuruProfiler.Types.Recommendation
-import Network.AWS.CodeGuruProfiler.Types.TimestampStructure
-import Network.AWS.CodeGuruProfiler.Types.UserFeedback
-import Network.AWS.CodeGuruProfiler.UntagResource
-import Network.AWS.CodeGuruProfiler.UpdateProfilingGroup
+import Amazonka.CodeGuruProfiler.AddNotificationChannels
+import Amazonka.CodeGuruProfiler.BatchGetFrameMetricData
+import Amazonka.CodeGuruProfiler.ConfigureAgent
+import Amazonka.CodeGuruProfiler.CreateProfilingGroup
+import Amazonka.CodeGuruProfiler.DeleteProfilingGroup
+import Amazonka.CodeGuruProfiler.DescribeProfilingGroup
+import Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary
+import Amazonka.CodeGuruProfiler.GetNotificationConfiguration
+import Amazonka.CodeGuruProfiler.GetPolicy
+import Amazonka.CodeGuruProfiler.GetProfile
+import Amazonka.CodeGuruProfiler.GetRecommendations
+import Amazonka.CodeGuruProfiler.ListFindingsReports
+import Amazonka.CodeGuruProfiler.ListProfileTimes
+import Amazonka.CodeGuruProfiler.ListProfilingGroups
+import Amazonka.CodeGuruProfiler.ListTagsForResource
+import Amazonka.CodeGuruProfiler.PostAgentProfile
+import Amazonka.CodeGuruProfiler.PutPermission
+import Amazonka.CodeGuruProfiler.RemoveNotificationChannel
+import Amazonka.CodeGuruProfiler.RemovePermission
+import Amazonka.CodeGuruProfiler.SubmitFeedback
+import Amazonka.CodeGuruProfiler.TagResource
+import Amazonka.CodeGuruProfiler.Types.AgentConfiguration
+import Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig
+import Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
+import Amazonka.CodeGuruProfiler.Types.Anomaly
+import Amazonka.CodeGuruProfiler.Types.AnomalyInstance
+import Amazonka.CodeGuruProfiler.Types.Channel
+import Amazonka.CodeGuruProfiler.Types.FindingsReportSummary
+import Amazonka.CodeGuruProfiler.Types.FrameMetric
+import Amazonka.CodeGuruProfiler.Types.FrameMetricDatum
+import Amazonka.CodeGuruProfiler.Types.Match
+import Amazonka.CodeGuruProfiler.Types.Metric
+import Amazonka.CodeGuruProfiler.Types.NotificationConfiguration
+import Amazonka.CodeGuruProfiler.Types.Pattern
+import Amazonka.CodeGuruProfiler.Types.ProfileTime
+import Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription
+import Amazonka.CodeGuruProfiler.Types.ProfilingStatus
+import Amazonka.CodeGuruProfiler.Types.Recommendation
+import Amazonka.CodeGuruProfiler.Types.TimestampStructure
+import Amazonka.CodeGuruProfiler.Types.UserFeedback
+import Amazonka.CodeGuruProfiler.UntagResource
+import Amazonka.CodeGuruProfiler.UpdateProfilingGroup

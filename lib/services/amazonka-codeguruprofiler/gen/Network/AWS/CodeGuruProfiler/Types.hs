@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruProfiler.Types
+-- Module      : Amazonka.CodeGuruProfiler.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruProfiler.Types
+module Amazonka.CodeGuruProfiler.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -189,38 +189,38 @@ module Network.AWS.CodeGuruProfiler.Types
   )
 where
 
-import Network.AWS.CodeGuruProfiler.Types.ActionGroup
-import Network.AWS.CodeGuruProfiler.Types.AgentConfiguration
-import Network.AWS.CodeGuruProfiler.Types.AgentOrchestrationConfig
-import Network.AWS.CodeGuruProfiler.Types.AgentParameterField
-import Network.AWS.CodeGuruProfiler.Types.AggregatedProfileTime
-import Network.AWS.CodeGuruProfiler.Types.AggregationPeriod
-import Network.AWS.CodeGuruProfiler.Types.Anomaly
-import Network.AWS.CodeGuruProfiler.Types.AnomalyInstance
-import Network.AWS.CodeGuruProfiler.Types.Channel
-import Network.AWS.CodeGuruProfiler.Types.ComputePlatform
-import Network.AWS.CodeGuruProfiler.Types.EventPublisher
-import Network.AWS.CodeGuruProfiler.Types.FeedbackType
-import Network.AWS.CodeGuruProfiler.Types.FindingsReportSummary
-import Network.AWS.CodeGuruProfiler.Types.FrameMetric
-import Network.AWS.CodeGuruProfiler.Types.FrameMetricDatum
-import Network.AWS.CodeGuruProfiler.Types.Match
-import Network.AWS.CodeGuruProfiler.Types.MetadataField
-import Network.AWS.CodeGuruProfiler.Types.Metric
-import Network.AWS.CodeGuruProfiler.Types.MetricType
-import Network.AWS.CodeGuruProfiler.Types.NotificationConfiguration
-import Network.AWS.CodeGuruProfiler.Types.OrderBy
-import Network.AWS.CodeGuruProfiler.Types.Pattern
-import Network.AWS.CodeGuruProfiler.Types.ProfileTime
-import Network.AWS.CodeGuruProfiler.Types.ProfilingGroupDescription
-import Network.AWS.CodeGuruProfiler.Types.ProfilingStatus
-import Network.AWS.CodeGuruProfiler.Types.Recommendation
-import Network.AWS.CodeGuruProfiler.Types.TimestampStructure
-import Network.AWS.CodeGuruProfiler.Types.UserFeedback
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeGuruProfiler.Types.ActionGroup
+import Amazonka.CodeGuruProfiler.Types.AgentConfiguration
+import Amazonka.CodeGuruProfiler.Types.AgentOrchestrationConfig
+import Amazonka.CodeGuruProfiler.Types.AgentParameterField
+import Amazonka.CodeGuruProfiler.Types.AggregatedProfileTime
+import Amazonka.CodeGuruProfiler.Types.AggregationPeriod
+import Amazonka.CodeGuruProfiler.Types.Anomaly
+import Amazonka.CodeGuruProfiler.Types.AnomalyInstance
+import Amazonka.CodeGuruProfiler.Types.Channel
+import Amazonka.CodeGuruProfiler.Types.ComputePlatform
+import Amazonka.CodeGuruProfiler.Types.EventPublisher
+import Amazonka.CodeGuruProfiler.Types.FeedbackType
+import Amazonka.CodeGuruProfiler.Types.FindingsReportSummary
+import Amazonka.CodeGuruProfiler.Types.FrameMetric
+import Amazonka.CodeGuruProfiler.Types.FrameMetricDatum
+import Amazonka.CodeGuruProfiler.Types.Match
+import Amazonka.CodeGuruProfiler.Types.MetadataField
+import Amazonka.CodeGuruProfiler.Types.Metric
+import Amazonka.CodeGuruProfiler.Types.MetricType
+import Amazonka.CodeGuruProfiler.Types.NotificationConfiguration
+import Amazonka.CodeGuruProfiler.Types.OrderBy
+import Amazonka.CodeGuruProfiler.Types.Pattern
+import Amazonka.CodeGuruProfiler.Types.ProfileTime
+import Amazonka.CodeGuruProfiler.Types.ProfilingGroupDescription
+import Amazonka.CodeGuruProfiler.Types.ProfilingStatus
+import Amazonka.CodeGuruProfiler.Types.Recommendation
+import Amazonka.CodeGuruProfiler.Types.TimestampStructure
+import Amazonka.CodeGuruProfiler.Types.UserFeedback
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-07-18@ of the Amazon CodeGuru Profiler SDK configuration.
 defaultService :: Core.Service

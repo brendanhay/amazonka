@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.DeleteBackupPlan
+-- Module      : Amazonka.Backup.DeleteBackupPlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- associated selections of resources have been deleted. Deleting a backup
 -- plan deletes the current version of a backup plan. Previous versions, if
 -- any, will still exist.
-module Network.AWS.Backup.DeleteBackupPlan
+module Amazonka.Backup.DeleteBackupPlan
   ( -- * Creating a Request
     DeleteBackupPlan (..),
     newDeleteBackupPlan,
@@ -45,12 +45,12 @@ module Network.AWS.Backup.DeleteBackupPlan
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBackupPlan' smart constructor.
 data DeleteBackupPlan = DeleteBackupPlan'

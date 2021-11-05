@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.GetBackupSelection
+-- Module      : Amazonka.Backup.GetBackupSelection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns selection metadata and a document in JSON format that specifies
 -- a list of resources that are associated with a backup plan.
-module Network.AWS.Backup.GetBackupSelection
+module Amazonka.Backup.GetBackupSelection
   ( -- * Creating a Request
     GetBackupSelection (..),
     newGetBackupSelection,
@@ -45,12 +45,12 @@ module Network.AWS.Backup.GetBackupSelection
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBackupSelection' smart constructor.
 data GetBackupSelection = GetBackupSelection'

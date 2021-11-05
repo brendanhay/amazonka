@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Backup
+-- Module      : Amazonka.Backup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- Services services and their associated data. Backup simplifies the
 -- creation, migration, restoration, and deletion of backups, while also
 -- providing reporting and auditing.
-module Network.AWS.Backup
+module Amazonka.Backup
   ( -- * Service Configuration
     defaultService,
 
@@ -601,75 +601,75 @@ module Network.AWS.Backup
   )
 where
 
-import Network.AWS.Backup.CreateBackupPlan
-import Network.AWS.Backup.CreateBackupSelection
-import Network.AWS.Backup.CreateBackupVault
-import Network.AWS.Backup.CreateFramework
-import Network.AWS.Backup.CreateReportPlan
-import Network.AWS.Backup.DeleteBackupPlan
-import Network.AWS.Backup.DeleteBackupSelection
-import Network.AWS.Backup.DeleteBackupVault
-import Network.AWS.Backup.DeleteBackupVaultAccessPolicy
-import Network.AWS.Backup.DeleteBackupVaultLockConfiguration
-import Network.AWS.Backup.DeleteBackupVaultNotifications
-import Network.AWS.Backup.DeleteFramework
-import Network.AWS.Backup.DeleteRecoveryPoint
-import Network.AWS.Backup.DeleteReportPlan
-import Network.AWS.Backup.DescribeBackupJob
-import Network.AWS.Backup.DescribeBackupVault
-import Network.AWS.Backup.DescribeCopyJob
-import Network.AWS.Backup.DescribeFramework
-import Network.AWS.Backup.DescribeGlobalSettings
-import Network.AWS.Backup.DescribeProtectedResource
-import Network.AWS.Backup.DescribeRecoveryPoint
-import Network.AWS.Backup.DescribeRegionSettings
-import Network.AWS.Backup.DescribeReportJob
-import Network.AWS.Backup.DescribeReportPlan
-import Network.AWS.Backup.DescribeRestoreJob
-import Network.AWS.Backup.DisassociateRecoveryPoint
-import Network.AWS.Backup.ExportBackupPlanTemplate
-import Network.AWS.Backup.GetBackupPlan
-import Network.AWS.Backup.GetBackupPlanFromJSON
-import Network.AWS.Backup.GetBackupPlanFromTemplate
-import Network.AWS.Backup.GetBackupSelection
-import Network.AWS.Backup.GetBackupVaultAccessPolicy
-import Network.AWS.Backup.GetBackupVaultNotifications
-import Network.AWS.Backup.GetRecoveryPointRestoreMetadata
-import Network.AWS.Backup.GetSupportedResourceTypes
-import Network.AWS.Backup.Lens
-import Network.AWS.Backup.ListBackupJobs
-import Network.AWS.Backup.ListBackupPlanTemplates
-import Network.AWS.Backup.ListBackupPlanVersions
-import Network.AWS.Backup.ListBackupPlans
-import Network.AWS.Backup.ListBackupSelections
-import Network.AWS.Backup.ListBackupVaults
-import Network.AWS.Backup.ListCopyJobs
-import Network.AWS.Backup.ListFrameworks
-import Network.AWS.Backup.ListProtectedResources
-import Network.AWS.Backup.ListRecoveryPointsByBackupVault
-import Network.AWS.Backup.ListRecoveryPointsByResource
-import Network.AWS.Backup.ListReportJobs
-import Network.AWS.Backup.ListReportPlans
-import Network.AWS.Backup.ListRestoreJobs
-import Network.AWS.Backup.ListTags
-import Network.AWS.Backup.PutBackupVaultAccessPolicy
-import Network.AWS.Backup.PutBackupVaultLockConfiguration
-import Network.AWS.Backup.PutBackupVaultNotifications
-import Network.AWS.Backup.StartBackupJob
-import Network.AWS.Backup.StartCopyJob
-import Network.AWS.Backup.StartReportJob
-import Network.AWS.Backup.StartRestoreJob
-import Network.AWS.Backup.StopBackupJob
-import Network.AWS.Backup.TagResource
-import Network.AWS.Backup.Types
-import Network.AWS.Backup.UntagResource
-import Network.AWS.Backup.UpdateBackupPlan
-import Network.AWS.Backup.UpdateFramework
-import Network.AWS.Backup.UpdateGlobalSettings
-import Network.AWS.Backup.UpdateRecoveryPointLifecycle
-import Network.AWS.Backup.UpdateRegionSettings
-import Network.AWS.Backup.UpdateReportPlan
-import Network.AWS.Backup.Waiters
+import Amazonka.Backup.CreateBackupPlan
+import Amazonka.Backup.CreateBackupSelection
+import Amazonka.Backup.CreateBackupVault
+import Amazonka.Backup.CreateFramework
+import Amazonka.Backup.CreateReportPlan
+import Amazonka.Backup.DeleteBackupPlan
+import Amazonka.Backup.DeleteBackupSelection
+import Amazonka.Backup.DeleteBackupVault
+import Amazonka.Backup.DeleteBackupVaultAccessPolicy
+import Amazonka.Backup.DeleteBackupVaultLockConfiguration
+import Amazonka.Backup.DeleteBackupVaultNotifications
+import Amazonka.Backup.DeleteFramework
+import Amazonka.Backup.DeleteRecoveryPoint
+import Amazonka.Backup.DeleteReportPlan
+import Amazonka.Backup.DescribeBackupJob
+import Amazonka.Backup.DescribeBackupVault
+import Amazonka.Backup.DescribeCopyJob
+import Amazonka.Backup.DescribeFramework
+import Amazonka.Backup.DescribeGlobalSettings
+import Amazonka.Backup.DescribeProtectedResource
+import Amazonka.Backup.DescribeRecoveryPoint
+import Amazonka.Backup.DescribeRegionSettings
+import Amazonka.Backup.DescribeReportJob
+import Amazonka.Backup.DescribeReportPlan
+import Amazonka.Backup.DescribeRestoreJob
+import Amazonka.Backup.DisassociateRecoveryPoint
+import Amazonka.Backup.ExportBackupPlanTemplate
+import Amazonka.Backup.GetBackupPlan
+import Amazonka.Backup.GetBackupPlanFromJSON
+import Amazonka.Backup.GetBackupPlanFromTemplate
+import Amazonka.Backup.GetBackupSelection
+import Amazonka.Backup.GetBackupVaultAccessPolicy
+import Amazonka.Backup.GetBackupVaultNotifications
+import Amazonka.Backup.GetRecoveryPointRestoreMetadata
+import Amazonka.Backup.GetSupportedResourceTypes
+import Amazonka.Backup.Lens
+import Amazonka.Backup.ListBackupJobs
+import Amazonka.Backup.ListBackupPlanTemplates
+import Amazonka.Backup.ListBackupPlanVersions
+import Amazonka.Backup.ListBackupPlans
+import Amazonka.Backup.ListBackupSelections
+import Amazonka.Backup.ListBackupVaults
+import Amazonka.Backup.ListCopyJobs
+import Amazonka.Backup.ListFrameworks
+import Amazonka.Backup.ListProtectedResources
+import Amazonka.Backup.ListRecoveryPointsByBackupVault
+import Amazonka.Backup.ListRecoveryPointsByResource
+import Amazonka.Backup.ListReportJobs
+import Amazonka.Backup.ListReportPlans
+import Amazonka.Backup.ListRestoreJobs
+import Amazonka.Backup.ListTags
+import Amazonka.Backup.PutBackupVaultAccessPolicy
+import Amazonka.Backup.PutBackupVaultLockConfiguration
+import Amazonka.Backup.PutBackupVaultNotifications
+import Amazonka.Backup.StartBackupJob
+import Amazonka.Backup.StartCopyJob
+import Amazonka.Backup.StartReportJob
+import Amazonka.Backup.StartRestoreJob
+import Amazonka.Backup.StopBackupJob
+import Amazonka.Backup.TagResource
+import Amazonka.Backup.Types
+import Amazonka.Backup.UntagResource
+import Amazonka.Backup.UpdateBackupPlan
+import Amazonka.Backup.UpdateFramework
+import Amazonka.Backup.UpdateGlobalSettings
+import Amazonka.Backup.UpdateRecoveryPointLifecycle
+import Amazonka.Backup.UpdateRegionSettings
+import Amazonka.Backup.UpdateReportPlan
+import Amazonka.Backup.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

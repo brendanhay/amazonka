@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.DeleteRecoveryPoint
+-- Module      : Amazonka.Backup.DeleteRecoveryPoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- If the recovery point ID belongs to a continuous backup, calling this
 -- endpoint deletes the existing continuous backup and stops future
 -- continuous backup.
-module Network.AWS.Backup.DeleteRecoveryPoint
+module Amazonka.Backup.DeleteRecoveryPoint
   ( -- * Creating a Request
     DeleteRecoveryPoint (..),
     newDeleteRecoveryPoint,
@@ -40,12 +40,12 @@ module Network.AWS.Backup.DeleteRecoveryPoint
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRecoveryPoint' smart constructor.
 data DeleteRecoveryPoint = DeleteRecoveryPoint'

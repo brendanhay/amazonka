@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.PutBackupVaultLockConfiguration
+-- Module      : Amazonka.Backup.PutBackupVaultLockConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- the retention period of any recovery point currently stored in a backup
 -- vault. If specified, Vault Lock enforces a minimum and maximum retention
 -- period for future backup and copy jobs that target a backup vault.
-module Network.AWS.Backup.PutBackupVaultLockConfiguration
+module Amazonka.Backup.PutBackupVaultLockConfiguration
   ( -- * Creating a Request
     PutBackupVaultLockConfiguration (..),
     newPutBackupVaultLockConfiguration,
@@ -43,12 +43,12 @@ module Network.AWS.Backup.PutBackupVaultLockConfiguration
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutBackupVaultLockConfiguration' smart constructor.
 data PutBackupVaultLockConfiguration = PutBackupVaultLockConfiguration'

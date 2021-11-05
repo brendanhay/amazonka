@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.Types.RecoveryPointByBackupVault
+-- Module      : Amazonka.Backup.Types.RecoveryPointByBackupVault
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Backup.Types.RecoveryPointByBackupVault where
+module Amazonka.Backup.Types.RecoveryPointByBackupVault where
 
-import Network.AWS.Backup.Types.CalculatedLifecycle
-import Network.AWS.Backup.Types.Lifecycle
-import Network.AWS.Backup.Types.RecoveryPointCreator
-import Network.AWS.Backup.Types.RecoveryPointStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Backup.Types.CalculatedLifecycle
+import Amazonka.Backup.Types.Lifecycle
+import Amazonka.Backup.Types.RecoveryPointCreator
+import Amazonka.Backup.Types.RecoveryPointStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains detailed information about the recovery points stored in a
 -- backup vault.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.UpdateRegionSettings
+-- Module      : Amazonka.Backup.UpdateRegionSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- try to protect that service\'s resources in this Region. Use the
 -- @DescribeRegionSettings@ API to determine the resource types that are
 -- supported.
-module Network.AWS.Backup.UpdateRegionSettings
+module Amazonka.Backup.UpdateRegionSettings
   ( -- * Creating a Request
     UpdateRegionSettings (..),
     newUpdateRegionSettings,
@@ -41,12 +41,12 @@ module Network.AWS.Backup.UpdateRegionSettings
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRegionSettings' smart constructor.
 data UpdateRegionSettings = UpdateRegionSettings'

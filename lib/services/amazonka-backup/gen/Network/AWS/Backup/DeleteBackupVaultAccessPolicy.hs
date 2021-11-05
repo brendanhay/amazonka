@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.DeleteBackupVaultAccessPolicy
+-- Module      : Amazonka.Backup.DeleteBackupVaultAccessPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the policy document that manages permissions on a backup vault.
-module Network.AWS.Backup.DeleteBackupVaultAccessPolicy
+module Amazonka.Backup.DeleteBackupVaultAccessPolicy
   ( -- * Creating a Request
     DeleteBackupVaultAccessPolicy (..),
     newDeleteBackupVaultAccessPolicy,
@@ -35,12 +35,12 @@ module Network.AWS.Backup.DeleteBackupVaultAccessPolicy
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBackupVaultAccessPolicy' smart constructor.
 data DeleteBackupVaultAccessPolicy = DeleteBackupVaultAccessPolicy'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.CreateReportPlan
+-- Module      : Amazonka.Backup.CreateReportPlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- If you call @CreateReportPlan@ with a plan that already exists, you
 -- receive an @AlreadyExistsException@ exception.
-module Network.AWS.Backup.CreateReportPlan
+module Amazonka.Backup.CreateReportPlan
   ( -- * Creating a Request
     CreateReportPlan (..),
     newCreateReportPlan,
@@ -51,12 +51,12 @@ module Network.AWS.Backup.CreateReportPlan
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateReportPlan' smart constructor.
 data CreateReportPlan = CreateReportPlan'

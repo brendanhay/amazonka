@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.PutBackupVaultAccessPolicy
+-- Module      : Amazonka.Backup.PutBackupVaultAccessPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Sets a resource-based policy that is used to manage access permissions
 -- on the target backup vault. Requires a backup vault name and an access
 -- policy document in JSON format.
-module Network.AWS.Backup.PutBackupVaultAccessPolicy
+module Amazonka.Backup.PutBackupVaultAccessPolicy
   ( -- * Creating a Request
     PutBackupVaultAccessPolicy (..),
     newPutBackupVaultAccessPolicy,
@@ -38,12 +38,12 @@ module Network.AWS.Backup.PutBackupVaultAccessPolicy
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutBackupVaultAccessPolicy' smart constructor.
 data PutBackupVaultAccessPolicy = PutBackupVaultAccessPolicy'

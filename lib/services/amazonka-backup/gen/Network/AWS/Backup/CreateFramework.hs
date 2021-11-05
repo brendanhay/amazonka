@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.CreateFramework
+-- Module      : Amazonka.Backup.CreateFramework
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- practices. By using pre-built customizable controls to define your
 -- policies, you can evaluate whether your backup practices comply with
 -- your policies and which resources are not yet in compliance.
-module Network.AWS.Backup.CreateFramework
+module Amazonka.Backup.CreateFramework
   ( -- * Creating a Request
     CreateFramework (..),
     newCreateFramework,
@@ -48,12 +48,12 @@ module Network.AWS.Backup.CreateFramework
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFramework' smart constructor.
 data CreateFramework = CreateFramework'

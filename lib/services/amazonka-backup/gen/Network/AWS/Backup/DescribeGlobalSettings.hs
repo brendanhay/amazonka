@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.DescribeGlobalSettings
+-- Module      : Amazonka.Backup.DescribeGlobalSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- cross-account backup. Returns an error if the account is not a member of
 -- an Organizations organization. Example:
 -- @describe-global-settings --region us-west-2@
-module Network.AWS.Backup.DescribeGlobalSettings
+module Amazonka.Backup.DescribeGlobalSettings
   ( -- * Creating a Request
     DescribeGlobalSettings (..),
     newDescribeGlobalSettings,
@@ -40,12 +40,12 @@ module Network.AWS.Backup.DescribeGlobalSettings
   )
 where
 
-import Network.AWS.Backup.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Backup.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeGlobalSettings' smart constructor.
 data DescribeGlobalSettings = DescribeGlobalSettings'

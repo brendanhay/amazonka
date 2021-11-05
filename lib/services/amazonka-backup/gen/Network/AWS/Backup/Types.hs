@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Backup.Types
+-- Module      : Amazonka.Backup.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Backup.Types
+module Amazonka.Backup.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -357,47 +357,47 @@ module Network.AWS.Backup.Types
   )
 where
 
-import Network.AWS.Backup.Types.AdvancedBackupSetting
-import Network.AWS.Backup.Types.BackupJob
-import Network.AWS.Backup.Types.BackupJobState
-import Network.AWS.Backup.Types.BackupPlan
-import Network.AWS.Backup.Types.BackupPlanInput
-import Network.AWS.Backup.Types.BackupPlanTemplatesListMember
-import Network.AWS.Backup.Types.BackupPlansListMember
-import Network.AWS.Backup.Types.BackupRule
-import Network.AWS.Backup.Types.BackupRuleInput
-import Network.AWS.Backup.Types.BackupSelection
-import Network.AWS.Backup.Types.BackupSelectionsListMember
-import Network.AWS.Backup.Types.BackupVaultEvent
-import Network.AWS.Backup.Types.BackupVaultListMember
-import Network.AWS.Backup.Types.CalculatedLifecycle
-import Network.AWS.Backup.Types.Condition
-import Network.AWS.Backup.Types.ConditionType
-import Network.AWS.Backup.Types.ControlInputParameter
-import Network.AWS.Backup.Types.ControlScope
-import Network.AWS.Backup.Types.CopyAction
-import Network.AWS.Backup.Types.CopyJob
-import Network.AWS.Backup.Types.CopyJobState
-import Network.AWS.Backup.Types.Framework
-import Network.AWS.Backup.Types.FrameworkControl
-import Network.AWS.Backup.Types.Lifecycle
-import Network.AWS.Backup.Types.ProtectedResource
-import Network.AWS.Backup.Types.RecoveryPointByBackupVault
-import Network.AWS.Backup.Types.RecoveryPointByResource
-import Network.AWS.Backup.Types.RecoveryPointCreator
-import Network.AWS.Backup.Types.RecoveryPointStatus
-import Network.AWS.Backup.Types.ReportDeliveryChannel
-import Network.AWS.Backup.Types.ReportDestination
-import Network.AWS.Backup.Types.ReportJob
-import Network.AWS.Backup.Types.ReportPlan
-import Network.AWS.Backup.Types.ReportSetting
-import Network.AWS.Backup.Types.RestoreJobStatus
-import Network.AWS.Backup.Types.RestoreJobsListMember
-import Network.AWS.Backup.Types.StorageClass
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Backup.Types.AdvancedBackupSetting
+import Amazonka.Backup.Types.BackupJob
+import Amazonka.Backup.Types.BackupJobState
+import Amazonka.Backup.Types.BackupPlan
+import Amazonka.Backup.Types.BackupPlanInput
+import Amazonka.Backup.Types.BackupPlanTemplatesListMember
+import Amazonka.Backup.Types.BackupPlansListMember
+import Amazonka.Backup.Types.BackupRule
+import Amazonka.Backup.Types.BackupRuleInput
+import Amazonka.Backup.Types.BackupSelection
+import Amazonka.Backup.Types.BackupSelectionsListMember
+import Amazonka.Backup.Types.BackupVaultEvent
+import Amazonka.Backup.Types.BackupVaultListMember
+import Amazonka.Backup.Types.CalculatedLifecycle
+import Amazonka.Backup.Types.Condition
+import Amazonka.Backup.Types.ConditionType
+import Amazonka.Backup.Types.ControlInputParameter
+import Amazonka.Backup.Types.ControlScope
+import Amazonka.Backup.Types.CopyAction
+import Amazonka.Backup.Types.CopyJob
+import Amazonka.Backup.Types.CopyJobState
+import Amazonka.Backup.Types.Framework
+import Amazonka.Backup.Types.FrameworkControl
+import Amazonka.Backup.Types.Lifecycle
+import Amazonka.Backup.Types.ProtectedResource
+import Amazonka.Backup.Types.RecoveryPointByBackupVault
+import Amazonka.Backup.Types.RecoveryPointByResource
+import Amazonka.Backup.Types.RecoveryPointCreator
+import Amazonka.Backup.Types.RecoveryPointStatus
+import Amazonka.Backup.Types.ReportDeliveryChannel
+import Amazonka.Backup.Types.ReportDestination
+import Amazonka.Backup.Types.ReportJob
+import Amazonka.Backup.Types.ReportPlan
+import Amazonka.Backup.Types.ReportSetting
+import Amazonka.Backup.Types.RestoreJobStatus
+import Amazonka.Backup.Types.RestoreJobsListMember
+import Amazonka.Backup.Types.StorageClass
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-15@ of the Amazon Backup SDK configuration.
 defaultService :: Core.Service

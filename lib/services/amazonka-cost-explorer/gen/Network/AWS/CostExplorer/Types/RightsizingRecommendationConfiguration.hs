@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration
+-- Module      : Amazonka.CostExplorer.Types.RightsizingRecommendationConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration where
+module Amazonka.CostExplorer.Types.RightsizingRecommendationConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.RecommendationTarget
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.RecommendationTarget
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | You can use @RightsizingRecommendationConfiguration@ to customize
 -- recommendations across two attributes. You can choose to view

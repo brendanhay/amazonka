@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.CostCategoryRule
+-- Module      : Amazonka.CostExplorer.Types.CostCategoryRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategoryRule where
+module Amazonka.CostExplorer.Types.CostCategoryRule where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimension
-import Network.AWS.CostExplorer.Types.CostCategoryRuleType
-import Network.AWS.CostExplorer.Types.Expression
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
+import Amazonka.CostExplorer.Types.CostCategoryRuleType
+import Amazonka.CostExplorer.Types.Expression
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Rules are processed in order. If there are multiple rules that match the
 -- line item, then the first rule to match is used to determine that Cost

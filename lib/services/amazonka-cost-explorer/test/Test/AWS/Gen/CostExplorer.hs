@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CostExplorer where
 
+import Amazonka.CostExplorer
 import qualified Data.Proxy as Proxy
-import Network.AWS.CostExplorer
 import Test.AWS.CostExplorer.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

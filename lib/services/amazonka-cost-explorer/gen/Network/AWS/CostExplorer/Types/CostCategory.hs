@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.CostCategory
+-- Module      : Amazonka.CostExplorer.Types.CostCategory
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategory where
+module Amazonka.CostExplorer.Types.CostCategory where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
-import Network.AWS.CostExplorer.Types.CostCategoryRule
-import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
+import Amazonka.CostExplorer.Types.CostCategoryRule
+import Amazonka.CostExplorer.Types.CostCategoryRuleVersion
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeRule
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The structure of Cost Categories. This includes detailed metadata and
 -- the set of rules for the @CostCategory@ object.

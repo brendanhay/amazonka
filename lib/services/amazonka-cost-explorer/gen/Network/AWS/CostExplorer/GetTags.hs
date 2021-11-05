@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.GetTags
+-- Module      : Amazonka.CostExplorer.GetTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Queries for available tag keys and tag values for a specified period.
 -- You can search the tag values for an arbitrary string.
-module Network.AWS.CostExplorer.GetTags
+module Amazonka.CostExplorer.GetTags
   ( -- * Creating a Request
     GetTags (..),
     newGetTags,
@@ -49,12 +49,12 @@ module Network.AWS.CostExplorer.GetTags
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTags' smart constructor.
 data GetTags = GetTags'

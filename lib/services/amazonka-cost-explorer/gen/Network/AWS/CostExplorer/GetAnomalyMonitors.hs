@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.GetAnomalyMonitors
+-- Module      : Amazonka.CostExplorer.GetAnomalyMonitors
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves the cost anomaly monitor definitions for your account. You can
 -- filter using a list of cost anomaly monitor Amazon Resource Names
 -- (ARNs).
-module Network.AWS.CostExplorer.GetAnomalyMonitors
+module Amazonka.CostExplorer.GetAnomalyMonitors
   ( -- * Creating a Request
     GetAnomalyMonitors (..),
     newGetAnomalyMonitors,
@@ -44,12 +44,12 @@ module Network.AWS.CostExplorer.GetAnomalyMonitors
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAnomalyMonitors' smart constructor.
 data GetAnomalyMonitors = GetAnomalyMonitors'

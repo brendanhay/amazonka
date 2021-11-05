@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types
+-- Module      : Amazonka.CostExplorer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types
+module Amazonka.CostExplorer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -787,119 +787,119 @@ module Network.AWS.CostExplorer.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.AccountScope
-import Network.AWS.CostExplorer.Types.Anomaly
-import Network.AWS.CostExplorer.Types.AnomalyDateInterval
-import Network.AWS.CostExplorer.Types.AnomalyFeedbackType
-import Network.AWS.CostExplorer.Types.AnomalyMonitor
-import Network.AWS.CostExplorer.Types.AnomalyScore
-import Network.AWS.CostExplorer.Types.AnomalySubscription
-import Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
-import Network.AWS.CostExplorer.Types.Context
-import Network.AWS.CostExplorer.Types.CostCategory
-import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimension
-import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimensionName
-import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
-import Network.AWS.CostExplorer.Types.CostCategoryReference
-import Network.AWS.CostExplorer.Types.CostCategoryRule
-import Network.AWS.CostExplorer.Types.CostCategoryRuleType
-import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameter
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
-import Network.AWS.CostExplorer.Types.CostCategoryStatus
-import Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
-import Network.AWS.CostExplorer.Types.CostCategoryValues
-import Network.AWS.CostExplorer.Types.Coverage
-import Network.AWS.CostExplorer.Types.CoverageByTime
-import Network.AWS.CostExplorer.Types.CoverageCost
-import Network.AWS.CostExplorer.Types.CoverageHours
-import Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
-import Network.AWS.CostExplorer.Types.CurrentInstance
-import Network.AWS.CostExplorer.Types.DateInterval
-import Network.AWS.CostExplorer.Types.Dimension
-import Network.AWS.CostExplorer.Types.DimensionValues
-import Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
-import Network.AWS.CostExplorer.Types.DiskResourceUtilization
-import Network.AWS.CostExplorer.Types.EBSResourceUtilization
-import Network.AWS.CostExplorer.Types.EC2InstanceDetails
-import Network.AWS.CostExplorer.Types.EC2ResourceDetails
-import Network.AWS.CostExplorer.Types.EC2ResourceUtilization
-import Network.AWS.CostExplorer.Types.EC2Specification
-import Network.AWS.CostExplorer.Types.ESInstanceDetails
-import Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
-import Network.AWS.CostExplorer.Types.Expression
-import Network.AWS.CostExplorer.Types.FindingReasonCode
-import Network.AWS.CostExplorer.Types.ForecastResult
-import Network.AWS.CostExplorer.Types.Granularity
-import Network.AWS.CostExplorer.Types.Group
-import Network.AWS.CostExplorer.Types.GroupDefinition
-import Network.AWS.CostExplorer.Types.GroupDefinitionType
-import Network.AWS.CostExplorer.Types.Impact
-import Network.AWS.CostExplorer.Types.InstanceDetails
-import Network.AWS.CostExplorer.Types.LookbackPeriodInDays
-import Network.AWS.CostExplorer.Types.MatchOption
-import Network.AWS.CostExplorer.Types.Metric
-import Network.AWS.CostExplorer.Types.MetricValue
-import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
-import Network.AWS.CostExplorer.Types.MonitorDimension
-import Network.AWS.CostExplorer.Types.MonitorType
-import Network.AWS.CostExplorer.Types.NetworkResourceUtilization
-import Network.AWS.CostExplorer.Types.NumericOperator
-import Network.AWS.CostExplorer.Types.OfferingClass
-import Network.AWS.CostExplorer.Types.PaymentOption
-import Network.AWS.CostExplorer.Types.PlatformDifference
-import Network.AWS.CostExplorer.Types.RDSInstanceDetails
-import Network.AWS.CostExplorer.Types.RecommendationTarget
-import Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
-import Network.AWS.CostExplorer.Types.ReservationAggregates
-import Network.AWS.CostExplorer.Types.ReservationCoverageGroup
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
-import Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary
-import Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
-import Network.AWS.CostExplorer.Types.ResourceDetails
-import Network.AWS.CostExplorer.Types.ResourceUtilization
-import Network.AWS.CostExplorer.Types.ResultByTime
-import Network.AWS.CostExplorer.Types.RightsizingRecommendation
-import Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration
-import Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata
-import Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary
-import Network.AWS.CostExplorer.Types.RightsizingType
-import Network.AWS.CostExplorer.Types.RootCause
-import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
-import Network.AWS.CostExplorer.Types.SavingsPlansCoverage
-import Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
-import Network.AWS.CostExplorer.Types.SavingsPlansDataType
-import Network.AWS.CostExplorer.Types.SavingsPlansDetails
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendation
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata
-import Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
-import Network.AWS.CostExplorer.Types.SavingsPlansSavings
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilizationByTime
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail
-import Network.AWS.CostExplorer.Types.ServiceSpecification
-import Network.AWS.CostExplorer.Types.SortDefinition
-import Network.AWS.CostExplorer.Types.SortOrder
-import Network.AWS.CostExplorer.Types.Subscriber
-import Network.AWS.CostExplorer.Types.SubscriberStatus
-import Network.AWS.CostExplorer.Types.SubscriberType
-import Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-import Network.AWS.CostExplorer.Types.TagValues
-import Network.AWS.CostExplorer.Types.TargetInstance
-import Network.AWS.CostExplorer.Types.TermInYears
-import Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
-import Network.AWS.CostExplorer.Types.TotalImpactFilter
-import Network.AWS.CostExplorer.Types.UtilizationByTime
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.AccountScope
+import Amazonka.CostExplorer.Types.Anomaly
+import Amazonka.CostExplorer.Types.AnomalyDateInterval
+import Amazonka.CostExplorer.Types.AnomalyFeedbackType
+import Amazonka.CostExplorer.Types.AnomalyMonitor
+import Amazonka.CostExplorer.Types.AnomalyScore
+import Amazonka.CostExplorer.Types.AnomalySubscription
+import Amazonka.CostExplorer.Types.AnomalySubscriptionFrequency
+import Amazonka.CostExplorer.Types.Context
+import Amazonka.CostExplorer.Types.CostCategory
+import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimension
+import Amazonka.CostExplorer.Types.CostCategoryInheritedValueDimensionName
+import Amazonka.CostExplorer.Types.CostCategoryProcessingStatus
+import Amazonka.CostExplorer.Types.CostCategoryReference
+import Amazonka.CostExplorer.Types.CostCategoryRule
+import Amazonka.CostExplorer.Types.CostCategoryRuleType
+import Amazonka.CostExplorer.Types.CostCategoryRuleVersion
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeMethod
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeRule
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
+import Amazonka.CostExplorer.Types.CostCategoryStatus
+import Amazonka.CostExplorer.Types.CostCategoryStatusComponent
+import Amazonka.CostExplorer.Types.CostCategoryValues
+import Amazonka.CostExplorer.Types.Coverage
+import Amazonka.CostExplorer.Types.CoverageByTime
+import Amazonka.CostExplorer.Types.CoverageCost
+import Amazonka.CostExplorer.Types.CoverageHours
+import Amazonka.CostExplorer.Types.CoverageNormalizedUnits
+import Amazonka.CostExplorer.Types.CurrentInstance
+import Amazonka.CostExplorer.Types.DateInterval
+import Amazonka.CostExplorer.Types.Dimension
+import Amazonka.CostExplorer.Types.DimensionValues
+import Amazonka.CostExplorer.Types.DimensionValuesWithAttributes
+import Amazonka.CostExplorer.Types.DiskResourceUtilization
+import Amazonka.CostExplorer.Types.EBSResourceUtilization
+import Amazonka.CostExplorer.Types.EC2InstanceDetails
+import Amazonka.CostExplorer.Types.EC2ResourceDetails
+import Amazonka.CostExplorer.Types.EC2ResourceUtilization
+import Amazonka.CostExplorer.Types.EC2Specification
+import Amazonka.CostExplorer.Types.ESInstanceDetails
+import Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails
+import Amazonka.CostExplorer.Types.Expression
+import Amazonka.CostExplorer.Types.FindingReasonCode
+import Amazonka.CostExplorer.Types.ForecastResult
+import Amazonka.CostExplorer.Types.Granularity
+import Amazonka.CostExplorer.Types.Group
+import Amazonka.CostExplorer.Types.GroupDefinition
+import Amazonka.CostExplorer.Types.GroupDefinitionType
+import Amazonka.CostExplorer.Types.Impact
+import Amazonka.CostExplorer.Types.InstanceDetails
+import Amazonka.CostExplorer.Types.LookbackPeriodInDays
+import Amazonka.CostExplorer.Types.MatchOption
+import Amazonka.CostExplorer.Types.Metric
+import Amazonka.CostExplorer.Types.MetricValue
+import Amazonka.CostExplorer.Types.ModifyRecommendationDetail
+import Amazonka.CostExplorer.Types.MonitorDimension
+import Amazonka.CostExplorer.Types.MonitorType
+import Amazonka.CostExplorer.Types.NetworkResourceUtilization
+import Amazonka.CostExplorer.Types.NumericOperator
+import Amazonka.CostExplorer.Types.OfferingClass
+import Amazonka.CostExplorer.Types.PaymentOption
+import Amazonka.CostExplorer.Types.PlatformDifference
+import Amazonka.CostExplorer.Types.RDSInstanceDetails
+import Amazonka.CostExplorer.Types.RecommendationTarget
+import Amazonka.CostExplorer.Types.RedshiftInstanceDetails
+import Amazonka.CostExplorer.Types.ReservationAggregates
+import Amazonka.CostExplorer.Types.ReservationCoverageGroup
+import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendation
+import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationDetail
+import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
+import Amazonka.CostExplorer.Types.ReservationPurchaseRecommendationSummary
+import Amazonka.CostExplorer.Types.ReservationUtilizationGroup
+import Amazonka.CostExplorer.Types.ResourceDetails
+import Amazonka.CostExplorer.Types.ResourceUtilization
+import Amazonka.CostExplorer.Types.ResultByTime
+import Amazonka.CostExplorer.Types.RightsizingRecommendation
+import Amazonka.CostExplorer.Types.RightsizingRecommendationConfiguration
+import Amazonka.CostExplorer.Types.RightsizingRecommendationMetadata
+import Amazonka.CostExplorer.Types.RightsizingRecommendationSummary
+import Amazonka.CostExplorer.Types.RightsizingType
+import Amazonka.CostExplorer.Types.RootCause
+import Amazonka.CostExplorer.Types.SavingsPlansAmortizedCommitment
+import Amazonka.CostExplorer.Types.SavingsPlansCoverage
+import Amazonka.CostExplorer.Types.SavingsPlansCoverageData
+import Amazonka.CostExplorer.Types.SavingsPlansDataType
+import Amazonka.CostExplorer.Types.SavingsPlansDetails
+import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendation
+import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
+import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata
+import Amazonka.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
+import Amazonka.CostExplorer.Types.SavingsPlansSavings
+import Amazonka.CostExplorer.Types.SavingsPlansUtilization
+import Amazonka.CostExplorer.Types.SavingsPlansUtilizationAggregates
+import Amazonka.CostExplorer.Types.SavingsPlansUtilizationByTime
+import Amazonka.CostExplorer.Types.SavingsPlansUtilizationDetail
+import Amazonka.CostExplorer.Types.ServiceSpecification
+import Amazonka.CostExplorer.Types.SortDefinition
+import Amazonka.CostExplorer.Types.SortOrder
+import Amazonka.CostExplorer.Types.Subscriber
+import Amazonka.CostExplorer.Types.SubscriberStatus
+import Amazonka.CostExplorer.Types.SubscriberType
+import Amazonka.CostExplorer.Types.SupportedSavingsPlansType
+import Amazonka.CostExplorer.Types.TagValues
+import Amazonka.CostExplorer.Types.TargetInstance
+import Amazonka.CostExplorer.Types.TermInYears
+import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
+import Amazonka.CostExplorer.Types.TotalImpactFilter
+import Amazonka.CostExplorer.Types.UtilizationByTime
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-10-25@ of the Amazon Cost Explorer Service SDK configuration.
 defaultService :: Core.Service

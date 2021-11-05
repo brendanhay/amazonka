@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.Expression
+-- Module      : Amazonka.CostExplorer.Types.Expression
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Expression where
+module Amazonka.CostExplorer.Types.Expression where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.CostCategoryValues
-import Network.AWS.CostExplorer.Types.DimensionValues
-import Network.AWS.CostExplorer.Types.TagValues
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.CostCategoryValues
+import Amazonka.CostExplorer.Types.DimensionValues
+import Amazonka.CostExplorer.Types.TagValues
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:
 --

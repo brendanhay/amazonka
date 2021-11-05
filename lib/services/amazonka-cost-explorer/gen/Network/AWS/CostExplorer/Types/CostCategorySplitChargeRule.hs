@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
+-- Module      : Amazonka.CostExplorer.Types.CostCategorySplitChargeRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule where
+module Amazonka.CostExplorer.Types.CostCategorySplitChargeRule where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
-import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameter
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeMethod
+import Amazonka.CostExplorer.Types.CostCategorySplitChargeRuleParameter
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use the split charge rule to split the cost of one Cost Category value
 -- across several other target values.

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.AnomalyMonitor
+-- Module      : Amazonka.CostExplorer.Types.AnomalyMonitor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.AnomalyMonitor where
+module Amazonka.CostExplorer.Types.AnomalyMonitor where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.Expression
-import Network.AWS.CostExplorer.Types.MonitorDimension
-import Network.AWS.CostExplorer.Types.MonitorType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.Expression
+import Amazonka.CostExplorer.Types.MonitorDimension
+import Amazonka.CostExplorer.Types.MonitorType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This object continuously inspects your account\'s cost data for
 -- anomalies. It\'s based on @MonitorType@ and @MonitorSpecification@. The

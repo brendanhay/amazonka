@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CostExplorer
+-- Module      : Amazonka.CostExplorer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- For information about the costs that are associated with the Cost
 -- Explorer API, see
 -- <http://aws.amazon.com/aws-cost-management/pricing/ Amazon Web Services Cost Management Pricing>.
-module Network.AWS.CostExplorer
+module Amazonka.CostExplorer
   ( -- * Service Configuration
     defaultService,
 
@@ -657,39 +657,39 @@ module Network.AWS.CostExplorer
   )
 where
 
-import Network.AWS.CostExplorer.CreateAnomalyMonitor
-import Network.AWS.CostExplorer.CreateAnomalySubscription
-import Network.AWS.CostExplorer.CreateCostCategoryDefinition
-import Network.AWS.CostExplorer.DeleteAnomalyMonitor
-import Network.AWS.CostExplorer.DeleteAnomalySubscription
-import Network.AWS.CostExplorer.DeleteCostCategoryDefinition
-import Network.AWS.CostExplorer.DescribeCostCategoryDefinition
-import Network.AWS.CostExplorer.GetAnomalies
-import Network.AWS.CostExplorer.GetAnomalyMonitors
-import Network.AWS.CostExplorer.GetAnomalySubscriptions
-import Network.AWS.CostExplorer.GetCostAndUsage
-import Network.AWS.CostExplorer.GetCostAndUsageWithResources
-import Network.AWS.CostExplorer.GetCostCategories
-import Network.AWS.CostExplorer.GetCostForecast
-import Network.AWS.CostExplorer.GetDimensionValues
-import Network.AWS.CostExplorer.GetReservationCoverage
-import Network.AWS.CostExplorer.GetReservationPurchaseRecommendation
-import Network.AWS.CostExplorer.GetReservationUtilization
-import Network.AWS.CostExplorer.GetRightsizingRecommendation
-import Network.AWS.CostExplorer.GetSavingsPlansCoverage
-import Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
-import Network.AWS.CostExplorer.GetSavingsPlansUtilization
-import Network.AWS.CostExplorer.GetSavingsPlansUtilizationDetails
-import Network.AWS.CostExplorer.GetTags
-import Network.AWS.CostExplorer.GetUsageForecast
-import Network.AWS.CostExplorer.Lens
-import Network.AWS.CostExplorer.ListCostCategoryDefinitions
-import Network.AWS.CostExplorer.ProvideAnomalyFeedback
-import Network.AWS.CostExplorer.Types
-import Network.AWS.CostExplorer.UpdateAnomalyMonitor
-import Network.AWS.CostExplorer.UpdateAnomalySubscription
-import Network.AWS.CostExplorer.UpdateCostCategoryDefinition
-import Network.AWS.CostExplorer.Waiters
+import Amazonka.CostExplorer.CreateAnomalyMonitor
+import Amazonka.CostExplorer.CreateAnomalySubscription
+import Amazonka.CostExplorer.CreateCostCategoryDefinition
+import Amazonka.CostExplorer.DeleteAnomalyMonitor
+import Amazonka.CostExplorer.DeleteAnomalySubscription
+import Amazonka.CostExplorer.DeleteCostCategoryDefinition
+import Amazonka.CostExplorer.DescribeCostCategoryDefinition
+import Amazonka.CostExplorer.GetAnomalies
+import Amazonka.CostExplorer.GetAnomalyMonitors
+import Amazonka.CostExplorer.GetAnomalySubscriptions
+import Amazonka.CostExplorer.GetCostAndUsage
+import Amazonka.CostExplorer.GetCostAndUsageWithResources
+import Amazonka.CostExplorer.GetCostCategories
+import Amazonka.CostExplorer.GetCostForecast
+import Amazonka.CostExplorer.GetDimensionValues
+import Amazonka.CostExplorer.GetReservationCoverage
+import Amazonka.CostExplorer.GetReservationPurchaseRecommendation
+import Amazonka.CostExplorer.GetReservationUtilization
+import Amazonka.CostExplorer.GetRightsizingRecommendation
+import Amazonka.CostExplorer.GetSavingsPlansCoverage
+import Amazonka.CostExplorer.GetSavingsPlansPurchaseRecommendation
+import Amazonka.CostExplorer.GetSavingsPlansUtilization
+import Amazonka.CostExplorer.GetSavingsPlansUtilizationDetails
+import Amazonka.CostExplorer.GetTags
+import Amazonka.CostExplorer.GetUsageForecast
+import Amazonka.CostExplorer.Lens
+import Amazonka.CostExplorer.ListCostCategoryDefinitions
+import Amazonka.CostExplorer.ProvideAnomalyFeedback
+import Amazonka.CostExplorer.Types
+import Amazonka.CostExplorer.UpdateAnomalyMonitor
+import Amazonka.CostExplorer.UpdateAnomalySubscription
+import Amazonka.CostExplorer.UpdateCostCategoryDefinition
+import Amazonka.CostExplorer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

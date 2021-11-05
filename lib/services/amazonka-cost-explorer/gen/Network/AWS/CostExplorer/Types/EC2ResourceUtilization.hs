@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.EC2ResourceUtilization
+-- Module      : Amazonka.CostExplorer.Types.EC2ResourceUtilization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.EC2ResourceUtilization where
+module Amazonka.CostExplorer.Types.EC2ResourceUtilization where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.DiskResourceUtilization
-import Network.AWS.CostExplorer.Types.EBSResourceUtilization
-import Network.AWS.CostExplorer.Types.NetworkResourceUtilization
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.DiskResourceUtilization
+import Amazonka.CostExplorer.Types.EBSResourceUtilization
+import Amazonka.CostExplorer.Types.NetworkResourceUtilization
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Utilization metrics of the instance.
 --

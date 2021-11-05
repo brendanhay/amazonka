@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.DeleteAnomalySubscription
+-- Module      : Amazonka.CostExplorer.DeleteAnomalySubscription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a cost anomaly subscription.
-module Network.AWS.CostExplorer.DeleteAnomalySubscription
+module Amazonka.CostExplorer.DeleteAnomalySubscription
   ( -- * Creating a Request
     DeleteAnomalySubscription (..),
     newDeleteAnomalySubscription,
@@ -38,12 +38,12 @@ module Network.AWS.CostExplorer.DeleteAnomalySubscription
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAnomalySubscription' smart constructor.
 data DeleteAnomalySubscription = DeleteAnomalySubscription'

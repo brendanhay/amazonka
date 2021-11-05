@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.GetReservationCoverage
+-- Module      : Amazonka.CostExplorer.GetReservationCoverage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -54,7 +54,7 @@
 --
 -- To determine valid values for a dimension, use the @GetDimensionValues@
 -- operation.
-module Network.AWS.CostExplorer.GetReservationCoverage
+module Amazonka.CostExplorer.GetReservationCoverage
   ( -- * Creating a Request
     GetReservationCoverage (..),
     newGetReservationCoverage,
@@ -81,12 +81,12 @@ module Network.AWS.CostExplorer.GetReservationCoverage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | You can use the following request parameters to query for how much of
 -- your instance usage a reservation covered.

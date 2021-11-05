@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.RightsizingRecommendation
+-- Module      : Amazonka.CostExplorer.Types.RightsizingRecommendation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RightsizingRecommendation where
+module Amazonka.CostExplorer.Types.RightsizingRecommendation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.CurrentInstance
-import Network.AWS.CostExplorer.Types.FindingReasonCode
-import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
-import Network.AWS.CostExplorer.Types.RightsizingType
-import Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.CurrentInstance
+import Amazonka.CostExplorer.Types.FindingReasonCode
+import Amazonka.CostExplorer.Types.ModifyRecommendationDetail
+import Amazonka.CostExplorer.Types.RightsizingType
+import Amazonka.CostExplorer.Types.TerminateRecommendationDetail
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Recommendations to rightsize resources.
 --

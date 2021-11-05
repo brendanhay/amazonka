@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.GetAnomalies
+-- Module      : Amazonka.CostExplorer.GetAnomalies
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves all of the cost anomalies detected on your account during the
 -- time period that\'s specified by the @DateInterval@ object.
-module Network.AWS.CostExplorer.GetAnomalies
+module Amazonka.CostExplorer.GetAnomalies
   ( -- * Creating a Request
     GetAnomalies (..),
     newGetAnomalies,
@@ -46,12 +46,12 @@ module Network.AWS.CostExplorer.GetAnomalies
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAnomalies' smart constructor.
 data GetAnomalies = GetAnomalies'

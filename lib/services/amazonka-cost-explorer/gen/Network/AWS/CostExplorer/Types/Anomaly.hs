@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.Anomaly
+-- Module      : Amazonka.CostExplorer.Types.Anomaly
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Anomaly where
+module Amazonka.CostExplorer.Types.Anomaly where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostExplorer.Types.AnomalyFeedbackType
-import Network.AWS.CostExplorer.Types.AnomalyScore
-import Network.AWS.CostExplorer.Types.Impact
-import Network.AWS.CostExplorer.Types.RootCause
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostExplorer.Types.AnomalyFeedbackType
+import Amazonka.CostExplorer.Types.AnomalyScore
+import Amazonka.CostExplorer.Types.Impact
+import Amazonka.CostExplorer.Types.RootCause
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An unusual cost pattern. This consists of the detailed metadata and the
 -- current status of the anomaly object.

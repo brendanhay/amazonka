@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceCatalog.Types
+-- Module      : Amazonka.MarketplaceCatalog.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceCatalog.Types
+module Amazonka.MarketplaceCatalog.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -100,21 +100,21 @@ module Network.AWS.MarketplaceCatalog.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceCatalog.Types.Change
-import Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem
-import Network.AWS.MarketplaceCatalog.Types.ChangeStatus
-import Network.AWS.MarketplaceCatalog.Types.ChangeSummary
-import Network.AWS.MarketplaceCatalog.Types.Entity
-import Network.AWS.MarketplaceCatalog.Types.EntitySummary
-import Network.AWS.MarketplaceCatalog.Types.ErrorDetail
-import Network.AWS.MarketplaceCatalog.Types.FailureCode
-import Network.AWS.MarketplaceCatalog.Types.Filter
-import Network.AWS.MarketplaceCatalog.Types.Sort
-import Network.AWS.MarketplaceCatalog.Types.SortOrder
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceCatalog.Types.Change
+import Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
+import Amazonka.MarketplaceCatalog.Types.ChangeStatus
+import Amazonka.MarketplaceCatalog.Types.ChangeSummary
+import Amazonka.MarketplaceCatalog.Types.Entity
+import Amazonka.MarketplaceCatalog.Types.EntitySummary
+import Amazonka.MarketplaceCatalog.Types.ErrorDetail
+import Amazonka.MarketplaceCatalog.Types.FailureCode
+import Amazonka.MarketplaceCatalog.Types.Filter
+import Amazonka.MarketplaceCatalog.Types.Sort
+import Amazonka.MarketplaceCatalog.Types.SortOrder
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-17@ of the Amazon Marketplace Catalog Service SDK configuration.
 defaultService :: Core.Service

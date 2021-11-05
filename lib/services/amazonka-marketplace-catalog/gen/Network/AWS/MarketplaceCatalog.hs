@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MarketplaceCatalog
+-- Module      : Amazonka.MarketplaceCatalog
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 -- Marketplace Catalog API with your AWS Marketplace product build or
 -- deployment pipelines. You can also create your own applications on top
 -- of the Catalog API to manage your products on AWS Marketplace.
-module Network.AWS.MarketplaceCatalog
+module Amazonka.MarketplaceCatalog
   ( -- * Service Configuration
     defaultService,
 
@@ -137,15 +137,15 @@ module Network.AWS.MarketplaceCatalog
   )
 where
 
-import Network.AWS.MarketplaceCatalog.CancelChangeSet
-import Network.AWS.MarketplaceCatalog.DescribeChangeSet
-import Network.AWS.MarketplaceCatalog.DescribeEntity
-import Network.AWS.MarketplaceCatalog.Lens
-import Network.AWS.MarketplaceCatalog.ListChangeSets
-import Network.AWS.MarketplaceCatalog.ListEntities
-import Network.AWS.MarketplaceCatalog.StartChangeSet
-import Network.AWS.MarketplaceCatalog.Types
-import Network.AWS.MarketplaceCatalog.Waiters
+import Amazonka.MarketplaceCatalog.CancelChangeSet
+import Amazonka.MarketplaceCatalog.DescribeChangeSet
+import Amazonka.MarketplaceCatalog.DescribeEntity
+import Amazonka.MarketplaceCatalog.Lens
+import Amazonka.MarketplaceCatalog.ListChangeSets
+import Amazonka.MarketplaceCatalog.ListEntities
+import Amazonka.MarketplaceCatalog.StartChangeSet
+import Amazonka.MarketplaceCatalog.Types
+import Amazonka.MarketplaceCatalog.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

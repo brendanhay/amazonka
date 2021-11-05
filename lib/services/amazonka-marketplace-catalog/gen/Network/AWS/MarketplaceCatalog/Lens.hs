@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceCatalog.Lens
+-- Module      : Amazonka.MarketplaceCatalog.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceCatalog.Lens
+module Amazonka.MarketplaceCatalog.Lens
   ( -- * Operations
 
     -- ** ListEntities
@@ -126,17 +126,17 @@ module Network.AWS.MarketplaceCatalog.Lens
   )
 where
 
-import Network.AWS.MarketplaceCatalog.CancelChangeSet
-import Network.AWS.MarketplaceCatalog.DescribeChangeSet
-import Network.AWS.MarketplaceCatalog.DescribeEntity
-import Network.AWS.MarketplaceCatalog.ListChangeSets
-import Network.AWS.MarketplaceCatalog.ListEntities
-import Network.AWS.MarketplaceCatalog.StartChangeSet
-import Network.AWS.MarketplaceCatalog.Types.Change
-import Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem
-import Network.AWS.MarketplaceCatalog.Types.ChangeSummary
-import Network.AWS.MarketplaceCatalog.Types.Entity
-import Network.AWS.MarketplaceCatalog.Types.EntitySummary
-import Network.AWS.MarketplaceCatalog.Types.ErrorDetail
-import Network.AWS.MarketplaceCatalog.Types.Filter
-import Network.AWS.MarketplaceCatalog.Types.Sort
+import Amazonka.MarketplaceCatalog.CancelChangeSet
+import Amazonka.MarketplaceCatalog.DescribeChangeSet
+import Amazonka.MarketplaceCatalog.DescribeEntity
+import Amazonka.MarketplaceCatalog.ListChangeSets
+import Amazonka.MarketplaceCatalog.ListEntities
+import Amazonka.MarketplaceCatalog.StartChangeSet
+import Amazonka.MarketplaceCatalog.Types.Change
+import Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
+import Amazonka.MarketplaceCatalog.Types.ChangeSummary
+import Amazonka.MarketplaceCatalog.Types.Entity
+import Amazonka.MarketplaceCatalog.Types.EntitySummary
+import Amazonka.MarketplaceCatalog.Types.ErrorDetail
+import Amazonka.MarketplaceCatalog.Types.Filter
+import Amazonka.MarketplaceCatalog.Types.Sort

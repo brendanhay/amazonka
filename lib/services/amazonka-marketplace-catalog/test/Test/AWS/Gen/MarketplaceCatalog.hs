@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceCatalog where
 
+import Amazonka.MarketplaceCatalog
 import qualified Data.Proxy as Proxy
-import Network.AWS.MarketplaceCatalog
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceCatalog.Internal
 import Test.AWS.Prelude

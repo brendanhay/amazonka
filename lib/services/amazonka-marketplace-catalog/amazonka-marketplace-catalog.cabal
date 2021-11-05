@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MarketplaceCatalog.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MarketplaceCatalog.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MarketplaceCatalog" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MarketplaceCatalog" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,29 +45,29 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MarketplaceCatalog
-    Network.AWS.MarketplaceCatalog.CancelChangeSet
-    Network.AWS.MarketplaceCatalog.DescribeChangeSet
-    Network.AWS.MarketplaceCatalog.DescribeEntity
-    Network.AWS.MarketplaceCatalog.Lens
-    Network.AWS.MarketplaceCatalog.ListChangeSets
-    Network.AWS.MarketplaceCatalog.ListEntities
-    Network.AWS.MarketplaceCatalog.StartChangeSet
-    Network.AWS.MarketplaceCatalog.Types
-    Network.AWS.MarketplaceCatalog.Types.Change
-    Network.AWS.MarketplaceCatalog.Types.ChangeSetSummaryListItem
-    Network.AWS.MarketplaceCatalog.Types.ChangeStatus
-    Network.AWS.MarketplaceCatalog.Types.ChangeSummary
-    Network.AWS.MarketplaceCatalog.Types.Entity
-    Network.AWS.MarketplaceCatalog.Types.EntitySummary
-    Network.AWS.MarketplaceCatalog.Types.ErrorDetail
-    Network.AWS.MarketplaceCatalog.Types.FailureCode
-    Network.AWS.MarketplaceCatalog.Types.Filter
-    Network.AWS.MarketplaceCatalog.Types.Sort
-    Network.AWS.MarketplaceCatalog.Types.SortOrder
-    Network.AWS.MarketplaceCatalog.Waiters
+    Amazonka.MarketplaceCatalog
+    Amazonka.MarketplaceCatalog.CancelChangeSet
+    Amazonka.MarketplaceCatalog.DescribeChangeSet
+    Amazonka.MarketplaceCatalog.DescribeEntity
+    Amazonka.MarketplaceCatalog.Lens
+    Amazonka.MarketplaceCatalog.ListChangeSets
+    Amazonka.MarketplaceCatalog.ListEntities
+    Amazonka.MarketplaceCatalog.StartChangeSet
+    Amazonka.MarketplaceCatalog.Types
+    Amazonka.MarketplaceCatalog.Types.Change
+    Amazonka.MarketplaceCatalog.Types.ChangeSetSummaryListItem
+    Amazonka.MarketplaceCatalog.Types.ChangeStatus
+    Amazonka.MarketplaceCatalog.Types.ChangeSummary
+    Amazonka.MarketplaceCatalog.Types.Entity
+    Amazonka.MarketplaceCatalog.Types.EntitySummary
+    Amazonka.MarketplaceCatalog.Types.ErrorDetail
+    Amazonka.MarketplaceCatalog.Types.FailureCode
+    Amazonka.MarketplaceCatalog.Types.Filter
+    Amazonka.MarketplaceCatalog.Types.Sort
+    Amazonka.MarketplaceCatalog.Types.SortOrder
+    Amazonka.MarketplaceCatalog.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

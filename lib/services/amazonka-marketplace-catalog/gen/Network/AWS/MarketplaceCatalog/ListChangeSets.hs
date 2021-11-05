@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceCatalog.ListChangeSets
+-- Module      : Amazonka.MarketplaceCatalog.ListChangeSets
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --
 -- You can describe a change during the 60-day request history retention
 -- period for API calls.
-module Network.AWS.MarketplaceCatalog.ListChangeSets
+module Amazonka.MarketplaceCatalog.ListChangeSets
   ( -- * Creating a Request
     ListChangeSets (..),
     newListChangeSets,
@@ -50,12 +50,12 @@ module Network.AWS.MarketplaceCatalog.ListChangeSets
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceCatalog.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceCatalog.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'

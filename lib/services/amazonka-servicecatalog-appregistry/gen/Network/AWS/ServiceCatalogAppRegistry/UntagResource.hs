@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.UntagResource
+-- Module      : Amazonka.ServiceCatalogAppRegistry.UntagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Removes tags from a resource.
 --
 -- This operation returns an empty response if the call was successful.
-module Network.AWS.ServiceCatalogAppRegistry.UntagResource
+module Amazonka.ServiceCatalogAppRegistry.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
     newUntagResource,
@@ -41,12 +41,12 @@ module Network.AWS.ServiceCatalogAppRegistry.UntagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalogAppRegistry.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'

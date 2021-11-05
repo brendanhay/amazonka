@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
+-- Module      : Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- attributes. This feature enables users to have full control over their
 -- cloud application\'s metadata in a rich machine-readable format to
 -- facilitate integration with automated workflows and third-party tools.
-module Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
+module Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
   ( -- * Creating a Request
     CreateAttributeGroup (..),
     newCreateAttributeGroup,
@@ -46,12 +46,12 @@ module Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalogAppRegistry.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newCreateAttributeGroup' smart constructor.
 data CreateAttributeGroup = CreateAttributeGroup'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.GetApplication
+-- Module      : Amazonka.ServiceCatalogAppRegistry.GetApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- that the exact same application is returned or a
 -- @ResourceNotFoundException@ is thrown, avoiding the ABA addressing
 -- problem.
-module Network.AWS.ServiceCatalogAppRegistry.GetApplication
+module Amazonka.ServiceCatalogAppRegistry.GetApplication
   ( -- * Creating a Request
     GetApplication (..),
     newGetApplication,
@@ -53,12 +53,12 @@ module Network.AWS.ServiceCatalogAppRegistry.GetApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalogAppRegistry.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newGetApplication' smart constructor.
 data GetApplication = GetApplication'

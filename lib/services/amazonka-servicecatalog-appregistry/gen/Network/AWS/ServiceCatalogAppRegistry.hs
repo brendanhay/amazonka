@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry
+-- Module      : Amazonka.ServiceCatalogAppRegistry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- resources. AppRegistry provides a repository of your applications, their
 -- resources, and the application metadata that you use within your
 -- enterprise.
-module Network.AWS.ServiceCatalogAppRegistry
+module Amazonka.ServiceCatalogAppRegistry
   ( -- * Service Configuration
     defaultService,
 
@@ -219,30 +219,30 @@ module Network.AWS.ServiceCatalogAppRegistry
   )
 where
 
-import Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.AssociateResource
-import Network.AWS.ServiceCatalogAppRegistry.CreateApplication
-import Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DeleteApplication
-import Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DisassociateResource
-import Network.AWS.ServiceCatalogAppRegistry.GetApplication
-import Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource
-import Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.Lens
-import Network.AWS.ServiceCatalogAppRegistry.ListApplications
-import Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
-import Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources
-import Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups
-import Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource
-import Network.AWS.ServiceCatalogAppRegistry.SyncResource
-import Network.AWS.ServiceCatalogAppRegistry.TagResource
-import Network.AWS.ServiceCatalogAppRegistry.Types
-import Network.AWS.ServiceCatalogAppRegistry.UntagResource
-import Network.AWS.ServiceCatalogAppRegistry.UpdateApplication
-import Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.Waiters
+import Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.AssociateResource
+import Amazonka.ServiceCatalogAppRegistry.CreateApplication
+import Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DeleteApplication
+import Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DisassociateResource
+import Amazonka.ServiceCatalogAppRegistry.GetApplication
+import Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
+import Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Lens
+import Amazonka.ServiceCatalogAppRegistry.ListApplications
+import Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
+import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
+import Amazonka.ServiceCatalogAppRegistry.SyncResource
+import Amazonka.ServiceCatalogAppRegistry.TagResource
+import Amazonka.ServiceCatalogAppRegistry.Types
+import Amazonka.ServiceCatalogAppRegistry.UntagResource
+import Amazonka.ServiceCatalogAppRegistry.UpdateApplication
+import Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

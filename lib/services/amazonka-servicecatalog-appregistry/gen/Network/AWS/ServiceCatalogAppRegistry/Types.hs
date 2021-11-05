@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.Types
+-- Module      : Amazonka.ServiceCatalogAppRegistry.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalogAppRegistry.Types
+module Amazonka.ServiceCatalogAppRegistry.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -107,22 +107,22 @@ module Network.AWS.ServiceCatalogAppRegistry.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceCatalogAppRegistry.Types.Application
-import Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary
-import Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
-import Network.AWS.ServiceCatalogAppRegistry.Types.Integrations
-import Network.AWS.ServiceCatalogAppRegistry.Types.Resource
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType
-import Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalogAppRegistry.Types.Application
+import Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
+import Amazonka.ServiceCatalogAppRegistry.Types.Integrations
+import Amazonka.ServiceCatalogAppRegistry.Types.Resource
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
+import Amazonka.ServiceCatalogAppRegistry.Types.SyncAction
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-06-24@ of the Amazon Service Catalog App Registry SDK configuration.
 defaultService :: Core.Service

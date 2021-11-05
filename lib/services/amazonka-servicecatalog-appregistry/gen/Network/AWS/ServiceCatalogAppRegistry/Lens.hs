@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.Lens
+-- Module      : Amazonka.ServiceCatalogAppRegistry.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalogAppRegistry.Lens
+module Amazonka.ServiceCatalogAppRegistry.Lens
   ( -- * Operations
 
     -- ** AssociateAttributeGroup
@@ -230,33 +230,33 @@ module Network.AWS.ServiceCatalogAppRegistry.Lens
   )
 where
 
-import Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.AssociateResource
-import Network.AWS.ServiceCatalogAppRegistry.CreateApplication
-import Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DeleteApplication
-import Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.DisassociateResource
-import Network.AWS.ServiceCatalogAppRegistry.GetApplication
-import Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource
-import Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.ListApplications
-import Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
-import Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources
-import Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups
-import Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource
-import Network.AWS.ServiceCatalogAppRegistry.SyncResource
-import Network.AWS.ServiceCatalogAppRegistry.TagResource
-import Network.AWS.ServiceCatalogAppRegistry.Types.Application
-import Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary
-import Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup
-import Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
-import Network.AWS.ServiceCatalogAppRegistry.Types.Integrations
-import Network.AWS.ServiceCatalogAppRegistry.Types.Resource
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo
-import Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations
-import Network.AWS.ServiceCatalogAppRegistry.UntagResource
-import Network.AWS.ServiceCatalogAppRegistry.UpdateApplication
-import Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.AssociateResource
+import Amazonka.ServiceCatalogAppRegistry.CreateApplication
+import Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DeleteApplication
+import Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.DisassociateResource
+import Amazonka.ServiceCatalogAppRegistry.GetApplication
+import Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
+import Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.ListApplications
+import Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
+import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
+import Amazonka.ServiceCatalogAppRegistry.SyncResource
+import Amazonka.ServiceCatalogAppRegistry.TagResource
+import Amazonka.ServiceCatalogAppRegistry.Types.Application
+import Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
+import Amazonka.ServiceCatalogAppRegistry.Types.Integrations
+import Amazonka.ServiceCatalogAppRegistry.Types.Resource
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
+import Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
+import Amazonka.ServiceCatalogAppRegistry.UntagResource
+import Amazonka.ServiceCatalogAppRegistry.UpdateApplication
+import Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup

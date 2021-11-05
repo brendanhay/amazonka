@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalogAppRegistry.CreateApplication
+-- Module      : Amazonka.ServiceCatalogAppRegistry.CreateApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a new application that is the top-level node in a hierarchy of
 -- related cloud resource abstractions.
-module Network.AWS.ServiceCatalogAppRegistry.CreateApplication
+module Amazonka.ServiceCatalogAppRegistry.CreateApplication
   ( -- * Creating a Request
     CreateApplication (..),
     newCreateApplication,
@@ -43,12 +43,12 @@ module Network.AWS.ServiceCatalogAppRegistry.CreateApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalogAppRegistry.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'

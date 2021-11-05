@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServiceCatalog where
 
+import Amazonka.ServiceCatalog
 import qualified Data.Proxy as Proxy
-import Network.AWS.ServiceCatalog
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.ServiceCatalog.Internal

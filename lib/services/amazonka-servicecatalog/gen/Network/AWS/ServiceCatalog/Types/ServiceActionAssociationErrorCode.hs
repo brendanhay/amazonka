@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+-- Module      : Amazonka.ServiceCatalog.Types.ServiceActionAssociationErrorCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+module Amazonka.ServiceCatalog.Types.ServiceActionAssociationErrorCode
   ( ServiceActionAssociationErrorCode
       ( ..,
         ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE,
@@ -29,8 +29,8 @@ module Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ServiceActionAssociationErrorCode = ServiceActionAssociationErrorCode'
   { fromServiceActionAssociationErrorCode ::

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.Types.StackInstance
+-- Module      : Amazonka.ServiceCatalog.Types.StackInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.StackInstance where
+module Amazonka.ServiceCatalog.Types.StackInstance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceCatalog.Types.StackInstanceStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalog.Types.StackInstanceStatus
 
 -- | An AWS CloudFormation stack, in a specific account and region, that\'s
 -- part of a stack set operation. A stack instance is a reference to an

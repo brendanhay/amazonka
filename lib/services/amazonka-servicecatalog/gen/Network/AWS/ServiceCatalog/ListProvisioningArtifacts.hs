@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.ListProvisioningArtifacts
+-- Module      : Amazonka.ServiceCatalog.ListProvisioningArtifacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Lists all provisioning artifacts (also known as versions) for the
 -- specified product.
-module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
+module Amazonka.ServiceCatalog.ListProvisioningArtifacts
   ( -- * Creating a Request
     ListProvisioningArtifacts (..),
     newListProvisioningArtifacts,
@@ -42,12 +42,12 @@ module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListProvisioningArtifacts' smart constructor.
 data ListProvisioningArtifacts = ListProvisioningArtifacts'

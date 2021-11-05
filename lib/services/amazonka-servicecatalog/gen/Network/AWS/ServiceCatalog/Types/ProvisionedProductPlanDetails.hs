@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails
+-- Module      : Amazonka.ServiceCatalog.Types.ProvisionedProductPlanDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails where
+module Amazonka.ServiceCatalog.Types.ProvisionedProductPlanDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
-import Network.AWS.ServiceCatalog.Types.Tag
-import Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanStatus
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
+import Amazonka.ServiceCatalog.Types.Tag
+import Amazonka.ServiceCatalog.Types.UpdateProvisioningParameter
 
 -- | Information about a plan.
 --

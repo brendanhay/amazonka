@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.UpdateTagOption
+-- Module      : Amazonka.ServiceCatalog.UpdateTagOption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the specified TagOption.
-module Network.AWS.ServiceCatalog.UpdateTagOption
+module Amazonka.ServiceCatalog.UpdateTagOption
   ( -- * Creating a Request
     UpdateTagOption (..),
     newUpdateTagOption,
@@ -41,12 +41,12 @@ module Network.AWS.ServiceCatalog.UpdateTagOption
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'

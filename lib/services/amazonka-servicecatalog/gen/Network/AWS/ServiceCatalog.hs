@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ServiceCatalog
+-- Module      : Amazonka.ServiceCatalog
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- approved for AWS. To get the most out of this documentation, you should
 -- be familiar with the terminology discussed in
 -- <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html AWS Service Catalog Concepts>.
-module Network.AWS.ServiceCatalog
+module Amazonka.ServiceCatalog
   ( -- * Service Configuration
     defaultService,
 
@@ -895,96 +895,96 @@ module Network.AWS.ServiceCatalog
   )
 where
 
-import Network.AWS.ServiceCatalog.AcceptPortfolioShare
-import Network.AWS.ServiceCatalog.AssociateBudgetWithResource
-import Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
-import Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
-import Network.AWS.ServiceCatalog.AssociateServiceActionWithProvisioningArtifact
-import Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
-import Network.AWS.ServiceCatalog.BatchAssociateServiceActionWithProvisioningArtifact
-import Network.AWS.ServiceCatalog.BatchDisassociateServiceActionFromProvisioningArtifact
-import Network.AWS.ServiceCatalog.CopyProduct
-import Network.AWS.ServiceCatalog.CreateConstraint
-import Network.AWS.ServiceCatalog.CreatePortfolio
-import Network.AWS.ServiceCatalog.CreatePortfolioShare
-import Network.AWS.ServiceCatalog.CreateProduct
-import Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
-import Network.AWS.ServiceCatalog.CreateProvisioningArtifact
-import Network.AWS.ServiceCatalog.CreateServiceAction
-import Network.AWS.ServiceCatalog.CreateTagOption
-import Network.AWS.ServiceCatalog.DeleteConstraint
-import Network.AWS.ServiceCatalog.DeletePortfolio
-import Network.AWS.ServiceCatalog.DeletePortfolioShare
-import Network.AWS.ServiceCatalog.DeleteProduct
-import Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
-import Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
-import Network.AWS.ServiceCatalog.DeleteServiceAction
-import Network.AWS.ServiceCatalog.DeleteTagOption
-import Network.AWS.ServiceCatalog.DescribeConstraint
-import Network.AWS.ServiceCatalog.DescribeCopyProductStatus
-import Network.AWS.ServiceCatalog.DescribePortfolio
-import Network.AWS.ServiceCatalog.DescribePortfolioShareStatus
-import Network.AWS.ServiceCatalog.DescribePortfolioShares
-import Network.AWS.ServiceCatalog.DescribeProduct
-import Network.AWS.ServiceCatalog.DescribeProductAsAdmin
-import Network.AWS.ServiceCatalog.DescribeProductView
-import Network.AWS.ServiceCatalog.DescribeProvisionedProduct
-import Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
-import Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
-import Network.AWS.ServiceCatalog.DescribeProvisioningParameters
-import Network.AWS.ServiceCatalog.DescribeRecord
-import Network.AWS.ServiceCatalog.DescribeServiceAction
-import Network.AWS.ServiceCatalog.DescribeServiceActionExecutionParameters
-import Network.AWS.ServiceCatalog.DescribeTagOption
-import Network.AWS.ServiceCatalog.DisableAWSOrganizationsAccess
-import Network.AWS.ServiceCatalog.DisassociateBudgetFromResource
-import Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
-import Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
-import Network.AWS.ServiceCatalog.DisassociateServiceActionFromProvisioningArtifact
-import Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
-import Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess
-import Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
-import Network.AWS.ServiceCatalog.ExecuteProvisionedProductServiceAction
-import Network.AWS.ServiceCatalog.GetAWSOrganizationsAccessStatus
-import Network.AWS.ServiceCatalog.GetProvisionedProductOutputs
-import Network.AWS.ServiceCatalog.ImportAsProvisionedProduct
-import Network.AWS.ServiceCatalog.Lens
-import Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
-import Network.AWS.ServiceCatalog.ListBudgetsForResource
-import Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
-import Network.AWS.ServiceCatalog.ListLaunchPaths
-import Network.AWS.ServiceCatalog.ListOrganizationPortfolioAccess
-import Network.AWS.ServiceCatalog.ListPortfolioAccess
-import Network.AWS.ServiceCatalog.ListPortfolios
-import Network.AWS.ServiceCatalog.ListPortfoliosForProduct
-import Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
-import Network.AWS.ServiceCatalog.ListProvisionedProductPlans
-import Network.AWS.ServiceCatalog.ListProvisioningArtifacts
-import Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction
-import Network.AWS.ServiceCatalog.ListRecordHistory
-import Network.AWS.ServiceCatalog.ListResourcesForTagOption
-import Network.AWS.ServiceCatalog.ListServiceActions
-import Network.AWS.ServiceCatalog.ListServiceActionsForProvisioningArtifact
-import Network.AWS.ServiceCatalog.ListStackInstancesForProvisionedProduct
-import Network.AWS.ServiceCatalog.ListTagOptions
-import Network.AWS.ServiceCatalog.ProvisionProduct
-import Network.AWS.ServiceCatalog.RejectPortfolioShare
-import Network.AWS.ServiceCatalog.ScanProvisionedProducts
-import Network.AWS.ServiceCatalog.SearchProducts
-import Network.AWS.ServiceCatalog.SearchProductsAsAdmin
-import Network.AWS.ServiceCatalog.SearchProvisionedProducts
-import Network.AWS.ServiceCatalog.TerminateProvisionedProduct
-import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.UpdateConstraint
-import Network.AWS.ServiceCatalog.UpdatePortfolio
-import Network.AWS.ServiceCatalog.UpdatePortfolioShare
-import Network.AWS.ServiceCatalog.UpdateProduct
-import Network.AWS.ServiceCatalog.UpdateProvisionedProduct
-import Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
-import Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
-import Network.AWS.ServiceCatalog.UpdateServiceAction
-import Network.AWS.ServiceCatalog.UpdateTagOption
-import Network.AWS.ServiceCatalog.Waiters
+import Amazonka.ServiceCatalog.AcceptPortfolioShare
+import Amazonka.ServiceCatalog.AssociateBudgetWithResource
+import Amazonka.ServiceCatalog.AssociatePrincipalWithPortfolio
+import Amazonka.ServiceCatalog.AssociateProductWithPortfolio
+import Amazonka.ServiceCatalog.AssociateServiceActionWithProvisioningArtifact
+import Amazonka.ServiceCatalog.AssociateTagOptionWithResource
+import Amazonka.ServiceCatalog.BatchAssociateServiceActionWithProvisioningArtifact
+import Amazonka.ServiceCatalog.BatchDisassociateServiceActionFromProvisioningArtifact
+import Amazonka.ServiceCatalog.CopyProduct
+import Amazonka.ServiceCatalog.CreateConstraint
+import Amazonka.ServiceCatalog.CreatePortfolio
+import Amazonka.ServiceCatalog.CreatePortfolioShare
+import Amazonka.ServiceCatalog.CreateProduct
+import Amazonka.ServiceCatalog.CreateProvisionedProductPlan
+import Amazonka.ServiceCatalog.CreateProvisioningArtifact
+import Amazonka.ServiceCatalog.CreateServiceAction
+import Amazonka.ServiceCatalog.CreateTagOption
+import Amazonka.ServiceCatalog.DeleteConstraint
+import Amazonka.ServiceCatalog.DeletePortfolio
+import Amazonka.ServiceCatalog.DeletePortfolioShare
+import Amazonka.ServiceCatalog.DeleteProduct
+import Amazonka.ServiceCatalog.DeleteProvisionedProductPlan
+import Amazonka.ServiceCatalog.DeleteProvisioningArtifact
+import Amazonka.ServiceCatalog.DeleteServiceAction
+import Amazonka.ServiceCatalog.DeleteTagOption
+import Amazonka.ServiceCatalog.DescribeConstraint
+import Amazonka.ServiceCatalog.DescribeCopyProductStatus
+import Amazonka.ServiceCatalog.DescribePortfolio
+import Amazonka.ServiceCatalog.DescribePortfolioShareStatus
+import Amazonka.ServiceCatalog.DescribePortfolioShares
+import Amazonka.ServiceCatalog.DescribeProduct
+import Amazonka.ServiceCatalog.DescribeProductAsAdmin
+import Amazonka.ServiceCatalog.DescribeProductView
+import Amazonka.ServiceCatalog.DescribeProvisionedProduct
+import Amazonka.ServiceCatalog.DescribeProvisionedProductPlan
+import Amazonka.ServiceCatalog.DescribeProvisioningArtifact
+import Amazonka.ServiceCatalog.DescribeProvisioningParameters
+import Amazonka.ServiceCatalog.DescribeRecord
+import Amazonka.ServiceCatalog.DescribeServiceAction
+import Amazonka.ServiceCatalog.DescribeServiceActionExecutionParameters
+import Amazonka.ServiceCatalog.DescribeTagOption
+import Amazonka.ServiceCatalog.DisableAWSOrganizationsAccess
+import Amazonka.ServiceCatalog.DisassociateBudgetFromResource
+import Amazonka.ServiceCatalog.DisassociatePrincipalFromPortfolio
+import Amazonka.ServiceCatalog.DisassociateProductFromPortfolio
+import Amazonka.ServiceCatalog.DisassociateServiceActionFromProvisioningArtifact
+import Amazonka.ServiceCatalog.DisassociateTagOptionFromResource
+import Amazonka.ServiceCatalog.EnableAWSOrganizationsAccess
+import Amazonka.ServiceCatalog.ExecuteProvisionedProductPlan
+import Amazonka.ServiceCatalog.ExecuteProvisionedProductServiceAction
+import Amazonka.ServiceCatalog.GetAWSOrganizationsAccessStatus
+import Amazonka.ServiceCatalog.GetProvisionedProductOutputs
+import Amazonka.ServiceCatalog.ImportAsProvisionedProduct
+import Amazonka.ServiceCatalog.Lens
+import Amazonka.ServiceCatalog.ListAcceptedPortfolioShares
+import Amazonka.ServiceCatalog.ListBudgetsForResource
+import Amazonka.ServiceCatalog.ListConstraintsForPortfolio
+import Amazonka.ServiceCatalog.ListLaunchPaths
+import Amazonka.ServiceCatalog.ListOrganizationPortfolioAccess
+import Amazonka.ServiceCatalog.ListPortfolioAccess
+import Amazonka.ServiceCatalog.ListPortfolios
+import Amazonka.ServiceCatalog.ListPortfoliosForProduct
+import Amazonka.ServiceCatalog.ListPrincipalsForPortfolio
+import Amazonka.ServiceCatalog.ListProvisionedProductPlans
+import Amazonka.ServiceCatalog.ListProvisioningArtifacts
+import Amazonka.ServiceCatalog.ListProvisioningArtifactsForServiceAction
+import Amazonka.ServiceCatalog.ListRecordHistory
+import Amazonka.ServiceCatalog.ListResourcesForTagOption
+import Amazonka.ServiceCatalog.ListServiceActions
+import Amazonka.ServiceCatalog.ListServiceActionsForProvisioningArtifact
+import Amazonka.ServiceCatalog.ListStackInstancesForProvisionedProduct
+import Amazonka.ServiceCatalog.ListTagOptions
+import Amazonka.ServiceCatalog.ProvisionProduct
+import Amazonka.ServiceCatalog.RejectPortfolioShare
+import Amazonka.ServiceCatalog.ScanProvisionedProducts
+import Amazonka.ServiceCatalog.SearchProducts
+import Amazonka.ServiceCatalog.SearchProductsAsAdmin
+import Amazonka.ServiceCatalog.SearchProvisionedProducts
+import Amazonka.ServiceCatalog.TerminateProvisionedProduct
+import Amazonka.ServiceCatalog.Types
+import Amazonka.ServiceCatalog.UpdateConstraint
+import Amazonka.ServiceCatalog.UpdatePortfolio
+import Amazonka.ServiceCatalog.UpdatePortfolioShare
+import Amazonka.ServiceCatalog.UpdateProduct
+import Amazonka.ServiceCatalog.UpdateProvisionedProduct
+import Amazonka.ServiceCatalog.UpdateProvisionedProductProperties
+import Amazonka.ServiceCatalog.UpdateProvisioningArtifact
+import Amazonka.ServiceCatalog.UpdateServiceAction
+import Amazonka.ServiceCatalog.UpdateTagOption
+import Amazonka.ServiceCatalog.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

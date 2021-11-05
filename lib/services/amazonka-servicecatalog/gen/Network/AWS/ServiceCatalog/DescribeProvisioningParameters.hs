@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.DescribeProvisioningParameters
+-- Module      : Amazonka.ServiceCatalog.DescribeProvisioningParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- tags, or this causes the error \"Parameter validation failed: Missing
 -- required parameter in Tags[/N/]:/Value/\". Tag the provisioned product
 -- with the value @sc-tagoption-conflict-portfolioId-productId@.
-module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
+module Amazonka.ServiceCatalog.DescribeProvisioningParameters
   ( -- * Creating a Request
     DescribeProvisioningParameters (..),
     newDescribeProvisioningParameters,
@@ -59,12 +59,12 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProvisioningParameters' smart constructor.
 data DescribeProvisioningParameters = DescribeProvisioningParameters'

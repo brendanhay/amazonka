@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
+-- Module      : Amazonka.ServiceCatalog.CreateProvisionedProductPlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- To view the resource changes in the change set, use
 -- DescribeProvisionedProductPlan. To create or modify the provisioned
 -- product, use ExecuteProvisionedProductPlan.
-module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
+module Amazonka.ServiceCatalog.CreateProvisionedProductPlan
   ( -- * Creating a Request
     CreateProvisionedProductPlan (..),
     newCreateProvisionedProductPlan,
@@ -63,12 +63,12 @@ module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateProvisionedProductPlan' smart constructor.
 data CreateProvisionedProductPlan = CreateProvisionedProductPlan'

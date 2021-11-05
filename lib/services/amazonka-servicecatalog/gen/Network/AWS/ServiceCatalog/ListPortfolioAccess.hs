@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.ListPortfolioAccess
+-- Module      : Amazonka.ServiceCatalog.ListPortfolioAccess
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- A delegated admin can list the accounts that have access to the shared
 -- portfolio. Note that if a delegated admin is de-registered, they can no
 -- longer perform this operation.
-module Network.AWS.ServiceCatalog.ListPortfolioAccess
+module Amazonka.ServiceCatalog.ListPortfolioAccess
   ( -- * Creating a Request
     ListPortfolioAccess (..),
     newListPortfolioAccess,
@@ -48,12 +48,12 @@ module Network.AWS.ServiceCatalog.ListPortfolioAccess
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListPortfolioAccess' smart constructor.
 data ListPortfolioAccess = ListPortfolioAccess'

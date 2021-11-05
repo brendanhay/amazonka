@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.DescribePortfolioShareStatus
+-- Module      : Amazonka.ServiceCatalog.DescribePortfolioShareStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Gets the status of the specified portfolio share operation. This API can
 -- only be called by the management account in the organization or by a
 -- delegated admin.
-module Network.AWS.ServiceCatalog.DescribePortfolioShareStatus
+module Amazonka.ServiceCatalog.DescribePortfolioShareStatus
   ( -- * Creating a Request
     DescribePortfolioShareStatus (..),
     newDescribePortfolioShareStatus,
@@ -45,12 +45,12 @@ module Network.AWS.ServiceCatalog.DescribePortfolioShareStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceCatalog.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribePortfolioShareStatus' smart constructor.
 data DescribePortfolioShareStatus = DescribePortfolioShareStatus'

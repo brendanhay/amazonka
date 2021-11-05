@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail
+-- Module      : Amazonka.ServiceCatalog.Types.ProvisioningArtifactDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail where
+module Amazonka.ServiceCatalog.Types.ProvisioningArtifactDetail where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactGuidance
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
 
 -- | Information about a provisioning artifact (also known as a version) for
 -- a product.

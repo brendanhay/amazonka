@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceCatalog.Types
+-- Module      : Amazonka.ServiceCatalog.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types
+module Amazonka.ServiceCatalog.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -584,97 +584,97 @@ module Network.AWS.ServiceCatalog.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceCatalog.Types.AccessLevelFilter
-import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
-import Network.AWS.ServiceCatalog.Types.AccessStatus
-import Network.AWS.ServiceCatalog.Types.BudgetDetail
-import Network.AWS.ServiceCatalog.Types.ChangeAction
-import Network.AWS.ServiceCatalog.Types.CloudWatchDashboard
-import Network.AWS.ServiceCatalog.Types.ConstraintDetail
-import Network.AWS.ServiceCatalog.Types.ConstraintSummary
-import Network.AWS.ServiceCatalog.Types.CopyOption
-import Network.AWS.ServiceCatalog.Types.CopyProductStatus
-import Network.AWS.ServiceCatalog.Types.DescribePortfolioShareType
-import Network.AWS.ServiceCatalog.Types.EvaluationType
-import Network.AWS.ServiceCatalog.Types.ExecutionParameter
-import Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation
-import Network.AWS.ServiceCatalog.Types.LaunchPath
-import Network.AWS.ServiceCatalog.Types.LaunchPathSummary
-import Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter
-import Network.AWS.ServiceCatalog.Types.ListTagOptionsFilters
-import Network.AWS.ServiceCatalog.Types.OrganizationNode
-import Network.AWS.ServiceCatalog.Types.OrganizationNodeType
-import Network.AWS.ServiceCatalog.Types.ParameterConstraints
-import Network.AWS.ServiceCatalog.Types.PortfolioDetail
-import Network.AWS.ServiceCatalog.Types.PortfolioShareDetail
-import Network.AWS.ServiceCatalog.Types.PortfolioShareType
-import Network.AWS.ServiceCatalog.Types.Principal
-import Network.AWS.ServiceCatalog.Types.PrincipalType
-import Network.AWS.ServiceCatalog.Types.ProductSource
-import Network.AWS.ServiceCatalog.Types.ProductType
-import Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue
-import Network.AWS.ServiceCatalog.Types.ProductViewDetail
-import Network.AWS.ServiceCatalog.Types.ProductViewFilterBy
-import Network.AWS.ServiceCatalog.Types.ProductViewSortBy
-import Network.AWS.ServiceCatalog.Types.ProductViewSummary
-import Network.AWS.ServiceCatalog.Types.PropertyKey
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductAttribute
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
-import Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterBy
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPropertyName
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView
-import Network.AWS.ServiceCatalog.Types.ProvisioningParameter
-import Network.AWS.ServiceCatalog.Types.ProvisioningPreferences
-import Network.AWS.ServiceCatalog.Types.RecordDetail
-import Network.AWS.ServiceCatalog.Types.RecordError
-import Network.AWS.ServiceCatalog.Types.RecordOutput
-import Network.AWS.ServiceCatalog.Types.RecordStatus
-import Network.AWS.ServiceCatalog.Types.RecordTag
-import Network.AWS.ServiceCatalog.Types.Replacement
-import Network.AWS.ServiceCatalog.Types.RequestStatus
-import Network.AWS.ServiceCatalog.Types.RequiresRecreation
-import Network.AWS.ServiceCatalog.Types.ResourceAttribute
-import Network.AWS.ServiceCatalog.Types.ResourceChange
-import Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
-import Network.AWS.ServiceCatalog.Types.ResourceDetail
-import Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
-import Network.AWS.ServiceCatalog.Types.ServiceActionAssociation
-import Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
-import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
-import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
-import Network.AWS.ServiceCatalog.Types.ServiceActionDetail
-import Network.AWS.ServiceCatalog.Types.ServiceActionSummary
-import Network.AWS.ServiceCatalog.Types.ShareDetails
-import Network.AWS.ServiceCatalog.Types.ShareError
-import Network.AWS.ServiceCatalog.Types.ShareStatus
-import Network.AWS.ServiceCatalog.Types.SortOrder
-import Network.AWS.ServiceCatalog.Types.StackInstance
-import Network.AWS.ServiceCatalog.Types.StackInstanceStatus
-import Network.AWS.ServiceCatalog.Types.StackSetOperationType
-import Network.AWS.ServiceCatalog.Types.Tag
-import Network.AWS.ServiceCatalog.Types.TagOptionDetail
-import Network.AWS.ServiceCatalog.Types.TagOptionSummary
-import Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
-import Network.AWS.ServiceCatalog.Types.UpdateProvisioningPreferences
-import Network.AWS.ServiceCatalog.Types.UsageInstruction
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceCatalog.Types.AccessLevelFilter
+import Amazonka.ServiceCatalog.Types.AccessLevelFilterKey
+import Amazonka.ServiceCatalog.Types.AccessStatus
+import Amazonka.ServiceCatalog.Types.BudgetDetail
+import Amazonka.ServiceCatalog.Types.ChangeAction
+import Amazonka.ServiceCatalog.Types.CloudWatchDashboard
+import Amazonka.ServiceCatalog.Types.ConstraintDetail
+import Amazonka.ServiceCatalog.Types.ConstraintSummary
+import Amazonka.ServiceCatalog.Types.CopyOption
+import Amazonka.ServiceCatalog.Types.CopyProductStatus
+import Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
+import Amazonka.ServiceCatalog.Types.EvaluationType
+import Amazonka.ServiceCatalog.Types.ExecutionParameter
+import Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
+import Amazonka.ServiceCatalog.Types.LaunchPath
+import Amazonka.ServiceCatalog.Types.LaunchPathSummary
+import Amazonka.ServiceCatalog.Types.ListRecordHistorySearchFilter
+import Amazonka.ServiceCatalog.Types.ListTagOptionsFilters
+import Amazonka.ServiceCatalog.Types.OrganizationNode
+import Amazonka.ServiceCatalog.Types.OrganizationNodeType
+import Amazonka.ServiceCatalog.Types.ParameterConstraints
+import Amazonka.ServiceCatalog.Types.PortfolioDetail
+import Amazonka.ServiceCatalog.Types.PortfolioShareDetail
+import Amazonka.ServiceCatalog.Types.PortfolioShareType
+import Amazonka.ServiceCatalog.Types.Principal
+import Amazonka.ServiceCatalog.Types.PrincipalType
+import Amazonka.ServiceCatalog.Types.ProductSource
+import Amazonka.ServiceCatalog.Types.ProductType
+import Amazonka.ServiceCatalog.Types.ProductViewAggregationValue
+import Amazonka.ServiceCatalog.Types.ProductViewDetail
+import Amazonka.ServiceCatalog.Types.ProductViewFilterBy
+import Amazonka.ServiceCatalog.Types.ProductViewSortBy
+import Amazonka.ServiceCatalog.Types.ProductViewSummary
+import Amazonka.ServiceCatalog.Types.PropertyKey
+import Amazonka.ServiceCatalog.Types.ProvisionedProductAttribute
+import Amazonka.ServiceCatalog.Types.ProvisionedProductDetail
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanDetails
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanStatus
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanSummary
+import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
+import Amazonka.ServiceCatalog.Types.ProvisionedProductStatus
+import Amazonka.ServiceCatalog.Types.ProvisionedProductViewFilterBy
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifact
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactDetail
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactGuidance
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactOutput
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactParameter
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactPreferences
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactProperties
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactPropertyName
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactSummary
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
+import Amazonka.ServiceCatalog.Types.ProvisioningArtifactView
+import Amazonka.ServiceCatalog.Types.ProvisioningParameter
+import Amazonka.ServiceCatalog.Types.ProvisioningPreferences
+import Amazonka.ServiceCatalog.Types.RecordDetail
+import Amazonka.ServiceCatalog.Types.RecordError
+import Amazonka.ServiceCatalog.Types.RecordOutput
+import Amazonka.ServiceCatalog.Types.RecordStatus
+import Amazonka.ServiceCatalog.Types.RecordTag
+import Amazonka.ServiceCatalog.Types.Replacement
+import Amazonka.ServiceCatalog.Types.RequestStatus
+import Amazonka.ServiceCatalog.Types.RequiresRecreation
+import Amazonka.ServiceCatalog.Types.ResourceAttribute
+import Amazonka.ServiceCatalog.Types.ResourceChange
+import Amazonka.ServiceCatalog.Types.ResourceChangeDetail
+import Amazonka.ServiceCatalog.Types.ResourceDetail
+import Amazonka.ServiceCatalog.Types.ResourceTargetDefinition
+import Amazonka.ServiceCatalog.Types.ServiceActionAssociation
+import Amazonka.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionKey
+import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionType
+import Amazonka.ServiceCatalog.Types.ServiceActionDetail
+import Amazonka.ServiceCatalog.Types.ServiceActionSummary
+import Amazonka.ServiceCatalog.Types.ShareDetails
+import Amazonka.ServiceCatalog.Types.ShareError
+import Amazonka.ServiceCatalog.Types.ShareStatus
+import Amazonka.ServiceCatalog.Types.SortOrder
+import Amazonka.ServiceCatalog.Types.StackInstance
+import Amazonka.ServiceCatalog.Types.StackInstanceStatus
+import Amazonka.ServiceCatalog.Types.StackSetOperationType
+import Amazonka.ServiceCatalog.Types.Tag
+import Amazonka.ServiceCatalog.Types.TagOptionDetail
+import Amazonka.ServiceCatalog.Types.TagOptionSummary
+import Amazonka.ServiceCatalog.Types.UpdateProvisioningParameter
+import Amazonka.ServiceCatalog.Types.UpdateProvisioningPreferences
+import Amazonka.ServiceCatalog.Types.UsageInstruction
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-12-10@ of the Amazon Service Catalog SDK configuration.
 defaultService :: Core.Service

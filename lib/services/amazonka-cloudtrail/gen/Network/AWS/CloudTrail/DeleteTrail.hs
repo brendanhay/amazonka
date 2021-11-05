@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.DeleteTrail
+-- Module      : Amazonka.CloudTrail.DeleteTrail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- the trail was created. @DeleteTrail@ cannot be called on the shadow
 -- trails (replicated trails in other regions) of a trail that is enabled
 -- in all regions.
-module Network.AWS.CloudTrail.DeleteTrail
+module Amazonka.CloudTrail.DeleteTrail
   ( -- * Creating a Request
     DeleteTrail (..),
     newDeleteTrail,
@@ -41,12 +41,12 @@ module Network.AWS.CloudTrail.DeleteTrail
   )
 where
 
-import Network.AWS.CloudTrail.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudTrail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request that specifies the name of a trail to delete.
 --

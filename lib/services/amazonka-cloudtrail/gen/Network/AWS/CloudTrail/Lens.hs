@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.Lens
+-- Module      : Amazonka.CloudTrail.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Lens
+module Amazonka.CloudTrail.Lens
   ( -- * Operations
 
     -- ** DescribeTrails
@@ -270,34 +270,34 @@ module Network.AWS.CloudTrail.Lens
   )
 where
 
-import Network.AWS.CloudTrail.AddTags
-import Network.AWS.CloudTrail.CreateTrail
-import Network.AWS.CloudTrail.DeleteTrail
-import Network.AWS.CloudTrail.DescribeTrails
-import Network.AWS.CloudTrail.GetEventSelectors
-import Network.AWS.CloudTrail.GetInsightSelectors
-import Network.AWS.CloudTrail.GetTrail
-import Network.AWS.CloudTrail.GetTrailStatus
-import Network.AWS.CloudTrail.ListPublicKeys
-import Network.AWS.CloudTrail.ListTags
-import Network.AWS.CloudTrail.ListTrails
-import Network.AWS.CloudTrail.LookupEvents
-import Network.AWS.CloudTrail.PutEventSelectors
-import Network.AWS.CloudTrail.PutInsightSelectors
-import Network.AWS.CloudTrail.RemoveTags
-import Network.AWS.CloudTrail.StartLogging
-import Network.AWS.CloudTrail.StopLogging
-import Network.AWS.CloudTrail.Types.AdvancedEventSelector
-import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
-import Network.AWS.CloudTrail.Types.DataResource
-import Network.AWS.CloudTrail.Types.Event
-import Network.AWS.CloudTrail.Types.EventSelector
-import Network.AWS.CloudTrail.Types.InsightSelector
-import Network.AWS.CloudTrail.Types.LookupAttribute
-import Network.AWS.CloudTrail.Types.PublicKey
-import Network.AWS.CloudTrail.Types.Resource
-import Network.AWS.CloudTrail.Types.ResourceTag
-import Network.AWS.CloudTrail.Types.Tag
-import Network.AWS.CloudTrail.Types.Trail
-import Network.AWS.CloudTrail.Types.TrailInfo
-import Network.AWS.CloudTrail.UpdateTrail
+import Amazonka.CloudTrail.AddTags
+import Amazonka.CloudTrail.CreateTrail
+import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetEventSelectors
+import Amazonka.CloudTrail.GetInsightSelectors
+import Amazonka.CloudTrail.GetTrail
+import Amazonka.CloudTrail.GetTrailStatus
+import Amazonka.CloudTrail.ListPublicKeys
+import Amazonka.CloudTrail.ListTags
+import Amazonka.CloudTrail.ListTrails
+import Amazonka.CloudTrail.LookupEvents
+import Amazonka.CloudTrail.PutEventSelectors
+import Amazonka.CloudTrail.PutInsightSelectors
+import Amazonka.CloudTrail.RemoveTags
+import Amazonka.CloudTrail.StartLogging
+import Amazonka.CloudTrail.StopLogging
+import Amazonka.CloudTrail.Types.AdvancedEventSelector
+import Amazonka.CloudTrail.Types.AdvancedFieldSelector
+import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.Event
+import Amazonka.CloudTrail.Types.EventSelector
+import Amazonka.CloudTrail.Types.InsightSelector
+import Amazonka.CloudTrail.Types.LookupAttribute
+import Amazonka.CloudTrail.Types.PublicKey
+import Amazonka.CloudTrail.Types.Resource
+import Amazonka.CloudTrail.Types.ResourceTag
+import Amazonka.CloudTrail.Types.Tag
+import Amazonka.CloudTrail.Types.Trail
+import Amazonka.CloudTrail.Types.TrailInfo
+import Amazonka.CloudTrail.UpdateTrail

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.ListTags
+-- Module      : Amazonka.CloudTrail.ListTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists the tags for the trail in the current region.
 --
 -- This operation returns paginated results.
-module Network.AWS.CloudTrail.ListTags
+module Amazonka.CloudTrail.ListTags
   ( -- * Creating a Request
     ListTags (..),
     newListTags,
@@ -43,12 +43,12 @@ module Network.AWS.CloudTrail.ListTags
   )
 where
 
-import Network.AWS.CloudTrail.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudTrail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Specifies a list of trail tags to return.
 --

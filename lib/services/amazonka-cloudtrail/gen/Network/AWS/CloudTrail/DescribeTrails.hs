@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.DescribeTrails
+-- Module      : Amazonka.CloudTrail.DescribeTrails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves settings for one or more trails associated with the current
 -- region for your account.
-module Network.AWS.CloudTrail.DescribeTrails
+module Amazonka.CloudTrail.DescribeTrails
   ( -- * Creating a Request
     DescribeTrails (..),
     newDescribeTrails,
@@ -41,12 +41,12 @@ module Network.AWS.CloudTrail.DescribeTrails
   )
 where
 
-import Network.AWS.CloudTrail.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudTrail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Returns information about the trail.
 --

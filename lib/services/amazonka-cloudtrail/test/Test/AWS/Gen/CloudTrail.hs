@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudTrail where
 
+import Amazonka.CloudTrail
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudTrail
 import Test.AWS.CloudTrail.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.Types
+-- Module      : Amazonka.CloudTrail.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types
+module Amazonka.CloudTrail.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -184,27 +184,27 @@ module Network.AWS.CloudTrail.Types
   )
 where
 
-import Network.AWS.CloudTrail.Types.AdvancedEventSelector
-import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
-import Network.AWS.CloudTrail.Types.DataResource
-import Network.AWS.CloudTrail.Types.Event
-import Network.AWS.CloudTrail.Types.EventCategory
-import Network.AWS.CloudTrail.Types.EventSelector
-import Network.AWS.CloudTrail.Types.InsightSelector
-import Network.AWS.CloudTrail.Types.InsightType
-import Network.AWS.CloudTrail.Types.LookupAttribute
-import Network.AWS.CloudTrail.Types.LookupAttributeKey
-import Network.AWS.CloudTrail.Types.PublicKey
-import Network.AWS.CloudTrail.Types.ReadWriteType
-import Network.AWS.CloudTrail.Types.Resource
-import Network.AWS.CloudTrail.Types.ResourceTag
-import Network.AWS.CloudTrail.Types.Tag
-import Network.AWS.CloudTrail.Types.Trail
-import Network.AWS.CloudTrail.Types.TrailInfo
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudTrail.Types.AdvancedEventSelector
+import Amazonka.CloudTrail.Types.AdvancedFieldSelector
+import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.Event
+import Amazonka.CloudTrail.Types.EventCategory
+import Amazonka.CloudTrail.Types.EventSelector
+import Amazonka.CloudTrail.Types.InsightSelector
+import Amazonka.CloudTrail.Types.InsightType
+import Amazonka.CloudTrail.Types.LookupAttribute
+import Amazonka.CloudTrail.Types.LookupAttributeKey
+import Amazonka.CloudTrail.Types.PublicKey
+import Amazonka.CloudTrail.Types.ReadWriteType
+import Amazonka.CloudTrail.Types.Resource
+import Amazonka.CloudTrail.Types.ResourceTag
+import Amazonka.CloudTrail.Types.Tag
+import Amazonka.CloudTrail.Types.Trail
+import Amazonka.CloudTrail.Types.TrailInfo
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-11-01@ of the Amazon CloudTrail SDK configuration.
 defaultService :: Core.Service

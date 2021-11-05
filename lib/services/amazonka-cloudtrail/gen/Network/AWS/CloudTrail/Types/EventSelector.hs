@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.Types.EventSelector
+-- Module      : Amazonka.CloudTrail.Types.EventSelector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.EventSelector where
+module Amazonka.CloudTrail.Types.EventSelector where
 
-import Network.AWS.CloudTrail.Types.DataResource
-import Network.AWS.CloudTrail.Types.ReadWriteType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudTrail.Types.DataResource
+import Amazonka.CloudTrail.Types.ReadWriteType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use event selectors to further specify the management and data event
 -- settings for your trail. By default, trails created without specific

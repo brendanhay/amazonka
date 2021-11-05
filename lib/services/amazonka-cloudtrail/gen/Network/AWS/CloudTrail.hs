@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudTrail
+-- Module      : Amazonka.CloudTrail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html CloudTrail User Guide>
 -- for information about the data that is included with each Amazon Web
 -- Services API call listed in the log files.
-module Network.AWS.CloudTrail
+module Amazonka.CloudTrail
   ( -- * Service Configuration
     defaultService,
 
@@ -358,27 +358,27 @@ module Network.AWS.CloudTrail
   )
 where
 
-import Network.AWS.CloudTrail.AddTags
-import Network.AWS.CloudTrail.CreateTrail
-import Network.AWS.CloudTrail.DeleteTrail
-import Network.AWS.CloudTrail.DescribeTrails
-import Network.AWS.CloudTrail.GetEventSelectors
-import Network.AWS.CloudTrail.GetInsightSelectors
-import Network.AWS.CloudTrail.GetTrail
-import Network.AWS.CloudTrail.GetTrailStatus
-import Network.AWS.CloudTrail.Lens
-import Network.AWS.CloudTrail.ListPublicKeys
-import Network.AWS.CloudTrail.ListTags
-import Network.AWS.CloudTrail.ListTrails
-import Network.AWS.CloudTrail.LookupEvents
-import Network.AWS.CloudTrail.PutEventSelectors
-import Network.AWS.CloudTrail.PutInsightSelectors
-import Network.AWS.CloudTrail.RemoveTags
-import Network.AWS.CloudTrail.StartLogging
-import Network.AWS.CloudTrail.StopLogging
-import Network.AWS.CloudTrail.Types
-import Network.AWS.CloudTrail.UpdateTrail
-import Network.AWS.CloudTrail.Waiters
+import Amazonka.CloudTrail.AddTags
+import Amazonka.CloudTrail.CreateTrail
+import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetEventSelectors
+import Amazonka.CloudTrail.GetInsightSelectors
+import Amazonka.CloudTrail.GetTrail
+import Amazonka.CloudTrail.GetTrailStatus
+import Amazonka.CloudTrail.Lens
+import Amazonka.CloudTrail.ListPublicKeys
+import Amazonka.CloudTrail.ListTags
+import Amazonka.CloudTrail.ListTrails
+import Amazonka.CloudTrail.LookupEvents
+import Amazonka.CloudTrail.PutEventSelectors
+import Amazonka.CloudTrail.PutInsightSelectors
+import Amazonka.CloudTrail.RemoveTags
+import Amazonka.CloudTrail.StartLogging
+import Amazonka.CloudTrail.StopLogging
+import Amazonka.CloudTrail.Types
+import Amazonka.CloudTrail.UpdateTrail
+import Amazonka.CloudTrail.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

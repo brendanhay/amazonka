@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.StartLogging
+-- Module      : Amazonka.CloudTrail.StartLogging
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- operation must be called from the region in which the trail was created.
 -- This operation cannot be called on the shadow trails (replicated trails
 -- in other regions) of a trail that is enabled in all regions.
-module Network.AWS.CloudTrail.StartLogging
+module Amazonka.CloudTrail.StartLogging
   ( -- * Creating a Request
     StartLogging (..),
     newStartLogging,
@@ -42,12 +42,12 @@ module Network.AWS.CloudTrail.StartLogging
   )
 where
 
-import Network.AWS.CloudTrail.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudTrail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request to CloudTrail to start logging Amazon Web Services API calls
 -- for an account.

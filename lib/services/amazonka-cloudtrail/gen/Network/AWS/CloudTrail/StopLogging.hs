@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudTrail.StopLogging
+-- Module      : Amazonka.CloudTrail.StopLogging
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- which the trail was created, or an @InvalidHomeRegionException@ will
 -- occur. This operation cannot be called on the shadow trails (replicated
 -- trails in other regions) of a trail enabled in all regions.
-module Network.AWS.CloudTrail.StopLogging
+module Amazonka.CloudTrail.StopLogging
   ( -- * Creating a Request
     StopLogging (..),
     newStopLogging,
@@ -45,12 +45,12 @@ module Network.AWS.CloudTrail.StopLogging
   )
 where
 
-import Network.AWS.CloudTrail.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudTrail.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Passes the request to CloudTrail to stop logging Amazon Web Services API
 -- calls for the specified account.

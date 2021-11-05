@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DocumentDB
+-- Module      : Amazonka.DocumentDB
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2014-10-31@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon DocumentDB API documentation
-module Network.AWS.DocumentDB
+module Amazonka.DocumentDB
   ( -- * Service Configuration
     defaultService,
 
@@ -662,62 +662,62 @@ module Network.AWS.DocumentDB
   )
 where
 
-import Network.AWS.DocumentDB.AddSourceIdentifierToSubscription
-import Network.AWS.DocumentDB.AddTagsToResource
-import Network.AWS.DocumentDB.ApplyPendingMaintenanceAction
-import Network.AWS.DocumentDB.CopyDBClusterParameterGroup
-import Network.AWS.DocumentDB.CopyDBClusterSnapshot
-import Network.AWS.DocumentDB.CreateDBCluster
-import Network.AWS.DocumentDB.CreateDBClusterParameterGroup
-import Network.AWS.DocumentDB.CreateDBClusterSnapshot
-import Network.AWS.DocumentDB.CreateDBInstance
-import Network.AWS.DocumentDB.CreateDBSubnetGroup
-import Network.AWS.DocumentDB.CreateEventSubscription
-import Network.AWS.DocumentDB.CreateGlobalCluster
-import Network.AWS.DocumentDB.DeleteDBCluster
-import Network.AWS.DocumentDB.DeleteDBClusterParameterGroup
-import Network.AWS.DocumentDB.DeleteDBClusterSnapshot
-import Network.AWS.DocumentDB.DeleteDBInstance
-import Network.AWS.DocumentDB.DeleteDBSubnetGroup
-import Network.AWS.DocumentDB.DeleteEventSubscription
-import Network.AWS.DocumentDB.DeleteGlobalCluster
-import Network.AWS.DocumentDB.DescribeCertificates
-import Network.AWS.DocumentDB.DescribeDBClusterParameterGroups
-import Network.AWS.DocumentDB.DescribeDBClusterParameters
-import Network.AWS.DocumentDB.DescribeDBClusterSnapshotAttributes
-import Network.AWS.DocumentDB.DescribeDBClusterSnapshots
-import Network.AWS.DocumentDB.DescribeDBClusters
-import Network.AWS.DocumentDB.DescribeDBEngineVersions
-import Network.AWS.DocumentDB.DescribeDBInstances
-import Network.AWS.DocumentDB.DescribeDBSubnetGroups
-import Network.AWS.DocumentDB.DescribeEngineDefaultClusterParameters
-import Network.AWS.DocumentDB.DescribeEventCategories
-import Network.AWS.DocumentDB.DescribeEventSubscriptions
-import Network.AWS.DocumentDB.DescribeEvents
-import Network.AWS.DocumentDB.DescribeGlobalClusters
-import Network.AWS.DocumentDB.DescribeOrderableDBInstanceOptions
-import Network.AWS.DocumentDB.DescribePendingMaintenanceActions
-import Network.AWS.DocumentDB.FailoverDBCluster
-import Network.AWS.DocumentDB.Lens
-import Network.AWS.DocumentDB.ListTagsForResource
-import Network.AWS.DocumentDB.ModifyDBCluster
-import Network.AWS.DocumentDB.ModifyDBClusterParameterGroup
-import Network.AWS.DocumentDB.ModifyDBClusterSnapshotAttribute
-import Network.AWS.DocumentDB.ModifyDBInstance
-import Network.AWS.DocumentDB.ModifyDBSubnetGroup
-import Network.AWS.DocumentDB.ModifyEventSubscription
-import Network.AWS.DocumentDB.ModifyGlobalCluster
-import Network.AWS.DocumentDB.RebootDBInstance
-import Network.AWS.DocumentDB.RemoveFromGlobalCluster
-import Network.AWS.DocumentDB.RemoveSourceIdentifierFromSubscription
-import Network.AWS.DocumentDB.RemoveTagsFromResource
-import Network.AWS.DocumentDB.ResetDBClusterParameterGroup
-import Network.AWS.DocumentDB.RestoreDBClusterFromSnapshot
-import Network.AWS.DocumentDB.RestoreDBClusterToPointInTime
-import Network.AWS.DocumentDB.StartDBCluster
-import Network.AWS.DocumentDB.StopDBCluster
-import Network.AWS.DocumentDB.Types
-import Network.AWS.DocumentDB.Waiters
+import Amazonka.DocumentDB.AddSourceIdentifierToSubscription
+import Amazonka.DocumentDB.AddTagsToResource
+import Amazonka.DocumentDB.ApplyPendingMaintenanceAction
+import Amazonka.DocumentDB.CopyDBClusterParameterGroup
+import Amazonka.DocumentDB.CopyDBClusterSnapshot
+import Amazonka.DocumentDB.CreateDBCluster
+import Amazonka.DocumentDB.CreateDBClusterParameterGroup
+import Amazonka.DocumentDB.CreateDBClusterSnapshot
+import Amazonka.DocumentDB.CreateDBInstance
+import Amazonka.DocumentDB.CreateDBSubnetGroup
+import Amazonka.DocumentDB.CreateEventSubscription
+import Amazonka.DocumentDB.CreateGlobalCluster
+import Amazonka.DocumentDB.DeleteDBCluster
+import Amazonka.DocumentDB.DeleteDBClusterParameterGroup
+import Amazonka.DocumentDB.DeleteDBClusterSnapshot
+import Amazonka.DocumentDB.DeleteDBInstance
+import Amazonka.DocumentDB.DeleteDBSubnetGroup
+import Amazonka.DocumentDB.DeleteEventSubscription
+import Amazonka.DocumentDB.DeleteGlobalCluster
+import Amazonka.DocumentDB.DescribeCertificates
+import Amazonka.DocumentDB.DescribeDBClusterParameterGroups
+import Amazonka.DocumentDB.DescribeDBClusterParameters
+import Amazonka.DocumentDB.DescribeDBClusterSnapshotAttributes
+import Amazonka.DocumentDB.DescribeDBClusterSnapshots
+import Amazonka.DocumentDB.DescribeDBClusters
+import Amazonka.DocumentDB.DescribeDBEngineVersions
+import Amazonka.DocumentDB.DescribeDBInstances
+import Amazonka.DocumentDB.DescribeDBSubnetGroups
+import Amazonka.DocumentDB.DescribeEngineDefaultClusterParameters
+import Amazonka.DocumentDB.DescribeEventCategories
+import Amazonka.DocumentDB.DescribeEventSubscriptions
+import Amazonka.DocumentDB.DescribeEvents
+import Amazonka.DocumentDB.DescribeGlobalClusters
+import Amazonka.DocumentDB.DescribeOrderableDBInstanceOptions
+import Amazonka.DocumentDB.DescribePendingMaintenanceActions
+import Amazonka.DocumentDB.FailoverDBCluster
+import Amazonka.DocumentDB.Lens
+import Amazonka.DocumentDB.ListTagsForResource
+import Amazonka.DocumentDB.ModifyDBCluster
+import Amazonka.DocumentDB.ModifyDBClusterParameterGroup
+import Amazonka.DocumentDB.ModifyDBClusterSnapshotAttribute
+import Amazonka.DocumentDB.ModifyDBInstance
+import Amazonka.DocumentDB.ModifyDBSubnetGroup
+import Amazonka.DocumentDB.ModifyEventSubscription
+import Amazonka.DocumentDB.ModifyGlobalCluster
+import Amazonka.DocumentDB.RebootDBInstance
+import Amazonka.DocumentDB.RemoveFromGlobalCluster
+import Amazonka.DocumentDB.RemoveSourceIdentifierFromSubscription
+import Amazonka.DocumentDB.RemoveTagsFromResource
+import Amazonka.DocumentDB.ResetDBClusterParameterGroup
+import Amazonka.DocumentDB.RestoreDBClusterFromSnapshot
+import Amazonka.DocumentDB.RestoreDBClusterToPointInTime
+import Amazonka.DocumentDB.StartDBCluster
+import Amazonka.DocumentDB.StopDBCluster
+import Amazonka.DocumentDB.Types
+import Amazonka.DocumentDB.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

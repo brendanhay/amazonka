@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DocumentDB.Types
+-- Module      : Amazonka.DocumentDB.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DocumentDB.Types
+module Amazonka.DocumentDB.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -422,45 +422,45 @@ module Network.AWS.DocumentDB.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DocumentDB.Types.ApplyMethod
-import Network.AWS.DocumentDB.Types.AvailabilityZone
-import Network.AWS.DocumentDB.Types.Certificate
-import Network.AWS.DocumentDB.Types.CloudwatchLogsExportConfiguration
-import Network.AWS.DocumentDB.Types.DBCluster
-import Network.AWS.DocumentDB.Types.DBClusterMember
-import Network.AWS.DocumentDB.Types.DBClusterParameterGroup
-import Network.AWS.DocumentDB.Types.DBClusterParameterGroupNameMessage
-import Network.AWS.DocumentDB.Types.DBClusterRole
-import Network.AWS.DocumentDB.Types.DBClusterSnapshot
-import Network.AWS.DocumentDB.Types.DBClusterSnapshotAttribute
-import Network.AWS.DocumentDB.Types.DBClusterSnapshotAttributesResult
-import Network.AWS.DocumentDB.Types.DBEngineVersion
-import Network.AWS.DocumentDB.Types.DBInstance
-import Network.AWS.DocumentDB.Types.DBInstanceStatusInfo
-import Network.AWS.DocumentDB.Types.DBSubnetGroup
-import Network.AWS.DocumentDB.Types.Endpoint
-import Network.AWS.DocumentDB.Types.EngineDefaults
-import Network.AWS.DocumentDB.Types.Event
-import Network.AWS.DocumentDB.Types.EventCategoriesMap
-import Network.AWS.DocumentDB.Types.EventSubscription
-import Network.AWS.DocumentDB.Types.Filter
-import Network.AWS.DocumentDB.Types.GlobalCluster
-import Network.AWS.DocumentDB.Types.GlobalClusterMember
-import Network.AWS.DocumentDB.Types.OrderableDBInstanceOption
-import Network.AWS.DocumentDB.Types.Parameter
-import Network.AWS.DocumentDB.Types.PendingCloudwatchLogsExports
-import Network.AWS.DocumentDB.Types.PendingMaintenanceAction
-import Network.AWS.DocumentDB.Types.PendingModifiedValues
-import Network.AWS.DocumentDB.Types.ResourcePendingMaintenanceActions
-import Network.AWS.DocumentDB.Types.SourceType
-import Network.AWS.DocumentDB.Types.Subnet
-import Network.AWS.DocumentDB.Types.Tag
-import Network.AWS.DocumentDB.Types.UpgradeTarget
-import Network.AWS.DocumentDB.Types.VpcSecurityGroupMembership
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DocumentDB.Types.ApplyMethod
+import Amazonka.DocumentDB.Types.AvailabilityZone
+import Amazonka.DocumentDB.Types.Certificate
+import Amazonka.DocumentDB.Types.CloudwatchLogsExportConfiguration
+import Amazonka.DocumentDB.Types.DBCluster
+import Amazonka.DocumentDB.Types.DBClusterMember
+import Amazonka.DocumentDB.Types.DBClusterParameterGroup
+import Amazonka.DocumentDB.Types.DBClusterParameterGroupNameMessage
+import Amazonka.DocumentDB.Types.DBClusterRole
+import Amazonka.DocumentDB.Types.DBClusterSnapshot
+import Amazonka.DocumentDB.Types.DBClusterSnapshotAttribute
+import Amazonka.DocumentDB.Types.DBClusterSnapshotAttributesResult
+import Amazonka.DocumentDB.Types.DBEngineVersion
+import Amazonka.DocumentDB.Types.DBInstance
+import Amazonka.DocumentDB.Types.DBInstanceStatusInfo
+import Amazonka.DocumentDB.Types.DBSubnetGroup
+import Amazonka.DocumentDB.Types.Endpoint
+import Amazonka.DocumentDB.Types.EngineDefaults
+import Amazonka.DocumentDB.Types.Event
+import Amazonka.DocumentDB.Types.EventCategoriesMap
+import Amazonka.DocumentDB.Types.EventSubscription
+import Amazonka.DocumentDB.Types.Filter
+import Amazonka.DocumentDB.Types.GlobalCluster
+import Amazonka.DocumentDB.Types.GlobalClusterMember
+import Amazonka.DocumentDB.Types.OrderableDBInstanceOption
+import Amazonka.DocumentDB.Types.Parameter
+import Amazonka.DocumentDB.Types.PendingCloudwatchLogsExports
+import Amazonka.DocumentDB.Types.PendingMaintenanceAction
+import Amazonka.DocumentDB.Types.PendingModifiedValues
+import Amazonka.DocumentDB.Types.ResourcePendingMaintenanceActions
+import Amazonka.DocumentDB.Types.SourceType
+import Amazonka.DocumentDB.Types.Subnet
+import Amazonka.DocumentDB.Types.Tag
+import Amazonka.DocumentDB.Types.UpgradeTarget
+import Amazonka.DocumentDB.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-10-31@ of the Amazon DocumentDB with MongoDB compatibility SDK configuration.
 defaultService :: Core.Service

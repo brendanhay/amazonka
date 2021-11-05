@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DocumentDB.StopDBCluster
+-- Module      : Amazonka.DocumentDB.StopDBCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Stops the running cluster that is specified by @DBClusterIdentifier@.
 -- The cluster must be in the /available/ state. For more information, see
 -- <https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html Stopping and Starting an Amazon DocumentDB Cluster>.
-module Network.AWS.DocumentDB.StopDBCluster
+module Amazonka.DocumentDB.StopDBCluster
   ( -- * Creating a Request
     StopDBCluster (..),
     newStopDBCluster,
@@ -41,12 +41,12 @@ module Network.AWS.DocumentDB.StopDBCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DocumentDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DocumentDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopDBCluster' smart constructor.
 data StopDBCluster = StopDBCluster'

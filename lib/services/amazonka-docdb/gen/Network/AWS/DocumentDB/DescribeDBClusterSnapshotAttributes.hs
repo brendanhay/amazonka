@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DocumentDB.DescribeDBClusterSnapshotAttributes
+-- Module      : Amazonka.DocumentDB.DescribeDBClusterSnapshotAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- restore the manual cluster snapshot. If @all@ is included in the list of
 -- values for the @restore@ attribute, then the manual cluster snapshot is
 -- public and can be copied or restored by all accounts.
-module Network.AWS.DocumentDB.DescribeDBClusterSnapshotAttributes
+module Amazonka.DocumentDB.DescribeDBClusterSnapshotAttributes
   ( -- * Creating a Request
     DescribeDBClusterSnapshotAttributes (..),
     newDescribeDBClusterSnapshotAttributes,
@@ -47,12 +47,12 @@ module Network.AWS.DocumentDB.DescribeDBClusterSnapshotAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DocumentDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DocumentDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input to DescribeDBClusterSnapshotAttributes.
 --

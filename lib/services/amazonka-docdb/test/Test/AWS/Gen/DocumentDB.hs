@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DocumentDB where
 
+import Amazonka.DocumentDB
 import qualified Data.Proxy as Proxy
-import Network.AWS.DocumentDB
 import Test.AWS.DocumentDB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

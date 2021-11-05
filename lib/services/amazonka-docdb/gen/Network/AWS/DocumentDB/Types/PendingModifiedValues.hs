@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DocumentDB.Types.PendingModifiedValues
+-- Module      : Amazonka.DocumentDB.Types.PendingModifiedValues
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DocumentDB.Types.PendingModifiedValues where
+module Amazonka.DocumentDB.Types.PendingModifiedValues where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DocumentDB.Types.PendingCloudwatchLogsExports
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DocumentDB.Types.PendingCloudwatchLogsExports
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | One or more modified settings for an instance. These modified settings
 -- have been requested, but haven\'t been applied yet.

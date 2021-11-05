@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DocumentDB.RestoreDBClusterToPointInTime
+-- Module      : Amazonka.DocumentDB.RestoreDBClusterToPointInTime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- @BackupRetentionPeriod@ days. The target cluster is created from the
 -- source cluster with the same configuration as the original cluster,
 -- except that the new cluster is created with the default security group.
-module Network.AWS.DocumentDB.RestoreDBClusterToPointInTime
+module Amazonka.DocumentDB.RestoreDBClusterToPointInTime
   ( -- * Creating a Request
     RestoreDBClusterToPointInTime (..),
     newRestoreDBClusterToPointInTime,
@@ -53,12 +53,12 @@ module Network.AWS.DocumentDB.RestoreDBClusterToPointInTime
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DocumentDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DocumentDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input to RestoreDBClusterToPointInTime.
 --

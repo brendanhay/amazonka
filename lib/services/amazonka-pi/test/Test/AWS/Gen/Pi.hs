@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pi where
 
+import Amazonka.Pi
 import qualified Data.Proxy as Proxy
-import Network.AWS.Pi
 import Test.AWS.Fixture
 import Test.AWS.Pi.Internal
 import Test.AWS.Prelude

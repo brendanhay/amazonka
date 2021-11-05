@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Pi
+-- Module      : Amazonka.Pi
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- -   To learn more about Performance Insights and Amazon RDS DB
 --     instances, go to the
 --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Amazon RDS User Guide>.
-module Network.AWS.Pi
+module Amazonka.Pi
   ( -- * Service Configuration
     defaultService,
 
@@ -120,12 +120,12 @@ module Network.AWS.Pi
   )
 where
 
-import Network.AWS.Pi.DescribeDimensionKeys
-import Network.AWS.Pi.GetDimensionKeyDetails
-import Network.AWS.Pi.GetResourceMetrics
-import Network.AWS.Pi.Lens
-import Network.AWS.Pi.Types
-import Network.AWS.Pi.Waiters
+import Amazonka.Pi.DescribeDimensionKeys
+import Amazonka.Pi.GetDimensionKeyDetails
+import Amazonka.Pi.GetResourceMetrics
+import Amazonka.Pi.Lens
+import Amazonka.Pi.Types
+import Amazonka.Pi.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pi.Types
+-- Module      : Amazonka.Pi.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pi.Types
+module Amazonka.Pi.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -80,20 +80,20 @@ module Network.AWS.Pi.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pi.Types.DataPoint
-import Network.AWS.Pi.Types.DetailStatus
-import Network.AWS.Pi.Types.DimensionGroup
-import Network.AWS.Pi.Types.DimensionKeyDescription
-import Network.AWS.Pi.Types.DimensionKeyDetail
-import Network.AWS.Pi.Types.MetricKeyDataPoints
-import Network.AWS.Pi.Types.MetricQuery
-import Network.AWS.Pi.Types.ResponsePartitionKey
-import Network.AWS.Pi.Types.ResponseResourceMetricKey
-import Network.AWS.Pi.Types.ServiceType
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pi.Types.DataPoint
+import Amazonka.Pi.Types.DetailStatus
+import Amazonka.Pi.Types.DimensionGroup
+import Amazonka.Pi.Types.DimensionKeyDescription
+import Amazonka.Pi.Types.DimensionKeyDetail
+import Amazonka.Pi.Types.MetricKeyDataPoints
+import Amazonka.Pi.Types.MetricQuery
+import Amazonka.Pi.Types.ResponsePartitionKey
+import Amazonka.Pi.Types.ResponseResourceMetricKey
+import Amazonka.Pi.Types.ServiceType
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-02-27@ of the Amazon Performance Insights SDK configuration.
 defaultService :: Core.Service

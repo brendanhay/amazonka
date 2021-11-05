@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pi.Types.MetricKeyDataPoints
+-- Module      : Amazonka.Pi.Types.MetricKeyDataPoints
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pi.Types.MetricKeyDataPoints where
+module Amazonka.Pi.Types.MetricKeyDataPoints where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pi.Types.DataPoint
-import Network.AWS.Pi.Types.ResponseResourceMetricKey
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pi.Types.DataPoint
+import Amazonka.Pi.Types.ResponseResourceMetricKey
+import qualified Amazonka.Prelude as Prelude
 
 -- | A time-ordered series of data points, corresponding to a dimension of a
 -- Performance Insights metric.

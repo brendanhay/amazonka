@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pi.Lens
+-- Module      : Amazonka.Pi.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pi.Lens
+module Amazonka.Pi.Lens
   ( -- * Operations
 
     -- ** GetDimensionKeyDetails
@@ -97,14 +97,14 @@ module Network.AWS.Pi.Lens
   )
 where
 
-import Network.AWS.Pi.DescribeDimensionKeys
-import Network.AWS.Pi.GetDimensionKeyDetails
-import Network.AWS.Pi.GetResourceMetrics
-import Network.AWS.Pi.Types.DataPoint
-import Network.AWS.Pi.Types.DimensionGroup
-import Network.AWS.Pi.Types.DimensionKeyDescription
-import Network.AWS.Pi.Types.DimensionKeyDetail
-import Network.AWS.Pi.Types.MetricKeyDataPoints
-import Network.AWS.Pi.Types.MetricQuery
-import Network.AWS.Pi.Types.ResponsePartitionKey
-import Network.AWS.Pi.Types.ResponseResourceMetricKey
+import Amazonka.Pi.DescribeDimensionKeys
+import Amazonka.Pi.GetDimensionKeyDetails
+import Amazonka.Pi.GetResourceMetrics
+import Amazonka.Pi.Types.DataPoint
+import Amazonka.Pi.Types.DimensionGroup
+import Amazonka.Pi.Types.DimensionKeyDescription
+import Amazonka.Pi.Types.DimensionKeyDetail
+import Amazonka.Pi.Types.MetricKeyDataPoints
+import Amazonka.Pi.Types.MetricQuery
+import Amazonka.Pi.Types.ResponsePartitionKey
+import Amazonka.Pi.Types.ResponseResourceMetricKey

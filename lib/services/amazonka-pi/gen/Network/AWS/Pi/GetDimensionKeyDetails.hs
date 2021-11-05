@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pi.GetDimensionKeyDetails
+-- Module      : Amazonka.Pi.GetDimensionKeyDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- @db.sql.statement@ associated with this ID. This operation is useful
 -- because @GetResourceMetrics@ and @DescribeDimensionKeys@ don\'t support
 -- retrieval of large SQL statement text.
-module Network.AWS.Pi.GetDimensionKeyDetails
+module Amazonka.Pi.GetDimensionKeyDetails
   ( -- * Creating a Request
     GetDimensionKeyDetails (..),
     newGetDimensionKeyDetails,
@@ -48,12 +48,12 @@ module Network.AWS.Pi.GetDimensionKeyDetails
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pi.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pi.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDimensionKeyDetails' smart constructor.
 data GetDimensionKeyDetails = GetDimensionKeyDetails'

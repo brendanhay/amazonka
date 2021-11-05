@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppMesh.Types.Listener
+-- Module      : Amazonka.AppMesh.Types.Listener
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppMesh.Types.Listener where
+module Amazonka.AppMesh.Types.Listener where
 
-import Network.AWS.AppMesh.Types.HealthCheckPolicy
-import Network.AWS.AppMesh.Types.ListenerTimeout
-import Network.AWS.AppMesh.Types.ListenerTls
-import Network.AWS.AppMesh.Types.OutlierDetection
-import Network.AWS.AppMesh.Types.PortMapping
-import Network.AWS.AppMesh.Types.VirtualNodeConnectionPool
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppMesh.Types.HealthCheckPolicy
+import Amazonka.AppMesh.Types.ListenerTimeout
+import Amazonka.AppMesh.Types.ListenerTls
+import Amazonka.AppMesh.Types.OutlierDetection
+import Amazonka.AppMesh.Types.PortMapping
+import Amazonka.AppMesh.Types.VirtualNodeConnectionPool
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a listener for a virtual node.
 --

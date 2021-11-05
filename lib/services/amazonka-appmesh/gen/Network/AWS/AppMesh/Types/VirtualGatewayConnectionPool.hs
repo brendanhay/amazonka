@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool
+-- Module      : Amazonka.AppMesh.Types.VirtualGatewayConnectionPool
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool where
+module Amazonka.AppMesh.Types.VirtualGatewayConnectionPool where
 
-import Network.AWS.AppMesh.Types.VirtualGatewayGrpcConnectionPool
-import Network.AWS.AppMesh.Types.VirtualGatewayHttp2ConnectionPool
-import Network.AWS.AppMesh.Types.VirtualGatewayHttpConnectionPool
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppMesh.Types.VirtualGatewayGrpcConnectionPool
+import Amazonka.AppMesh.Types.VirtualGatewayHttp2ConnectionPool
+import Amazonka.AppMesh.Types.VirtualGatewayHttpConnectionPool
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the type of virtual gateway connection pool.
 --

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppMesh where
 
+import Amazonka.AppMesh
 import qualified Data.Proxy as Proxy
-import Network.AWS.AppMesh
 import Test.AWS.AppMesh.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppMesh.Types.HttpGatewayRouteMatch
+-- Module      : Amazonka.AppMesh.Types.HttpGatewayRouteMatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppMesh.Types.HttpGatewayRouteMatch where
+module Amazonka.AppMesh.Types.HttpGatewayRouteMatch where
 
-import Network.AWS.AppMesh.Types.GatewayRouteHostnameMatch
-import Network.AWS.AppMesh.Types.HttpGatewayRouteHeader
-import Network.AWS.AppMesh.Types.HttpMethod
-import Network.AWS.AppMesh.Types.HttpPathMatch
-import Network.AWS.AppMesh.Types.HttpQueryParameter
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppMesh.Types.GatewayRouteHostnameMatch
+import Amazonka.AppMesh.Types.HttpGatewayRouteHeader
+import Amazonka.AppMesh.Types.HttpMethod
+import Amazonka.AppMesh.Types.HttpPathMatch
+import Amazonka.AppMesh.Types.HttpQueryParameter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the criteria for determining a request match.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppMesh.DeleteVirtualNode
+-- Module      : Amazonka.AppMesh.DeleteVirtualNode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- You must delete any virtual services that list a virtual node as a
 -- service provider before you can delete the virtual node itself.
-module Network.AWS.AppMesh.DeleteVirtualNode
+module Amazonka.AppMesh.DeleteVirtualNode
   ( -- * Creating a Request
     DeleteVirtualNode (..),
     newDeleteVirtualNode,
@@ -44,12 +44,12 @@ module Network.AWS.AppMesh.DeleteVirtualNode
   )
 where
 
-import Network.AWS.AppMesh.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppMesh.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Deletes a virtual node input.
 --

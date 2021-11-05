@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppMesh
+-- Module      : Amazonka.AppMesh
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- @kube-dns@ and @coredns@ are supported. For more information, see
 -- <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/ DNS for Services and Pods>
 -- in the Kubernetes documentation.
-module Network.AWS.AppMesh
+module Amazonka.AppMesh
   ( -- * Service Configuration
     defaultService,
 
@@ -913,47 +913,47 @@ module Network.AWS.AppMesh
   )
 where
 
-import Network.AWS.AppMesh.CreateGatewayRoute
-import Network.AWS.AppMesh.CreateMesh
-import Network.AWS.AppMesh.CreateRoute
-import Network.AWS.AppMesh.CreateVirtualGateway
-import Network.AWS.AppMesh.CreateVirtualNode
-import Network.AWS.AppMesh.CreateVirtualRouter
-import Network.AWS.AppMesh.CreateVirtualService
-import Network.AWS.AppMesh.DeleteGatewayRoute
-import Network.AWS.AppMesh.DeleteMesh
-import Network.AWS.AppMesh.DeleteRoute
-import Network.AWS.AppMesh.DeleteVirtualGateway
-import Network.AWS.AppMesh.DeleteVirtualNode
-import Network.AWS.AppMesh.DeleteVirtualRouter
-import Network.AWS.AppMesh.DeleteVirtualService
-import Network.AWS.AppMesh.DescribeGatewayRoute
-import Network.AWS.AppMesh.DescribeMesh
-import Network.AWS.AppMesh.DescribeRoute
-import Network.AWS.AppMesh.DescribeVirtualGateway
-import Network.AWS.AppMesh.DescribeVirtualNode
-import Network.AWS.AppMesh.DescribeVirtualRouter
-import Network.AWS.AppMesh.DescribeVirtualService
-import Network.AWS.AppMesh.Lens
-import Network.AWS.AppMesh.ListGatewayRoutes
-import Network.AWS.AppMesh.ListMeshes
-import Network.AWS.AppMesh.ListRoutes
-import Network.AWS.AppMesh.ListTagsForResource
-import Network.AWS.AppMesh.ListVirtualGateways
-import Network.AWS.AppMesh.ListVirtualNodes
-import Network.AWS.AppMesh.ListVirtualRouters
-import Network.AWS.AppMesh.ListVirtualServices
-import Network.AWS.AppMesh.TagResource
-import Network.AWS.AppMesh.Types
-import Network.AWS.AppMesh.UntagResource
-import Network.AWS.AppMesh.UpdateGatewayRoute
-import Network.AWS.AppMesh.UpdateMesh
-import Network.AWS.AppMesh.UpdateRoute
-import Network.AWS.AppMesh.UpdateVirtualGateway
-import Network.AWS.AppMesh.UpdateVirtualNode
-import Network.AWS.AppMesh.UpdateVirtualRouter
-import Network.AWS.AppMesh.UpdateVirtualService
-import Network.AWS.AppMesh.Waiters
+import Amazonka.AppMesh.CreateGatewayRoute
+import Amazonka.AppMesh.CreateMesh
+import Amazonka.AppMesh.CreateRoute
+import Amazonka.AppMesh.CreateVirtualGateway
+import Amazonka.AppMesh.CreateVirtualNode
+import Amazonka.AppMesh.CreateVirtualRouter
+import Amazonka.AppMesh.CreateVirtualService
+import Amazonka.AppMesh.DeleteGatewayRoute
+import Amazonka.AppMesh.DeleteMesh
+import Amazonka.AppMesh.DeleteRoute
+import Amazonka.AppMesh.DeleteVirtualGateway
+import Amazonka.AppMesh.DeleteVirtualNode
+import Amazonka.AppMesh.DeleteVirtualRouter
+import Amazonka.AppMesh.DeleteVirtualService
+import Amazonka.AppMesh.DescribeGatewayRoute
+import Amazonka.AppMesh.DescribeMesh
+import Amazonka.AppMesh.DescribeRoute
+import Amazonka.AppMesh.DescribeVirtualGateway
+import Amazonka.AppMesh.DescribeVirtualNode
+import Amazonka.AppMesh.DescribeVirtualRouter
+import Amazonka.AppMesh.DescribeVirtualService
+import Amazonka.AppMesh.Lens
+import Amazonka.AppMesh.ListGatewayRoutes
+import Amazonka.AppMesh.ListMeshes
+import Amazonka.AppMesh.ListRoutes
+import Amazonka.AppMesh.ListTagsForResource
+import Amazonka.AppMesh.ListVirtualGateways
+import Amazonka.AppMesh.ListVirtualNodes
+import Amazonka.AppMesh.ListVirtualRouters
+import Amazonka.AppMesh.ListVirtualServices
+import Amazonka.AppMesh.TagResource
+import Amazonka.AppMesh.Types
+import Amazonka.AppMesh.UntagResource
+import Amazonka.AppMesh.UpdateGatewayRoute
+import Amazonka.AppMesh.UpdateMesh
+import Amazonka.AppMesh.UpdateRoute
+import Amazonka.AppMesh.UpdateVirtualGateway
+import Amazonka.AppMesh.UpdateVirtualNode
+import Amazonka.AppMesh.UpdateVirtualRouter
+import Amazonka.AppMesh.UpdateVirtualService
+import Amazonka.AppMesh.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

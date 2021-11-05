@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppMesh.Types.GrpcGatewayRouteAction
+-- Module      : Amazonka.AppMesh.Types.GrpcGatewayRouteAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppMesh.Types.GrpcGatewayRouteAction where
+module Amazonka.AppMesh.Types.GrpcGatewayRouteAction where
 
-import Network.AWS.AppMesh.Types.GatewayRouteTarget
-import Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppMesh.Types.GatewayRouteTarget
+import Amazonka.AppMesh.Types.GrpcGatewayRouteRewrite
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the action to take if a match is determined.
 --

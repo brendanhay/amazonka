@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HealthLake.Types.KmsEncryptionConfig
+-- Module      : Amazonka.HealthLake.Types.KmsEncryptionConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HealthLake.Types.KmsEncryptionConfig where
+module Amazonka.HealthLake.Types.KmsEncryptionConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HealthLake.Types.CmkType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.HealthLake.Types.CmkType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The customer-managed-key(CMK) used when creating a Data Store. If a
 -- customer owned key is not specified, an AWS owned key will be used for

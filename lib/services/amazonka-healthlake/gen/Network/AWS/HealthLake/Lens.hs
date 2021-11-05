@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HealthLake.Lens
+-- Module      : Amazonka.HealthLake.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HealthLake.Lens
+module Amazonka.HealthLake.Lens
   ( -- * Operations
 
     -- ** StartFHIRImportJob
@@ -190,27 +190,27 @@ module Network.AWS.HealthLake.Lens
   )
 where
 
-import Network.AWS.HealthLake.CreateFHIRDatastore
-import Network.AWS.HealthLake.DeleteFHIRDatastore
-import Network.AWS.HealthLake.DescribeFHIRDatastore
-import Network.AWS.HealthLake.DescribeFHIRExportJob
-import Network.AWS.HealthLake.DescribeFHIRImportJob
-import Network.AWS.HealthLake.ListFHIRDatastores
-import Network.AWS.HealthLake.ListFHIRExportJobs
-import Network.AWS.HealthLake.ListFHIRImportJobs
-import Network.AWS.HealthLake.ListTagsForResource
-import Network.AWS.HealthLake.StartFHIRExportJob
-import Network.AWS.HealthLake.StartFHIRImportJob
-import Network.AWS.HealthLake.TagResource
-import Network.AWS.HealthLake.Types.DatastoreFilter
-import Network.AWS.HealthLake.Types.DatastoreProperties
-import Network.AWS.HealthLake.Types.ExportJobProperties
-import Network.AWS.HealthLake.Types.ImportJobProperties
-import Network.AWS.HealthLake.Types.InputDataConfig
-import Network.AWS.HealthLake.Types.KmsEncryptionConfig
-import Network.AWS.HealthLake.Types.OutputDataConfig
-import Network.AWS.HealthLake.Types.PreloadDataConfig
-import Network.AWS.HealthLake.Types.S3Configuration
-import Network.AWS.HealthLake.Types.SseConfiguration
-import Network.AWS.HealthLake.Types.Tag
-import Network.AWS.HealthLake.UntagResource
+import Amazonka.HealthLake.CreateFHIRDatastore
+import Amazonka.HealthLake.DeleteFHIRDatastore
+import Amazonka.HealthLake.DescribeFHIRDatastore
+import Amazonka.HealthLake.DescribeFHIRExportJob
+import Amazonka.HealthLake.DescribeFHIRImportJob
+import Amazonka.HealthLake.ListFHIRDatastores
+import Amazonka.HealthLake.ListFHIRExportJobs
+import Amazonka.HealthLake.ListFHIRImportJobs
+import Amazonka.HealthLake.ListTagsForResource
+import Amazonka.HealthLake.StartFHIRExportJob
+import Amazonka.HealthLake.StartFHIRImportJob
+import Amazonka.HealthLake.TagResource
+import Amazonka.HealthLake.Types.DatastoreFilter
+import Amazonka.HealthLake.Types.DatastoreProperties
+import Amazonka.HealthLake.Types.ExportJobProperties
+import Amazonka.HealthLake.Types.ImportJobProperties
+import Amazonka.HealthLake.Types.InputDataConfig
+import Amazonka.HealthLake.Types.KmsEncryptionConfig
+import Amazonka.HealthLake.Types.OutputDataConfig
+import Amazonka.HealthLake.Types.PreloadDataConfig
+import Amazonka.HealthLake.Types.S3Configuration
+import Amazonka.HealthLake.Types.SseConfiguration
+import Amazonka.HealthLake.Types.Tag
+import Amazonka.HealthLake.UntagResource

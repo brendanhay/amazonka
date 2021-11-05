@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HealthLake.Types.DatastoreStatus
+-- Module      : Amazonka.HealthLake.Types.DatastoreStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HealthLake.Types.DatastoreStatus
+module Amazonka.HealthLake.Types.DatastoreStatus
   ( DatastoreStatus
       ( ..,
         DatastoreStatus_ACTIVE,
@@ -28,8 +28,8 @@ module Network.AWS.HealthLake.Types.DatastoreStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype DatastoreStatus = DatastoreStatus'
   { fromDatastoreStatus ::

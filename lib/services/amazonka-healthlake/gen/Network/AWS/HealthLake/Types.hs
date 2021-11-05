@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HealthLake.Types
+-- Module      : Amazonka.HealthLake.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HealthLake.Types
+module Amazonka.HealthLake.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -127,26 +127,26 @@ module Network.AWS.HealthLake.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HealthLake.Types.CmkType
-import Network.AWS.HealthLake.Types.DatastoreFilter
-import Network.AWS.HealthLake.Types.DatastoreProperties
-import Network.AWS.HealthLake.Types.DatastoreStatus
-import Network.AWS.HealthLake.Types.ExportJobProperties
-import Network.AWS.HealthLake.Types.FHIRVersion
-import Network.AWS.HealthLake.Types.ImportJobProperties
-import Network.AWS.HealthLake.Types.InputDataConfig
-import Network.AWS.HealthLake.Types.JobStatus
-import Network.AWS.HealthLake.Types.KmsEncryptionConfig
-import Network.AWS.HealthLake.Types.OutputDataConfig
-import Network.AWS.HealthLake.Types.PreloadDataConfig
-import Network.AWS.HealthLake.Types.PreloadDataType
-import Network.AWS.HealthLake.Types.S3Configuration
-import Network.AWS.HealthLake.Types.SseConfiguration
-import Network.AWS.HealthLake.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.HealthLake.Types.CmkType
+import Amazonka.HealthLake.Types.DatastoreFilter
+import Amazonka.HealthLake.Types.DatastoreProperties
+import Amazonka.HealthLake.Types.DatastoreStatus
+import Amazonka.HealthLake.Types.ExportJobProperties
+import Amazonka.HealthLake.Types.FHIRVersion
+import Amazonka.HealthLake.Types.ImportJobProperties
+import Amazonka.HealthLake.Types.InputDataConfig
+import Amazonka.HealthLake.Types.JobStatus
+import Amazonka.HealthLake.Types.KmsEncryptionConfig
+import Amazonka.HealthLake.Types.OutputDataConfig
+import Amazonka.HealthLake.Types.PreloadDataConfig
+import Amazonka.HealthLake.Types.PreloadDataType
+import Amazonka.HealthLake.Types.S3Configuration
+import Amazonka.HealthLake.Types.SseConfiguration
+import Amazonka.HealthLake.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-01@ of the Amazon HealthLake SDK configuration.
 defaultService :: Core.Service

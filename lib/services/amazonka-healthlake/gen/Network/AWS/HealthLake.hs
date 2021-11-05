@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.HealthLake
+-- Module      : Amazonka.HealthLake
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon HealthLake is a HIPAA eligibile service that allows customers to
 -- store, transform, query, and analyze their FHIR-formatted data in a
 -- consistent fashion in the cloud.
-module Network.AWS.HealthLake
+module Amazonka.HealthLake
   ( -- * Service Configuration
     defaultService,
 
@@ -186,22 +186,22 @@ module Network.AWS.HealthLake
   )
 where
 
-import Network.AWS.HealthLake.CreateFHIRDatastore
-import Network.AWS.HealthLake.DeleteFHIRDatastore
-import Network.AWS.HealthLake.DescribeFHIRDatastore
-import Network.AWS.HealthLake.DescribeFHIRExportJob
-import Network.AWS.HealthLake.DescribeFHIRImportJob
-import Network.AWS.HealthLake.Lens
-import Network.AWS.HealthLake.ListFHIRDatastores
-import Network.AWS.HealthLake.ListFHIRExportJobs
-import Network.AWS.HealthLake.ListFHIRImportJobs
-import Network.AWS.HealthLake.ListTagsForResource
-import Network.AWS.HealthLake.StartFHIRExportJob
-import Network.AWS.HealthLake.StartFHIRImportJob
-import Network.AWS.HealthLake.TagResource
-import Network.AWS.HealthLake.Types
-import Network.AWS.HealthLake.UntagResource
-import Network.AWS.HealthLake.Waiters
+import Amazonka.HealthLake.CreateFHIRDatastore
+import Amazonka.HealthLake.DeleteFHIRDatastore
+import Amazonka.HealthLake.DescribeFHIRDatastore
+import Amazonka.HealthLake.DescribeFHIRExportJob
+import Amazonka.HealthLake.DescribeFHIRImportJob
+import Amazonka.HealthLake.Lens
+import Amazonka.HealthLake.ListFHIRDatastores
+import Amazonka.HealthLake.ListFHIRExportJobs
+import Amazonka.HealthLake.ListFHIRImportJobs
+import Amazonka.HealthLake.ListTagsForResource
+import Amazonka.HealthLake.StartFHIRExportJob
+import Amazonka.HealthLake.StartFHIRImportJob
+import Amazonka.HealthLake.TagResource
+import Amazonka.HealthLake.Types
+import Amazonka.HealthLake.UntagResource
+import Amazonka.HealthLake.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

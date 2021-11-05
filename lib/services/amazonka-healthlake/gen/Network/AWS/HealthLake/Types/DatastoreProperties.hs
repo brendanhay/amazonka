@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HealthLake.Types.DatastoreProperties
+-- Module      : Amazonka.HealthLake.Types.DatastoreProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HealthLake.Types.DatastoreProperties where
+module Amazonka.HealthLake.Types.DatastoreProperties where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HealthLake.Types.DatastoreStatus
-import Network.AWS.HealthLake.Types.FHIRVersion
-import Network.AWS.HealthLake.Types.PreloadDataConfig
-import Network.AWS.HealthLake.Types.SseConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.HealthLake.Types.DatastoreStatus
+import Amazonka.HealthLake.Types.FHIRVersion
+import Amazonka.HealthLake.Types.PreloadDataConfig
+import Amazonka.HealthLake.Types.SseConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Displays the properties of the Data Store, including the ID, Arn, name,
 -- and the status of the Data Store.

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.HealthLake.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.HealthLake.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.HealthLake" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.HealthLake" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,41 +45,41 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.HealthLake
-    Network.AWS.HealthLake.CreateFHIRDatastore
-    Network.AWS.HealthLake.DeleteFHIRDatastore
-    Network.AWS.HealthLake.DescribeFHIRDatastore
-    Network.AWS.HealthLake.DescribeFHIRExportJob
-    Network.AWS.HealthLake.DescribeFHIRImportJob
-    Network.AWS.HealthLake.Lens
-    Network.AWS.HealthLake.ListFHIRDatastores
-    Network.AWS.HealthLake.ListFHIRExportJobs
-    Network.AWS.HealthLake.ListFHIRImportJobs
-    Network.AWS.HealthLake.ListTagsForResource
-    Network.AWS.HealthLake.StartFHIRExportJob
-    Network.AWS.HealthLake.StartFHIRImportJob
-    Network.AWS.HealthLake.TagResource
-    Network.AWS.HealthLake.Types
-    Network.AWS.HealthLake.Types.CmkType
-    Network.AWS.HealthLake.Types.DatastoreFilter
-    Network.AWS.HealthLake.Types.DatastoreProperties
-    Network.AWS.HealthLake.Types.DatastoreStatus
-    Network.AWS.HealthLake.Types.ExportJobProperties
-    Network.AWS.HealthLake.Types.FHIRVersion
-    Network.AWS.HealthLake.Types.ImportJobProperties
-    Network.AWS.HealthLake.Types.InputDataConfig
-    Network.AWS.HealthLake.Types.JobStatus
-    Network.AWS.HealthLake.Types.KmsEncryptionConfig
-    Network.AWS.HealthLake.Types.OutputDataConfig
-    Network.AWS.HealthLake.Types.PreloadDataConfig
-    Network.AWS.HealthLake.Types.PreloadDataType
-    Network.AWS.HealthLake.Types.S3Configuration
-    Network.AWS.HealthLake.Types.SseConfiguration
-    Network.AWS.HealthLake.Types.Tag
-    Network.AWS.HealthLake.UntagResource
-    Network.AWS.HealthLake.Waiters
+    Amazonka.HealthLake
+    Amazonka.HealthLake.CreateFHIRDatastore
+    Amazonka.HealthLake.DeleteFHIRDatastore
+    Amazonka.HealthLake.DescribeFHIRDatastore
+    Amazonka.HealthLake.DescribeFHIRExportJob
+    Amazonka.HealthLake.DescribeFHIRImportJob
+    Amazonka.HealthLake.Lens
+    Amazonka.HealthLake.ListFHIRDatastores
+    Amazonka.HealthLake.ListFHIRExportJobs
+    Amazonka.HealthLake.ListFHIRImportJobs
+    Amazonka.HealthLake.ListTagsForResource
+    Amazonka.HealthLake.StartFHIRExportJob
+    Amazonka.HealthLake.StartFHIRImportJob
+    Amazonka.HealthLake.TagResource
+    Amazonka.HealthLake.Types
+    Amazonka.HealthLake.Types.CmkType
+    Amazonka.HealthLake.Types.DatastoreFilter
+    Amazonka.HealthLake.Types.DatastoreProperties
+    Amazonka.HealthLake.Types.DatastoreStatus
+    Amazonka.HealthLake.Types.ExportJobProperties
+    Amazonka.HealthLake.Types.FHIRVersion
+    Amazonka.HealthLake.Types.ImportJobProperties
+    Amazonka.HealthLake.Types.InputDataConfig
+    Amazonka.HealthLake.Types.JobStatus
+    Amazonka.HealthLake.Types.KmsEncryptionConfig
+    Amazonka.HealthLake.Types.OutputDataConfig
+    Amazonka.HealthLake.Types.PreloadDataConfig
+    Amazonka.HealthLake.Types.PreloadDataType
+    Amazonka.HealthLake.Types.S3Configuration
+    Amazonka.HealthLake.Types.SseConfiguration
+    Amazonka.HealthLake.Types.Tag
+    Amazonka.HealthLake.UntagResource
+    Amazonka.HealthLake.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.HealthLake where
 
+import Amazonka.HealthLake
 import qualified Data.Proxy as Proxy
-import Network.AWS.HealthLake
 import Test.AWS.Fixture
 import Test.AWS.HealthLake.Internal
 import Test.AWS.Prelude

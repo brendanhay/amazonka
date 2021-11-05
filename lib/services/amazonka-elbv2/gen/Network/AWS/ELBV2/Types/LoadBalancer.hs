@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.Types.LoadBalancer
+-- Module      : Amazonka.ELBV2.Types.LoadBalancer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBV2.Types.LoadBalancer where
+module Amazonka.ELBV2.Types.LoadBalancer where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types.AvailabilityZone
-import Network.AWS.ELBV2.Types.IpAddressType
-import Network.AWS.ELBV2.Types.LoadBalancerSchemeEnum
-import Network.AWS.ELBV2.Types.LoadBalancerState
-import Network.AWS.ELBV2.Types.LoadBalancerTypeEnum
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types.AvailabilityZone
+import Amazonka.ELBV2.Types.IpAddressType
+import Amazonka.ELBV2.Types.LoadBalancerSchemeEnum
+import Amazonka.ELBV2.Types.LoadBalancerState
+import Amazonka.ELBV2.Types.LoadBalancerTypeEnum
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a load balancer.
 --

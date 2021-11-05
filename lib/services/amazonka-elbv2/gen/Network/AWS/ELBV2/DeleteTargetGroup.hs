@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.DeleteTargetGroup
+-- Module      : Amazonka.ELBV2.DeleteTargetGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- Deleting a target group does not affect its registered targets. For
 -- example, any EC2 instances continue to run until you stop or terminate
 -- them.
-module Network.AWS.ELBV2.DeleteTargetGroup
+module Amazonka.ELBV2.DeleteTargetGroup
   ( -- * Creating a Request
     DeleteTargetGroup (..),
     newDeleteTargetGroup,
@@ -44,12 +44,12 @@ module Network.AWS.ELBV2.DeleteTargetGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTargetGroup' smart constructor.
 data DeleteTargetGroup = DeleteTargetGroup'

@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.Waiters
+-- Module      : Amazonka.ELBV2.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBV2.Waiters where
+module Amazonka.ELBV2.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.DescribeLoadBalancers
-import Network.AWS.ELBV2.DescribeTargetHealth
-import Network.AWS.ELBV2.Lens
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.DescribeLoadBalancers
+import Amazonka.ELBV2.DescribeTargetHealth
+import Amazonka.ELBV2.Lens
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newLoadBalancersDeleted :: Core.Wait DescribeLoadBalancers
 newLoadBalancersDeleted =
   Core.Wait
@@ -52,7 +52,7 @@ newLoadBalancersDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newTargetDeregistered :: Core.Wait DescribeTargetHealth
 newTargetDeregistered =
   Core.Wait
@@ -79,7 +79,7 @@ newTargetDeregistered =
         ]
     }
 
--- | Polls 'Network.AWS.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newLoadBalancerAvailable :: Core.Wait DescribeLoadBalancers
 newLoadBalancerAvailable =
   Core.Wait
@@ -123,7 +123,7 @@ newLoadBalancerAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newTargetInService :: Core.Wait DescribeTargetHealth
 newTargetInService =
   Core.Wait
@@ -150,7 +150,7 @@ newTargetInService =
         ]
     }
 
--- | Polls 'Network.AWS.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newLoadBalancerExists :: Core.Wait DescribeLoadBalancers
 newLoadBalancerExists =
   Core.Wait

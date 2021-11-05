@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.RegisterTargets
+-- Module      : Amazonka.ELBV2.RegisterTargets
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- ID if they have the following instance types: C1, CC1, CC2, CG1, CG2,
 -- CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register
 -- instances of these types by IP address.
-module Network.AWS.ELBV2.RegisterTargets
+module Amazonka.ELBV2.RegisterTargets
   ( -- * Creating a Request
     RegisterTargets (..),
     newRegisterTargets,
@@ -53,12 +53,12 @@ module Network.AWS.ELBV2.RegisterTargets
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterTargets' smart constructor.
 data RegisterTargets = RegisterTargets'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.RemoveListenerCertificates
+-- Module      : Amazonka.ELBV2.RemoveListenerCertificates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Removes the specified certificate from the certificate list for the
 -- specified HTTPS or TLS listener.
-module Network.AWS.ELBV2.RemoveListenerCertificates
+module Amazonka.ELBV2.RemoveListenerCertificates
   ( -- * Creating a Request
     RemoveListenerCertificates (..),
     newRemoveListenerCertificates,
@@ -40,12 +40,12 @@ module Network.AWS.ELBV2.RemoveListenerCertificates
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemoveListenerCertificates' smart constructor.
 data RemoveListenerCertificates = RemoveListenerCertificates'

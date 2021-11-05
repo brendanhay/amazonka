@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.Lens
+-- Module      : Amazonka.ELBV2.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBV2.Lens
+module Amazonka.ELBV2.Lens
   ( -- * Operations
 
     -- ** DescribeLoadBalancers
@@ -495,74 +495,74 @@ module Network.AWS.ELBV2.Lens
   )
 where
 
-import Network.AWS.ELBV2.AddListenerCertificates
-import Network.AWS.ELBV2.AddTags
-import Network.AWS.ELBV2.CreateListener
-import Network.AWS.ELBV2.CreateLoadBalancer
-import Network.AWS.ELBV2.CreateRule
-import Network.AWS.ELBV2.CreateTargetGroup
-import Network.AWS.ELBV2.DeleteListener
-import Network.AWS.ELBV2.DeleteLoadBalancer
-import Network.AWS.ELBV2.DeleteRule
-import Network.AWS.ELBV2.DeleteTargetGroup
-import Network.AWS.ELBV2.DeregisterTargets
-import Network.AWS.ELBV2.DescribeAccountLimits
-import Network.AWS.ELBV2.DescribeListenerCertificates
-import Network.AWS.ELBV2.DescribeListeners
-import Network.AWS.ELBV2.DescribeLoadBalancerAttributes
-import Network.AWS.ELBV2.DescribeLoadBalancers
-import Network.AWS.ELBV2.DescribeRules
-import Network.AWS.ELBV2.DescribeSSLPolicies
-import Network.AWS.ELBV2.DescribeTags
-import Network.AWS.ELBV2.DescribeTargetGroupAttributes
-import Network.AWS.ELBV2.DescribeTargetGroups
-import Network.AWS.ELBV2.DescribeTargetHealth
-import Network.AWS.ELBV2.ModifyListener
-import Network.AWS.ELBV2.ModifyLoadBalancerAttributes
-import Network.AWS.ELBV2.ModifyRule
-import Network.AWS.ELBV2.ModifyTargetGroup
-import Network.AWS.ELBV2.ModifyTargetGroupAttributes
-import Network.AWS.ELBV2.RegisterTargets
-import Network.AWS.ELBV2.RemoveListenerCertificates
-import Network.AWS.ELBV2.RemoveTags
-import Network.AWS.ELBV2.SetIpAddressType
-import Network.AWS.ELBV2.SetRulePriorities
-import Network.AWS.ELBV2.SetSecurityGroups
-import Network.AWS.ELBV2.SetSubnets
-import Network.AWS.ELBV2.Types.Action
-import Network.AWS.ELBV2.Types.AuthenticateCognitoActionConfig
-import Network.AWS.ELBV2.Types.AuthenticateOidcActionConfig
-import Network.AWS.ELBV2.Types.AvailabilityZone
-import Network.AWS.ELBV2.Types.Certificate
-import Network.AWS.ELBV2.Types.Cipher
-import Network.AWS.ELBV2.Types.FixedResponseActionConfig
-import Network.AWS.ELBV2.Types.ForwardActionConfig
-import Network.AWS.ELBV2.Types.HostHeaderConditionConfig
-import Network.AWS.ELBV2.Types.HttpHeaderConditionConfig
-import Network.AWS.ELBV2.Types.HttpRequestMethodConditionConfig
-import Network.AWS.ELBV2.Types.Limit
-import Network.AWS.ELBV2.Types.Listener
-import Network.AWS.ELBV2.Types.LoadBalancer
-import Network.AWS.ELBV2.Types.LoadBalancerAddress
-import Network.AWS.ELBV2.Types.LoadBalancerAttribute
-import Network.AWS.ELBV2.Types.LoadBalancerState
-import Network.AWS.ELBV2.Types.Matcher
-import Network.AWS.ELBV2.Types.PathPatternConditionConfig
-import Network.AWS.ELBV2.Types.QueryStringConditionConfig
-import Network.AWS.ELBV2.Types.QueryStringKeyValuePair
-import Network.AWS.ELBV2.Types.RedirectActionConfig
-import Network.AWS.ELBV2.Types.Rule
-import Network.AWS.ELBV2.Types.RuleCondition
-import Network.AWS.ELBV2.Types.RulePriorityPair
-import Network.AWS.ELBV2.Types.SourceIpConditionConfig
-import Network.AWS.ELBV2.Types.SslPolicy
-import Network.AWS.ELBV2.Types.SubnetMapping
-import Network.AWS.ELBV2.Types.Tag
-import Network.AWS.ELBV2.Types.TagDescription
-import Network.AWS.ELBV2.Types.TargetDescription
-import Network.AWS.ELBV2.Types.TargetGroup
-import Network.AWS.ELBV2.Types.TargetGroupAttribute
-import Network.AWS.ELBV2.Types.TargetGroupStickinessConfig
-import Network.AWS.ELBV2.Types.TargetGroupTuple
-import Network.AWS.ELBV2.Types.TargetHealth
-import Network.AWS.ELBV2.Types.TargetHealthDescription
+import Amazonka.ELBV2.AddListenerCertificates
+import Amazonka.ELBV2.AddTags
+import Amazonka.ELBV2.CreateListener
+import Amazonka.ELBV2.CreateLoadBalancer
+import Amazonka.ELBV2.CreateRule
+import Amazonka.ELBV2.CreateTargetGroup
+import Amazonka.ELBV2.DeleteListener
+import Amazonka.ELBV2.DeleteLoadBalancer
+import Amazonka.ELBV2.DeleteRule
+import Amazonka.ELBV2.DeleteTargetGroup
+import Amazonka.ELBV2.DeregisterTargets
+import Amazonka.ELBV2.DescribeAccountLimits
+import Amazonka.ELBV2.DescribeListenerCertificates
+import Amazonka.ELBV2.DescribeListeners
+import Amazonka.ELBV2.DescribeLoadBalancerAttributes
+import Amazonka.ELBV2.DescribeLoadBalancers
+import Amazonka.ELBV2.DescribeRules
+import Amazonka.ELBV2.DescribeSSLPolicies
+import Amazonka.ELBV2.DescribeTags
+import Amazonka.ELBV2.DescribeTargetGroupAttributes
+import Amazonka.ELBV2.DescribeTargetGroups
+import Amazonka.ELBV2.DescribeTargetHealth
+import Amazonka.ELBV2.ModifyListener
+import Amazonka.ELBV2.ModifyLoadBalancerAttributes
+import Amazonka.ELBV2.ModifyRule
+import Amazonka.ELBV2.ModifyTargetGroup
+import Amazonka.ELBV2.ModifyTargetGroupAttributes
+import Amazonka.ELBV2.RegisterTargets
+import Amazonka.ELBV2.RemoveListenerCertificates
+import Amazonka.ELBV2.RemoveTags
+import Amazonka.ELBV2.SetIpAddressType
+import Amazonka.ELBV2.SetRulePriorities
+import Amazonka.ELBV2.SetSecurityGroups
+import Amazonka.ELBV2.SetSubnets
+import Amazonka.ELBV2.Types.Action
+import Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig
+import Amazonka.ELBV2.Types.AuthenticateOidcActionConfig
+import Amazonka.ELBV2.Types.AvailabilityZone
+import Amazonka.ELBV2.Types.Certificate
+import Amazonka.ELBV2.Types.Cipher
+import Amazonka.ELBV2.Types.FixedResponseActionConfig
+import Amazonka.ELBV2.Types.ForwardActionConfig
+import Amazonka.ELBV2.Types.HostHeaderConditionConfig
+import Amazonka.ELBV2.Types.HttpHeaderConditionConfig
+import Amazonka.ELBV2.Types.HttpRequestMethodConditionConfig
+import Amazonka.ELBV2.Types.Limit
+import Amazonka.ELBV2.Types.Listener
+import Amazonka.ELBV2.Types.LoadBalancer
+import Amazonka.ELBV2.Types.LoadBalancerAddress
+import Amazonka.ELBV2.Types.LoadBalancerAttribute
+import Amazonka.ELBV2.Types.LoadBalancerState
+import Amazonka.ELBV2.Types.Matcher
+import Amazonka.ELBV2.Types.PathPatternConditionConfig
+import Amazonka.ELBV2.Types.QueryStringConditionConfig
+import Amazonka.ELBV2.Types.QueryStringKeyValuePair
+import Amazonka.ELBV2.Types.RedirectActionConfig
+import Amazonka.ELBV2.Types.Rule
+import Amazonka.ELBV2.Types.RuleCondition
+import Amazonka.ELBV2.Types.RulePriorityPair
+import Amazonka.ELBV2.Types.SourceIpConditionConfig
+import Amazonka.ELBV2.Types.SslPolicy
+import Amazonka.ELBV2.Types.SubnetMapping
+import Amazonka.ELBV2.Types.Tag
+import Amazonka.ELBV2.Types.TagDescription
+import Amazonka.ELBV2.Types.TargetDescription
+import Amazonka.ELBV2.Types.TargetGroup
+import Amazonka.ELBV2.Types.TargetGroupAttribute
+import Amazonka.ELBV2.Types.TargetGroupStickinessConfig
+import Amazonka.ELBV2.Types.TargetGroupTuple
+import Amazonka.ELBV2.Types.TargetHealth
+import Amazonka.ELBV2.Types.TargetHealthDescription

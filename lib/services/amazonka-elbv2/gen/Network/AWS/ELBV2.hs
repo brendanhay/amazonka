@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ELBV2
+-- Module      : Amazonka.ELBV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 --
 -- All Elastic Load Balancing operations are idempotent, which means that
 -- they complete at most one time. If you repeat an operation, it succeeds.
-module Network.AWS.ELBV2
+module Amazonka.ELBV2
   ( -- * Service Configuration
     defaultService,
 
@@ -576,43 +576,43 @@ module Network.AWS.ELBV2
   )
 where
 
-import Network.AWS.ELBV2.AddListenerCertificates
-import Network.AWS.ELBV2.AddTags
-import Network.AWS.ELBV2.CreateListener
-import Network.AWS.ELBV2.CreateLoadBalancer
-import Network.AWS.ELBV2.CreateRule
-import Network.AWS.ELBV2.CreateTargetGroup
-import Network.AWS.ELBV2.DeleteListener
-import Network.AWS.ELBV2.DeleteLoadBalancer
-import Network.AWS.ELBV2.DeleteRule
-import Network.AWS.ELBV2.DeleteTargetGroup
-import Network.AWS.ELBV2.DeregisterTargets
-import Network.AWS.ELBV2.DescribeAccountLimits
-import Network.AWS.ELBV2.DescribeListenerCertificates
-import Network.AWS.ELBV2.DescribeListeners
-import Network.AWS.ELBV2.DescribeLoadBalancerAttributes
-import Network.AWS.ELBV2.DescribeLoadBalancers
-import Network.AWS.ELBV2.DescribeRules
-import Network.AWS.ELBV2.DescribeSSLPolicies
-import Network.AWS.ELBV2.DescribeTags
-import Network.AWS.ELBV2.DescribeTargetGroupAttributes
-import Network.AWS.ELBV2.DescribeTargetGroups
-import Network.AWS.ELBV2.DescribeTargetHealth
-import Network.AWS.ELBV2.Lens
-import Network.AWS.ELBV2.ModifyListener
-import Network.AWS.ELBV2.ModifyLoadBalancerAttributes
-import Network.AWS.ELBV2.ModifyRule
-import Network.AWS.ELBV2.ModifyTargetGroup
-import Network.AWS.ELBV2.ModifyTargetGroupAttributes
-import Network.AWS.ELBV2.RegisterTargets
-import Network.AWS.ELBV2.RemoveListenerCertificates
-import Network.AWS.ELBV2.RemoveTags
-import Network.AWS.ELBV2.SetIpAddressType
-import Network.AWS.ELBV2.SetRulePriorities
-import Network.AWS.ELBV2.SetSecurityGroups
-import Network.AWS.ELBV2.SetSubnets
-import Network.AWS.ELBV2.Types
-import Network.AWS.ELBV2.Waiters
+import Amazonka.ELBV2.AddListenerCertificates
+import Amazonka.ELBV2.AddTags
+import Amazonka.ELBV2.CreateListener
+import Amazonka.ELBV2.CreateLoadBalancer
+import Amazonka.ELBV2.CreateRule
+import Amazonka.ELBV2.CreateTargetGroup
+import Amazonka.ELBV2.DeleteListener
+import Amazonka.ELBV2.DeleteLoadBalancer
+import Amazonka.ELBV2.DeleteRule
+import Amazonka.ELBV2.DeleteTargetGroup
+import Amazonka.ELBV2.DeregisterTargets
+import Amazonka.ELBV2.DescribeAccountLimits
+import Amazonka.ELBV2.DescribeListenerCertificates
+import Amazonka.ELBV2.DescribeListeners
+import Amazonka.ELBV2.DescribeLoadBalancerAttributes
+import Amazonka.ELBV2.DescribeLoadBalancers
+import Amazonka.ELBV2.DescribeRules
+import Amazonka.ELBV2.DescribeSSLPolicies
+import Amazonka.ELBV2.DescribeTags
+import Amazonka.ELBV2.DescribeTargetGroupAttributes
+import Amazonka.ELBV2.DescribeTargetGroups
+import Amazonka.ELBV2.DescribeTargetHealth
+import Amazonka.ELBV2.Lens
+import Amazonka.ELBV2.ModifyListener
+import Amazonka.ELBV2.ModifyLoadBalancerAttributes
+import Amazonka.ELBV2.ModifyRule
+import Amazonka.ELBV2.ModifyTargetGroup
+import Amazonka.ELBV2.ModifyTargetGroupAttributes
+import Amazonka.ELBV2.RegisterTargets
+import Amazonka.ELBV2.RemoveListenerCertificates
+import Amazonka.ELBV2.RemoveTags
+import Amazonka.ELBV2.SetIpAddressType
+import Amazonka.ELBV2.SetRulePriorities
+import Amazonka.ELBV2.SetSecurityGroups
+import Amazonka.ELBV2.SetSubnets
+import Amazonka.ELBV2.Types
+import Amazonka.ELBV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.ModifyLoadBalancerAttributes
+-- Module      : Amazonka.ELBV2.ModifyLoadBalancerAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- If any of the specified attributes can\'t be modified as requested, the
 -- call fails. Any existing attributes that you do not modify retain their
 -- current values.
-module Network.AWS.ELBV2.ModifyLoadBalancerAttributes
+module Amazonka.ELBV2.ModifyLoadBalancerAttributes
   ( -- * Creating a Request
     ModifyLoadBalancerAttributes (..),
     newModifyLoadBalancerAttributes,
@@ -45,12 +45,12 @@ module Network.AWS.ELBV2.ModifyLoadBalancerAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.Types
+-- Module      : Amazonka.ELBV2.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBV2.Types
+module Amazonka.ELBV2.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -393,60 +393,60 @@ module Network.AWS.ELBV2.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types.Action
-import Network.AWS.ELBV2.Types.ActionTypeEnum
-import Network.AWS.ELBV2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
-import Network.AWS.ELBV2.Types.AuthenticateCognitoActionConfig
-import Network.AWS.ELBV2.Types.AuthenticateOidcActionConditionalBehaviorEnum
-import Network.AWS.ELBV2.Types.AuthenticateOidcActionConfig
-import Network.AWS.ELBV2.Types.AvailabilityZone
-import Network.AWS.ELBV2.Types.Certificate
-import Network.AWS.ELBV2.Types.Cipher
-import Network.AWS.ELBV2.Types.FixedResponseActionConfig
-import Network.AWS.ELBV2.Types.ForwardActionConfig
-import Network.AWS.ELBV2.Types.HostHeaderConditionConfig
-import Network.AWS.ELBV2.Types.HttpHeaderConditionConfig
-import Network.AWS.ELBV2.Types.HttpRequestMethodConditionConfig
-import Network.AWS.ELBV2.Types.IpAddressType
-import Network.AWS.ELBV2.Types.Limit
-import Network.AWS.ELBV2.Types.Listener
-import Network.AWS.ELBV2.Types.LoadBalancer
-import Network.AWS.ELBV2.Types.LoadBalancerAddress
-import Network.AWS.ELBV2.Types.LoadBalancerAttribute
-import Network.AWS.ELBV2.Types.LoadBalancerSchemeEnum
-import Network.AWS.ELBV2.Types.LoadBalancerState
-import Network.AWS.ELBV2.Types.LoadBalancerStateEnum
-import Network.AWS.ELBV2.Types.LoadBalancerTypeEnum
-import Network.AWS.ELBV2.Types.Matcher
-import Network.AWS.ELBV2.Types.PathPatternConditionConfig
-import Network.AWS.ELBV2.Types.ProtocolEnum
-import Network.AWS.ELBV2.Types.QueryStringConditionConfig
-import Network.AWS.ELBV2.Types.QueryStringKeyValuePair
-import Network.AWS.ELBV2.Types.RedirectActionConfig
-import Network.AWS.ELBV2.Types.RedirectActionStatusCodeEnum
-import Network.AWS.ELBV2.Types.Rule
-import Network.AWS.ELBV2.Types.RuleCondition
-import Network.AWS.ELBV2.Types.RulePriorityPair
-import Network.AWS.ELBV2.Types.SourceIpConditionConfig
-import Network.AWS.ELBV2.Types.SslPolicy
-import Network.AWS.ELBV2.Types.SubnetMapping
-import Network.AWS.ELBV2.Types.Tag
-import Network.AWS.ELBV2.Types.TagDescription
-import Network.AWS.ELBV2.Types.TargetDescription
-import Network.AWS.ELBV2.Types.TargetGroup
-import Network.AWS.ELBV2.Types.TargetGroupAttribute
-import Network.AWS.ELBV2.Types.TargetGroupIpAddressTypeEnum
-import Network.AWS.ELBV2.Types.TargetGroupStickinessConfig
-import Network.AWS.ELBV2.Types.TargetGroupTuple
-import Network.AWS.ELBV2.Types.TargetHealth
-import Network.AWS.ELBV2.Types.TargetHealthDescription
-import Network.AWS.ELBV2.Types.TargetHealthReasonEnum
-import Network.AWS.ELBV2.Types.TargetHealthStateEnum
-import Network.AWS.ELBV2.Types.TargetTypeEnum
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types.Action
+import Amazonka.ELBV2.Types.ActionTypeEnum
+import Amazonka.ELBV2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
+import Amazonka.ELBV2.Types.AuthenticateCognitoActionConfig
+import Amazonka.ELBV2.Types.AuthenticateOidcActionConditionalBehaviorEnum
+import Amazonka.ELBV2.Types.AuthenticateOidcActionConfig
+import Amazonka.ELBV2.Types.AvailabilityZone
+import Amazonka.ELBV2.Types.Certificate
+import Amazonka.ELBV2.Types.Cipher
+import Amazonka.ELBV2.Types.FixedResponseActionConfig
+import Amazonka.ELBV2.Types.ForwardActionConfig
+import Amazonka.ELBV2.Types.HostHeaderConditionConfig
+import Amazonka.ELBV2.Types.HttpHeaderConditionConfig
+import Amazonka.ELBV2.Types.HttpRequestMethodConditionConfig
+import Amazonka.ELBV2.Types.IpAddressType
+import Amazonka.ELBV2.Types.Limit
+import Amazonka.ELBV2.Types.Listener
+import Amazonka.ELBV2.Types.LoadBalancer
+import Amazonka.ELBV2.Types.LoadBalancerAddress
+import Amazonka.ELBV2.Types.LoadBalancerAttribute
+import Amazonka.ELBV2.Types.LoadBalancerSchemeEnum
+import Amazonka.ELBV2.Types.LoadBalancerState
+import Amazonka.ELBV2.Types.LoadBalancerStateEnum
+import Amazonka.ELBV2.Types.LoadBalancerTypeEnum
+import Amazonka.ELBV2.Types.Matcher
+import Amazonka.ELBV2.Types.PathPatternConditionConfig
+import Amazonka.ELBV2.Types.ProtocolEnum
+import Amazonka.ELBV2.Types.QueryStringConditionConfig
+import Amazonka.ELBV2.Types.QueryStringKeyValuePair
+import Amazonka.ELBV2.Types.RedirectActionConfig
+import Amazonka.ELBV2.Types.RedirectActionStatusCodeEnum
+import Amazonka.ELBV2.Types.Rule
+import Amazonka.ELBV2.Types.RuleCondition
+import Amazonka.ELBV2.Types.RulePriorityPair
+import Amazonka.ELBV2.Types.SourceIpConditionConfig
+import Amazonka.ELBV2.Types.SslPolicy
+import Amazonka.ELBV2.Types.SubnetMapping
+import Amazonka.ELBV2.Types.Tag
+import Amazonka.ELBV2.Types.TagDescription
+import Amazonka.ELBV2.Types.TargetDescription
+import Amazonka.ELBV2.Types.TargetGroup
+import Amazonka.ELBV2.Types.TargetGroupAttribute
+import Amazonka.ELBV2.Types.TargetGroupIpAddressTypeEnum
+import Amazonka.ELBV2.Types.TargetGroupStickinessConfig
+import Amazonka.ELBV2.Types.TargetGroupTuple
+import Amazonka.ELBV2.Types.TargetHealth
+import Amazonka.ELBV2.Types.TargetHealthDescription
+import Amazonka.ELBV2.Types.TargetHealthReasonEnum
+import Amazonka.ELBV2.Types.TargetHealthStateEnum
+import Amazonka.ELBV2.Types.TargetTypeEnum
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
 defaultService :: Core.Service

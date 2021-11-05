@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ELBV2.DeleteLoadBalancer
+-- Module      : Amazonka.ELBV2.DeleteLoadBalancer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- example, your EC2 instances continue to run and are still registered to
 -- their target groups. If you no longer need these EC2 instances, you can
 -- stop or terminate them.
-module Network.AWS.ELBV2.DeleteLoadBalancer
+module Amazonka.ELBV2.DeleteLoadBalancer
   ( -- * Creating a Request
     DeleteLoadBalancer (..),
     newDeleteLoadBalancer,
@@ -49,12 +49,12 @@ module Network.AWS.ELBV2.DeleteLoadBalancer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ELBV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ELBV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLoadBalancer' smart constructor.
 data DeleteLoadBalancer = DeleteLoadBalancer'

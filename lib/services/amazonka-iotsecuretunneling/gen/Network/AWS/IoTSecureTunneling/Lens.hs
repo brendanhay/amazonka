@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSecureTunneling.Lens
+-- Module      : Amazonka.IoTSecureTunneling.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSecureTunneling.Lens
+module Amazonka.IoTSecureTunneling.Lens
   ( -- * Operations
 
     -- ** ListTagsForResource
@@ -98,16 +98,16 @@ module Network.AWS.IoTSecureTunneling.Lens
   )
 where
 
-import Network.AWS.IoTSecureTunneling.CloseTunnel
-import Network.AWS.IoTSecureTunneling.DescribeTunnel
-import Network.AWS.IoTSecureTunneling.ListTagsForResource
-import Network.AWS.IoTSecureTunneling.ListTunnels
-import Network.AWS.IoTSecureTunneling.OpenTunnel
-import Network.AWS.IoTSecureTunneling.TagResource
-import Network.AWS.IoTSecureTunneling.Types.ConnectionState
-import Network.AWS.IoTSecureTunneling.Types.DestinationConfig
-import Network.AWS.IoTSecureTunneling.Types.Tag
-import Network.AWS.IoTSecureTunneling.Types.TimeoutConfig
-import Network.AWS.IoTSecureTunneling.Types.Tunnel
-import Network.AWS.IoTSecureTunneling.Types.TunnelSummary
-import Network.AWS.IoTSecureTunneling.UntagResource
+import Amazonka.IoTSecureTunneling.CloseTunnel
+import Amazonka.IoTSecureTunneling.DescribeTunnel
+import Amazonka.IoTSecureTunneling.ListTagsForResource
+import Amazonka.IoTSecureTunneling.ListTunnels
+import Amazonka.IoTSecureTunneling.OpenTunnel
+import Amazonka.IoTSecureTunneling.TagResource
+import Amazonka.IoTSecureTunneling.Types.ConnectionState
+import Amazonka.IoTSecureTunneling.Types.DestinationConfig
+import Amazonka.IoTSecureTunneling.Types.Tag
+import Amazonka.IoTSecureTunneling.Types.TimeoutConfig
+import Amazonka.IoTSecureTunneling.Types.Tunnel
+import Amazonka.IoTSecureTunneling.Types.TunnelSummary
+import Amazonka.IoTSecureTunneling.UntagResource

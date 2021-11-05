@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSecureTunneling.CloseTunnel
+-- Module      : Amazonka.IoTSecureTunneling.CloseTunnel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Closes a tunnel identified by the unique tunnel id. When a @CloseTunnel@
 -- request is received, we close the WebSocket connections between the
 -- client and proxy server so no data can be transmitted.
-module Network.AWS.IoTSecureTunneling.CloseTunnel
+module Amazonka.IoTSecureTunneling.CloseTunnel
   ( -- * Creating a Request
     CloseTunnel (..),
     newCloseTunnel,
@@ -41,12 +41,12 @@ module Network.AWS.IoTSecureTunneling.CloseTunnel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSecureTunneling.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSecureTunneling.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCloseTunnel' smart constructor.
 data CloseTunnel = CloseTunnel'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSecureTunneling.Types
+-- Module      : Amazonka.IoTSecureTunneling.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSecureTunneling.Types
+module Amazonka.IoTSecureTunneling.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -76,18 +76,18 @@ module Network.AWS.IoTSecureTunneling.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSecureTunneling.Types.ConnectionState
-import Network.AWS.IoTSecureTunneling.Types.ConnectionStatus
-import Network.AWS.IoTSecureTunneling.Types.DestinationConfig
-import Network.AWS.IoTSecureTunneling.Types.Tag
-import Network.AWS.IoTSecureTunneling.Types.TimeoutConfig
-import Network.AWS.IoTSecureTunneling.Types.Tunnel
-import Network.AWS.IoTSecureTunneling.Types.TunnelStatus
-import Network.AWS.IoTSecureTunneling.Types.TunnelSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSecureTunneling.Types.ConnectionState
+import Amazonka.IoTSecureTunneling.Types.ConnectionStatus
+import Amazonka.IoTSecureTunneling.Types.DestinationConfig
+import Amazonka.IoTSecureTunneling.Types.Tag
+import Amazonka.IoTSecureTunneling.Types.TimeoutConfig
+import Amazonka.IoTSecureTunneling.Types.Tunnel
+import Amazonka.IoTSecureTunneling.Types.TunnelStatus
+import Amazonka.IoTSecureTunneling.Types.TunnelSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-10-05@ of the Amazon IoT Secure Tunneling SDK configuration.
 defaultService :: Core.Service

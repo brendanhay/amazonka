@@ -7,16 +7,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTSecureTunneling.Waiters
+-- Module      : Amazonka.IoTSecureTunneling.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTSecureTunneling.Waiters where
+module Amazonka.IoTSecureTunneling.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTSecureTunneling.Lens
-import Network.AWS.IoTSecureTunneling.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSecureTunneling.Lens
+import Amazonka.IoTSecureTunneling.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude

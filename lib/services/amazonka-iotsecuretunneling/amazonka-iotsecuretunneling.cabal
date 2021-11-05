@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTSecureTunneling.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTSecureTunneling.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTSecureTunneling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTSecureTunneling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,27 +45,27 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTSecureTunneling
-    Network.AWS.IoTSecureTunneling.CloseTunnel
-    Network.AWS.IoTSecureTunneling.DescribeTunnel
-    Network.AWS.IoTSecureTunneling.Lens
-    Network.AWS.IoTSecureTunneling.ListTagsForResource
-    Network.AWS.IoTSecureTunneling.ListTunnels
-    Network.AWS.IoTSecureTunneling.OpenTunnel
-    Network.AWS.IoTSecureTunneling.TagResource
-    Network.AWS.IoTSecureTunneling.Types
-    Network.AWS.IoTSecureTunneling.Types.ConnectionState
-    Network.AWS.IoTSecureTunneling.Types.ConnectionStatus
-    Network.AWS.IoTSecureTunneling.Types.DestinationConfig
-    Network.AWS.IoTSecureTunneling.Types.Tag
-    Network.AWS.IoTSecureTunneling.Types.TimeoutConfig
-    Network.AWS.IoTSecureTunneling.Types.Tunnel
-    Network.AWS.IoTSecureTunneling.Types.TunnelStatus
-    Network.AWS.IoTSecureTunneling.Types.TunnelSummary
-    Network.AWS.IoTSecureTunneling.UntagResource
-    Network.AWS.IoTSecureTunneling.Waiters
+    Amazonka.IoTSecureTunneling
+    Amazonka.IoTSecureTunneling.CloseTunnel
+    Amazonka.IoTSecureTunneling.DescribeTunnel
+    Amazonka.IoTSecureTunneling.Lens
+    Amazonka.IoTSecureTunneling.ListTagsForResource
+    Amazonka.IoTSecureTunneling.ListTunnels
+    Amazonka.IoTSecureTunneling.OpenTunnel
+    Amazonka.IoTSecureTunneling.TagResource
+    Amazonka.IoTSecureTunneling.Types
+    Amazonka.IoTSecureTunneling.Types.ConnectionState
+    Amazonka.IoTSecureTunneling.Types.ConnectionStatus
+    Amazonka.IoTSecureTunneling.Types.DestinationConfig
+    Amazonka.IoTSecureTunneling.Types.Tag
+    Amazonka.IoTSecureTunneling.Types.TimeoutConfig
+    Amazonka.IoTSecureTunneling.Types.Tunnel
+    Amazonka.IoTSecureTunneling.Types.TunnelStatus
+    Amazonka.IoTSecureTunneling.Types.TunnelSummary
+    Amazonka.IoTSecureTunneling.UntagResource
+    Amazonka.IoTSecureTunneling.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

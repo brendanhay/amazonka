@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTSecureTunneling
+-- Module      : Amazonka.IoTSecureTunneling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 --
 -- For more information about how AWS IoT Secure Tunneling works, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html AWS IoT Secure Tunneling>.
-module Network.AWS.IoTSecureTunneling
+module Amazonka.IoTSecureTunneling
   ( -- * Service Configuration
     defaultService,
 
@@ -113,16 +113,16 @@ module Network.AWS.IoTSecureTunneling
   )
 where
 
-import Network.AWS.IoTSecureTunneling.CloseTunnel
-import Network.AWS.IoTSecureTunneling.DescribeTunnel
-import Network.AWS.IoTSecureTunneling.Lens
-import Network.AWS.IoTSecureTunneling.ListTagsForResource
-import Network.AWS.IoTSecureTunneling.ListTunnels
-import Network.AWS.IoTSecureTunneling.OpenTunnel
-import Network.AWS.IoTSecureTunneling.TagResource
-import Network.AWS.IoTSecureTunneling.Types
-import Network.AWS.IoTSecureTunneling.UntagResource
-import Network.AWS.IoTSecureTunneling.Waiters
+import Amazonka.IoTSecureTunneling.CloseTunnel
+import Amazonka.IoTSecureTunneling.DescribeTunnel
+import Amazonka.IoTSecureTunneling.Lens
+import Amazonka.IoTSecureTunneling.ListTagsForResource
+import Amazonka.IoTSecureTunneling.ListTunnels
+import Amazonka.IoTSecureTunneling.OpenTunnel
+import Amazonka.IoTSecureTunneling.TagResource
+import Amazonka.IoTSecureTunneling.Types
+import Amazonka.IoTSecureTunneling.UntagResource
+import Amazonka.IoTSecureTunneling.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

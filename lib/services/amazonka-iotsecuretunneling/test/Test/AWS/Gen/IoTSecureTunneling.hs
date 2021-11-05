@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTSecureTunneling where
 
+import Amazonka.IoTSecureTunneling
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoTSecureTunneling
 import Test.AWS.Fixture
 import Test.AWS.IoTSecureTunneling.Internal
 import Test.AWS.Prelude

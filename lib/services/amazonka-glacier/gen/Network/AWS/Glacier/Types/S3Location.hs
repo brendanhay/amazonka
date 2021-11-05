@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glacier.Types.S3Location
+-- Module      : Amazonka.Glacier.Types.S3Location
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.S3Location where
+module Amazonka.Glacier.Types.S3Location where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glacier.Types.CannedACL
-import Network.AWS.Glacier.Types.Encryption
-import Network.AWS.Glacier.Types.Grant
-import Network.AWS.Glacier.Types.StorageClass
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glacier.Types.CannedACL
+import Amazonka.Glacier.Types.Encryption
+import Amazonka.Glacier.Types.Grant
+import Amazonka.Glacier.Types.StorageClass
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the location in Amazon S3 where the select
 -- job results are stored.

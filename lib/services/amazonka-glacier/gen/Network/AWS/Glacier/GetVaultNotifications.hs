@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glacier.GetVaultNotifications
+-- Module      : Amazonka.Glacier.GetVaultNotifications
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- and
 -- <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
-module Network.AWS.Glacier.GetVaultNotifications
+module Amazonka.Glacier.GetVaultNotifications
   ( -- * Creating a Request
     GetVaultNotifications (..),
     newGetVaultNotifications,
@@ -59,12 +59,12 @@ module Network.AWS.Glacier.GetVaultNotifications
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glacier.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glacier.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Provides options for retrieving the notification configuration set on an
 -- Amazon Glacier vault.

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Glacier where
 
+import Amazonka.Glacier
 import qualified Data.Proxy as Proxy
-import Network.AWS.Glacier
 import Test.AWS.Fixture
 import Test.AWS.Glacier.Internal
 import Test.AWS.Prelude

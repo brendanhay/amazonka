@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glacier.Types
+-- Module      : Amazonka.Glacier.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types
+module Amazonka.Glacier.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -256,44 +256,44 @@ module Network.AWS.Glacier.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glacier.Types.ActionCode
-import Network.AWS.Glacier.Types.ArchiveCreationOutput
-import Network.AWS.Glacier.Types.CSVInput
-import Network.AWS.Glacier.Types.CSVOutput
-import Network.AWS.Glacier.Types.CannedACL
-import Network.AWS.Glacier.Types.DataRetrievalPolicy
-import Network.AWS.Glacier.Types.DataRetrievalRule
-import Network.AWS.Glacier.Types.DescribeVaultOutput
-import Network.AWS.Glacier.Types.Encryption
-import Network.AWS.Glacier.Types.EncryptionType
-import Network.AWS.Glacier.Types.ExpressionType
-import Network.AWS.Glacier.Types.FileHeaderInfo
-import Network.AWS.Glacier.Types.GlacierJobDescription
-import Network.AWS.Glacier.Types.Grant
-import Network.AWS.Glacier.Types.Grantee
-import Network.AWS.Glacier.Types.InputSerialization
-import Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
-import Network.AWS.Glacier.Types.InventoryRetrievalJobInput
-import Network.AWS.Glacier.Types.JobParameters
-import Network.AWS.Glacier.Types.OutputLocation
-import Network.AWS.Glacier.Types.OutputSerialization
-import Network.AWS.Glacier.Types.PartListElement
-import Network.AWS.Glacier.Types.Permission
-import Network.AWS.Glacier.Types.ProvisionedCapacityDescription
-import Network.AWS.Glacier.Types.QuoteFields
-import Network.AWS.Glacier.Types.S3Location
-import Network.AWS.Glacier.Types.SelectParameters
-import Network.AWS.Glacier.Types.StatusCode
-import Network.AWS.Glacier.Types.StorageClass
-import Network.AWS.Glacier.Types.Type
-import Network.AWS.Glacier.Types.UploadListElement
-import Network.AWS.Glacier.Types.VaultAccessPolicy
-import Network.AWS.Glacier.Types.VaultLockPolicy
-import Network.AWS.Glacier.Types.VaultNotificationConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Glacier.Types.ActionCode
+import Amazonka.Glacier.Types.ArchiveCreationOutput
+import Amazonka.Glacier.Types.CSVInput
+import Amazonka.Glacier.Types.CSVOutput
+import Amazonka.Glacier.Types.CannedACL
+import Amazonka.Glacier.Types.DataRetrievalPolicy
+import Amazonka.Glacier.Types.DataRetrievalRule
+import Amazonka.Glacier.Types.DescribeVaultOutput
+import Amazonka.Glacier.Types.Encryption
+import Amazonka.Glacier.Types.EncryptionType
+import Amazonka.Glacier.Types.ExpressionType
+import Amazonka.Glacier.Types.FileHeaderInfo
+import Amazonka.Glacier.Types.GlacierJobDescription
+import Amazonka.Glacier.Types.Grant
+import Amazonka.Glacier.Types.Grantee
+import Amazonka.Glacier.Types.InputSerialization
+import Amazonka.Glacier.Types.InventoryRetrievalJobDescription
+import Amazonka.Glacier.Types.InventoryRetrievalJobInput
+import Amazonka.Glacier.Types.JobParameters
+import Amazonka.Glacier.Types.OutputLocation
+import Amazonka.Glacier.Types.OutputSerialization
+import Amazonka.Glacier.Types.PartListElement
+import Amazonka.Glacier.Types.Permission
+import Amazonka.Glacier.Types.ProvisionedCapacityDescription
+import Amazonka.Glacier.Types.QuoteFields
+import Amazonka.Glacier.Types.S3Location
+import Amazonka.Glacier.Types.SelectParameters
+import Amazonka.Glacier.Types.StatusCode
+import Amazonka.Glacier.Types.StorageClass
+import Amazonka.Glacier.Types.Type
+import Amazonka.Glacier.Types.UploadListElement
+import Amazonka.Glacier.Types.VaultAccessPolicy
+import Amazonka.Glacier.Types.VaultLockPolicy
+import Amazonka.Glacier.Types.VaultNotificationConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-06-01@ of the Amazon Glacier SDK configuration.
 defaultService :: Core.Service

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glacier.GetVaultLock
+-- Module      : Amazonka.Glacier.GetVaultLock
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- If there is no vault lock policy set on the vault, the operation returns
 -- a @404 Not found@ error. For more information about vault lock policies,
 -- <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
-module Network.AWS.Glacier.GetVaultLock
+module Amazonka.Glacier.GetVaultLock
   ( -- * Creating a Request
     GetVaultLock (..),
     newGetVaultLock,
@@ -66,12 +66,12 @@ module Network.AWS.Glacier.GetVaultLock
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glacier.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glacier.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input values for @GetVaultLock@.
 --

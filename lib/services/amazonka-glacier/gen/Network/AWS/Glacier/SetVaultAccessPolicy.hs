@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glacier.SetVaultAccessPolicy
+-- Module      : Amazonka.Glacier.SetVaultAccessPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- You can set one access policy per vault and the policy can be up to 20
 -- KB in size. For more information about vault access policies, see
 -- <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
-module Network.AWS.Glacier.SetVaultAccessPolicy
+module Amazonka.Glacier.SetVaultAccessPolicy
   ( -- * Creating a Request
     SetVaultAccessPolicy (..),
     newSetVaultAccessPolicy,
@@ -43,12 +43,12 @@ module Network.AWS.Glacier.SetVaultAccessPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glacier.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glacier.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | SetVaultAccessPolicy input.
 --

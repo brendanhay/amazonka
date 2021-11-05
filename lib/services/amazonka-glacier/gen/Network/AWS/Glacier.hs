@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Glacier
+-- Module      : Amazonka.Glacier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --     - The Getting Started section walks you through the process of
 --     creating a vault, uploading archives, creating jobs to download
 --     archives, retrieving the job output, and deleting archives.
-module Network.AWS.Glacier
+module Amazonka.Glacier
   ( -- * Service Configuration
     defaultService,
 
@@ -415,42 +415,42 @@ module Network.AWS.Glacier
   )
 where
 
-import Network.AWS.Glacier.AbortMultipartUpload
-import Network.AWS.Glacier.AbortVaultLock
-import Network.AWS.Glacier.AddTagsToVault
-import Network.AWS.Glacier.CompleteMultipartUpload
-import Network.AWS.Glacier.CompleteVaultLock
-import Network.AWS.Glacier.CreateVault
-import Network.AWS.Glacier.DeleteArchive
-import Network.AWS.Glacier.DeleteVault
-import Network.AWS.Glacier.DeleteVaultAccessPolicy
-import Network.AWS.Glacier.DeleteVaultNotifications
-import Network.AWS.Glacier.DescribeJob
-import Network.AWS.Glacier.DescribeVault
-import Network.AWS.Glacier.GetDataRetrievalPolicy
-import Network.AWS.Glacier.GetJobOutput
-import Network.AWS.Glacier.GetVaultAccessPolicy
-import Network.AWS.Glacier.GetVaultLock
-import Network.AWS.Glacier.GetVaultNotifications
-import Network.AWS.Glacier.InitiateJob
-import Network.AWS.Glacier.InitiateMultipartUpload
-import Network.AWS.Glacier.InitiateVaultLock
-import Network.AWS.Glacier.Lens
-import Network.AWS.Glacier.ListJobs
-import Network.AWS.Glacier.ListMultipartUploads
-import Network.AWS.Glacier.ListParts
-import Network.AWS.Glacier.ListProvisionedCapacity
-import Network.AWS.Glacier.ListTagsForVault
-import Network.AWS.Glacier.ListVaults
-import Network.AWS.Glacier.PurchaseProvisionedCapacity
-import Network.AWS.Glacier.RemoveTagsFromVault
-import Network.AWS.Glacier.SetDataRetrievalPolicy
-import Network.AWS.Glacier.SetVaultAccessPolicy
-import Network.AWS.Glacier.SetVaultNotifications
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.UploadArchive
-import Network.AWS.Glacier.UploadMultipartPart
-import Network.AWS.Glacier.Waiters
+import Amazonka.Glacier.AbortMultipartUpload
+import Amazonka.Glacier.AbortVaultLock
+import Amazonka.Glacier.AddTagsToVault
+import Amazonka.Glacier.CompleteMultipartUpload
+import Amazonka.Glacier.CompleteVaultLock
+import Amazonka.Glacier.CreateVault
+import Amazonka.Glacier.DeleteArchive
+import Amazonka.Glacier.DeleteVault
+import Amazonka.Glacier.DeleteVaultAccessPolicy
+import Amazonka.Glacier.DeleteVaultNotifications
+import Amazonka.Glacier.DescribeJob
+import Amazonka.Glacier.DescribeVault
+import Amazonka.Glacier.GetDataRetrievalPolicy
+import Amazonka.Glacier.GetJobOutput
+import Amazonka.Glacier.GetVaultAccessPolicy
+import Amazonka.Glacier.GetVaultLock
+import Amazonka.Glacier.GetVaultNotifications
+import Amazonka.Glacier.InitiateJob
+import Amazonka.Glacier.InitiateMultipartUpload
+import Amazonka.Glacier.InitiateVaultLock
+import Amazonka.Glacier.Lens
+import Amazonka.Glacier.ListJobs
+import Amazonka.Glacier.ListMultipartUploads
+import Amazonka.Glacier.ListParts
+import Amazonka.Glacier.ListProvisionedCapacity
+import Amazonka.Glacier.ListTagsForVault
+import Amazonka.Glacier.ListVaults
+import Amazonka.Glacier.PurchaseProvisionedCapacity
+import Amazonka.Glacier.RemoveTagsFromVault
+import Amazonka.Glacier.SetDataRetrievalPolicy
+import Amazonka.Glacier.SetVaultAccessPolicy
+import Amazonka.Glacier.SetVaultNotifications
+import Amazonka.Glacier.Types
+import Amazonka.Glacier.UploadArchive
+import Amazonka.Glacier.UploadMultipartPart
+import Amazonka.Glacier.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

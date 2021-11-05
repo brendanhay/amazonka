@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Glacier.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Glacier.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Glacier" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Glacier" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,79 +45,79 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Glacier
-    Network.AWS.Glacier.AbortMultipartUpload
-    Network.AWS.Glacier.AbortVaultLock
-    Network.AWS.Glacier.AddTagsToVault
-    Network.AWS.Glacier.CompleteMultipartUpload
-    Network.AWS.Glacier.CompleteVaultLock
-    Network.AWS.Glacier.CreateVault
-    Network.AWS.Glacier.DeleteArchive
-    Network.AWS.Glacier.DeleteVault
-    Network.AWS.Glacier.DeleteVaultAccessPolicy
-    Network.AWS.Glacier.DeleteVaultNotifications
-    Network.AWS.Glacier.DescribeJob
-    Network.AWS.Glacier.DescribeVault
-    Network.AWS.Glacier.GetDataRetrievalPolicy
-    Network.AWS.Glacier.GetJobOutput
-    Network.AWS.Glacier.GetVaultAccessPolicy
-    Network.AWS.Glacier.GetVaultLock
-    Network.AWS.Glacier.GetVaultNotifications
-    Network.AWS.Glacier.InitiateJob
-    Network.AWS.Glacier.InitiateMultipartUpload
-    Network.AWS.Glacier.InitiateVaultLock
-    Network.AWS.Glacier.Lens
-    Network.AWS.Glacier.ListJobs
-    Network.AWS.Glacier.ListMultipartUploads
-    Network.AWS.Glacier.ListParts
-    Network.AWS.Glacier.ListProvisionedCapacity
-    Network.AWS.Glacier.ListTagsForVault
-    Network.AWS.Glacier.ListVaults
-    Network.AWS.Glacier.PurchaseProvisionedCapacity
-    Network.AWS.Glacier.RemoveTagsFromVault
-    Network.AWS.Glacier.SetDataRetrievalPolicy
-    Network.AWS.Glacier.SetVaultAccessPolicy
-    Network.AWS.Glacier.SetVaultNotifications
-    Network.AWS.Glacier.Types
-    Network.AWS.Glacier.Types.ActionCode
-    Network.AWS.Glacier.Types.ArchiveCreationOutput
-    Network.AWS.Glacier.Types.CannedACL
-    Network.AWS.Glacier.Types.CSVInput
-    Network.AWS.Glacier.Types.CSVOutput
-    Network.AWS.Glacier.Types.DataRetrievalPolicy
-    Network.AWS.Glacier.Types.DataRetrievalRule
-    Network.AWS.Glacier.Types.DescribeVaultOutput
-    Network.AWS.Glacier.Types.Encryption
-    Network.AWS.Glacier.Types.EncryptionType
-    Network.AWS.Glacier.Types.ExpressionType
-    Network.AWS.Glacier.Types.FileHeaderInfo
-    Network.AWS.Glacier.Types.GlacierJobDescription
-    Network.AWS.Glacier.Types.Grant
-    Network.AWS.Glacier.Types.Grantee
-    Network.AWS.Glacier.Types.InputSerialization
-    Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
-    Network.AWS.Glacier.Types.InventoryRetrievalJobInput
-    Network.AWS.Glacier.Types.JobParameters
-    Network.AWS.Glacier.Types.OutputLocation
-    Network.AWS.Glacier.Types.OutputSerialization
-    Network.AWS.Glacier.Types.PartListElement
-    Network.AWS.Glacier.Types.Permission
-    Network.AWS.Glacier.Types.ProvisionedCapacityDescription
-    Network.AWS.Glacier.Types.QuoteFields
-    Network.AWS.Glacier.Types.S3Location
-    Network.AWS.Glacier.Types.SelectParameters
-    Network.AWS.Glacier.Types.StatusCode
-    Network.AWS.Glacier.Types.StorageClass
-    Network.AWS.Glacier.Types.Type
-    Network.AWS.Glacier.Types.UploadListElement
-    Network.AWS.Glacier.Types.VaultAccessPolicy
-    Network.AWS.Glacier.Types.VaultLockPolicy
-    Network.AWS.Glacier.Types.VaultNotificationConfig
-    Network.AWS.Glacier.UploadArchive
-    Network.AWS.Glacier.UploadMultipartPart
-    Network.AWS.Glacier.Waiters
+    Amazonka.Glacier
+    Amazonka.Glacier.AbortMultipartUpload
+    Amazonka.Glacier.AbortVaultLock
+    Amazonka.Glacier.AddTagsToVault
+    Amazonka.Glacier.CompleteMultipartUpload
+    Amazonka.Glacier.CompleteVaultLock
+    Amazonka.Glacier.CreateVault
+    Amazonka.Glacier.DeleteArchive
+    Amazonka.Glacier.DeleteVault
+    Amazonka.Glacier.DeleteVaultAccessPolicy
+    Amazonka.Glacier.DeleteVaultNotifications
+    Amazonka.Glacier.DescribeJob
+    Amazonka.Glacier.DescribeVault
+    Amazonka.Glacier.GetDataRetrievalPolicy
+    Amazonka.Glacier.GetJobOutput
+    Amazonka.Glacier.GetVaultAccessPolicy
+    Amazonka.Glacier.GetVaultLock
+    Amazonka.Glacier.GetVaultNotifications
+    Amazonka.Glacier.InitiateJob
+    Amazonka.Glacier.InitiateMultipartUpload
+    Amazonka.Glacier.InitiateVaultLock
+    Amazonka.Glacier.Lens
+    Amazonka.Glacier.ListJobs
+    Amazonka.Glacier.ListMultipartUploads
+    Amazonka.Glacier.ListParts
+    Amazonka.Glacier.ListProvisionedCapacity
+    Amazonka.Glacier.ListTagsForVault
+    Amazonka.Glacier.ListVaults
+    Amazonka.Glacier.PurchaseProvisionedCapacity
+    Amazonka.Glacier.RemoveTagsFromVault
+    Amazonka.Glacier.SetDataRetrievalPolicy
+    Amazonka.Glacier.SetVaultAccessPolicy
+    Amazonka.Glacier.SetVaultNotifications
+    Amazonka.Glacier.Types
+    Amazonka.Glacier.Types.ActionCode
+    Amazonka.Glacier.Types.ArchiveCreationOutput
+    Amazonka.Glacier.Types.CannedACL
+    Amazonka.Glacier.Types.CSVInput
+    Amazonka.Glacier.Types.CSVOutput
+    Amazonka.Glacier.Types.DataRetrievalPolicy
+    Amazonka.Glacier.Types.DataRetrievalRule
+    Amazonka.Glacier.Types.DescribeVaultOutput
+    Amazonka.Glacier.Types.Encryption
+    Amazonka.Glacier.Types.EncryptionType
+    Amazonka.Glacier.Types.ExpressionType
+    Amazonka.Glacier.Types.FileHeaderInfo
+    Amazonka.Glacier.Types.GlacierJobDescription
+    Amazonka.Glacier.Types.Grant
+    Amazonka.Glacier.Types.Grantee
+    Amazonka.Glacier.Types.InputSerialization
+    Amazonka.Glacier.Types.InventoryRetrievalJobDescription
+    Amazonka.Glacier.Types.InventoryRetrievalJobInput
+    Amazonka.Glacier.Types.JobParameters
+    Amazonka.Glacier.Types.OutputLocation
+    Amazonka.Glacier.Types.OutputSerialization
+    Amazonka.Glacier.Types.PartListElement
+    Amazonka.Glacier.Types.Permission
+    Amazonka.Glacier.Types.ProvisionedCapacityDescription
+    Amazonka.Glacier.Types.QuoteFields
+    Amazonka.Glacier.Types.S3Location
+    Amazonka.Glacier.Types.SelectParameters
+    Amazonka.Glacier.Types.StatusCode
+    Amazonka.Glacier.Types.StorageClass
+    Amazonka.Glacier.Types.Type
+    Amazonka.Glacier.Types.UploadListElement
+    Amazonka.Glacier.Types.VaultAccessPolicy
+    Amazonka.Glacier.Types.VaultLockPolicy
+    Amazonka.Glacier.Types.VaultNotificationConfig
+    Amazonka.Glacier.UploadArchive
+    Amazonka.Glacier.UploadMultipartPart
+    Amazonka.Glacier.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

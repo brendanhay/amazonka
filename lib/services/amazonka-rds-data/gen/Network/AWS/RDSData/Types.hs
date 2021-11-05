@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDSData.Types
+-- Module      : Amazonka.RDSData.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDSData.Types
+module Amazonka.RDSData.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -87,18 +87,18 @@ module Network.AWS.RDSData.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDSData.Types.ArrayValue
-import Network.AWS.RDSData.Types.ColumnMetadata
-import Network.AWS.RDSData.Types.DecimalReturnType
-import Network.AWS.RDSData.Types.Field
-import Network.AWS.RDSData.Types.ResultSetOptions
-import Network.AWS.RDSData.Types.SqlParameter
-import Network.AWS.RDSData.Types.TypeHint
-import Network.AWS.RDSData.Types.UpdateResult
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDSData.Types.ArrayValue
+import Amazonka.RDSData.Types.ColumnMetadata
+import Amazonka.RDSData.Types.DecimalReturnType
+import Amazonka.RDSData.Types.Field
+import Amazonka.RDSData.Types.ResultSetOptions
+import Amazonka.RDSData.Types.SqlParameter
+import Amazonka.RDSData.Types.TypeHint
+import Amazonka.RDSData.Types.UpdateResult
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-08-01@ of the Amazon RDS DataService SDK configuration.
 defaultService :: Core.Service

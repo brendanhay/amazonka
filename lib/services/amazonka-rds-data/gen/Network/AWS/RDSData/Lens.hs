@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDSData.Lens
+-- Module      : Amazonka.RDSData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDSData.Lens
+module Amazonka.RDSData.Lens
   ( -- * Operations
 
     -- ** RollbackTransaction
@@ -111,14 +111,14 @@ module Network.AWS.RDSData.Lens
   )
 where
 
-import Network.AWS.RDSData.BatchExecuteStatement
-import Network.AWS.RDSData.BeginTransaction
-import Network.AWS.RDSData.CommitTransaction
-import Network.AWS.RDSData.ExecuteStatement
-import Network.AWS.RDSData.RollbackTransaction
-import Network.AWS.RDSData.Types.ArrayValue
-import Network.AWS.RDSData.Types.ColumnMetadata
-import Network.AWS.RDSData.Types.Field
-import Network.AWS.RDSData.Types.ResultSetOptions
-import Network.AWS.RDSData.Types.SqlParameter
-import Network.AWS.RDSData.Types.UpdateResult
+import Amazonka.RDSData.BatchExecuteStatement
+import Amazonka.RDSData.BeginTransaction
+import Amazonka.RDSData.CommitTransaction
+import Amazonka.RDSData.ExecuteStatement
+import Amazonka.RDSData.RollbackTransaction
+import Amazonka.RDSData.Types.ArrayValue
+import Amazonka.RDSData.Types.ColumnMetadata
+import Amazonka.RDSData.Types.Field
+import Amazonka.RDSData.Types.ResultSetOptions
+import Amazonka.RDSData.Types.SqlParameter
+import Amazonka.RDSData.Types.UpdateResult

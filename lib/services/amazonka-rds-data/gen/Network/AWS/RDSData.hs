@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.RDSData
+-- Module      : Amazonka.RDSData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- For more information about the Data Service API, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
 -- in the /Amazon Aurora User Guide/.
-module Network.AWS.RDSData
+module Amazonka.RDSData
   ( -- * Service Configuration
     defaultService,
 
@@ -115,14 +115,14 @@ module Network.AWS.RDSData
   )
 where
 
-import Network.AWS.RDSData.BatchExecuteStatement
-import Network.AWS.RDSData.BeginTransaction
-import Network.AWS.RDSData.CommitTransaction
-import Network.AWS.RDSData.ExecuteStatement
-import Network.AWS.RDSData.Lens
-import Network.AWS.RDSData.RollbackTransaction
-import Network.AWS.RDSData.Types
-import Network.AWS.RDSData.Waiters
+import Amazonka.RDSData.BatchExecuteStatement
+import Amazonka.RDSData.BeginTransaction
+import Amazonka.RDSData.CommitTransaction
+import Amazonka.RDSData.ExecuteStatement
+import Amazonka.RDSData.Lens
+import Amazonka.RDSData.RollbackTransaction
+import Amazonka.RDSData.Types
+import Amazonka.RDSData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

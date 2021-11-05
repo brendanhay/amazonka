@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RDSData.RollbackTransaction
+-- Module      : Amazonka.RDSData.RollbackTransaction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Performs a rollback of a transaction. Rolling back a transaction cancels
 -- its changes.
-module Network.AWS.RDSData.RollbackTransaction
+module Amazonka.RDSData.RollbackTransaction
   ( -- * Creating a Request
     RollbackTransaction (..),
     newRollbackTransaction,
@@ -42,12 +42,12 @@ module Network.AWS.RDSData.RollbackTransaction
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RDSData.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDSData.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request parameters represent the input of a request to perform a
 -- rollback of a transaction.

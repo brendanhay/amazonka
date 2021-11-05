@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RDSData where
 
+import Amazonka.RDSData
 import qualified Data.Proxy as Proxy
-import Network.AWS.RDSData
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.RDSData.Internal

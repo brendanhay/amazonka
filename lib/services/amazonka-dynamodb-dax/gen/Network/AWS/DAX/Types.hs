@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.Types
+-- Module      : Amazonka.DAX.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types
+module Amazonka.DAX.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -193,32 +193,32 @@ module Network.AWS.DAX.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types.ChangeType
-import Network.AWS.DAX.Types.Cluster
-import Network.AWS.DAX.Types.ClusterEndpointEncryptionType
-import Network.AWS.DAX.Types.Endpoint
-import Network.AWS.DAX.Types.Event
-import Network.AWS.DAX.Types.IsModifiable
-import Network.AWS.DAX.Types.Node
-import Network.AWS.DAX.Types.NodeTypeSpecificValue
-import Network.AWS.DAX.Types.NotificationConfiguration
-import Network.AWS.DAX.Types.Parameter
-import Network.AWS.DAX.Types.ParameterGroup
-import Network.AWS.DAX.Types.ParameterGroupStatus
-import Network.AWS.DAX.Types.ParameterNameValue
-import Network.AWS.DAX.Types.ParameterType
-import Network.AWS.DAX.Types.SSEDescription
-import Network.AWS.DAX.Types.SSESpecification
-import Network.AWS.DAX.Types.SSEStatus
-import Network.AWS.DAX.Types.SecurityGroupMembership
-import Network.AWS.DAX.Types.SourceType
-import Network.AWS.DAX.Types.Subnet
-import Network.AWS.DAX.Types.SubnetGroup
-import Network.AWS.DAX.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types.ChangeType
+import Amazonka.DAX.Types.Cluster
+import Amazonka.DAX.Types.ClusterEndpointEncryptionType
+import Amazonka.DAX.Types.Endpoint
+import Amazonka.DAX.Types.Event
+import Amazonka.DAX.Types.IsModifiable
+import Amazonka.DAX.Types.Node
+import Amazonka.DAX.Types.NodeTypeSpecificValue
+import Amazonka.DAX.Types.NotificationConfiguration
+import Amazonka.DAX.Types.Parameter
+import Amazonka.DAX.Types.ParameterGroup
+import Amazonka.DAX.Types.ParameterGroupStatus
+import Amazonka.DAX.Types.ParameterNameValue
+import Amazonka.DAX.Types.ParameterType
+import Amazonka.DAX.Types.SSEDescription
+import Amazonka.DAX.Types.SSESpecification
+import Amazonka.DAX.Types.SSEStatus
+import Amazonka.DAX.Types.SecurityGroupMembership
+import Amazonka.DAX.Types.SourceType
+import Amazonka.DAX.Types.Subnet
+import Amazonka.DAX.Types.SubnetGroup
+import Amazonka.DAX.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-04-19@ of the Amazon DynamoDB Accelerator (DAX) SDK configuration.
 defaultService :: Core.Service

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.Lens
+-- Module      : Amazonka.DAX.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Lens
+module Amazonka.DAX.Lens
   ( -- * Operations
 
     -- ** DescribeClusters
@@ -276,40 +276,40 @@ module Network.AWS.DAX.Lens
   )
 where
 
-import Network.AWS.DAX.CreateCluster
-import Network.AWS.DAX.CreateParameterGroup
-import Network.AWS.DAX.CreateSubnetGroup
-import Network.AWS.DAX.DecreaseReplicationFactor
-import Network.AWS.DAX.DeleteCluster
-import Network.AWS.DAX.DeleteParameterGroup
-import Network.AWS.DAX.DeleteSubnetGroup
-import Network.AWS.DAX.DescribeClusters
-import Network.AWS.DAX.DescribeDefaultParameters
-import Network.AWS.DAX.DescribeEvents
-import Network.AWS.DAX.DescribeParameterGroups
-import Network.AWS.DAX.DescribeParameters
-import Network.AWS.DAX.DescribeSubnetGroups
-import Network.AWS.DAX.IncreaseReplicationFactor
-import Network.AWS.DAX.ListTags
-import Network.AWS.DAX.RebootNode
-import Network.AWS.DAX.TagResource
-import Network.AWS.DAX.Types.Cluster
-import Network.AWS.DAX.Types.Endpoint
-import Network.AWS.DAX.Types.Event
-import Network.AWS.DAX.Types.Node
-import Network.AWS.DAX.Types.NodeTypeSpecificValue
-import Network.AWS.DAX.Types.NotificationConfiguration
-import Network.AWS.DAX.Types.Parameter
-import Network.AWS.DAX.Types.ParameterGroup
-import Network.AWS.DAX.Types.ParameterGroupStatus
-import Network.AWS.DAX.Types.ParameterNameValue
-import Network.AWS.DAX.Types.SSEDescription
-import Network.AWS.DAX.Types.SSESpecification
-import Network.AWS.DAX.Types.SecurityGroupMembership
-import Network.AWS.DAX.Types.Subnet
-import Network.AWS.DAX.Types.SubnetGroup
-import Network.AWS.DAX.Types.Tag
-import Network.AWS.DAX.UntagResource
-import Network.AWS.DAX.UpdateCluster
-import Network.AWS.DAX.UpdateParameterGroup
-import Network.AWS.DAX.UpdateSubnetGroup
+import Amazonka.DAX.CreateCluster
+import Amazonka.DAX.CreateParameterGroup
+import Amazonka.DAX.CreateSubnetGroup
+import Amazonka.DAX.DecreaseReplicationFactor
+import Amazonka.DAX.DeleteCluster
+import Amazonka.DAX.DeleteParameterGroup
+import Amazonka.DAX.DeleteSubnetGroup
+import Amazonka.DAX.DescribeClusters
+import Amazonka.DAX.DescribeDefaultParameters
+import Amazonka.DAX.DescribeEvents
+import Amazonka.DAX.DescribeParameterGroups
+import Amazonka.DAX.DescribeParameters
+import Amazonka.DAX.DescribeSubnetGroups
+import Amazonka.DAX.IncreaseReplicationFactor
+import Amazonka.DAX.ListTags
+import Amazonka.DAX.RebootNode
+import Amazonka.DAX.TagResource
+import Amazonka.DAX.Types.Cluster
+import Amazonka.DAX.Types.Endpoint
+import Amazonka.DAX.Types.Event
+import Amazonka.DAX.Types.Node
+import Amazonka.DAX.Types.NodeTypeSpecificValue
+import Amazonka.DAX.Types.NotificationConfiguration
+import Amazonka.DAX.Types.Parameter
+import Amazonka.DAX.Types.ParameterGroup
+import Amazonka.DAX.Types.ParameterGroupStatus
+import Amazonka.DAX.Types.ParameterNameValue
+import Amazonka.DAX.Types.SSEDescription
+import Amazonka.DAX.Types.SSESpecification
+import Amazonka.DAX.Types.SecurityGroupMembership
+import Amazonka.DAX.Types.Subnet
+import Amazonka.DAX.Types.SubnetGroup
+import Amazonka.DAX.Types.Tag
+import Amazonka.DAX.UntagResource
+import Amazonka.DAX.UpdateCluster
+import Amazonka.DAX.UpdateParameterGroup
+import Amazonka.DAX.UpdateSubnetGroup

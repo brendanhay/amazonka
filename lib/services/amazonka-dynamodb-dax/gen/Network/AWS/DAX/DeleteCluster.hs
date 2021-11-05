@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.DeleteCluster
+-- Module      : Amazonka.DAX.DeleteCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- all associated nodes, node endpoints and the DAX cluster itself. When
 -- you receive a successful response from this action, DAX immediately
 -- begins deleting the cluster; you cannot cancel or revert this action.
-module Network.AWS.DAX.DeleteCluster
+module Amazonka.DAX.DeleteCluster
   ( -- * Creating a Request
     DeleteCluster (..),
     newDeleteCluster,
@@ -42,12 +42,12 @@ module Network.AWS.DAX.DeleteCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'

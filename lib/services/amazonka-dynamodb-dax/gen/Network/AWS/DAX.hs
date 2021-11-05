@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DAX
+-- Module      : Amazonka.DAX
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- AWS Management Console. With a few simple modifications to your code,
 -- your application can begin taking advantage of the DAX cluster and
 -- realize significant improvements in read performance.
-module Network.AWS.DAX
+module Amazonka.DAX
   ( -- * Service Configuration
     defaultService,
 
@@ -324,30 +324,30 @@ module Network.AWS.DAX
   )
 where
 
-import Network.AWS.DAX.CreateCluster
-import Network.AWS.DAX.CreateParameterGroup
-import Network.AWS.DAX.CreateSubnetGroup
-import Network.AWS.DAX.DecreaseReplicationFactor
-import Network.AWS.DAX.DeleteCluster
-import Network.AWS.DAX.DeleteParameterGroup
-import Network.AWS.DAX.DeleteSubnetGroup
-import Network.AWS.DAX.DescribeClusters
-import Network.AWS.DAX.DescribeDefaultParameters
-import Network.AWS.DAX.DescribeEvents
-import Network.AWS.DAX.DescribeParameterGroups
-import Network.AWS.DAX.DescribeParameters
-import Network.AWS.DAX.DescribeSubnetGroups
-import Network.AWS.DAX.IncreaseReplicationFactor
-import Network.AWS.DAX.Lens
-import Network.AWS.DAX.ListTags
-import Network.AWS.DAX.RebootNode
-import Network.AWS.DAX.TagResource
-import Network.AWS.DAX.Types
-import Network.AWS.DAX.UntagResource
-import Network.AWS.DAX.UpdateCluster
-import Network.AWS.DAX.UpdateParameterGroup
-import Network.AWS.DAX.UpdateSubnetGroup
-import Network.AWS.DAX.Waiters
+import Amazonka.DAX.CreateCluster
+import Amazonka.DAX.CreateParameterGroup
+import Amazonka.DAX.CreateSubnetGroup
+import Amazonka.DAX.DecreaseReplicationFactor
+import Amazonka.DAX.DeleteCluster
+import Amazonka.DAX.DeleteParameterGroup
+import Amazonka.DAX.DeleteSubnetGroup
+import Amazonka.DAX.DescribeClusters
+import Amazonka.DAX.DescribeDefaultParameters
+import Amazonka.DAX.DescribeEvents
+import Amazonka.DAX.DescribeParameterGroups
+import Amazonka.DAX.DescribeParameters
+import Amazonka.DAX.DescribeSubnetGroups
+import Amazonka.DAX.IncreaseReplicationFactor
+import Amazonka.DAX.Lens
+import Amazonka.DAX.ListTags
+import Amazonka.DAX.RebootNode
+import Amazonka.DAX.TagResource
+import Amazonka.DAX.Types
+import Amazonka.DAX.UntagResource
+import Amazonka.DAX.UpdateCluster
+import Amazonka.DAX.UpdateParameterGroup
+import Amazonka.DAX.UpdateSubnetGroup
+import Amazonka.DAX.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

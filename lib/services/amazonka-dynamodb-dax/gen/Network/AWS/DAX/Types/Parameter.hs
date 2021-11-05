@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.Types.Parameter
+-- Module      : Amazonka.DAX.Types.Parameter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Parameter where
+module Amazonka.DAX.Types.Parameter where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types.ChangeType
-import Network.AWS.DAX.Types.IsModifiable
-import Network.AWS.DAX.Types.NodeTypeSpecificValue
-import Network.AWS.DAX.Types.ParameterType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types.ChangeType
+import Amazonka.DAX.Types.IsModifiable
+import Amazonka.DAX.Types.NodeTypeSpecificValue
+import Amazonka.DAX.Types.ParameterType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of DAX
 -- behavior.

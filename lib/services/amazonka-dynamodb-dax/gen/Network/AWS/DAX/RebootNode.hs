@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.RebootNode
+-- Module      : Amazonka.DAX.RebootNode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- @RebootNode@ restarts the DAX engine process and does not remove the
 -- contents of the cache.
-module Network.AWS.DAX.RebootNode
+module Amazonka.DAX.RebootNode
   ( -- * Creating a Request
     RebootNode (..),
     newRebootNode,
@@ -45,12 +45,12 @@ module Network.AWS.DAX.RebootNode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRebootNode' smart constructor.
 data RebootNode = RebootNode'

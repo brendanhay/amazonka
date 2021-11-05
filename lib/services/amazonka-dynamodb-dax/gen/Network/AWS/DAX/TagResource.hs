@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.TagResource
+-- Module      : Amazonka.DAX.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Associates a set of tags with a DAX resource. You can call @TagResource@
 -- up to 5 times per second, per account.
-module Network.AWS.DAX.TagResource
+module Amazonka.DAX.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -41,12 +41,12 @@ module Network.AWS.DAX.TagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

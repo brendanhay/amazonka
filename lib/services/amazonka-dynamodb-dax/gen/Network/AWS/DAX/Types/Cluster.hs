@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DAX.Types.Cluster
+-- Module      : Amazonka.DAX.Types.Cluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Cluster where
+module Amazonka.DAX.Types.Cluster where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DAX.Types.ClusterEndpointEncryptionType
-import Network.AWS.DAX.Types.Endpoint
-import Network.AWS.DAX.Types.Node
-import Network.AWS.DAX.Types.NotificationConfiguration
-import Network.AWS.DAX.Types.ParameterGroupStatus
-import Network.AWS.DAX.Types.SSEDescription
-import Network.AWS.DAX.Types.SecurityGroupMembership
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DAX.Types.ClusterEndpointEncryptionType
+import Amazonka.DAX.Types.Endpoint
+import Amazonka.DAX.Types.Node
+import Amazonka.DAX.Types.NotificationConfiguration
+import Amazonka.DAX.Types.ParameterGroupStatus
+import Amazonka.DAX.Types.SSEDescription
+import Amazonka.DAX.Types.SecurityGroupMembership
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all of the attributes of a specific DAX cluster.
 --

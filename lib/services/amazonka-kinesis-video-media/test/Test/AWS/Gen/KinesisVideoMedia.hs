@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KinesisVideoMedia where
 
+import Amazonka.KinesisVideoMedia
 import qualified Data.Proxy as Proxy
-import Network.AWS.KinesisVideoMedia
 import Test.AWS.Fixture
 import Test.AWS.KinesisVideoMedia.Internal
 import Test.AWS.Prelude

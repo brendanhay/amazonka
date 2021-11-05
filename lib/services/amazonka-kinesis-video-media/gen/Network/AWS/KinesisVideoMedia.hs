@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KinesisVideoMedia
+-- Module      : Amazonka.KinesisVideoMedia
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Derived from API version @2017-09-30@ of the AWS service descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideoMedia
+module Amazonka.KinesisVideoMedia
   ( -- * Service Configuration
     defaultService,
 
@@ -58,10 +58,10 @@ module Network.AWS.KinesisVideoMedia
   )
 where
 
-import Network.AWS.KinesisVideoMedia.GetMedia
-import Network.AWS.KinesisVideoMedia.Lens
-import Network.AWS.KinesisVideoMedia.Types
-import Network.AWS.KinesisVideoMedia.Waiters
+import Amazonka.KinesisVideoMedia.GetMedia
+import Amazonka.KinesisVideoMedia.Lens
+import Amazonka.KinesisVideoMedia.Types
+import Amazonka.KinesisVideoMedia.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

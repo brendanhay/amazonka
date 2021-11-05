@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisVideoMedia.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KinesisVideoMedia.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KinesisVideoMedia" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KinesisVideoMedia" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,15 +45,15 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KinesisVideoMedia
-    Network.AWS.KinesisVideoMedia.GetMedia
-    Network.AWS.KinesisVideoMedia.Lens
-    Network.AWS.KinesisVideoMedia.Types
-    Network.AWS.KinesisVideoMedia.Types.StartSelector
-    Network.AWS.KinesisVideoMedia.Types.StartSelectorType
-    Network.AWS.KinesisVideoMedia.Waiters
+    Amazonka.KinesisVideoMedia
+    Amazonka.KinesisVideoMedia.GetMedia
+    Amazonka.KinesisVideoMedia.Lens
+    Amazonka.KinesisVideoMedia.Types
+    Amazonka.KinesisVideoMedia.Types.StartSelector
+    Amazonka.KinesisVideoMedia.Types.StartSelectorType
+    Amazonka.KinesisVideoMedia.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

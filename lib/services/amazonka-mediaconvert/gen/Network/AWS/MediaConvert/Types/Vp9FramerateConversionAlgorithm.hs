@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
+-- Module      : Amazonka.MediaConvert.Types.Vp9FramerateConversionAlgorithm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
+module Amazonka.MediaConvert.Types.Vp9FramerateConversionAlgorithm
   ( Vp9FramerateConversionAlgorithm
       ( ..,
         Vp9FramerateConversionAlgorithm_DUPLICATE_DROP,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate

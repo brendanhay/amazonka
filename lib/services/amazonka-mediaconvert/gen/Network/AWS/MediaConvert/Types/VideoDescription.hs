@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.VideoDescription
+-- Module      : Amazonka.MediaConvert.Types.VideoDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoDescription where
+module Amazonka.MediaConvert.Types.VideoDescription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AfdSignaling
-import Network.AWS.MediaConvert.Types.AntiAlias
-import Network.AWS.MediaConvert.Types.ColorMetadata
-import Network.AWS.MediaConvert.Types.DropFrameTimecode
-import Network.AWS.MediaConvert.Types.Rectangle
-import Network.AWS.MediaConvert.Types.RespondToAfd
-import Network.AWS.MediaConvert.Types.ScalingBehavior
-import Network.AWS.MediaConvert.Types.VideoCodecSettings
-import Network.AWS.MediaConvert.Types.VideoPreprocessor
-import Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AfdSignaling
+import Amazonka.MediaConvert.Types.AntiAlias
+import Amazonka.MediaConvert.Types.ColorMetadata
+import Amazonka.MediaConvert.Types.DropFrameTimecode
+import Amazonka.MediaConvert.Types.Rectangle
+import Amazonka.MediaConvert.Types.RespondToAfd
+import Amazonka.MediaConvert.Types.ScalingBehavior
+import Amazonka.MediaConvert.Types.VideoCodecSettings
+import Amazonka.MediaConvert.Types.VideoPreprocessor
+import Amazonka.MediaConvert.Types.VideoTimecodeInsertion
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to video encoding of your output. The specific video
 -- settings depend on the video codec that you choose. When you work

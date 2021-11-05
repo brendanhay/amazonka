@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.SpekeKeyProvider
+-- Module      : Amazonka.MediaConvert.Types.SpekeKeyProvider
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.SpekeKeyProvider where
+module Amazonka.MediaConvert.Types.SpekeKeyProvider where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these
 -- settings when doing DRM encryption with a SPEKE-compliant key provider.

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.JobPhase
+-- Module      : Amazonka.MediaConvert.Types.JobPhase
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.JobPhase
+module Amazonka.MediaConvert.Types.JobPhase
   ( JobPhase
       ( ..,
         JobPhase_PROBING,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.JobPhase
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | A job\'s phase can be PROBING, TRANSCODING OR UPLOADING
 newtype JobPhase = JobPhase'

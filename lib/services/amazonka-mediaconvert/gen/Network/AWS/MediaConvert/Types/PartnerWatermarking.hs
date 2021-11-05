@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.PartnerWatermarking
+-- Module      : Amazonka.MediaConvert.Types.PartnerWatermarking
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.PartnerWatermarking where
+module Amazonka.MediaConvert.Types.PartnerWatermarking where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.NexGuardFileMarkerSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include

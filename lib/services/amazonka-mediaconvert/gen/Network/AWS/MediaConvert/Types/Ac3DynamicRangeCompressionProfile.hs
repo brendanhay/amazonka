@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+-- Module      : Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+module Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
   ( Ac3DynamicRangeCompressionProfile
       ( ..,
         Ac3DynamicRangeCompressionProfile_FILM_STANDARD,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you want to add Dolby dynamic range compression (DRC) signaling to
 -- your output stream, we recommend that you use the mode-specific settings

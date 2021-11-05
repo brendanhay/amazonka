@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmfcSettings
+-- Module      : Amazonka.MediaConvert.Types.CmfcSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmfcSettings where
+module Amazonka.MediaConvert.Types.CmfcSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmfcAudioDuration
-import Network.AWS.MediaConvert.Types.CmfcAudioTrackType
-import Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
-import Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
-import Network.AWS.MediaConvert.Types.CmfcScte35Esam
-import Network.AWS.MediaConvert.Types.CmfcScte35Source
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CmfcAudioDuration
+import Amazonka.MediaConvert.Types.CmfcAudioTrackType
+import Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
+import Amazonka.MediaConvert.Types.CmfcIFrameOnlyManifest
+import Amazonka.MediaConvert.Types.CmfcScte35Esam
+import Amazonka.MediaConvert.Types.CmfcScte35Source
+import qualified Amazonka.Prelude as Prelude
 
 -- | These settings relate to the fragmented MP4 container for the segments
 -- in your CMAF outputs.

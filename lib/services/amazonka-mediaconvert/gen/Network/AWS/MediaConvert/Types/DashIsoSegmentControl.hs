@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+-- Module      : Amazonka.MediaConvert.Types.DashIsoSegmentControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+module Amazonka.MediaConvert.Types.DashIsoSegmentControl
   ( DashIsoSegmentControl
       ( ..,
         DashIsoSegmentControl_SEGMENTED_FILES,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.DashIsoSegmentControl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to SINGLE_FILE, a single output file is generated, which is
 -- internally segmented using the Fragment Length and Segment Length. When

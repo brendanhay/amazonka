@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+-- Module      : Amazonka.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+module Amazonka.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
   ( DashIsoPlaybackDeviceCompatibility
       ( ..,
         DashIsoPlaybackDeviceCompatibility_CENC_V1,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | This setting can improve the compatibility of your output with video
 -- players on obsolete devices. It applies only to DASH H.264 outputs with

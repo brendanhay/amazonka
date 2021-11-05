@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ProresSettings
+-- Module      : Amazonka.MediaConvert.Types.ProresSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ProresSettings where
+module Amazonka.MediaConvert.Types.ProresSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.ProresChromaSampling
-import Network.AWS.MediaConvert.Types.ProresCodecProfile
-import Network.AWS.MediaConvert.Types.ProresFramerateControl
-import Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.ProresInterlaceMode
-import Network.AWS.MediaConvert.Types.ProresParControl
-import Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode
-import Network.AWS.MediaConvert.Types.ProresSlowPal
-import Network.AWS.MediaConvert.Types.ProresTelecine
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.ProresChromaSampling
+import Amazonka.MediaConvert.Types.ProresCodecProfile
+import Amazonka.MediaConvert.Types.ProresFramerateControl
+import Amazonka.MediaConvert.Types.ProresFramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.ProresInterlaceMode
+import Amazonka.MediaConvert.Types.ProresParControl
+import Amazonka.MediaConvert.Types.ProresScanTypeConversionMode
+import Amazonka.MediaConvert.Types.ProresSlowPal
+import Amazonka.MediaConvert.Types.ProresTelecine
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value PRORES.

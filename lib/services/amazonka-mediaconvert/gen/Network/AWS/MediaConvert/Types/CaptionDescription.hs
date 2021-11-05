@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CaptionDescription
+-- Module      : Amazonka.MediaConvert.Types.CaptionDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionDescription where
+module Amazonka.MediaConvert.Types.CaptionDescription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CaptionDestinationSettings
-import Network.AWS.MediaConvert.Types.LanguageCode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CaptionDestinationSettings
+import Amazonka.MediaConvert.Types.LanguageCode
+import qualified Amazonka.Prelude as Prelude
 
 -- | This object holds groups of settings related to captions for one output.
 -- For each output that has captions, include one instance of

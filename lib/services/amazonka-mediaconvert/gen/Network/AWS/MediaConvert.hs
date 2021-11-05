@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaConvert
+-- Module      : Amazonka.MediaConvert
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-08-29@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS Elemental MediaConvert
-module Network.AWS.MediaConvert
+module Amazonka.MediaConvert
   ( -- * Service Configuration
     defaultService,
 
@@ -2000,37 +2000,37 @@ module Network.AWS.MediaConvert
   )
 where
 
-import Network.AWS.MediaConvert.AssociateCertificate
-import Network.AWS.MediaConvert.CancelJob
-import Network.AWS.MediaConvert.CreateJob
-import Network.AWS.MediaConvert.CreateJobTemplate
-import Network.AWS.MediaConvert.CreatePreset
-import Network.AWS.MediaConvert.CreateQueue
-import Network.AWS.MediaConvert.DeleteJobTemplate
-import Network.AWS.MediaConvert.DeletePolicy
-import Network.AWS.MediaConvert.DeletePreset
-import Network.AWS.MediaConvert.DeleteQueue
-import Network.AWS.MediaConvert.DescribeEndpoints
-import Network.AWS.MediaConvert.DisassociateCertificate
-import Network.AWS.MediaConvert.GetJob
-import Network.AWS.MediaConvert.GetJobTemplate
-import Network.AWS.MediaConvert.GetPolicy
-import Network.AWS.MediaConvert.GetPreset
-import Network.AWS.MediaConvert.GetQueue
-import Network.AWS.MediaConvert.Lens
-import Network.AWS.MediaConvert.ListJobTemplates
-import Network.AWS.MediaConvert.ListJobs
-import Network.AWS.MediaConvert.ListPresets
-import Network.AWS.MediaConvert.ListQueues
-import Network.AWS.MediaConvert.ListTagsForResource
-import Network.AWS.MediaConvert.PutPolicy
-import Network.AWS.MediaConvert.TagResource
-import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.UntagResource
-import Network.AWS.MediaConvert.UpdateJobTemplate
-import Network.AWS.MediaConvert.UpdatePreset
-import Network.AWS.MediaConvert.UpdateQueue
-import Network.AWS.MediaConvert.Waiters
+import Amazonka.MediaConvert.AssociateCertificate
+import Amazonka.MediaConvert.CancelJob
+import Amazonka.MediaConvert.CreateJob
+import Amazonka.MediaConvert.CreateJobTemplate
+import Amazonka.MediaConvert.CreatePreset
+import Amazonka.MediaConvert.CreateQueue
+import Amazonka.MediaConvert.DeleteJobTemplate
+import Amazonka.MediaConvert.DeletePolicy
+import Amazonka.MediaConvert.DeletePreset
+import Amazonka.MediaConvert.DeleteQueue
+import Amazonka.MediaConvert.DescribeEndpoints
+import Amazonka.MediaConvert.DisassociateCertificate
+import Amazonka.MediaConvert.GetJob
+import Amazonka.MediaConvert.GetJobTemplate
+import Amazonka.MediaConvert.GetPolicy
+import Amazonka.MediaConvert.GetPreset
+import Amazonka.MediaConvert.GetQueue
+import Amazonka.MediaConvert.Lens
+import Amazonka.MediaConvert.ListJobTemplates
+import Amazonka.MediaConvert.ListJobs
+import Amazonka.MediaConvert.ListPresets
+import Amazonka.MediaConvert.ListQueues
+import Amazonka.MediaConvert.ListTagsForResource
+import Amazonka.MediaConvert.PutPolicy
+import Amazonka.MediaConvert.TagResource
+import Amazonka.MediaConvert.Types
+import Amazonka.MediaConvert.UntagResource
+import Amazonka.MediaConvert.UpdateJobTemplate
+import Amazonka.MediaConvert.UpdatePreset
+import Amazonka.MediaConvert.UpdateQueue
+import Amazonka.MediaConvert.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.MovCslgAtom
+-- Module      : Amazonka.MediaConvert.Types.MovCslgAtom
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovCslgAtom
+module Amazonka.MediaConvert.Types.MovCslgAtom
   ( MovCslgAtom
       ( ..,
         MovCslgAtom_EXCLUDE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.MovCslgAtom
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When enabled, file composition times will start at zero, composition
 -- times in the \'ctts\' (composition time to sample) box for B-frames will

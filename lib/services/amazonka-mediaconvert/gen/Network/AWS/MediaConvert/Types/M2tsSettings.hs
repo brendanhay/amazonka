@@ -11,35 +11,35 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M2tsSettings
+-- Module      : Amazonka.MediaConvert.Types.M2tsSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsSettings where
+module Amazonka.MediaConvert.Types.M2tsSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DvbNitSettings
-import Network.AWS.MediaConvert.Types.DvbSdtSettings
-import Network.AWS.MediaConvert.Types.DvbTdtSettings
-import Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
-import Network.AWS.MediaConvert.Types.M2tsAudioDuration
-import Network.AWS.MediaConvert.Types.M2tsBufferModel
-import Network.AWS.MediaConvert.Types.M2tsDataPtsControl
-import Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
-import Network.AWS.MediaConvert.Types.M2tsEbpPlacement
-import Network.AWS.MediaConvert.Types.M2tsEsRateInPes
-import Network.AWS.MediaConvert.Types.M2tsForceTsVideoEbpOrder
-import Network.AWS.MediaConvert.Types.M2tsNielsenId3
-import Network.AWS.MediaConvert.Types.M2tsPcrControl
-import Network.AWS.MediaConvert.Types.M2tsRateMode
-import Network.AWS.MediaConvert.Types.M2tsScte35Esam
-import Network.AWS.MediaConvert.Types.M2tsScte35Source
-import Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
-import Network.AWS.MediaConvert.Types.M2tsSegmentationStyle
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DvbNitSettings
+import Amazonka.MediaConvert.Types.DvbSdtSettings
+import Amazonka.MediaConvert.Types.DvbTdtSettings
+import Amazonka.MediaConvert.Types.M2tsAudioBufferModel
+import Amazonka.MediaConvert.Types.M2tsAudioDuration
+import Amazonka.MediaConvert.Types.M2tsBufferModel
+import Amazonka.MediaConvert.Types.M2tsDataPtsControl
+import Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
+import Amazonka.MediaConvert.Types.M2tsEbpPlacement
+import Amazonka.MediaConvert.Types.M2tsEsRateInPes
+import Amazonka.MediaConvert.Types.M2tsForceTsVideoEbpOrder
+import Amazonka.MediaConvert.Types.M2tsNielsenId3
+import Amazonka.MediaConvert.Types.M2tsPcrControl
+import Amazonka.MediaConvert.Types.M2tsRateMode
+import Amazonka.MediaConvert.Types.M2tsScte35Esam
+import Amazonka.MediaConvert.Types.M2tsScte35Source
+import Amazonka.MediaConvert.Types.M2tsSegmentationMarkers
+import Amazonka.MediaConvert.Types.M2tsSegmentationStyle
+import qualified Amazonka.Prelude as Prelude
 
 -- | MPEG-2 TS container settings. These apply to outputs in a File output
 -- group when the output\'s container (ContainerType) is MPEG-2 Transport

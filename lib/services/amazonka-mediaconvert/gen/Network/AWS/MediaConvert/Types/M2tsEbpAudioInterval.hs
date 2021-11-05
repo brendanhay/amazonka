@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
+-- Module      : Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
+module Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
   ( M2tsEbpAudioInterval
       ( ..,
         M2tsEbpAudioInterval_VIDEO_AND_FIXED_INTERVALS,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added
 -- to partitions 3 and 4. The interval between these additional markers

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
+-- Module      : Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
+module Amazonka.MediaConvert.Types.AudioNormalizationPeakCalculation
   ( AudioNormalizationPeakCalculation
       ( ..,
         AudioNormalizationPeakCalculation_NONE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s
 -- audio track loudness.

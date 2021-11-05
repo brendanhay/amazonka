@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcSettings
+-- Module      : Amazonka.MediaConvert.Types.XavcSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcSettings where
+module Amazonka.MediaConvert.Types.XavcSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
-import Network.AWS.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
-import Network.AWS.MediaConvert.Types.Xavc4kProfileSettings
-import Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.XavcEntropyEncoding
-import Network.AWS.MediaConvert.Types.XavcFramerateControl
-import Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.XavcHdIntraCbgProfileSettings
-import Network.AWS.MediaConvert.Types.XavcHdProfileSettings
-import Network.AWS.MediaConvert.Types.XavcProfile
-import Network.AWS.MediaConvert.Types.XavcSlowPal
-import Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.XavcTemporalAdaptiveQuantization
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
+import Amazonka.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
+import Amazonka.MediaConvert.Types.Xavc4kProfileSettings
+import Amazonka.MediaConvert.Types.XavcAdaptiveQuantization
+import Amazonka.MediaConvert.Types.XavcEntropyEncoding
+import Amazonka.MediaConvert.Types.XavcFramerateControl
+import Amazonka.MediaConvert.Types.XavcFramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.XavcHdIntraCbgProfileSettings
+import Amazonka.MediaConvert.Types.XavcHdProfileSettings
+import Amazonka.MediaConvert.Types.XavcProfile
+import Amazonka.MediaConvert.Types.XavcSlowPal
+import Amazonka.MediaConvert.Types.XavcSpatialAdaptiveQuantization
+import Amazonka.MediaConvert.Types.XavcTemporalAdaptiveQuantization
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value XAVC.

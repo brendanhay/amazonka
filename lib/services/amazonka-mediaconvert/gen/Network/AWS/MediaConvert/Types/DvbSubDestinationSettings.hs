@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
+-- Module      : Amazonka.MediaConvert.Types.DvbSubDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbSubDestinationSettings where
+module Amazonka.MediaConvert.Types.DvbSubDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DvbSubSubtitleFallbackFont
-import Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
-import Network.AWS.MediaConvert.Types.DvbSubtitleApplyFontColor
-import Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
-import Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
-import Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
-import Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
-import Network.AWS.MediaConvert.Types.DvbSubtitleStylePassthrough
-import Network.AWS.MediaConvert.Types.DvbSubtitleTeletextSpacing
-import Network.AWS.MediaConvert.Types.DvbSubtitlingType
-import Network.AWS.MediaConvert.Types.DvbddsHandling
-import Network.AWS.MediaConvert.Types.FontScript
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DvbSubSubtitleFallbackFont
+import Amazonka.MediaConvert.Types.DvbSubtitleAlignment
+import Amazonka.MediaConvert.Types.DvbSubtitleApplyFontColor
+import Amazonka.MediaConvert.Types.DvbSubtitleBackgroundColor
+import Amazonka.MediaConvert.Types.DvbSubtitleFontColor
+import Amazonka.MediaConvert.Types.DvbSubtitleOutlineColor
+import Amazonka.MediaConvert.Types.DvbSubtitleShadowColor
+import Amazonka.MediaConvert.Types.DvbSubtitleStylePassthrough
+import Amazonka.MediaConvert.Types.DvbSubtitleTeletextSpacing
+import Amazonka.MediaConvert.Types.DvbSubtitlingType
+import Amazonka.MediaConvert.Types.DvbddsHandling
+import Amazonka.MediaConvert.Types.FontScript
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
 -- same output as your video. For more information, see

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AacSettings
+-- Module      : Amazonka.MediaConvert.Types.AacSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AacSettings where
+module Amazonka.MediaConvert.Types.AacSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
-import Network.AWS.MediaConvert.Types.AacCodecProfile
-import Network.AWS.MediaConvert.Types.AacCodingMode
-import Network.AWS.MediaConvert.Types.AacRateControlMode
-import Network.AWS.MediaConvert.Types.AacRawFormat
-import Network.AWS.MediaConvert.Types.AacSpecification
-import Network.AWS.MediaConvert.Types.AacVbrQuality
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
+import Amazonka.MediaConvert.Types.AacCodecProfile
+import Amazonka.MediaConvert.Types.AacCodingMode
+import Amazonka.MediaConvert.Types.AacRateControlMode
+import Amazonka.MediaConvert.Types.AacRawFormat
+import Amazonka.MediaConvert.Types.AacSpecification
+import Amazonka.MediaConvert.Types.AacVbrQuality
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value AAC. The service accepts one of two mutually exclusive

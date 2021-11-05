@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3PassthroughControl
+-- Module      : Amazonka.MediaConvert.Types.Eac3PassthroughControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3PassthroughControl
+module Amazonka.MediaConvert.Types.Eac3PassthroughControl
   ( Eac3PassthroughControl
       ( ..,
         Eac3PassthroughControl_NO_PASSTHROUGH,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.Eac3PassthroughControl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it
 -- is present on the input. this detection is dynamic over the life of the

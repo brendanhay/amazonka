@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ScalingBehavior
+-- Module      : Amazonka.MediaConvert.Types.ScalingBehavior
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ScalingBehavior
+module Amazonka.MediaConvert.Types.ScalingBehavior
   ( ScalingBehavior
       ( ..,
         ScalingBehavior_DEFAULT,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.ScalingBehavior
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify how the service handles outputs that have a different aspect
 -- ratio from the input aspect ratio. Choose Stretch to output

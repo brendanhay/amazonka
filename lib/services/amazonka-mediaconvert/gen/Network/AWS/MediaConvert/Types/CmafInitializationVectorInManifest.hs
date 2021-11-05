@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+-- Module      : Amazonka.MediaConvert.Types.CmafInitializationVectorInManifest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+module Amazonka.MediaConvert.Types.CmafInitializationVectorInManifest
   ( CmafInitializationVectorInManifest
       ( ..,
         CmafInitializationVectorInManifest_EXCLUDE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes
 -- the 128-bit encryption initialization vector in the HLS and DASH

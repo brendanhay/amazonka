@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.EsamSettings
+-- Module      : Amazonka.MediaConvert.Types.EsamSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.EsamSettings where
+module Amazonka.MediaConvert.Types.EsamSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
-import Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.EsamManifestConfirmConditionNotification
+import Amazonka.MediaConvert.Types.EsamSignalProcessingNotification
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad
 -- insertion, you can ignore these settings.

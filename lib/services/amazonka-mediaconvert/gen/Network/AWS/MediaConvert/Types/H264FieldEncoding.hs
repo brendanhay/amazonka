@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H264FieldEncoding
+-- Module      : Amazonka.MediaConvert.Types.H264FieldEncoding
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264FieldEncoding
+module Amazonka.MediaConvert.Types.H264FieldEncoding
   ( H264FieldEncoding
       ( ..,
         H264FieldEncoding_FORCE_FIELD,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.H264FieldEncoding
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The video encoding method for your MPEG-4 AVC output. Keep the default
 -- value, PAFF, to have MediaConvert use PAFF encoding for interlaced

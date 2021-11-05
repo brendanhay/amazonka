@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmfcScte35Source
+-- Module      : Amazonka.MediaConvert.Types.CmfcScte35Source
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmfcScte35Source
+module Amazonka.MediaConvert.Types.CmfcScte35Source
   ( CmfcScte35Source
       ( ..,
         CmfcScte35Source_NONE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.CmfcScte35Source
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video
 -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that

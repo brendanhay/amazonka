@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Job
+-- Module      : Amazonka.MediaConvert.Types.Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Job where
+module Amazonka.MediaConvert.Types.Job where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AccelerationSettings
-import Network.AWS.MediaConvert.Types.AccelerationStatus
-import Network.AWS.MediaConvert.Types.BillingTagsSource
-import Network.AWS.MediaConvert.Types.HopDestination
-import Network.AWS.MediaConvert.Types.JobMessages
-import Network.AWS.MediaConvert.Types.JobPhase
-import Network.AWS.MediaConvert.Types.JobSettings
-import Network.AWS.MediaConvert.Types.JobStatus
-import Network.AWS.MediaConvert.Types.OutputGroupDetail
-import Network.AWS.MediaConvert.Types.QueueTransition
-import Network.AWS.MediaConvert.Types.SimulateReservedQueue
-import Network.AWS.MediaConvert.Types.StatusUpdateInterval
-import Network.AWS.MediaConvert.Types.Timing
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AccelerationSettings
+import Amazonka.MediaConvert.Types.AccelerationStatus
+import Amazonka.MediaConvert.Types.BillingTagsSource
+import Amazonka.MediaConvert.Types.HopDestination
+import Amazonka.MediaConvert.Types.JobMessages
+import Amazonka.MediaConvert.Types.JobPhase
+import Amazonka.MediaConvert.Types.JobSettings
+import Amazonka.MediaConvert.Types.JobStatus
+import Amazonka.MediaConvert.Types.OutputGroupDetail
+import Amazonka.MediaConvert.Types.QueueTransition
+import Amazonka.MediaConvert.Types.SimulateReservedQueue
+import Amazonka.MediaConvert.Types.StatusUpdateInterval
+import Amazonka.MediaConvert.Types.Timing
+import qualified Amazonka.Prelude as Prelude
 
 -- | Each job converts an input file into an output file or files. For more
 -- information, see the User Guide at

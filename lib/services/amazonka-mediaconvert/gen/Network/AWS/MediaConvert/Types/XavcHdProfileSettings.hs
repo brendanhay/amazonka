@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcHdProfileSettings
+-- Module      : Amazonka.MediaConvert.Types.XavcHdProfileSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcHdProfileSettings where
+module Amazonka.MediaConvert.Types.XavcHdProfileSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.XavcFlickerAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.XavcGopBReference
-import Network.AWS.MediaConvert.Types.XavcHdProfileBitrateClass
-import Network.AWS.MediaConvert.Types.XavcHdProfileQualityTuningLevel
-import Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
-import Network.AWS.MediaConvert.Types.XavcInterlaceMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.XavcFlickerAdaptiveQuantization
+import Amazonka.MediaConvert.Types.XavcGopBReference
+import Amazonka.MediaConvert.Types.XavcHdProfileBitrateClass
+import Amazonka.MediaConvert.Types.XavcHdProfileQualityTuningLevel
+import Amazonka.MediaConvert.Types.XavcHdProfileTelecine
+import Amazonka.MediaConvert.Types.XavcInterlaceMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Profile) under
 -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.

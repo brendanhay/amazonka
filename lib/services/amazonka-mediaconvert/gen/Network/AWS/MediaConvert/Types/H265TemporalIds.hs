@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H265TemporalIds
+-- Module      : Amazonka.MediaConvert.Types.H265TemporalIds
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265TemporalIds
+module Amazonka.MediaConvert.Types.H265TemporalIds
   ( H265TemporalIds
       ( ..,
         H265TemporalIds_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.H265TemporalIds
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Enables temporal layer identifiers in the encoded bitstream. Up to 3
 -- layers are supported depending on GOP structure: I- and P-frames form

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Output
+-- Module      : Amazonka.MediaConvert.Types.Output
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Output where
+module Amazonka.MediaConvert.Types.Output where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioDescription
-import Network.AWS.MediaConvert.Types.CaptionDescription
-import Network.AWS.MediaConvert.Types.ContainerSettings
-import Network.AWS.MediaConvert.Types.OutputSettings
-import Network.AWS.MediaConvert.Types.VideoDescription
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AudioDescription
+import Amazonka.MediaConvert.Types.CaptionDescription
+import Amazonka.MediaConvert.Types.ContainerSettings
+import Amazonka.MediaConvert.Types.OutputSettings
+import Amazonka.MediaConvert.Types.VideoDescription
+import qualified Amazonka.Prelude as Prelude
 
 -- | Each output in your job is a collection of settings that describes how
 -- you want MediaConvert to encode a single output file or stream. For more

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
+-- Module      : Amazonka.MediaConvert.Types.XavcSpatialAdaptiveQuantization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
+module Amazonka.MediaConvert.Types.XavcSpatialAdaptiveQuantization
   ( XavcSpatialAdaptiveQuantization
       ( ..,
         XavcSpatialAdaptiveQuantization_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The best way to set up adaptive quantization is to keep the default
 -- value, Auto (AUTO), for the setting Adaptive quantization

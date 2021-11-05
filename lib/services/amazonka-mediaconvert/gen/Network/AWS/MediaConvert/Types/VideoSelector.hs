@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.VideoSelector
+-- Module      : Amazonka.MediaConvert.Types.VideoSelector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoSelector where
+module Amazonka.MediaConvert.Types.VideoSelector where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AlphaBehavior
-import Network.AWS.MediaConvert.Types.ColorSpace
-import Network.AWS.MediaConvert.Types.ColorSpaceUsage
-import Network.AWS.MediaConvert.Types.Hdr10Metadata
-import Network.AWS.MediaConvert.Types.InputRotate
-import Network.AWS.MediaConvert.Types.InputSampleRange
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AlphaBehavior
+import Amazonka.MediaConvert.Types.ColorSpace
+import Amazonka.MediaConvert.Types.ColorSpaceUsage
+import Amazonka.MediaConvert.Types.Hdr10Metadata
+import Amazonka.MediaConvert.Types.InputRotate
+import Amazonka.MediaConvert.Types.InputSampleRange
+import qualified Amazonka.Prelude as Prelude
 
 -- | Input video selectors contain the video settings for the input. Each of
 -- your inputs can have up to one video selector.

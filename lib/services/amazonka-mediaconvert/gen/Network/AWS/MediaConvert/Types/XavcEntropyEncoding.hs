@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcEntropyEncoding
+-- Module      : Amazonka.MediaConvert.Types.XavcEntropyEncoding
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcEntropyEncoding
+module Amazonka.MediaConvert.Types.XavcEntropyEncoding
   ( XavcEntropyEncoding
       ( ..,
         XavcEntropyEncoding_AUTO,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.XavcEntropyEncoding
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Optional. Choose a specific entropy encoding mode only when you want to
 -- override XAVC recommendations. If you choose the value auto,

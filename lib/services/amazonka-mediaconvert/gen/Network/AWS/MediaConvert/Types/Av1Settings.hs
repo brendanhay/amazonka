@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Av1Settings
+-- Module      : Amazonka.MediaConvert.Types.Av1Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Av1Settings where
+module Amazonka.MediaConvert.Types.Av1Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization
-import Network.AWS.MediaConvert.Types.Av1FramerateControl
-import Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.Av1QvbrSettings
-import Network.AWS.MediaConvert.Types.Av1RateControlMode
-import Network.AWS.MediaConvert.Types.Av1SpatialAdaptiveQuantization
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
+import Amazonka.MediaConvert.Types.Av1FramerateControl
+import Amazonka.MediaConvert.Types.Av1FramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.Av1QvbrSettings
+import Amazonka.MediaConvert.Types.Av1RateControlMode
+import Amazonka.MediaConvert.Types.Av1SpatialAdaptiveQuantization
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set Codec, under VideoDescription>CodecSettings to the
 -- value AV1.

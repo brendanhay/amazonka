@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+-- Module      : Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+module Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
   ( DashIsoWriteSegmentTimelineInRepresentation
       ( ..,
         DashIsoWriteSegmentTimelineInRepresentation_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentatio
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you enable Precise segment duration in manifests
 -- (writeSegmentTimelineInRepresentation), your DASH manifest shows precise

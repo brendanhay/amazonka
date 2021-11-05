@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
+-- Module      : Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
+module Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
   ( AudioNormalizationAlgorithmControl
       ( ..,
         AudioNormalizationAlgorithmControl_CORRECT_AUDIO,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When enabled the output audio is corrected using the chosen algorithm.
 -- If disabled, the audio will be measured but not adjusted.

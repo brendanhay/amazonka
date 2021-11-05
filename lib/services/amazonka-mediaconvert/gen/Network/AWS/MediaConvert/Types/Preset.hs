@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Preset
+-- Module      : Amazonka.MediaConvert.Types.Preset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Preset where
+module Amazonka.MediaConvert.Types.Preset where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.PresetSettings
-import Network.AWS.MediaConvert.Types.Type
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.PresetSettings
+import Amazonka.MediaConvert.Types.Type
+import qualified Amazonka.Prelude as Prelude
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion

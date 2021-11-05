@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ProresChromaSampling
+-- Module      : Amazonka.MediaConvert.Types.ProresChromaSampling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ProresChromaSampling
+module Amazonka.MediaConvert.Types.ProresChromaSampling
   ( ProresChromaSampling
       ( ..,
         ProresChromaSampling_PRESERVE_444_SAMPLING,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.ProresChromaSampling
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that
 -- you create from inputs that use 4:4:4 chroma sampling. Set Preserve

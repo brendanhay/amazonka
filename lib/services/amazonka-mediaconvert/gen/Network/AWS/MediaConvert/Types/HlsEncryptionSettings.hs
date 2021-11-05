@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsEncryptionSettings
+-- Module      : Amazonka.MediaConvert.Types.HlsEncryptionSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsEncryptionSettings where
+module Amazonka.MediaConvert.Types.HlsEncryptionSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.HlsEncryptionType
-import Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
-import Network.AWS.MediaConvert.Types.HlsKeyProviderType
-import Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
-import Network.AWS.MediaConvert.Types.SpekeKeyProvider
-import Network.AWS.MediaConvert.Types.StaticKeyProvider
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.HlsEncryptionType
+import Amazonka.MediaConvert.Types.HlsInitializationVectorInManifest
+import Amazonka.MediaConvert.Types.HlsKeyProviderType
+import Amazonka.MediaConvert.Types.HlsOfflineEncrypted
+import Amazonka.MediaConvert.Types.SpekeKeyProvider
+import Amazonka.MediaConvert.Types.StaticKeyProvider
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for HLS encryption
 --

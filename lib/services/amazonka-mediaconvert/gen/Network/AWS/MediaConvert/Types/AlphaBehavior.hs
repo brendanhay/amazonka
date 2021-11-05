@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AlphaBehavior
+-- Module      : Amazonka.MediaConvert.Types.AlphaBehavior
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AlphaBehavior
+module Amazonka.MediaConvert.Types.AlphaBehavior
   ( AlphaBehavior
       ( ..,
         AlphaBehavior_DISCARD,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.AlphaBehavior
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless this input is a QuickTime animation with an
 -- alpha channel. Use this setting to create separate Key and Fill outputs.

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
+-- Module      : Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
+module Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
   ( HlsDescriptiveVideoServiceFlag
       ( ..,
         HlsDescriptiveVideoServiceFlag_DONT_FLAG,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether to flag this audio track as descriptive video service
 -- (DVS) in your HLS parent manifest. When you choose Flag (FLAG),

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcProfile
+-- Module      : Amazonka.MediaConvert.Types.XavcProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcProfile
+module Amazonka.MediaConvert.Types.XavcProfile
   ( XavcProfile
       ( ..,
         XavcProfile_XAVC_4K,
@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.Types.XavcProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the XAVC profile for this output. For more information, see the
 -- Sony documentation at https:\/\/www.xavc-info.org\/. Note that

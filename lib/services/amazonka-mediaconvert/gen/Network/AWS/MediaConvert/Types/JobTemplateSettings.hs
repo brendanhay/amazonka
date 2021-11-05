@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.JobTemplateSettings
+-- Module      : Amazonka.MediaConvert.Types.JobTemplateSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.JobTemplateSettings where
+module Amazonka.MediaConvert.Types.JobTemplateSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AvailBlanking
-import Network.AWS.MediaConvert.Types.EsamSettings
-import Network.AWS.MediaConvert.Types.ExtendedDataServices
-import Network.AWS.MediaConvert.Types.InputTemplate
-import Network.AWS.MediaConvert.Types.KantarWatermarkSettings
-import Network.AWS.MediaConvert.Types.MotionImageInserter
-import Network.AWS.MediaConvert.Types.NielsenConfiguration
-import Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings
-import Network.AWS.MediaConvert.Types.OutputGroup
-import Network.AWS.MediaConvert.Types.TimecodeConfig
-import Network.AWS.MediaConvert.Types.TimedMetadataInsertion
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AvailBlanking
+import Amazonka.MediaConvert.Types.EsamSettings
+import Amazonka.MediaConvert.Types.ExtendedDataServices
+import Amazonka.MediaConvert.Types.InputTemplate
+import Amazonka.MediaConvert.Types.KantarWatermarkSettings
+import Amazonka.MediaConvert.Types.MotionImageInserter
+import Amazonka.MediaConvert.Types.NielsenConfiguration
+import Amazonka.MediaConvert.Types.NielsenNonLinearWatermarkSettings
+import Amazonka.MediaConvert.Types.OutputGroup
+import Amazonka.MediaConvert.Types.TimecodeConfig
+import Amazonka.MediaConvert.Types.TimedMetadataInsertion
+import qualified Amazonka.Prelude as Prelude
 
 -- | JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.

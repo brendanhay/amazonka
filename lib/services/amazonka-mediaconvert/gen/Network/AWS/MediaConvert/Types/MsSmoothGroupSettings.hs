@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
+-- Module      : Amazonka.MediaConvert.Types.MsSmoothGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MsSmoothGroupSettings where
+module Amazonka.MediaConvert.Types.MsSmoothGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
-import Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
-import Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
-import Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl
-import Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DestinationSettings
+import Amazonka.MediaConvert.Types.MsSmoothAdditionalManifest
+import Amazonka.MediaConvert.Types.MsSmoothAudioDeduplication
+import Amazonka.MediaConvert.Types.MsSmoothEncryptionSettings
+import Amazonka.MediaConvert.Types.MsSmoothFragmentLengthControl
+import Amazonka.MediaConvert.Types.MsSmoothManifestEncoding
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to your Microsoft Smooth Streaming output package. For
 -- more information, see

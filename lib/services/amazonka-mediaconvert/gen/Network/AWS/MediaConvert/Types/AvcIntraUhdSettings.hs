@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AvcIntraUhdSettings
+-- Module      : Amazonka.MediaConvert.Types.AvcIntraUhdSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AvcIntraUhdSettings where
+module Amazonka.MediaConvert.Types.AvcIntraUhdSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
+import qualified Amazonka.Prelude as Prelude
 
 -- | Optional when you set AVC-Intra class (avcIntraClass) to Class 4K\/2K
 -- (CLASS_4K_2K). When you set AVC-Intra class to a different value, this

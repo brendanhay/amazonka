@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaConvert where
 
+import Amazonka.MediaConvert
 import qualified Data.Proxy as Proxy
-import Network.AWS.MediaConvert
 import Test.AWS.Fixture
 import Test.AWS.MediaConvert.Internal
 import Test.AWS.Prelude

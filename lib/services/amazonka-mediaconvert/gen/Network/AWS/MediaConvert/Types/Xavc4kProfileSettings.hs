@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Xavc4kProfileSettings
+-- Module      : Amazonka.MediaConvert.Types.Xavc4kProfileSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Xavc4kProfileSettings where
+module Amazonka.MediaConvert.Types.Xavc4kProfileSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Xavc4kProfileBitrateClass
-import Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
-import Network.AWS.MediaConvert.Types.Xavc4kProfileQualityTuningLevel
-import Network.AWS.MediaConvert.Types.XavcFlickerAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.XavcGopBReference
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Xavc4kProfileBitrateClass
+import Amazonka.MediaConvert.Types.Xavc4kProfileCodecProfile
+import Amazonka.MediaConvert.Types.Xavc4kProfileQualityTuningLevel
+import Amazonka.MediaConvert.Types.XavcFlickerAdaptiveQuantization
+import Amazonka.MediaConvert.Types.XavcGopBReference
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Profile) under
 -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.StatusUpdateInterval
+-- Module      : Amazonka.MediaConvert.Types.StatusUpdateInterval
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.StatusUpdateInterval
+module Amazonka.MediaConvert.Types.StatusUpdateInterval
   ( StatusUpdateInterval
       ( ..,
         StatusUpdateInterval_SECONDS_10,
@@ -39,8 +39,8 @@ module Network.AWS.MediaConvert.Types.StatusUpdateInterval
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.

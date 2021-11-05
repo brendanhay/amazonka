@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CaptionSourceSettings
+-- Module      : Amazonka.MediaConvert.Types.CaptionSourceSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionSourceSettings where
+module Amazonka.MediaConvert.Types.CaptionSourceSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AncillarySourceSettings
-import Network.AWS.MediaConvert.Types.CaptionSourceType
-import Network.AWS.MediaConvert.Types.DvbSubSourceSettings
-import Network.AWS.MediaConvert.Types.EmbeddedSourceSettings
-import Network.AWS.MediaConvert.Types.FileSourceSettings
-import Network.AWS.MediaConvert.Types.TeletextSourceSettings
-import Network.AWS.MediaConvert.Types.TrackSourceSettings
-import Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AncillarySourceSettings
+import Amazonka.MediaConvert.Types.CaptionSourceType
+import Amazonka.MediaConvert.Types.DvbSubSourceSettings
+import Amazonka.MediaConvert.Types.EmbeddedSourceSettings
+import Amazonka.MediaConvert.Types.FileSourceSettings
+import Amazonka.MediaConvert.Types.TeletextSourceSettings
+import Amazonka.MediaConvert.Types.TrackSourceSettings
+import Amazonka.MediaConvert.Types.WebvttHlsSourceSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml
 -- file, specify the URI of the input captions source file. If your input

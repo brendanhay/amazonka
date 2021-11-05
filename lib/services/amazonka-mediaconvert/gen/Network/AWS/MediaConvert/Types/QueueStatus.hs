@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.QueueStatus
+-- Module      : Amazonka.MediaConvert.Types.QueueStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.QueueStatus
+module Amazonka.MediaConvert.Types.QueueStatus
   ( QueueStatus
       ( ..,
         QueueStatus_ACTIVE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.QueueStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Queues can be ACTIVE or PAUSED. If you pause a queue, jobs in that queue
 -- won\'t begin. Jobs that are running when you pause a queue continue to

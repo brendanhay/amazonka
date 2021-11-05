@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioDefaultSelection
+-- Module      : Amazonka.MediaConvert.Types.AudioDefaultSelection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioDefaultSelection
+module Amazonka.MediaConvert.Types.AudioDefaultSelection
   ( AudioDefaultSelection
       ( ..,
         AudioDefaultSelection_DEFAULT,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.AudioDefaultSelection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Enable this setting on one audio selector to set it as the default for
 -- the job. The service uses this default for outputs where it can\'t find

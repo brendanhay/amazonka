@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.FileSourceSettings
+-- Module      : Amazonka.MediaConvert.Types.FileSourceSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.FileSourceSettings where
+module Amazonka.MediaConvert.Types.FileSourceSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CaptionSourceFramerate
-import Network.AWS.MediaConvert.Types.FileSourceConvert608To708
-import Network.AWS.MediaConvert.Types.FileSourceTimeDeltaUnits
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CaptionSourceFramerate
+import Amazonka.MediaConvert.Types.FileSourceConvert608To708
+import Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits
+import qualified Amazonka.Prelude as Prelude
 
 -- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1
 -- in an xml file, specify the URI of the input caption source file. If

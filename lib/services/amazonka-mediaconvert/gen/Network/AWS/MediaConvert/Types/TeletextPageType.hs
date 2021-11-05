@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.TeletextPageType
+-- Module      : Amazonka.MediaConvert.Types.TeletextPageType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TeletextPageType
+module Amazonka.MediaConvert.Types.TeletextPageType
   ( TeletextPageType
       ( ..,
         TeletextPageType_PAGE_TYPE_ADDL_INFO,
@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.Types.TeletextPageType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | A page type as defined in the standard ETSI EN 300 468, Table 94
 newtype TeletextPageType = TeletextPageType'

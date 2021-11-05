@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3StereoDownmix
+-- Module      : Amazonka.MediaConvert.Types.Eac3StereoDownmix
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
+module Amazonka.MediaConvert.Types.Eac3StereoDownmix
   ( Eac3StereoDownmix
       ( ..,
         Eac3StereoDownmix_DPL2,
@@ -28,8 +28,8 @@ module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Choose how the service does stereo downmixing. This setting only applies
 -- if you keep the default value of 3\/2 - L, R, C, Ls, Rs

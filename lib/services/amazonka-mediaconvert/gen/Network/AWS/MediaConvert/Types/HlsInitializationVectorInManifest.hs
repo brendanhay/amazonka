@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
+-- Module      : Amazonka.MediaConvert.Types.HlsInitializationVectorInManifest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
+module Amazonka.MediaConvert.Types.HlsInitializationVectorInManifest
   ( HlsInitializationVectorInManifest
       ( ..,
         HlsInitializationVectorInManifest_EXCLUDE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Initialization Vector is a 128-bit number used in conjunction with
 -- the key for encrypting blocks. If set to INCLUDE, Initialization Vector

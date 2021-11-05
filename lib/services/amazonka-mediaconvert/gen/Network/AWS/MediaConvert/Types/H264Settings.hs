@@ -11,42 +11,42 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H264Settings
+-- Module      : Amazonka.MediaConvert.Types.H264Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264Settings where
+module Amazonka.MediaConvert.Types.H264Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.H264AdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H264CodecLevel
-import Network.AWS.MediaConvert.Types.H264CodecProfile
-import Network.AWS.MediaConvert.Types.H264DynamicSubGop
-import Network.AWS.MediaConvert.Types.H264EntropyEncoding
-import Network.AWS.MediaConvert.Types.H264FieldEncoding
-import Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H264FramerateControl
-import Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.H264GopBReference
-import Network.AWS.MediaConvert.Types.H264GopSizeUnits
-import Network.AWS.MediaConvert.Types.H264InterlaceMode
-import Network.AWS.MediaConvert.Types.H264ParControl
-import Network.AWS.MediaConvert.Types.H264QualityTuningLevel
-import Network.AWS.MediaConvert.Types.H264QvbrSettings
-import Network.AWS.MediaConvert.Types.H264RateControlMode
-import Network.AWS.MediaConvert.Types.H264RepeatPps
-import Network.AWS.MediaConvert.Types.H264ScanTypeConversionMode
-import Network.AWS.MediaConvert.Types.H264SceneChangeDetect
-import Network.AWS.MediaConvert.Types.H264SlowPal
-import Network.AWS.MediaConvert.Types.H264SpatialAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H264Syntax
-import Network.AWS.MediaConvert.Types.H264Telecine
-import Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H264UnregisteredSeiTimecode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.H264AdaptiveQuantization
+import Amazonka.MediaConvert.Types.H264CodecLevel
+import Amazonka.MediaConvert.Types.H264CodecProfile
+import Amazonka.MediaConvert.Types.H264DynamicSubGop
+import Amazonka.MediaConvert.Types.H264EntropyEncoding
+import Amazonka.MediaConvert.Types.H264FieldEncoding
+import Amazonka.MediaConvert.Types.H264FlickerAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H264FramerateControl
+import Amazonka.MediaConvert.Types.H264FramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.H264GopBReference
+import Amazonka.MediaConvert.Types.H264GopSizeUnits
+import Amazonka.MediaConvert.Types.H264InterlaceMode
+import Amazonka.MediaConvert.Types.H264ParControl
+import Amazonka.MediaConvert.Types.H264QualityTuningLevel
+import Amazonka.MediaConvert.Types.H264QvbrSettings
+import Amazonka.MediaConvert.Types.H264RateControlMode
+import Amazonka.MediaConvert.Types.H264RepeatPps
+import Amazonka.MediaConvert.Types.H264ScanTypeConversionMode
+import Amazonka.MediaConvert.Types.H264SceneChangeDetect
+import Amazonka.MediaConvert.Types.H264SlowPal
+import Amazonka.MediaConvert.Types.H264SpatialAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H264Syntax
+import Amazonka.MediaConvert.Types.H264Telecine
+import Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H264UnregisteredSeiTimecode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value H_264.

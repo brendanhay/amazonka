@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
+-- Module      : Amazonka.MediaConvert.Types.H265AdaptiveQuantization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
+module Amazonka.MediaConvert.Types.H265AdaptiveQuantization
   ( H265AdaptiveQuantization
       ( ..,
         H265AdaptiveQuantization_HIGH,
@@ -30,8 +30,8 @@ module Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the strength of any adaptive quantization filters that you
 -- enable. The value that you choose here applies to the following

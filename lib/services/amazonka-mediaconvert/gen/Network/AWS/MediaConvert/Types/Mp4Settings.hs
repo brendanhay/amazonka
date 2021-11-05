@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Mp4Settings
+-- Module      : Amazonka.MediaConvert.Types.Mp4Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp4Settings where
+module Amazonka.MediaConvert.Types.Mp4Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmfcAudioDuration
-import Network.AWS.MediaConvert.Types.Mp4CslgAtom
-import Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox
-import Network.AWS.MediaConvert.Types.Mp4MoovPlacement
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CmfcAudioDuration
+import Amazonka.MediaConvert.Types.Mp4CslgAtom
+import Amazonka.MediaConvert.Types.Mp4FreeSpaceBox
+import Amazonka.MediaConvert.Types.Mp4MoovPlacement
+import qualified Amazonka.Prelude as Prelude
 
 -- | These settings relate to your MP4 output container. You can create audio
 -- only outputs with this container. For more information, see

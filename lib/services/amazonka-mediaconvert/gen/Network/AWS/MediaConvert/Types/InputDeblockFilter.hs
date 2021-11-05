@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.InputDeblockFilter
+-- Module      : Amazonka.MediaConvert.Types.InputDeblockFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.InputDeblockFilter
+module Amazonka.MediaConvert.Types.InputDeblockFilter
   ( InputDeblockFilter
       ( ..,
         InputDeblockFilter_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.InputDeblockFilter
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the
 -- output. Default is disabled. Only manually controllable for MPEG2 and

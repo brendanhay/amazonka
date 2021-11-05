@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DvbSdtSettings
+-- Module      : Amazonka.MediaConvert.Types.DvbSdtSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbSdtSettings where
+module Amazonka.MediaConvert.Types.DvbSdtSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.OutputSdt
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.OutputSdt
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use these settings to insert a DVB Service Description Table (SDT) in
 -- the transport stream of this output. When you work directly in your JSON

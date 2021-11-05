@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
+-- Module      : Amazonka.MediaConvert.Types.Eac3AtmosSurroundExMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
+module Amazonka.MediaConvert.Types.Eac3AtmosSurroundExMode
   ( Eac3AtmosSurroundExMode
       ( ..,
         Eac3AtmosSurroundExMode_DISABLED,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether your input audio has an additional center rear surround
 -- channel matrix encoded into your left and right surround channels.

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Queue
+-- Module      : Amazonka.MediaConvert.Types.Queue
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Queue where
+module Amazonka.MediaConvert.Types.Queue where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.PricingPlan
-import Network.AWS.MediaConvert.Types.QueueStatus
-import Network.AWS.MediaConvert.Types.ReservationPlan
-import Network.AWS.MediaConvert.Types.Type
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.PricingPlan
+import Amazonka.MediaConvert.Types.QueueStatus
+import Amazonka.MediaConvert.Types.ReservationPlan
+import Amazonka.MediaConvert.Types.Type
+import qualified Amazonka.Prelude as Prelude
 
 -- | You can use queues to manage the resources that are available to your
 -- AWS account for running multiple transcoding jobs at the same time. If

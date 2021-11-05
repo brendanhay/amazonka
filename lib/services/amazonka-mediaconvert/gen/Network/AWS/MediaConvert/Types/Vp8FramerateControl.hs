@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Vp8FramerateControl
+-- Module      : Amazonka.MediaConvert.Types.Vp8FramerateControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp8FramerateControl
+module Amazonka.MediaConvert.Types.Vp8FramerateControl
   ( Vp8FramerateControl
       ( ..,
         Vp8FramerateControl_INITIALIZE_FROM_SOURCE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.Vp8FramerateControl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | If you are using the console, use the Framerate setting to specify the
 -- frame rate for this output. If you want to keep the same frame rate as

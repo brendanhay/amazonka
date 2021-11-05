@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
+-- Module      : Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
+module Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
   ( CmafPtsOffsetHandlingForBFrames
       ( ..,
         CmafPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only when your output video stream has B-frames, which
 -- causes the initial presentation time stamp (PTS) to be offset from the

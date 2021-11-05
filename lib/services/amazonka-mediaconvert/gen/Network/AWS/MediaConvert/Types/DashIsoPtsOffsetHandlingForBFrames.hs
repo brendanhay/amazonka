@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
+-- Module      : Amazonka.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
+module Amazonka.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
   ( DashIsoPtsOffsetHandlingForBFrames
       ( ..,
         DashIsoPtsOffsetHandlingForBFrames_MATCH_INITIAL_PTS,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only when your output video stream has B-frames, which
 -- causes the initial presentation time stamp (PTS) to be offset from the

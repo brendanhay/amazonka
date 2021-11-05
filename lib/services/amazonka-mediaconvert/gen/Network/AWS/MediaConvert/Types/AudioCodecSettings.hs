@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioCodecSettings
+-- Module      : Amazonka.MediaConvert.Types.AudioCodecSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioCodecSettings where
+module Amazonka.MediaConvert.Types.AudioCodecSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AacSettings
-import Network.AWS.MediaConvert.Types.Ac3Settings
-import Network.AWS.MediaConvert.Types.AiffSettings
-import Network.AWS.MediaConvert.Types.AudioCodec
-import Network.AWS.MediaConvert.Types.Eac3AtmosSettings
-import Network.AWS.MediaConvert.Types.Eac3Settings
-import Network.AWS.MediaConvert.Types.Mp2Settings
-import Network.AWS.MediaConvert.Types.Mp3Settings
-import Network.AWS.MediaConvert.Types.OpusSettings
-import Network.AWS.MediaConvert.Types.VorbisSettings
-import Network.AWS.MediaConvert.Types.WavSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AacSettings
+import Amazonka.MediaConvert.Types.Ac3Settings
+import Amazonka.MediaConvert.Types.AiffSettings
+import Amazonka.MediaConvert.Types.AudioCodec
+import Amazonka.MediaConvert.Types.Eac3AtmosSettings
+import Amazonka.MediaConvert.Types.Eac3Settings
+import Amazonka.MediaConvert.Types.Mp2Settings
+import Amazonka.MediaConvert.Types.Mp3Settings
+import Amazonka.MediaConvert.Types.OpusSettings
+import Amazonka.MediaConvert.Types.VorbisSettings
+import Amazonka.MediaConvert.Types.WavSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to audio encoding. The settings in this group vary
 -- depending on the value that you choose for your audio codec.

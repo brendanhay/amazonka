@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
+-- Module      : Amazonka.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
+module Amazonka.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
   ( DashIsoGroupAudioChannelConfigSchemeIdUri
       ( ..,
         DashIsoGroupAudioChannelConfigSchemeIdUri_DOLBY_CHANNEL_CONFIGURATION,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only when your audio codec is a Dolby one (AC3, EAC3,
 -- or Atmos) and your downstream workflow requires that your DASH manifest

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Vc3Class
+-- Module      : Amazonka.MediaConvert.Types.Vc3Class
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vc3Class
+module Amazonka.MediaConvert.Types.Vc3Class
   ( Vc3Class
       ( ..,
         Vc3Class_CLASS_145_8BIT,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.Vc3Class
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the VC3 class to choose the quality characteristics for this
 -- output. VC3 class, together with the settings Framerate

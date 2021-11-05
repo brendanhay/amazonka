@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M2tsRateMode
+-- Module      : Amazonka.MediaConvert.Types.M2tsRateMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsRateMode
+module Amazonka.MediaConvert.Types.M2tsRateMode
   ( M2tsRateMode
       ( ..,
         M2tsRateMode_CBR,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.M2tsRateMode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to CBR, inserts null packets into transport stream to fill
 -- specified bitrate. When set to VBR, the bitrate setting acts as the

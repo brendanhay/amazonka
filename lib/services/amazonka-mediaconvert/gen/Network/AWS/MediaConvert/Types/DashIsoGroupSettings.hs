@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DashIsoGroupSettings
+-- Module      : Amazonka.MediaConvert.Types.DashIsoGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DashIsoGroupSettings where
+module Amazonka.MediaConvert.Types.DashIsoGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DashAdditionalManifest
-import Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings
-import Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
-import Network.AWS.MediaConvert.Types.DashIsoHbbtvCompliance
-import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlay
-import Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
-import Network.AWS.MediaConvert.Types.DashIsoMpdProfile
-import Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
-import Network.AWS.MediaConvert.Types.DashIsoSegmentControl
-import Network.AWS.MediaConvert.Types.DashIsoSegmentLengthControl
-import Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DashAdditionalManifest
+import Amazonka.MediaConvert.Types.DashIsoEncryptionSettings
+import Amazonka.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
+import Amazonka.MediaConvert.Types.DashIsoHbbtvCompliance
+import Amazonka.MediaConvert.Types.DashIsoImageBasedTrickPlay
+import Amazonka.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
+import Amazonka.MediaConvert.Types.DashIsoMpdProfile
+import Amazonka.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
+import Amazonka.MediaConvert.Types.DashIsoSegmentControl
+import Amazonka.MediaConvert.Types.DashIsoSegmentLengthControl
+import Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+import Amazonka.MediaConvert.Types.DestinationSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to your DASH output package. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.

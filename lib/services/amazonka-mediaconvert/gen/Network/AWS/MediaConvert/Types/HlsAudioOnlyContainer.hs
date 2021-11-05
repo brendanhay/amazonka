@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
+-- Module      : Amazonka.MediaConvert.Types.HlsAudioOnlyContainer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
+module Amazonka.MediaConvert.Types.HlsAudioOnlyContainer
   ( HlsAudioOnlyContainer
       ( ..,
         HlsAudioOnlyContainer_AUTOMATIC,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only in audio-only outputs. Choose MPEG-2 Transport
 -- Stream (M2TS) to create a file in an MPEG2-TS container. Keep the

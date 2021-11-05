@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M3u8NielsenId3
+-- Module      : Amazonka.MediaConvert.Types.M3u8NielsenId3
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M3u8NielsenId3
+module Amazonka.MediaConvert.Types.M3u8NielsenId3
   ( M3u8NielsenId3
       ( ..,
         M3u8NielsenId3_INSERT,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.M3u8NielsenId3
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | If INSERT, Nielsen inaudible tones for media tracking will be detected
 -- in the input audio and an equivalent ID3 tag will be inserted in the

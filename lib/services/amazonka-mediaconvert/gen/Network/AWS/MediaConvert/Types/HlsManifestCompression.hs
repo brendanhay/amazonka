@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsManifestCompression
+-- Module      : Amazonka.MediaConvert.Types.HlsManifestCompression
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsManifestCompression
+module Amazonka.MediaConvert.Types.HlsManifestCompression
   ( HlsManifestCompression
       ( ..,
         HlsManifestCompression_GZIP,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.HlsManifestCompression
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to GZIP, compresses HLS playlist.
 newtype HlsManifestCompression = HlsManifestCompression'

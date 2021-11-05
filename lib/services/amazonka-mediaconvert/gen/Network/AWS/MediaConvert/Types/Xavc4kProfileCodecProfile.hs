@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
+-- Module      : Amazonka.MediaConvert.Types.Xavc4kProfileCodecProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
+module Amazonka.MediaConvert.Types.Xavc4kProfileCodecProfile
   ( Xavc4kProfileCodecProfile
       ( ..,
         Xavc4kProfileCodecProfile_HIGH,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the codec profile for this output. Choose High, 8-bit, 4:2:0
 -- (HIGH) or High, 10-bit, 4:2:2 (HIGH_422). These profiles are specified

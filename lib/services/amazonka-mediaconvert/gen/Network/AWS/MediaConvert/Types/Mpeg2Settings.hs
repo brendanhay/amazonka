@@ -11,36 +11,36 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Mpeg2Settings
+-- Module      : Amazonka.MediaConvert.Types.Mpeg2Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2Settings where
+module Amazonka.MediaConvert.Types.Mpeg2Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Mpeg2AdaptiveQuantization
-import Network.AWS.MediaConvert.Types.Mpeg2CodecLevel
-import Network.AWS.MediaConvert.Types.Mpeg2CodecProfile
-import Network.AWS.MediaConvert.Types.Mpeg2DynamicSubGop
-import Network.AWS.MediaConvert.Types.Mpeg2FramerateControl
-import Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits
-import Network.AWS.MediaConvert.Types.Mpeg2InterlaceMode
-import Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
-import Network.AWS.MediaConvert.Types.Mpeg2ParControl
-import Network.AWS.MediaConvert.Types.Mpeg2QualityTuningLevel
-import Network.AWS.MediaConvert.Types.Mpeg2RateControlMode
-import Network.AWS.MediaConvert.Types.Mpeg2ScanTypeConversionMode
-import Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect
-import Network.AWS.MediaConvert.Types.Mpeg2SlowPal
-import Network.AWS.MediaConvert.Types.Mpeg2SpatialAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.Mpeg2Syntax
-import Network.AWS.MediaConvert.Types.Mpeg2Telecine
-import Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
+import Amazonka.MediaConvert.Types.Mpeg2CodecLevel
+import Amazonka.MediaConvert.Types.Mpeg2CodecProfile
+import Amazonka.MediaConvert.Types.Mpeg2DynamicSubGop
+import Amazonka.MediaConvert.Types.Mpeg2FramerateControl
+import Amazonka.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.Mpeg2GopSizeUnits
+import Amazonka.MediaConvert.Types.Mpeg2InterlaceMode
+import Amazonka.MediaConvert.Types.Mpeg2IntraDcPrecision
+import Amazonka.MediaConvert.Types.Mpeg2ParControl
+import Amazonka.MediaConvert.Types.Mpeg2QualityTuningLevel
+import Amazonka.MediaConvert.Types.Mpeg2RateControlMode
+import Amazonka.MediaConvert.Types.Mpeg2ScanTypeConversionMode
+import Amazonka.MediaConvert.Types.Mpeg2SceneChangeDetect
+import Amazonka.MediaConvert.Types.Mpeg2SlowPal
+import Amazonka.MediaConvert.Types.Mpeg2SpatialAdaptiveQuantization
+import Amazonka.MediaConvert.Types.Mpeg2Syntax
+import Amazonka.MediaConvert.Types.Mpeg2Telecine
+import Amazonka.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value MPEG2.

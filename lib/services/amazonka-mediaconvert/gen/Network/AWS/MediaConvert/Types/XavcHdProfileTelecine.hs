@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
+-- Module      : Amazonka.MediaConvert.Types.XavcHdProfileTelecine
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
+module Amazonka.MediaConvert.Types.XavcHdProfileTelecine
   ( XavcHdProfileTelecine
       ( ..,
         XavcHdProfileTelecine_HARD,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless you set Frame rate (framerateNumerator
 -- divided by framerateDenominator) to 29.970. If your input framerate is

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
+-- Module      : Amazonka.MediaConvert.Types.S3ObjectCannedAcl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
+module Amazonka.MediaConvert.Types.S3ObjectCannedAcl
   ( S3ObjectCannedAcl
       ( ..,
         S3ObjectCannedAcl_AUTHENTICATED_READ,
@@ -28,8 +28,8 @@ module Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
 newtype S3ObjectCannedAcl = S3ObjectCannedAcl'

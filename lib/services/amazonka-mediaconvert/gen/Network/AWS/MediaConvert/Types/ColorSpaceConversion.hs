@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ColorSpaceConversion
+-- Module      : Amazonka.MediaConvert.Types.ColorSpaceConversion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ColorSpaceConversion
+module Amazonka.MediaConvert.Types.ColorSpaceConversion
   ( ColorSpaceConversion
       ( ..,
         ColorSpaceConversion_FORCE_601,
@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.Types.ColorSpaceConversion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the color space you want for this output. The service supports
 -- conversion between HDR formats, between SDR formats, from SDR to HDR,

@@ -11,35 +11,35 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmafGroupSettings
+-- Module      : Amazonka.MediaConvert.Types.CmafGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafGroupSettings where
+module Amazonka.MediaConvert.Types.CmafGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmafAdditionalManifest
-import Network.AWS.MediaConvert.Types.CmafClientCache
-import Network.AWS.MediaConvert.Types.CmafCodecSpecification
-import Network.AWS.MediaConvert.Types.CmafEncryptionSettings
-import Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay
-import Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings
-import Network.AWS.MediaConvert.Types.CmafManifestCompression
-import Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
-import Network.AWS.MediaConvert.Types.CmafMpdProfile
-import Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
-import Network.AWS.MediaConvert.Types.CmafSegmentControl
-import Network.AWS.MediaConvert.Types.CmafSegmentLengthControl
-import Network.AWS.MediaConvert.Types.CmafStreamInfResolution
-import Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
-import Network.AWS.MediaConvert.Types.CmafWriteDASHManifest
-import Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
-import Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CmafAdditionalManifest
+import Amazonka.MediaConvert.Types.CmafClientCache
+import Amazonka.MediaConvert.Types.CmafCodecSpecification
+import Amazonka.MediaConvert.Types.CmafEncryptionSettings
+import Amazonka.MediaConvert.Types.CmafImageBasedTrickPlay
+import Amazonka.MediaConvert.Types.CmafImageBasedTrickPlaySettings
+import Amazonka.MediaConvert.Types.CmafManifestCompression
+import Amazonka.MediaConvert.Types.CmafManifestDurationFormat
+import Amazonka.MediaConvert.Types.CmafMpdProfile
+import Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
+import Amazonka.MediaConvert.Types.CmafSegmentControl
+import Amazonka.MediaConvert.Types.CmafSegmentLengthControl
+import Amazonka.MediaConvert.Types.CmafStreamInfResolution
+import Amazonka.MediaConvert.Types.CmafTargetDurationCompatibilityMode
+import Amazonka.MediaConvert.Types.CmafWriteDASHManifest
+import Amazonka.MediaConvert.Types.CmafWriteHLSManifest
+import Amazonka.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
+import Amazonka.MediaConvert.Types.DestinationSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to your CMAF output package. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.

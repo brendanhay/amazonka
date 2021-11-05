@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
+-- Module      : Amazonka.MediaConvert.Types.MsSmoothAudioDeduplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
+module Amazonka.MediaConvert.Types.MsSmoothAudioDeduplication
   ( MsSmoothAudioDeduplication
       ( ..,
         MsSmoothAudioDeduplication_COMBINE_DUPLICATE_STREAMS,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings
 -- across a Microsoft Smooth output group into a single audio stream.

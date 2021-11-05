@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.MotionImageInserter
+-- Module      : Amazonka.MediaConvert.Types.MotionImageInserter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MotionImageInserter where
+module Amazonka.MediaConvert.Types.MotionImageInserter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.MotionImageInsertionFramerate
-import Network.AWS.MediaConvert.Types.MotionImageInsertionMode
-import Network.AWS.MediaConvert.Types.MotionImageInsertionOffset
-import Network.AWS.MediaConvert.Types.MotionImagePlayback
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.MotionImageInsertionFramerate
+import Amazonka.MediaConvert.Types.MotionImageInsertionMode
+import Amazonka.MediaConvert.Types.MotionImageInsertionOffset
+import Amazonka.MediaConvert.Types.MotionImagePlayback
+import qualified Amazonka.Prelude as Prelude
 
 -- | Overlay motion graphics on top of your video. The motion graphics that
 -- you specify here appear on all outputs in all output groups. For more

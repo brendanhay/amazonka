@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
+-- Module      : Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
+module Amazonka.MediaConvert.Types.H264TemporalAdaptiveQuantization
   ( H264TemporalAdaptiveQuantization
       ( ..,
         H264TemporalAdaptiveQuantization_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Only use this setting when you change the default value, AUTO, for the
 -- setting H264AdaptiveQuantization. When you keep all defaults, excluding

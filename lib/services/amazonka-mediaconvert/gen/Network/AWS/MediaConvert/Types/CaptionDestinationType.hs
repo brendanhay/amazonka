@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CaptionDestinationType
+-- Module      : Amazonka.MediaConvert.Types.CaptionDestinationType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionDestinationType
+module Amazonka.MediaConvert.Types.CaptionDestinationType
   ( CaptionDestinationType
       ( ..,
         CaptionDestinationType_BURN_IN,
@@ -36,8 +36,8 @@ module Network.AWS.MediaConvert.Types.CaptionDestinationType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the format for this set of captions on this output. The default
 -- format is embedded without SCTE-20. Note that your choice of video

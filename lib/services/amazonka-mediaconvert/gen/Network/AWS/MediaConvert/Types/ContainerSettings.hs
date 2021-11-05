@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ContainerSettings
+-- Module      : Amazonka.MediaConvert.Types.ContainerSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ContainerSettings where
+module Amazonka.MediaConvert.Types.ContainerSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmfcSettings
-import Network.AWS.MediaConvert.Types.ContainerType
-import Network.AWS.MediaConvert.Types.F4vSettings
-import Network.AWS.MediaConvert.Types.M2tsSettings
-import Network.AWS.MediaConvert.Types.M3u8Settings
-import Network.AWS.MediaConvert.Types.MovSettings
-import Network.AWS.MediaConvert.Types.Mp4Settings
-import Network.AWS.MediaConvert.Types.MpdSettings
-import Network.AWS.MediaConvert.Types.MxfSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CmfcSettings
+import Amazonka.MediaConvert.Types.ContainerType
+import Amazonka.MediaConvert.Types.F4vSettings
+import Amazonka.MediaConvert.Types.M2tsSettings
+import Amazonka.MediaConvert.Types.M3u8Settings
+import Amazonka.MediaConvert.Types.MovSettings
+import Amazonka.MediaConvert.Types.Mp4Settings
+import Amazonka.MediaConvert.Types.MpdSettings
+import Amazonka.MediaConvert.Types.MxfSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Container specific settings.
 --

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.MovSettings
+-- Module      : Amazonka.MediaConvert.Types.MovSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovSettings where
+module Amazonka.MediaConvert.Types.MovSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.MovClapAtom
-import Network.AWS.MediaConvert.Types.MovCslgAtom
-import Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
-import Network.AWS.MediaConvert.Types.MovPaddingControl
-import Network.AWS.MediaConvert.Types.MovReference
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.MovClapAtom
+import Amazonka.MediaConvert.Types.MovCslgAtom
+import Amazonka.MediaConvert.Types.MovMpeg2FourCCControl
+import Amazonka.MediaConvert.Types.MovPaddingControl
+import Amazonka.MediaConvert.Types.MovReference
+import qualified Amazonka.Prelude as Prelude
 
 -- | These settings relate to your QuickTime MOV output container.
 --

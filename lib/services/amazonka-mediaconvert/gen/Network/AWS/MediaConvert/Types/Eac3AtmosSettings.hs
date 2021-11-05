@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3AtmosSettings
+-- Module      : Amazonka.MediaConvert.Types.Eac3AtmosSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3AtmosSettings where
+module Amazonka.MediaConvert.Types.Eac3AtmosSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode
-import Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
-import Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
-import Network.AWS.MediaConvert.Types.Eac3AtmosDownmixControl
-import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
-import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
-import Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeControl
-import Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
-import Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
-import Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Eac3AtmosBitstreamMode
+import Amazonka.MediaConvert.Types.Eac3AtmosCodingMode
+import Amazonka.MediaConvert.Types.Eac3AtmosDialogueIntelligence
+import Amazonka.MediaConvert.Types.Eac3AtmosDownmixControl
+import Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
+import Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
+import Amazonka.MediaConvert.Types.Eac3AtmosDynamicRangeControl
+import Amazonka.MediaConvert.Types.Eac3AtmosMeteringMode
+import Amazonka.MediaConvert.Types.Eac3AtmosStereoDownmix
+import Amazonka.MediaConvert.Types.Eac3AtmosSurroundExMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value EAC3_ATMOS.

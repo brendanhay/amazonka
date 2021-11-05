@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DolbyVision
+-- Module      : Amazonka.MediaConvert.Types.DolbyVision
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DolbyVision where
+module Amazonka.MediaConvert.Types.DolbyVision where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata
-import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
-import Network.AWS.MediaConvert.Types.DolbyVisionProfile
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata
+import Amazonka.MediaConvert.Types.DolbyVisionLevel6Mode
+import Amazonka.MediaConvert.Types.DolbyVisionProfile
+import qualified Amazonka.Prelude as Prelude
 
 -- | With AWS Elemental MediaConvert, you can create profile 5 Dolby Vision
 -- outputs from MXF and IMF sources that contain mastering information as

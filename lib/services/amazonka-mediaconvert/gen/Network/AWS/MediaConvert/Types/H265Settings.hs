@@ -11,43 +11,43 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.H265Settings
+-- Module      : Amazonka.MediaConvert.Types.H265Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265Settings where
+module Amazonka.MediaConvert.Types.H265Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H265AlternateTransferFunctionSei
-import Network.AWS.MediaConvert.Types.H265CodecLevel
-import Network.AWS.MediaConvert.Types.H265CodecProfile
-import Network.AWS.MediaConvert.Types.H265DynamicSubGop
-import Network.AWS.MediaConvert.Types.H265FlickerAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H265FramerateControl
-import Network.AWS.MediaConvert.Types.H265FramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.H265GopBReference
-import Network.AWS.MediaConvert.Types.H265GopSizeUnits
-import Network.AWS.MediaConvert.Types.H265InterlaceMode
-import Network.AWS.MediaConvert.Types.H265ParControl
-import Network.AWS.MediaConvert.Types.H265QualityTuningLevel
-import Network.AWS.MediaConvert.Types.H265QvbrSettings
-import Network.AWS.MediaConvert.Types.H265RateControlMode
-import Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
-import Network.AWS.MediaConvert.Types.H265ScanTypeConversionMode
-import Network.AWS.MediaConvert.Types.H265SceneChangeDetect
-import Network.AWS.MediaConvert.Types.H265SlowPal
-import Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H265Telecine
-import Network.AWS.MediaConvert.Types.H265TemporalAdaptiveQuantization
-import Network.AWS.MediaConvert.Types.H265TemporalIds
-import Network.AWS.MediaConvert.Types.H265Tiles
-import Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode
-import Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.H265AdaptiveQuantization
+import Amazonka.MediaConvert.Types.H265AlternateTransferFunctionSei
+import Amazonka.MediaConvert.Types.H265CodecLevel
+import Amazonka.MediaConvert.Types.H265CodecProfile
+import Amazonka.MediaConvert.Types.H265DynamicSubGop
+import Amazonka.MediaConvert.Types.H265FlickerAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H265FramerateControl
+import Amazonka.MediaConvert.Types.H265FramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.H265GopBReference
+import Amazonka.MediaConvert.Types.H265GopSizeUnits
+import Amazonka.MediaConvert.Types.H265InterlaceMode
+import Amazonka.MediaConvert.Types.H265ParControl
+import Amazonka.MediaConvert.Types.H265QualityTuningLevel
+import Amazonka.MediaConvert.Types.H265QvbrSettings
+import Amazonka.MediaConvert.Types.H265RateControlMode
+import Amazonka.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
+import Amazonka.MediaConvert.Types.H265ScanTypeConversionMode
+import Amazonka.MediaConvert.Types.H265SceneChangeDetect
+import Amazonka.MediaConvert.Types.H265SlowPal
+import Amazonka.MediaConvert.Types.H265SpatialAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H265Telecine
+import Amazonka.MediaConvert.Types.H265TemporalAdaptiveQuantization
+import Amazonka.MediaConvert.Types.H265TemporalIds
+import Amazonka.MediaConvert.Types.H265Tiles
+import Amazonka.MediaConvert.Types.H265UnregisteredSeiTimecode
+import Amazonka.MediaConvert.Types.H265WriteMp4PackagingType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for H265 codec
 --

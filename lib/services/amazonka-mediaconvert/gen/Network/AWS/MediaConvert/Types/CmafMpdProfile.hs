@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmafMpdProfile
+-- Module      : Amazonka.MediaConvert.Types.CmafMpdProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafMpdProfile
+module Amazonka.MediaConvert.Types.CmafMpdProfile
   ( CmafMpdProfile
       ( ..,
         CmafMpdProfile_MAIN_PROFILE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.CmafMpdProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether your DASH profile is on-demand or main. When you choose
 -- Main profile (MAIN_PROFILE), the service signals

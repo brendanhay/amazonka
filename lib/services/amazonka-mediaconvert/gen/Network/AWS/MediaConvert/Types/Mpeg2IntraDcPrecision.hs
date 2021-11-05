@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
+-- Module      : Amazonka.MediaConvert.Types.Mpeg2IntraDcPrecision
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
+module Amazonka.MediaConvert.Types.Mpeg2IntraDcPrecision
   ( Mpeg2IntraDcPrecision
       ( ..,
         Mpeg2IntraDcPrecision_AUTO,
@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization
 -- precision for intra-block DC coefficients. If you choose the value auto,

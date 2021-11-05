@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.BurninDestinationSettings
+-- Module      : Amazonka.MediaConvert.Types.BurninDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.BurninDestinationSettings where
+module Amazonka.MediaConvert.Types.BurninDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.BurnInSubtitleStylePassthrough
-import Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
-import Network.AWS.MediaConvert.Types.BurninSubtitleApplyFontColor
-import Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
-import Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont
-import Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
-import Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
-import Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
-import Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
-import Network.AWS.MediaConvert.Types.FontScript
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.BurnInSubtitleStylePassthrough
+import Amazonka.MediaConvert.Types.BurninSubtitleAlignment
+import Amazonka.MediaConvert.Types.BurninSubtitleApplyFontColor
+import Amazonka.MediaConvert.Types.BurninSubtitleBackgroundColor
+import Amazonka.MediaConvert.Types.BurninSubtitleFallbackFont
+import Amazonka.MediaConvert.Types.BurninSubtitleFontColor
+import Amazonka.MediaConvert.Types.BurninSubtitleOutlineColor
+import Amazonka.MediaConvert.Types.BurninSubtitleShadowColor
+import Amazonka.MediaConvert.Types.BurninSubtitleTeletextSpacing
+import Amazonka.MediaConvert.Types.FontScript
+import qualified Amazonka.Prelude as Prelude
 
 -- | Burn-in is a captions delivery method, rather than a captions format.
 -- Burn-in writes the captions directly on your video frames, replacing

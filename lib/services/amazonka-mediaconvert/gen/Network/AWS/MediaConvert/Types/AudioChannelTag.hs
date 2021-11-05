@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioChannelTag
+-- Module      : Amazonka.MediaConvert.Types.AudioChannelTag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioChannelTag
+module Amazonka.MediaConvert.Types.AudioChannelTag
   ( AudioChannelTag
       ( ..,
         AudioChannelTag_C,
@@ -39,8 +39,8 @@ module Network.AWS.MediaConvert.Types.AudioChannelTag
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | You can add a tag for this mono-channel audio track to mimic its
 -- placement in a multi-channel layout. For example, if this track is the

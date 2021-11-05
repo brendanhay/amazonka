@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3SurroundMode
+-- Module      : Amazonka.MediaConvert.Types.Eac3SurroundMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3SurroundMode
+module Amazonka.MediaConvert.Types.Eac3SurroundMode
   ( Eac3SurroundMode
       ( ..,
         Eac3SurroundMode_DISABLED,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.Eac3SurroundMode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When encoding 2\/0 audio, sets whether Dolby Surround is matrix encoded
 -- into the two channels.

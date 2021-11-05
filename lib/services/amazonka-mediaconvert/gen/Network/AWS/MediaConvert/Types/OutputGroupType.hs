@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.OutputGroupType
+-- Module      : Amazonka.MediaConvert.Types.OutputGroupType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputGroupType
+module Amazonka.MediaConvert.Types.OutputGroupType
   ( OutputGroupType
       ( ..,
         OutputGroupType_CMAF_GROUP_SETTINGS,
@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.Types.OutputGroupType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
 -- Streaming, CMAF)

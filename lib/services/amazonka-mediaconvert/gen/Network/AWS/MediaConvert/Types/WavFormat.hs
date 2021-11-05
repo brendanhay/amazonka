@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.WavFormat
+-- Module      : Amazonka.MediaConvert.Types.WavFormat
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.WavFormat
+module Amazonka.MediaConvert.Types.WavFormat
   ( WavFormat
       ( ..,
         WavFormat_RF64,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.WavFormat
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The service defaults to using RIFF for WAV outputs. If your output audio
 -- is likely to exceed 4 GB in file size, or if you otherwise need the

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Mp4MoovPlacement
+-- Module      : Amazonka.MediaConvert.Types.Mp4MoovPlacement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
+module Amazonka.MediaConvert.Types.Mp4MoovPlacement
   ( Mp4MoovPlacement
       ( ..,
         Mp4MoovPlacement_NORMAL,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
 -- beginning of the archive as required for progressive downloading.

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
+-- Module      : Amazonka.MediaConvert.Types.Eac3DynamicRangeCompressionLine
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
+module Amazonka.MediaConvert.Types.Eac3DynamicRangeCompressionLine
   ( Eac3DynamicRangeCompressionLine
       ( ..,
         Eac3DynamicRangeCompressionLine_FILM_LIGHT,
@@ -30,8 +30,8 @@ module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Choose the Dolby Digital dynamic range control (DRC) profile that
 -- MediaConvert uses when encoding the metadata in the Dolby Digital stream

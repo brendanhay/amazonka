@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
+-- Module      : Amazonka.MediaConvert.Types.DvbSubtitleFontColor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
+module Amazonka.MediaConvert.Types.DvbSubtitleFontColor
   ( DvbSubtitleFontColor
       ( ..,
         DvbSubtitleFontColor_AUTO,
@@ -32,8 +32,8 @@ module Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify the color of the captions text. Leave Font color (FontColor)
 -- blank and set Style passthrough (StylePassthrough) to enabled to use the

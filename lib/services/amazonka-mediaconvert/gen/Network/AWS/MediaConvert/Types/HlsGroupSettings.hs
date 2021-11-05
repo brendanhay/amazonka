@@ -11,38 +11,38 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsGroupSettings
+-- Module      : Amazonka.MediaConvert.Types.HlsGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsGroupSettings where
+module Amazonka.MediaConvert.Types.HlsGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import Network.AWS.MediaConvert.Types.HlsAdMarkers
-import Network.AWS.MediaConvert.Types.HlsAdditionalManifest
-import Network.AWS.MediaConvert.Types.HlsAudioOnlyHeader
-import Network.AWS.MediaConvert.Types.HlsCaptionLanguageMapping
-import Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
-import Network.AWS.MediaConvert.Types.HlsClientCache
-import Network.AWS.MediaConvert.Types.HlsCodecSpecification
-import Network.AWS.MediaConvert.Types.HlsDirectoryStructure
-import Network.AWS.MediaConvert.Types.HlsEncryptionSettings
-import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay
-import Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlaySettings
-import Network.AWS.MediaConvert.Types.HlsManifestCompression
-import Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
-import Network.AWS.MediaConvert.Types.HlsOutputSelection
-import Network.AWS.MediaConvert.Types.HlsProgramDateTime
-import Network.AWS.MediaConvert.Types.HlsSegmentControl
-import Network.AWS.MediaConvert.Types.HlsSegmentLengthControl
-import Network.AWS.MediaConvert.Types.HlsStreamInfResolution
-import Network.AWS.MediaConvert.Types.HlsTargetDurationCompatibilityMode
-import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DestinationSettings
+import Amazonka.MediaConvert.Types.HlsAdMarkers
+import Amazonka.MediaConvert.Types.HlsAdditionalManifest
+import Amazonka.MediaConvert.Types.HlsAudioOnlyHeader
+import Amazonka.MediaConvert.Types.HlsCaptionLanguageMapping
+import Amazonka.MediaConvert.Types.HlsCaptionLanguageSetting
+import Amazonka.MediaConvert.Types.HlsClientCache
+import Amazonka.MediaConvert.Types.HlsCodecSpecification
+import Amazonka.MediaConvert.Types.HlsDirectoryStructure
+import Amazonka.MediaConvert.Types.HlsEncryptionSettings
+import Amazonka.MediaConvert.Types.HlsImageBasedTrickPlay
+import Amazonka.MediaConvert.Types.HlsImageBasedTrickPlaySettings
+import Amazonka.MediaConvert.Types.HlsManifestCompression
+import Amazonka.MediaConvert.Types.HlsManifestDurationFormat
+import Amazonka.MediaConvert.Types.HlsOutputSelection
+import Amazonka.MediaConvert.Types.HlsProgramDateTime
+import Amazonka.MediaConvert.Types.HlsSegmentControl
+import Amazonka.MediaConvert.Types.HlsSegmentLengthControl
+import Amazonka.MediaConvert.Types.HlsStreamInfResolution
+import Amazonka.MediaConvert.Types.HlsTargetDurationCompatibilityMode
+import Amazonka.MediaConvert.Types.HlsTimedMetadataId3Frame
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to your HLS output package. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.

@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.VideoPreprocessor
+-- Module      : Amazonka.MediaConvert.Types.VideoPreprocessor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoPreprocessor where
+module Amazonka.MediaConvert.Types.VideoPreprocessor where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.ColorCorrector
-import Network.AWS.MediaConvert.Types.Deinterlacer
-import Network.AWS.MediaConvert.Types.DolbyVision
-import Network.AWS.MediaConvert.Types.Hdr10Plus
-import Network.AWS.MediaConvert.Types.ImageInserter
-import Network.AWS.MediaConvert.Types.NoiseReducer
-import Network.AWS.MediaConvert.Types.PartnerWatermarking
-import Network.AWS.MediaConvert.Types.TimecodeBurnin
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.ColorCorrector
+import Amazonka.MediaConvert.Types.Deinterlacer
+import Amazonka.MediaConvert.Types.DolbyVision
+import Amazonka.MediaConvert.Types.Hdr10Plus
+import Amazonka.MediaConvert.Types.ImageInserter
+import Amazonka.MediaConvert.Types.NoiseReducer
+import Amazonka.MediaConvert.Types.PartnerWatermarking
+import Amazonka.MediaConvert.Types.TimecodeBurnin
+import qualified Amazonka.Prelude as Prelude
 
 -- | Find additional transcoding features under Preprocessors
 -- (VideoPreprocessors). Enable the features at each output individually.

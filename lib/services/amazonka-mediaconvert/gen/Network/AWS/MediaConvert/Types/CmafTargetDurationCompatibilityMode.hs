@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
+-- Module      : Amazonka.MediaConvert.Types.CmafTargetDurationCompatibilityMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
+module Amazonka.MediaConvert.Types.CmafTargetDurationCompatibilityMode
   ( CmafTargetDurationCompatibilityMode
       ( ..,
         CmafTargetDurationCompatibilityMode_LEGACY,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | When set to LEGACY, the segment target duration is always rounded up to
 -- the nearest integer value above its current value in seconds. When set

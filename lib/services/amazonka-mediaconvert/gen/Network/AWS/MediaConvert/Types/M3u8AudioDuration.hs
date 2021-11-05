@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M3u8AudioDuration
+-- Module      : Amazonka.MediaConvert.Types.M3u8AudioDuration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M3u8AudioDuration
+module Amazonka.MediaConvert.Types.M3u8AudioDuration
   ( M3u8AudioDuration
       ( ..,
         M3u8AudioDuration_DEFAULT_CODEC_DURATION,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.M3u8AudioDuration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AudioSelector
+-- Module      : Amazonka.MediaConvert.Types.AudioSelector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioSelector where
+module Amazonka.MediaConvert.Types.AudioSelector where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioDefaultSelection
-import Network.AWS.MediaConvert.Types.AudioSelectorType
-import Network.AWS.MediaConvert.Types.HlsRenditionGroupSettings
-import Network.AWS.MediaConvert.Types.LanguageCode
-import Network.AWS.MediaConvert.Types.RemixSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AudioDefaultSelection
+import Amazonka.MediaConvert.Types.AudioSelectorType
+import Amazonka.MediaConvert.Types.HlsRenditionGroupSettings
+import Amazonka.MediaConvert.Types.LanguageCode
+import Amazonka.MediaConvert.Types.RemixSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
 -- from the input that you will use in your outputs. You can use multiple

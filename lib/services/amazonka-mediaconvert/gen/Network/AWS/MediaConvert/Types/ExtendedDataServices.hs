@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ExtendedDataServices
+-- Module      : Amazonka.MediaConvert.Types.ExtendedDataServices
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ExtendedDataServices where
+module Amazonka.MediaConvert.Types.ExtendedDataServices where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CopyProtectionAction
-import Network.AWS.MediaConvert.Types.VchipAction
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CopyProtectionAction
+import Amazonka.MediaConvert.Types.VchipAction
+import qualified Amazonka.Prelude as Prelude
 
 -- | If your source content has EIA-608 Line 21 Data Services, enable this
 -- feature to specify what MediaConvert does with the Extended Data

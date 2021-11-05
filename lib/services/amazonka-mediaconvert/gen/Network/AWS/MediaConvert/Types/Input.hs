@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Input
+-- Module      : Amazonka.MediaConvert.Types.Input
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Input where
+module Amazonka.MediaConvert.Types.Input where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioSelector
-import Network.AWS.MediaConvert.Types.AudioSelectorGroup
-import Network.AWS.MediaConvert.Types.CaptionSelector
-import Network.AWS.MediaConvert.Types.ImageInserter
-import Network.AWS.MediaConvert.Types.InputClipping
-import Network.AWS.MediaConvert.Types.InputDeblockFilter
-import Network.AWS.MediaConvert.Types.InputDecryptionSettings
-import Network.AWS.MediaConvert.Types.InputDenoiseFilter
-import Network.AWS.MediaConvert.Types.InputFilterEnable
-import Network.AWS.MediaConvert.Types.InputPsiControl
-import Network.AWS.MediaConvert.Types.InputScanType
-import Network.AWS.MediaConvert.Types.InputTimecodeSource
-import Network.AWS.MediaConvert.Types.Rectangle
-import Network.AWS.MediaConvert.Types.VideoSelector
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AudioSelector
+import Amazonka.MediaConvert.Types.AudioSelectorGroup
+import Amazonka.MediaConvert.Types.CaptionSelector
+import Amazonka.MediaConvert.Types.ImageInserter
+import Amazonka.MediaConvert.Types.InputClipping
+import Amazonka.MediaConvert.Types.InputDeblockFilter
+import Amazonka.MediaConvert.Types.InputDecryptionSettings
+import Amazonka.MediaConvert.Types.InputDenoiseFilter
+import Amazonka.MediaConvert.Types.InputFilterEnable
+import Amazonka.MediaConvert.Types.InputPsiControl
+import Amazonka.MediaConvert.Types.InputScanType
+import Amazonka.MediaConvert.Types.InputTimecodeSource
+import Amazonka.MediaConvert.Types.Rectangle
+import Amazonka.MediaConvert.Types.VideoSelector
+import qualified Amazonka.Prelude as Prelude
 
 -- | Use inputs to define the source files used in your transcoding job. For
 -- more information, see

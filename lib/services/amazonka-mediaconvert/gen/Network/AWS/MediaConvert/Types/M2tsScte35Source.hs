@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.M2tsScte35Source
+-- Module      : Amazonka.MediaConvert.Types.M2tsScte35Source
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsScte35Source
+module Amazonka.MediaConvert.Types.M2tsScte35Source
   ( M2tsScte35Source
       ( ..,
         M2tsScte35Source_NONE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.M2tsScte35Source
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH)
 -- if you want SCTE-35 markers that appear in your input to also appear in

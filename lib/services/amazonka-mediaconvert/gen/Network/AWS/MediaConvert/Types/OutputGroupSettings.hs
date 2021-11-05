@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.OutputGroupSettings
+-- Module      : Amazonka.MediaConvert.Types.OutputGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputGroupSettings where
+module Amazonka.MediaConvert.Types.OutputGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.CmafGroupSettings
-import Network.AWS.MediaConvert.Types.DashIsoGroupSettings
-import Network.AWS.MediaConvert.Types.FileGroupSettings
-import Network.AWS.MediaConvert.Types.HlsGroupSettings
-import Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
-import Network.AWS.MediaConvert.Types.OutputGroupType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.CmafGroupSettings
+import Amazonka.MediaConvert.Types.DashIsoGroupSettings
+import Amazonka.MediaConvert.Types.FileGroupSettings
+import Amazonka.MediaConvert.Types.HlsGroupSettings
+import Amazonka.MediaConvert.Types.MsSmoothGroupSettings
+import Amazonka.MediaConvert.Types.OutputGroupType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Output Group settings, including type
 --

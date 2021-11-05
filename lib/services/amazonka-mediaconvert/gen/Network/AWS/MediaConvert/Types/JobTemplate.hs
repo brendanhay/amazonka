@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.JobTemplate
+-- Module      : Amazonka.MediaConvert.Types.JobTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.JobTemplate where
+module Amazonka.MediaConvert.Types.JobTemplate where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AccelerationSettings
-import Network.AWS.MediaConvert.Types.HopDestination
-import Network.AWS.MediaConvert.Types.JobTemplateSettings
-import Network.AWS.MediaConvert.Types.StatusUpdateInterval
-import Network.AWS.MediaConvert.Types.Type
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.AccelerationSettings
+import Amazonka.MediaConvert.Types.HopDestination
+import Amazonka.MediaConvert.Types.JobTemplateSettings
+import Amazonka.MediaConvert.Types.StatusUpdateInterval
+import Amazonka.MediaConvert.Types.Type
+import qualified Amazonka.Prelude as Prelude
 
 -- | A job template is a pre-made set of encoding instructions that you can
 -- use to quickly create a job.

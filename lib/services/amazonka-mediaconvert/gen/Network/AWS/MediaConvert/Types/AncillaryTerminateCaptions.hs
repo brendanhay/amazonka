@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
+-- Module      : Amazonka.MediaConvert.Types.AncillaryTerminateCaptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
+module Amazonka.MediaConvert.Types.AncillaryTerminateCaptions
   ( AncillaryTerminateCaptions
       ( ..,
         AncillaryTerminateCaptions_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,

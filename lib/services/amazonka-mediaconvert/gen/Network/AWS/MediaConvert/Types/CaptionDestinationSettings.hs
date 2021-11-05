@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.CaptionDestinationSettings
+-- Module      : Amazonka.MediaConvert.Types.CaptionDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionDestinationSettings where
+module Amazonka.MediaConvert.Types.CaptionDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.BurninDestinationSettings
-import Network.AWS.MediaConvert.Types.CaptionDestinationType
-import Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
-import Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings
-import Network.AWS.MediaConvert.Types.ImscDestinationSettings
-import Network.AWS.MediaConvert.Types.SccDestinationSettings
-import Network.AWS.MediaConvert.Types.SrtDestinationSettings
-import Network.AWS.MediaConvert.Types.TeletextDestinationSettings
-import Network.AWS.MediaConvert.Types.TtmlDestinationSettings
-import Network.AWS.MediaConvert.Types.WebvttDestinationSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.BurninDestinationSettings
+import Amazonka.MediaConvert.Types.CaptionDestinationType
+import Amazonka.MediaConvert.Types.DvbSubDestinationSettings
+import Amazonka.MediaConvert.Types.EmbeddedDestinationSettings
+import Amazonka.MediaConvert.Types.ImscDestinationSettings
+import Amazonka.MediaConvert.Types.SccDestinationSettings
+import Amazonka.MediaConvert.Types.SrtDestinationSettings
+import Amazonka.MediaConvert.Types.TeletextDestinationSettings
+import Amazonka.MediaConvert.Types.TtmlDestinationSettings
+import Amazonka.MediaConvert.Types.WebvttDestinationSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings related to one captions tab on the MediaConvert console. In
 -- your job JSON, an instance of captions DestinationSettings is equivalent

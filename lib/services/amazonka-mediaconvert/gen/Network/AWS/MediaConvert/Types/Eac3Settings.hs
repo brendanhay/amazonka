@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Eac3Settings
+-- Module      : Amazonka.MediaConvert.Types.Eac3Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3Settings where
+module Amazonka.MediaConvert.Types.Eac3Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Eac3AttenuationControl
-import Network.AWS.MediaConvert.Types.Eac3BitstreamMode
-import Network.AWS.MediaConvert.Types.Eac3CodingMode
-import Network.AWS.MediaConvert.Types.Eac3DcFilter
-import Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
-import Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf
-import Network.AWS.MediaConvert.Types.Eac3LfeControl
-import Network.AWS.MediaConvert.Types.Eac3LfeFilter
-import Network.AWS.MediaConvert.Types.Eac3MetadataControl
-import Network.AWS.MediaConvert.Types.Eac3PassthroughControl
-import Network.AWS.MediaConvert.Types.Eac3PhaseControl
-import Network.AWS.MediaConvert.Types.Eac3StereoDownmix
-import Network.AWS.MediaConvert.Types.Eac3SurroundExMode
-import Network.AWS.MediaConvert.Types.Eac3SurroundMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Eac3AttenuationControl
+import Amazonka.MediaConvert.Types.Eac3BitstreamMode
+import Amazonka.MediaConvert.Types.Eac3CodingMode
+import Amazonka.MediaConvert.Types.Eac3DcFilter
+import Amazonka.MediaConvert.Types.Eac3DynamicRangeCompressionLine
+import Amazonka.MediaConvert.Types.Eac3DynamicRangeCompressionRf
+import Amazonka.MediaConvert.Types.Eac3LfeControl
+import Amazonka.MediaConvert.Types.Eac3LfeFilter
+import Amazonka.MediaConvert.Types.Eac3MetadataControl
+import Amazonka.MediaConvert.Types.Eac3PassthroughControl
+import Amazonka.MediaConvert.Types.Eac3PhaseControl
+import Amazonka.MediaConvert.Types.Eac3StereoDownmix
+import Amazonka.MediaConvert.Types.Eac3SurroundExMode
+import Amazonka.MediaConvert.Types.Eac3SurroundMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value EAC3.

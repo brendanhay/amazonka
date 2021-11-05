@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
+-- Module      : Amazonka.MediaConvert.Types.NielsenActiveWatermarkProcessType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
+module Amazonka.MediaConvert.Types.NielsenActiveWatermarkProcessType
   ( NielsenActiveWatermarkProcessType
       ( ..,
         NielsenActiveWatermarkProcessType_CBET,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Choose the type of Nielsen watermarks that you want in your outputs.
 -- When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value

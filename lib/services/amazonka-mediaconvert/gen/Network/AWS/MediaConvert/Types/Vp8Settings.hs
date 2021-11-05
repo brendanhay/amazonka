@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.Vp8Settings
+-- Module      : Amazonka.MediaConvert.Types.Vp8Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Vp8Settings where
+module Amazonka.MediaConvert.Types.Vp8Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Vp8FramerateControl
-import Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm
-import Network.AWS.MediaConvert.Types.Vp8ParControl
-import Network.AWS.MediaConvert.Types.Vp8QualityTuningLevel
-import Network.AWS.MediaConvert.Types.Vp8RateControlMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.Vp8FramerateControl
+import Amazonka.MediaConvert.Types.Vp8FramerateConversionAlgorithm
+import Amazonka.MediaConvert.Types.Vp8ParControl
+import Amazonka.MediaConvert.Types.Vp8QualityTuningLevel
+import Amazonka.MediaConvert.Types.Vp8RateControlMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value VP8.

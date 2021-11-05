@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
+-- Module      : Amazonka.MediaConvert.Types.VideoTimecodeInsertion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
+module Amazonka.MediaConvert.Types.VideoTimecodeInsertion
   ( VideoTimecodeInsertion
       ( ..,
         VideoTimecodeInsertion_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable
 -- Timecode insertion when the input frame rate is identical to the output

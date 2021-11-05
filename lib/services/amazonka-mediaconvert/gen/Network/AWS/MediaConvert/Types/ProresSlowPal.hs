@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.ProresSlowPal
+-- Module      : Amazonka.MediaConvert.Types.ProresSlowPal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ProresSlowPal
+module Amazonka.MediaConvert.Types.ProresSlowPal
   ( ProresSlowPal
       ( ..,
         ProresSlowPal_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.ProresSlowPal
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output. When you

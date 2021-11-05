@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.InputDecryptionSettings
+-- Module      : Amazonka.MediaConvert.Types.InputDecryptionSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.InputDecryptionSettings where
+module Amazonka.MediaConvert.Types.InputDecryptionSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DecryptionMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.DecryptionMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings for decrypting any input files that you encrypt before you
 -- upload them to Amazon S3. MediaConvert can decrypt files only when you

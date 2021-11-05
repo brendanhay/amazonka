@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.HlsKeyProviderType
+-- Module      : Amazonka.MediaConvert.Types.HlsKeyProviderType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsKeyProviderType
+module Amazonka.MediaConvert.Types.HlsKeyProviderType
   ( HlsKeyProviderType
       ( ..,
         HlsKeyProviderType_SPEKE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaConvert.Types.HlsKeyProviderType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify whether your DRM encryption key is static or from a key provider
 -- that follows the SPEKE standard. For more information about SPEKE, see

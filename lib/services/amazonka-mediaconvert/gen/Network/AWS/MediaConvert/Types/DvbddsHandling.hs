@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConvert.Types.DvbddsHandling
+-- Module      : Amazonka.MediaConvert.Types.DvbddsHandling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbddsHandling
+module Amazonka.MediaConvert.Types.DvbddsHandling
   ( DvbddsHandling
       ( ..,
         DvbddsHandling_NONE,
@@ -27,8 +27,8 @@ module Network.AWS.MediaConvert.Types.DvbddsHandling
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specify how MediaConvert handles the display definition segment (DDS).
 -- Keep the default, None (NONE), to exclude the DDS from this set of

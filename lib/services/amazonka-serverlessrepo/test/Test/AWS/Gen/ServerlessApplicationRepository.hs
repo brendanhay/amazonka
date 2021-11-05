@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServerlessApplicationRepository where
 
+import Amazonka.ServerlessApplicationRepository
 import qualified Data.Proxy as Proxy
-import Network.AWS.ServerlessApplicationRepository
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.ServerlessApplicationRepository.Internal

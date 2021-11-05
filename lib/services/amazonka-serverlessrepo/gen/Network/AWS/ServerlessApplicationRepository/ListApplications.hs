@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServerlessApplicationRepository.ListApplications
+-- Module      : Amazonka.ServerlessApplicationRepository.ListApplications
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists applications owned by the requester.
 --
 -- This operation returns paginated results.
-module Network.AWS.ServerlessApplicationRepository.ListApplications
+module Amazonka.ServerlessApplicationRepository.ListApplications
   ( -- * Creating a Request
     ListApplications (..),
     newListApplications,
@@ -43,12 +43,12 @@ module Network.AWS.ServerlessApplicationRepository.ListApplications
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'

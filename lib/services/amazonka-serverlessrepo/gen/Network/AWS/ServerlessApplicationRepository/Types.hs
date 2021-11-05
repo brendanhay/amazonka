@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServerlessApplicationRepository.Types
+-- Module      : Amazonka.ServerlessApplicationRepository.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServerlessApplicationRepository.Types
+module Amazonka.ServerlessApplicationRepository.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -120,22 +120,22 @@ module Network.AWS.ServerlessApplicationRepository.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
-import Network.AWS.ServerlessApplicationRepository.Types.Capability
-import Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
-import Network.AWS.ServerlessApplicationRepository.Types.ParameterValue
-import Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration
-import Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
-import Network.AWS.ServerlessApplicationRepository.Types.Status
-import Network.AWS.ServerlessApplicationRepository.Types.Tag
-import Network.AWS.ServerlessApplicationRepository.Types.Version
-import Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary
+import Amazonka.ServerlessApplicationRepository.Types.Capability
+import Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
+import Amazonka.ServerlessApplicationRepository.Types.ParameterValue
+import Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration
+import Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger
+import Amazonka.ServerlessApplicationRepository.Types.Status
+import Amazonka.ServerlessApplicationRepository.Types.Tag
+import Amazonka.ServerlessApplicationRepository.Types.Version
+import Amazonka.ServerlessApplicationRepository.Types.VersionSummary
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-09-08@ of the Amazon ServerlessApplicationRepository SDK configuration.
 defaultService :: Core.Service

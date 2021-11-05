@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ServerlessApplicationRepository
+-- Module      : Amazonka.ServerlessApplicationRepository
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --     Publishing Applications – Configure and upload applications to make
 --     them available to other developers, and publish new versions of
 --     applications.
-module Network.AWS.ServerlessApplicationRepository
+module Amazonka.ServerlessApplicationRepository
   ( -- * Service Configuration
     defaultService,
 
@@ -209,23 +209,23 @@ module Network.AWS.ServerlessApplicationRepository
   )
 where
 
-import Network.AWS.ServerlessApplicationRepository.CreateApplication
-import Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
-import Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
-import Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
-import Network.AWS.ServerlessApplicationRepository.DeleteApplication
-import Network.AWS.ServerlessApplicationRepository.GetApplication
-import Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
-import Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
-import Network.AWS.ServerlessApplicationRepository.Lens
-import Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
-import Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
-import Network.AWS.ServerlessApplicationRepository.ListApplications
-import Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
-import Network.AWS.ServerlessApplicationRepository.Types
-import Network.AWS.ServerlessApplicationRepository.UnshareApplication
-import Network.AWS.ServerlessApplicationRepository.UpdateApplication
-import Network.AWS.ServerlessApplicationRepository.Waiters
+import Amazonka.ServerlessApplicationRepository.CreateApplication
+import Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
+import Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+import Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate
+import Amazonka.ServerlessApplicationRepository.DeleteApplication
+import Amazonka.ServerlessApplicationRepository.GetApplication
+import Amazonka.ServerlessApplicationRepository.GetApplicationPolicy
+import Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate
+import Amazonka.ServerlessApplicationRepository.Lens
+import Amazonka.ServerlessApplicationRepository.ListApplicationDependencies
+import Amazonka.ServerlessApplicationRepository.ListApplicationVersions
+import Amazonka.ServerlessApplicationRepository.ListApplications
+import Amazonka.ServerlessApplicationRepository.PutApplicationPolicy
+import Amazonka.ServerlessApplicationRepository.Types
+import Amazonka.ServerlessApplicationRepository.UnshareApplication
+import Amazonka.ServerlessApplicationRepository.UpdateApplication
+import Amazonka.ServerlessApplicationRepository.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

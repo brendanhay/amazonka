@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServerlessApplicationRepository.Lens
+-- Module      : Amazonka.ServerlessApplicationRepository.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServerlessApplicationRepository.Lens
+module Amazonka.ServerlessApplicationRepository.Lens
   ( -- * Operations
 
     -- ** GetApplicationPolicy
@@ -262,27 +262,27 @@ module Network.AWS.ServerlessApplicationRepository.Lens
   )
 where
 
-import Network.AWS.ServerlessApplicationRepository.CreateApplication
-import Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
-import Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
-import Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
-import Network.AWS.ServerlessApplicationRepository.DeleteApplication
-import Network.AWS.ServerlessApplicationRepository.GetApplication
-import Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
-import Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
-import Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
-import Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
-import Network.AWS.ServerlessApplicationRepository.ListApplications
-import Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
-import Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
-import Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
-import Network.AWS.ServerlessApplicationRepository.Types.ParameterValue
-import Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration
-import Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
-import Network.AWS.ServerlessApplicationRepository.Types.Tag
-import Network.AWS.ServerlessApplicationRepository.Types.Version
-import Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
-import Network.AWS.ServerlessApplicationRepository.UnshareApplication
-import Network.AWS.ServerlessApplicationRepository.UpdateApplication
+import Amazonka.ServerlessApplicationRepository.CreateApplication
+import Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
+import Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+import Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate
+import Amazonka.ServerlessApplicationRepository.DeleteApplication
+import Amazonka.ServerlessApplicationRepository.GetApplication
+import Amazonka.ServerlessApplicationRepository.GetApplicationPolicy
+import Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate
+import Amazonka.ServerlessApplicationRepository.ListApplicationDependencies
+import Amazonka.ServerlessApplicationRepository.ListApplicationVersions
+import Amazonka.ServerlessApplicationRepository.ListApplications
+import Amazonka.ServerlessApplicationRepository.PutApplicationPolicy
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
+import Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary
+import Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
+import Amazonka.ServerlessApplicationRepository.Types.ParameterValue
+import Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration
+import Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger
+import Amazonka.ServerlessApplicationRepository.Types.Tag
+import Amazonka.ServerlessApplicationRepository.Types.Version
+import Amazonka.ServerlessApplicationRepository.Types.VersionSummary
+import Amazonka.ServerlessApplicationRepository.UnshareApplication
+import Amazonka.ServerlessApplicationRepository.UpdateApplication

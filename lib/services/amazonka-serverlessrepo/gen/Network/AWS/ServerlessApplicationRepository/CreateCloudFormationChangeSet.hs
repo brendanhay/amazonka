@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+-- Module      : Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AWS CloudFormation change set for the given application.
-module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+module Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
   ( -- * Creating a Request
     CreateCloudFormationChangeSet (..),
     newCreateCloudFormationChangeSet,
@@ -54,12 +54,12 @@ module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newCreateCloudFormationChangeSet' smart constructor.
 data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'

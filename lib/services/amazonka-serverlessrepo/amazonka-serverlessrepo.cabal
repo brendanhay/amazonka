@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ServerlessApplicationRepository.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ServerlessApplicationRepository.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ServerlessApplicationRepository" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ServerlessApplicationRepository" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,38 +45,38 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ServerlessApplicationRepository
-    Network.AWS.ServerlessApplicationRepository.CreateApplication
-    Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
-    Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
-    Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
-    Network.AWS.ServerlessApplicationRepository.DeleteApplication
-    Network.AWS.ServerlessApplicationRepository.GetApplication
-    Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
-    Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
-    Network.AWS.ServerlessApplicationRepository.Lens
-    Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
-    Network.AWS.ServerlessApplicationRepository.ListApplications
-    Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
-    Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
-    Network.AWS.ServerlessApplicationRepository.Types
-    Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary
-    Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
-    Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
-    Network.AWS.ServerlessApplicationRepository.Types.Capability
-    Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
-    Network.AWS.ServerlessApplicationRepository.Types.ParameterValue
-    Network.AWS.ServerlessApplicationRepository.Types.RollbackConfiguration
-    Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
-    Network.AWS.ServerlessApplicationRepository.Types.Status
-    Network.AWS.ServerlessApplicationRepository.Types.Tag
-    Network.AWS.ServerlessApplicationRepository.Types.Version
-    Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
-    Network.AWS.ServerlessApplicationRepository.UnshareApplication
-    Network.AWS.ServerlessApplicationRepository.UpdateApplication
-    Network.AWS.ServerlessApplicationRepository.Waiters
+    Amazonka.ServerlessApplicationRepository
+    Amazonka.ServerlessApplicationRepository.CreateApplication
+    Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
+    Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+    Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate
+    Amazonka.ServerlessApplicationRepository.DeleteApplication
+    Amazonka.ServerlessApplicationRepository.GetApplication
+    Amazonka.ServerlessApplicationRepository.GetApplicationPolicy
+    Amazonka.ServerlessApplicationRepository.GetCloudFormationTemplate
+    Amazonka.ServerlessApplicationRepository.Lens
+    Amazonka.ServerlessApplicationRepository.ListApplicationDependencies
+    Amazonka.ServerlessApplicationRepository.ListApplications
+    Amazonka.ServerlessApplicationRepository.ListApplicationVersions
+    Amazonka.ServerlessApplicationRepository.PutApplicationPolicy
+    Amazonka.ServerlessApplicationRepository.Types
+    Amazonka.ServerlessApplicationRepository.Types.ApplicationDependencySummary
+    Amazonka.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
+    Amazonka.ServerlessApplicationRepository.Types.ApplicationSummary
+    Amazonka.ServerlessApplicationRepository.Types.Capability
+    Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
+    Amazonka.ServerlessApplicationRepository.Types.ParameterValue
+    Amazonka.ServerlessApplicationRepository.Types.RollbackConfiguration
+    Amazonka.ServerlessApplicationRepository.Types.RollbackTrigger
+    Amazonka.ServerlessApplicationRepository.Types.Status
+    Amazonka.ServerlessApplicationRepository.Types.Tag
+    Amazonka.ServerlessApplicationRepository.Types.Version
+    Amazonka.ServerlessApplicationRepository.Types.VersionSummary
+    Amazonka.ServerlessApplicationRepository.UnshareApplication
+    Amazonka.ServerlessApplicationRepository.UpdateApplication
+    Amazonka.ServerlessApplicationRepository.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

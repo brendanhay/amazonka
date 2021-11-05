@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Nimble.Types.Studio
+-- Module      : Amazonka.Nimble.Types.Studio
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Nimble.Types.Studio where
+module Amazonka.Nimble.Types.Studio where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Nimble.Types.StudioEncryptionConfiguration
-import Network.AWS.Nimble.Types.StudioState
-import Network.AWS.Nimble.Types.StudioStatusCode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Nimble.Types.StudioEncryptionConfiguration
+import Amazonka.Nimble.Types.StudioState
+import Amazonka.Nimble.Types.StudioStatusCode
+import qualified Amazonka.Prelude as Prelude
 
 -- |
 --

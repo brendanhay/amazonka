@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Nimble.Types
+-- Module      : Amazonka.Nimble.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Nimble.Types
+module Amazonka.Nimble.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -374,60 +374,60 @@ module Network.AWS.Nimble.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute
-import Network.AWS.Nimble.Types.ActiveDirectoryConfiguration
-import Network.AWS.Nimble.Types.ComputeFarmConfiguration
-import Network.AWS.Nimble.Types.Eula
-import Network.AWS.Nimble.Types.EulaAcceptance
-import Network.AWS.Nimble.Types.LaunchProfile
-import Network.AWS.Nimble.Types.LaunchProfileInitialization
-import Network.AWS.Nimble.Types.LaunchProfileInitializationActiveDirectory
-import Network.AWS.Nimble.Types.LaunchProfileInitializationScript
-import Network.AWS.Nimble.Types.LaunchProfileMembership
-import Network.AWS.Nimble.Types.LaunchProfilePersona
-import Network.AWS.Nimble.Types.LaunchProfilePlatform
-import Network.AWS.Nimble.Types.LaunchProfileState
-import Network.AWS.Nimble.Types.LaunchProfileStatusCode
-import Network.AWS.Nimble.Types.LicenseServiceConfiguration
-import Network.AWS.Nimble.Types.NewLaunchProfileMember
-import Network.AWS.Nimble.Types.NewStudioMember
-import Network.AWS.Nimble.Types.ScriptParameterKeyValue
-import Network.AWS.Nimble.Types.SharedFileSystemConfiguration
-import Network.AWS.Nimble.Types.StreamConfiguration
-import Network.AWS.Nimble.Types.StreamConfigurationCreate
-import Network.AWS.Nimble.Types.StreamingClipboardMode
-import Network.AWS.Nimble.Types.StreamingImage
-import Network.AWS.Nimble.Types.StreamingImageEncryptionConfiguration
-import Network.AWS.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
-import Network.AWS.Nimble.Types.StreamingImageState
-import Network.AWS.Nimble.Types.StreamingImageStatusCode
-import Network.AWS.Nimble.Types.StreamingInstanceType
-import Network.AWS.Nimble.Types.StreamingSession
-import Network.AWS.Nimble.Types.StreamingSessionState
-import Network.AWS.Nimble.Types.StreamingSessionStatusCode
-import Network.AWS.Nimble.Types.StreamingSessionStream
-import Network.AWS.Nimble.Types.StreamingSessionStreamState
-import Network.AWS.Nimble.Types.StreamingSessionStreamStatusCode
-import Network.AWS.Nimble.Types.Studio
-import Network.AWS.Nimble.Types.StudioComponent
-import Network.AWS.Nimble.Types.StudioComponentConfiguration
-import Network.AWS.Nimble.Types.StudioComponentInitializationScript
-import Network.AWS.Nimble.Types.StudioComponentInitializationScriptRunContext
-import Network.AWS.Nimble.Types.StudioComponentState
-import Network.AWS.Nimble.Types.StudioComponentStatusCode
-import Network.AWS.Nimble.Types.StudioComponentSubtype
-import Network.AWS.Nimble.Types.StudioComponentSummary
-import Network.AWS.Nimble.Types.StudioComponentType
-import Network.AWS.Nimble.Types.StudioEncryptionConfiguration
-import Network.AWS.Nimble.Types.StudioEncryptionConfigurationKeyType
-import Network.AWS.Nimble.Types.StudioMembership
-import Network.AWS.Nimble.Types.StudioPersona
-import Network.AWS.Nimble.Types.StudioState
-import Network.AWS.Nimble.Types.StudioStatusCode
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
+import Amazonka.Nimble.Types.ActiveDirectoryConfiguration
+import Amazonka.Nimble.Types.ComputeFarmConfiguration
+import Amazonka.Nimble.Types.Eula
+import Amazonka.Nimble.Types.EulaAcceptance
+import Amazonka.Nimble.Types.LaunchProfile
+import Amazonka.Nimble.Types.LaunchProfileInitialization
+import Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory
+import Amazonka.Nimble.Types.LaunchProfileInitializationScript
+import Amazonka.Nimble.Types.LaunchProfileMembership
+import Amazonka.Nimble.Types.LaunchProfilePersona
+import Amazonka.Nimble.Types.LaunchProfilePlatform
+import Amazonka.Nimble.Types.LaunchProfileState
+import Amazonka.Nimble.Types.LaunchProfileStatusCode
+import Amazonka.Nimble.Types.LicenseServiceConfiguration
+import Amazonka.Nimble.Types.NewLaunchProfileMember
+import Amazonka.Nimble.Types.NewStudioMember
+import Amazonka.Nimble.Types.ScriptParameterKeyValue
+import Amazonka.Nimble.Types.SharedFileSystemConfiguration
+import Amazonka.Nimble.Types.StreamConfiguration
+import Amazonka.Nimble.Types.StreamConfigurationCreate
+import Amazonka.Nimble.Types.StreamingClipboardMode
+import Amazonka.Nimble.Types.StreamingImage
+import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
+import Amazonka.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
+import Amazonka.Nimble.Types.StreamingImageState
+import Amazonka.Nimble.Types.StreamingImageStatusCode
+import Amazonka.Nimble.Types.StreamingInstanceType
+import Amazonka.Nimble.Types.StreamingSession
+import Amazonka.Nimble.Types.StreamingSessionState
+import Amazonka.Nimble.Types.StreamingSessionStatusCode
+import Amazonka.Nimble.Types.StreamingSessionStream
+import Amazonka.Nimble.Types.StreamingSessionStreamState
+import Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
+import Amazonka.Nimble.Types.Studio
+import Amazonka.Nimble.Types.StudioComponent
+import Amazonka.Nimble.Types.StudioComponentConfiguration
+import Amazonka.Nimble.Types.StudioComponentInitializationScript
+import Amazonka.Nimble.Types.StudioComponentInitializationScriptRunContext
+import Amazonka.Nimble.Types.StudioComponentState
+import Amazonka.Nimble.Types.StudioComponentStatusCode
+import Amazonka.Nimble.Types.StudioComponentSubtype
+import Amazonka.Nimble.Types.StudioComponentSummary
+import Amazonka.Nimble.Types.StudioComponentType
+import Amazonka.Nimble.Types.StudioEncryptionConfiguration
+import Amazonka.Nimble.Types.StudioEncryptionConfigurationKeyType
+import Amazonka.Nimble.Types.StudioMembership
+import Amazonka.Nimble.Types.StudioPersona
+import Amazonka.Nimble.Types.StudioState
+import Amazonka.Nimble.Types.StudioStatusCode
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-01@ of the Amazon NimbleStudio SDK configuration.
 defaultService :: Core.Service

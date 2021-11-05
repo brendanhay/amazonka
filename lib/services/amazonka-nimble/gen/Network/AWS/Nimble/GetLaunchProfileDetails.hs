@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Nimble.GetLaunchProfileDetails
+-- Module      : Amazonka.Nimble.GetLaunchProfileDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- profile. This includes the name and description of all studio components
 -- used by the launch profiles, and the name and description of streaming
 -- images that can be used with this launch profile.
-module Network.AWS.Nimble.GetLaunchProfileDetails
+module Amazonka.Nimble.GetLaunchProfileDetails
   ( -- * Creating a Request
     GetLaunchProfileDetails (..),
     newGetLaunchProfileDetails,
@@ -46,12 +46,12 @@ module Network.AWS.Nimble.GetLaunchProfileDetails
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Nimble.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Nimble.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLaunchProfileDetails' smart constructor.
 data GetLaunchProfileDetails = GetLaunchProfileDetails'

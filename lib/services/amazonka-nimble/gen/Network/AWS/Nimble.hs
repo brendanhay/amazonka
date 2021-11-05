@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Nimble
+-- Module      : Amazonka.Nimble
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- with artists globally and create content faster with access to virtual
 -- workstations, high-speed storage, and scalable rendering across AWS’s
 -- global infrastructure.
-module Network.AWS.Nimble
+module Amazonka.Nimble
   ( -- * Service Configuration
     defaultService,
 
@@ -503,54 +503,54 @@ module Network.AWS.Nimble
   )
 where
 
-import Network.AWS.Nimble.AcceptEulas
-import Network.AWS.Nimble.CreateLaunchProfile
-import Network.AWS.Nimble.CreateStreamingImage
-import Network.AWS.Nimble.CreateStreamingSession
-import Network.AWS.Nimble.CreateStreamingSessionStream
-import Network.AWS.Nimble.CreateStudio
-import Network.AWS.Nimble.CreateStudioComponent
-import Network.AWS.Nimble.DeleteLaunchProfile
-import Network.AWS.Nimble.DeleteLaunchProfileMember
-import Network.AWS.Nimble.DeleteStreamingImage
-import Network.AWS.Nimble.DeleteStreamingSession
-import Network.AWS.Nimble.DeleteStudio
-import Network.AWS.Nimble.DeleteStudioComponent
-import Network.AWS.Nimble.DeleteStudioMember
-import Network.AWS.Nimble.GetEula
-import Network.AWS.Nimble.GetLaunchProfile
-import Network.AWS.Nimble.GetLaunchProfileDetails
-import Network.AWS.Nimble.GetLaunchProfileInitialization
-import Network.AWS.Nimble.GetLaunchProfileMember
-import Network.AWS.Nimble.GetStreamingImage
-import Network.AWS.Nimble.GetStreamingSession
-import Network.AWS.Nimble.GetStreamingSessionStream
-import Network.AWS.Nimble.GetStudio
-import Network.AWS.Nimble.GetStudioComponent
-import Network.AWS.Nimble.GetStudioMember
-import Network.AWS.Nimble.Lens
-import Network.AWS.Nimble.ListEulaAcceptances
-import Network.AWS.Nimble.ListEulas
-import Network.AWS.Nimble.ListLaunchProfileMembers
-import Network.AWS.Nimble.ListLaunchProfiles
-import Network.AWS.Nimble.ListStreamingImages
-import Network.AWS.Nimble.ListStreamingSessions
-import Network.AWS.Nimble.ListStudioComponents
-import Network.AWS.Nimble.ListStudioMembers
-import Network.AWS.Nimble.ListStudios
-import Network.AWS.Nimble.ListTagsForResource
-import Network.AWS.Nimble.PutLaunchProfileMembers
-import Network.AWS.Nimble.PutStudioMembers
-import Network.AWS.Nimble.StartStudioSSOConfigurationRepair
-import Network.AWS.Nimble.TagResource
-import Network.AWS.Nimble.Types
-import Network.AWS.Nimble.UntagResource
-import Network.AWS.Nimble.UpdateLaunchProfile
-import Network.AWS.Nimble.UpdateLaunchProfileMember
-import Network.AWS.Nimble.UpdateStreamingImage
-import Network.AWS.Nimble.UpdateStudio
-import Network.AWS.Nimble.UpdateStudioComponent
-import Network.AWS.Nimble.Waiters
+import Amazonka.Nimble.AcceptEulas
+import Amazonka.Nimble.CreateLaunchProfile
+import Amazonka.Nimble.CreateStreamingImage
+import Amazonka.Nimble.CreateStreamingSession
+import Amazonka.Nimble.CreateStreamingSessionStream
+import Amazonka.Nimble.CreateStudio
+import Amazonka.Nimble.CreateStudioComponent
+import Amazonka.Nimble.DeleteLaunchProfile
+import Amazonka.Nimble.DeleteLaunchProfileMember
+import Amazonka.Nimble.DeleteStreamingImage
+import Amazonka.Nimble.DeleteStreamingSession
+import Amazonka.Nimble.DeleteStudio
+import Amazonka.Nimble.DeleteStudioComponent
+import Amazonka.Nimble.DeleteStudioMember
+import Amazonka.Nimble.GetEula
+import Amazonka.Nimble.GetLaunchProfile
+import Amazonka.Nimble.GetLaunchProfileDetails
+import Amazonka.Nimble.GetLaunchProfileInitialization
+import Amazonka.Nimble.GetLaunchProfileMember
+import Amazonka.Nimble.GetStreamingImage
+import Amazonka.Nimble.GetStreamingSession
+import Amazonka.Nimble.GetStreamingSessionStream
+import Amazonka.Nimble.GetStudio
+import Amazonka.Nimble.GetStudioComponent
+import Amazonka.Nimble.GetStudioMember
+import Amazonka.Nimble.Lens
+import Amazonka.Nimble.ListEulaAcceptances
+import Amazonka.Nimble.ListEulas
+import Amazonka.Nimble.ListLaunchProfileMembers
+import Amazonka.Nimble.ListLaunchProfiles
+import Amazonka.Nimble.ListStreamingImages
+import Amazonka.Nimble.ListStreamingSessions
+import Amazonka.Nimble.ListStudioComponents
+import Amazonka.Nimble.ListStudioMembers
+import Amazonka.Nimble.ListStudios
+import Amazonka.Nimble.ListTagsForResource
+import Amazonka.Nimble.PutLaunchProfileMembers
+import Amazonka.Nimble.PutStudioMembers
+import Amazonka.Nimble.StartStudioSSOConfigurationRepair
+import Amazonka.Nimble.TagResource
+import Amazonka.Nimble.Types
+import Amazonka.Nimble.UntagResource
+import Amazonka.Nimble.UpdateLaunchProfile
+import Amazonka.Nimble.UpdateLaunchProfileMember
+import Amazonka.Nimble.UpdateStreamingImage
+import Amazonka.Nimble.UpdateStudio
+import Amazonka.Nimble.UpdateStudioComponent
+import Amazonka.Nimble.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

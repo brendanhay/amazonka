@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Nimble.Lens
+-- Module      : Amazonka.Nimble.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Nimble.Lens
+module Amazonka.Nimble.Lens
   ( -- * Operations
 
     -- ** PutLaunchProfileMembers
@@ -602,76 +602,76 @@ module Network.AWS.Nimble.Lens
   )
 where
 
-import Network.AWS.Nimble.AcceptEulas
-import Network.AWS.Nimble.CreateLaunchProfile
-import Network.AWS.Nimble.CreateStreamingImage
-import Network.AWS.Nimble.CreateStreamingSession
-import Network.AWS.Nimble.CreateStreamingSessionStream
-import Network.AWS.Nimble.CreateStudio
-import Network.AWS.Nimble.CreateStudioComponent
-import Network.AWS.Nimble.DeleteLaunchProfile
-import Network.AWS.Nimble.DeleteLaunchProfileMember
-import Network.AWS.Nimble.DeleteStreamingImage
-import Network.AWS.Nimble.DeleteStreamingSession
-import Network.AWS.Nimble.DeleteStudio
-import Network.AWS.Nimble.DeleteStudioComponent
-import Network.AWS.Nimble.DeleteStudioMember
-import Network.AWS.Nimble.GetEula
-import Network.AWS.Nimble.GetLaunchProfile
-import Network.AWS.Nimble.GetLaunchProfileDetails
-import Network.AWS.Nimble.GetLaunchProfileInitialization
-import Network.AWS.Nimble.GetLaunchProfileMember
-import Network.AWS.Nimble.GetStreamingImage
-import Network.AWS.Nimble.GetStreamingSession
-import Network.AWS.Nimble.GetStreamingSessionStream
-import Network.AWS.Nimble.GetStudio
-import Network.AWS.Nimble.GetStudioComponent
-import Network.AWS.Nimble.GetStudioMember
-import Network.AWS.Nimble.ListEulaAcceptances
-import Network.AWS.Nimble.ListEulas
-import Network.AWS.Nimble.ListLaunchProfileMembers
-import Network.AWS.Nimble.ListLaunchProfiles
-import Network.AWS.Nimble.ListStreamingImages
-import Network.AWS.Nimble.ListStreamingSessions
-import Network.AWS.Nimble.ListStudioComponents
-import Network.AWS.Nimble.ListStudioMembers
-import Network.AWS.Nimble.ListStudios
-import Network.AWS.Nimble.ListTagsForResource
-import Network.AWS.Nimble.PutLaunchProfileMembers
-import Network.AWS.Nimble.PutStudioMembers
-import Network.AWS.Nimble.StartStudioSSOConfigurationRepair
-import Network.AWS.Nimble.TagResource
-import Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute
-import Network.AWS.Nimble.Types.ActiveDirectoryConfiguration
-import Network.AWS.Nimble.Types.ComputeFarmConfiguration
-import Network.AWS.Nimble.Types.Eula
-import Network.AWS.Nimble.Types.EulaAcceptance
-import Network.AWS.Nimble.Types.LaunchProfile
-import Network.AWS.Nimble.Types.LaunchProfileInitialization
-import Network.AWS.Nimble.Types.LaunchProfileInitializationActiveDirectory
-import Network.AWS.Nimble.Types.LaunchProfileInitializationScript
-import Network.AWS.Nimble.Types.LaunchProfileMembership
-import Network.AWS.Nimble.Types.LicenseServiceConfiguration
-import Network.AWS.Nimble.Types.NewLaunchProfileMember
-import Network.AWS.Nimble.Types.NewStudioMember
-import Network.AWS.Nimble.Types.ScriptParameterKeyValue
-import Network.AWS.Nimble.Types.SharedFileSystemConfiguration
-import Network.AWS.Nimble.Types.StreamConfiguration
-import Network.AWS.Nimble.Types.StreamConfigurationCreate
-import Network.AWS.Nimble.Types.StreamingImage
-import Network.AWS.Nimble.Types.StreamingImageEncryptionConfiguration
-import Network.AWS.Nimble.Types.StreamingSession
-import Network.AWS.Nimble.Types.StreamingSessionStream
-import Network.AWS.Nimble.Types.Studio
-import Network.AWS.Nimble.Types.StudioComponent
-import Network.AWS.Nimble.Types.StudioComponentConfiguration
-import Network.AWS.Nimble.Types.StudioComponentInitializationScript
-import Network.AWS.Nimble.Types.StudioComponentSummary
-import Network.AWS.Nimble.Types.StudioEncryptionConfiguration
-import Network.AWS.Nimble.Types.StudioMembership
-import Network.AWS.Nimble.UntagResource
-import Network.AWS.Nimble.UpdateLaunchProfile
-import Network.AWS.Nimble.UpdateLaunchProfileMember
-import Network.AWS.Nimble.UpdateStreamingImage
-import Network.AWS.Nimble.UpdateStudio
-import Network.AWS.Nimble.UpdateStudioComponent
+import Amazonka.Nimble.AcceptEulas
+import Amazonka.Nimble.CreateLaunchProfile
+import Amazonka.Nimble.CreateStreamingImage
+import Amazonka.Nimble.CreateStreamingSession
+import Amazonka.Nimble.CreateStreamingSessionStream
+import Amazonka.Nimble.CreateStudio
+import Amazonka.Nimble.CreateStudioComponent
+import Amazonka.Nimble.DeleteLaunchProfile
+import Amazonka.Nimble.DeleteLaunchProfileMember
+import Amazonka.Nimble.DeleteStreamingImage
+import Amazonka.Nimble.DeleteStreamingSession
+import Amazonka.Nimble.DeleteStudio
+import Amazonka.Nimble.DeleteStudioComponent
+import Amazonka.Nimble.DeleteStudioMember
+import Amazonka.Nimble.GetEula
+import Amazonka.Nimble.GetLaunchProfile
+import Amazonka.Nimble.GetLaunchProfileDetails
+import Amazonka.Nimble.GetLaunchProfileInitialization
+import Amazonka.Nimble.GetLaunchProfileMember
+import Amazonka.Nimble.GetStreamingImage
+import Amazonka.Nimble.GetStreamingSession
+import Amazonka.Nimble.GetStreamingSessionStream
+import Amazonka.Nimble.GetStudio
+import Amazonka.Nimble.GetStudioComponent
+import Amazonka.Nimble.GetStudioMember
+import Amazonka.Nimble.ListEulaAcceptances
+import Amazonka.Nimble.ListEulas
+import Amazonka.Nimble.ListLaunchProfileMembers
+import Amazonka.Nimble.ListLaunchProfiles
+import Amazonka.Nimble.ListStreamingImages
+import Amazonka.Nimble.ListStreamingSessions
+import Amazonka.Nimble.ListStudioComponents
+import Amazonka.Nimble.ListStudioMembers
+import Amazonka.Nimble.ListStudios
+import Amazonka.Nimble.ListTagsForResource
+import Amazonka.Nimble.PutLaunchProfileMembers
+import Amazonka.Nimble.PutStudioMembers
+import Amazonka.Nimble.StartStudioSSOConfigurationRepair
+import Amazonka.Nimble.TagResource
+import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
+import Amazonka.Nimble.Types.ActiveDirectoryConfiguration
+import Amazonka.Nimble.Types.ComputeFarmConfiguration
+import Amazonka.Nimble.Types.Eula
+import Amazonka.Nimble.Types.EulaAcceptance
+import Amazonka.Nimble.Types.LaunchProfile
+import Amazonka.Nimble.Types.LaunchProfileInitialization
+import Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory
+import Amazonka.Nimble.Types.LaunchProfileInitializationScript
+import Amazonka.Nimble.Types.LaunchProfileMembership
+import Amazonka.Nimble.Types.LicenseServiceConfiguration
+import Amazonka.Nimble.Types.NewLaunchProfileMember
+import Amazonka.Nimble.Types.NewStudioMember
+import Amazonka.Nimble.Types.ScriptParameterKeyValue
+import Amazonka.Nimble.Types.SharedFileSystemConfiguration
+import Amazonka.Nimble.Types.StreamConfiguration
+import Amazonka.Nimble.Types.StreamConfigurationCreate
+import Amazonka.Nimble.Types.StreamingImage
+import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
+import Amazonka.Nimble.Types.StreamingSession
+import Amazonka.Nimble.Types.StreamingSessionStream
+import Amazonka.Nimble.Types.Studio
+import Amazonka.Nimble.Types.StudioComponent
+import Amazonka.Nimble.Types.StudioComponentConfiguration
+import Amazonka.Nimble.Types.StudioComponentInitializationScript
+import Amazonka.Nimble.Types.StudioComponentSummary
+import Amazonka.Nimble.Types.StudioEncryptionConfiguration
+import Amazonka.Nimble.Types.StudioMembership
+import Amazonka.Nimble.UntagResource
+import Amazonka.Nimble.UpdateLaunchProfile
+import Amazonka.Nimble.UpdateLaunchProfileMember
+import Amazonka.Nimble.UpdateStreamingImage
+import Amazonka.Nimble.UpdateStudio
+import Amazonka.Nimble.UpdateStudioComponent

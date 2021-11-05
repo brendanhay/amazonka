@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Nimble.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Nimble.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Nimble" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Nimble" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,107 +45,107 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Nimble
-    Network.AWS.Nimble.AcceptEulas
-    Network.AWS.Nimble.CreateLaunchProfile
-    Network.AWS.Nimble.CreateStreamingImage
-    Network.AWS.Nimble.CreateStreamingSession
-    Network.AWS.Nimble.CreateStreamingSessionStream
-    Network.AWS.Nimble.CreateStudio
-    Network.AWS.Nimble.CreateStudioComponent
-    Network.AWS.Nimble.DeleteLaunchProfile
-    Network.AWS.Nimble.DeleteLaunchProfileMember
-    Network.AWS.Nimble.DeleteStreamingImage
-    Network.AWS.Nimble.DeleteStreamingSession
-    Network.AWS.Nimble.DeleteStudio
-    Network.AWS.Nimble.DeleteStudioComponent
-    Network.AWS.Nimble.DeleteStudioMember
-    Network.AWS.Nimble.GetEula
-    Network.AWS.Nimble.GetLaunchProfile
-    Network.AWS.Nimble.GetLaunchProfileDetails
-    Network.AWS.Nimble.GetLaunchProfileInitialization
-    Network.AWS.Nimble.GetLaunchProfileMember
-    Network.AWS.Nimble.GetStreamingImage
-    Network.AWS.Nimble.GetStreamingSession
-    Network.AWS.Nimble.GetStreamingSessionStream
-    Network.AWS.Nimble.GetStudio
-    Network.AWS.Nimble.GetStudioComponent
-    Network.AWS.Nimble.GetStudioMember
-    Network.AWS.Nimble.Lens
-    Network.AWS.Nimble.ListEulaAcceptances
-    Network.AWS.Nimble.ListEulas
-    Network.AWS.Nimble.ListLaunchProfileMembers
-    Network.AWS.Nimble.ListLaunchProfiles
-    Network.AWS.Nimble.ListStreamingImages
-    Network.AWS.Nimble.ListStreamingSessions
-    Network.AWS.Nimble.ListStudioComponents
-    Network.AWS.Nimble.ListStudioMembers
-    Network.AWS.Nimble.ListStudios
-    Network.AWS.Nimble.ListTagsForResource
-    Network.AWS.Nimble.PutLaunchProfileMembers
-    Network.AWS.Nimble.PutStudioMembers
-    Network.AWS.Nimble.StartStudioSSOConfigurationRepair
-    Network.AWS.Nimble.TagResource
-    Network.AWS.Nimble.Types
-    Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute
-    Network.AWS.Nimble.Types.ActiveDirectoryConfiguration
-    Network.AWS.Nimble.Types.ComputeFarmConfiguration
-    Network.AWS.Nimble.Types.Eula
-    Network.AWS.Nimble.Types.EulaAcceptance
-    Network.AWS.Nimble.Types.LaunchProfile
-    Network.AWS.Nimble.Types.LaunchProfileInitialization
-    Network.AWS.Nimble.Types.LaunchProfileInitializationActiveDirectory
-    Network.AWS.Nimble.Types.LaunchProfileInitializationScript
-    Network.AWS.Nimble.Types.LaunchProfileMembership
-    Network.AWS.Nimble.Types.LaunchProfilePersona
-    Network.AWS.Nimble.Types.LaunchProfilePlatform
-    Network.AWS.Nimble.Types.LaunchProfileState
-    Network.AWS.Nimble.Types.LaunchProfileStatusCode
-    Network.AWS.Nimble.Types.LicenseServiceConfiguration
-    Network.AWS.Nimble.Types.NewLaunchProfileMember
-    Network.AWS.Nimble.Types.NewStudioMember
-    Network.AWS.Nimble.Types.ScriptParameterKeyValue
-    Network.AWS.Nimble.Types.SharedFileSystemConfiguration
-    Network.AWS.Nimble.Types.StreamConfiguration
-    Network.AWS.Nimble.Types.StreamConfigurationCreate
-    Network.AWS.Nimble.Types.StreamingClipboardMode
-    Network.AWS.Nimble.Types.StreamingImage
-    Network.AWS.Nimble.Types.StreamingImageEncryptionConfiguration
-    Network.AWS.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
-    Network.AWS.Nimble.Types.StreamingImageState
-    Network.AWS.Nimble.Types.StreamingImageStatusCode
-    Network.AWS.Nimble.Types.StreamingInstanceType
-    Network.AWS.Nimble.Types.StreamingSession
-    Network.AWS.Nimble.Types.StreamingSessionState
-    Network.AWS.Nimble.Types.StreamingSessionStatusCode
-    Network.AWS.Nimble.Types.StreamingSessionStream
-    Network.AWS.Nimble.Types.StreamingSessionStreamState
-    Network.AWS.Nimble.Types.StreamingSessionStreamStatusCode
-    Network.AWS.Nimble.Types.Studio
-    Network.AWS.Nimble.Types.StudioComponent
-    Network.AWS.Nimble.Types.StudioComponentConfiguration
-    Network.AWS.Nimble.Types.StudioComponentInitializationScript
-    Network.AWS.Nimble.Types.StudioComponentInitializationScriptRunContext
-    Network.AWS.Nimble.Types.StudioComponentState
-    Network.AWS.Nimble.Types.StudioComponentStatusCode
-    Network.AWS.Nimble.Types.StudioComponentSubtype
-    Network.AWS.Nimble.Types.StudioComponentSummary
-    Network.AWS.Nimble.Types.StudioComponentType
-    Network.AWS.Nimble.Types.StudioEncryptionConfiguration
-    Network.AWS.Nimble.Types.StudioEncryptionConfigurationKeyType
-    Network.AWS.Nimble.Types.StudioMembership
-    Network.AWS.Nimble.Types.StudioPersona
-    Network.AWS.Nimble.Types.StudioState
-    Network.AWS.Nimble.Types.StudioStatusCode
-    Network.AWS.Nimble.UntagResource
-    Network.AWS.Nimble.UpdateLaunchProfile
-    Network.AWS.Nimble.UpdateLaunchProfileMember
-    Network.AWS.Nimble.UpdateStreamingImage
-    Network.AWS.Nimble.UpdateStudio
-    Network.AWS.Nimble.UpdateStudioComponent
-    Network.AWS.Nimble.Waiters
+    Amazonka.Nimble
+    Amazonka.Nimble.AcceptEulas
+    Amazonka.Nimble.CreateLaunchProfile
+    Amazonka.Nimble.CreateStreamingImage
+    Amazonka.Nimble.CreateStreamingSession
+    Amazonka.Nimble.CreateStreamingSessionStream
+    Amazonka.Nimble.CreateStudio
+    Amazonka.Nimble.CreateStudioComponent
+    Amazonka.Nimble.DeleteLaunchProfile
+    Amazonka.Nimble.DeleteLaunchProfileMember
+    Amazonka.Nimble.DeleteStreamingImage
+    Amazonka.Nimble.DeleteStreamingSession
+    Amazonka.Nimble.DeleteStudio
+    Amazonka.Nimble.DeleteStudioComponent
+    Amazonka.Nimble.DeleteStudioMember
+    Amazonka.Nimble.GetEula
+    Amazonka.Nimble.GetLaunchProfile
+    Amazonka.Nimble.GetLaunchProfileDetails
+    Amazonka.Nimble.GetLaunchProfileInitialization
+    Amazonka.Nimble.GetLaunchProfileMember
+    Amazonka.Nimble.GetStreamingImage
+    Amazonka.Nimble.GetStreamingSession
+    Amazonka.Nimble.GetStreamingSessionStream
+    Amazonka.Nimble.GetStudio
+    Amazonka.Nimble.GetStudioComponent
+    Amazonka.Nimble.GetStudioMember
+    Amazonka.Nimble.Lens
+    Amazonka.Nimble.ListEulaAcceptances
+    Amazonka.Nimble.ListEulas
+    Amazonka.Nimble.ListLaunchProfileMembers
+    Amazonka.Nimble.ListLaunchProfiles
+    Amazonka.Nimble.ListStreamingImages
+    Amazonka.Nimble.ListStreamingSessions
+    Amazonka.Nimble.ListStudioComponents
+    Amazonka.Nimble.ListStudioMembers
+    Amazonka.Nimble.ListStudios
+    Amazonka.Nimble.ListTagsForResource
+    Amazonka.Nimble.PutLaunchProfileMembers
+    Amazonka.Nimble.PutStudioMembers
+    Amazonka.Nimble.StartStudioSSOConfigurationRepair
+    Amazonka.Nimble.TagResource
+    Amazonka.Nimble.Types
+    Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
+    Amazonka.Nimble.Types.ActiveDirectoryConfiguration
+    Amazonka.Nimble.Types.ComputeFarmConfiguration
+    Amazonka.Nimble.Types.Eula
+    Amazonka.Nimble.Types.EulaAcceptance
+    Amazonka.Nimble.Types.LaunchProfile
+    Amazonka.Nimble.Types.LaunchProfileInitialization
+    Amazonka.Nimble.Types.LaunchProfileInitializationActiveDirectory
+    Amazonka.Nimble.Types.LaunchProfileInitializationScript
+    Amazonka.Nimble.Types.LaunchProfileMembership
+    Amazonka.Nimble.Types.LaunchProfilePersona
+    Amazonka.Nimble.Types.LaunchProfilePlatform
+    Amazonka.Nimble.Types.LaunchProfileState
+    Amazonka.Nimble.Types.LaunchProfileStatusCode
+    Amazonka.Nimble.Types.LicenseServiceConfiguration
+    Amazonka.Nimble.Types.NewLaunchProfileMember
+    Amazonka.Nimble.Types.NewStudioMember
+    Amazonka.Nimble.Types.ScriptParameterKeyValue
+    Amazonka.Nimble.Types.SharedFileSystemConfiguration
+    Amazonka.Nimble.Types.StreamConfiguration
+    Amazonka.Nimble.Types.StreamConfigurationCreate
+    Amazonka.Nimble.Types.StreamingClipboardMode
+    Amazonka.Nimble.Types.StreamingImage
+    Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
+    Amazonka.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
+    Amazonka.Nimble.Types.StreamingImageState
+    Amazonka.Nimble.Types.StreamingImageStatusCode
+    Amazonka.Nimble.Types.StreamingInstanceType
+    Amazonka.Nimble.Types.StreamingSession
+    Amazonka.Nimble.Types.StreamingSessionState
+    Amazonka.Nimble.Types.StreamingSessionStatusCode
+    Amazonka.Nimble.Types.StreamingSessionStream
+    Amazonka.Nimble.Types.StreamingSessionStreamState
+    Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
+    Amazonka.Nimble.Types.Studio
+    Amazonka.Nimble.Types.StudioComponent
+    Amazonka.Nimble.Types.StudioComponentConfiguration
+    Amazonka.Nimble.Types.StudioComponentInitializationScript
+    Amazonka.Nimble.Types.StudioComponentInitializationScriptRunContext
+    Amazonka.Nimble.Types.StudioComponentState
+    Amazonka.Nimble.Types.StudioComponentStatusCode
+    Amazonka.Nimble.Types.StudioComponentSubtype
+    Amazonka.Nimble.Types.StudioComponentSummary
+    Amazonka.Nimble.Types.StudioComponentType
+    Amazonka.Nimble.Types.StudioEncryptionConfiguration
+    Amazonka.Nimble.Types.StudioEncryptionConfigurationKeyType
+    Amazonka.Nimble.Types.StudioMembership
+    Amazonka.Nimble.Types.StudioPersona
+    Amazonka.Nimble.Types.StudioState
+    Amazonka.Nimble.Types.StudioStatusCode
+    Amazonka.Nimble.UntagResource
+    Amazonka.Nimble.UpdateLaunchProfile
+    Amazonka.Nimble.UpdateLaunchProfileMember
+    Amazonka.Nimble.UpdateStreamingImage
+    Amazonka.Nimble.UpdateStudio
+    Amazonka.Nimble.UpdateStudioComponent
+    Amazonka.Nimble.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

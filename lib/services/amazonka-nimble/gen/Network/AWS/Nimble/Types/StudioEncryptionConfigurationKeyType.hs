@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Nimble.Types.StudioEncryptionConfigurationKeyType
+-- Module      : Amazonka.Nimble.Types.StudioEncryptionConfigurationKeyType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Nimble.Types.StudioEncryptionConfigurationKeyType
+module Amazonka.Nimble.Types.StudioEncryptionConfigurationKeyType
   ( StudioEncryptionConfigurationKeyType
       ( ..,
         StudioEncryptionConfigurationKeyType_AWS_OWNED_KEY,
@@ -26,8 +26,8 @@ module Network.AWS.Nimble.Types.StudioEncryptionConfigurationKeyType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type of KMS key that is used to encrypt studio data.
 newtype StudioEncryptionConfigurationKeyType = StudioEncryptionConfigurationKeyType'

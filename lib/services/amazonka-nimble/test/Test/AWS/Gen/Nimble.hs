@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Nimble where
 
+import Amazonka.Nimble
 import qualified Data.Proxy as Proxy
-import Network.AWS.Nimble
 import Test.AWS.Fixture
 import Test.AWS.Nimble.Internal
 import Test.AWS.Prelude

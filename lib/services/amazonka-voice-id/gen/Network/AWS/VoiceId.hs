@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.VoiceId
+-- Module      : Amazonka.VoiceId
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- Amazon Connect Voice ID provides real-time caller authentication and
 -- fraud screening. This guide describes the APIs used for this service.
-module Network.AWS.VoiceId
+module Amazonka.VoiceId
   ( -- * Service Configuration
     defaultService,
 
@@ -306,30 +306,30 @@ module Network.AWS.VoiceId
   )
 where
 
-import Network.AWS.VoiceId.CreateDomain
-import Network.AWS.VoiceId.DeleteDomain
-import Network.AWS.VoiceId.DeleteFraudster
-import Network.AWS.VoiceId.DeleteSpeaker
-import Network.AWS.VoiceId.DescribeDomain
-import Network.AWS.VoiceId.DescribeFraudster
-import Network.AWS.VoiceId.DescribeFraudsterRegistrationJob
-import Network.AWS.VoiceId.DescribeSpeaker
-import Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob
-import Network.AWS.VoiceId.EvaluateSession
-import Network.AWS.VoiceId.Lens
-import Network.AWS.VoiceId.ListDomains
-import Network.AWS.VoiceId.ListFraudsterRegistrationJobs
-import Network.AWS.VoiceId.ListSpeakerEnrollmentJobs
-import Network.AWS.VoiceId.ListSpeakers
-import Network.AWS.VoiceId.ListTagsForResource
-import Network.AWS.VoiceId.OptOutSpeaker
-import Network.AWS.VoiceId.StartFraudsterRegistrationJob
-import Network.AWS.VoiceId.StartSpeakerEnrollmentJob
-import Network.AWS.VoiceId.TagResource
-import Network.AWS.VoiceId.Types
-import Network.AWS.VoiceId.UntagResource
-import Network.AWS.VoiceId.UpdateDomain
-import Network.AWS.VoiceId.Waiters
+import Amazonka.VoiceId.CreateDomain
+import Amazonka.VoiceId.DeleteDomain
+import Amazonka.VoiceId.DeleteFraudster
+import Amazonka.VoiceId.DeleteSpeaker
+import Amazonka.VoiceId.DescribeDomain
+import Amazonka.VoiceId.DescribeFraudster
+import Amazonka.VoiceId.DescribeFraudsterRegistrationJob
+import Amazonka.VoiceId.DescribeSpeaker
+import Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+import Amazonka.VoiceId.EvaluateSession
+import Amazonka.VoiceId.Lens
+import Amazonka.VoiceId.ListDomains
+import Amazonka.VoiceId.ListFraudsterRegistrationJobs
+import Amazonka.VoiceId.ListSpeakerEnrollmentJobs
+import Amazonka.VoiceId.ListSpeakers
+import Amazonka.VoiceId.ListTagsForResource
+import Amazonka.VoiceId.OptOutSpeaker
+import Amazonka.VoiceId.StartFraudsterRegistrationJob
+import Amazonka.VoiceId.StartSpeakerEnrollmentJob
+import Amazonka.VoiceId.TagResource
+import Amazonka.VoiceId.Types
+import Amazonka.VoiceId.UntagResource
+import Amazonka.VoiceId.UpdateDomain
+import Amazonka.VoiceId.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

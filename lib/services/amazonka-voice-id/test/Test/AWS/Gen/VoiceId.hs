@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.VoiceId where
 
+import Amazonka.VoiceId
 import qualified Data.Proxy as Proxy
-import Network.AWS.VoiceId
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.VoiceId.Internal

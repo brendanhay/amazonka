@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.VoiceId.Types.FraudDetectionResult
+-- Module      : Amazonka.VoiceId.Types.FraudDetectionResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.VoiceId.Types.FraudDetectionResult where
+module Amazonka.VoiceId.Types.FraudDetectionResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.VoiceId.Types.FraudDetectionConfiguration
-import Network.AWS.VoiceId.Types.FraudDetectionDecision
-import Network.AWS.VoiceId.Types.FraudDetectionReason
-import Network.AWS.VoiceId.Types.FraudRiskDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.VoiceId.Types.FraudDetectionConfiguration
+import Amazonka.VoiceId.Types.FraudDetectionDecision
+import Amazonka.VoiceId.Types.FraudDetectionReason
+import Amazonka.VoiceId.Types.FraudRiskDetails
 
 -- | The fraud detection result produced by Voice ID, processed against the
 -- current session state and streamed audio of the speaker.

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.VoiceId.Lens
+-- Module      : Amazonka.VoiceId.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.VoiceId.Lens
+module Amazonka.VoiceId.Lens
   ( -- * Operations
 
     -- ** DescribeFraudsterRegistrationJob
@@ -316,48 +316,48 @@ module Network.AWS.VoiceId.Lens
   )
 where
 
-import Network.AWS.VoiceId.CreateDomain
-import Network.AWS.VoiceId.DeleteDomain
-import Network.AWS.VoiceId.DeleteFraudster
-import Network.AWS.VoiceId.DeleteSpeaker
-import Network.AWS.VoiceId.DescribeDomain
-import Network.AWS.VoiceId.DescribeFraudster
-import Network.AWS.VoiceId.DescribeFraudsterRegistrationJob
-import Network.AWS.VoiceId.DescribeSpeaker
-import Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob
-import Network.AWS.VoiceId.EvaluateSession
-import Network.AWS.VoiceId.ListDomains
-import Network.AWS.VoiceId.ListFraudsterRegistrationJobs
-import Network.AWS.VoiceId.ListSpeakerEnrollmentJobs
-import Network.AWS.VoiceId.ListSpeakers
-import Network.AWS.VoiceId.ListTagsForResource
-import Network.AWS.VoiceId.OptOutSpeaker
-import Network.AWS.VoiceId.StartFraudsterRegistrationJob
-import Network.AWS.VoiceId.StartSpeakerEnrollmentJob
-import Network.AWS.VoiceId.TagResource
-import Network.AWS.VoiceId.Types.AuthenticationConfiguration
-import Network.AWS.VoiceId.Types.AuthenticationResult
-import Network.AWS.VoiceId.Types.Domain
-import Network.AWS.VoiceId.Types.DomainSummary
-import Network.AWS.VoiceId.Types.EnrollmentConfig
-import Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig
-import Network.AWS.VoiceId.Types.FailureDetails
-import Network.AWS.VoiceId.Types.FraudDetectionConfiguration
-import Network.AWS.VoiceId.Types.FraudDetectionResult
-import Network.AWS.VoiceId.Types.FraudRiskDetails
-import Network.AWS.VoiceId.Types.Fraudster
-import Network.AWS.VoiceId.Types.FraudsterRegistrationJob
-import Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary
-import Network.AWS.VoiceId.Types.InputDataConfig
-import Network.AWS.VoiceId.Types.JobProgress
-import Network.AWS.VoiceId.Types.KnownFraudsterRisk
-import Network.AWS.VoiceId.Types.OutputDataConfig
-import Network.AWS.VoiceId.Types.RegistrationConfig
-import Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration
-import Network.AWS.VoiceId.Types.Speaker
-import Network.AWS.VoiceId.Types.SpeakerEnrollmentJob
-import Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary
-import Network.AWS.VoiceId.Types.SpeakerSummary
-import Network.AWS.VoiceId.Types.Tag
-import Network.AWS.VoiceId.UntagResource
-import Network.AWS.VoiceId.UpdateDomain
+import Amazonka.VoiceId.CreateDomain
+import Amazonka.VoiceId.DeleteDomain
+import Amazonka.VoiceId.DeleteFraudster
+import Amazonka.VoiceId.DeleteSpeaker
+import Amazonka.VoiceId.DescribeDomain
+import Amazonka.VoiceId.DescribeFraudster
+import Amazonka.VoiceId.DescribeFraudsterRegistrationJob
+import Amazonka.VoiceId.DescribeSpeaker
+import Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+import Amazonka.VoiceId.EvaluateSession
+import Amazonka.VoiceId.ListDomains
+import Amazonka.VoiceId.ListFraudsterRegistrationJobs
+import Amazonka.VoiceId.ListSpeakerEnrollmentJobs
+import Amazonka.VoiceId.ListSpeakers
+import Amazonka.VoiceId.ListTagsForResource
+import Amazonka.VoiceId.OptOutSpeaker
+import Amazonka.VoiceId.StartFraudsterRegistrationJob
+import Amazonka.VoiceId.StartSpeakerEnrollmentJob
+import Amazonka.VoiceId.TagResource
+import Amazonka.VoiceId.Types.AuthenticationConfiguration
+import Amazonka.VoiceId.Types.AuthenticationResult
+import Amazonka.VoiceId.Types.Domain
+import Amazonka.VoiceId.Types.DomainSummary
+import Amazonka.VoiceId.Types.EnrollmentConfig
+import Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig
+import Amazonka.VoiceId.Types.FailureDetails
+import Amazonka.VoiceId.Types.FraudDetectionConfiguration
+import Amazonka.VoiceId.Types.FraudDetectionResult
+import Amazonka.VoiceId.Types.FraudRiskDetails
+import Amazonka.VoiceId.Types.Fraudster
+import Amazonka.VoiceId.Types.FraudsterRegistrationJob
+import Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+import Amazonka.VoiceId.Types.InputDataConfig
+import Amazonka.VoiceId.Types.JobProgress
+import Amazonka.VoiceId.Types.KnownFraudsterRisk
+import Amazonka.VoiceId.Types.OutputDataConfig
+import Amazonka.VoiceId.Types.RegistrationConfig
+import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+import Amazonka.VoiceId.Types.Speaker
+import Amazonka.VoiceId.Types.SpeakerEnrollmentJob
+import Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
+import Amazonka.VoiceId.Types.SpeakerSummary
+import Amazonka.VoiceId.Types.Tag
+import Amazonka.VoiceId.UntagResource
+import Amazonka.VoiceId.UpdateDomain

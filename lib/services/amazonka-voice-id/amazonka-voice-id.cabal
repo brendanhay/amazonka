@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.VoiceId.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.VoiceId.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.VoiceId" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.VoiceId" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,68 +45,68 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.VoiceId
-    Network.AWS.VoiceId.CreateDomain
-    Network.AWS.VoiceId.DeleteDomain
-    Network.AWS.VoiceId.DeleteFraudster
-    Network.AWS.VoiceId.DeleteSpeaker
-    Network.AWS.VoiceId.DescribeDomain
-    Network.AWS.VoiceId.DescribeFraudster
-    Network.AWS.VoiceId.DescribeFraudsterRegistrationJob
-    Network.AWS.VoiceId.DescribeSpeaker
-    Network.AWS.VoiceId.DescribeSpeakerEnrollmentJob
-    Network.AWS.VoiceId.EvaluateSession
-    Network.AWS.VoiceId.Lens
-    Network.AWS.VoiceId.ListDomains
-    Network.AWS.VoiceId.ListFraudsterRegistrationJobs
-    Network.AWS.VoiceId.ListSpeakerEnrollmentJobs
-    Network.AWS.VoiceId.ListSpeakers
-    Network.AWS.VoiceId.ListTagsForResource
-    Network.AWS.VoiceId.OptOutSpeaker
-    Network.AWS.VoiceId.StartFraudsterRegistrationJob
-    Network.AWS.VoiceId.StartSpeakerEnrollmentJob
-    Network.AWS.VoiceId.TagResource
-    Network.AWS.VoiceId.Types
-    Network.AWS.VoiceId.Types.AuthenticationConfiguration
-    Network.AWS.VoiceId.Types.AuthenticationDecision
-    Network.AWS.VoiceId.Types.AuthenticationResult
-    Network.AWS.VoiceId.Types.Domain
-    Network.AWS.VoiceId.Types.DomainStatus
-    Network.AWS.VoiceId.Types.DomainSummary
-    Network.AWS.VoiceId.Types.DuplicateRegistrationAction
-    Network.AWS.VoiceId.Types.EnrollmentConfig
-    Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig
-    Network.AWS.VoiceId.Types.ExistingEnrollmentAction
-    Network.AWS.VoiceId.Types.FailureDetails
-    Network.AWS.VoiceId.Types.FraudDetectionAction
-    Network.AWS.VoiceId.Types.FraudDetectionConfiguration
-    Network.AWS.VoiceId.Types.FraudDetectionDecision
-    Network.AWS.VoiceId.Types.FraudDetectionReason
-    Network.AWS.VoiceId.Types.FraudDetectionResult
-    Network.AWS.VoiceId.Types.FraudRiskDetails
-    Network.AWS.VoiceId.Types.Fraudster
-    Network.AWS.VoiceId.Types.FraudsterRegistrationJob
-    Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus
-    Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary
-    Network.AWS.VoiceId.Types.InputDataConfig
-    Network.AWS.VoiceId.Types.JobProgress
-    Network.AWS.VoiceId.Types.KnownFraudsterRisk
-    Network.AWS.VoiceId.Types.OutputDataConfig
-    Network.AWS.VoiceId.Types.RegistrationConfig
-    Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration
-    Network.AWS.VoiceId.Types.Speaker
-    Network.AWS.VoiceId.Types.SpeakerEnrollmentJob
-    Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus
-    Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary
-    Network.AWS.VoiceId.Types.SpeakerStatus
-    Network.AWS.VoiceId.Types.SpeakerSummary
-    Network.AWS.VoiceId.Types.StreamingStatus
-    Network.AWS.VoiceId.Types.Tag
-    Network.AWS.VoiceId.UntagResource
-    Network.AWS.VoiceId.UpdateDomain
-    Network.AWS.VoiceId.Waiters
+    Amazonka.VoiceId
+    Amazonka.VoiceId.CreateDomain
+    Amazonka.VoiceId.DeleteDomain
+    Amazonka.VoiceId.DeleteFraudster
+    Amazonka.VoiceId.DeleteSpeaker
+    Amazonka.VoiceId.DescribeDomain
+    Amazonka.VoiceId.DescribeFraudster
+    Amazonka.VoiceId.DescribeFraudsterRegistrationJob
+    Amazonka.VoiceId.DescribeSpeaker
+    Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+    Amazonka.VoiceId.EvaluateSession
+    Amazonka.VoiceId.Lens
+    Amazonka.VoiceId.ListDomains
+    Amazonka.VoiceId.ListFraudsterRegistrationJobs
+    Amazonka.VoiceId.ListSpeakerEnrollmentJobs
+    Amazonka.VoiceId.ListSpeakers
+    Amazonka.VoiceId.ListTagsForResource
+    Amazonka.VoiceId.OptOutSpeaker
+    Amazonka.VoiceId.StartFraudsterRegistrationJob
+    Amazonka.VoiceId.StartSpeakerEnrollmentJob
+    Amazonka.VoiceId.TagResource
+    Amazonka.VoiceId.Types
+    Amazonka.VoiceId.Types.AuthenticationConfiguration
+    Amazonka.VoiceId.Types.AuthenticationDecision
+    Amazonka.VoiceId.Types.AuthenticationResult
+    Amazonka.VoiceId.Types.Domain
+    Amazonka.VoiceId.Types.DomainStatus
+    Amazonka.VoiceId.Types.DomainSummary
+    Amazonka.VoiceId.Types.DuplicateRegistrationAction
+    Amazonka.VoiceId.Types.EnrollmentConfig
+    Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig
+    Amazonka.VoiceId.Types.ExistingEnrollmentAction
+    Amazonka.VoiceId.Types.FailureDetails
+    Amazonka.VoiceId.Types.FraudDetectionAction
+    Amazonka.VoiceId.Types.FraudDetectionConfiguration
+    Amazonka.VoiceId.Types.FraudDetectionDecision
+    Amazonka.VoiceId.Types.FraudDetectionReason
+    Amazonka.VoiceId.Types.FraudDetectionResult
+    Amazonka.VoiceId.Types.FraudRiskDetails
+    Amazonka.VoiceId.Types.Fraudster
+    Amazonka.VoiceId.Types.FraudsterRegistrationJob
+    Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
+    Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+    Amazonka.VoiceId.Types.InputDataConfig
+    Amazonka.VoiceId.Types.JobProgress
+    Amazonka.VoiceId.Types.KnownFraudsterRisk
+    Amazonka.VoiceId.Types.OutputDataConfig
+    Amazonka.VoiceId.Types.RegistrationConfig
+    Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+    Amazonka.VoiceId.Types.Speaker
+    Amazonka.VoiceId.Types.SpeakerEnrollmentJob
+    Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
+    Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
+    Amazonka.VoiceId.Types.SpeakerStatus
+    Amazonka.VoiceId.Types.SpeakerSummary
+    Amazonka.VoiceId.Types.StreamingStatus
+    Amazonka.VoiceId.Types.Tag
+    Amazonka.VoiceId.UntagResource
+    Amazonka.VoiceId.UpdateDomain
+    Amazonka.VoiceId.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.VoiceId.Types
+-- Module      : Amazonka.VoiceId.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.VoiceId.Types
+module Amazonka.VoiceId.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -262,45 +262,45 @@ module Network.AWS.VoiceId.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.VoiceId.Types.AuthenticationConfiguration
-import Network.AWS.VoiceId.Types.AuthenticationDecision
-import Network.AWS.VoiceId.Types.AuthenticationResult
-import Network.AWS.VoiceId.Types.Domain
-import Network.AWS.VoiceId.Types.DomainStatus
-import Network.AWS.VoiceId.Types.DomainSummary
-import Network.AWS.VoiceId.Types.DuplicateRegistrationAction
-import Network.AWS.VoiceId.Types.EnrollmentConfig
-import Network.AWS.VoiceId.Types.EnrollmentJobFraudDetectionConfig
-import Network.AWS.VoiceId.Types.ExistingEnrollmentAction
-import Network.AWS.VoiceId.Types.FailureDetails
-import Network.AWS.VoiceId.Types.FraudDetectionAction
-import Network.AWS.VoiceId.Types.FraudDetectionConfiguration
-import Network.AWS.VoiceId.Types.FraudDetectionDecision
-import Network.AWS.VoiceId.Types.FraudDetectionReason
-import Network.AWS.VoiceId.Types.FraudDetectionResult
-import Network.AWS.VoiceId.Types.FraudRiskDetails
-import Network.AWS.VoiceId.Types.Fraudster
-import Network.AWS.VoiceId.Types.FraudsterRegistrationJob
-import Network.AWS.VoiceId.Types.FraudsterRegistrationJobStatus
-import Network.AWS.VoiceId.Types.FraudsterRegistrationJobSummary
-import Network.AWS.VoiceId.Types.InputDataConfig
-import Network.AWS.VoiceId.Types.JobProgress
-import Network.AWS.VoiceId.Types.KnownFraudsterRisk
-import Network.AWS.VoiceId.Types.OutputDataConfig
-import Network.AWS.VoiceId.Types.RegistrationConfig
-import Network.AWS.VoiceId.Types.ServerSideEncryptionConfiguration
-import Network.AWS.VoiceId.Types.Speaker
-import Network.AWS.VoiceId.Types.SpeakerEnrollmentJob
-import Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus
-import Network.AWS.VoiceId.Types.SpeakerEnrollmentJobSummary
-import Network.AWS.VoiceId.Types.SpeakerStatus
-import Network.AWS.VoiceId.Types.SpeakerSummary
-import Network.AWS.VoiceId.Types.StreamingStatus
-import Network.AWS.VoiceId.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.VoiceId.Types.AuthenticationConfiguration
+import Amazonka.VoiceId.Types.AuthenticationDecision
+import Amazonka.VoiceId.Types.AuthenticationResult
+import Amazonka.VoiceId.Types.Domain
+import Amazonka.VoiceId.Types.DomainStatus
+import Amazonka.VoiceId.Types.DomainSummary
+import Amazonka.VoiceId.Types.DuplicateRegistrationAction
+import Amazonka.VoiceId.Types.EnrollmentConfig
+import Amazonka.VoiceId.Types.EnrollmentJobFraudDetectionConfig
+import Amazonka.VoiceId.Types.ExistingEnrollmentAction
+import Amazonka.VoiceId.Types.FailureDetails
+import Amazonka.VoiceId.Types.FraudDetectionAction
+import Amazonka.VoiceId.Types.FraudDetectionConfiguration
+import Amazonka.VoiceId.Types.FraudDetectionDecision
+import Amazonka.VoiceId.Types.FraudDetectionReason
+import Amazonka.VoiceId.Types.FraudDetectionResult
+import Amazonka.VoiceId.Types.FraudRiskDetails
+import Amazonka.VoiceId.Types.Fraudster
+import Amazonka.VoiceId.Types.FraudsterRegistrationJob
+import Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
+import Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+import Amazonka.VoiceId.Types.InputDataConfig
+import Amazonka.VoiceId.Types.JobProgress
+import Amazonka.VoiceId.Types.KnownFraudsterRisk
+import Amazonka.VoiceId.Types.OutputDataConfig
+import Amazonka.VoiceId.Types.RegistrationConfig
+import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+import Amazonka.VoiceId.Types.Speaker
+import Amazonka.VoiceId.Types.SpeakerEnrollmentJob
+import Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
+import Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
+import Amazonka.VoiceId.Types.SpeakerStatus
+import Amazonka.VoiceId.Types.SpeakerSummary
+import Amazonka.VoiceId.Types.StreamingStatus
+import Amazonka.VoiceId.Types.Tag
 
 -- | API version @2021-09-27@ of the Amazon Voice ID SDK configuration.
 defaultService :: Core.Service

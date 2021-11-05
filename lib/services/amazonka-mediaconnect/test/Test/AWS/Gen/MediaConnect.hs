@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaConnect where
 
+import Amazonka.MediaConnect
 import qualified Data.Proxy as Proxy
-import Network.AWS.MediaConnect
 import Test.AWS.Fixture
 import Test.AWS.MediaConnect.Internal
 import Test.AWS.Prelude

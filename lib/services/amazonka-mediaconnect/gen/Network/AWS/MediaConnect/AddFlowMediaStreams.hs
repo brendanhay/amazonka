@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.AddFlowMediaStreams
+-- Module      : Amazonka.MediaConnect.AddFlowMediaStreams
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Adds media streams to an existing flow. After you add a media stream to
 -- a flow, you can associate it with a source and\/or an output that uses
 -- the ST 2110 JPEG XS or CDI protocol.
-module Network.AWS.MediaConnect.AddFlowMediaStreams
+module Amazonka.MediaConnect.AddFlowMediaStreams
   ( -- * Creating a Request
     AddFlowMediaStreams (..),
     newAddFlowMediaStreams,
@@ -43,12 +43,12 @@ module Network.AWS.MediaConnect.AddFlowMediaStreams
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to add media streams to the flow.
 --

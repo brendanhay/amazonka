@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.FailoverConfig
+-- Module      : Amazonka.MediaConnect.Types.FailoverConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.FailoverConfig where
+module Amazonka.MediaConnect.Types.FailoverConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.FailoverMode
-import Network.AWS.MediaConnect.Types.SourcePriority
-import Network.AWS.MediaConnect.Types.State
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.FailoverMode
+import Amazonka.MediaConnect.Types.SourcePriority
+import Amazonka.MediaConnect.Types.State
+import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for source failover
 --

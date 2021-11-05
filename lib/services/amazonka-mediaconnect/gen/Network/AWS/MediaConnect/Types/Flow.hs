@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.Flow
+-- Module      : Amazonka.MediaConnect.Types.Flow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.Flow where
+module Amazonka.MediaConnect.Types.Flow where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.Entitlement
-import Network.AWS.MediaConnect.Types.FailoverConfig
-import Network.AWS.MediaConnect.Types.MediaStream
-import Network.AWS.MediaConnect.Types.Output
-import Network.AWS.MediaConnect.Types.Source
-import Network.AWS.MediaConnect.Types.Status
-import Network.AWS.MediaConnect.Types.VpcInterface
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.Entitlement
+import Amazonka.MediaConnect.Types.FailoverConfig
+import Amazonka.MediaConnect.Types.MediaStream
+import Amazonka.MediaConnect.Types.Output
+import Amazonka.MediaConnect.Types.Source
+import Amazonka.MediaConnect.Types.Status
+import Amazonka.MediaConnect.Types.VpcInterface
+import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for a flow, including its source, outputs, and
 -- entitlements.

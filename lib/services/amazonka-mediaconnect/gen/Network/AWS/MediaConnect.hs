@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaConnect
+-- Module      : Amazonka.MediaConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-11-14@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- API for AWS Elemental MediaConnect
-module Network.AWS.MediaConnect
+module Amazonka.MediaConnect
   ( -- * Service Configuration
     defaultService,
 
@@ -465,39 +465,39 @@ module Network.AWS.MediaConnect
   )
 where
 
-import Network.AWS.MediaConnect.AddFlowMediaStreams
-import Network.AWS.MediaConnect.AddFlowOutputs
-import Network.AWS.MediaConnect.AddFlowSources
-import Network.AWS.MediaConnect.AddFlowVpcInterfaces
-import Network.AWS.MediaConnect.CreateFlow
-import Network.AWS.MediaConnect.DeleteFlow
-import Network.AWS.MediaConnect.DescribeFlow
-import Network.AWS.MediaConnect.DescribeOffering
-import Network.AWS.MediaConnect.DescribeReservation
-import Network.AWS.MediaConnect.GrantFlowEntitlements
-import Network.AWS.MediaConnect.Lens
-import Network.AWS.MediaConnect.ListEntitlements
-import Network.AWS.MediaConnect.ListFlows
-import Network.AWS.MediaConnect.ListOfferings
-import Network.AWS.MediaConnect.ListReservations
-import Network.AWS.MediaConnect.ListTagsForResource
-import Network.AWS.MediaConnect.PurchaseOffering
-import Network.AWS.MediaConnect.RemoveFlowMediaStream
-import Network.AWS.MediaConnect.RemoveFlowOutput
-import Network.AWS.MediaConnect.RemoveFlowSource
-import Network.AWS.MediaConnect.RemoveFlowVpcInterface
-import Network.AWS.MediaConnect.RevokeFlowEntitlement
-import Network.AWS.MediaConnect.StartFlow
-import Network.AWS.MediaConnect.StopFlow
-import Network.AWS.MediaConnect.TagResource
-import Network.AWS.MediaConnect.Types
-import Network.AWS.MediaConnect.UntagResource
-import Network.AWS.MediaConnect.UpdateFlow
-import Network.AWS.MediaConnect.UpdateFlowEntitlement
-import Network.AWS.MediaConnect.UpdateFlowMediaStream
-import Network.AWS.MediaConnect.UpdateFlowOutput
-import Network.AWS.MediaConnect.UpdateFlowSource
-import Network.AWS.MediaConnect.Waiters
+import Amazonka.MediaConnect.AddFlowMediaStreams
+import Amazonka.MediaConnect.AddFlowOutputs
+import Amazonka.MediaConnect.AddFlowSources
+import Amazonka.MediaConnect.AddFlowVpcInterfaces
+import Amazonka.MediaConnect.CreateFlow
+import Amazonka.MediaConnect.DeleteFlow
+import Amazonka.MediaConnect.DescribeFlow
+import Amazonka.MediaConnect.DescribeOffering
+import Amazonka.MediaConnect.DescribeReservation
+import Amazonka.MediaConnect.GrantFlowEntitlements
+import Amazonka.MediaConnect.Lens
+import Amazonka.MediaConnect.ListEntitlements
+import Amazonka.MediaConnect.ListFlows
+import Amazonka.MediaConnect.ListOfferings
+import Amazonka.MediaConnect.ListReservations
+import Amazonka.MediaConnect.ListTagsForResource
+import Amazonka.MediaConnect.PurchaseOffering
+import Amazonka.MediaConnect.RemoveFlowMediaStream
+import Amazonka.MediaConnect.RemoveFlowOutput
+import Amazonka.MediaConnect.RemoveFlowSource
+import Amazonka.MediaConnect.RemoveFlowVpcInterface
+import Amazonka.MediaConnect.RevokeFlowEntitlement
+import Amazonka.MediaConnect.StartFlow
+import Amazonka.MediaConnect.StopFlow
+import Amazonka.MediaConnect.TagResource
+import Amazonka.MediaConnect.Types
+import Amazonka.MediaConnect.UntagResource
+import Amazonka.MediaConnect.UpdateFlow
+import Amazonka.MediaConnect.UpdateFlowEntitlement
+import Amazonka.MediaConnect.UpdateFlowMediaStream
+import Amazonka.MediaConnect.UpdateFlowOutput
+import Amazonka.MediaConnect.UpdateFlowSource
+import Amazonka.MediaConnect.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

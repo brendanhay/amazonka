@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaConnect.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MediaConnect.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MediaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MediaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,102 +45,102 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MediaConnect
-    Network.AWS.MediaConnect.AddFlowMediaStreams
-    Network.AWS.MediaConnect.AddFlowOutputs
-    Network.AWS.MediaConnect.AddFlowSources
-    Network.AWS.MediaConnect.AddFlowVpcInterfaces
-    Network.AWS.MediaConnect.CreateFlow
-    Network.AWS.MediaConnect.DeleteFlow
-    Network.AWS.MediaConnect.DescribeFlow
-    Network.AWS.MediaConnect.DescribeOffering
-    Network.AWS.MediaConnect.DescribeReservation
-    Network.AWS.MediaConnect.GrantFlowEntitlements
-    Network.AWS.MediaConnect.Lens
-    Network.AWS.MediaConnect.ListEntitlements
-    Network.AWS.MediaConnect.ListFlows
-    Network.AWS.MediaConnect.ListOfferings
-    Network.AWS.MediaConnect.ListReservations
-    Network.AWS.MediaConnect.ListTagsForResource
-    Network.AWS.MediaConnect.PurchaseOffering
-    Network.AWS.MediaConnect.RemoveFlowMediaStream
-    Network.AWS.MediaConnect.RemoveFlowOutput
-    Network.AWS.MediaConnect.RemoveFlowSource
-    Network.AWS.MediaConnect.RemoveFlowVpcInterface
-    Network.AWS.MediaConnect.RevokeFlowEntitlement
-    Network.AWS.MediaConnect.StartFlow
-    Network.AWS.MediaConnect.StopFlow
-    Network.AWS.MediaConnect.TagResource
-    Network.AWS.MediaConnect.Types
-    Network.AWS.MediaConnect.Types.AddMediaStreamRequest
-    Network.AWS.MediaConnect.Types.AddOutputRequest
-    Network.AWS.MediaConnect.Types.Algorithm
-    Network.AWS.MediaConnect.Types.Colorimetry
-    Network.AWS.MediaConnect.Types.DestinationConfiguration
-    Network.AWS.MediaConnect.Types.DestinationConfigurationRequest
-    Network.AWS.MediaConnect.Types.DurationUnits
-    Network.AWS.MediaConnect.Types.EncoderProfile
-    Network.AWS.MediaConnect.Types.EncodingName
-    Network.AWS.MediaConnect.Types.EncodingParameters
-    Network.AWS.MediaConnect.Types.EncodingParametersRequest
-    Network.AWS.MediaConnect.Types.Encryption
-    Network.AWS.MediaConnect.Types.Entitlement
-    Network.AWS.MediaConnect.Types.EntitlementStatus
-    Network.AWS.MediaConnect.Types.FailoverConfig
-    Network.AWS.MediaConnect.Types.FailoverMode
-    Network.AWS.MediaConnect.Types.Flow
-    Network.AWS.MediaConnect.Types.Fmtp
-    Network.AWS.MediaConnect.Types.FmtpRequest
-    Network.AWS.MediaConnect.Types.GrantEntitlementRequest
-    Network.AWS.MediaConnect.Types.InputConfiguration
-    Network.AWS.MediaConnect.Types.InputConfigurationRequest
-    Network.AWS.MediaConnect.Types.Interface
-    Network.AWS.MediaConnect.Types.InterfaceRequest
-    Network.AWS.MediaConnect.Types.KeyType
-    Network.AWS.MediaConnect.Types.ListedEntitlement
-    Network.AWS.MediaConnect.Types.ListedFlow
-    Network.AWS.MediaConnect.Types.MediaStream
-    Network.AWS.MediaConnect.Types.MediaStreamAttributes
-    Network.AWS.MediaConnect.Types.MediaStreamAttributesRequest
-    Network.AWS.MediaConnect.Types.MediaStreamOutputConfiguration
-    Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
-    Network.AWS.MediaConnect.Types.MediaStreamSourceConfiguration
-    Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest
-    Network.AWS.MediaConnect.Types.MediaStreamType
-    Network.AWS.MediaConnect.Types.Messages
-    Network.AWS.MediaConnect.Types.NetworkInterfaceType
-    Network.AWS.MediaConnect.Types.Offering
-    Network.AWS.MediaConnect.Types.Output
-    Network.AWS.MediaConnect.Types.PriceUnits
-    Network.AWS.MediaConnect.Types.Protocol
-    Network.AWS.MediaConnect.Types.Range
-    Network.AWS.MediaConnect.Types.Reservation
-    Network.AWS.MediaConnect.Types.ReservationState
-    Network.AWS.MediaConnect.Types.ResourceSpecification
-    Network.AWS.MediaConnect.Types.ResourceType
-    Network.AWS.MediaConnect.Types.ScanMode
-    Network.AWS.MediaConnect.Types.SetSourceRequest
-    Network.AWS.MediaConnect.Types.Source
-    Network.AWS.MediaConnect.Types.SourcePriority
-    Network.AWS.MediaConnect.Types.SourceType
-    Network.AWS.MediaConnect.Types.State
-    Network.AWS.MediaConnect.Types.Status
-    Network.AWS.MediaConnect.Types.Tcs
-    Network.AWS.MediaConnect.Types.Transport
-    Network.AWS.MediaConnect.Types.UpdateEncryption
-    Network.AWS.MediaConnect.Types.UpdateFailoverConfig
-    Network.AWS.MediaConnect.Types.VpcInterface
-    Network.AWS.MediaConnect.Types.VpcInterfaceAttachment
-    Network.AWS.MediaConnect.Types.VpcInterfaceRequest
-    Network.AWS.MediaConnect.UntagResource
-    Network.AWS.MediaConnect.UpdateFlow
-    Network.AWS.MediaConnect.UpdateFlowEntitlement
-    Network.AWS.MediaConnect.UpdateFlowMediaStream
-    Network.AWS.MediaConnect.UpdateFlowOutput
-    Network.AWS.MediaConnect.UpdateFlowSource
-    Network.AWS.MediaConnect.Waiters
+    Amazonka.MediaConnect
+    Amazonka.MediaConnect.AddFlowMediaStreams
+    Amazonka.MediaConnect.AddFlowOutputs
+    Amazonka.MediaConnect.AddFlowSources
+    Amazonka.MediaConnect.AddFlowVpcInterfaces
+    Amazonka.MediaConnect.CreateFlow
+    Amazonka.MediaConnect.DeleteFlow
+    Amazonka.MediaConnect.DescribeFlow
+    Amazonka.MediaConnect.DescribeOffering
+    Amazonka.MediaConnect.DescribeReservation
+    Amazonka.MediaConnect.GrantFlowEntitlements
+    Amazonka.MediaConnect.Lens
+    Amazonka.MediaConnect.ListEntitlements
+    Amazonka.MediaConnect.ListFlows
+    Amazonka.MediaConnect.ListOfferings
+    Amazonka.MediaConnect.ListReservations
+    Amazonka.MediaConnect.ListTagsForResource
+    Amazonka.MediaConnect.PurchaseOffering
+    Amazonka.MediaConnect.RemoveFlowMediaStream
+    Amazonka.MediaConnect.RemoveFlowOutput
+    Amazonka.MediaConnect.RemoveFlowSource
+    Amazonka.MediaConnect.RemoveFlowVpcInterface
+    Amazonka.MediaConnect.RevokeFlowEntitlement
+    Amazonka.MediaConnect.StartFlow
+    Amazonka.MediaConnect.StopFlow
+    Amazonka.MediaConnect.TagResource
+    Amazonka.MediaConnect.Types
+    Amazonka.MediaConnect.Types.AddMediaStreamRequest
+    Amazonka.MediaConnect.Types.AddOutputRequest
+    Amazonka.MediaConnect.Types.Algorithm
+    Amazonka.MediaConnect.Types.Colorimetry
+    Amazonka.MediaConnect.Types.DestinationConfiguration
+    Amazonka.MediaConnect.Types.DestinationConfigurationRequest
+    Amazonka.MediaConnect.Types.DurationUnits
+    Amazonka.MediaConnect.Types.EncoderProfile
+    Amazonka.MediaConnect.Types.EncodingName
+    Amazonka.MediaConnect.Types.EncodingParameters
+    Amazonka.MediaConnect.Types.EncodingParametersRequest
+    Amazonka.MediaConnect.Types.Encryption
+    Amazonka.MediaConnect.Types.Entitlement
+    Amazonka.MediaConnect.Types.EntitlementStatus
+    Amazonka.MediaConnect.Types.FailoverConfig
+    Amazonka.MediaConnect.Types.FailoverMode
+    Amazonka.MediaConnect.Types.Flow
+    Amazonka.MediaConnect.Types.Fmtp
+    Amazonka.MediaConnect.Types.FmtpRequest
+    Amazonka.MediaConnect.Types.GrantEntitlementRequest
+    Amazonka.MediaConnect.Types.InputConfiguration
+    Amazonka.MediaConnect.Types.InputConfigurationRequest
+    Amazonka.MediaConnect.Types.Interface
+    Amazonka.MediaConnect.Types.InterfaceRequest
+    Amazonka.MediaConnect.Types.KeyType
+    Amazonka.MediaConnect.Types.ListedEntitlement
+    Amazonka.MediaConnect.Types.ListedFlow
+    Amazonka.MediaConnect.Types.MediaStream
+    Amazonka.MediaConnect.Types.MediaStreamAttributes
+    Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
+    Amazonka.MediaConnect.Types.MediaStreamOutputConfiguration
+    Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+    Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
+    Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
+    Amazonka.MediaConnect.Types.MediaStreamType
+    Amazonka.MediaConnect.Types.Messages
+    Amazonka.MediaConnect.Types.NetworkInterfaceType
+    Amazonka.MediaConnect.Types.Offering
+    Amazonka.MediaConnect.Types.Output
+    Amazonka.MediaConnect.Types.PriceUnits
+    Amazonka.MediaConnect.Types.Protocol
+    Amazonka.MediaConnect.Types.Range
+    Amazonka.MediaConnect.Types.Reservation
+    Amazonka.MediaConnect.Types.ReservationState
+    Amazonka.MediaConnect.Types.ResourceSpecification
+    Amazonka.MediaConnect.Types.ResourceType
+    Amazonka.MediaConnect.Types.ScanMode
+    Amazonka.MediaConnect.Types.SetSourceRequest
+    Amazonka.MediaConnect.Types.Source
+    Amazonka.MediaConnect.Types.SourcePriority
+    Amazonka.MediaConnect.Types.SourceType
+    Amazonka.MediaConnect.Types.State
+    Amazonka.MediaConnect.Types.Status
+    Amazonka.MediaConnect.Types.Tcs
+    Amazonka.MediaConnect.Types.Transport
+    Amazonka.MediaConnect.Types.UpdateEncryption
+    Amazonka.MediaConnect.Types.UpdateFailoverConfig
+    Amazonka.MediaConnect.Types.VpcInterface
+    Amazonka.MediaConnect.Types.VpcInterfaceAttachment
+    Amazonka.MediaConnect.Types.VpcInterfaceRequest
+    Amazonka.MediaConnect.UntagResource
+    Amazonka.MediaConnect.UpdateFlow
+    Amazonka.MediaConnect.UpdateFlowEntitlement
+    Amazonka.MediaConnect.UpdateFlowMediaStream
+    Amazonka.MediaConnect.UpdateFlowOutput
+    Amazonka.MediaConnect.UpdateFlowSource
+    Amazonka.MediaConnect.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

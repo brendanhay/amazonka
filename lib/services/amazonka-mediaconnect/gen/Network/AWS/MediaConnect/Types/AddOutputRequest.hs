@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.AddOutputRequest
+-- Module      : Amazonka.MediaConnect.Types.AddOutputRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.AddOutputRequest where
+module Amazonka.MediaConnect.Types.AddOutputRequest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.Encryption
-import Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
-import Network.AWS.MediaConnect.Types.Protocol
-import Network.AWS.MediaConnect.Types.VpcInterfaceAttachment
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.Encryption
+import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+import Amazonka.MediaConnect.Types.Protocol
+import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
+import qualified Amazonka.Prelude as Prelude
 
 -- | The output that you want to add to this flow.
 --

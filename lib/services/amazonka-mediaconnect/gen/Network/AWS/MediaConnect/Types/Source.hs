@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.Source
+-- Module      : Amazonka.MediaConnect.Types.Source
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.Source where
+module Amazonka.MediaConnect.Types.Source where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.Encryption
-import Network.AWS.MediaConnect.Types.MediaStreamSourceConfiguration
-import Network.AWS.MediaConnect.Types.Transport
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.Encryption
+import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
+import Amazonka.MediaConnect.Types.Transport
+import qualified Amazonka.Prelude as Prelude
 
 -- | The settings for the source of the flow.
 --

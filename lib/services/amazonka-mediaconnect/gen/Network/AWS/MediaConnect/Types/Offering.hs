@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.Offering
+-- Module      : Amazonka.MediaConnect.Types.Offering
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.Offering where
+module Amazonka.MediaConnect.Types.Offering where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.DurationUnits
-import Network.AWS.MediaConnect.Types.PriceUnits
-import Network.AWS.MediaConnect.Types.ResourceSpecification
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.DurationUnits
+import Amazonka.MediaConnect.Types.PriceUnits
+import Amazonka.MediaConnect.Types.ResourceSpecification
+import qualified Amazonka.Prelude as Prelude
 
 -- | A savings plan that reserves a certain amount of outbound bandwidth
 -- usage at a discounted rate each month over a period of time.

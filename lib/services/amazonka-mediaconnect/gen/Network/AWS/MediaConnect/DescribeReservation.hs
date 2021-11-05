@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.DescribeReservation
+-- Module      : Amazonka.MediaConnect.DescribeReservation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- reservation name, state, start date and time, and the details of the
 -- offering that make up the rest of the reservation (such as price,
 -- duration, and outbound bandwidth).
-module Network.AWS.MediaConnect.DescribeReservation
+module Amazonka.MediaConnect.DescribeReservation
   ( -- * Creating a Request
     DescribeReservation (..),
     newDescribeReservation,
@@ -42,12 +42,12 @@ module Network.AWS.MediaConnect.DescribeReservation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeReservation' smart constructor.
 data DescribeReservation = DescribeReservation'

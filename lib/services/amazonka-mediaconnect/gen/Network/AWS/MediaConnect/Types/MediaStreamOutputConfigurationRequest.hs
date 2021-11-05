@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+-- Module      : Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest where
+module Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.DestinationConfigurationRequest
-import Network.AWS.MediaConnect.Types.EncodingName
-import Network.AWS.MediaConnect.Types.EncodingParametersRequest
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.DestinationConfigurationRequest
+import Amazonka.MediaConnect.Types.EncodingName
+import Amazonka.MediaConnect.Types.EncodingParametersRequest
+import qualified Amazonka.Prelude as Prelude
 
 -- | The media stream that you want to associate with the output, and the
 -- parameters for that association.

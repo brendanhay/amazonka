@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Types
+-- Module      : Amazonka.MediaConnect.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Types
+module Amazonka.MediaConnect.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -474,70 +474,70 @@ module Network.AWS.MediaConnect.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConnect.Types.AddMediaStreamRequest
-import Network.AWS.MediaConnect.Types.AddOutputRequest
-import Network.AWS.MediaConnect.Types.Algorithm
-import Network.AWS.MediaConnect.Types.Colorimetry
-import Network.AWS.MediaConnect.Types.DestinationConfiguration
-import Network.AWS.MediaConnect.Types.DestinationConfigurationRequest
-import Network.AWS.MediaConnect.Types.DurationUnits
-import Network.AWS.MediaConnect.Types.EncoderProfile
-import Network.AWS.MediaConnect.Types.EncodingName
-import Network.AWS.MediaConnect.Types.EncodingParameters
-import Network.AWS.MediaConnect.Types.EncodingParametersRequest
-import Network.AWS.MediaConnect.Types.Encryption
-import Network.AWS.MediaConnect.Types.Entitlement
-import Network.AWS.MediaConnect.Types.EntitlementStatus
-import Network.AWS.MediaConnect.Types.FailoverConfig
-import Network.AWS.MediaConnect.Types.FailoverMode
-import Network.AWS.MediaConnect.Types.Flow
-import Network.AWS.MediaConnect.Types.Fmtp
-import Network.AWS.MediaConnect.Types.FmtpRequest
-import Network.AWS.MediaConnect.Types.GrantEntitlementRequest
-import Network.AWS.MediaConnect.Types.InputConfiguration
-import Network.AWS.MediaConnect.Types.InputConfigurationRequest
-import Network.AWS.MediaConnect.Types.Interface
-import Network.AWS.MediaConnect.Types.InterfaceRequest
-import Network.AWS.MediaConnect.Types.KeyType
-import Network.AWS.MediaConnect.Types.ListedEntitlement
-import Network.AWS.MediaConnect.Types.ListedFlow
-import Network.AWS.MediaConnect.Types.MediaStream
-import Network.AWS.MediaConnect.Types.MediaStreamAttributes
-import Network.AWS.MediaConnect.Types.MediaStreamAttributesRequest
-import Network.AWS.MediaConnect.Types.MediaStreamOutputConfiguration
-import Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
-import Network.AWS.MediaConnect.Types.MediaStreamSourceConfiguration
-import Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest
-import Network.AWS.MediaConnect.Types.MediaStreamType
-import Network.AWS.MediaConnect.Types.Messages
-import Network.AWS.MediaConnect.Types.NetworkInterfaceType
-import Network.AWS.MediaConnect.Types.Offering
-import Network.AWS.MediaConnect.Types.Output
-import Network.AWS.MediaConnect.Types.PriceUnits
-import Network.AWS.MediaConnect.Types.Protocol
-import Network.AWS.MediaConnect.Types.Range
-import Network.AWS.MediaConnect.Types.Reservation
-import Network.AWS.MediaConnect.Types.ReservationState
-import Network.AWS.MediaConnect.Types.ResourceSpecification
-import Network.AWS.MediaConnect.Types.ResourceType
-import Network.AWS.MediaConnect.Types.ScanMode
-import Network.AWS.MediaConnect.Types.SetSourceRequest
-import Network.AWS.MediaConnect.Types.Source
-import Network.AWS.MediaConnect.Types.SourcePriority
-import Network.AWS.MediaConnect.Types.SourceType
-import Network.AWS.MediaConnect.Types.State
-import Network.AWS.MediaConnect.Types.Status
-import Network.AWS.MediaConnect.Types.Tcs
-import Network.AWS.MediaConnect.Types.Transport
-import Network.AWS.MediaConnect.Types.UpdateEncryption
-import Network.AWS.MediaConnect.Types.UpdateFailoverConfig
-import Network.AWS.MediaConnect.Types.VpcInterface
-import Network.AWS.MediaConnect.Types.VpcInterfaceAttachment
-import Network.AWS.MediaConnect.Types.VpcInterfaceRequest
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.AddMediaStreamRequest
+import Amazonka.MediaConnect.Types.AddOutputRequest
+import Amazonka.MediaConnect.Types.Algorithm
+import Amazonka.MediaConnect.Types.Colorimetry
+import Amazonka.MediaConnect.Types.DestinationConfiguration
+import Amazonka.MediaConnect.Types.DestinationConfigurationRequest
+import Amazonka.MediaConnect.Types.DurationUnits
+import Amazonka.MediaConnect.Types.EncoderProfile
+import Amazonka.MediaConnect.Types.EncodingName
+import Amazonka.MediaConnect.Types.EncodingParameters
+import Amazonka.MediaConnect.Types.EncodingParametersRequest
+import Amazonka.MediaConnect.Types.Encryption
+import Amazonka.MediaConnect.Types.Entitlement
+import Amazonka.MediaConnect.Types.EntitlementStatus
+import Amazonka.MediaConnect.Types.FailoverConfig
+import Amazonka.MediaConnect.Types.FailoverMode
+import Amazonka.MediaConnect.Types.Flow
+import Amazonka.MediaConnect.Types.Fmtp
+import Amazonka.MediaConnect.Types.FmtpRequest
+import Amazonka.MediaConnect.Types.GrantEntitlementRequest
+import Amazonka.MediaConnect.Types.InputConfiguration
+import Amazonka.MediaConnect.Types.InputConfigurationRequest
+import Amazonka.MediaConnect.Types.Interface
+import Amazonka.MediaConnect.Types.InterfaceRequest
+import Amazonka.MediaConnect.Types.KeyType
+import Amazonka.MediaConnect.Types.ListedEntitlement
+import Amazonka.MediaConnect.Types.ListedFlow
+import Amazonka.MediaConnect.Types.MediaStream
+import Amazonka.MediaConnect.Types.MediaStreamAttributes
+import Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
+import Amazonka.MediaConnect.Types.MediaStreamOutputConfiguration
+import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
+import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
+import Amazonka.MediaConnect.Types.MediaStreamType
+import Amazonka.MediaConnect.Types.Messages
+import Amazonka.MediaConnect.Types.NetworkInterfaceType
+import Amazonka.MediaConnect.Types.Offering
+import Amazonka.MediaConnect.Types.Output
+import Amazonka.MediaConnect.Types.PriceUnits
+import Amazonka.MediaConnect.Types.Protocol
+import Amazonka.MediaConnect.Types.Range
+import Amazonka.MediaConnect.Types.Reservation
+import Amazonka.MediaConnect.Types.ReservationState
+import Amazonka.MediaConnect.Types.ResourceSpecification
+import Amazonka.MediaConnect.Types.ResourceType
+import Amazonka.MediaConnect.Types.ScanMode
+import Amazonka.MediaConnect.Types.SetSourceRequest
+import Amazonka.MediaConnect.Types.Source
+import Amazonka.MediaConnect.Types.SourcePriority
+import Amazonka.MediaConnect.Types.SourceType
+import Amazonka.MediaConnect.Types.State
+import Amazonka.MediaConnect.Types.Status
+import Amazonka.MediaConnect.Types.Tcs
+import Amazonka.MediaConnect.Types.Transport
+import Amazonka.MediaConnect.Types.UpdateEncryption
+import Amazonka.MediaConnect.Types.UpdateFailoverConfig
+import Amazonka.MediaConnect.Types.VpcInterface
+import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
+import Amazonka.MediaConnect.Types.VpcInterfaceRequest
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-14@ of the Amazon MediaConnect SDK configuration.
 defaultService :: Core.Service

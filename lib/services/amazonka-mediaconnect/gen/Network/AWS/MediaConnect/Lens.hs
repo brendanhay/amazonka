@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaConnect.Lens
+-- Module      : Amazonka.MediaConnect.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConnect.Lens
+module Amazonka.MediaConnect.Lens
   ( -- * Operations
 
     -- ** RemoveFlowVpcInterface
@@ -558,73 +558,73 @@ module Network.AWS.MediaConnect.Lens
   )
 where
 
-import Network.AWS.MediaConnect.AddFlowMediaStreams
-import Network.AWS.MediaConnect.AddFlowOutputs
-import Network.AWS.MediaConnect.AddFlowSources
-import Network.AWS.MediaConnect.AddFlowVpcInterfaces
-import Network.AWS.MediaConnect.CreateFlow
-import Network.AWS.MediaConnect.DeleteFlow
-import Network.AWS.MediaConnect.DescribeFlow
-import Network.AWS.MediaConnect.DescribeOffering
-import Network.AWS.MediaConnect.DescribeReservation
-import Network.AWS.MediaConnect.GrantFlowEntitlements
-import Network.AWS.MediaConnect.ListEntitlements
-import Network.AWS.MediaConnect.ListFlows
-import Network.AWS.MediaConnect.ListOfferings
-import Network.AWS.MediaConnect.ListReservations
-import Network.AWS.MediaConnect.ListTagsForResource
-import Network.AWS.MediaConnect.PurchaseOffering
-import Network.AWS.MediaConnect.RemoveFlowMediaStream
-import Network.AWS.MediaConnect.RemoveFlowOutput
-import Network.AWS.MediaConnect.RemoveFlowSource
-import Network.AWS.MediaConnect.RemoveFlowVpcInterface
-import Network.AWS.MediaConnect.RevokeFlowEntitlement
-import Network.AWS.MediaConnect.StartFlow
-import Network.AWS.MediaConnect.StopFlow
-import Network.AWS.MediaConnect.TagResource
-import Network.AWS.MediaConnect.Types.AddMediaStreamRequest
-import Network.AWS.MediaConnect.Types.AddOutputRequest
-import Network.AWS.MediaConnect.Types.DestinationConfiguration
-import Network.AWS.MediaConnect.Types.DestinationConfigurationRequest
-import Network.AWS.MediaConnect.Types.EncodingParameters
-import Network.AWS.MediaConnect.Types.EncodingParametersRequest
-import Network.AWS.MediaConnect.Types.Encryption
-import Network.AWS.MediaConnect.Types.Entitlement
-import Network.AWS.MediaConnect.Types.FailoverConfig
-import Network.AWS.MediaConnect.Types.Flow
-import Network.AWS.MediaConnect.Types.Fmtp
-import Network.AWS.MediaConnect.Types.FmtpRequest
-import Network.AWS.MediaConnect.Types.GrantEntitlementRequest
-import Network.AWS.MediaConnect.Types.InputConfiguration
-import Network.AWS.MediaConnect.Types.InputConfigurationRequest
-import Network.AWS.MediaConnect.Types.Interface
-import Network.AWS.MediaConnect.Types.InterfaceRequest
-import Network.AWS.MediaConnect.Types.ListedEntitlement
-import Network.AWS.MediaConnect.Types.ListedFlow
-import Network.AWS.MediaConnect.Types.MediaStream
-import Network.AWS.MediaConnect.Types.MediaStreamAttributes
-import Network.AWS.MediaConnect.Types.MediaStreamAttributesRequest
-import Network.AWS.MediaConnect.Types.MediaStreamOutputConfiguration
-import Network.AWS.MediaConnect.Types.MediaStreamOutputConfigurationRequest
-import Network.AWS.MediaConnect.Types.MediaStreamSourceConfiguration
-import Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest
-import Network.AWS.MediaConnect.Types.Messages
-import Network.AWS.MediaConnect.Types.Offering
-import Network.AWS.MediaConnect.Types.Output
-import Network.AWS.MediaConnect.Types.Reservation
-import Network.AWS.MediaConnect.Types.ResourceSpecification
-import Network.AWS.MediaConnect.Types.SetSourceRequest
-import Network.AWS.MediaConnect.Types.Source
-import Network.AWS.MediaConnect.Types.SourcePriority
-import Network.AWS.MediaConnect.Types.Transport
-import Network.AWS.MediaConnect.Types.UpdateEncryption
-import Network.AWS.MediaConnect.Types.UpdateFailoverConfig
-import Network.AWS.MediaConnect.Types.VpcInterface
-import Network.AWS.MediaConnect.Types.VpcInterfaceAttachment
-import Network.AWS.MediaConnect.Types.VpcInterfaceRequest
-import Network.AWS.MediaConnect.UntagResource
-import Network.AWS.MediaConnect.UpdateFlow
-import Network.AWS.MediaConnect.UpdateFlowEntitlement
-import Network.AWS.MediaConnect.UpdateFlowMediaStream
-import Network.AWS.MediaConnect.UpdateFlowOutput
-import Network.AWS.MediaConnect.UpdateFlowSource
+import Amazonka.MediaConnect.AddFlowMediaStreams
+import Amazonka.MediaConnect.AddFlowOutputs
+import Amazonka.MediaConnect.AddFlowSources
+import Amazonka.MediaConnect.AddFlowVpcInterfaces
+import Amazonka.MediaConnect.CreateFlow
+import Amazonka.MediaConnect.DeleteFlow
+import Amazonka.MediaConnect.DescribeFlow
+import Amazonka.MediaConnect.DescribeOffering
+import Amazonka.MediaConnect.DescribeReservation
+import Amazonka.MediaConnect.GrantFlowEntitlements
+import Amazonka.MediaConnect.ListEntitlements
+import Amazonka.MediaConnect.ListFlows
+import Amazonka.MediaConnect.ListOfferings
+import Amazonka.MediaConnect.ListReservations
+import Amazonka.MediaConnect.ListTagsForResource
+import Amazonka.MediaConnect.PurchaseOffering
+import Amazonka.MediaConnect.RemoveFlowMediaStream
+import Amazonka.MediaConnect.RemoveFlowOutput
+import Amazonka.MediaConnect.RemoveFlowSource
+import Amazonka.MediaConnect.RemoveFlowVpcInterface
+import Amazonka.MediaConnect.RevokeFlowEntitlement
+import Amazonka.MediaConnect.StartFlow
+import Amazonka.MediaConnect.StopFlow
+import Amazonka.MediaConnect.TagResource
+import Amazonka.MediaConnect.Types.AddMediaStreamRequest
+import Amazonka.MediaConnect.Types.AddOutputRequest
+import Amazonka.MediaConnect.Types.DestinationConfiguration
+import Amazonka.MediaConnect.Types.DestinationConfigurationRequest
+import Amazonka.MediaConnect.Types.EncodingParameters
+import Amazonka.MediaConnect.Types.EncodingParametersRequest
+import Amazonka.MediaConnect.Types.Encryption
+import Amazonka.MediaConnect.Types.Entitlement
+import Amazonka.MediaConnect.Types.FailoverConfig
+import Amazonka.MediaConnect.Types.Flow
+import Amazonka.MediaConnect.Types.Fmtp
+import Amazonka.MediaConnect.Types.FmtpRequest
+import Amazonka.MediaConnect.Types.GrantEntitlementRequest
+import Amazonka.MediaConnect.Types.InputConfiguration
+import Amazonka.MediaConnect.Types.InputConfigurationRequest
+import Amazonka.MediaConnect.Types.Interface
+import Amazonka.MediaConnect.Types.InterfaceRequest
+import Amazonka.MediaConnect.Types.ListedEntitlement
+import Amazonka.MediaConnect.Types.ListedFlow
+import Amazonka.MediaConnect.Types.MediaStream
+import Amazonka.MediaConnect.Types.MediaStreamAttributes
+import Amazonka.MediaConnect.Types.MediaStreamAttributesRequest
+import Amazonka.MediaConnect.Types.MediaStreamOutputConfiguration
+import Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest
+import Amazonka.MediaConnect.Types.MediaStreamSourceConfiguration
+import Amazonka.MediaConnect.Types.MediaStreamSourceConfigurationRequest
+import Amazonka.MediaConnect.Types.Messages
+import Amazonka.MediaConnect.Types.Offering
+import Amazonka.MediaConnect.Types.Output
+import Amazonka.MediaConnect.Types.Reservation
+import Amazonka.MediaConnect.Types.ResourceSpecification
+import Amazonka.MediaConnect.Types.SetSourceRequest
+import Amazonka.MediaConnect.Types.Source
+import Amazonka.MediaConnect.Types.SourcePriority
+import Amazonka.MediaConnect.Types.Transport
+import Amazonka.MediaConnect.Types.UpdateEncryption
+import Amazonka.MediaConnect.Types.UpdateFailoverConfig
+import Amazonka.MediaConnect.Types.VpcInterface
+import Amazonka.MediaConnect.Types.VpcInterfaceAttachment
+import Amazonka.MediaConnect.Types.VpcInterfaceRequest
+import Amazonka.MediaConnect.UntagResource
+import Amazonka.MediaConnect.UpdateFlow
+import Amazonka.MediaConnect.UpdateFlowEntitlement
+import Amazonka.MediaConnect.UpdateFlowMediaStream
+import Amazonka.MediaConnect.UpdateFlowOutput
+import Amazonka.MediaConnect.UpdateFlowSource

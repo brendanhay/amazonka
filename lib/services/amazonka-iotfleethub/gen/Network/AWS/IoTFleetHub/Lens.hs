@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTFleetHub.Lens
+-- Module      : Amazonka.IoTFleetHub.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTFleetHub.Lens
+module Amazonka.IoTFleetHub.Lens
   ( -- * Operations
 
     -- ** DescribeApplication
@@ -86,12 +86,12 @@ module Network.AWS.IoTFleetHub.Lens
   )
 where
 
-import Network.AWS.IoTFleetHub.CreateApplication
-import Network.AWS.IoTFleetHub.DeleteApplication
-import Network.AWS.IoTFleetHub.DescribeApplication
-import Network.AWS.IoTFleetHub.ListApplications
-import Network.AWS.IoTFleetHub.ListTagsForResource
-import Network.AWS.IoTFleetHub.TagResource
-import Network.AWS.IoTFleetHub.Types.ApplicationSummary
-import Network.AWS.IoTFleetHub.UntagResource
-import Network.AWS.IoTFleetHub.UpdateApplication
+import Amazonka.IoTFleetHub.CreateApplication
+import Amazonka.IoTFleetHub.DeleteApplication
+import Amazonka.IoTFleetHub.DescribeApplication
+import Amazonka.IoTFleetHub.ListApplications
+import Amazonka.IoTFleetHub.ListTagsForResource
+import Amazonka.IoTFleetHub.TagResource
+import Amazonka.IoTFleetHub.Types.ApplicationSummary
+import Amazonka.IoTFleetHub.UntagResource
+import Amazonka.IoTFleetHub.UpdateApplication

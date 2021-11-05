@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTFleetHub
+-- Module      : Amazonka.IoTFleetHub
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 --
 -- Fleet Hub for AWS IoT Device Management is in public preview and is
 -- subject to change.
-module Network.AWS.IoTFleetHub
+module Amazonka.IoTFleetHub
   ( -- * Service Configuration
     defaultService,
 
@@ -106,17 +106,17 @@ module Network.AWS.IoTFleetHub
   )
 where
 
-import Network.AWS.IoTFleetHub.CreateApplication
-import Network.AWS.IoTFleetHub.DeleteApplication
-import Network.AWS.IoTFleetHub.DescribeApplication
-import Network.AWS.IoTFleetHub.Lens
-import Network.AWS.IoTFleetHub.ListApplications
-import Network.AWS.IoTFleetHub.ListTagsForResource
-import Network.AWS.IoTFleetHub.TagResource
-import Network.AWS.IoTFleetHub.Types
-import Network.AWS.IoTFleetHub.UntagResource
-import Network.AWS.IoTFleetHub.UpdateApplication
-import Network.AWS.IoTFleetHub.Waiters
+import Amazonka.IoTFleetHub.CreateApplication
+import Amazonka.IoTFleetHub.DeleteApplication
+import Amazonka.IoTFleetHub.DescribeApplication
+import Amazonka.IoTFleetHub.Lens
+import Amazonka.IoTFleetHub.ListApplications
+import Amazonka.IoTFleetHub.ListTagsForResource
+import Amazonka.IoTFleetHub.TagResource
+import Amazonka.IoTFleetHub.Types
+import Amazonka.IoTFleetHub.UntagResource
+import Amazonka.IoTFleetHub.UpdateApplication
+import Amazonka.IoTFleetHub.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

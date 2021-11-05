@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ResourceGroupsTagging.Types
+-- Module      : Amazonka.ResourceGroupsTagging.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroupsTagging.Types
+module Amazonka.ResourceGroupsTagging.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -78,19 +78,19 @@ module Network.AWS.ResourceGroupsTagging.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
-import Network.AWS.ResourceGroupsTagging.Types.FailureInfo
-import Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
-import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
-import Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
-import Network.AWS.ResourceGroupsTagging.Types.Summary
-import Network.AWS.ResourceGroupsTagging.Types.Tag
-import Network.AWS.ResourceGroupsTagging.Types.TagFilter
-import Network.AWS.ResourceGroupsTagging.Types.TargetIdType
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ResourceGroupsTagging.Types.ComplianceDetails
+import Amazonka.ResourceGroupsTagging.Types.FailureInfo
+import Amazonka.ResourceGroupsTagging.Types.GroupByAttribute
+import Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode
+import Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping
+import Amazonka.ResourceGroupsTagging.Types.Summary
+import Amazonka.ResourceGroupsTagging.Types.Tag
+import Amazonka.ResourceGroupsTagging.Types.TagFilter
+import Amazonka.ResourceGroupsTagging.Types.TargetIdType
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-01-26@ of the Amazon Resource Groups Tagging API SDK configuration.
 defaultService :: Core.Service

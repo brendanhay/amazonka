@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ResourceGroupsTagging.Lens
+-- Module      : Amazonka.ResourceGroupsTagging.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroupsTagging.Lens
+module Amazonka.ResourceGroupsTagging.Lens
   ( -- * Operations
 
     -- ** GetComplianceSummary
@@ -109,17 +109,17 @@ module Network.AWS.ResourceGroupsTagging.Lens
   )
 where
 
-import Network.AWS.ResourceGroupsTagging.DescribeReportCreation
-import Network.AWS.ResourceGroupsTagging.GetComplianceSummary
-import Network.AWS.ResourceGroupsTagging.GetResources
-import Network.AWS.ResourceGroupsTagging.GetTagKeys
-import Network.AWS.ResourceGroupsTagging.GetTagValues
-import Network.AWS.ResourceGroupsTagging.StartReportCreation
-import Network.AWS.ResourceGroupsTagging.TagResources
-import Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
-import Network.AWS.ResourceGroupsTagging.Types.FailureInfo
-import Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
-import Network.AWS.ResourceGroupsTagging.Types.Summary
-import Network.AWS.ResourceGroupsTagging.Types.Tag
-import Network.AWS.ResourceGroupsTagging.Types.TagFilter
-import Network.AWS.ResourceGroupsTagging.UntagResources
+import Amazonka.ResourceGroupsTagging.DescribeReportCreation
+import Amazonka.ResourceGroupsTagging.GetComplianceSummary
+import Amazonka.ResourceGroupsTagging.GetResources
+import Amazonka.ResourceGroupsTagging.GetTagKeys
+import Amazonka.ResourceGroupsTagging.GetTagValues
+import Amazonka.ResourceGroupsTagging.StartReportCreation
+import Amazonka.ResourceGroupsTagging.TagResources
+import Amazonka.ResourceGroupsTagging.Types.ComplianceDetails
+import Amazonka.ResourceGroupsTagging.Types.FailureInfo
+import Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping
+import Amazonka.ResourceGroupsTagging.Types.Summary
+import Amazonka.ResourceGroupsTagging.Types.Tag
+import Amazonka.ResourceGroupsTagging.Types.TagFilter
+import Amazonka.ResourceGroupsTagging.UntagResources

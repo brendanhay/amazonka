@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ResourceGroupsTagging where
 
+import Amazonka.ResourceGroupsTagging
 import qualified Data.Proxy as Proxy
-import Network.AWS.ResourceGroupsTagging
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.ResourceGroupsTagging.Internal

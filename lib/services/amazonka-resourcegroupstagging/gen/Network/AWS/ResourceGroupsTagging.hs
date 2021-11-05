@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ResourceGroupsTagging
+-- Module      : Amazonka.ResourceGroupsTagging
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-01-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Resource Groups Tagging API
-module Network.AWS.ResourceGroupsTagging
+module Amazonka.ResourceGroupsTagging
   ( -- * Service Configuration
     defaultService,
 
@@ -128,17 +128,17 @@ module Network.AWS.ResourceGroupsTagging
   )
 where
 
-import Network.AWS.ResourceGroupsTagging.DescribeReportCreation
-import Network.AWS.ResourceGroupsTagging.GetComplianceSummary
-import Network.AWS.ResourceGroupsTagging.GetResources
-import Network.AWS.ResourceGroupsTagging.GetTagKeys
-import Network.AWS.ResourceGroupsTagging.GetTagValues
-import Network.AWS.ResourceGroupsTagging.Lens
-import Network.AWS.ResourceGroupsTagging.StartReportCreation
-import Network.AWS.ResourceGroupsTagging.TagResources
-import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.ResourceGroupsTagging.UntagResources
-import Network.AWS.ResourceGroupsTagging.Waiters
+import Amazonka.ResourceGroupsTagging.DescribeReportCreation
+import Amazonka.ResourceGroupsTagging.GetComplianceSummary
+import Amazonka.ResourceGroupsTagging.GetResources
+import Amazonka.ResourceGroupsTagging.GetTagKeys
+import Amazonka.ResourceGroupsTagging.GetTagValues
+import Amazonka.ResourceGroupsTagging.Lens
+import Amazonka.ResourceGroupsTagging.StartReportCreation
+import Amazonka.ResourceGroupsTagging.TagResources
+import Amazonka.ResourceGroupsTagging.Types
+import Amazonka.ResourceGroupsTagging.UntagResources
+import Amazonka.ResourceGroupsTagging.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

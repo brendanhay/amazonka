@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticInference.Lens
+-- Module      : Amazonka.ElasticInference.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticInference.Lens
+module Amazonka.ElasticInference.Lens
   ( -- * Operations
 
     -- ** ListTagsForResource
@@ -83,16 +83,16 @@ module Network.AWS.ElasticInference.Lens
   )
 where
 
-import Network.AWS.ElasticInference.DescribeAcceleratorOfferings
-import Network.AWS.ElasticInference.DescribeAcceleratorTypes
-import Network.AWS.ElasticInference.DescribeAccelerators
-import Network.AWS.ElasticInference.ListTagsForResource
-import Network.AWS.ElasticInference.TagResource
-import Network.AWS.ElasticInference.Types.AcceleratorType
-import Network.AWS.ElasticInference.Types.AcceleratorTypeOffering
-import Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator
-import Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth
-import Network.AWS.ElasticInference.Types.Filter
-import Network.AWS.ElasticInference.Types.KeyValuePair
-import Network.AWS.ElasticInference.Types.MemoryInfo
-import Network.AWS.ElasticInference.UntagResource
+import Amazonka.ElasticInference.DescribeAcceleratorOfferings
+import Amazonka.ElasticInference.DescribeAcceleratorTypes
+import Amazonka.ElasticInference.DescribeAccelerators
+import Amazonka.ElasticInference.ListTagsForResource
+import Amazonka.ElasticInference.TagResource
+import Amazonka.ElasticInference.Types.AcceleratorType
+import Amazonka.ElasticInference.Types.AcceleratorTypeOffering
+import Amazonka.ElasticInference.Types.ElasticInferenceAccelerator
+import Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth
+import Amazonka.ElasticInference.Types.Filter
+import Amazonka.ElasticInference.Types.KeyValuePair
+import Amazonka.ElasticInference.Types.MemoryInfo
+import Amazonka.ElasticInference.UntagResource

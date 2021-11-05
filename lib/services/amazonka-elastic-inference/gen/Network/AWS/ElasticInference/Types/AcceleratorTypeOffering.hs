@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticInference.Types.AcceleratorTypeOffering
+-- Module      : Amazonka.ElasticInference.Types.AcceleratorTypeOffering
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticInference.Types.AcceleratorTypeOffering where
+module Amazonka.ElasticInference.Types.AcceleratorTypeOffering where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticInference.Types.LocationType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticInference.Types.LocationType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The offering for an Elastic Inference Accelerator type.
 --

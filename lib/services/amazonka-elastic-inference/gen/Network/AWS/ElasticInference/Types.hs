@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticInference.Types
+-- Module      : Amazonka.ElasticInference.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticInference.Types
+module Amazonka.ElasticInference.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -71,18 +71,18 @@ module Network.AWS.ElasticInference.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticInference.Types.AcceleratorType
-import Network.AWS.ElasticInference.Types.AcceleratorTypeOffering
-import Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator
-import Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth
-import Network.AWS.ElasticInference.Types.Filter
-import Network.AWS.ElasticInference.Types.KeyValuePair
-import Network.AWS.ElasticInference.Types.LocationType
-import Network.AWS.ElasticInference.Types.MemoryInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticInference.Types.AcceleratorType
+import Amazonka.ElasticInference.Types.AcceleratorTypeOffering
+import Amazonka.ElasticInference.Types.ElasticInferenceAccelerator
+import Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth
+import Amazonka.ElasticInference.Types.Filter
+import Amazonka.ElasticInference.Types.KeyValuePair
+import Amazonka.ElasticInference.Types.LocationType
+import Amazonka.ElasticInference.Types.MemoryInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Elastic  Inference SDK configuration.
 defaultService :: Core.Service

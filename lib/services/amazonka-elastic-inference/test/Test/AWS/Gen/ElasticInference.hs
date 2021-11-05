@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticInference where
 
+import Amazonka.ElasticInference
 import qualified Data.Proxy as Proxy
-import Network.AWS.ElasticInference
 import Test.AWS.ElasticInference.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

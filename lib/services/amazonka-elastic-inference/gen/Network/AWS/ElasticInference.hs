@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ElasticInference
+-- Module      : Amazonka.ElasticInference
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-07-25@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Elastic Inference public APIs.
-module Network.AWS.ElasticInference
+module Amazonka.ElasticInference
   ( -- * Service Configuration
     defaultService,
 
@@ -105,15 +105,15 @@ module Network.AWS.ElasticInference
   )
 where
 
-import Network.AWS.ElasticInference.DescribeAcceleratorOfferings
-import Network.AWS.ElasticInference.DescribeAcceleratorTypes
-import Network.AWS.ElasticInference.DescribeAccelerators
-import Network.AWS.ElasticInference.Lens
-import Network.AWS.ElasticInference.ListTagsForResource
-import Network.AWS.ElasticInference.TagResource
-import Network.AWS.ElasticInference.Types
-import Network.AWS.ElasticInference.UntagResource
-import Network.AWS.ElasticInference.Waiters
+import Amazonka.ElasticInference.DescribeAcceleratorOfferings
+import Amazonka.ElasticInference.DescribeAcceleratorTypes
+import Amazonka.ElasticInference.DescribeAccelerators
+import Amazonka.ElasticInference.Lens
+import Amazonka.ElasticInference.ListTagsForResource
+import Amazonka.ElasticInference.TagResource
+import Amazonka.ElasticInference.Types
+import Amazonka.ElasticInference.UntagResource
+import Amazonka.ElasticInference.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

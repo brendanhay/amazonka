@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTJobsData.StartNextPendingJobExecution
+-- Module      : Amazonka.IoTJobsData.StartNextPendingJobExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
 -- execution for a thing.
-module Network.AWS.IoTJobsData.StartNextPendingJobExecution
+module Amazonka.IoTJobsData.StartNextPendingJobExecution
   ( -- * Creating a Request
     StartNextPendingJobExecution (..),
     newStartNextPendingJobExecution,
@@ -42,12 +42,12 @@ module Network.AWS.IoTJobsData.StartNextPendingJobExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTJobsData.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTJobsData.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartNextPendingJobExecution' smart constructor.
 data StartNextPendingJobExecution = StartNextPendingJobExecution'

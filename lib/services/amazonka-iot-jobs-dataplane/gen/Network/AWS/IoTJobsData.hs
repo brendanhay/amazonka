@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTJobsData
+-- Module      : Amazonka.IoTJobsData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- progress to AWS IoT. The Jobs service provides commands to track the
 -- progress of a job on a specific target and for all the targets of the
 -- job
-module Network.AWS.IoTJobsData
+module Amazonka.IoTJobsData
   ( -- * Service Configuration
     defaultService,
 
@@ -106,13 +106,13 @@ module Network.AWS.IoTJobsData
   )
 where
 
-import Network.AWS.IoTJobsData.DescribeJobExecution
-import Network.AWS.IoTJobsData.GetPendingJobExecutions
-import Network.AWS.IoTJobsData.Lens
-import Network.AWS.IoTJobsData.StartNextPendingJobExecution
-import Network.AWS.IoTJobsData.Types
-import Network.AWS.IoTJobsData.UpdateJobExecution
-import Network.AWS.IoTJobsData.Waiters
+import Amazonka.IoTJobsData.DescribeJobExecution
+import Amazonka.IoTJobsData.GetPendingJobExecutions
+import Amazonka.IoTJobsData.Lens
+import Amazonka.IoTJobsData.StartNextPendingJobExecution
+import Amazonka.IoTJobsData.Types
+import Amazonka.IoTJobsData.UpdateJobExecution
+import Amazonka.IoTJobsData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

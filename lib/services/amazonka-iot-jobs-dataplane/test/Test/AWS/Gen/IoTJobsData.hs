@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTJobsData where
 
+import Amazonka.IoTJobsData
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoTJobsData
 import Test.AWS.Fixture
 import Test.AWS.IoTJobsData.Internal
 import Test.AWS.Prelude

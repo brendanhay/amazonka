@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTJobsData.Types
+-- Module      : Amazonka.IoTJobsData.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTJobsData.Types
+module Amazonka.IoTJobsData.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -62,14 +62,14 @@ module Network.AWS.IoTJobsData.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTJobsData.Types.JobExecution
-import Network.AWS.IoTJobsData.Types.JobExecutionState
-import Network.AWS.IoTJobsData.Types.JobExecutionStatus
-import Network.AWS.IoTJobsData.Types.JobExecutionSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTJobsData.Types.JobExecution
+import Amazonka.IoTJobsData.Types.JobExecutionState
+import Amazonka.IoTJobsData.Types.JobExecutionStatus
+import Amazonka.IoTJobsData.Types.JobExecutionSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-09-29@ of the Amazon IoT Jobs Data Plane SDK configuration.
 defaultService :: Core.Service

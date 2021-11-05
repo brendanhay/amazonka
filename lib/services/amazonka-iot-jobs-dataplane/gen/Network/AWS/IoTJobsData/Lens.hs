@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTJobsData.Lens
+-- Module      : Amazonka.IoTJobsData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTJobsData.Lens
+module Amazonka.IoTJobsData.Lens
   ( -- * Operations
 
     -- ** UpdateJobExecution
@@ -79,10 +79,10 @@ module Network.AWS.IoTJobsData.Lens
   )
 where
 
-import Network.AWS.IoTJobsData.DescribeJobExecution
-import Network.AWS.IoTJobsData.GetPendingJobExecutions
-import Network.AWS.IoTJobsData.StartNextPendingJobExecution
-import Network.AWS.IoTJobsData.Types.JobExecution
-import Network.AWS.IoTJobsData.Types.JobExecutionState
-import Network.AWS.IoTJobsData.Types.JobExecutionSummary
-import Network.AWS.IoTJobsData.UpdateJobExecution
+import Amazonka.IoTJobsData.DescribeJobExecution
+import Amazonka.IoTJobsData.GetPendingJobExecutions
+import Amazonka.IoTJobsData.StartNextPendingJobExecution
+import Amazonka.IoTJobsData.Types.JobExecution
+import Amazonka.IoTJobsData.Types.JobExecutionState
+import Amazonka.IoTJobsData.Types.JobExecutionSummary
+import Amazonka.IoTJobsData.UpdateJobExecution

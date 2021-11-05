@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaPackageVOD
+-- Module      : Amazonka.MediaPackageVOD
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-11-07@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS Elemental MediaPackage VOD
-module Network.AWS.MediaPackageVOD
+module Amazonka.MediaPackageVOD
   ( -- * Service Configuration
     defaultService,
 
@@ -246,26 +246,26 @@ module Network.AWS.MediaPackageVOD
   )
 where
 
-import Network.AWS.MediaPackageVOD.ConfigureLogs
-import Network.AWS.MediaPackageVOD.CreateAsset
-import Network.AWS.MediaPackageVOD.CreatePackagingConfiguration
-import Network.AWS.MediaPackageVOD.CreatePackagingGroup
-import Network.AWS.MediaPackageVOD.DeleteAsset
-import Network.AWS.MediaPackageVOD.DeletePackagingConfiguration
-import Network.AWS.MediaPackageVOD.DeletePackagingGroup
-import Network.AWS.MediaPackageVOD.DescribeAsset
-import Network.AWS.MediaPackageVOD.DescribePackagingConfiguration
-import Network.AWS.MediaPackageVOD.DescribePackagingGroup
-import Network.AWS.MediaPackageVOD.Lens
-import Network.AWS.MediaPackageVOD.ListAssets
-import Network.AWS.MediaPackageVOD.ListPackagingConfigurations
-import Network.AWS.MediaPackageVOD.ListPackagingGroups
-import Network.AWS.MediaPackageVOD.ListTagsForResource
-import Network.AWS.MediaPackageVOD.TagResource
-import Network.AWS.MediaPackageVOD.Types
-import Network.AWS.MediaPackageVOD.UntagResource
-import Network.AWS.MediaPackageVOD.UpdatePackagingGroup
-import Network.AWS.MediaPackageVOD.Waiters
+import Amazonka.MediaPackageVOD.ConfigureLogs
+import Amazonka.MediaPackageVOD.CreateAsset
+import Amazonka.MediaPackageVOD.CreatePackagingConfiguration
+import Amazonka.MediaPackageVOD.CreatePackagingGroup
+import Amazonka.MediaPackageVOD.DeleteAsset
+import Amazonka.MediaPackageVOD.DeletePackagingConfiguration
+import Amazonka.MediaPackageVOD.DeletePackagingGroup
+import Amazonka.MediaPackageVOD.DescribeAsset
+import Amazonka.MediaPackageVOD.DescribePackagingConfiguration
+import Amazonka.MediaPackageVOD.DescribePackagingGroup
+import Amazonka.MediaPackageVOD.Lens
+import Amazonka.MediaPackageVOD.ListAssets
+import Amazonka.MediaPackageVOD.ListPackagingConfigurations
+import Amazonka.MediaPackageVOD.ListPackagingGroups
+import Amazonka.MediaPackageVOD.ListTagsForResource
+import Amazonka.MediaPackageVOD.TagResource
+import Amazonka.MediaPackageVOD.Types
+import Amazonka.MediaPackageVOD.UntagResource
+import Amazonka.MediaPackageVOD.UpdatePackagingGroup
+import Amazonka.MediaPackageVOD.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

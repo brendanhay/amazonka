@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackageVOD.Lens
+-- Module      : Amazonka.MediaPackageVOD.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackageVOD.Lens
+module Amazonka.MediaPackageVOD.Lens
   ( -- * Operations
 
     -- ** CreatePackagingGroup
@@ -282,39 +282,39 @@ module Network.AWS.MediaPackageVOD.Lens
   )
 where
 
-import Network.AWS.MediaPackageVOD.ConfigureLogs
-import Network.AWS.MediaPackageVOD.CreateAsset
-import Network.AWS.MediaPackageVOD.CreatePackagingConfiguration
-import Network.AWS.MediaPackageVOD.CreatePackagingGroup
-import Network.AWS.MediaPackageVOD.DeleteAsset
-import Network.AWS.MediaPackageVOD.DeletePackagingConfiguration
-import Network.AWS.MediaPackageVOD.DeletePackagingGroup
-import Network.AWS.MediaPackageVOD.DescribeAsset
-import Network.AWS.MediaPackageVOD.DescribePackagingConfiguration
-import Network.AWS.MediaPackageVOD.DescribePackagingGroup
-import Network.AWS.MediaPackageVOD.ListAssets
-import Network.AWS.MediaPackageVOD.ListPackagingConfigurations
-import Network.AWS.MediaPackageVOD.ListPackagingGroups
-import Network.AWS.MediaPackageVOD.ListTagsForResource
-import Network.AWS.MediaPackageVOD.TagResource
-import Network.AWS.MediaPackageVOD.Types.AssetShallow
-import Network.AWS.MediaPackageVOD.Types.Authorization
-import Network.AWS.MediaPackageVOD.Types.CmafEncryption
-import Network.AWS.MediaPackageVOD.Types.CmafPackage
-import Network.AWS.MediaPackageVOD.Types.DashEncryption
-import Network.AWS.MediaPackageVOD.Types.DashManifest
-import Network.AWS.MediaPackageVOD.Types.DashPackage
-import Network.AWS.MediaPackageVOD.Types.EgressAccessLogs
-import Network.AWS.MediaPackageVOD.Types.EgressEndpoint
-import Network.AWS.MediaPackageVOD.Types.HlsEncryption
-import Network.AWS.MediaPackageVOD.Types.HlsManifest
-import Network.AWS.MediaPackageVOD.Types.HlsPackage
-import Network.AWS.MediaPackageVOD.Types.MssEncryption
-import Network.AWS.MediaPackageVOD.Types.MssManifest
-import Network.AWS.MediaPackageVOD.Types.MssPackage
-import Network.AWS.MediaPackageVOD.Types.PackagingConfiguration
-import Network.AWS.MediaPackageVOD.Types.PackagingGroup
-import Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider
-import Network.AWS.MediaPackageVOD.Types.StreamSelection
-import Network.AWS.MediaPackageVOD.UntagResource
-import Network.AWS.MediaPackageVOD.UpdatePackagingGroup
+import Amazonka.MediaPackageVOD.ConfigureLogs
+import Amazonka.MediaPackageVOD.CreateAsset
+import Amazonka.MediaPackageVOD.CreatePackagingConfiguration
+import Amazonka.MediaPackageVOD.CreatePackagingGroup
+import Amazonka.MediaPackageVOD.DeleteAsset
+import Amazonka.MediaPackageVOD.DeletePackagingConfiguration
+import Amazonka.MediaPackageVOD.DeletePackagingGroup
+import Amazonka.MediaPackageVOD.DescribeAsset
+import Amazonka.MediaPackageVOD.DescribePackagingConfiguration
+import Amazonka.MediaPackageVOD.DescribePackagingGroup
+import Amazonka.MediaPackageVOD.ListAssets
+import Amazonka.MediaPackageVOD.ListPackagingConfigurations
+import Amazonka.MediaPackageVOD.ListPackagingGroups
+import Amazonka.MediaPackageVOD.ListTagsForResource
+import Amazonka.MediaPackageVOD.TagResource
+import Amazonka.MediaPackageVOD.Types.AssetShallow
+import Amazonka.MediaPackageVOD.Types.Authorization
+import Amazonka.MediaPackageVOD.Types.CmafEncryption
+import Amazonka.MediaPackageVOD.Types.CmafPackage
+import Amazonka.MediaPackageVOD.Types.DashEncryption
+import Amazonka.MediaPackageVOD.Types.DashManifest
+import Amazonka.MediaPackageVOD.Types.DashPackage
+import Amazonka.MediaPackageVOD.Types.EgressAccessLogs
+import Amazonka.MediaPackageVOD.Types.EgressEndpoint
+import Amazonka.MediaPackageVOD.Types.HlsEncryption
+import Amazonka.MediaPackageVOD.Types.HlsManifest
+import Amazonka.MediaPackageVOD.Types.HlsPackage
+import Amazonka.MediaPackageVOD.Types.MssEncryption
+import Amazonka.MediaPackageVOD.Types.MssManifest
+import Amazonka.MediaPackageVOD.Types.MssPackage
+import Amazonka.MediaPackageVOD.Types.PackagingConfiguration
+import Amazonka.MediaPackageVOD.Types.PackagingGroup
+import Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
+import Amazonka.MediaPackageVOD.Types.StreamSelection
+import Amazonka.MediaPackageVOD.UntagResource
+import Amazonka.MediaPackageVOD.UpdatePackagingGroup

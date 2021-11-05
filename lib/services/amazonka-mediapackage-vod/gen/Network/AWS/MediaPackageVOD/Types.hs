@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackageVOD.Types
+-- Module      : Amazonka.MediaPackageVOD.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackageVOD.Types
+module Amazonka.MediaPackageVOD.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -195,36 +195,36 @@ module Network.AWS.MediaPackageVOD.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackageVOD.Types.AdMarkers
-import Network.AWS.MediaPackageVOD.Types.AssetShallow
-import Network.AWS.MediaPackageVOD.Types.Authorization
-import Network.AWS.MediaPackageVOD.Types.CmafEncryption
-import Network.AWS.MediaPackageVOD.Types.CmafPackage
-import Network.AWS.MediaPackageVOD.Types.DashEncryption
-import Network.AWS.MediaPackageVOD.Types.DashManifest
-import Network.AWS.MediaPackageVOD.Types.DashPackage
-import Network.AWS.MediaPackageVOD.Types.EgressAccessLogs
-import Network.AWS.MediaPackageVOD.Types.EgressEndpoint
-import Network.AWS.MediaPackageVOD.Types.EncryptionMethod
-import Network.AWS.MediaPackageVOD.Types.HlsEncryption
-import Network.AWS.MediaPackageVOD.Types.HlsManifest
-import Network.AWS.MediaPackageVOD.Types.HlsPackage
-import Network.AWS.MediaPackageVOD.Types.ManifestLayout
-import Network.AWS.MediaPackageVOD.Types.MssEncryption
-import Network.AWS.MediaPackageVOD.Types.MssManifest
-import Network.AWS.MediaPackageVOD.Types.MssPackage
-import Network.AWS.MediaPackageVOD.Types.PackagingConfiguration
-import Network.AWS.MediaPackageVOD.Types.PackagingGroup
-import Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement
-import Network.AWS.MediaPackageVOD.Types.Profile
-import Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat
-import Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider
-import Network.AWS.MediaPackageVOD.Types.StreamOrder
-import Network.AWS.MediaPackageVOD.Types.StreamSelection
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackageVOD.Types.AdMarkers
+import Amazonka.MediaPackageVOD.Types.AssetShallow
+import Amazonka.MediaPackageVOD.Types.Authorization
+import Amazonka.MediaPackageVOD.Types.CmafEncryption
+import Amazonka.MediaPackageVOD.Types.CmafPackage
+import Amazonka.MediaPackageVOD.Types.DashEncryption
+import Amazonka.MediaPackageVOD.Types.DashManifest
+import Amazonka.MediaPackageVOD.Types.DashPackage
+import Amazonka.MediaPackageVOD.Types.EgressAccessLogs
+import Amazonka.MediaPackageVOD.Types.EgressEndpoint
+import Amazonka.MediaPackageVOD.Types.EncryptionMethod
+import Amazonka.MediaPackageVOD.Types.HlsEncryption
+import Amazonka.MediaPackageVOD.Types.HlsManifest
+import Amazonka.MediaPackageVOD.Types.HlsPackage
+import Amazonka.MediaPackageVOD.Types.ManifestLayout
+import Amazonka.MediaPackageVOD.Types.MssEncryption
+import Amazonka.MediaPackageVOD.Types.MssManifest
+import Amazonka.MediaPackageVOD.Types.MssPackage
+import Amazonka.MediaPackageVOD.Types.PackagingConfiguration
+import Amazonka.MediaPackageVOD.Types.PackagingGroup
+import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
+import Amazonka.MediaPackageVOD.Types.Profile
+import Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
+import Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
+import Amazonka.MediaPackageVOD.Types.StreamOrder
+import Amazonka.MediaPackageVOD.Types.StreamSelection
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-07@ of the Amazon Elemental MediaPackage VOD SDK configuration.
 defaultService :: Core.Service

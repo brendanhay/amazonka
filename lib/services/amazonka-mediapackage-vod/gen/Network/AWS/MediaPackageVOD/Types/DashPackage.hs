@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackageVOD.Types.DashPackage
+-- Module      : Amazonka.MediaPackageVOD.Types.DashPackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackageVOD.Types.DashPackage where
+module Amazonka.MediaPackageVOD.Types.DashPackage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackageVOD.Types.DashEncryption
-import Network.AWS.MediaPackageVOD.Types.DashManifest
-import Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement
-import Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackageVOD.Types.DashEncryption
+import Amazonka.MediaPackageVOD.Types.DashManifest
+import Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
+import Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
+import qualified Amazonka.Prelude as Prelude
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 --

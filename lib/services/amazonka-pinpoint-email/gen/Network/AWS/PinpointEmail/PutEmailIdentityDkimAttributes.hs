@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
+-- Module      : Amazonka.PinpointEmail.PutEmailIdentityDkimAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Used to enable or disable DKIM authentication for an email identity.
-module Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
+module Amazonka.PinpointEmail.PutEmailIdentityDkimAttributes
   ( -- * Creating a Request
     PutEmailIdentityDkimAttributes (..),
     newPutEmailIdentityDkimAttributes,
@@ -39,12 +39,12 @@ module Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to enable or disable DKIM signing of email that you send from
 -- an email identity.

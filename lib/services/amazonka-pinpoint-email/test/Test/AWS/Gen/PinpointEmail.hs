@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PinpointEmail where
 
+import Amazonka.PinpointEmail
 import qualified Data.Proxy as Proxy
-import Network.AWS.PinpointEmail
 import Test.AWS.Fixture
 import Test.AWS.PinpointEmail.Internal
 import Test.AWS.Prelude

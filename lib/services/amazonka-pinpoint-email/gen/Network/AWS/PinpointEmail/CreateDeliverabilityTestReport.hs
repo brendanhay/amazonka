@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
+-- Module      : Amazonka.PinpointEmail.CreateDeliverabilityTestReport
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- providers. After about 24 hours, the test is complete, and you can use
 -- the @GetDeliverabilityTestReport@ operation to view the results of the
 -- test.
-module Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
+module Amazonka.PinpointEmail.CreateDeliverabilityTestReport
   ( -- * Creating a Request
     CreateDeliverabilityTestReport (..),
     newCreateDeliverabilityTestReport,
@@ -51,12 +51,12 @@ module Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to perform a predictive inbox placement test. Predictive inbox
 -- placement tests can help you predict how your messages will be handled

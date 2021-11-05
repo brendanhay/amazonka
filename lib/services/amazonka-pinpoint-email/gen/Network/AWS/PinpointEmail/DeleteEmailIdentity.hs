@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.DeleteEmailIdentity
+-- Module      : Amazonka.PinpointEmail.DeleteEmailIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes an email identity that you previously verified for use with
 -- Amazon Pinpoint. An identity can be either an email address or a domain
 -- name.
-module Network.AWS.PinpointEmail.DeleteEmailIdentity
+module Amazonka.PinpointEmail.DeleteEmailIdentity
   ( -- * Creating a Request
     DeleteEmailIdentity (..),
     newDeleteEmailIdentity,
@@ -40,12 +40,12 @@ module Network.AWS.PinpointEmail.DeleteEmailIdentity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to delete an existing email identity. When you delete an
 -- identity, you lose the ability to use Amazon Pinpoint to send email from

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.PinpointEmail
+-- Module      : Amazonka.PinpointEmail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -51,7 +51,7 @@
 -- latency. To learn more about the number of Availability Zones that are
 -- available in each Region, see
 -- <http://aws.amazon.com/about-aws/global-infrastructure/ AWS Global Infrastructure>.
-module Network.AWS.PinpointEmail
+module Amazonka.PinpointEmail
   ( -- * Service Configuration
     defaultService,
 
@@ -524,51 +524,51 @@ module Network.AWS.PinpointEmail
   )
 where
 
-import Network.AWS.PinpointEmail.CreateConfigurationSet
-import Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
-import Network.AWS.PinpointEmail.CreateDedicatedIpPool
-import Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
-import Network.AWS.PinpointEmail.CreateEmailIdentity
-import Network.AWS.PinpointEmail.DeleteConfigurationSet
-import Network.AWS.PinpointEmail.DeleteConfigurationSetEventDestination
-import Network.AWS.PinpointEmail.DeleteDedicatedIpPool
-import Network.AWS.PinpointEmail.DeleteEmailIdentity
-import Network.AWS.PinpointEmail.GetAccount
-import Network.AWS.PinpointEmail.GetBlacklistReports
-import Network.AWS.PinpointEmail.GetConfigurationSet
-import Network.AWS.PinpointEmail.GetConfigurationSetEventDestinations
-import Network.AWS.PinpointEmail.GetDedicatedIp
-import Network.AWS.PinpointEmail.GetDedicatedIps
-import Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
-import Network.AWS.PinpointEmail.GetDeliverabilityTestReport
-import Network.AWS.PinpointEmail.GetDomainDeliverabilityCampaign
-import Network.AWS.PinpointEmail.GetDomainStatisticsReport
-import Network.AWS.PinpointEmail.GetEmailIdentity
-import Network.AWS.PinpointEmail.Lens
-import Network.AWS.PinpointEmail.ListConfigurationSets
-import Network.AWS.PinpointEmail.ListDedicatedIpPools
-import Network.AWS.PinpointEmail.ListDeliverabilityTestReports
-import Network.AWS.PinpointEmail.ListDomainDeliverabilityCampaigns
-import Network.AWS.PinpointEmail.ListEmailIdentities
-import Network.AWS.PinpointEmail.ListTagsForResource
-import Network.AWS.PinpointEmail.PutAccountDedicatedIpWarmupAttributes
-import Network.AWS.PinpointEmail.PutAccountSendingAttributes
-import Network.AWS.PinpointEmail.PutConfigurationSetDeliveryOptions
-import Network.AWS.PinpointEmail.PutConfigurationSetReputationOptions
-import Network.AWS.PinpointEmail.PutConfigurationSetSendingOptions
-import Network.AWS.PinpointEmail.PutConfigurationSetTrackingOptions
-import Network.AWS.PinpointEmail.PutDedicatedIpInPool
-import Network.AWS.PinpointEmail.PutDedicatedIpWarmupAttributes
-import Network.AWS.PinpointEmail.PutDeliverabilityDashboardOption
-import Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
-import Network.AWS.PinpointEmail.PutEmailIdentityFeedbackAttributes
-import Network.AWS.PinpointEmail.PutEmailIdentityMailFromAttributes
-import Network.AWS.PinpointEmail.SendEmail
-import Network.AWS.PinpointEmail.TagResource
-import Network.AWS.PinpointEmail.Types
-import Network.AWS.PinpointEmail.UntagResource
-import Network.AWS.PinpointEmail.UpdateConfigurationSetEventDestination
-import Network.AWS.PinpointEmail.Waiters
+import Amazonka.PinpointEmail.CreateConfigurationSet
+import Amazonka.PinpointEmail.CreateConfigurationSetEventDestination
+import Amazonka.PinpointEmail.CreateDedicatedIpPool
+import Amazonka.PinpointEmail.CreateDeliverabilityTestReport
+import Amazonka.PinpointEmail.CreateEmailIdentity
+import Amazonka.PinpointEmail.DeleteConfigurationSet
+import Amazonka.PinpointEmail.DeleteConfigurationSetEventDestination
+import Amazonka.PinpointEmail.DeleteDedicatedIpPool
+import Amazonka.PinpointEmail.DeleteEmailIdentity
+import Amazonka.PinpointEmail.GetAccount
+import Amazonka.PinpointEmail.GetBlacklistReports
+import Amazonka.PinpointEmail.GetConfigurationSet
+import Amazonka.PinpointEmail.GetConfigurationSetEventDestinations
+import Amazonka.PinpointEmail.GetDedicatedIp
+import Amazonka.PinpointEmail.GetDedicatedIps
+import Amazonka.PinpointEmail.GetDeliverabilityDashboardOptions
+import Amazonka.PinpointEmail.GetDeliverabilityTestReport
+import Amazonka.PinpointEmail.GetDomainDeliverabilityCampaign
+import Amazonka.PinpointEmail.GetDomainStatisticsReport
+import Amazonka.PinpointEmail.GetEmailIdentity
+import Amazonka.PinpointEmail.Lens
+import Amazonka.PinpointEmail.ListConfigurationSets
+import Amazonka.PinpointEmail.ListDedicatedIpPools
+import Amazonka.PinpointEmail.ListDeliverabilityTestReports
+import Amazonka.PinpointEmail.ListDomainDeliverabilityCampaigns
+import Amazonka.PinpointEmail.ListEmailIdentities
+import Amazonka.PinpointEmail.ListTagsForResource
+import Amazonka.PinpointEmail.PutAccountDedicatedIpWarmupAttributes
+import Amazonka.PinpointEmail.PutAccountSendingAttributes
+import Amazonka.PinpointEmail.PutConfigurationSetDeliveryOptions
+import Amazonka.PinpointEmail.PutConfigurationSetReputationOptions
+import Amazonka.PinpointEmail.PutConfigurationSetSendingOptions
+import Amazonka.PinpointEmail.PutConfigurationSetTrackingOptions
+import Amazonka.PinpointEmail.PutDedicatedIpInPool
+import Amazonka.PinpointEmail.PutDedicatedIpWarmupAttributes
+import Amazonka.PinpointEmail.PutDeliverabilityDashboardOption
+import Amazonka.PinpointEmail.PutEmailIdentityDkimAttributes
+import Amazonka.PinpointEmail.PutEmailIdentityFeedbackAttributes
+import Amazonka.PinpointEmail.PutEmailIdentityMailFromAttributes
+import Amazonka.PinpointEmail.SendEmail
+import Amazonka.PinpointEmail.TagResource
+import Amazonka.PinpointEmail.Types
+import Amazonka.PinpointEmail.UntagResource
+import Amazonka.PinpointEmail.UpdateConfigurationSetEventDestination
+import Amazonka.PinpointEmail.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

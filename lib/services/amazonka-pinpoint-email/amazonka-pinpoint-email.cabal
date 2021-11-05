@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.PinpointEmail.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.PinpointEmail.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.PinpointEmail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.PinpointEmail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,100 +45,100 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.PinpointEmail
-    Network.AWS.PinpointEmail.CreateConfigurationSet
-    Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
-    Network.AWS.PinpointEmail.CreateDedicatedIpPool
-    Network.AWS.PinpointEmail.CreateDeliverabilityTestReport
-    Network.AWS.PinpointEmail.CreateEmailIdentity
-    Network.AWS.PinpointEmail.DeleteConfigurationSet
-    Network.AWS.PinpointEmail.DeleteConfigurationSetEventDestination
-    Network.AWS.PinpointEmail.DeleteDedicatedIpPool
-    Network.AWS.PinpointEmail.DeleteEmailIdentity
-    Network.AWS.PinpointEmail.GetAccount
-    Network.AWS.PinpointEmail.GetBlacklistReports
-    Network.AWS.PinpointEmail.GetConfigurationSet
-    Network.AWS.PinpointEmail.GetConfigurationSetEventDestinations
-    Network.AWS.PinpointEmail.GetDedicatedIp
-    Network.AWS.PinpointEmail.GetDedicatedIps
-    Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
-    Network.AWS.PinpointEmail.GetDeliverabilityTestReport
-    Network.AWS.PinpointEmail.GetDomainDeliverabilityCampaign
-    Network.AWS.PinpointEmail.GetDomainStatisticsReport
-    Network.AWS.PinpointEmail.GetEmailIdentity
-    Network.AWS.PinpointEmail.Lens
-    Network.AWS.PinpointEmail.ListConfigurationSets
-    Network.AWS.PinpointEmail.ListDedicatedIpPools
-    Network.AWS.PinpointEmail.ListDeliverabilityTestReports
-    Network.AWS.PinpointEmail.ListDomainDeliverabilityCampaigns
-    Network.AWS.PinpointEmail.ListEmailIdentities
-    Network.AWS.PinpointEmail.ListTagsForResource
-    Network.AWS.PinpointEmail.PutAccountDedicatedIpWarmupAttributes
-    Network.AWS.PinpointEmail.PutAccountSendingAttributes
-    Network.AWS.PinpointEmail.PutConfigurationSetDeliveryOptions
-    Network.AWS.PinpointEmail.PutConfigurationSetReputationOptions
-    Network.AWS.PinpointEmail.PutConfigurationSetSendingOptions
-    Network.AWS.PinpointEmail.PutConfigurationSetTrackingOptions
-    Network.AWS.PinpointEmail.PutDedicatedIpInPool
-    Network.AWS.PinpointEmail.PutDedicatedIpWarmupAttributes
-    Network.AWS.PinpointEmail.PutDeliverabilityDashboardOption
-    Network.AWS.PinpointEmail.PutEmailIdentityDkimAttributes
-    Network.AWS.PinpointEmail.PutEmailIdentityFeedbackAttributes
-    Network.AWS.PinpointEmail.PutEmailIdentityMailFromAttributes
-    Network.AWS.PinpointEmail.SendEmail
-    Network.AWS.PinpointEmail.TagResource
-    Network.AWS.PinpointEmail.Types
-    Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure
-    Network.AWS.PinpointEmail.Types.BlacklistEntry
-    Network.AWS.PinpointEmail.Types.Body
-    Network.AWS.PinpointEmail.Types.CloudWatchDestination
-    Network.AWS.PinpointEmail.Types.CloudWatchDimensionConfiguration
-    Network.AWS.PinpointEmail.Types.Content
-    Network.AWS.PinpointEmail.Types.DailyVolume
-    Network.AWS.PinpointEmail.Types.DedicatedIp
-    Network.AWS.PinpointEmail.Types.DeliverabilityDashboardAccountStatus
-    Network.AWS.PinpointEmail.Types.DeliverabilityTestReport
-    Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus
-    Network.AWS.PinpointEmail.Types.DeliveryOptions
-    Network.AWS.PinpointEmail.Types.Destination
-    Network.AWS.PinpointEmail.Types.DimensionValueSource
-    Network.AWS.PinpointEmail.Types.DkimAttributes
-    Network.AWS.PinpointEmail.Types.DkimStatus
-    Network.AWS.PinpointEmail.Types.DomainDeliverabilityCampaign
-    Network.AWS.PinpointEmail.Types.DomainDeliverabilityTrackingOption
-    Network.AWS.PinpointEmail.Types.DomainIspPlacement
-    Network.AWS.PinpointEmail.Types.EmailContent
-    Network.AWS.PinpointEmail.Types.EventDestination
-    Network.AWS.PinpointEmail.Types.EventDestinationDefinition
-    Network.AWS.PinpointEmail.Types.EventType
-    Network.AWS.PinpointEmail.Types.IdentityInfo
-    Network.AWS.PinpointEmail.Types.IdentityType
-    Network.AWS.PinpointEmail.Types.InboxPlacementTrackingOption
-    Network.AWS.PinpointEmail.Types.IspPlacement
-    Network.AWS.PinpointEmail.Types.KinesisFirehoseDestination
-    Network.AWS.PinpointEmail.Types.MailFromAttributes
-    Network.AWS.PinpointEmail.Types.MailFromDomainStatus
-    Network.AWS.PinpointEmail.Types.Message
-    Network.AWS.PinpointEmail.Types.MessageTag
-    Network.AWS.PinpointEmail.Types.OverallVolume
-    Network.AWS.PinpointEmail.Types.PinpointDestination
-    Network.AWS.PinpointEmail.Types.PlacementStatistics
-    Network.AWS.PinpointEmail.Types.RawMessage
-    Network.AWS.PinpointEmail.Types.ReputationOptions
-    Network.AWS.PinpointEmail.Types.SendingOptions
-    Network.AWS.PinpointEmail.Types.SendQuota
-    Network.AWS.PinpointEmail.Types.SnsDestination
-    Network.AWS.PinpointEmail.Types.Tag
-    Network.AWS.PinpointEmail.Types.Template
-    Network.AWS.PinpointEmail.Types.TlsPolicy
-    Network.AWS.PinpointEmail.Types.TrackingOptions
-    Network.AWS.PinpointEmail.Types.VolumeStatistics
-    Network.AWS.PinpointEmail.Types.WarmupStatus
-    Network.AWS.PinpointEmail.UntagResource
-    Network.AWS.PinpointEmail.UpdateConfigurationSetEventDestination
-    Network.AWS.PinpointEmail.Waiters
+    Amazonka.PinpointEmail
+    Amazonka.PinpointEmail.CreateConfigurationSet
+    Amazonka.PinpointEmail.CreateConfigurationSetEventDestination
+    Amazonka.PinpointEmail.CreateDedicatedIpPool
+    Amazonka.PinpointEmail.CreateDeliverabilityTestReport
+    Amazonka.PinpointEmail.CreateEmailIdentity
+    Amazonka.PinpointEmail.DeleteConfigurationSet
+    Amazonka.PinpointEmail.DeleteConfigurationSetEventDestination
+    Amazonka.PinpointEmail.DeleteDedicatedIpPool
+    Amazonka.PinpointEmail.DeleteEmailIdentity
+    Amazonka.PinpointEmail.GetAccount
+    Amazonka.PinpointEmail.GetBlacklistReports
+    Amazonka.PinpointEmail.GetConfigurationSet
+    Amazonka.PinpointEmail.GetConfigurationSetEventDestinations
+    Amazonka.PinpointEmail.GetDedicatedIp
+    Amazonka.PinpointEmail.GetDedicatedIps
+    Amazonka.PinpointEmail.GetDeliverabilityDashboardOptions
+    Amazonka.PinpointEmail.GetDeliverabilityTestReport
+    Amazonka.PinpointEmail.GetDomainDeliverabilityCampaign
+    Amazonka.PinpointEmail.GetDomainStatisticsReport
+    Amazonka.PinpointEmail.GetEmailIdentity
+    Amazonka.PinpointEmail.Lens
+    Amazonka.PinpointEmail.ListConfigurationSets
+    Amazonka.PinpointEmail.ListDedicatedIpPools
+    Amazonka.PinpointEmail.ListDeliverabilityTestReports
+    Amazonka.PinpointEmail.ListDomainDeliverabilityCampaigns
+    Amazonka.PinpointEmail.ListEmailIdentities
+    Amazonka.PinpointEmail.ListTagsForResource
+    Amazonka.PinpointEmail.PutAccountDedicatedIpWarmupAttributes
+    Amazonka.PinpointEmail.PutAccountSendingAttributes
+    Amazonka.PinpointEmail.PutConfigurationSetDeliveryOptions
+    Amazonka.PinpointEmail.PutConfigurationSetReputationOptions
+    Amazonka.PinpointEmail.PutConfigurationSetSendingOptions
+    Amazonka.PinpointEmail.PutConfigurationSetTrackingOptions
+    Amazonka.PinpointEmail.PutDedicatedIpInPool
+    Amazonka.PinpointEmail.PutDedicatedIpWarmupAttributes
+    Amazonka.PinpointEmail.PutDeliverabilityDashboardOption
+    Amazonka.PinpointEmail.PutEmailIdentityDkimAttributes
+    Amazonka.PinpointEmail.PutEmailIdentityFeedbackAttributes
+    Amazonka.PinpointEmail.PutEmailIdentityMailFromAttributes
+    Amazonka.PinpointEmail.SendEmail
+    Amazonka.PinpointEmail.TagResource
+    Amazonka.PinpointEmail.Types
+    Amazonka.PinpointEmail.Types.BehaviorOnMxFailure
+    Amazonka.PinpointEmail.Types.BlacklistEntry
+    Amazonka.PinpointEmail.Types.Body
+    Amazonka.PinpointEmail.Types.CloudWatchDestination
+    Amazonka.PinpointEmail.Types.CloudWatchDimensionConfiguration
+    Amazonka.PinpointEmail.Types.Content
+    Amazonka.PinpointEmail.Types.DailyVolume
+    Amazonka.PinpointEmail.Types.DedicatedIp
+    Amazonka.PinpointEmail.Types.DeliverabilityDashboardAccountStatus
+    Amazonka.PinpointEmail.Types.DeliverabilityTestReport
+    Amazonka.PinpointEmail.Types.DeliverabilityTestStatus
+    Amazonka.PinpointEmail.Types.DeliveryOptions
+    Amazonka.PinpointEmail.Types.Destination
+    Amazonka.PinpointEmail.Types.DimensionValueSource
+    Amazonka.PinpointEmail.Types.DkimAttributes
+    Amazonka.PinpointEmail.Types.DkimStatus
+    Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign
+    Amazonka.PinpointEmail.Types.DomainDeliverabilityTrackingOption
+    Amazonka.PinpointEmail.Types.DomainIspPlacement
+    Amazonka.PinpointEmail.Types.EmailContent
+    Amazonka.PinpointEmail.Types.EventDestination
+    Amazonka.PinpointEmail.Types.EventDestinationDefinition
+    Amazonka.PinpointEmail.Types.EventType
+    Amazonka.PinpointEmail.Types.IdentityInfo
+    Amazonka.PinpointEmail.Types.IdentityType
+    Amazonka.PinpointEmail.Types.InboxPlacementTrackingOption
+    Amazonka.PinpointEmail.Types.IspPlacement
+    Amazonka.PinpointEmail.Types.KinesisFirehoseDestination
+    Amazonka.PinpointEmail.Types.MailFromAttributes
+    Amazonka.PinpointEmail.Types.MailFromDomainStatus
+    Amazonka.PinpointEmail.Types.Message
+    Amazonka.PinpointEmail.Types.MessageTag
+    Amazonka.PinpointEmail.Types.OverallVolume
+    Amazonka.PinpointEmail.Types.PinpointDestination
+    Amazonka.PinpointEmail.Types.PlacementStatistics
+    Amazonka.PinpointEmail.Types.RawMessage
+    Amazonka.PinpointEmail.Types.ReputationOptions
+    Amazonka.PinpointEmail.Types.SendingOptions
+    Amazonka.PinpointEmail.Types.SendQuota
+    Amazonka.PinpointEmail.Types.SnsDestination
+    Amazonka.PinpointEmail.Types.Tag
+    Amazonka.PinpointEmail.Types.Template
+    Amazonka.PinpointEmail.Types.TlsPolicy
+    Amazonka.PinpointEmail.Types.TrackingOptions
+    Amazonka.PinpointEmail.Types.VolumeStatistics
+    Amazonka.PinpointEmail.Types.WarmupStatus
+    Amazonka.PinpointEmail.UntagResource
+    Amazonka.PinpointEmail.UpdateConfigurationSetEventDestination
+    Amazonka.PinpointEmail.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

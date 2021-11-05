@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.Types.EventDestinationDefinition
+-- Module      : Amazonka.PinpointEmail.Types.EventDestinationDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointEmail.Types.EventDestinationDefinition where
+module Amazonka.PinpointEmail.Types.EventDestinationDefinition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types.CloudWatchDestination
-import Network.AWS.PinpointEmail.Types.EventType
-import Network.AWS.PinpointEmail.Types.KinesisFirehoseDestination
-import Network.AWS.PinpointEmail.Types.PinpointDestination
-import Network.AWS.PinpointEmail.Types.SnsDestination
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types.CloudWatchDestination
+import Amazonka.PinpointEmail.Types.EventType
+import Amazonka.PinpointEmail.Types.KinesisFirehoseDestination
+import Amazonka.PinpointEmail.Types.PinpointDestination
+import Amazonka.PinpointEmail.Types.SnsDestination
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the event destination. Specifically, it defines
 -- which services receive events from emails sent using the configuration

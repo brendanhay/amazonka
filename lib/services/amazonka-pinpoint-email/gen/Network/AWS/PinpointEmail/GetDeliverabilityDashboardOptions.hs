@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
+-- Module      : Amazonka.PinpointEmail.GetDeliverabilityDashboardOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- using Amazon Pinpoint. For more information about the features and cost
 -- of a Deliverability dashboard subscription, see
 -- <http://aws.amazon.com/pinpoint/pricing/ Amazon Pinpoint Pricing>.
-module Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
+module Amazonka.PinpointEmail.GetDeliverabilityDashboardOptions
   ( -- * Creating a Request
     GetDeliverabilityDashboardOptions (..),
     newGetDeliverabilityDashboardOptions,
@@ -51,12 +51,12 @@ module Network.AWS.PinpointEmail.GetDeliverabilityDashboardOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Retrieve information about the status of the Deliverability dashboard
 -- for your Amazon Pinpoint account. When the Deliverability dashboard is

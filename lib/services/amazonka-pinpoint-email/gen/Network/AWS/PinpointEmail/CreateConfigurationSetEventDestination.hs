@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
+-- Module      : Amazonka.PinpointEmail.CreateConfigurationSetEventDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- long-term storage.
 --
 -- A single configuration set can include more than one event destination.
-module Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
+module Amazonka.PinpointEmail.CreateConfigurationSetEventDestination
   ( -- * Creating a Request
     CreateConfigurationSetEventDestination (..),
     newCreateConfigurationSetEventDestination,
@@ -48,12 +48,12 @@ module Network.AWS.PinpointEmail.CreateConfigurationSetEventDestination
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to add an event destination to a configuration set.
 --

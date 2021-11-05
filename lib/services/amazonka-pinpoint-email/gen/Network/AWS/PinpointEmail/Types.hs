@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointEmail.Types
+-- Module      : Amazonka.PinpointEmail.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointEmail.Types
+module Amazonka.PinpointEmail.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -316,56 +316,56 @@ module Network.AWS.PinpointEmail.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure
-import Network.AWS.PinpointEmail.Types.BlacklistEntry
-import Network.AWS.PinpointEmail.Types.Body
-import Network.AWS.PinpointEmail.Types.CloudWatchDestination
-import Network.AWS.PinpointEmail.Types.CloudWatchDimensionConfiguration
-import Network.AWS.PinpointEmail.Types.Content
-import Network.AWS.PinpointEmail.Types.DailyVolume
-import Network.AWS.PinpointEmail.Types.DedicatedIp
-import Network.AWS.PinpointEmail.Types.DeliverabilityDashboardAccountStatus
-import Network.AWS.PinpointEmail.Types.DeliverabilityTestReport
-import Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus
-import Network.AWS.PinpointEmail.Types.DeliveryOptions
-import Network.AWS.PinpointEmail.Types.Destination
-import Network.AWS.PinpointEmail.Types.DimensionValueSource
-import Network.AWS.PinpointEmail.Types.DkimAttributes
-import Network.AWS.PinpointEmail.Types.DkimStatus
-import Network.AWS.PinpointEmail.Types.DomainDeliverabilityCampaign
-import Network.AWS.PinpointEmail.Types.DomainDeliverabilityTrackingOption
-import Network.AWS.PinpointEmail.Types.DomainIspPlacement
-import Network.AWS.PinpointEmail.Types.EmailContent
-import Network.AWS.PinpointEmail.Types.EventDestination
-import Network.AWS.PinpointEmail.Types.EventDestinationDefinition
-import Network.AWS.PinpointEmail.Types.EventType
-import Network.AWS.PinpointEmail.Types.IdentityInfo
-import Network.AWS.PinpointEmail.Types.IdentityType
-import Network.AWS.PinpointEmail.Types.InboxPlacementTrackingOption
-import Network.AWS.PinpointEmail.Types.IspPlacement
-import Network.AWS.PinpointEmail.Types.KinesisFirehoseDestination
-import Network.AWS.PinpointEmail.Types.MailFromAttributes
-import Network.AWS.PinpointEmail.Types.MailFromDomainStatus
-import Network.AWS.PinpointEmail.Types.Message
-import Network.AWS.PinpointEmail.Types.MessageTag
-import Network.AWS.PinpointEmail.Types.OverallVolume
-import Network.AWS.PinpointEmail.Types.PinpointDestination
-import Network.AWS.PinpointEmail.Types.PlacementStatistics
-import Network.AWS.PinpointEmail.Types.RawMessage
-import Network.AWS.PinpointEmail.Types.ReputationOptions
-import Network.AWS.PinpointEmail.Types.SendQuota
-import Network.AWS.PinpointEmail.Types.SendingOptions
-import Network.AWS.PinpointEmail.Types.SnsDestination
-import Network.AWS.PinpointEmail.Types.Tag
-import Network.AWS.PinpointEmail.Types.Template
-import Network.AWS.PinpointEmail.Types.TlsPolicy
-import Network.AWS.PinpointEmail.Types.TrackingOptions
-import Network.AWS.PinpointEmail.Types.VolumeStatistics
-import Network.AWS.PinpointEmail.Types.WarmupStatus
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointEmail.Types.BehaviorOnMxFailure
+import Amazonka.PinpointEmail.Types.BlacklistEntry
+import Amazonka.PinpointEmail.Types.Body
+import Amazonka.PinpointEmail.Types.CloudWatchDestination
+import Amazonka.PinpointEmail.Types.CloudWatchDimensionConfiguration
+import Amazonka.PinpointEmail.Types.Content
+import Amazonka.PinpointEmail.Types.DailyVolume
+import Amazonka.PinpointEmail.Types.DedicatedIp
+import Amazonka.PinpointEmail.Types.DeliverabilityDashboardAccountStatus
+import Amazonka.PinpointEmail.Types.DeliverabilityTestReport
+import Amazonka.PinpointEmail.Types.DeliverabilityTestStatus
+import Amazonka.PinpointEmail.Types.DeliveryOptions
+import Amazonka.PinpointEmail.Types.Destination
+import Amazonka.PinpointEmail.Types.DimensionValueSource
+import Amazonka.PinpointEmail.Types.DkimAttributes
+import Amazonka.PinpointEmail.Types.DkimStatus
+import Amazonka.PinpointEmail.Types.DomainDeliverabilityCampaign
+import Amazonka.PinpointEmail.Types.DomainDeliverabilityTrackingOption
+import Amazonka.PinpointEmail.Types.DomainIspPlacement
+import Amazonka.PinpointEmail.Types.EmailContent
+import Amazonka.PinpointEmail.Types.EventDestination
+import Amazonka.PinpointEmail.Types.EventDestinationDefinition
+import Amazonka.PinpointEmail.Types.EventType
+import Amazonka.PinpointEmail.Types.IdentityInfo
+import Amazonka.PinpointEmail.Types.IdentityType
+import Amazonka.PinpointEmail.Types.InboxPlacementTrackingOption
+import Amazonka.PinpointEmail.Types.IspPlacement
+import Amazonka.PinpointEmail.Types.KinesisFirehoseDestination
+import Amazonka.PinpointEmail.Types.MailFromAttributes
+import Amazonka.PinpointEmail.Types.MailFromDomainStatus
+import Amazonka.PinpointEmail.Types.Message
+import Amazonka.PinpointEmail.Types.MessageTag
+import Amazonka.PinpointEmail.Types.OverallVolume
+import Amazonka.PinpointEmail.Types.PinpointDestination
+import Amazonka.PinpointEmail.Types.PlacementStatistics
+import Amazonka.PinpointEmail.Types.RawMessage
+import Amazonka.PinpointEmail.Types.ReputationOptions
+import Amazonka.PinpointEmail.Types.SendQuota
+import Amazonka.PinpointEmail.Types.SendingOptions
+import Amazonka.PinpointEmail.Types.SnsDestination
+import Amazonka.PinpointEmail.Types.Tag
+import Amazonka.PinpointEmail.Types.Template
+import Amazonka.PinpointEmail.Types.TlsPolicy
+import Amazonka.PinpointEmail.Types.TrackingOptions
+import Amazonka.PinpointEmail.Types.VolumeStatistics
+import Amazonka.PinpointEmail.Types.WarmupStatus
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-07-26@ of the Amazon Pinpoint Email Service SDK configuration.
 defaultService :: Core.Service

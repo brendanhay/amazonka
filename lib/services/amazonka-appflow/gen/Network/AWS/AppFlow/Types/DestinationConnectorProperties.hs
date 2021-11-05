@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.DestinationConnectorProperties
+-- Module      : Amazonka.AppFlow.Types.DestinationConnectorProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.DestinationConnectorProperties where
+module Amazonka.AppFlow.Types.DestinationConnectorProperties where
 
-import Network.AWS.AppFlow.Types.CustomerProfilesDestinationProperties
-import Network.AWS.AppFlow.Types.EventBridgeDestinationProperties
-import Network.AWS.AppFlow.Types.HoneycodeDestinationProperties
-import Network.AWS.AppFlow.Types.LookoutMetricsDestinationProperties
-import Network.AWS.AppFlow.Types.RedshiftDestinationProperties
-import Network.AWS.AppFlow.Types.S3DestinationProperties
-import Network.AWS.AppFlow.Types.SalesforceDestinationProperties
-import Network.AWS.AppFlow.Types.SnowflakeDestinationProperties
-import Network.AWS.AppFlow.Types.UpsolverDestinationProperties
-import Network.AWS.AppFlow.Types.ZendeskDestinationProperties
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
+import Amazonka.AppFlow.Types.EventBridgeDestinationProperties
+import Amazonka.AppFlow.Types.HoneycodeDestinationProperties
+import Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties
+import Amazonka.AppFlow.Types.RedshiftDestinationProperties
+import Amazonka.AppFlow.Types.S3DestinationProperties
+import Amazonka.AppFlow.Types.SalesforceDestinationProperties
+import Amazonka.AppFlow.Types.SnowflakeDestinationProperties
+import Amazonka.AppFlow.Types.UpsolverDestinationProperties
+import Amazonka.AppFlow.Types.ZendeskDestinationProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This stores the information that is required to query a particular
 -- connector.

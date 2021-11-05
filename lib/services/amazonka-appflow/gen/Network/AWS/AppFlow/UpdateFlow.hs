@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.UpdateFlow
+-- Module      : Amazonka.AppFlow.UpdateFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing flow.
-module Network.AWS.AppFlow.UpdateFlow
+module Amazonka.AppFlow.UpdateFlow
   ( -- * Creating a Request
     UpdateFlow (..),
     newUpdateFlow,
@@ -44,12 +44,12 @@ module Network.AWS.AppFlow.UpdateFlow
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFlow' smart constructor.
 data UpdateFlow = UpdateFlow'

@@ -11,32 +11,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.SourceConnectorProperties
+-- Module      : Amazonka.AppFlow.Types.SourceConnectorProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.SourceConnectorProperties where
+module Amazonka.AppFlow.Types.SourceConnectorProperties where
 
-import Network.AWS.AppFlow.Types.AmplitudeSourceProperties
-import Network.AWS.AppFlow.Types.DatadogSourceProperties
-import Network.AWS.AppFlow.Types.DynatraceSourceProperties
-import Network.AWS.AppFlow.Types.GoogleAnalyticsSourceProperties
-import Network.AWS.AppFlow.Types.InforNexusSourceProperties
-import Network.AWS.AppFlow.Types.MarketoSourceProperties
-import Network.AWS.AppFlow.Types.S3SourceProperties
-import Network.AWS.AppFlow.Types.SAPODataSourceProperties
-import Network.AWS.AppFlow.Types.SalesforceSourceProperties
-import Network.AWS.AppFlow.Types.ServiceNowSourceProperties
-import Network.AWS.AppFlow.Types.SingularSourceProperties
-import Network.AWS.AppFlow.Types.SlackSourceProperties
-import Network.AWS.AppFlow.Types.TrendmicroSourceProperties
-import Network.AWS.AppFlow.Types.VeevaSourceProperties
-import Network.AWS.AppFlow.Types.ZendeskSourceProperties
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AmplitudeSourceProperties
+import Amazonka.AppFlow.Types.DatadogSourceProperties
+import Amazonka.AppFlow.Types.DynatraceSourceProperties
+import Amazonka.AppFlow.Types.GoogleAnalyticsSourceProperties
+import Amazonka.AppFlow.Types.InforNexusSourceProperties
+import Amazonka.AppFlow.Types.MarketoSourceProperties
+import Amazonka.AppFlow.Types.S3SourceProperties
+import Amazonka.AppFlow.Types.SAPODataSourceProperties
+import Amazonka.AppFlow.Types.SalesforceSourceProperties
+import Amazonka.AppFlow.Types.ServiceNowSourceProperties
+import Amazonka.AppFlow.Types.SingularSourceProperties
+import Amazonka.AppFlow.Types.SlackSourceProperties
+import Amazonka.AppFlow.Types.TrendmicroSourceProperties
+import Amazonka.AppFlow.Types.VeevaSourceProperties
+import Amazonka.AppFlow.Types.ZendeskSourceProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular
 -- connector.

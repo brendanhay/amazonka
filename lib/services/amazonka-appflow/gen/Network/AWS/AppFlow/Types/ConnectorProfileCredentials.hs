@@ -11,34 +11,34 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.ConnectorProfileCredentials
+-- Module      : Amazonka.AppFlow.Types.ConnectorProfileCredentials
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.ConnectorProfileCredentials where
+module Amazonka.AppFlow.Types.ConnectorProfileCredentials where
 
-import Network.AWS.AppFlow.Types.AmplitudeConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.DatadogConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.DynatraceConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.HoneycodeConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.InforNexusConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.MarketoConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.RedshiftConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.SAPODataConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.SalesforceConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.ServiceNowConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.SingularConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.SlackConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.SnowflakeConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.TrendmicroConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.VeevaConnectorProfileCredentials
-import Network.AWS.AppFlow.Types.ZendeskConnectorProfileCredentials
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AmplitudeConnectorProfileCredentials
+import Amazonka.AppFlow.Types.DatadogConnectorProfileCredentials
+import Amazonka.AppFlow.Types.DynatraceConnectorProfileCredentials
+import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
+import Amazonka.AppFlow.Types.HoneycodeConnectorProfileCredentials
+import Amazonka.AppFlow.Types.InforNexusConnectorProfileCredentials
+import Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials
+import Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
+import Amazonka.AppFlow.Types.SAPODataConnectorProfileCredentials
+import Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials
+import Amazonka.AppFlow.Types.ServiceNowConnectorProfileCredentials
+import Amazonka.AppFlow.Types.SingularConnectorProfileCredentials
+import Amazonka.AppFlow.Types.SlackConnectorProfileCredentials
+import Amazonka.AppFlow.Types.SnowflakeConnectorProfileCredentials
+import Amazonka.AppFlow.Types.TrendmicroConnectorProfileCredentials
+import Amazonka.AppFlow.Types.VeevaConnectorProfileCredentials
+import Amazonka.AppFlow.Types.ZendeskConnectorProfileCredentials
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific credentials required by a connector.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.ListConnectorEntities
+-- Module      : Amazonka.AppFlow.ListConnectorEntities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the list of available connector entities supported by Amazon
 -- AppFlow. For example, you can query Salesforce for /Account/ and
 -- /Opportunity/ entities, or query ServiceNow for the /Incident/ entity.
-module Network.AWS.AppFlow.ListConnectorEntities
+module Amazonka.AppFlow.ListConnectorEntities
   ( -- * Creating a Request
     ListConnectorEntities (..),
     newListConnectorEntities,
@@ -43,12 +43,12 @@ module Network.AWS.AppFlow.ListConnectorEntities
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConnectorEntities' smart constructor.
 data ListConnectorEntities = ListConnectorEntities'

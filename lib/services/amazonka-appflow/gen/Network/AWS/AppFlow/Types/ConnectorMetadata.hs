@@ -11,38 +11,38 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.ConnectorMetadata
+-- Module      : Amazonka.AppFlow.Types.ConnectorMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.ConnectorMetadata where
+module Amazonka.AppFlow.Types.ConnectorMetadata where
 
-import Network.AWS.AppFlow.Types.AmplitudeMetadata
-import Network.AWS.AppFlow.Types.CustomerProfilesMetadata
-import Network.AWS.AppFlow.Types.DatadogMetadata
-import Network.AWS.AppFlow.Types.DynatraceMetadata
-import Network.AWS.AppFlow.Types.EventBridgeMetadata
-import Network.AWS.AppFlow.Types.GoogleAnalyticsMetadata
-import Network.AWS.AppFlow.Types.HoneycodeMetadata
-import Network.AWS.AppFlow.Types.InforNexusMetadata
-import Network.AWS.AppFlow.Types.MarketoMetadata
-import Network.AWS.AppFlow.Types.RedshiftMetadata
-import Network.AWS.AppFlow.Types.S3Metadata
-import Network.AWS.AppFlow.Types.SAPODataMetadata
-import Network.AWS.AppFlow.Types.SalesforceMetadata
-import Network.AWS.AppFlow.Types.ServiceNowMetadata
-import Network.AWS.AppFlow.Types.SingularMetadata
-import Network.AWS.AppFlow.Types.SlackMetadata
-import Network.AWS.AppFlow.Types.SnowflakeMetadata
-import Network.AWS.AppFlow.Types.TrendmicroMetadata
-import Network.AWS.AppFlow.Types.UpsolverMetadata
-import Network.AWS.AppFlow.Types.VeevaMetadata
-import Network.AWS.AppFlow.Types.ZendeskMetadata
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AmplitudeMetadata
+import Amazonka.AppFlow.Types.CustomerProfilesMetadata
+import Amazonka.AppFlow.Types.DatadogMetadata
+import Amazonka.AppFlow.Types.DynatraceMetadata
+import Amazonka.AppFlow.Types.EventBridgeMetadata
+import Amazonka.AppFlow.Types.GoogleAnalyticsMetadata
+import Amazonka.AppFlow.Types.HoneycodeMetadata
+import Amazonka.AppFlow.Types.InforNexusMetadata
+import Amazonka.AppFlow.Types.MarketoMetadata
+import Amazonka.AppFlow.Types.RedshiftMetadata
+import Amazonka.AppFlow.Types.S3Metadata
+import Amazonka.AppFlow.Types.SAPODataMetadata
+import Amazonka.AppFlow.Types.SalesforceMetadata
+import Amazonka.AppFlow.Types.ServiceNowMetadata
+import Amazonka.AppFlow.Types.SingularMetadata
+import Amazonka.AppFlow.Types.SlackMetadata
+import Amazonka.AppFlow.Types.SnowflakeMetadata
+import Amazonka.AppFlow.Types.TrendmicroMetadata
+import Amazonka.AppFlow.Types.UpsolverMetadata
+import Amazonka.AppFlow.Types.VeevaMetadata
+import Amazonka.AppFlow.Types.ZendeskMetadata
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure to specify connector-specific metadata such as
 -- @oAuthScopes@, @supportedRegions@, @privateLinkServiceUrl@, and so on.

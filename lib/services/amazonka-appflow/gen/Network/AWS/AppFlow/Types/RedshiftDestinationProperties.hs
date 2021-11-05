@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.RedshiftDestinationProperties
+-- Module      : Amazonka.AppFlow.Types.RedshiftDestinationProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.RedshiftDestinationProperties where
+module Amazonka.AppFlow.Types.RedshiftDestinationProperties where
 
-import Network.AWS.AppFlow.Types.ErrorHandlingConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.ErrorHandlingConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Amazon Redshift is being used as a
 -- destination.

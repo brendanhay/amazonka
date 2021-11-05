@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.ConnectorConfiguration
+-- Module      : Amazonka.AppFlow.Types.ConnectorConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.ConnectorConfiguration where
+module Amazonka.AppFlow.Types.ConnectorConfiguration where
 
-import Network.AWS.AppFlow.Types.ConnectorMetadata
-import Network.AWS.AppFlow.Types.ConnectorType
-import Network.AWS.AppFlow.Types.ScheduleFrequencyType
-import Network.AWS.AppFlow.Types.TriggerType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.ConnectorMetadata
+import Amazonka.AppFlow.Types.ConnectorType
+import Amazonka.AppFlow.Types.ScheduleFrequencyType
+import Amazonka.AppFlow.Types.TriggerType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration settings related to a given connector.
 --

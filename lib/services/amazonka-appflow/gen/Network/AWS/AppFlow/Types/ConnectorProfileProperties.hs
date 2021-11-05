@@ -11,34 +11,34 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.ConnectorProfileProperties
+-- Module      : Amazonka.AppFlow.Types.ConnectorProfileProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.ConnectorProfileProperties where
+module Amazonka.AppFlow.Types.ConnectorProfileProperties where
 
-import Network.AWS.AppFlow.Types.AmplitudeConnectorProfileProperties
-import Network.AWS.AppFlow.Types.DatadogConnectorProfileProperties
-import Network.AWS.AppFlow.Types.DynatraceConnectorProfileProperties
-import Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
-import Network.AWS.AppFlow.Types.HoneycodeConnectorProfileProperties
-import Network.AWS.AppFlow.Types.InforNexusConnectorProfileProperties
-import Network.AWS.AppFlow.Types.MarketoConnectorProfileProperties
-import Network.AWS.AppFlow.Types.RedshiftConnectorProfileProperties
-import Network.AWS.AppFlow.Types.SAPODataConnectorProfileProperties
-import Network.AWS.AppFlow.Types.SalesforceConnectorProfileProperties
-import Network.AWS.AppFlow.Types.ServiceNowConnectorProfileProperties
-import Network.AWS.AppFlow.Types.SingularConnectorProfileProperties
-import Network.AWS.AppFlow.Types.SlackConnectorProfileProperties
-import Network.AWS.AppFlow.Types.SnowflakeConnectorProfileProperties
-import Network.AWS.AppFlow.Types.TrendmicroConnectorProfileProperties
-import Network.AWS.AppFlow.Types.VeevaConnectorProfileProperties
-import Network.AWS.AppFlow.Types.ZendeskConnectorProfileProperties
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AmplitudeConnectorProfileProperties
+import Amazonka.AppFlow.Types.DatadogConnectorProfileProperties
+import Amazonka.AppFlow.Types.DynatraceConnectorProfileProperties
+import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
+import Amazonka.AppFlow.Types.HoneycodeConnectorProfileProperties
+import Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties
+import Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
+import Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
+import Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties
+import Amazonka.AppFlow.Types.SalesforceConnectorProfileProperties
+import Amazonka.AppFlow.Types.ServiceNowConnectorProfileProperties
+import Amazonka.AppFlow.Types.SingularConnectorProfileProperties
+import Amazonka.AppFlow.Types.SlackConnectorProfileProperties
+import Amazonka.AppFlow.Types.SnowflakeConnectorProfileProperties
+import Amazonka.AppFlow.Types.TrendmicroConnectorProfileProperties
+import Amazonka.AppFlow.Types.VeevaConnectorProfileProperties
+import Amazonka.AppFlow.Types.ZendeskConnectorProfileProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The connector-specific profile properties required by each connector.
 --

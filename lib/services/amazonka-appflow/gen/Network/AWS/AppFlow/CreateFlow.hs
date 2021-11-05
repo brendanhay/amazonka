@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.CreateFlow
+-- Module      : Amazonka.AppFlow.CreateFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- however, you can only transfer data to one item in this list at a time.
 -- Amazon AppFlow does not currently support flows to multiple destinations
 -- at once.
-module Network.AWS.AppFlow.CreateFlow
+module Amazonka.AppFlow.CreateFlow
   ( -- * Creating a Request
     CreateFlow (..),
     newCreateFlow,
@@ -52,12 +52,12 @@ module Network.AWS.AppFlow.CreateFlow
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFlow' smart constructor.
 data CreateFlow = CreateFlow'

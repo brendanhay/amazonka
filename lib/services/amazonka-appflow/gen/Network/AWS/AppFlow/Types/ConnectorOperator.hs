@@ -11,32 +11,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.ConnectorOperator
+-- Module      : Amazonka.AppFlow.Types.ConnectorOperator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.ConnectorOperator where
+module Amazonka.AppFlow.Types.ConnectorOperator where
 
-import Network.AWS.AppFlow.Types.AmplitudeConnectorOperator
-import Network.AWS.AppFlow.Types.DatadogConnectorOperator
-import Network.AWS.AppFlow.Types.DynatraceConnectorOperator
-import Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator
-import Network.AWS.AppFlow.Types.InforNexusConnectorOperator
-import Network.AWS.AppFlow.Types.MarketoConnectorOperator
-import Network.AWS.AppFlow.Types.S3ConnectorOperator
-import Network.AWS.AppFlow.Types.SAPODataConnectorOperator
-import Network.AWS.AppFlow.Types.SalesforceConnectorOperator
-import Network.AWS.AppFlow.Types.ServiceNowConnectorOperator
-import Network.AWS.AppFlow.Types.SingularConnectorOperator
-import Network.AWS.AppFlow.Types.SlackConnectorOperator
-import Network.AWS.AppFlow.Types.TrendmicroConnectorOperator
-import Network.AWS.AppFlow.Types.VeevaConnectorOperator
-import Network.AWS.AppFlow.Types.ZendeskConnectorOperator
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AmplitudeConnectorOperator
+import Amazonka.AppFlow.Types.DatadogConnectorOperator
+import Amazonka.AppFlow.Types.DynatraceConnectorOperator
+import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorOperator
+import Amazonka.AppFlow.Types.InforNexusConnectorOperator
+import Amazonka.AppFlow.Types.MarketoConnectorOperator
+import Amazonka.AppFlow.Types.S3ConnectorOperator
+import Amazonka.AppFlow.Types.SAPODataConnectorOperator
+import Amazonka.AppFlow.Types.SalesforceConnectorOperator
+import Amazonka.AppFlow.Types.ServiceNowConnectorOperator
+import Amazonka.AppFlow.Types.SingularConnectorOperator
+import Amazonka.AppFlow.Types.SlackConnectorOperator
+import Amazonka.AppFlow.Types.TrendmicroConnectorOperator
+import Amazonka.AppFlow.Types.VeevaConnectorOperator
+import Amazonka.AppFlow.Types.ZendeskConnectorOperator
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The operation to be performed on the provided source fields.
 --

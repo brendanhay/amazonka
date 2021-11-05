@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.TriggerProperties
+-- Module      : Amazonka.AppFlow.Types.TriggerProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.TriggerProperties where
+module Amazonka.AppFlow.Types.TriggerProperties where
 
-import Network.AWS.AppFlow.Types.ScheduledTriggerProperties
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.ScheduledTriggerProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details that control the trigger for a flow.
 -- Currently, these settings only apply to the @Scheduled@ trigger type.

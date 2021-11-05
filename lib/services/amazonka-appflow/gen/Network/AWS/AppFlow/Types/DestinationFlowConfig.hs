@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.DestinationFlowConfig
+-- Module      : Amazonka.AppFlow.Types.DestinationFlowConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.DestinationFlowConfig where
+module Amazonka.AppFlow.Types.DestinationFlowConfig where
 
-import Network.AWS.AppFlow.Types.ConnectorType
-import Network.AWS.AppFlow.Types.DestinationConnectorProperties
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.ConnectorType
+import Amazonka.AppFlow.Types.DestinationConnectorProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of destination connectors
 -- present in the flow.

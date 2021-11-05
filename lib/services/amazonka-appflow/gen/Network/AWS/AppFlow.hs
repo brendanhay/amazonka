@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppFlow
+-- Module      : Amazonka.AppFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- operations. For example, Salesforce users can refer to the
 -- <https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm Authorize Apps with OAuth>
 -- documentation.
-module Network.AWS.AppFlow
+module Amazonka.AppFlow
   ( -- * Service Configuration
     defaultService,
 
@@ -764,27 +764,27 @@ module Network.AWS.AppFlow
   )
 where
 
-import Network.AWS.AppFlow.CreateConnectorProfile
-import Network.AWS.AppFlow.CreateFlow
-import Network.AWS.AppFlow.DeleteConnectorProfile
-import Network.AWS.AppFlow.DeleteFlow
-import Network.AWS.AppFlow.DescribeConnectorEntity
-import Network.AWS.AppFlow.DescribeConnectorProfiles
-import Network.AWS.AppFlow.DescribeConnectors
-import Network.AWS.AppFlow.DescribeFlow
-import Network.AWS.AppFlow.DescribeFlowExecutionRecords
-import Network.AWS.AppFlow.Lens
-import Network.AWS.AppFlow.ListConnectorEntities
-import Network.AWS.AppFlow.ListFlows
-import Network.AWS.AppFlow.ListTagsForResource
-import Network.AWS.AppFlow.StartFlow
-import Network.AWS.AppFlow.StopFlow
-import Network.AWS.AppFlow.TagResource
-import Network.AWS.AppFlow.Types
-import Network.AWS.AppFlow.UntagResource
-import Network.AWS.AppFlow.UpdateConnectorProfile
-import Network.AWS.AppFlow.UpdateFlow
-import Network.AWS.AppFlow.Waiters
+import Amazonka.AppFlow.CreateConnectorProfile
+import Amazonka.AppFlow.CreateFlow
+import Amazonka.AppFlow.DeleteConnectorProfile
+import Amazonka.AppFlow.DeleteFlow
+import Amazonka.AppFlow.DescribeConnectorEntity
+import Amazonka.AppFlow.DescribeConnectorProfiles
+import Amazonka.AppFlow.DescribeConnectors
+import Amazonka.AppFlow.DescribeFlow
+import Amazonka.AppFlow.DescribeFlowExecutionRecords
+import Amazonka.AppFlow.Lens
+import Amazonka.AppFlow.ListConnectorEntities
+import Amazonka.AppFlow.ListFlows
+import Amazonka.AppFlow.ListTagsForResource
+import Amazonka.AppFlow.StartFlow
+import Amazonka.AppFlow.StopFlow
+import Amazonka.AppFlow.TagResource
+import Amazonka.AppFlow.Types
+import Amazonka.AppFlow.UntagResource
+import Amazonka.AppFlow.UpdateConnectorProfile
+import Amazonka.AppFlow.UpdateFlow
+import Amazonka.AppFlow.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

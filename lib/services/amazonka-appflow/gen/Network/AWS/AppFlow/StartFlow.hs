@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.StartFlow
+-- Module      : Amazonka.AppFlow.StartFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Activates an existing flow. For on-demand flows, this operation runs the
 -- flow immediately. For schedule and event-triggered flows, this operation
 -- activates the flow.
-module Network.AWS.AppFlow.StartFlow
+module Amazonka.AppFlow.StartFlow
   ( -- * Creating a Request
     StartFlow (..),
     newStartFlow,
@@ -43,12 +43,12 @@ module Network.AWS.AppFlow.StartFlow
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartFlow' smart constructor.
 data StartFlow = StartFlow'

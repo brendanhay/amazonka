@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.Types.S3OutputFormatConfig
+-- Module      : Amazonka.AppFlow.Types.S3OutputFormatConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppFlow.Types.S3OutputFormatConfig where
+module Amazonka.AppFlow.Types.S3OutputFormatConfig where
 
-import Network.AWS.AppFlow.Types.AggregationConfig
-import Network.AWS.AppFlow.Types.FileType
-import Network.AWS.AppFlow.Types.PrefixConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppFlow.Types.AggregationConfig
+import Amazonka.AppFlow.Types.FileType
+import Amazonka.AppFlow.Types.PrefixConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that determines how Amazon AppFlow should format the
 -- flow output data when Amazon S3 is used as the destination.

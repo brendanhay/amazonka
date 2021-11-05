@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.DeleteFlow
+-- Module      : Amazonka.AppFlow.DeleteFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Enables your application to delete an existing flow. Before deleting the
 -- flow, Amazon AppFlow validates the request by checking the flow
 -- configuration and status. You can delete flows one at a time.
-module Network.AWS.AppFlow.DeleteFlow
+module Amazonka.AppFlow.DeleteFlow
   ( -- * Creating a Request
     DeleteFlow (..),
     newDeleteFlow,
@@ -41,12 +41,12 @@ module Network.AWS.AppFlow.DeleteFlow
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFlow' smart constructor.
 data DeleteFlow = DeleteFlow'

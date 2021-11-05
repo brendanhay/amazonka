@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppFlow.CreateConnectorProfile
+-- Module      : Amazonka.AppFlow.CreateConnectorProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Services account. If you need more connector profiles than this quota
 -- allows, you can submit a request to the Amazon AppFlow team through the
 -- Amazon AppFlow support channel.
-module Network.AWS.AppFlow.CreateConnectorProfile
+module Amazonka.AppFlow.CreateConnectorProfile
   ( -- * Creating a Request
     CreateConnectorProfile (..),
     newCreateConnectorProfile,
@@ -47,12 +47,12 @@ module Network.AWS.AppFlow.CreateConnectorProfile
   )
 where
 
-import Network.AWS.AppFlow.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnectorProfile' smart constructor.
 data CreateConnectorProfile = CreateConnectorProfile'

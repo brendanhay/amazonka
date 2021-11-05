@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.FinSpace.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.FinSpace.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.FinSpace" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.FinSpace" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.FinSpace
-    Network.AWS.FinSpace.CreateEnvironment
-    Network.AWS.FinSpace.DeleteEnvironment
-    Network.AWS.FinSpace.GetEnvironment
-    Network.AWS.FinSpace.Lens
-    Network.AWS.FinSpace.ListEnvironments
-    Network.AWS.FinSpace.ListTagsForResource
-    Network.AWS.FinSpace.TagResource
-    Network.AWS.FinSpace.Types
-    Network.AWS.FinSpace.Types.Environment
-    Network.AWS.FinSpace.Types.EnvironmentStatus
-    Network.AWS.FinSpace.Types.FederationMode
-    Network.AWS.FinSpace.Types.FederationParameters
-    Network.AWS.FinSpace.UntagResource
-    Network.AWS.FinSpace.UpdateEnvironment
-    Network.AWS.FinSpace.Waiters
+    Amazonka.FinSpace
+    Amazonka.FinSpace.CreateEnvironment
+    Amazonka.FinSpace.DeleteEnvironment
+    Amazonka.FinSpace.GetEnvironment
+    Amazonka.FinSpace.Lens
+    Amazonka.FinSpace.ListEnvironments
+    Amazonka.FinSpace.ListTagsForResource
+    Amazonka.FinSpace.TagResource
+    Amazonka.FinSpace.Types
+    Amazonka.FinSpace.Types.Environment
+    Amazonka.FinSpace.Types.EnvironmentStatus
+    Amazonka.FinSpace.Types.FederationMode
+    Amazonka.FinSpace.Types.FederationParameters
+    Amazonka.FinSpace.UntagResource
+    Amazonka.FinSpace.UpdateEnvironment
+    Amazonka.FinSpace.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

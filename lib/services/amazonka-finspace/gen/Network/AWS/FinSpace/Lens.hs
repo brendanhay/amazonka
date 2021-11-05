@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FinSpace.Lens
+-- Module      : Amazonka.FinSpace.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FinSpace.Lens
+module Amazonka.FinSpace.Lens
   ( -- * Operations
 
     -- ** ListEnvironments
@@ -92,13 +92,13 @@ module Network.AWS.FinSpace.Lens
   )
 where
 
-import Network.AWS.FinSpace.CreateEnvironment
-import Network.AWS.FinSpace.DeleteEnvironment
-import Network.AWS.FinSpace.GetEnvironment
-import Network.AWS.FinSpace.ListEnvironments
-import Network.AWS.FinSpace.ListTagsForResource
-import Network.AWS.FinSpace.TagResource
-import Network.AWS.FinSpace.Types.Environment
-import Network.AWS.FinSpace.Types.FederationParameters
-import Network.AWS.FinSpace.UntagResource
-import Network.AWS.FinSpace.UpdateEnvironment
+import Amazonka.FinSpace.CreateEnvironment
+import Amazonka.FinSpace.DeleteEnvironment
+import Amazonka.FinSpace.GetEnvironment
+import Amazonka.FinSpace.ListEnvironments
+import Amazonka.FinSpace.ListTagsForResource
+import Amazonka.FinSpace.TagResource
+import Amazonka.FinSpace.Types.Environment
+import Amazonka.FinSpace.Types.FederationParameters
+import Amazonka.FinSpace.UntagResource
+import Amazonka.FinSpace.UpdateEnvironment

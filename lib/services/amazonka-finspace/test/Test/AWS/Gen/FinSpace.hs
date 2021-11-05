@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FinSpace where
 
+import Amazonka.FinSpace
 import qualified Data.Proxy as Proxy
-import Network.AWS.FinSpace
 import Test.AWS.FinSpace.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

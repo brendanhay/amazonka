@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.FinSpace
+-- Module      : Amazonka.FinSpace
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- The FinSpace management service provides the APIs for managing the
 -- FinSpace environments.
-module Network.AWS.FinSpace
+module Amazonka.FinSpace
   ( -- * Service Configuration
     defaultService,
 
@@ -116,17 +116,17 @@ module Network.AWS.FinSpace
   )
 where
 
-import Network.AWS.FinSpace.CreateEnvironment
-import Network.AWS.FinSpace.DeleteEnvironment
-import Network.AWS.FinSpace.GetEnvironment
-import Network.AWS.FinSpace.Lens
-import Network.AWS.FinSpace.ListEnvironments
-import Network.AWS.FinSpace.ListTagsForResource
-import Network.AWS.FinSpace.TagResource
-import Network.AWS.FinSpace.Types
-import Network.AWS.FinSpace.UntagResource
-import Network.AWS.FinSpace.UpdateEnvironment
-import Network.AWS.FinSpace.Waiters
+import Amazonka.FinSpace.CreateEnvironment
+import Amazonka.FinSpace.DeleteEnvironment
+import Amazonka.FinSpace.GetEnvironment
+import Amazonka.FinSpace.Lens
+import Amazonka.FinSpace.ListEnvironments
+import Amazonka.FinSpace.ListTagsForResource
+import Amazonka.FinSpace.TagResource
+import Amazonka.FinSpace.Types
+import Amazonka.FinSpace.UntagResource
+import Amazonka.FinSpace.UpdateEnvironment
+import Amazonka.FinSpace.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.ListResources
+-- Module      : Amazonka.CloudControl.ListResources
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- You can use this action to return information about existing resources
 -- in your account and Amazon Web Services Region, whether or not those
 -- resources were provisioned using Cloud Control API.
-module Network.AWS.CloudControl.ListResources
+module Amazonka.CloudControl.ListResources
   ( -- * Creating a Request
     ListResources (..),
     newListResources,
@@ -53,12 +53,12 @@ module Network.AWS.CloudControl.ListResources
   )
 where
 
-import Network.AWS.CloudControl.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudControl.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResources' smart constructor.
 data ListResources = ListResources'

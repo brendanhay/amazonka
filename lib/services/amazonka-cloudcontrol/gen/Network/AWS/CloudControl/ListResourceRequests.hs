@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.ListResourceRequests
+-- Module      : Amazonka.CloudControl.ListResourceRequests
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- Resource operation requests expire after seven days.
-module Network.AWS.CloudControl.ListResourceRequests
+module Amazonka.CloudControl.ListResourceRequests
   ( -- * Creating a Request
     ListResourceRequests (..),
     newListResourceRequests,
@@ -47,12 +47,12 @@ module Network.AWS.CloudControl.ListResourceRequests
   )
 where
 
-import Network.AWS.CloudControl.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudControl.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceRequests' smart constructor.
 data ListResourceRequests = ListResourceRequests'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.Types
+-- Module      : Amazonka.CloudControl.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudControl.Types
+module Amazonka.CloudControl.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -76,16 +76,16 @@ module Network.AWS.CloudControl.Types
   )
 where
 
-import Network.AWS.CloudControl.Types.HandlerErrorCode
-import Network.AWS.CloudControl.Types.Operation
-import Network.AWS.CloudControl.Types.OperationStatus
-import Network.AWS.CloudControl.Types.ProgressEvent
-import Network.AWS.CloudControl.Types.ResourceDescription
-import Network.AWS.CloudControl.Types.ResourceRequestStatusFilter
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudControl.Types.HandlerErrorCode
+import Amazonka.CloudControl.Types.Operation
+import Amazonka.CloudControl.Types.OperationStatus
+import Amazonka.CloudControl.Types.ProgressEvent
+import Amazonka.CloudControl.Types.ResourceDescription
+import Amazonka.CloudControl.Types.ResourceRequestStatusFilter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-09-30@ of the Amazon Cloud Control API SDK configuration.
 defaultService :: Core.Service

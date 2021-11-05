@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudControl.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudControl.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudControl" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudControl" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,26 +45,26 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudControl
-    Network.AWS.CloudControl.CancelResourceRequest
-    Network.AWS.CloudControl.CreateResource
-    Network.AWS.CloudControl.DeleteResource
-    Network.AWS.CloudControl.GetResource
-    Network.AWS.CloudControl.GetResourceRequestStatus
-    Network.AWS.CloudControl.Lens
-    Network.AWS.CloudControl.ListResourceRequests
-    Network.AWS.CloudControl.ListResources
-    Network.AWS.CloudControl.Types
-    Network.AWS.CloudControl.Types.HandlerErrorCode
-    Network.AWS.CloudControl.Types.Operation
-    Network.AWS.CloudControl.Types.OperationStatus
-    Network.AWS.CloudControl.Types.ProgressEvent
-    Network.AWS.CloudControl.Types.ResourceDescription
-    Network.AWS.CloudControl.Types.ResourceRequestStatusFilter
-    Network.AWS.CloudControl.UpdateResource
-    Network.AWS.CloudControl.Waiters
+    Amazonka.CloudControl
+    Amazonka.CloudControl.CancelResourceRequest
+    Amazonka.CloudControl.CreateResource
+    Amazonka.CloudControl.DeleteResource
+    Amazonka.CloudControl.GetResource
+    Amazonka.CloudControl.GetResourceRequestStatus
+    Amazonka.CloudControl.Lens
+    Amazonka.CloudControl.ListResourceRequests
+    Amazonka.CloudControl.ListResources
+    Amazonka.CloudControl.Types
+    Amazonka.CloudControl.Types.HandlerErrorCode
+    Amazonka.CloudControl.Types.Operation
+    Amazonka.CloudControl.Types.OperationStatus
+    Amazonka.CloudControl.Types.ProgressEvent
+    Amazonka.CloudControl.Types.ResourceDescription
+    Amazonka.CloudControl.Types.ResourceRequestStatusFilter
+    Amazonka.CloudControl.UpdateResource
+    Amazonka.CloudControl.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

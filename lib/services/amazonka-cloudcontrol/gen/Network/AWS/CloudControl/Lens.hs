@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.Lens
+-- Module      : Amazonka.CloudControl.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudControl.Lens
+module Amazonka.CloudControl.Lens
   ( -- * Operations
 
     -- ** GetResource
@@ -105,14 +105,14 @@ module Network.AWS.CloudControl.Lens
   )
 where
 
-import Network.AWS.CloudControl.CancelResourceRequest
-import Network.AWS.CloudControl.CreateResource
-import Network.AWS.CloudControl.DeleteResource
-import Network.AWS.CloudControl.GetResource
-import Network.AWS.CloudControl.GetResourceRequestStatus
-import Network.AWS.CloudControl.ListResourceRequests
-import Network.AWS.CloudControl.ListResources
-import Network.AWS.CloudControl.Types.ProgressEvent
-import Network.AWS.CloudControl.Types.ResourceDescription
-import Network.AWS.CloudControl.Types.ResourceRequestStatusFilter
-import Network.AWS.CloudControl.UpdateResource
+import Amazonka.CloudControl.CancelResourceRequest
+import Amazonka.CloudControl.CreateResource
+import Amazonka.CloudControl.DeleteResource
+import Amazonka.CloudControl.GetResource
+import Amazonka.CloudControl.GetResourceRequestStatus
+import Amazonka.CloudControl.ListResourceRequests
+import Amazonka.CloudControl.ListResources
+import Amazonka.CloudControl.Types.ProgressEvent
+import Amazonka.CloudControl.Types.ResourceDescription
+import Amazonka.CloudControl.Types.ResourceRequestStatusFilter
+import Amazonka.CloudControl.UpdateResource

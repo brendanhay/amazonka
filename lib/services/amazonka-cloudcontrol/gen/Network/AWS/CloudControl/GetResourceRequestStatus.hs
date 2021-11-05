@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.GetResourceRequestStatus
+-- Module      : Amazonka.CloudControl.GetResourceRequestStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track Tracking the progress of resource operation requests>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
-module Network.AWS.CloudControl.GetResourceRequestStatus
+module Amazonka.CloudControl.GetResourceRequestStatus
   ( -- * Creating a Request
     GetResourceRequestStatus (..),
     newGetResourceRequestStatus,
@@ -42,12 +42,12 @@ module Network.AWS.CloudControl.GetResourceRequestStatus
   )
 where
 
-import Network.AWS.CloudControl.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudControl.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceRequestStatus' smart constructor.
 data GetResourceRequestStatus = GetResourceRequestStatus'

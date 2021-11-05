@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.DeleteResource
+-- Module      : Amazonka.CloudControl.DeleteResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus>
 -- using the @RequestToken@ of the @ProgressEvent@ returned by
 -- @DeleteResource@.
-module Network.AWS.CloudControl.DeleteResource
+module Amazonka.CloudControl.DeleteResource
   ( -- * Creating a Request
     DeleteResource (..),
     newDeleteResource,
@@ -51,12 +51,12 @@ module Network.AWS.CloudControl.DeleteResource
   )
 where
 
-import Network.AWS.CloudControl.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudControl.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'

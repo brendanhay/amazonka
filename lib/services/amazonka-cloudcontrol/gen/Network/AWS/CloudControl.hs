@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudControl
+-- Module      : Amazonka.CloudControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- For more information about Amazon Web Services Cloud Control API, see
 -- the
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html Amazon Web Services Cloud Control API User Guide>.
-module Network.AWS.CloudControl
+module Amazonka.CloudControl
   ( -- * Service Configuration
     defaultService,
 
@@ -175,17 +175,17 @@ module Network.AWS.CloudControl
   )
 where
 
-import Network.AWS.CloudControl.CancelResourceRequest
-import Network.AWS.CloudControl.CreateResource
-import Network.AWS.CloudControl.DeleteResource
-import Network.AWS.CloudControl.GetResource
-import Network.AWS.CloudControl.GetResourceRequestStatus
-import Network.AWS.CloudControl.Lens
-import Network.AWS.CloudControl.ListResourceRequests
-import Network.AWS.CloudControl.ListResources
-import Network.AWS.CloudControl.Types
-import Network.AWS.CloudControl.UpdateResource
-import Network.AWS.CloudControl.Waiters
+import Amazonka.CloudControl.CancelResourceRequest
+import Amazonka.CloudControl.CreateResource
+import Amazonka.CloudControl.DeleteResource
+import Amazonka.CloudControl.GetResource
+import Amazonka.CloudControl.GetResourceRequestStatus
+import Amazonka.CloudControl.Lens
+import Amazonka.CloudControl.ListResourceRequests
+import Amazonka.CloudControl.ListResources
+import Amazonka.CloudControl.Types
+import Amazonka.CloudControl.UpdateResource
+import Amazonka.CloudControl.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

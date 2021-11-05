@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudControl.UpdateResource
+-- Module      : Amazonka.CloudControl.UpdateResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- to the related topic for the resource in the
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference>
 -- in the /Amazon Web Services CloudFormation Users Guide/.
-module Network.AWS.CloudControl.UpdateResource
+module Amazonka.CloudControl.UpdateResource
   ( -- * Creating a Request
     UpdateResource (..),
     newUpdateResource,
@@ -65,12 +65,12 @@ module Network.AWS.CloudControl.UpdateResource
   )
 where
 
-import Network.AWS.CloudControl.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudControl.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'

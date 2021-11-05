@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Account.Lens
+-- Module      : Amazonka.Account.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Account.Lens
+module Amazonka.Account.Lens
   ( -- * Operations
 
     -- ** DeleteAlternateContact
@@ -43,7 +43,7 @@ module Network.AWS.Account.Lens
   )
 where
 
-import Network.AWS.Account.DeleteAlternateContact
-import Network.AWS.Account.GetAlternateContact
-import Network.AWS.Account.PutAlternateContact
-import Network.AWS.Account.Types.AlternateContact
+import Amazonka.Account.DeleteAlternateContact
+import Amazonka.Account.GetAlternateContact
+import Amazonka.Account.PutAlternateContact
+import Amazonka.Account.Types.AlternateContact

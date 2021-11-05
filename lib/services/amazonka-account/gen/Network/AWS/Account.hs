@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Account
+-- Module      : Amazonka.Account
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2021-02-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Operations for Amazon Web Services Account Management
-module Network.AWS.Account
+module Amazonka.Account
   ( -- * Service Configuration
     defaultService,
 
@@ -69,12 +69,12 @@ module Network.AWS.Account
   )
 where
 
-import Network.AWS.Account.DeleteAlternateContact
-import Network.AWS.Account.GetAlternateContact
-import Network.AWS.Account.Lens
-import Network.AWS.Account.PutAlternateContact
-import Network.AWS.Account.Types
-import Network.AWS.Account.Waiters
+import Amazonka.Account.DeleteAlternateContact
+import Amazonka.Account.GetAlternateContact
+import Amazonka.Account.Lens
+import Amazonka.Account.PutAlternateContact
+import Amazonka.Account.Types
+import Amazonka.Account.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

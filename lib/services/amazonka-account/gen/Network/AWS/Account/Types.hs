@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Account.Types
+-- Module      : Amazonka.Account.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Account.Types
+module Amazonka.Account.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -37,12 +37,12 @@ module Network.AWS.Account.Types
   )
 where
 
-import Network.AWS.Account.Types.AlternateContact
-import Network.AWS.Account.Types.AlternateContactType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Account.Types.AlternateContact
+import Amazonka.Account.Types.AlternateContactType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-02-01@ of the Amazon Account SDK configuration.
 defaultService :: Core.Service

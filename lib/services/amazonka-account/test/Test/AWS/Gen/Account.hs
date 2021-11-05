@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Account where
 
+import Amazonka.Account
 import qualified Data.Proxy as Proxy
-import Network.AWS.Account
 import Test.AWS.Account.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ImageBuilder where
 
+import Amazonka.ImageBuilder
 import qualified Data.Proxy as Proxy
-import Network.AWS.ImageBuilder
 import Test.AWS.Fixture
 import Test.AWS.ImageBuilder.Internal
 import Test.AWS.Prelude

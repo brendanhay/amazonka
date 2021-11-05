@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.Distribution
+-- Module      : Amazonka.ImageBuilder.Types.Distribution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.Distribution where
+module Amazonka.ImageBuilder.Types.Distribution where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration
-import Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration
-import Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
+import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
+import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the settings for a specific Region.
 --

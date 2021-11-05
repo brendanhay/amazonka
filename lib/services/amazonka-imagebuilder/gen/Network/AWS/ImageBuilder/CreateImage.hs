@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.CreateImage
+-- Module      : Amazonka.ImageBuilder.CreateImage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- of the configured output resources defined in the distribution
 -- configuration. You must specify exactly one recipe for your image, using
 -- either a ContainerRecipeArn or an ImageRecipeArn.
-module Network.AWS.ImageBuilder.CreateImage
+module Amazonka.ImageBuilder.CreateImage
   ( -- * Creating a Request
     CreateImage (..),
     newCreateImage,
@@ -51,12 +51,12 @@ module Network.AWS.ImageBuilder.CreateImage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateImage' smart constructor.
 data CreateImage = CreateImage'

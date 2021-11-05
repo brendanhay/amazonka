@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.ImageRecipe
+-- Module      : Amazonka.ImageBuilder.Types.ImageRecipe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.ImageRecipe where
+module Amazonka.ImageBuilder.Types.ImageRecipe where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.AdditionalInstanceConfiguration
-import Network.AWS.ImageBuilder.Types.ComponentConfiguration
-import Network.AWS.ImageBuilder.Types.ImageType
-import Network.AWS.ImageBuilder.Types.InstanceBlockDeviceMapping
-import Network.AWS.ImageBuilder.Types.Platform
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
+import Amazonka.ImageBuilder.Types.ComponentConfiguration
+import Amazonka.ImageBuilder.Types.ImageType
+import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
+import Amazonka.ImageBuilder.Types.Platform
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An image recipe.
 --

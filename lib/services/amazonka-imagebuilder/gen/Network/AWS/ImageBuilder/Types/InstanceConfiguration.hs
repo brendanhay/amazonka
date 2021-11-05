@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.InstanceConfiguration
+-- Module      : Amazonka.ImageBuilder.Types.InstanceConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.InstanceConfiguration where
+module Amazonka.ImageBuilder.Types.InstanceConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.InstanceBlockDeviceMapping
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Defines a custom base AMI and block device mapping configurations of an
 -- instance used for building and testing container images.

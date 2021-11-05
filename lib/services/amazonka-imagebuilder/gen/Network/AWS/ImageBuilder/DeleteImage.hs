@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.DeleteImage
+-- Module      : Amazonka.ImageBuilder.DeleteImage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- -   To delete a container image from Amazon ECR, see
 --     <https://docs.aws.amazon.com/https:/docs.aws.amazon.comAmazonECR/latest/userguide/delete_image.html Deleting an image>
 --     in the /Amazon ECR User Guide/.
-module Network.AWS.ImageBuilder.DeleteImage
+module Amazonka.ImageBuilder.DeleteImage
   ( -- * Creating a Request
     DeleteImage (..),
     newDeleteImage,
@@ -55,12 +55,12 @@ module Network.AWS.ImageBuilder.DeleteImage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteImage' smart constructor.
 data DeleteImage = DeleteImage'

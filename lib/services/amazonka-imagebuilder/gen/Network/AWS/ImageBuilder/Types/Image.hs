@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.Image
+-- Module      : Amazonka.ImageBuilder.Types.Image
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.Image where
+module Amazonka.ImageBuilder.Types.Image where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.ContainerRecipe
-import Network.AWS.ImageBuilder.Types.DistributionConfiguration
-import Network.AWS.ImageBuilder.Types.ImageRecipe
-import Network.AWS.ImageBuilder.Types.ImageState
-import Network.AWS.ImageBuilder.Types.ImageTestsConfiguration
-import Network.AWS.ImageBuilder.Types.ImageType
-import Network.AWS.ImageBuilder.Types.InfrastructureConfiguration
-import Network.AWS.ImageBuilder.Types.OutputResources
-import Network.AWS.ImageBuilder.Types.Platform
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.ContainerRecipe
+import Amazonka.ImageBuilder.Types.DistributionConfiguration
+import Amazonka.ImageBuilder.Types.ImageRecipe
+import Amazonka.ImageBuilder.Types.ImageState
+import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
+import Amazonka.ImageBuilder.Types.ImageType
+import Amazonka.ImageBuilder.Types.InfrastructureConfiguration
+import Amazonka.ImageBuilder.Types.OutputResources
+import Amazonka.ImageBuilder.Types.Platform
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An Image Builder image. You must specify exactly one recipe for the
 -- image – either a container recipe (@containerRecipe@), which creates a

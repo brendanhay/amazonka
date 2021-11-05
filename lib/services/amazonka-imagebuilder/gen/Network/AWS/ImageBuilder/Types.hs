@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types
+-- Module      : Amazonka.ImageBuilder.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types
+module Amazonka.ImageBuilder.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -488,63 +488,63 @@ module Network.AWS.ImageBuilder.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.AdditionalInstanceConfiguration
-import Network.AWS.ImageBuilder.Types.Ami
-import Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration
-import Network.AWS.ImageBuilder.Types.Component
-import Network.AWS.ImageBuilder.Types.ComponentConfiguration
-import Network.AWS.ImageBuilder.Types.ComponentFormat
-import Network.AWS.ImageBuilder.Types.ComponentParameter
-import Network.AWS.ImageBuilder.Types.ComponentParameterDetail
-import Network.AWS.ImageBuilder.Types.ComponentState
-import Network.AWS.ImageBuilder.Types.ComponentStatus
-import Network.AWS.ImageBuilder.Types.ComponentSummary
-import Network.AWS.ImageBuilder.Types.ComponentType
-import Network.AWS.ImageBuilder.Types.ComponentVersion
-import Network.AWS.ImageBuilder.Types.Container
-import Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration
-import Network.AWS.ImageBuilder.Types.ContainerRecipe
-import Network.AWS.ImageBuilder.Types.ContainerRecipeSummary
-import Network.AWS.ImageBuilder.Types.ContainerRepositoryService
-import Network.AWS.ImageBuilder.Types.ContainerType
-import Network.AWS.ImageBuilder.Types.Distribution
-import Network.AWS.ImageBuilder.Types.DistributionConfiguration
-import Network.AWS.ImageBuilder.Types.DistributionConfigurationSummary
-import Network.AWS.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
-import Network.AWS.ImageBuilder.Types.EbsVolumeType
-import Network.AWS.ImageBuilder.Types.Filter
-import Network.AWS.ImageBuilder.Types.Image
-import Network.AWS.ImageBuilder.Types.ImagePackage
-import Network.AWS.ImageBuilder.Types.ImagePipeline
-import Network.AWS.ImageBuilder.Types.ImageRecipe
-import Network.AWS.ImageBuilder.Types.ImageRecipeSummary
-import Network.AWS.ImageBuilder.Types.ImageState
-import Network.AWS.ImageBuilder.Types.ImageStatus
-import Network.AWS.ImageBuilder.Types.ImageSummary
-import Network.AWS.ImageBuilder.Types.ImageTestsConfiguration
-import Network.AWS.ImageBuilder.Types.ImageType
-import Network.AWS.ImageBuilder.Types.ImageVersion
-import Network.AWS.ImageBuilder.Types.InfrastructureConfiguration
-import Network.AWS.ImageBuilder.Types.InfrastructureConfigurationSummary
-import Network.AWS.ImageBuilder.Types.InstanceBlockDeviceMapping
-import Network.AWS.ImageBuilder.Types.InstanceConfiguration
-import Network.AWS.ImageBuilder.Types.InstanceMetadataOptions
-import Network.AWS.ImageBuilder.Types.LaunchPermissionConfiguration
-import Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration
-import Network.AWS.ImageBuilder.Types.Logging
-import Network.AWS.ImageBuilder.Types.OutputResources
-import Network.AWS.ImageBuilder.Types.Ownership
-import Network.AWS.ImageBuilder.Types.PipelineExecutionStartCondition
-import Network.AWS.ImageBuilder.Types.PipelineStatus
-import Network.AWS.ImageBuilder.Types.Platform
-import Network.AWS.ImageBuilder.Types.S3Logs
-import Network.AWS.ImageBuilder.Types.Schedule
-import Network.AWS.ImageBuilder.Types.SystemsManagerAgent
-import Network.AWS.ImageBuilder.Types.TargetContainerRepository
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
+import Amazonka.ImageBuilder.Types.Ami
+import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
+import Amazonka.ImageBuilder.Types.Component
+import Amazonka.ImageBuilder.Types.ComponentConfiguration
+import Amazonka.ImageBuilder.Types.ComponentFormat
+import Amazonka.ImageBuilder.Types.ComponentParameter
+import Amazonka.ImageBuilder.Types.ComponentParameterDetail
+import Amazonka.ImageBuilder.Types.ComponentState
+import Amazonka.ImageBuilder.Types.ComponentStatus
+import Amazonka.ImageBuilder.Types.ComponentSummary
+import Amazonka.ImageBuilder.Types.ComponentType
+import Amazonka.ImageBuilder.Types.ComponentVersion
+import Amazonka.ImageBuilder.Types.Container
+import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
+import Amazonka.ImageBuilder.Types.ContainerRecipe
+import Amazonka.ImageBuilder.Types.ContainerRecipeSummary
+import Amazonka.ImageBuilder.Types.ContainerRepositoryService
+import Amazonka.ImageBuilder.Types.ContainerType
+import Amazonka.ImageBuilder.Types.Distribution
+import Amazonka.ImageBuilder.Types.DistributionConfiguration
+import Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
+import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
+import Amazonka.ImageBuilder.Types.EbsVolumeType
+import Amazonka.ImageBuilder.Types.Filter
+import Amazonka.ImageBuilder.Types.Image
+import Amazonka.ImageBuilder.Types.ImagePackage
+import Amazonka.ImageBuilder.Types.ImagePipeline
+import Amazonka.ImageBuilder.Types.ImageRecipe
+import Amazonka.ImageBuilder.Types.ImageRecipeSummary
+import Amazonka.ImageBuilder.Types.ImageState
+import Amazonka.ImageBuilder.Types.ImageStatus
+import Amazonka.ImageBuilder.Types.ImageSummary
+import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
+import Amazonka.ImageBuilder.Types.ImageType
+import Amazonka.ImageBuilder.Types.ImageVersion
+import Amazonka.ImageBuilder.Types.InfrastructureConfiguration
+import Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary
+import Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
+import Amazonka.ImageBuilder.Types.InstanceConfiguration
+import Amazonka.ImageBuilder.Types.InstanceMetadataOptions
+import Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration
+import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
+import Amazonka.ImageBuilder.Types.Logging
+import Amazonka.ImageBuilder.Types.OutputResources
+import Amazonka.ImageBuilder.Types.Ownership
+import Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
+import Amazonka.ImageBuilder.Types.PipelineStatus
+import Amazonka.ImageBuilder.Types.Platform
+import Amazonka.ImageBuilder.Types.S3Logs
+import Amazonka.ImageBuilder.Types.Schedule
+import Amazonka.ImageBuilder.Types.SystemsManagerAgent
+import Amazonka.ImageBuilder.Types.TargetContainerRepository
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-02@ of the Amazon EC2 Image Builder SDK configuration.
 defaultService :: Core.Service

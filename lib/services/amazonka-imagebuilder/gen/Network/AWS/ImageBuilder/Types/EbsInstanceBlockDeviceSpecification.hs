@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
+-- Module      : Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification where
+module Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.EbsVolumeType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.EbsVolumeType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon EBS-specific block device mapping specifications.
 --

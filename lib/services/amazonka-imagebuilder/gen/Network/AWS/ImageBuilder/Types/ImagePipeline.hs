@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.ImagePipeline
+-- Module      : Amazonka.ImageBuilder.Types.ImagePipeline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.ImagePipeline where
+module Amazonka.ImageBuilder.Types.ImagePipeline where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.ImageTestsConfiguration
-import Network.AWS.ImageBuilder.Types.PipelineStatus
-import Network.AWS.ImageBuilder.Types.Platform
-import Network.AWS.ImageBuilder.Types.Schedule
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.ImageTestsConfiguration
+import Amazonka.ImageBuilder.Types.PipelineStatus
+import Amazonka.ImageBuilder.Types.Platform
+import Amazonka.ImageBuilder.Types.Schedule
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details of an image pipeline.
 --

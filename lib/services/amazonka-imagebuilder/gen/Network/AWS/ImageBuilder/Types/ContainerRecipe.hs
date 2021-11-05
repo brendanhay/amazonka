@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.Types.ContainerRecipe
+-- Module      : Amazonka.ImageBuilder.Types.ContainerRecipe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ImageBuilder.Types.ContainerRecipe where
+module Amazonka.ImageBuilder.Types.ContainerRecipe where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types.ComponentConfiguration
-import Network.AWS.ImageBuilder.Types.ContainerType
-import Network.AWS.ImageBuilder.Types.InstanceConfiguration
-import Network.AWS.ImageBuilder.Types.Platform
-import Network.AWS.ImageBuilder.Types.TargetContainerRepository
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.ComponentConfiguration
+import Amazonka.ImageBuilder.Types.ContainerType
+import Amazonka.ImageBuilder.Types.InstanceConfiguration
+import Amazonka.ImageBuilder.Types.Platform
+import Amazonka.ImageBuilder.Types.TargetContainerRepository
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A container recipe.
 --

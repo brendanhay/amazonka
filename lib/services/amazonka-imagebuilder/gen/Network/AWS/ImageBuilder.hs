@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ImageBuilder
+-- Module      : Amazonka.ImageBuilder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- customized, secure, and up-to-date \"golden\" server images that are
 -- pre-installed and pre-configured with software and settings to meet
 -- specific IT standards.
-module Network.AWS.ImageBuilder
+module Amazonka.ImageBuilder
   ( -- * Service Configuration
     defaultService,
 
@@ -578,58 +578,58 @@ module Network.AWS.ImageBuilder
   )
 where
 
-import Network.AWS.ImageBuilder.CancelImageCreation
-import Network.AWS.ImageBuilder.CreateComponent
-import Network.AWS.ImageBuilder.CreateContainerRecipe
-import Network.AWS.ImageBuilder.CreateDistributionConfiguration
-import Network.AWS.ImageBuilder.CreateImage
-import Network.AWS.ImageBuilder.CreateImagePipeline
-import Network.AWS.ImageBuilder.CreateImageRecipe
-import Network.AWS.ImageBuilder.CreateInfrastructureConfiguration
-import Network.AWS.ImageBuilder.DeleteComponent
-import Network.AWS.ImageBuilder.DeleteContainerRecipe
-import Network.AWS.ImageBuilder.DeleteDistributionConfiguration
-import Network.AWS.ImageBuilder.DeleteImage
-import Network.AWS.ImageBuilder.DeleteImagePipeline
-import Network.AWS.ImageBuilder.DeleteImageRecipe
-import Network.AWS.ImageBuilder.DeleteInfrastructureConfiguration
-import Network.AWS.ImageBuilder.GetComponent
-import Network.AWS.ImageBuilder.GetComponentPolicy
-import Network.AWS.ImageBuilder.GetContainerRecipe
-import Network.AWS.ImageBuilder.GetContainerRecipePolicy
-import Network.AWS.ImageBuilder.GetDistributionConfiguration
-import Network.AWS.ImageBuilder.GetImage
-import Network.AWS.ImageBuilder.GetImagePipeline
-import Network.AWS.ImageBuilder.GetImagePolicy
-import Network.AWS.ImageBuilder.GetImageRecipe
-import Network.AWS.ImageBuilder.GetImageRecipePolicy
-import Network.AWS.ImageBuilder.GetInfrastructureConfiguration
-import Network.AWS.ImageBuilder.ImportComponent
-import Network.AWS.ImageBuilder.Lens
-import Network.AWS.ImageBuilder.ListComponentBuildVersions
-import Network.AWS.ImageBuilder.ListComponents
-import Network.AWS.ImageBuilder.ListContainerRecipes
-import Network.AWS.ImageBuilder.ListDistributionConfigurations
-import Network.AWS.ImageBuilder.ListImageBuildVersions
-import Network.AWS.ImageBuilder.ListImagePackages
-import Network.AWS.ImageBuilder.ListImagePipelineImages
-import Network.AWS.ImageBuilder.ListImagePipelines
-import Network.AWS.ImageBuilder.ListImageRecipes
-import Network.AWS.ImageBuilder.ListImages
-import Network.AWS.ImageBuilder.ListInfrastructureConfigurations
-import Network.AWS.ImageBuilder.ListTagsForResource
-import Network.AWS.ImageBuilder.PutComponentPolicy
-import Network.AWS.ImageBuilder.PutContainerRecipePolicy
-import Network.AWS.ImageBuilder.PutImagePolicy
-import Network.AWS.ImageBuilder.PutImageRecipePolicy
-import Network.AWS.ImageBuilder.StartImagePipelineExecution
-import Network.AWS.ImageBuilder.TagResource
-import Network.AWS.ImageBuilder.Types
-import Network.AWS.ImageBuilder.UntagResource
-import Network.AWS.ImageBuilder.UpdateDistributionConfiguration
-import Network.AWS.ImageBuilder.UpdateImagePipeline
-import Network.AWS.ImageBuilder.UpdateInfrastructureConfiguration
-import Network.AWS.ImageBuilder.Waiters
+import Amazonka.ImageBuilder.CancelImageCreation
+import Amazonka.ImageBuilder.CreateComponent
+import Amazonka.ImageBuilder.CreateContainerRecipe
+import Amazonka.ImageBuilder.CreateDistributionConfiguration
+import Amazonka.ImageBuilder.CreateImage
+import Amazonka.ImageBuilder.CreateImagePipeline
+import Amazonka.ImageBuilder.CreateImageRecipe
+import Amazonka.ImageBuilder.CreateInfrastructureConfiguration
+import Amazonka.ImageBuilder.DeleteComponent
+import Amazonka.ImageBuilder.DeleteContainerRecipe
+import Amazonka.ImageBuilder.DeleteDistributionConfiguration
+import Amazonka.ImageBuilder.DeleteImage
+import Amazonka.ImageBuilder.DeleteImagePipeline
+import Amazonka.ImageBuilder.DeleteImageRecipe
+import Amazonka.ImageBuilder.DeleteInfrastructureConfiguration
+import Amazonka.ImageBuilder.GetComponent
+import Amazonka.ImageBuilder.GetComponentPolicy
+import Amazonka.ImageBuilder.GetContainerRecipe
+import Amazonka.ImageBuilder.GetContainerRecipePolicy
+import Amazonka.ImageBuilder.GetDistributionConfiguration
+import Amazonka.ImageBuilder.GetImage
+import Amazonka.ImageBuilder.GetImagePipeline
+import Amazonka.ImageBuilder.GetImagePolicy
+import Amazonka.ImageBuilder.GetImageRecipe
+import Amazonka.ImageBuilder.GetImageRecipePolicy
+import Amazonka.ImageBuilder.GetInfrastructureConfiguration
+import Amazonka.ImageBuilder.ImportComponent
+import Amazonka.ImageBuilder.Lens
+import Amazonka.ImageBuilder.ListComponentBuildVersions
+import Amazonka.ImageBuilder.ListComponents
+import Amazonka.ImageBuilder.ListContainerRecipes
+import Amazonka.ImageBuilder.ListDistributionConfigurations
+import Amazonka.ImageBuilder.ListImageBuildVersions
+import Amazonka.ImageBuilder.ListImagePackages
+import Amazonka.ImageBuilder.ListImagePipelineImages
+import Amazonka.ImageBuilder.ListImagePipelines
+import Amazonka.ImageBuilder.ListImageRecipes
+import Amazonka.ImageBuilder.ListImages
+import Amazonka.ImageBuilder.ListInfrastructureConfigurations
+import Amazonka.ImageBuilder.ListTagsForResource
+import Amazonka.ImageBuilder.PutComponentPolicy
+import Amazonka.ImageBuilder.PutContainerRecipePolicy
+import Amazonka.ImageBuilder.PutImagePolicy
+import Amazonka.ImageBuilder.PutImageRecipePolicy
+import Amazonka.ImageBuilder.StartImagePipelineExecution
+import Amazonka.ImageBuilder.TagResource
+import Amazonka.ImageBuilder.Types
+import Amazonka.ImageBuilder.UntagResource
+import Amazonka.ImageBuilder.UpdateDistributionConfiguration
+import Amazonka.ImageBuilder.UpdateImagePipeline
+import Amazonka.ImageBuilder.UpdateInfrastructureConfiguration
+import Amazonka.ImageBuilder.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

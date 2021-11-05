@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ImageBuilder.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ImageBuilder.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ImageBuilder" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ImageBuilder" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,114 +45,114 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ImageBuilder
-    Network.AWS.ImageBuilder.CancelImageCreation
-    Network.AWS.ImageBuilder.CreateComponent
-    Network.AWS.ImageBuilder.CreateContainerRecipe
-    Network.AWS.ImageBuilder.CreateDistributionConfiguration
-    Network.AWS.ImageBuilder.CreateImage
-    Network.AWS.ImageBuilder.CreateImagePipeline
-    Network.AWS.ImageBuilder.CreateImageRecipe
-    Network.AWS.ImageBuilder.CreateInfrastructureConfiguration
-    Network.AWS.ImageBuilder.DeleteComponent
-    Network.AWS.ImageBuilder.DeleteContainerRecipe
-    Network.AWS.ImageBuilder.DeleteDistributionConfiguration
-    Network.AWS.ImageBuilder.DeleteImage
-    Network.AWS.ImageBuilder.DeleteImagePipeline
-    Network.AWS.ImageBuilder.DeleteImageRecipe
-    Network.AWS.ImageBuilder.DeleteInfrastructureConfiguration
-    Network.AWS.ImageBuilder.GetComponent
-    Network.AWS.ImageBuilder.GetComponentPolicy
-    Network.AWS.ImageBuilder.GetContainerRecipe
-    Network.AWS.ImageBuilder.GetContainerRecipePolicy
-    Network.AWS.ImageBuilder.GetDistributionConfiguration
-    Network.AWS.ImageBuilder.GetImage
-    Network.AWS.ImageBuilder.GetImagePipeline
-    Network.AWS.ImageBuilder.GetImagePolicy
-    Network.AWS.ImageBuilder.GetImageRecipe
-    Network.AWS.ImageBuilder.GetImageRecipePolicy
-    Network.AWS.ImageBuilder.GetInfrastructureConfiguration
-    Network.AWS.ImageBuilder.ImportComponent
-    Network.AWS.ImageBuilder.Lens
-    Network.AWS.ImageBuilder.ListComponentBuildVersions
-    Network.AWS.ImageBuilder.ListComponents
-    Network.AWS.ImageBuilder.ListContainerRecipes
-    Network.AWS.ImageBuilder.ListDistributionConfigurations
-    Network.AWS.ImageBuilder.ListImageBuildVersions
-    Network.AWS.ImageBuilder.ListImagePackages
-    Network.AWS.ImageBuilder.ListImagePipelineImages
-    Network.AWS.ImageBuilder.ListImagePipelines
-    Network.AWS.ImageBuilder.ListImageRecipes
-    Network.AWS.ImageBuilder.ListImages
-    Network.AWS.ImageBuilder.ListInfrastructureConfigurations
-    Network.AWS.ImageBuilder.ListTagsForResource
-    Network.AWS.ImageBuilder.PutComponentPolicy
-    Network.AWS.ImageBuilder.PutContainerRecipePolicy
-    Network.AWS.ImageBuilder.PutImagePolicy
-    Network.AWS.ImageBuilder.PutImageRecipePolicy
-    Network.AWS.ImageBuilder.StartImagePipelineExecution
-    Network.AWS.ImageBuilder.TagResource
-    Network.AWS.ImageBuilder.Types
-    Network.AWS.ImageBuilder.Types.AdditionalInstanceConfiguration
-    Network.AWS.ImageBuilder.Types.Ami
-    Network.AWS.ImageBuilder.Types.AmiDistributionConfiguration
-    Network.AWS.ImageBuilder.Types.Component
-    Network.AWS.ImageBuilder.Types.ComponentConfiguration
-    Network.AWS.ImageBuilder.Types.ComponentFormat
-    Network.AWS.ImageBuilder.Types.ComponentParameter
-    Network.AWS.ImageBuilder.Types.ComponentParameterDetail
-    Network.AWS.ImageBuilder.Types.ComponentState
-    Network.AWS.ImageBuilder.Types.ComponentStatus
-    Network.AWS.ImageBuilder.Types.ComponentSummary
-    Network.AWS.ImageBuilder.Types.ComponentType
-    Network.AWS.ImageBuilder.Types.ComponentVersion
-    Network.AWS.ImageBuilder.Types.Container
-    Network.AWS.ImageBuilder.Types.ContainerDistributionConfiguration
-    Network.AWS.ImageBuilder.Types.ContainerRecipe
-    Network.AWS.ImageBuilder.Types.ContainerRecipeSummary
-    Network.AWS.ImageBuilder.Types.ContainerRepositoryService
-    Network.AWS.ImageBuilder.Types.ContainerType
-    Network.AWS.ImageBuilder.Types.Distribution
-    Network.AWS.ImageBuilder.Types.DistributionConfiguration
-    Network.AWS.ImageBuilder.Types.DistributionConfigurationSummary
-    Network.AWS.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
-    Network.AWS.ImageBuilder.Types.EbsVolumeType
-    Network.AWS.ImageBuilder.Types.Filter
-    Network.AWS.ImageBuilder.Types.Image
-    Network.AWS.ImageBuilder.Types.ImagePackage
-    Network.AWS.ImageBuilder.Types.ImagePipeline
-    Network.AWS.ImageBuilder.Types.ImageRecipe
-    Network.AWS.ImageBuilder.Types.ImageRecipeSummary
-    Network.AWS.ImageBuilder.Types.ImageState
-    Network.AWS.ImageBuilder.Types.ImageStatus
-    Network.AWS.ImageBuilder.Types.ImageSummary
-    Network.AWS.ImageBuilder.Types.ImageTestsConfiguration
-    Network.AWS.ImageBuilder.Types.ImageType
-    Network.AWS.ImageBuilder.Types.ImageVersion
-    Network.AWS.ImageBuilder.Types.InfrastructureConfiguration
-    Network.AWS.ImageBuilder.Types.InfrastructureConfigurationSummary
-    Network.AWS.ImageBuilder.Types.InstanceBlockDeviceMapping
-    Network.AWS.ImageBuilder.Types.InstanceConfiguration
-    Network.AWS.ImageBuilder.Types.InstanceMetadataOptions
-    Network.AWS.ImageBuilder.Types.LaunchPermissionConfiguration
-    Network.AWS.ImageBuilder.Types.LaunchTemplateConfiguration
-    Network.AWS.ImageBuilder.Types.Logging
-    Network.AWS.ImageBuilder.Types.OutputResources
-    Network.AWS.ImageBuilder.Types.Ownership
-    Network.AWS.ImageBuilder.Types.PipelineExecutionStartCondition
-    Network.AWS.ImageBuilder.Types.PipelineStatus
-    Network.AWS.ImageBuilder.Types.Platform
-    Network.AWS.ImageBuilder.Types.S3Logs
-    Network.AWS.ImageBuilder.Types.Schedule
-    Network.AWS.ImageBuilder.Types.SystemsManagerAgent
-    Network.AWS.ImageBuilder.Types.TargetContainerRepository
-    Network.AWS.ImageBuilder.UntagResource
-    Network.AWS.ImageBuilder.UpdateDistributionConfiguration
-    Network.AWS.ImageBuilder.UpdateImagePipeline
-    Network.AWS.ImageBuilder.UpdateInfrastructureConfiguration
-    Network.AWS.ImageBuilder.Waiters
+    Amazonka.ImageBuilder
+    Amazonka.ImageBuilder.CancelImageCreation
+    Amazonka.ImageBuilder.CreateComponent
+    Amazonka.ImageBuilder.CreateContainerRecipe
+    Amazonka.ImageBuilder.CreateDistributionConfiguration
+    Amazonka.ImageBuilder.CreateImage
+    Amazonka.ImageBuilder.CreateImagePipeline
+    Amazonka.ImageBuilder.CreateImageRecipe
+    Amazonka.ImageBuilder.CreateInfrastructureConfiguration
+    Amazonka.ImageBuilder.DeleteComponent
+    Amazonka.ImageBuilder.DeleteContainerRecipe
+    Amazonka.ImageBuilder.DeleteDistributionConfiguration
+    Amazonka.ImageBuilder.DeleteImage
+    Amazonka.ImageBuilder.DeleteImagePipeline
+    Amazonka.ImageBuilder.DeleteImageRecipe
+    Amazonka.ImageBuilder.DeleteInfrastructureConfiguration
+    Amazonka.ImageBuilder.GetComponent
+    Amazonka.ImageBuilder.GetComponentPolicy
+    Amazonka.ImageBuilder.GetContainerRecipe
+    Amazonka.ImageBuilder.GetContainerRecipePolicy
+    Amazonka.ImageBuilder.GetDistributionConfiguration
+    Amazonka.ImageBuilder.GetImage
+    Amazonka.ImageBuilder.GetImagePipeline
+    Amazonka.ImageBuilder.GetImagePolicy
+    Amazonka.ImageBuilder.GetImageRecipe
+    Amazonka.ImageBuilder.GetImageRecipePolicy
+    Amazonka.ImageBuilder.GetInfrastructureConfiguration
+    Amazonka.ImageBuilder.ImportComponent
+    Amazonka.ImageBuilder.Lens
+    Amazonka.ImageBuilder.ListComponentBuildVersions
+    Amazonka.ImageBuilder.ListComponents
+    Amazonka.ImageBuilder.ListContainerRecipes
+    Amazonka.ImageBuilder.ListDistributionConfigurations
+    Amazonka.ImageBuilder.ListImageBuildVersions
+    Amazonka.ImageBuilder.ListImagePackages
+    Amazonka.ImageBuilder.ListImagePipelineImages
+    Amazonka.ImageBuilder.ListImagePipelines
+    Amazonka.ImageBuilder.ListImageRecipes
+    Amazonka.ImageBuilder.ListImages
+    Amazonka.ImageBuilder.ListInfrastructureConfigurations
+    Amazonka.ImageBuilder.ListTagsForResource
+    Amazonka.ImageBuilder.PutComponentPolicy
+    Amazonka.ImageBuilder.PutContainerRecipePolicy
+    Amazonka.ImageBuilder.PutImagePolicy
+    Amazonka.ImageBuilder.PutImageRecipePolicy
+    Amazonka.ImageBuilder.StartImagePipelineExecution
+    Amazonka.ImageBuilder.TagResource
+    Amazonka.ImageBuilder.Types
+    Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
+    Amazonka.ImageBuilder.Types.Ami
+    Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
+    Amazonka.ImageBuilder.Types.Component
+    Amazonka.ImageBuilder.Types.ComponentConfiguration
+    Amazonka.ImageBuilder.Types.ComponentFormat
+    Amazonka.ImageBuilder.Types.ComponentParameter
+    Amazonka.ImageBuilder.Types.ComponentParameterDetail
+    Amazonka.ImageBuilder.Types.ComponentState
+    Amazonka.ImageBuilder.Types.ComponentStatus
+    Amazonka.ImageBuilder.Types.ComponentSummary
+    Amazonka.ImageBuilder.Types.ComponentType
+    Amazonka.ImageBuilder.Types.ComponentVersion
+    Amazonka.ImageBuilder.Types.Container
+    Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
+    Amazonka.ImageBuilder.Types.ContainerRecipe
+    Amazonka.ImageBuilder.Types.ContainerRecipeSummary
+    Amazonka.ImageBuilder.Types.ContainerRepositoryService
+    Amazonka.ImageBuilder.Types.ContainerType
+    Amazonka.ImageBuilder.Types.Distribution
+    Amazonka.ImageBuilder.Types.DistributionConfiguration
+    Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
+    Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
+    Amazonka.ImageBuilder.Types.EbsVolumeType
+    Amazonka.ImageBuilder.Types.Filter
+    Amazonka.ImageBuilder.Types.Image
+    Amazonka.ImageBuilder.Types.ImagePackage
+    Amazonka.ImageBuilder.Types.ImagePipeline
+    Amazonka.ImageBuilder.Types.ImageRecipe
+    Amazonka.ImageBuilder.Types.ImageRecipeSummary
+    Amazonka.ImageBuilder.Types.ImageState
+    Amazonka.ImageBuilder.Types.ImageStatus
+    Amazonka.ImageBuilder.Types.ImageSummary
+    Amazonka.ImageBuilder.Types.ImageTestsConfiguration
+    Amazonka.ImageBuilder.Types.ImageType
+    Amazonka.ImageBuilder.Types.ImageVersion
+    Amazonka.ImageBuilder.Types.InfrastructureConfiguration
+    Amazonka.ImageBuilder.Types.InfrastructureConfigurationSummary
+    Amazonka.ImageBuilder.Types.InstanceBlockDeviceMapping
+    Amazonka.ImageBuilder.Types.InstanceConfiguration
+    Amazonka.ImageBuilder.Types.InstanceMetadataOptions
+    Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration
+    Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
+    Amazonka.ImageBuilder.Types.Logging
+    Amazonka.ImageBuilder.Types.OutputResources
+    Amazonka.ImageBuilder.Types.Ownership
+    Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
+    Amazonka.ImageBuilder.Types.PipelineStatus
+    Amazonka.ImageBuilder.Types.Platform
+    Amazonka.ImageBuilder.Types.S3Logs
+    Amazonka.ImageBuilder.Types.Schedule
+    Amazonka.ImageBuilder.Types.SystemsManagerAgent
+    Amazonka.ImageBuilder.Types.TargetContainerRepository
+    Amazonka.ImageBuilder.UntagResource
+    Amazonka.ImageBuilder.UpdateDistributionConfiguration
+    Amazonka.ImageBuilder.UpdateImagePipeline
+    Amazonka.ImageBuilder.UpdateInfrastructureConfiguration
+    Amazonka.ImageBuilder.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

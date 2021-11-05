@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ImageBuilder.UpdateImagePipeline
+-- Module      : Amazonka.ImageBuilder.UpdateImagePipeline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- UpdateImagePipeline does not support selective updates for the pipeline.
 -- You must specify all of the required properties in the update request,
 -- not just the properties that have changed.
-module Network.AWS.ImageBuilder.UpdateImagePipeline
+module Amazonka.ImageBuilder.UpdateImagePipeline
   ( -- * Creating a Request
     UpdateImagePipeline (..),
     newUpdateImagePipeline,
@@ -56,12 +56,12 @@ module Network.AWS.ImageBuilder.UpdateImagePipeline
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ImageBuilder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateImagePipeline' smart constructor.
 data UpdateImagePipeline = UpdateImagePipeline'

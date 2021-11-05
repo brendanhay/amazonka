@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.State
+-- Module      : Amazonka.IoTEvents.Types.State
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.State where
+module Amazonka.IoTEvents.Types.State where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.OnEnterLifecycle
-import Network.AWS.IoTEvents.Types.OnExitLifecycle
-import Network.AWS.IoTEvents.Types.OnInputLifecycle
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.OnEnterLifecycle
+import Amazonka.IoTEvents.Types.OnExitLifecycle
+import Amazonka.IoTEvents.Types.OnInputLifecycle
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information that defines a state of a detector.
 --

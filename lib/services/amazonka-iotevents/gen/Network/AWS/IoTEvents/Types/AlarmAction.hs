@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.AlarmAction
+-- Module      : Amazonka.IoTEvents.Types.AlarmAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.AlarmAction where
+module Amazonka.IoTEvents.Types.AlarmAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.DynamoDBAction
-import Network.AWS.IoTEvents.Types.DynamoDBv2Action
-import Network.AWS.IoTEvents.Types.FirehoseAction
-import Network.AWS.IoTEvents.Types.IotEventsAction
-import Network.AWS.IoTEvents.Types.IotSiteWiseAction
-import Network.AWS.IoTEvents.Types.IotTopicPublishAction
-import Network.AWS.IoTEvents.Types.LambdaAction
-import Network.AWS.IoTEvents.Types.SNSTopicPublishAction
-import Network.AWS.IoTEvents.Types.SqsAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.DynamoDBAction
+import Amazonka.IoTEvents.Types.DynamoDBv2Action
+import Amazonka.IoTEvents.Types.FirehoseAction
+import Amazonka.IoTEvents.Types.IotEventsAction
+import Amazonka.IoTEvents.Types.IotSiteWiseAction
+import Amazonka.IoTEvents.Types.IotTopicPublishAction
+import Amazonka.IoTEvents.Types.LambdaAction
+import Amazonka.IoTEvents.Types.SNSTopicPublishAction
+import Amazonka.IoTEvents.Types.SqsAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies one of the following actions to receive notifications when the
 -- alarm state changes.

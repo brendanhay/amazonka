@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types
+-- Module      : Amazonka.IoTEvents.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types
+module Amazonka.IoTEvents.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -489,81 +489,81 @@ module Network.AWS.IoTEvents.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.AcknowledgeFlow
-import Network.AWS.IoTEvents.Types.Action
-import Network.AWS.IoTEvents.Types.AlarmAction
-import Network.AWS.IoTEvents.Types.AlarmCapabilities
-import Network.AWS.IoTEvents.Types.AlarmEventActions
-import Network.AWS.IoTEvents.Types.AlarmModelSummary
-import Network.AWS.IoTEvents.Types.AlarmModelVersionStatus
-import Network.AWS.IoTEvents.Types.AlarmModelVersionSummary
-import Network.AWS.IoTEvents.Types.AlarmNotification
-import Network.AWS.IoTEvents.Types.AlarmRule
-import Network.AWS.IoTEvents.Types.AnalysisResult
-import Network.AWS.IoTEvents.Types.AnalysisResultLevel
-import Network.AWS.IoTEvents.Types.AnalysisResultLocation
-import Network.AWS.IoTEvents.Types.AnalysisStatus
-import Network.AWS.IoTEvents.Types.AssetPropertyTimestamp
-import Network.AWS.IoTEvents.Types.AssetPropertyValue
-import Network.AWS.IoTEvents.Types.AssetPropertyVariant
-import Network.AWS.IoTEvents.Types.Attribute
-import Network.AWS.IoTEvents.Types.ClearTimerAction
-import Network.AWS.IoTEvents.Types.ComparisonOperator
-import Network.AWS.IoTEvents.Types.DetectorDebugOption
-import Network.AWS.IoTEvents.Types.DetectorModel
-import Network.AWS.IoTEvents.Types.DetectorModelConfiguration
-import Network.AWS.IoTEvents.Types.DetectorModelDefinition
-import Network.AWS.IoTEvents.Types.DetectorModelSummary
-import Network.AWS.IoTEvents.Types.DetectorModelVersionStatus
-import Network.AWS.IoTEvents.Types.DetectorModelVersionSummary
-import Network.AWS.IoTEvents.Types.DynamoDBAction
-import Network.AWS.IoTEvents.Types.DynamoDBv2Action
-import Network.AWS.IoTEvents.Types.EmailConfiguration
-import Network.AWS.IoTEvents.Types.EmailContent
-import Network.AWS.IoTEvents.Types.EmailRecipients
-import Network.AWS.IoTEvents.Types.EvaluationMethod
-import Network.AWS.IoTEvents.Types.Event
-import Network.AWS.IoTEvents.Types.FirehoseAction
-import Network.AWS.IoTEvents.Types.InitializationConfiguration
-import Network.AWS.IoTEvents.Types.Input
-import Network.AWS.IoTEvents.Types.InputConfiguration
-import Network.AWS.IoTEvents.Types.InputDefinition
-import Network.AWS.IoTEvents.Types.InputIdentifier
-import Network.AWS.IoTEvents.Types.InputStatus
-import Network.AWS.IoTEvents.Types.InputSummary
-import Network.AWS.IoTEvents.Types.IotEventsAction
-import Network.AWS.IoTEvents.Types.IotEventsInputIdentifier
-import Network.AWS.IoTEvents.Types.IotSiteWiseAction
-import Network.AWS.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
-import Network.AWS.IoTEvents.Types.IotSiteWiseInputIdentifier
-import Network.AWS.IoTEvents.Types.IotTopicPublishAction
-import Network.AWS.IoTEvents.Types.LambdaAction
-import Network.AWS.IoTEvents.Types.LoggingLevel
-import Network.AWS.IoTEvents.Types.LoggingOptions
-import Network.AWS.IoTEvents.Types.NotificationAction
-import Network.AWS.IoTEvents.Types.NotificationTargetActions
-import Network.AWS.IoTEvents.Types.OnEnterLifecycle
-import Network.AWS.IoTEvents.Types.OnExitLifecycle
-import Network.AWS.IoTEvents.Types.OnInputLifecycle
-import Network.AWS.IoTEvents.Types.Payload
-import Network.AWS.IoTEvents.Types.PayloadType
-import Network.AWS.IoTEvents.Types.RecipientDetail
-import Network.AWS.IoTEvents.Types.ResetTimerAction
-import Network.AWS.IoTEvents.Types.RoutedResource
-import Network.AWS.IoTEvents.Types.SMSConfiguration
-import Network.AWS.IoTEvents.Types.SNSTopicPublishAction
-import Network.AWS.IoTEvents.Types.SSOIdentity
-import Network.AWS.IoTEvents.Types.SetTimerAction
-import Network.AWS.IoTEvents.Types.SetVariableAction
-import Network.AWS.IoTEvents.Types.SimpleRule
-import Network.AWS.IoTEvents.Types.SqsAction
-import Network.AWS.IoTEvents.Types.State
-import Network.AWS.IoTEvents.Types.Tag
-import Network.AWS.IoTEvents.Types.TransitionEvent
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.AcknowledgeFlow
+import Amazonka.IoTEvents.Types.Action
+import Amazonka.IoTEvents.Types.AlarmAction
+import Amazonka.IoTEvents.Types.AlarmCapabilities
+import Amazonka.IoTEvents.Types.AlarmEventActions
+import Amazonka.IoTEvents.Types.AlarmModelSummary
+import Amazonka.IoTEvents.Types.AlarmModelVersionStatus
+import Amazonka.IoTEvents.Types.AlarmModelVersionSummary
+import Amazonka.IoTEvents.Types.AlarmNotification
+import Amazonka.IoTEvents.Types.AlarmRule
+import Amazonka.IoTEvents.Types.AnalysisResult
+import Amazonka.IoTEvents.Types.AnalysisResultLevel
+import Amazonka.IoTEvents.Types.AnalysisResultLocation
+import Amazonka.IoTEvents.Types.AnalysisStatus
+import Amazonka.IoTEvents.Types.AssetPropertyTimestamp
+import Amazonka.IoTEvents.Types.AssetPropertyValue
+import Amazonka.IoTEvents.Types.AssetPropertyVariant
+import Amazonka.IoTEvents.Types.Attribute
+import Amazonka.IoTEvents.Types.ClearTimerAction
+import Amazonka.IoTEvents.Types.ComparisonOperator
+import Amazonka.IoTEvents.Types.DetectorDebugOption
+import Amazonka.IoTEvents.Types.DetectorModel
+import Amazonka.IoTEvents.Types.DetectorModelConfiguration
+import Amazonka.IoTEvents.Types.DetectorModelDefinition
+import Amazonka.IoTEvents.Types.DetectorModelSummary
+import Amazonka.IoTEvents.Types.DetectorModelVersionStatus
+import Amazonka.IoTEvents.Types.DetectorModelVersionSummary
+import Amazonka.IoTEvents.Types.DynamoDBAction
+import Amazonka.IoTEvents.Types.DynamoDBv2Action
+import Amazonka.IoTEvents.Types.EmailConfiguration
+import Amazonka.IoTEvents.Types.EmailContent
+import Amazonka.IoTEvents.Types.EmailRecipients
+import Amazonka.IoTEvents.Types.EvaluationMethod
+import Amazonka.IoTEvents.Types.Event
+import Amazonka.IoTEvents.Types.FirehoseAction
+import Amazonka.IoTEvents.Types.InitializationConfiguration
+import Amazonka.IoTEvents.Types.Input
+import Amazonka.IoTEvents.Types.InputConfiguration
+import Amazonka.IoTEvents.Types.InputDefinition
+import Amazonka.IoTEvents.Types.InputIdentifier
+import Amazonka.IoTEvents.Types.InputStatus
+import Amazonka.IoTEvents.Types.InputSummary
+import Amazonka.IoTEvents.Types.IotEventsAction
+import Amazonka.IoTEvents.Types.IotEventsInputIdentifier
+import Amazonka.IoTEvents.Types.IotSiteWiseAction
+import Amazonka.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
+import Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier
+import Amazonka.IoTEvents.Types.IotTopicPublishAction
+import Amazonka.IoTEvents.Types.LambdaAction
+import Amazonka.IoTEvents.Types.LoggingLevel
+import Amazonka.IoTEvents.Types.LoggingOptions
+import Amazonka.IoTEvents.Types.NotificationAction
+import Amazonka.IoTEvents.Types.NotificationTargetActions
+import Amazonka.IoTEvents.Types.OnEnterLifecycle
+import Amazonka.IoTEvents.Types.OnExitLifecycle
+import Amazonka.IoTEvents.Types.OnInputLifecycle
+import Amazonka.IoTEvents.Types.Payload
+import Amazonka.IoTEvents.Types.PayloadType
+import Amazonka.IoTEvents.Types.RecipientDetail
+import Amazonka.IoTEvents.Types.ResetTimerAction
+import Amazonka.IoTEvents.Types.RoutedResource
+import Amazonka.IoTEvents.Types.SMSConfiguration
+import Amazonka.IoTEvents.Types.SNSTopicPublishAction
+import Amazonka.IoTEvents.Types.SSOIdentity
+import Amazonka.IoTEvents.Types.SetTimerAction
+import Amazonka.IoTEvents.Types.SetVariableAction
+import Amazonka.IoTEvents.Types.SimpleRule
+import Amazonka.IoTEvents.Types.SqsAction
+import Amazonka.IoTEvents.Types.State
+import Amazonka.IoTEvents.Types.Tag
+import Amazonka.IoTEvents.Types.TransitionEvent
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-07-27@ of the Amazon IoT Events SDK configuration.
 defaultService :: Core.Service

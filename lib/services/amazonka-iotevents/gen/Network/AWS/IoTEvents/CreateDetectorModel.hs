@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.CreateDetectorModel
+-- Module      : Amazonka.IoTEvents.CreateDetectorModel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a detector model.
-module Network.AWS.IoTEvents.CreateDetectorModel
+module Amazonka.IoTEvents.CreateDetectorModel
   ( -- * Creating a Request
     CreateDetectorModel (..),
     newCreateDetectorModel,
@@ -45,12 +45,12 @@ module Network.AWS.IoTEvents.CreateDetectorModel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDetectorModel' smart constructor.
 data CreateDetectorModel = CreateDetectorModel'

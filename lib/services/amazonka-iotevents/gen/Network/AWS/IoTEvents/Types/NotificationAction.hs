@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.NotificationAction
+-- Module      : Amazonka.IoTEvents.Types.NotificationAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.NotificationAction where
+module Amazonka.IoTEvents.Types.NotificationAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.EmailConfiguration
-import Network.AWS.IoTEvents.Types.NotificationTargetActions
-import Network.AWS.IoTEvents.Types.SMSConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.EmailConfiguration
+import Amazonka.IoTEvents.Types.NotificationTargetActions
+import Amazonka.IoTEvents.Types.SMSConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the notification settings of an alarm model. The settings apply
 -- to all alarms that were created based on this alarm model.

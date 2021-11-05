@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTEvents
+-- Module      : Amazonka.IoTEvents
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- changes in operation, and triggers actions when such events occur. You
 -- can use AWS IoT Events API operations to create, read, update, and
 -- delete inputs and detector models, and to list their versions.
-module Network.AWS.IoTEvents
+module Amazonka.IoTEvents
   ( -- * Service Configuration
     defaultService,
 
@@ -490,35 +490,35 @@ module Network.AWS.IoTEvents
   )
 where
 
-import Network.AWS.IoTEvents.CreateAlarmModel
-import Network.AWS.IoTEvents.CreateDetectorModel
-import Network.AWS.IoTEvents.CreateInput
-import Network.AWS.IoTEvents.DeleteAlarmModel
-import Network.AWS.IoTEvents.DeleteDetectorModel
-import Network.AWS.IoTEvents.DeleteInput
-import Network.AWS.IoTEvents.DescribeAlarmModel
-import Network.AWS.IoTEvents.DescribeDetectorModel
-import Network.AWS.IoTEvents.DescribeDetectorModelAnalysis
-import Network.AWS.IoTEvents.DescribeInput
-import Network.AWS.IoTEvents.DescribeLoggingOptions
-import Network.AWS.IoTEvents.GetDetectorModelAnalysisResults
-import Network.AWS.IoTEvents.Lens
-import Network.AWS.IoTEvents.ListAlarmModelVersions
-import Network.AWS.IoTEvents.ListAlarmModels
-import Network.AWS.IoTEvents.ListDetectorModelVersions
-import Network.AWS.IoTEvents.ListDetectorModels
-import Network.AWS.IoTEvents.ListInputRoutings
-import Network.AWS.IoTEvents.ListInputs
-import Network.AWS.IoTEvents.ListTagsForResource
-import Network.AWS.IoTEvents.PutLoggingOptions
-import Network.AWS.IoTEvents.StartDetectorModelAnalysis
-import Network.AWS.IoTEvents.TagResource
-import Network.AWS.IoTEvents.Types
-import Network.AWS.IoTEvents.UntagResource
-import Network.AWS.IoTEvents.UpdateAlarmModel
-import Network.AWS.IoTEvents.UpdateDetectorModel
-import Network.AWS.IoTEvents.UpdateInput
-import Network.AWS.IoTEvents.Waiters
+import Amazonka.IoTEvents.CreateAlarmModel
+import Amazonka.IoTEvents.CreateDetectorModel
+import Amazonka.IoTEvents.CreateInput
+import Amazonka.IoTEvents.DeleteAlarmModel
+import Amazonka.IoTEvents.DeleteDetectorModel
+import Amazonka.IoTEvents.DeleteInput
+import Amazonka.IoTEvents.DescribeAlarmModel
+import Amazonka.IoTEvents.DescribeDetectorModel
+import Amazonka.IoTEvents.DescribeDetectorModelAnalysis
+import Amazonka.IoTEvents.DescribeInput
+import Amazonka.IoTEvents.DescribeLoggingOptions
+import Amazonka.IoTEvents.GetDetectorModelAnalysisResults
+import Amazonka.IoTEvents.Lens
+import Amazonka.IoTEvents.ListAlarmModelVersions
+import Amazonka.IoTEvents.ListAlarmModels
+import Amazonka.IoTEvents.ListDetectorModelVersions
+import Amazonka.IoTEvents.ListDetectorModels
+import Amazonka.IoTEvents.ListInputRoutings
+import Amazonka.IoTEvents.ListInputs
+import Amazonka.IoTEvents.ListTagsForResource
+import Amazonka.IoTEvents.PutLoggingOptions
+import Amazonka.IoTEvents.StartDetectorModelAnalysis
+import Amazonka.IoTEvents.TagResource
+import Amazonka.IoTEvents.Types
+import Amazonka.IoTEvents.UntagResource
+import Amazonka.IoTEvents.UpdateAlarmModel
+import Amazonka.IoTEvents.UpdateDetectorModel
+import Amazonka.IoTEvents.UpdateInput
+import Amazonka.IoTEvents.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

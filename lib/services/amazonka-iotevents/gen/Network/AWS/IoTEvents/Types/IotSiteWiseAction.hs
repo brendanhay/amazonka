@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.IotSiteWiseAction
+-- Module      : Amazonka.IoTEvents.Types.IotSiteWiseAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.IotSiteWiseAction where
+module Amazonka.IoTEvents.Types.IotSiteWiseAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.AssetPropertyValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.AssetPropertyValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Sends information about the detector model instance and the event that
 -- triggered the action to a specified asset property in AWS IoT SiteWise.

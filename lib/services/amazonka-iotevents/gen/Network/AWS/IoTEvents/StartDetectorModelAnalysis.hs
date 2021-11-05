@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.StartDetectorModelAnalysis
+-- Module      : Amazonka.IoTEvents.StartDetectorModelAnalysis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Performs an analysis of your detector model. For more information, see
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html Troubleshooting a detector model>
 -- in the /AWS IoT Events Developer Guide/.
-module Network.AWS.IoTEvents.StartDetectorModelAnalysis
+module Amazonka.IoTEvents.StartDetectorModelAnalysis
   ( -- * Creating a Request
     StartDetectorModelAnalysis (..),
     newStartDetectorModelAnalysis,
@@ -41,12 +41,12 @@ module Network.AWS.IoTEvents.StartDetectorModelAnalysis
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDetectorModelAnalysis' smart constructor.
 data StartDetectorModelAnalysis = StartDetectorModelAnalysis'

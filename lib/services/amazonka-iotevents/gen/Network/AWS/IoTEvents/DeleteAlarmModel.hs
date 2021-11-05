@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.DeleteAlarmModel
+-- Module      : Amazonka.IoTEvents.DeleteAlarmModel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes an alarm model. Any alarm instances that were created based on
 -- this alarm model are also deleted. This action can\'t be undone.
-module Network.AWS.IoTEvents.DeleteAlarmModel
+module Amazonka.IoTEvents.DeleteAlarmModel
   ( -- * Creating a Request
     DeleteAlarmModel (..),
     newDeleteAlarmModel,
@@ -39,12 +39,12 @@ module Network.AWS.IoTEvents.DeleteAlarmModel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAlarmModel' smart constructor.
 data DeleteAlarmModel = DeleteAlarmModel'

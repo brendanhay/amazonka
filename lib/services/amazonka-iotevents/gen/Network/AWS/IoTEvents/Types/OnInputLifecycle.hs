@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.OnInputLifecycle
+-- Module      : Amazonka.IoTEvents.Types.OnInputLifecycle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.OnInputLifecycle where
+module Amazonka.IoTEvents.Types.OnInputLifecycle where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.Event
-import Network.AWS.IoTEvents.Types.TransitionEvent
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.Event
+import Amazonka.IoTEvents.Types.TransitionEvent
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the actions performed when the @condition@ evaluates to TRUE.
 --

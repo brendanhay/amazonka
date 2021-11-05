@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.DynamoDBAction
+-- Module      : Amazonka.IoTEvents.Types.DynamoDBAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.DynamoDBAction where
+module Amazonka.IoTEvents.Types.DynamoDBAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.Payload
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.Payload
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an action to write to the Amazon DynamoDB table that you
 -- created. The standard action payload contains all the information about

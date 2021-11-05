@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEvents.Types.InputIdentifier
+-- Module      : Amazonka.IoTEvents.Types.InputIdentifier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEvents.Types.InputIdentifier where
+module Amazonka.IoTEvents.Types.InputIdentifier where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEvents.Types.IotEventsInputIdentifier
-import Network.AWS.IoTEvents.Types.IotSiteWiseInputIdentifier
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEvents.Types.IotEventsInputIdentifier
+import Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The identifer of the input.
 --

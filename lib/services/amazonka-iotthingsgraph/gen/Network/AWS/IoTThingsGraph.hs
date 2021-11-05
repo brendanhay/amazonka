@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph
+-- Module      : Amazonka.IoTThingsGraph
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- For more information about how AWS IoT Things Graph works, see the
 -- <https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html User Guide>.
-module Network.AWS.IoTThingsGraph
+module Amazonka.IoTThingsGraph
   ( -- * Service Configuration
     defaultService,
 
@@ -381,44 +381,44 @@ module Network.AWS.IoTThingsGraph
   )
 where
 
-import Network.AWS.IoTThingsGraph.AssociateEntityToThing
-import Network.AWS.IoTThingsGraph.CreateFlowTemplate
-import Network.AWS.IoTThingsGraph.CreateSystemInstance
-import Network.AWS.IoTThingsGraph.CreateSystemTemplate
-import Network.AWS.IoTThingsGraph.DeleteFlowTemplate
-import Network.AWS.IoTThingsGraph.DeleteNamespace
-import Network.AWS.IoTThingsGraph.DeleteSystemInstance
-import Network.AWS.IoTThingsGraph.DeleteSystemTemplate
-import Network.AWS.IoTThingsGraph.DeploySystemInstance
-import Network.AWS.IoTThingsGraph.DeprecateFlowTemplate
-import Network.AWS.IoTThingsGraph.DeprecateSystemTemplate
-import Network.AWS.IoTThingsGraph.DescribeNamespace
-import Network.AWS.IoTThingsGraph.DissociateEntityFromThing
-import Network.AWS.IoTThingsGraph.GetEntities
-import Network.AWS.IoTThingsGraph.GetFlowTemplate
-import Network.AWS.IoTThingsGraph.GetFlowTemplateRevisions
-import Network.AWS.IoTThingsGraph.GetNamespaceDeletionStatus
-import Network.AWS.IoTThingsGraph.GetSystemInstance
-import Network.AWS.IoTThingsGraph.GetSystemTemplate
-import Network.AWS.IoTThingsGraph.GetSystemTemplateRevisions
-import Network.AWS.IoTThingsGraph.GetUploadStatus
-import Network.AWS.IoTThingsGraph.Lens
-import Network.AWS.IoTThingsGraph.ListFlowExecutionMessages
-import Network.AWS.IoTThingsGraph.ListTagsForResource
-import Network.AWS.IoTThingsGraph.SearchEntities
-import Network.AWS.IoTThingsGraph.SearchFlowExecutions
-import Network.AWS.IoTThingsGraph.SearchFlowTemplates
-import Network.AWS.IoTThingsGraph.SearchSystemInstances
-import Network.AWS.IoTThingsGraph.SearchSystemTemplates
-import Network.AWS.IoTThingsGraph.SearchThings
-import Network.AWS.IoTThingsGraph.TagResource
-import Network.AWS.IoTThingsGraph.Types
-import Network.AWS.IoTThingsGraph.UndeploySystemInstance
-import Network.AWS.IoTThingsGraph.UntagResource
-import Network.AWS.IoTThingsGraph.UpdateFlowTemplate
-import Network.AWS.IoTThingsGraph.UpdateSystemTemplate
-import Network.AWS.IoTThingsGraph.UploadEntityDefinitions
-import Network.AWS.IoTThingsGraph.Waiters
+import Amazonka.IoTThingsGraph.AssociateEntityToThing
+import Amazonka.IoTThingsGraph.CreateFlowTemplate
+import Amazonka.IoTThingsGraph.CreateSystemInstance
+import Amazonka.IoTThingsGraph.CreateSystemTemplate
+import Amazonka.IoTThingsGraph.DeleteFlowTemplate
+import Amazonka.IoTThingsGraph.DeleteNamespace
+import Amazonka.IoTThingsGraph.DeleteSystemInstance
+import Amazonka.IoTThingsGraph.DeleteSystemTemplate
+import Amazonka.IoTThingsGraph.DeploySystemInstance
+import Amazonka.IoTThingsGraph.DeprecateFlowTemplate
+import Amazonka.IoTThingsGraph.DeprecateSystemTemplate
+import Amazonka.IoTThingsGraph.DescribeNamespace
+import Amazonka.IoTThingsGraph.DissociateEntityFromThing
+import Amazonka.IoTThingsGraph.GetEntities
+import Amazonka.IoTThingsGraph.GetFlowTemplate
+import Amazonka.IoTThingsGraph.GetFlowTemplateRevisions
+import Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus
+import Amazonka.IoTThingsGraph.GetSystemInstance
+import Amazonka.IoTThingsGraph.GetSystemTemplate
+import Amazonka.IoTThingsGraph.GetSystemTemplateRevisions
+import Amazonka.IoTThingsGraph.GetUploadStatus
+import Amazonka.IoTThingsGraph.Lens
+import Amazonka.IoTThingsGraph.ListFlowExecutionMessages
+import Amazonka.IoTThingsGraph.ListTagsForResource
+import Amazonka.IoTThingsGraph.SearchEntities
+import Amazonka.IoTThingsGraph.SearchFlowExecutions
+import Amazonka.IoTThingsGraph.SearchFlowTemplates
+import Amazonka.IoTThingsGraph.SearchSystemInstances
+import Amazonka.IoTThingsGraph.SearchSystemTemplates
+import Amazonka.IoTThingsGraph.SearchThings
+import Amazonka.IoTThingsGraph.TagResource
+import Amazonka.IoTThingsGraph.Types
+import Amazonka.IoTThingsGraph.UndeploySystemInstance
+import Amazonka.IoTThingsGraph.UntagResource
+import Amazonka.IoTThingsGraph.UpdateFlowTemplate
+import Amazonka.IoTThingsGraph.UpdateSystemTemplate
+import Amazonka.IoTThingsGraph.UploadEntityDefinitions
+import Amazonka.IoTThingsGraph.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.DissociateEntityFromThing
+-- Module      : Amazonka.IoTThingsGraph.DissociateEntityFromThing
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Dissociates a device entity from a concrete thing. The action takes only
 -- the type of the entity that you need to dissociate because only one
 -- entity of a particular type can be associated with a thing.
-module Network.AWS.IoTThingsGraph.DissociateEntityFromThing
+module Amazonka.IoTThingsGraph.DissociateEntityFromThing
   ( -- * Creating a Request
     DissociateEntityFromThing (..),
     newDissociateEntityFromThing,
@@ -41,12 +41,12 @@ module Network.AWS.IoTThingsGraph.DissociateEntityFromThing
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDissociateEntityFromThing' smart constructor.
 data DissociateEntityFromThing = DissociateEntityFromThing'

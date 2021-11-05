@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.GetEntities
+-- Module      : Amazonka.IoTThingsGraph.GetEntities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --
 -- This action doesn\'t return definitions for systems, flows, and
 -- deployments.
-module Network.AWS.IoTThingsGraph.GetEntities
+module Amazonka.IoTThingsGraph.GetEntities
   ( -- * Creating a Request
     GetEntities (..),
     newGetEntities,
@@ -63,12 +63,12 @@ module Network.AWS.IoTThingsGraph.GetEntities
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEntities' smart constructor.
 data GetEntities = GetEntities'

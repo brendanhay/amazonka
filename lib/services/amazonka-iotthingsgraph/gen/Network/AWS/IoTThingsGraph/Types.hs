@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.Types
+-- Module      : Amazonka.IoTThingsGraph.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTThingsGraph.Types
+module Amazonka.IoTThingsGraph.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -201,41 +201,41 @@ module Network.AWS.IoTThingsGraph.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types.DefinitionDocument
-import Network.AWS.IoTThingsGraph.Types.DefinitionLanguage
-import Network.AWS.IoTThingsGraph.Types.DependencyRevision
-import Network.AWS.IoTThingsGraph.Types.DeploymentTarget
-import Network.AWS.IoTThingsGraph.Types.EntityDescription
-import Network.AWS.IoTThingsGraph.Types.EntityFilter
-import Network.AWS.IoTThingsGraph.Types.EntityFilterName
-import Network.AWS.IoTThingsGraph.Types.EntityType
-import Network.AWS.IoTThingsGraph.Types.FlowExecutionEventType
-import Network.AWS.IoTThingsGraph.Types.FlowExecutionMessage
-import Network.AWS.IoTThingsGraph.Types.FlowExecutionStatus
-import Network.AWS.IoTThingsGraph.Types.FlowExecutionSummary
-import Network.AWS.IoTThingsGraph.Types.FlowTemplateDescription
-import Network.AWS.IoTThingsGraph.Types.FlowTemplateFilter
-import Network.AWS.IoTThingsGraph.Types.FlowTemplateFilterName
-import Network.AWS.IoTThingsGraph.Types.FlowTemplateSummary
-import Network.AWS.IoTThingsGraph.Types.MetricsConfiguration
-import Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatus
-import Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes
-import Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus
-import Network.AWS.IoTThingsGraph.Types.SystemInstanceDescription
-import Network.AWS.IoTThingsGraph.Types.SystemInstanceFilter
-import Network.AWS.IoTThingsGraph.Types.SystemInstanceFilterName
-import Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary
-import Network.AWS.IoTThingsGraph.Types.SystemTemplateDescription
-import Network.AWS.IoTThingsGraph.Types.SystemTemplateFilter
-import Network.AWS.IoTThingsGraph.Types.SystemTemplateFilterName
-import Network.AWS.IoTThingsGraph.Types.SystemTemplateSummary
-import Network.AWS.IoTThingsGraph.Types.Tag
-import Network.AWS.IoTThingsGraph.Types.Thing
-import Network.AWS.IoTThingsGraph.Types.UploadStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types.DefinitionDocument
+import Amazonka.IoTThingsGraph.Types.DefinitionLanguage
+import Amazonka.IoTThingsGraph.Types.DependencyRevision
+import Amazonka.IoTThingsGraph.Types.DeploymentTarget
+import Amazonka.IoTThingsGraph.Types.EntityDescription
+import Amazonka.IoTThingsGraph.Types.EntityFilter
+import Amazonka.IoTThingsGraph.Types.EntityFilterName
+import Amazonka.IoTThingsGraph.Types.EntityType
+import Amazonka.IoTThingsGraph.Types.FlowExecutionEventType
+import Amazonka.IoTThingsGraph.Types.FlowExecutionMessage
+import Amazonka.IoTThingsGraph.Types.FlowExecutionStatus
+import Amazonka.IoTThingsGraph.Types.FlowExecutionSummary
+import Amazonka.IoTThingsGraph.Types.FlowTemplateDescription
+import Amazonka.IoTThingsGraph.Types.FlowTemplateFilter
+import Amazonka.IoTThingsGraph.Types.FlowTemplateFilterName
+import Amazonka.IoTThingsGraph.Types.FlowTemplateSummary
+import Amazonka.IoTThingsGraph.Types.MetricsConfiguration
+import Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatus
+import Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes
+import Amazonka.IoTThingsGraph.Types.SystemInstanceDeploymentStatus
+import Amazonka.IoTThingsGraph.Types.SystemInstanceDescription
+import Amazonka.IoTThingsGraph.Types.SystemInstanceFilter
+import Amazonka.IoTThingsGraph.Types.SystemInstanceFilterName
+import Amazonka.IoTThingsGraph.Types.SystemInstanceSummary
+import Amazonka.IoTThingsGraph.Types.SystemTemplateDescription
+import Amazonka.IoTThingsGraph.Types.SystemTemplateFilter
+import Amazonka.IoTThingsGraph.Types.SystemTemplateFilterName
+import Amazonka.IoTThingsGraph.Types.SystemTemplateSummary
+import Amazonka.IoTThingsGraph.Types.Tag
+import Amazonka.IoTThingsGraph.Types.Thing
+import Amazonka.IoTThingsGraph.Types.UploadStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-06@ of the Amazon IoT Things Graph SDK configuration.
 defaultService :: Core.Service

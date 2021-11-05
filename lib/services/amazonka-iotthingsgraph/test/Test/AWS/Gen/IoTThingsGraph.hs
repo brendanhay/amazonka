@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTThingsGraph where
 
+import Amazonka.IoTThingsGraph
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoTThingsGraph
 import Test.AWS.Fixture
 import Test.AWS.IoTThingsGraph.Internal
 import Test.AWS.Prelude

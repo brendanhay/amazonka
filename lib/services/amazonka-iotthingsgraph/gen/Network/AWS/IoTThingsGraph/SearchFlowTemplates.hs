@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.SearchFlowTemplates
+-- Module      : Amazonka.IoTThingsGraph.SearchFlowTemplates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Searches for summary information about workflows.
 --
 -- This operation returns paginated results.
-module Network.AWS.IoTThingsGraph.SearchFlowTemplates
+module Amazonka.IoTThingsGraph.SearchFlowTemplates
   ( -- * Creating a Request
     SearchFlowTemplates (..),
     newSearchFlowTemplates,
@@ -44,12 +44,12 @@ module Network.AWS.IoTThingsGraph.SearchFlowTemplates
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchFlowTemplates' smart constructor.
 data SearchFlowTemplates = SearchFlowTemplates'

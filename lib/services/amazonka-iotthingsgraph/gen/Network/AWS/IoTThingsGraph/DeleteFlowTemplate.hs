@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.DeleteFlowTemplate
+-- Module      : Amazonka.IoTThingsGraph.DeleteFlowTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- workflow will fail to update or deploy. Existing deployments that
 -- contain the workflow will continue to run (since they use a snapshot of
 -- the workflow taken at the time of deployment).
-module Network.AWS.IoTThingsGraph.DeleteFlowTemplate
+module Amazonka.IoTThingsGraph.DeleteFlowTemplate
   ( -- * Creating a Request
     DeleteFlowTemplate (..),
     newDeleteFlowTemplate,
@@ -41,12 +41,12 @@ module Network.AWS.IoTThingsGraph.DeleteFlowTemplate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFlowTemplate' smart constructor.
 data DeleteFlowTemplate = DeleteFlowTemplate'

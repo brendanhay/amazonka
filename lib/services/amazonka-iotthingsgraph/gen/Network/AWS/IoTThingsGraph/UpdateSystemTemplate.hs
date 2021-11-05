@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.UpdateSystemTemplate
+-- Module      : Amazonka.IoTThingsGraph.UpdateSystemTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates the specified system. You don\'t need to run this action after
 -- updating a workflow. Any deployment that uses the system will see the
 -- changes in the system when it is redeployed.
-module Network.AWS.IoTThingsGraph.UpdateSystemTemplate
+module Amazonka.IoTThingsGraph.UpdateSystemTemplate
   ( -- * Creating a Request
     UpdateSystemTemplate (..),
     newUpdateSystemTemplate,
@@ -43,12 +43,12 @@ module Network.AWS.IoTThingsGraph.UpdateSystemTemplate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSystemTemplate' smart constructor.
 data UpdateSystemTemplate = UpdateSystemTemplate'

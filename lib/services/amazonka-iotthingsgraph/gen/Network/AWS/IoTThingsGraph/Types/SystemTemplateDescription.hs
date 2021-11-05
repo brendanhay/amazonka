@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.Types.SystemTemplateDescription
+-- Module      : Amazonka.IoTThingsGraph.Types.SystemTemplateDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTThingsGraph.Types.SystemTemplateDescription where
+module Amazonka.IoTThingsGraph.Types.SystemTemplateDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types.DefinitionDocument
-import Network.AWS.IoTThingsGraph.Types.SystemTemplateSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types.DefinitionDocument
+import Amazonka.IoTThingsGraph.Types.SystemTemplateSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains a system\'s definition document and summary
 -- information.

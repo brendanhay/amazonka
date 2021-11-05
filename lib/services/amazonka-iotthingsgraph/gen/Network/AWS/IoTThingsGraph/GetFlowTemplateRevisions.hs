@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.GetFlowTemplateRevisions
+-- Module      : Amazonka.IoTThingsGraph.GetFlowTemplateRevisions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- for workflows that have been deleted.
 --
 -- This operation returns paginated results.
-module Network.AWS.IoTThingsGraph.GetFlowTemplateRevisions
+module Amazonka.IoTThingsGraph.GetFlowTemplateRevisions
   ( -- * Creating a Request
     GetFlowTemplateRevisions (..),
     newGetFlowTemplateRevisions,
@@ -47,12 +47,12 @@ module Network.AWS.IoTThingsGraph.GetFlowTemplateRevisions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFlowTemplateRevisions' smart constructor.
 data GetFlowTemplateRevisions = GetFlowTemplateRevisions'

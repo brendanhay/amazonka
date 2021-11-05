@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.UploadEntityDefinitions
+-- Module      : Amazonka.IoTThingsGraph.UploadEntityDefinitions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --
 -- Valid entities are @Device@, @DeviceModel@, @Service@, @Capability@,
 -- @State@, @Action@, @Event@, @Property@, @Mapping@, @Enum@.
-module Network.AWS.IoTThingsGraph.UploadEntityDefinitions
+module Amazonka.IoTThingsGraph.UploadEntityDefinitions
   ( -- * Creating a Request
     UploadEntityDefinitions (..),
     newUploadEntityDefinitions,
@@ -64,12 +64,12 @@ module Network.AWS.IoTThingsGraph.UploadEntityDefinitions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUploadEntityDefinitions' smart constructor.
 data UploadEntityDefinitions = UploadEntityDefinitions'

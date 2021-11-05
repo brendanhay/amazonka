@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTThingsGraph.DeploySystemInstance
+-- Module      : Amazonka.IoTThingsGraph.DeploySystemInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- For information about the artifacts that get added to your Greengrass
 -- core device when you use this API, see
 -- <https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html AWS IoT Things Graph and AWS IoT Greengrass>.
-module Network.AWS.IoTThingsGraph.DeploySystemInstance
+module Amazonka.IoTThingsGraph.DeploySystemInstance
   ( -- * Creating a Request
     DeploySystemInstance (..),
     newDeploySystemInstance,
@@ -58,12 +58,12 @@ module Network.AWS.IoTThingsGraph.DeploySystemInstance
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTThingsGraph.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTThingsGraph.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeploySystemInstance' smart constructor.
 data DeploySystemInstance = DeploySystemInstance'

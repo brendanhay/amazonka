@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApiGatewayV2.Types
+-- Module      : Amazonka.ApiGatewayV2.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApiGatewayV2.Types
+module Amazonka.ApiGatewayV2.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -302,46 +302,46 @@ module Network.AWS.ApiGatewayV2.Types
   )
 where
 
-import Network.AWS.ApiGatewayV2.Types.AccessLogSettings
-import Network.AWS.ApiGatewayV2.Types.Api
-import Network.AWS.ApiGatewayV2.Types.ApiMapping
-import Network.AWS.ApiGatewayV2.Types.AuthorizationType
-import Network.AWS.ApiGatewayV2.Types.Authorizer
-import Network.AWS.ApiGatewayV2.Types.AuthorizerType
-import Network.AWS.ApiGatewayV2.Types.ConnectionType
-import Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy
-import Network.AWS.ApiGatewayV2.Types.Cors
-import Network.AWS.ApiGatewayV2.Types.Deployment
-import Network.AWS.ApiGatewayV2.Types.DeploymentStatus
-import Network.AWS.ApiGatewayV2.Types.DomainName
-import Network.AWS.ApiGatewayV2.Types.DomainNameConfiguration
-import Network.AWS.ApiGatewayV2.Types.DomainNameStatus
-import Network.AWS.ApiGatewayV2.Types.EndpointType
-import Network.AWS.ApiGatewayV2.Types.Integration
-import Network.AWS.ApiGatewayV2.Types.IntegrationResponse
-import Network.AWS.ApiGatewayV2.Types.IntegrationType
-import Network.AWS.ApiGatewayV2.Types.JWTConfiguration
-import Network.AWS.ApiGatewayV2.Types.LoggingLevel
-import Network.AWS.ApiGatewayV2.Types.Model
-import Network.AWS.ApiGatewayV2.Types.MutualTlsAuthentication
-import Network.AWS.ApiGatewayV2.Types.MutualTlsAuthenticationInput
-import Network.AWS.ApiGatewayV2.Types.ParameterConstraints
-import Network.AWS.ApiGatewayV2.Types.PassthroughBehavior
-import Network.AWS.ApiGatewayV2.Types.ProtocolType
-import Network.AWS.ApiGatewayV2.Types.Route
-import Network.AWS.ApiGatewayV2.Types.RouteResponse
-import Network.AWS.ApiGatewayV2.Types.RouteSettings
-import Network.AWS.ApiGatewayV2.Types.SecurityPolicy
-import Network.AWS.ApiGatewayV2.Types.Stage
-import Network.AWS.ApiGatewayV2.Types.TlsConfig
-import Network.AWS.ApiGatewayV2.Types.TlsConfigInput
-import Network.AWS.ApiGatewayV2.Types.VpcLink
-import Network.AWS.ApiGatewayV2.Types.VpcLinkStatus
-import Network.AWS.ApiGatewayV2.Types.VpcLinkVersion
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ApiGatewayV2.Types.AccessLogSettings
+import Amazonka.ApiGatewayV2.Types.Api
+import Amazonka.ApiGatewayV2.Types.ApiMapping
+import Amazonka.ApiGatewayV2.Types.AuthorizationType
+import Amazonka.ApiGatewayV2.Types.Authorizer
+import Amazonka.ApiGatewayV2.Types.AuthorizerType
+import Amazonka.ApiGatewayV2.Types.ConnectionType
+import Amazonka.ApiGatewayV2.Types.ContentHandlingStrategy
+import Amazonka.ApiGatewayV2.Types.Cors
+import Amazonka.ApiGatewayV2.Types.Deployment
+import Amazonka.ApiGatewayV2.Types.DeploymentStatus
+import Amazonka.ApiGatewayV2.Types.DomainName
+import Amazonka.ApiGatewayV2.Types.DomainNameConfiguration
+import Amazonka.ApiGatewayV2.Types.DomainNameStatus
+import Amazonka.ApiGatewayV2.Types.EndpointType
+import Amazonka.ApiGatewayV2.Types.Integration
+import Amazonka.ApiGatewayV2.Types.IntegrationResponse
+import Amazonka.ApiGatewayV2.Types.IntegrationType
+import Amazonka.ApiGatewayV2.Types.JWTConfiguration
+import Amazonka.ApiGatewayV2.Types.LoggingLevel
+import Amazonka.ApiGatewayV2.Types.Model
+import Amazonka.ApiGatewayV2.Types.MutualTlsAuthentication
+import Amazonka.ApiGatewayV2.Types.MutualTlsAuthenticationInput
+import Amazonka.ApiGatewayV2.Types.ParameterConstraints
+import Amazonka.ApiGatewayV2.Types.PassthroughBehavior
+import Amazonka.ApiGatewayV2.Types.ProtocolType
+import Amazonka.ApiGatewayV2.Types.Route
+import Amazonka.ApiGatewayV2.Types.RouteResponse
+import Amazonka.ApiGatewayV2.Types.RouteSettings
+import Amazonka.ApiGatewayV2.Types.SecurityPolicy
+import Amazonka.ApiGatewayV2.Types.Stage
+import Amazonka.ApiGatewayV2.Types.TlsConfig
+import Amazonka.ApiGatewayV2.Types.TlsConfigInput
+import Amazonka.ApiGatewayV2.Types.VpcLink
+import Amazonka.ApiGatewayV2.Types.VpcLinkStatus
+import Amazonka.ApiGatewayV2.Types.VpcLinkVersion
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-29@ of the Amazon ApiGatewayV2 SDK configuration.
 defaultService :: Core.Service

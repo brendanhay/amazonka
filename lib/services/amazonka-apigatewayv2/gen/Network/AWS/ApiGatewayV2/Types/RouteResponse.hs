@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApiGatewayV2.Types.RouteResponse
+-- Module      : Amazonka.ApiGatewayV2.Types.RouteResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApiGatewayV2.Types.RouteResponse where
+module Amazonka.ApiGatewayV2.Types.RouteResponse where
 
-import Network.AWS.ApiGatewayV2.Types.ParameterConstraints
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ApiGatewayV2.Types.ParameterConstraints
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a route response.
 --

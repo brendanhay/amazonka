@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApiGatewayV2 where
 
+import Amazonka.ApiGatewayV2
 import qualified Data.Proxy as Proxy
-import Network.AWS.ApiGatewayV2
 import Test.AWS.ApiGatewayV2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

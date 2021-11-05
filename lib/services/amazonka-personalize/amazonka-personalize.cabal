@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Personalize.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Personalize.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Personalize" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Personalize" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,114 +45,114 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Personalize
-    Network.AWS.Personalize.CreateBatchInferenceJob
-    Network.AWS.Personalize.CreateCampaign
-    Network.AWS.Personalize.CreateDataset
-    Network.AWS.Personalize.CreateDatasetExportJob
-    Network.AWS.Personalize.CreateDatasetGroup
-    Network.AWS.Personalize.CreateDatasetImportJob
-    Network.AWS.Personalize.CreateEventTracker
-    Network.AWS.Personalize.CreateFilter
-    Network.AWS.Personalize.CreateSchema
-    Network.AWS.Personalize.CreateSolution
-    Network.AWS.Personalize.CreateSolutionVersion
-    Network.AWS.Personalize.DeleteCampaign
-    Network.AWS.Personalize.DeleteDataset
-    Network.AWS.Personalize.DeleteDatasetGroup
-    Network.AWS.Personalize.DeleteEventTracker
-    Network.AWS.Personalize.DeleteFilter
-    Network.AWS.Personalize.DeleteSchema
-    Network.AWS.Personalize.DeleteSolution
-    Network.AWS.Personalize.DescribeAlgorithm
-    Network.AWS.Personalize.DescribeBatchInferenceJob
-    Network.AWS.Personalize.DescribeCampaign
-    Network.AWS.Personalize.DescribeDataset
-    Network.AWS.Personalize.DescribeDatasetExportJob
-    Network.AWS.Personalize.DescribeDatasetGroup
-    Network.AWS.Personalize.DescribeDatasetImportJob
-    Network.AWS.Personalize.DescribeEventTracker
-    Network.AWS.Personalize.DescribeFeatureTransformation
-    Network.AWS.Personalize.DescribeFilter
-    Network.AWS.Personalize.DescribeRecipe
-    Network.AWS.Personalize.DescribeSchema
-    Network.AWS.Personalize.DescribeSolution
-    Network.AWS.Personalize.DescribeSolutionVersion
-    Network.AWS.Personalize.GetSolutionMetrics
-    Network.AWS.Personalize.Lens
-    Network.AWS.Personalize.ListBatchInferenceJobs
-    Network.AWS.Personalize.ListCampaigns
-    Network.AWS.Personalize.ListDatasetExportJobs
-    Network.AWS.Personalize.ListDatasetGroups
-    Network.AWS.Personalize.ListDatasetImportJobs
-    Network.AWS.Personalize.ListDatasets
-    Network.AWS.Personalize.ListEventTrackers
-    Network.AWS.Personalize.ListFilters
-    Network.AWS.Personalize.ListRecipes
-    Network.AWS.Personalize.ListSchemas
-    Network.AWS.Personalize.ListSolutions
-    Network.AWS.Personalize.ListSolutionVersions
-    Network.AWS.Personalize.StopSolutionVersionCreation
-    Network.AWS.Personalize.Types
-    Network.AWS.Personalize.Types.Algorithm
-    Network.AWS.Personalize.Types.AlgorithmImage
-    Network.AWS.Personalize.Types.AutoMLConfig
-    Network.AWS.Personalize.Types.AutoMLResult
-    Network.AWS.Personalize.Types.BatchInferenceJob
-    Network.AWS.Personalize.Types.BatchInferenceJobConfig
-    Network.AWS.Personalize.Types.BatchInferenceJobInput
-    Network.AWS.Personalize.Types.BatchInferenceJobOutput
-    Network.AWS.Personalize.Types.BatchInferenceJobSummary
-    Network.AWS.Personalize.Types.Campaign
-    Network.AWS.Personalize.Types.CampaignConfig
-    Network.AWS.Personalize.Types.CampaignSummary
-    Network.AWS.Personalize.Types.CampaignUpdateSummary
-    Network.AWS.Personalize.Types.CategoricalHyperParameterRange
-    Network.AWS.Personalize.Types.ContinuousHyperParameterRange
-    Network.AWS.Personalize.Types.Dataset
-    Network.AWS.Personalize.Types.DatasetExportJob
-    Network.AWS.Personalize.Types.DatasetExportJobOutput
-    Network.AWS.Personalize.Types.DatasetExportJobSummary
-    Network.AWS.Personalize.Types.DatasetGroup
-    Network.AWS.Personalize.Types.DatasetGroupSummary
-    Network.AWS.Personalize.Types.DatasetImportJob
-    Network.AWS.Personalize.Types.DatasetImportJobSummary
-    Network.AWS.Personalize.Types.DatasetSchema
-    Network.AWS.Personalize.Types.DatasetSchemaSummary
-    Network.AWS.Personalize.Types.DatasetSummary
-    Network.AWS.Personalize.Types.DataSource
-    Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange
-    Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange
-    Network.AWS.Personalize.Types.DefaultHyperParameterRanges
-    Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange
-    Network.AWS.Personalize.Types.EventTracker
-    Network.AWS.Personalize.Types.EventTrackerSummary
-    Network.AWS.Personalize.Types.FeatureTransformation
-    Network.AWS.Personalize.Types.Filter
-    Network.AWS.Personalize.Types.FilterSummary
-    Network.AWS.Personalize.Types.HPOConfig
-    Network.AWS.Personalize.Types.HPOObjective
-    Network.AWS.Personalize.Types.HPOResourceConfig
-    Network.AWS.Personalize.Types.HyperParameterRanges
-    Network.AWS.Personalize.Types.IngestionMode
-    Network.AWS.Personalize.Types.IntegerHyperParameterRange
-    Network.AWS.Personalize.Types.ObjectiveSensitivity
-    Network.AWS.Personalize.Types.OptimizationObjective
-    Network.AWS.Personalize.Types.Recipe
-    Network.AWS.Personalize.Types.RecipeProvider
-    Network.AWS.Personalize.Types.RecipeSummary
-    Network.AWS.Personalize.Types.S3DataConfig
-    Network.AWS.Personalize.Types.Solution
-    Network.AWS.Personalize.Types.SolutionConfig
-    Network.AWS.Personalize.Types.SolutionSummary
-    Network.AWS.Personalize.Types.SolutionVersion
-    Network.AWS.Personalize.Types.SolutionVersionSummary
-    Network.AWS.Personalize.Types.TrainingMode
-    Network.AWS.Personalize.Types.TunedHPOParams
-    Network.AWS.Personalize.UpdateCampaign
-    Network.AWS.Personalize.Waiters
+    Amazonka.Personalize
+    Amazonka.Personalize.CreateBatchInferenceJob
+    Amazonka.Personalize.CreateCampaign
+    Amazonka.Personalize.CreateDataset
+    Amazonka.Personalize.CreateDatasetExportJob
+    Amazonka.Personalize.CreateDatasetGroup
+    Amazonka.Personalize.CreateDatasetImportJob
+    Amazonka.Personalize.CreateEventTracker
+    Amazonka.Personalize.CreateFilter
+    Amazonka.Personalize.CreateSchema
+    Amazonka.Personalize.CreateSolution
+    Amazonka.Personalize.CreateSolutionVersion
+    Amazonka.Personalize.DeleteCampaign
+    Amazonka.Personalize.DeleteDataset
+    Amazonka.Personalize.DeleteDatasetGroup
+    Amazonka.Personalize.DeleteEventTracker
+    Amazonka.Personalize.DeleteFilter
+    Amazonka.Personalize.DeleteSchema
+    Amazonka.Personalize.DeleteSolution
+    Amazonka.Personalize.DescribeAlgorithm
+    Amazonka.Personalize.DescribeBatchInferenceJob
+    Amazonka.Personalize.DescribeCampaign
+    Amazonka.Personalize.DescribeDataset
+    Amazonka.Personalize.DescribeDatasetExportJob
+    Amazonka.Personalize.DescribeDatasetGroup
+    Amazonka.Personalize.DescribeDatasetImportJob
+    Amazonka.Personalize.DescribeEventTracker
+    Amazonka.Personalize.DescribeFeatureTransformation
+    Amazonka.Personalize.DescribeFilter
+    Amazonka.Personalize.DescribeRecipe
+    Amazonka.Personalize.DescribeSchema
+    Amazonka.Personalize.DescribeSolution
+    Amazonka.Personalize.DescribeSolutionVersion
+    Amazonka.Personalize.GetSolutionMetrics
+    Amazonka.Personalize.Lens
+    Amazonka.Personalize.ListBatchInferenceJobs
+    Amazonka.Personalize.ListCampaigns
+    Amazonka.Personalize.ListDatasetExportJobs
+    Amazonka.Personalize.ListDatasetGroups
+    Amazonka.Personalize.ListDatasetImportJobs
+    Amazonka.Personalize.ListDatasets
+    Amazonka.Personalize.ListEventTrackers
+    Amazonka.Personalize.ListFilters
+    Amazonka.Personalize.ListRecipes
+    Amazonka.Personalize.ListSchemas
+    Amazonka.Personalize.ListSolutions
+    Amazonka.Personalize.ListSolutionVersions
+    Amazonka.Personalize.StopSolutionVersionCreation
+    Amazonka.Personalize.Types
+    Amazonka.Personalize.Types.Algorithm
+    Amazonka.Personalize.Types.AlgorithmImage
+    Amazonka.Personalize.Types.AutoMLConfig
+    Amazonka.Personalize.Types.AutoMLResult
+    Amazonka.Personalize.Types.BatchInferenceJob
+    Amazonka.Personalize.Types.BatchInferenceJobConfig
+    Amazonka.Personalize.Types.BatchInferenceJobInput
+    Amazonka.Personalize.Types.BatchInferenceJobOutput
+    Amazonka.Personalize.Types.BatchInferenceJobSummary
+    Amazonka.Personalize.Types.Campaign
+    Amazonka.Personalize.Types.CampaignConfig
+    Amazonka.Personalize.Types.CampaignSummary
+    Amazonka.Personalize.Types.CampaignUpdateSummary
+    Amazonka.Personalize.Types.CategoricalHyperParameterRange
+    Amazonka.Personalize.Types.ContinuousHyperParameterRange
+    Amazonka.Personalize.Types.Dataset
+    Amazonka.Personalize.Types.DatasetExportJob
+    Amazonka.Personalize.Types.DatasetExportJobOutput
+    Amazonka.Personalize.Types.DatasetExportJobSummary
+    Amazonka.Personalize.Types.DatasetGroup
+    Amazonka.Personalize.Types.DatasetGroupSummary
+    Amazonka.Personalize.Types.DatasetImportJob
+    Amazonka.Personalize.Types.DatasetImportJobSummary
+    Amazonka.Personalize.Types.DatasetSchema
+    Amazonka.Personalize.Types.DatasetSchemaSummary
+    Amazonka.Personalize.Types.DatasetSummary
+    Amazonka.Personalize.Types.DataSource
+    Amazonka.Personalize.Types.DefaultCategoricalHyperParameterRange
+    Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange
+    Amazonka.Personalize.Types.DefaultHyperParameterRanges
+    Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange
+    Amazonka.Personalize.Types.EventTracker
+    Amazonka.Personalize.Types.EventTrackerSummary
+    Amazonka.Personalize.Types.FeatureTransformation
+    Amazonka.Personalize.Types.Filter
+    Amazonka.Personalize.Types.FilterSummary
+    Amazonka.Personalize.Types.HPOConfig
+    Amazonka.Personalize.Types.HPOObjective
+    Amazonka.Personalize.Types.HPOResourceConfig
+    Amazonka.Personalize.Types.HyperParameterRanges
+    Amazonka.Personalize.Types.IngestionMode
+    Amazonka.Personalize.Types.IntegerHyperParameterRange
+    Amazonka.Personalize.Types.ObjectiveSensitivity
+    Amazonka.Personalize.Types.OptimizationObjective
+    Amazonka.Personalize.Types.Recipe
+    Amazonka.Personalize.Types.RecipeProvider
+    Amazonka.Personalize.Types.RecipeSummary
+    Amazonka.Personalize.Types.S3DataConfig
+    Amazonka.Personalize.Types.Solution
+    Amazonka.Personalize.Types.SolutionConfig
+    Amazonka.Personalize.Types.SolutionSummary
+    Amazonka.Personalize.Types.SolutionVersion
+    Amazonka.Personalize.Types.SolutionVersionSummary
+    Amazonka.Personalize.Types.TrainingMode
+    Amazonka.Personalize.Types.TunedHPOParams
+    Amazonka.Personalize.UpdateCampaign
+    Amazonka.Personalize.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

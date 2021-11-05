@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.CreateDatasetExportJob
+-- Module      : Amazonka.Personalize.CreateDatasetExportJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- dataset export is complete when the status shows as ACTIVE. If the
 -- status shows as CREATE FAILED, the response includes a @failureReason@
 -- key, which describes why the job failed.
-module Network.AWS.Personalize.CreateDatasetExportJob
+module Amazonka.Personalize.CreateDatasetExportJob
   ( -- * Creating a Request
     CreateDatasetExportJob (..),
     newCreateDatasetExportJob,
@@ -60,12 +60,12 @@ module Network.AWS.Personalize.CreateDatasetExportJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetExportJob' smart constructor.
 data CreateDatasetExportJob = CreateDatasetExportJob'

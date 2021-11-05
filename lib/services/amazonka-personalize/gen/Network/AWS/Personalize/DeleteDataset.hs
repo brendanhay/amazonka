@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.DeleteDataset
+-- Module      : Amazonka.Personalize.DeleteDataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a dataset. You can\'t delete a dataset if an associated
 -- @DatasetImportJob@ or @SolutionVersion@ is in the CREATE PENDING or IN
 -- PROGRESS state. For more information on datasets, see CreateDataset.
-module Network.AWS.Personalize.DeleteDataset
+module Amazonka.Personalize.DeleteDataset
   ( -- * Creating a Request
     DeleteDataset (..),
     newDeleteDataset,
@@ -37,12 +37,12 @@ module Network.AWS.Personalize.DeleteDataset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'

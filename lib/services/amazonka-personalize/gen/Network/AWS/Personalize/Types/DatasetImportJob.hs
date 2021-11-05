@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.Types.DatasetImportJob
+-- Module      : Amazonka.Personalize.Types.DatasetImportJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Personalize.Types.DatasetImportJob where
+module Amazonka.Personalize.Types.DatasetImportJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types.DataSource
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.DataSource
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a job that imports training data from a data source (Amazon S3
 -- bucket) to an Amazon Personalize dataset. For more information, see

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.Types
+-- Module      : Amazonka.Personalize.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Personalize.Types
+module Amazonka.Personalize.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -504,65 +504,65 @@ module Network.AWS.Personalize.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types.Algorithm
-import Network.AWS.Personalize.Types.AlgorithmImage
-import Network.AWS.Personalize.Types.AutoMLConfig
-import Network.AWS.Personalize.Types.AutoMLResult
-import Network.AWS.Personalize.Types.BatchInferenceJob
-import Network.AWS.Personalize.Types.BatchInferenceJobConfig
-import Network.AWS.Personalize.Types.BatchInferenceJobInput
-import Network.AWS.Personalize.Types.BatchInferenceJobOutput
-import Network.AWS.Personalize.Types.BatchInferenceJobSummary
-import Network.AWS.Personalize.Types.Campaign
-import Network.AWS.Personalize.Types.CampaignConfig
-import Network.AWS.Personalize.Types.CampaignSummary
-import Network.AWS.Personalize.Types.CampaignUpdateSummary
-import Network.AWS.Personalize.Types.CategoricalHyperParameterRange
-import Network.AWS.Personalize.Types.ContinuousHyperParameterRange
-import Network.AWS.Personalize.Types.DataSource
-import Network.AWS.Personalize.Types.Dataset
-import Network.AWS.Personalize.Types.DatasetExportJob
-import Network.AWS.Personalize.Types.DatasetExportJobOutput
-import Network.AWS.Personalize.Types.DatasetExportJobSummary
-import Network.AWS.Personalize.Types.DatasetGroup
-import Network.AWS.Personalize.Types.DatasetGroupSummary
-import Network.AWS.Personalize.Types.DatasetImportJob
-import Network.AWS.Personalize.Types.DatasetImportJobSummary
-import Network.AWS.Personalize.Types.DatasetSchema
-import Network.AWS.Personalize.Types.DatasetSchemaSummary
-import Network.AWS.Personalize.Types.DatasetSummary
-import Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange
-import Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange
-import Network.AWS.Personalize.Types.DefaultHyperParameterRanges
-import Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange
-import Network.AWS.Personalize.Types.EventTracker
-import Network.AWS.Personalize.Types.EventTrackerSummary
-import Network.AWS.Personalize.Types.FeatureTransformation
-import Network.AWS.Personalize.Types.Filter
-import Network.AWS.Personalize.Types.FilterSummary
-import Network.AWS.Personalize.Types.HPOConfig
-import Network.AWS.Personalize.Types.HPOObjective
-import Network.AWS.Personalize.Types.HPOResourceConfig
-import Network.AWS.Personalize.Types.HyperParameterRanges
-import Network.AWS.Personalize.Types.IngestionMode
-import Network.AWS.Personalize.Types.IntegerHyperParameterRange
-import Network.AWS.Personalize.Types.ObjectiveSensitivity
-import Network.AWS.Personalize.Types.OptimizationObjective
-import Network.AWS.Personalize.Types.Recipe
-import Network.AWS.Personalize.Types.RecipeProvider
-import Network.AWS.Personalize.Types.RecipeSummary
-import Network.AWS.Personalize.Types.S3DataConfig
-import Network.AWS.Personalize.Types.Solution
-import Network.AWS.Personalize.Types.SolutionConfig
-import Network.AWS.Personalize.Types.SolutionSummary
-import Network.AWS.Personalize.Types.SolutionVersion
-import Network.AWS.Personalize.Types.SolutionVersionSummary
-import Network.AWS.Personalize.Types.TrainingMode
-import Network.AWS.Personalize.Types.TunedHPOParams
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.Algorithm
+import Amazonka.Personalize.Types.AlgorithmImage
+import Amazonka.Personalize.Types.AutoMLConfig
+import Amazonka.Personalize.Types.AutoMLResult
+import Amazonka.Personalize.Types.BatchInferenceJob
+import Amazonka.Personalize.Types.BatchInferenceJobConfig
+import Amazonka.Personalize.Types.BatchInferenceJobInput
+import Amazonka.Personalize.Types.BatchInferenceJobOutput
+import Amazonka.Personalize.Types.BatchInferenceJobSummary
+import Amazonka.Personalize.Types.Campaign
+import Amazonka.Personalize.Types.CampaignConfig
+import Amazonka.Personalize.Types.CampaignSummary
+import Amazonka.Personalize.Types.CampaignUpdateSummary
+import Amazonka.Personalize.Types.CategoricalHyperParameterRange
+import Amazonka.Personalize.Types.ContinuousHyperParameterRange
+import Amazonka.Personalize.Types.DataSource
+import Amazonka.Personalize.Types.Dataset
+import Amazonka.Personalize.Types.DatasetExportJob
+import Amazonka.Personalize.Types.DatasetExportJobOutput
+import Amazonka.Personalize.Types.DatasetExportJobSummary
+import Amazonka.Personalize.Types.DatasetGroup
+import Amazonka.Personalize.Types.DatasetGroupSummary
+import Amazonka.Personalize.Types.DatasetImportJob
+import Amazonka.Personalize.Types.DatasetImportJobSummary
+import Amazonka.Personalize.Types.DatasetSchema
+import Amazonka.Personalize.Types.DatasetSchemaSummary
+import Amazonka.Personalize.Types.DatasetSummary
+import Amazonka.Personalize.Types.DefaultCategoricalHyperParameterRange
+import Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange
+import Amazonka.Personalize.Types.DefaultHyperParameterRanges
+import Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange
+import Amazonka.Personalize.Types.EventTracker
+import Amazonka.Personalize.Types.EventTrackerSummary
+import Amazonka.Personalize.Types.FeatureTransformation
+import Amazonka.Personalize.Types.Filter
+import Amazonka.Personalize.Types.FilterSummary
+import Amazonka.Personalize.Types.HPOConfig
+import Amazonka.Personalize.Types.HPOObjective
+import Amazonka.Personalize.Types.HPOResourceConfig
+import Amazonka.Personalize.Types.HyperParameterRanges
+import Amazonka.Personalize.Types.IngestionMode
+import Amazonka.Personalize.Types.IntegerHyperParameterRange
+import Amazonka.Personalize.Types.ObjectiveSensitivity
+import Amazonka.Personalize.Types.OptimizationObjective
+import Amazonka.Personalize.Types.Recipe
+import Amazonka.Personalize.Types.RecipeProvider
+import Amazonka.Personalize.Types.RecipeSummary
+import Amazonka.Personalize.Types.S3DataConfig
+import Amazonka.Personalize.Types.Solution
+import Amazonka.Personalize.Types.SolutionConfig
+import Amazonka.Personalize.Types.SolutionSummary
+import Amazonka.Personalize.Types.SolutionVersion
+import Amazonka.Personalize.Types.SolutionVersionSummary
+import Amazonka.Personalize.Types.TrainingMode
+import Amazonka.Personalize.Types.TunedHPOParams
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-05-22@ of the Amazon Personalize SDK configuration.
 defaultService :: Core.Service

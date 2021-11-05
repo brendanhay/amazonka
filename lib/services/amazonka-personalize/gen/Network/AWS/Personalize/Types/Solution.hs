@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.Types.Solution
+-- Module      : Amazonka.Personalize.Types.Solution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Personalize.Types.Solution where
+module Amazonka.Personalize.Types.Solution where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types.AutoMLResult
-import Network.AWS.Personalize.Types.SolutionConfig
-import Network.AWS.Personalize.Types.SolutionVersionSummary
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.AutoMLResult
+import Amazonka.Personalize.Types.SolutionConfig
+import Amazonka.Personalize.Types.SolutionVersionSummary
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that provides information about a solution. A solution is a
 -- trained model that can be deployed as a campaign.

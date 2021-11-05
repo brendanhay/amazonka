@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Personalize
+-- Module      : Amazonka.Personalize
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- Amazon Personalize is a machine learning service that makes it easy to
 -- add individualized recommendations to customers.
-module Network.AWS.Personalize
+module Amazonka.Personalize
   ( -- * Service Configuration
     defaultService,
 
@@ -546,56 +546,56 @@ module Network.AWS.Personalize
   )
 where
 
-import Network.AWS.Personalize.CreateBatchInferenceJob
-import Network.AWS.Personalize.CreateCampaign
-import Network.AWS.Personalize.CreateDataset
-import Network.AWS.Personalize.CreateDatasetExportJob
-import Network.AWS.Personalize.CreateDatasetGroup
-import Network.AWS.Personalize.CreateDatasetImportJob
-import Network.AWS.Personalize.CreateEventTracker
-import Network.AWS.Personalize.CreateFilter
-import Network.AWS.Personalize.CreateSchema
-import Network.AWS.Personalize.CreateSolution
-import Network.AWS.Personalize.CreateSolutionVersion
-import Network.AWS.Personalize.DeleteCampaign
-import Network.AWS.Personalize.DeleteDataset
-import Network.AWS.Personalize.DeleteDatasetGroup
-import Network.AWS.Personalize.DeleteEventTracker
-import Network.AWS.Personalize.DeleteFilter
-import Network.AWS.Personalize.DeleteSchema
-import Network.AWS.Personalize.DeleteSolution
-import Network.AWS.Personalize.DescribeAlgorithm
-import Network.AWS.Personalize.DescribeBatchInferenceJob
-import Network.AWS.Personalize.DescribeCampaign
-import Network.AWS.Personalize.DescribeDataset
-import Network.AWS.Personalize.DescribeDatasetExportJob
-import Network.AWS.Personalize.DescribeDatasetGroup
-import Network.AWS.Personalize.DescribeDatasetImportJob
-import Network.AWS.Personalize.DescribeEventTracker
-import Network.AWS.Personalize.DescribeFeatureTransformation
-import Network.AWS.Personalize.DescribeFilter
-import Network.AWS.Personalize.DescribeRecipe
-import Network.AWS.Personalize.DescribeSchema
-import Network.AWS.Personalize.DescribeSolution
-import Network.AWS.Personalize.DescribeSolutionVersion
-import Network.AWS.Personalize.GetSolutionMetrics
-import Network.AWS.Personalize.Lens
-import Network.AWS.Personalize.ListBatchInferenceJobs
-import Network.AWS.Personalize.ListCampaigns
-import Network.AWS.Personalize.ListDatasetExportJobs
-import Network.AWS.Personalize.ListDatasetGroups
-import Network.AWS.Personalize.ListDatasetImportJobs
-import Network.AWS.Personalize.ListDatasets
-import Network.AWS.Personalize.ListEventTrackers
-import Network.AWS.Personalize.ListFilters
-import Network.AWS.Personalize.ListRecipes
-import Network.AWS.Personalize.ListSchemas
-import Network.AWS.Personalize.ListSolutionVersions
-import Network.AWS.Personalize.ListSolutions
-import Network.AWS.Personalize.StopSolutionVersionCreation
-import Network.AWS.Personalize.Types
-import Network.AWS.Personalize.UpdateCampaign
-import Network.AWS.Personalize.Waiters
+import Amazonka.Personalize.CreateBatchInferenceJob
+import Amazonka.Personalize.CreateCampaign
+import Amazonka.Personalize.CreateDataset
+import Amazonka.Personalize.CreateDatasetExportJob
+import Amazonka.Personalize.CreateDatasetGroup
+import Amazonka.Personalize.CreateDatasetImportJob
+import Amazonka.Personalize.CreateEventTracker
+import Amazonka.Personalize.CreateFilter
+import Amazonka.Personalize.CreateSchema
+import Amazonka.Personalize.CreateSolution
+import Amazonka.Personalize.CreateSolutionVersion
+import Amazonka.Personalize.DeleteCampaign
+import Amazonka.Personalize.DeleteDataset
+import Amazonka.Personalize.DeleteDatasetGroup
+import Amazonka.Personalize.DeleteEventTracker
+import Amazonka.Personalize.DeleteFilter
+import Amazonka.Personalize.DeleteSchema
+import Amazonka.Personalize.DeleteSolution
+import Amazonka.Personalize.DescribeAlgorithm
+import Amazonka.Personalize.DescribeBatchInferenceJob
+import Amazonka.Personalize.DescribeCampaign
+import Amazonka.Personalize.DescribeDataset
+import Amazonka.Personalize.DescribeDatasetExportJob
+import Amazonka.Personalize.DescribeDatasetGroup
+import Amazonka.Personalize.DescribeDatasetImportJob
+import Amazonka.Personalize.DescribeEventTracker
+import Amazonka.Personalize.DescribeFeatureTransformation
+import Amazonka.Personalize.DescribeFilter
+import Amazonka.Personalize.DescribeRecipe
+import Amazonka.Personalize.DescribeSchema
+import Amazonka.Personalize.DescribeSolution
+import Amazonka.Personalize.DescribeSolutionVersion
+import Amazonka.Personalize.GetSolutionMetrics
+import Amazonka.Personalize.Lens
+import Amazonka.Personalize.ListBatchInferenceJobs
+import Amazonka.Personalize.ListCampaigns
+import Amazonka.Personalize.ListDatasetExportJobs
+import Amazonka.Personalize.ListDatasetGroups
+import Amazonka.Personalize.ListDatasetImportJobs
+import Amazonka.Personalize.ListDatasets
+import Amazonka.Personalize.ListEventTrackers
+import Amazonka.Personalize.ListFilters
+import Amazonka.Personalize.ListRecipes
+import Amazonka.Personalize.ListSchemas
+import Amazonka.Personalize.ListSolutionVersions
+import Amazonka.Personalize.ListSolutions
+import Amazonka.Personalize.StopSolutionVersionCreation
+import Amazonka.Personalize.Types
+import Amazonka.Personalize.UpdateCampaign
+import Amazonka.Personalize.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

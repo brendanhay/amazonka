@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Personalize.DescribeDataset
+-- Module      : Amazonka.Personalize.DescribeDataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Describes the given dataset. For more information on datasets, see
 -- CreateDataset.
-module Network.AWS.Personalize.DescribeDataset
+module Amazonka.Personalize.DescribeDataset
   ( -- * Creating a Request
     DescribeDataset (..),
     newDescribeDataset,
@@ -40,12 +40,12 @@ module Network.AWS.Personalize.DescribeDataset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Personalize.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.Types
+-- Module      : Amazonka.Route53RecoveryControlConfig.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryControlConfig.Types
+module Amazonka.Route53RecoveryControlConfig.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -134,24 +134,24 @@ module Network.AWS.Route53RecoveryControlConfig.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryControlConfig.Types.AssertionRule
-import Network.AWS.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
-import Network.AWS.Route53RecoveryControlConfig.Types.Cluster
-import Network.AWS.Route53RecoveryControlConfig.Types.ClusterEndpoint
-import Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel
-import Network.AWS.Route53RecoveryControlConfig.Types.GatingRule
-import Network.AWS.Route53RecoveryControlConfig.Types.GatingRuleUpdate
-import Network.AWS.Route53RecoveryControlConfig.Types.NewAssertionRule
-import Network.AWS.Route53RecoveryControlConfig.Types.NewGatingRule
-import Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl
-import Network.AWS.Route53RecoveryControlConfig.Types.Rule
-import Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig
-import Network.AWS.Route53RecoveryControlConfig.Types.RuleType
-import Network.AWS.Route53RecoveryControlConfig.Types.Status
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
+import Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
+import Amazonka.Route53RecoveryControlConfig.Types.Cluster
+import Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint
+import Amazonka.Route53RecoveryControlConfig.Types.ControlPanel
+import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
+import Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate
+import Amazonka.Route53RecoveryControlConfig.Types.NewAssertionRule
+import Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule
+import Amazonka.Route53RecoveryControlConfig.Types.RoutingControl
+import Amazonka.Route53RecoveryControlConfig.Types.Rule
+import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
+import Amazonka.Route53RecoveryControlConfig.Types.RuleType
+import Amazonka.Route53RecoveryControlConfig.Types.Status
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-11-02@ of the Amazon Route53 Recovery Control Config SDK configuration.
 defaultService :: Core.Service

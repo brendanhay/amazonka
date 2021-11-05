@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.Types.Rule
+-- Module      : Amazonka.Route53RecoveryControlConfig.Types.Rule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryControlConfig.Types.Rule where
+module Amazonka.Route53RecoveryControlConfig.Types.Rule where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryControlConfig.Types.AssertionRule
-import Network.AWS.Route53RecoveryControlConfig.Types.GatingRule
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
+import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
 
 -- | A safety rule. A safety rule can be an assertion rule or a gating rule.
 --

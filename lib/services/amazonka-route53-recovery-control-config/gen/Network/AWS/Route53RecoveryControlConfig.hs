@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig
+-- Module      : Amazonka.Route53RecoveryControlConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- Recovery Control Configuration API Reference for Amazon Route 53
 -- Application Recovery Controller
-module Network.AWS.Route53RecoveryControlConfig
+module Amazonka.Route53RecoveryControlConfig
   ( -- * Service Configuration
     defaultService,
 
@@ -243,29 +243,29 @@ module Network.AWS.Route53RecoveryControlConfig
   )
 where
 
-import Network.AWS.Route53RecoveryControlConfig.CreateCluster
-import Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
-import Network.AWS.Route53RecoveryControlConfig.CreateRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.CreateSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.DeleteCluster
-import Network.AWS.Route53RecoveryControlConfig.DeleteControlPanel
-import Network.AWS.Route53RecoveryControlConfig.DeleteRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.DeleteSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.DescribeCluster
-import Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
-import Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.DescribeSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.Lens
-import Network.AWS.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
-import Network.AWS.Route53RecoveryControlConfig.ListClusters
-import Network.AWS.Route53RecoveryControlConfig.ListControlPanels
-import Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
-import Network.AWS.Route53RecoveryControlConfig.ListSafetyRules
-import Network.AWS.Route53RecoveryControlConfig.Types
-import Network.AWS.Route53RecoveryControlConfig.UpdateControlPanel
-import Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.UpdateSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.Waiters
+import Amazonka.Route53RecoveryControlConfig.CreateCluster
+import Amazonka.Route53RecoveryControlConfig.CreateControlPanel
+import Amazonka.Route53RecoveryControlConfig.CreateRoutingControl
+import Amazonka.Route53RecoveryControlConfig.CreateSafetyRule
+import Amazonka.Route53RecoveryControlConfig.DeleteCluster
+import Amazonka.Route53RecoveryControlConfig.DeleteControlPanel
+import Amazonka.Route53RecoveryControlConfig.DeleteRoutingControl
+import Amazonka.Route53RecoveryControlConfig.DeleteSafetyRule
+import Amazonka.Route53RecoveryControlConfig.DescribeCluster
+import Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
+import Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
+import Amazonka.Route53RecoveryControlConfig.DescribeSafetyRule
+import Amazonka.Route53RecoveryControlConfig.Lens
+import Amazonka.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
+import Amazonka.Route53RecoveryControlConfig.ListClusters
+import Amazonka.Route53RecoveryControlConfig.ListControlPanels
+import Amazonka.Route53RecoveryControlConfig.ListRoutingControls
+import Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+import Amazonka.Route53RecoveryControlConfig.Types
+import Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
+import Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
+import Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule
+import Amazonka.Route53RecoveryControlConfig.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

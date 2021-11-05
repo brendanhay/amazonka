@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.Waiters
+-- Module      : Amazonka.Route53RecoveryControlConfig.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryControlConfig.Waiters where
+module Amazonka.Route53RecoveryControlConfig.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryControlConfig.DescribeCluster
-import Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
-import Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.Lens
-import Network.AWS.Route53RecoveryControlConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryControlConfig.DescribeCluster
+import Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
+import Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
+import Amazonka.Route53RecoveryControlConfig.Lens
+import Amazonka.Route53RecoveryControlConfig.Types
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newClusterCreated :: Core.Wait DescribeCluster
 newClusterCreated =
   Core.Wait
@@ -52,7 +52,7 @@ newClusterCreated =
         ]
     }
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newRoutingControlCreated :: Core.Wait DescribeRoutingControl
 newRoutingControlCreated =
   Core.Wait
@@ -82,7 +82,7 @@ newRoutingControlCreated =
         ]
     }
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newRoutingControlDeleted :: Core.Wait DescribeRoutingControl
 newRoutingControlDeleted =
   Core.Wait
@@ -104,7 +104,7 @@ newRoutingControlDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newControlPanelCreated :: Core.Wait DescribeControlPanel
 newControlPanelCreated =
   Core.Wait
@@ -134,7 +134,7 @@ newControlPanelCreated =
         ]
     }
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeControlPanel' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newControlPanelDeleted :: Core.Wait DescribeControlPanel
 newControlPanelDeleted =
   Core.Wait
@@ -156,7 +156,7 @@ newControlPanelDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newClusterDeleted :: Core.Wait DescribeCluster
 newClusterDeleted =
   Core.Wait

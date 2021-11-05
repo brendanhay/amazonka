@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
+-- Module      : Amazonka.Route53RecoveryControlConfig.ListRoutingControls
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- that has one of two states: ON and OFF. You can map the routing control
 -- state to the state of an Amazon Route 53 health check, which can be used
 -- to control routing.
-module Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
+module Amazonka.Route53RecoveryControlConfig.ListRoutingControls
   ( -- * Creating a Request
     ListRoutingControls (..),
     newListRoutingControls,
@@ -46,12 +46,12 @@ module Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53RecoveryControlConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newListRoutingControls' smart constructor.
 data ListRoutingControls = ListRoutingControls'

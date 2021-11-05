@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.CreateCluster
+-- Module      : Amazonka.Route53RecoveryControlConfig.CreateCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Name (ARN), and an array of the five cluster endpoints (one for each
 -- supported Amazon Web Services Region) that you can use with API calls to
 -- the Amazon Route 53 Application Recovery Controller cluster data plane.
-module Network.AWS.Route53RecoveryControlConfig.CreateCluster
+module Amazonka.Route53RecoveryControlConfig.CreateCluster
   ( -- * Creating a Request
     CreateCluster (..),
     newCreateCluster,
@@ -45,12 +45,12 @@ module Network.AWS.Route53RecoveryControlConfig.CreateCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53RecoveryControlConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | Creates a cluster.
 --

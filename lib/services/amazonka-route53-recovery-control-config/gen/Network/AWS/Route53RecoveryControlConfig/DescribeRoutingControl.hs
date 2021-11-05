@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
+-- Module      : Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- To get or update the routing control state, see the Recovery Cluster
 -- (data plane) API actions for Amazon Route 53 Application Recovery
 -- Controller.
-module Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
+module Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
   ( -- * Creating a Request
     DescribeRoutingControl (..),
     newDescribeRoutingControl,
@@ -46,12 +46,12 @@ module Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53RecoveryControlConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDescribeRoutingControl' smart constructor.
 data DescribeRoutingControl = DescribeRoutingControl'

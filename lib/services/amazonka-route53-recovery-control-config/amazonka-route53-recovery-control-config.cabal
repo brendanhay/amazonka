@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53RecoveryControlConfig.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Route53RecoveryControlConfig.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Route53RecoveryControlConfig" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Route53RecoveryControlConfig" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,46 +45,46 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Route53RecoveryControlConfig
-    Network.AWS.Route53RecoveryControlConfig.CreateCluster
-    Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
-    Network.AWS.Route53RecoveryControlConfig.CreateRoutingControl
-    Network.AWS.Route53RecoveryControlConfig.CreateSafetyRule
-    Network.AWS.Route53RecoveryControlConfig.DeleteCluster
-    Network.AWS.Route53RecoveryControlConfig.DeleteControlPanel
-    Network.AWS.Route53RecoveryControlConfig.DeleteRoutingControl
-    Network.AWS.Route53RecoveryControlConfig.DeleteSafetyRule
-    Network.AWS.Route53RecoveryControlConfig.DescribeCluster
-    Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
-    Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
-    Network.AWS.Route53RecoveryControlConfig.DescribeSafetyRule
-    Network.AWS.Route53RecoveryControlConfig.Lens
-    Network.AWS.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
-    Network.AWS.Route53RecoveryControlConfig.ListClusters
-    Network.AWS.Route53RecoveryControlConfig.ListControlPanels
-    Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
-    Network.AWS.Route53RecoveryControlConfig.ListSafetyRules
-    Network.AWS.Route53RecoveryControlConfig.Types
-    Network.AWS.Route53RecoveryControlConfig.Types.AssertionRule
-    Network.AWS.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
-    Network.AWS.Route53RecoveryControlConfig.Types.Cluster
-    Network.AWS.Route53RecoveryControlConfig.Types.ClusterEndpoint
-    Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel
-    Network.AWS.Route53RecoveryControlConfig.Types.GatingRule
-    Network.AWS.Route53RecoveryControlConfig.Types.GatingRuleUpdate
-    Network.AWS.Route53RecoveryControlConfig.Types.NewAssertionRule
-    Network.AWS.Route53RecoveryControlConfig.Types.NewGatingRule
-    Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl
-    Network.AWS.Route53RecoveryControlConfig.Types.Rule
-    Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig
-    Network.AWS.Route53RecoveryControlConfig.Types.RuleType
-    Network.AWS.Route53RecoveryControlConfig.Types.Status
-    Network.AWS.Route53RecoveryControlConfig.UpdateControlPanel
-    Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl
-    Network.AWS.Route53RecoveryControlConfig.UpdateSafetyRule
-    Network.AWS.Route53RecoveryControlConfig.Waiters
+    Amazonka.Route53RecoveryControlConfig
+    Amazonka.Route53RecoveryControlConfig.CreateCluster
+    Amazonka.Route53RecoveryControlConfig.CreateControlPanel
+    Amazonka.Route53RecoveryControlConfig.CreateRoutingControl
+    Amazonka.Route53RecoveryControlConfig.CreateSafetyRule
+    Amazonka.Route53RecoveryControlConfig.DeleteCluster
+    Amazonka.Route53RecoveryControlConfig.DeleteControlPanel
+    Amazonka.Route53RecoveryControlConfig.DeleteRoutingControl
+    Amazonka.Route53RecoveryControlConfig.DeleteSafetyRule
+    Amazonka.Route53RecoveryControlConfig.DescribeCluster
+    Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
+    Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
+    Amazonka.Route53RecoveryControlConfig.DescribeSafetyRule
+    Amazonka.Route53RecoveryControlConfig.Lens
+    Amazonka.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
+    Amazonka.Route53RecoveryControlConfig.ListClusters
+    Amazonka.Route53RecoveryControlConfig.ListControlPanels
+    Amazonka.Route53RecoveryControlConfig.ListRoutingControls
+    Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+    Amazonka.Route53RecoveryControlConfig.Types
+    Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
+    Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
+    Amazonka.Route53RecoveryControlConfig.Types.Cluster
+    Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint
+    Amazonka.Route53RecoveryControlConfig.Types.ControlPanel
+    Amazonka.Route53RecoveryControlConfig.Types.GatingRule
+    Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate
+    Amazonka.Route53RecoveryControlConfig.Types.NewAssertionRule
+    Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule
+    Amazonka.Route53RecoveryControlConfig.Types.RoutingControl
+    Amazonka.Route53RecoveryControlConfig.Types.Rule
+    Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
+    Amazonka.Route53RecoveryControlConfig.Types.RuleType
+    Amazonka.Route53RecoveryControlConfig.Types.Status
+    Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
+    Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
+    Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule
+    Amazonka.Route53RecoveryControlConfig.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

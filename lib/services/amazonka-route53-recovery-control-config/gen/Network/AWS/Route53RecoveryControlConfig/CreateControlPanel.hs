@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
+-- Module      : Amazonka.Route53RecoveryControlConfig.CreateControlPanel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- applications across your organization, and trigger multi-app failovers
 -- in a single transaction, for example, to fail over an Availability Zone
 -- or AWS Region.
-module Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
+module Amazonka.Route53RecoveryControlConfig.CreateControlPanel
   ( -- * Creating a Request
     CreateControlPanel (..),
     newCreateControlPanel,
@@ -46,12 +46,12 @@ module Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53RecoveryControlConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | The details of the control panel that you\'re creating.
 --

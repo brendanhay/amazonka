@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl
+-- Module      : Amazonka.Route53RecoveryControlConfig.Types.RoutingControl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl where
+module Amazonka.Route53RecoveryControlConfig.Types.RoutingControl where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryControlConfig.Types.Status
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryControlConfig.Types.Status
 
 -- | A routing control has one of two states: ON and OFF. You can map the
 -- routing control state to the state of an Amazon Route 53 health check,

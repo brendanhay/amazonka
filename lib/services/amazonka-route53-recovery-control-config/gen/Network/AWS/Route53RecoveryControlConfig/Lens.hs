@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryControlConfig.Lens
+-- Module      : Amazonka.Route53RecoveryControlConfig.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryControlConfig.Lens
+module Amazonka.Route53RecoveryControlConfig.Lens
   ( -- * Operations
 
     -- ** DescribeControlPanel
@@ -219,35 +219,35 @@ module Network.AWS.Route53RecoveryControlConfig.Lens
   )
 where
 
-import Network.AWS.Route53RecoveryControlConfig.CreateCluster
-import Network.AWS.Route53RecoveryControlConfig.CreateControlPanel
-import Network.AWS.Route53RecoveryControlConfig.CreateRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.CreateSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.DeleteCluster
-import Network.AWS.Route53RecoveryControlConfig.DeleteControlPanel
-import Network.AWS.Route53RecoveryControlConfig.DeleteRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.DeleteSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.DescribeCluster
-import Network.AWS.Route53RecoveryControlConfig.DescribeControlPanel
-import Network.AWS.Route53RecoveryControlConfig.DescribeRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.DescribeSafetyRule
-import Network.AWS.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
-import Network.AWS.Route53RecoveryControlConfig.ListClusters
-import Network.AWS.Route53RecoveryControlConfig.ListControlPanels
-import Network.AWS.Route53RecoveryControlConfig.ListRoutingControls
-import Network.AWS.Route53RecoveryControlConfig.ListSafetyRules
-import Network.AWS.Route53RecoveryControlConfig.Types.AssertionRule
-import Network.AWS.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
-import Network.AWS.Route53RecoveryControlConfig.Types.Cluster
-import Network.AWS.Route53RecoveryControlConfig.Types.ClusterEndpoint
-import Network.AWS.Route53RecoveryControlConfig.Types.ControlPanel
-import Network.AWS.Route53RecoveryControlConfig.Types.GatingRule
-import Network.AWS.Route53RecoveryControlConfig.Types.GatingRuleUpdate
-import Network.AWS.Route53RecoveryControlConfig.Types.NewAssertionRule
-import Network.AWS.Route53RecoveryControlConfig.Types.NewGatingRule
-import Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl
-import Network.AWS.Route53RecoveryControlConfig.Types.Rule
-import Network.AWS.Route53RecoveryControlConfig.Types.RuleConfig
-import Network.AWS.Route53RecoveryControlConfig.UpdateControlPanel
-import Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl
-import Network.AWS.Route53RecoveryControlConfig.UpdateSafetyRule
+import Amazonka.Route53RecoveryControlConfig.CreateCluster
+import Amazonka.Route53RecoveryControlConfig.CreateControlPanel
+import Amazonka.Route53RecoveryControlConfig.CreateRoutingControl
+import Amazonka.Route53RecoveryControlConfig.CreateSafetyRule
+import Amazonka.Route53RecoveryControlConfig.DeleteCluster
+import Amazonka.Route53RecoveryControlConfig.DeleteControlPanel
+import Amazonka.Route53RecoveryControlConfig.DeleteRoutingControl
+import Amazonka.Route53RecoveryControlConfig.DeleteSafetyRule
+import Amazonka.Route53RecoveryControlConfig.DescribeCluster
+import Amazonka.Route53RecoveryControlConfig.DescribeControlPanel
+import Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
+import Amazonka.Route53RecoveryControlConfig.DescribeSafetyRule
+import Amazonka.Route53RecoveryControlConfig.ListAssociatedRoute53HealthChecks
+import Amazonka.Route53RecoveryControlConfig.ListClusters
+import Amazonka.Route53RecoveryControlConfig.ListControlPanels
+import Amazonka.Route53RecoveryControlConfig.ListRoutingControls
+import Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+import Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
+import Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
+import Amazonka.Route53RecoveryControlConfig.Types.Cluster
+import Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint
+import Amazonka.Route53RecoveryControlConfig.Types.ControlPanel
+import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
+import Amazonka.Route53RecoveryControlConfig.Types.GatingRuleUpdate
+import Amazonka.Route53RecoveryControlConfig.Types.NewAssertionRule
+import Amazonka.Route53RecoveryControlConfig.Types.NewGatingRule
+import Amazonka.Route53RecoveryControlConfig.Types.RoutingControl
+import Amazonka.Route53RecoveryControlConfig.Types.Rule
+import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
+import Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
+import Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
+import Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule

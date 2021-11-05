@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.RestoreTableToPointInTime
+-- Module      : Amazonka.DynamoDB.RestoreTableToPointInTime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -59,7 +59,7 @@
 -- -   Time to Live (TTL) settings
 --
 -- -   Point in time recovery settings
-module Network.AWS.DynamoDB.RestoreTableToPointInTime
+module Amazonka.DynamoDB.RestoreTableToPointInTime
   ( -- * Creating a Request
     RestoreTableToPointInTime (..),
     newRestoreTableToPointInTime,
@@ -86,12 +86,12 @@ module Network.AWS.DynamoDB.RestoreTableToPointInTime
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreTableToPointInTime' smart constructor.
 data RestoreTableToPointInTime = RestoreTableToPointInTime'

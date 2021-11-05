@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.TimeToLiveDescription
+-- Module      : Amazonka.DynamoDB.Types.TimeToLiveDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.TimeToLiveDescription where
+module Amazonka.DynamoDB.Types.TimeToLiveDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.TimeToLiveStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.TimeToLiveStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the Time to Live (TTL) status on the specified table.
 --

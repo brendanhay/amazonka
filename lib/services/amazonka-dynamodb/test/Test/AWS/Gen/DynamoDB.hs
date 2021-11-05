@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DynamoDB where
 
+import Amazonka.DynamoDB
 import qualified Data.Proxy as Proxy
-import Network.AWS.DynamoDB
 import Test.AWS.DynamoDB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

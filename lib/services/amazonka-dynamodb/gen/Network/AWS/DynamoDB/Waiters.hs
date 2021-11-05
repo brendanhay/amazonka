@@ -7,22 +7,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Waiters
+-- Module      : Amazonka.DynamoDB.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Waiters where
+module Amazonka.DynamoDB.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.DescribeTable
-import Network.AWS.DynamoDB.Lens
-import Network.AWS.DynamoDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.DescribeTable
+import Amazonka.DynamoDB.Lens
+import Amazonka.DynamoDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
+-- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newTableNotExists :: Core.Wait DescribeTable
 newTableNotExists =
   Core.Wait
@@ -36,7 +36,7 @@ newTableNotExists =
         ]
     }
 
--- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
+-- | Polls 'Amazonka.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newTableExists :: Core.Wait DescribeTable
 newTableExists =
   Core.Wait

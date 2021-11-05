@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription
+-- Module      : Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription where
+module Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.IndexStatus
-import Network.AWS.DynamoDB.Types.KeySchemaElement
-import Network.AWS.DynamoDB.Types.Projection
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.IndexStatus
+import Amazonka.DynamoDB.Types.KeySchemaElement
+import Amazonka.DynamoDB.Types.Projection
+import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the properties of a global secondary index.
 --

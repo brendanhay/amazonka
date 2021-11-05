@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.CreateBackup
+-- Module      : Amazonka.DynamoDB.CreateBackup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -52,7 +52,7 @@
 -- -   Streams
 --
 -- -   Provisioned read and write capacity
-module Network.AWS.DynamoDB.CreateBackup
+module Amazonka.DynamoDB.CreateBackup
   ( -- * Creating a Request
     CreateBackup (..),
     newCreateBackup,
@@ -71,12 +71,12 @@ module Network.AWS.DynamoDB.CreateBackup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'

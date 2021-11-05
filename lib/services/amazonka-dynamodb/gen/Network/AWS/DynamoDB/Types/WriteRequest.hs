@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.WriteRequest
+-- Module      : Amazonka.DynamoDB.Types.WriteRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.WriteRequest where
+module Amazonka.DynamoDB.Types.WriteRequest where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.DeleteRequest
-import Network.AWS.DynamoDB.Types.PutRequest
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.DeleteRequest
+import Amazonka.DynamoDB.Types.PutRequest
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an operation to perform - either @DeleteItem@ or @PutItem@.
 -- You can only request one of these operations, not both, in a single

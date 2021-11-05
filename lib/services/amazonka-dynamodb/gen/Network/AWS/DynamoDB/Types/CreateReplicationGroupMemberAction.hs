@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction
+-- Module      : Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction where
+module Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a replica to be created.
 --

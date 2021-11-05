@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types
+-- Module      : Amazonka.DynamoDB.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types
+module Amazonka.DynamoDB.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -884,137 +884,137 @@ module Network.AWS.DynamoDB.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.ArchivalSummary
-import Network.AWS.DynamoDB.Types.AttributeAction
-import Network.AWS.DynamoDB.Types.AttributeDefinition
-import Network.AWS.DynamoDB.Types.AttributeValue
-import Network.AWS.DynamoDB.Types.AttributeValueUpdate
-import Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription
-import Network.AWS.DynamoDB.Types.AutoScalingPolicyUpdate
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
-import Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-import Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-import Network.AWS.DynamoDB.Types.BackupDescription
-import Network.AWS.DynamoDB.Types.BackupDetails
-import Network.AWS.DynamoDB.Types.BackupStatus
-import Network.AWS.DynamoDB.Types.BackupSummary
-import Network.AWS.DynamoDB.Types.BackupType
-import Network.AWS.DynamoDB.Types.BackupTypeFilter
-import Network.AWS.DynamoDB.Types.BatchStatementError
-import Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum
-import Network.AWS.DynamoDB.Types.BatchStatementRequest
-import Network.AWS.DynamoDB.Types.BatchStatementResponse
-import Network.AWS.DynamoDB.Types.BillingMode
-import Network.AWS.DynamoDB.Types.BillingModeSummary
-import Network.AWS.DynamoDB.Types.Capacity
-import Network.AWS.DynamoDB.Types.ComparisonOperator
-import Network.AWS.DynamoDB.Types.Condition
-import Network.AWS.DynamoDB.Types.ConditionCheck
-import Network.AWS.DynamoDB.Types.ConditionalOperator
-import Network.AWS.DynamoDB.Types.ConsumedCapacity
-import Network.AWS.DynamoDB.Types.ContinuousBackupsDescription
-import Network.AWS.DynamoDB.Types.ContinuousBackupsStatus
-import Network.AWS.DynamoDB.Types.ContributorInsightsAction
-import Network.AWS.DynamoDB.Types.ContributorInsightsStatus
-import Network.AWS.DynamoDB.Types.ContributorInsightsSummary
-import Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction
-import Network.AWS.DynamoDB.Types.CreateReplicaAction
-import Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction
-import Network.AWS.DynamoDB.Types.Delete
-import Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
-import Network.AWS.DynamoDB.Types.DeleteReplicaAction
-import Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction
-import Network.AWS.DynamoDB.Types.DeleteRequest
-import Network.AWS.DynamoDB.Types.DestinationStatus
-import Network.AWS.DynamoDB.Types.Endpoint
-import Network.AWS.DynamoDB.Types.ExpectedAttributeValue
-import Network.AWS.DynamoDB.Types.ExportDescription
-import Network.AWS.DynamoDB.Types.ExportFormat
-import Network.AWS.DynamoDB.Types.ExportStatus
-import Network.AWS.DynamoDB.Types.ExportSummary
-import Network.AWS.DynamoDB.Types.FailureException
-import Network.AWS.DynamoDB.Types.Get
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndex
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexAutoScalingUpdate
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexInfo
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexUpdate
-import Network.AWS.DynamoDB.Types.GlobalTable
-import Network.AWS.DynamoDB.Types.GlobalTableDescription
-import Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
-import Network.AWS.DynamoDB.Types.GlobalTableStatus
-import Network.AWS.DynamoDB.Types.IndexStatus
-import Network.AWS.DynamoDB.Types.ItemCollectionMetrics
-import Network.AWS.DynamoDB.Types.ItemResponse
-import Network.AWS.DynamoDB.Types.KeySchemaElement
-import Network.AWS.DynamoDB.Types.KeyType
-import Network.AWS.DynamoDB.Types.KeysAndAttributes
-import Network.AWS.DynamoDB.Types.KinesisDataStreamDestination
-import Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput
-import Network.AWS.DynamoDB.Types.KinesisStreamingDestinationOutput
-import Network.AWS.DynamoDB.Types.LocalSecondaryIndex
-import Network.AWS.DynamoDB.Types.LocalSecondaryIndexDescription
-import Network.AWS.DynamoDB.Types.LocalSecondaryIndexInfo
-import Network.AWS.DynamoDB.Types.ParameterizedStatement
-import Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription
-import Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification
-import Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus
-import Network.AWS.DynamoDB.Types.Projection
-import Network.AWS.DynamoDB.Types.ProjectionType
-import Network.AWS.DynamoDB.Types.ProvisionedThroughput
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
-import Network.AWS.DynamoDB.Types.Put
-import Network.AWS.DynamoDB.Types.PutRequest
-import Network.AWS.DynamoDB.Types.Replica
-import Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription
-import Network.AWS.DynamoDB.Types.ReplicaAutoScalingUpdate
-import Network.AWS.DynamoDB.Types.ReplicaDescription
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
-import Network.AWS.DynamoDB.Types.ReplicaSettingsDescription
-import Network.AWS.DynamoDB.Types.ReplicaSettingsUpdate
-import Network.AWS.DynamoDB.Types.ReplicaStatus
-import Network.AWS.DynamoDB.Types.ReplicaUpdate
-import Network.AWS.DynamoDB.Types.ReplicationGroupUpdate
-import Network.AWS.DynamoDB.Types.RestoreSummary
-import Network.AWS.DynamoDB.Types.ReturnConsumedCapacity
-import Network.AWS.DynamoDB.Types.ReturnItemCollectionMetrics
-import Network.AWS.DynamoDB.Types.ReturnValue
-import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
-import Network.AWS.DynamoDB.Types.S3SseAlgorithm
-import Network.AWS.DynamoDB.Types.SSEDescription
-import Network.AWS.DynamoDB.Types.SSESpecification
-import Network.AWS.DynamoDB.Types.SSEStatus
-import Network.AWS.DynamoDB.Types.SSEType
-import Network.AWS.DynamoDB.Types.ScalarAttributeType
-import Network.AWS.DynamoDB.Types.Select
-import Network.AWS.DynamoDB.Types.SourceTableDetails
-import Network.AWS.DynamoDB.Types.SourceTableFeatureDetails
-import Network.AWS.DynamoDB.Types.StreamSpecification
-import Network.AWS.DynamoDB.Types.StreamViewType
-import Network.AWS.DynamoDB.Types.TableAutoScalingDescription
-import Network.AWS.DynamoDB.Types.TableDescription
-import Network.AWS.DynamoDB.Types.TableStatus
-import Network.AWS.DynamoDB.Types.Tag
-import Network.AWS.DynamoDB.Types.TimeToLiveDescription
-import Network.AWS.DynamoDB.Types.TimeToLiveSpecification
-import Network.AWS.DynamoDB.Types.TimeToLiveStatus
-import Network.AWS.DynamoDB.Types.TransactGetItem
-import Network.AWS.DynamoDB.Types.TransactWriteItem
-import Network.AWS.DynamoDB.Types.Update
-import Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
-import Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction
-import Network.AWS.DynamoDB.Types.WriteRequest
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.ArchivalSummary
+import Amazonka.DynamoDB.Types.AttributeAction
+import Amazonka.DynamoDB.Types.AttributeDefinition
+import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.AttributeValueUpdate
+import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
+import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
+import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
+import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
+import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+import Amazonka.DynamoDB.Types.BackupDescription
+import Amazonka.DynamoDB.Types.BackupDetails
+import Amazonka.DynamoDB.Types.BackupStatus
+import Amazonka.DynamoDB.Types.BackupSummary
+import Amazonka.DynamoDB.Types.BackupType
+import Amazonka.DynamoDB.Types.BackupTypeFilter
+import Amazonka.DynamoDB.Types.BatchStatementError
+import Amazonka.DynamoDB.Types.BatchStatementErrorCodeEnum
+import Amazonka.DynamoDB.Types.BatchStatementRequest
+import Amazonka.DynamoDB.Types.BatchStatementResponse
+import Amazonka.DynamoDB.Types.BillingMode
+import Amazonka.DynamoDB.Types.BillingModeSummary
+import Amazonka.DynamoDB.Types.Capacity
+import Amazonka.DynamoDB.Types.ComparisonOperator
+import Amazonka.DynamoDB.Types.Condition
+import Amazonka.DynamoDB.Types.ConditionCheck
+import Amazonka.DynamoDB.Types.ConditionalOperator
+import Amazonka.DynamoDB.Types.ConsumedCapacity
+import Amazonka.DynamoDB.Types.ContinuousBackupsDescription
+import Amazonka.DynamoDB.Types.ContinuousBackupsStatus
+import Amazonka.DynamoDB.Types.ContributorInsightsAction
+import Amazonka.DynamoDB.Types.ContributorInsightsStatus
+import Amazonka.DynamoDB.Types.ContributorInsightsSummary
+import Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
+import Amazonka.DynamoDB.Types.CreateReplicaAction
+import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
+import Amazonka.DynamoDB.Types.Delete
+import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
+import Amazonka.DynamoDB.Types.DeleteReplicaAction
+import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
+import Amazonka.DynamoDB.Types.DeleteRequest
+import Amazonka.DynamoDB.Types.DestinationStatus
+import Amazonka.DynamoDB.Types.Endpoint
+import Amazonka.DynamoDB.Types.ExpectedAttributeValue
+import Amazonka.DynamoDB.Types.ExportDescription
+import Amazonka.DynamoDB.Types.ExportFormat
+import Amazonka.DynamoDB.Types.ExportStatus
+import Amazonka.DynamoDB.Types.ExportSummary
+import Amazonka.DynamoDB.Types.FailureException
+import Amazonka.DynamoDB.Types.Get
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndex
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndexAutoScalingUpdate
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndexUpdate
+import Amazonka.DynamoDB.Types.GlobalTable
+import Amazonka.DynamoDB.Types.GlobalTableDescription
+import Amazonka.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
+import Amazonka.DynamoDB.Types.GlobalTableStatus
+import Amazonka.DynamoDB.Types.IndexStatus
+import Amazonka.DynamoDB.Types.ItemCollectionMetrics
+import Amazonka.DynamoDB.Types.ItemResponse
+import Amazonka.DynamoDB.Types.KeySchemaElement
+import Amazonka.DynamoDB.Types.KeyType
+import Amazonka.DynamoDB.Types.KeysAndAttributes
+import Amazonka.DynamoDB.Types.KinesisDataStreamDestination
+import Amazonka.DynamoDB.Types.KinesisStreamingDestinationInput
+import Amazonka.DynamoDB.Types.KinesisStreamingDestinationOutput
+import Amazonka.DynamoDB.Types.LocalSecondaryIndex
+import Amazonka.DynamoDB.Types.LocalSecondaryIndexDescription
+import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
+import Amazonka.DynamoDB.Types.ParameterizedStatement
+import Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription
+import Amazonka.DynamoDB.Types.PointInTimeRecoverySpecification
+import Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus
+import Amazonka.DynamoDB.Types.Projection
+import Amazonka.DynamoDB.Types.ProjectionType
+import Amazonka.DynamoDB.Types.ProvisionedThroughput
+import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
+import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
+import Amazonka.DynamoDB.Types.Put
+import Amazonka.DynamoDB.Types.PutRequest
+import Amazonka.DynamoDB.Types.Replica
+import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
+import Amazonka.DynamoDB.Types.ReplicaAutoScalingUpdate
+import Amazonka.DynamoDB.Types.ReplicaDescription
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsDescription
+import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
+import Amazonka.DynamoDB.Types.ReplicaSettingsDescription
+import Amazonka.DynamoDB.Types.ReplicaSettingsUpdate
+import Amazonka.DynamoDB.Types.ReplicaStatus
+import Amazonka.DynamoDB.Types.ReplicaUpdate
+import Amazonka.DynamoDB.Types.ReplicationGroupUpdate
+import Amazonka.DynamoDB.Types.RestoreSummary
+import Amazonka.DynamoDB.Types.ReturnConsumedCapacity
+import Amazonka.DynamoDB.Types.ReturnItemCollectionMetrics
+import Amazonka.DynamoDB.Types.ReturnValue
+import Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
+import Amazonka.DynamoDB.Types.S3SseAlgorithm
+import Amazonka.DynamoDB.Types.SSEDescription
+import Amazonka.DynamoDB.Types.SSESpecification
+import Amazonka.DynamoDB.Types.SSEStatus
+import Amazonka.DynamoDB.Types.SSEType
+import Amazonka.DynamoDB.Types.ScalarAttributeType
+import Amazonka.DynamoDB.Types.Select
+import Amazonka.DynamoDB.Types.SourceTableDetails
+import Amazonka.DynamoDB.Types.SourceTableFeatureDetails
+import Amazonka.DynamoDB.Types.StreamSpecification
+import Amazonka.DynamoDB.Types.StreamViewType
+import Amazonka.DynamoDB.Types.TableAutoScalingDescription
+import Amazonka.DynamoDB.Types.TableDescription
+import Amazonka.DynamoDB.Types.TableStatus
+import Amazonka.DynamoDB.Types.Tag
+import Amazonka.DynamoDB.Types.TimeToLiveDescription
+import Amazonka.DynamoDB.Types.TimeToLiveSpecification
+import Amazonka.DynamoDB.Types.TimeToLiveStatus
+import Amazonka.DynamoDB.Types.TransactGetItem
+import Amazonka.DynamoDB.Types.TransactWriteItem
+import Amazonka.DynamoDB.Types.Update
+import Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
+import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction
+import Amazonka.DynamoDB.Types.WriteRequest
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-08-10@ of the Amazon DynamoDB SDK configuration.
 defaultService :: Core.Service

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.ReturnConsumedCapacity
+-- Module      : Amazonka.DynamoDB.Types.ReturnConsumedCapacity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ReturnConsumedCapacity
+module Amazonka.DynamoDB.Types.ReturnConsumedCapacity
   ( ReturnConsumedCapacity
       ( ..,
         ReturnConsumedCapacity_INDEXES,
@@ -27,8 +27,8 @@ module Network.AWS.DynamoDB.Types.ReturnConsumedCapacity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Determines the level of detail about provisioned throughput consumption
 -- that is returned in the response:

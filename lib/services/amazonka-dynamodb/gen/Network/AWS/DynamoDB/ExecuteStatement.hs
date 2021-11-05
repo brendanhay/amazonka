@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.ExecuteStatement
+-- Module      : Amazonka.DynamoDB.ExecuteStatement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- This operation allows you to perform reads and singleton writes on data
 -- stored in DynamoDB, using PartiQL.
-module Network.AWS.DynamoDB.ExecuteStatement
+module Amazonka.DynamoDB.ExecuteStatement
   ( -- * Creating a Request
     ExecuteStatement (..),
     newExecuteStatement,
@@ -44,12 +44,12 @@ module Network.AWS.DynamoDB.ExecuteStatement
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'

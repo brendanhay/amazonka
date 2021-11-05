@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.ContinuousBackupsDescription
+-- Module      : Amazonka.DynamoDB.Types.ContinuousBackupsDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ContinuousBackupsDescription where
+module Amazonka.DynamoDB.Types.ContinuousBackupsDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.ContinuousBackupsStatus
-import Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.ContinuousBackupsStatus
+import Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the continuous backups and point in time recovery settings on
 -- the table.

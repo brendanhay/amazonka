@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DynamoDB
+-- Module      : Amazonka.DynamoDB
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- your data is stored on solid state disks (SSDs) and automatically
 -- replicated across multiple Availability Zones in an AWS region,
 -- providing built-in high availability and data durability.
-module Network.AWS.DynamoDB
+module Amazonka.DynamoDB
   ( -- * Service Configuration
     defaultService,
 
@@ -918,59 +918,59 @@ module Network.AWS.DynamoDB
   )
 where
 
-import Network.AWS.DynamoDB.BatchExecuteStatement
-import Network.AWS.DynamoDB.BatchGetItem
-import Network.AWS.DynamoDB.BatchWriteItem
-import Network.AWS.DynamoDB.CreateBackup
-import Network.AWS.DynamoDB.CreateGlobalTable
-import Network.AWS.DynamoDB.CreateTable
-import Network.AWS.DynamoDB.DeleteBackup
-import Network.AWS.DynamoDB.DeleteItem
-import Network.AWS.DynamoDB.DeleteTable
-import Network.AWS.DynamoDB.DescribeBackup
-import Network.AWS.DynamoDB.DescribeContinuousBackups
-import Network.AWS.DynamoDB.DescribeContributorInsights
-import Network.AWS.DynamoDB.DescribeEndpoints
-import Network.AWS.DynamoDB.DescribeExport
-import Network.AWS.DynamoDB.DescribeGlobalTable
-import Network.AWS.DynamoDB.DescribeGlobalTableSettings
-import Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
-import Network.AWS.DynamoDB.DescribeLimits
-import Network.AWS.DynamoDB.DescribeTable
-import Network.AWS.DynamoDB.DescribeTableReplicaAutoScaling
-import Network.AWS.DynamoDB.DescribeTimeToLive
-import Network.AWS.DynamoDB.DisableKinesisStreamingDestination
-import Network.AWS.DynamoDB.EnableKinesisStreamingDestination
-import Network.AWS.DynamoDB.ExecuteStatement
-import Network.AWS.DynamoDB.ExecuteTransaction
-import Network.AWS.DynamoDB.ExportTableToPointInTime
-import Network.AWS.DynamoDB.GetItem
-import Network.AWS.DynamoDB.Lens
-import Network.AWS.DynamoDB.ListBackups
-import Network.AWS.DynamoDB.ListContributorInsights
-import Network.AWS.DynamoDB.ListExports
-import Network.AWS.DynamoDB.ListGlobalTables
-import Network.AWS.DynamoDB.ListTables
-import Network.AWS.DynamoDB.ListTagsOfResource
-import Network.AWS.DynamoDB.PutItem
-import Network.AWS.DynamoDB.Query
-import Network.AWS.DynamoDB.RestoreTableFromBackup
-import Network.AWS.DynamoDB.RestoreTableToPointInTime
-import Network.AWS.DynamoDB.Scan
-import Network.AWS.DynamoDB.TagResource
-import Network.AWS.DynamoDB.TransactGetItems
-import Network.AWS.DynamoDB.TransactWriteItems
-import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.UntagResource
-import Network.AWS.DynamoDB.UpdateContinuousBackups
-import Network.AWS.DynamoDB.UpdateContributorInsights
-import Network.AWS.DynamoDB.UpdateGlobalTable
-import Network.AWS.DynamoDB.UpdateGlobalTableSettings
-import Network.AWS.DynamoDB.UpdateItem
-import Network.AWS.DynamoDB.UpdateTable
-import Network.AWS.DynamoDB.UpdateTableReplicaAutoScaling
-import Network.AWS.DynamoDB.UpdateTimeToLive
-import Network.AWS.DynamoDB.Waiters
+import Amazonka.DynamoDB.BatchExecuteStatement
+import Amazonka.DynamoDB.BatchGetItem
+import Amazonka.DynamoDB.BatchWriteItem
+import Amazonka.DynamoDB.CreateBackup
+import Amazonka.DynamoDB.CreateGlobalTable
+import Amazonka.DynamoDB.CreateTable
+import Amazonka.DynamoDB.DeleteBackup
+import Amazonka.DynamoDB.DeleteItem
+import Amazonka.DynamoDB.DeleteTable
+import Amazonka.DynamoDB.DescribeBackup
+import Amazonka.DynamoDB.DescribeContinuousBackups
+import Amazonka.DynamoDB.DescribeContributorInsights
+import Amazonka.DynamoDB.DescribeEndpoints
+import Amazonka.DynamoDB.DescribeExport
+import Amazonka.DynamoDB.DescribeGlobalTable
+import Amazonka.DynamoDB.DescribeGlobalTableSettings
+import Amazonka.DynamoDB.DescribeKinesisStreamingDestination
+import Amazonka.DynamoDB.DescribeLimits
+import Amazonka.DynamoDB.DescribeTable
+import Amazonka.DynamoDB.DescribeTableReplicaAutoScaling
+import Amazonka.DynamoDB.DescribeTimeToLive
+import Amazonka.DynamoDB.DisableKinesisStreamingDestination
+import Amazonka.DynamoDB.EnableKinesisStreamingDestination
+import Amazonka.DynamoDB.ExecuteStatement
+import Amazonka.DynamoDB.ExecuteTransaction
+import Amazonka.DynamoDB.ExportTableToPointInTime
+import Amazonka.DynamoDB.GetItem
+import Amazonka.DynamoDB.Lens
+import Amazonka.DynamoDB.ListBackups
+import Amazonka.DynamoDB.ListContributorInsights
+import Amazonka.DynamoDB.ListExports
+import Amazonka.DynamoDB.ListGlobalTables
+import Amazonka.DynamoDB.ListTables
+import Amazonka.DynamoDB.ListTagsOfResource
+import Amazonka.DynamoDB.PutItem
+import Amazonka.DynamoDB.Query
+import Amazonka.DynamoDB.RestoreTableFromBackup
+import Amazonka.DynamoDB.RestoreTableToPointInTime
+import Amazonka.DynamoDB.Scan
+import Amazonka.DynamoDB.TagResource
+import Amazonka.DynamoDB.TransactGetItems
+import Amazonka.DynamoDB.TransactWriteItems
+import Amazonka.DynamoDB.Types
+import Amazonka.DynamoDB.UntagResource
+import Amazonka.DynamoDB.UpdateContinuousBackups
+import Amazonka.DynamoDB.UpdateContributorInsights
+import Amazonka.DynamoDB.UpdateGlobalTable
+import Amazonka.DynamoDB.UpdateGlobalTableSettings
+import Amazonka.DynamoDB.UpdateItem
+import Amazonka.DynamoDB.UpdateTable
+import Amazonka.DynamoDB.UpdateTableReplicaAutoScaling
+import Amazonka.DynamoDB.UpdateTimeToLive
+import Amazonka.DynamoDB.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

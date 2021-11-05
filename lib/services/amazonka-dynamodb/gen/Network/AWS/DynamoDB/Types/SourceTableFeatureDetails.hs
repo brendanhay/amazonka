@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.SourceTableFeatureDetails
+-- Module      : Amazonka.DynamoDB.Types.SourceTableFeatureDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.SourceTableFeatureDetails where
+module Amazonka.DynamoDB.Types.SourceTableFeatureDetails where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexInfo
-import Network.AWS.DynamoDB.Types.LocalSecondaryIndexInfo
-import Network.AWS.DynamoDB.Types.SSEDescription
-import Network.AWS.DynamoDB.Types.StreamSpecification
-import Network.AWS.DynamoDB.Types.TimeToLiveDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
+import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
+import Amazonka.DynamoDB.Types.SSEDescription
+import Amazonka.DynamoDB.Types.StreamSpecification
+import Amazonka.DynamoDB.Types.TimeToLiveDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of the features enabled on the table when the
 -- backup was created. For example, LSIs, GSIs, streams, TTL.

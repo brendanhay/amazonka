@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.BackupSummary
+-- Module      : Amazonka.DynamoDB.Types.BackupSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BackupSummary where
+module Amazonka.DynamoDB.Types.BackupSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.BackupStatus
-import Network.AWS.DynamoDB.Types.BackupType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.BackupStatus
+import Amazonka.DynamoDB.Types.BackupType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details for the backup.
 --

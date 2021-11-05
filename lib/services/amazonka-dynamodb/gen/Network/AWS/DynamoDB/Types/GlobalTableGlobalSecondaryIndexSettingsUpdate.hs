@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
+-- Module      : Amazonka.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate where
+module Amazonka.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the settings of a global secondary index for a global table
 -- that will be modified.

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDB.Types.KeySchemaElement
+-- Module      : Amazonka.DynamoDB.Types.KeySchemaElement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.KeySchemaElement where
+module Amazonka.DynamoDB.Types.KeySchemaElement where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDB.Types.KeyType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types.KeyType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key

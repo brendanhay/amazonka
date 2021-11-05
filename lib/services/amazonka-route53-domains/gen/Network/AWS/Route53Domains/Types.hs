@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Domains.Types
+-- Module      : Amazonka.Route53Domains.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types
+module Amazonka.Route53Domains.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -122,27 +122,27 @@ module Network.AWS.Route53Domains.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53Domains.Types.BillingRecord
-import Network.AWS.Route53Domains.Types.ContactDetail
-import Network.AWS.Route53Domains.Types.ContactType
-import Network.AWS.Route53Domains.Types.CountryCode
-import Network.AWS.Route53Domains.Types.DomainAvailability
-import Network.AWS.Route53Domains.Types.DomainSuggestion
-import Network.AWS.Route53Domains.Types.DomainSummary
-import Network.AWS.Route53Domains.Types.DomainTransferability
-import Network.AWS.Route53Domains.Types.ExtraParam
-import Network.AWS.Route53Domains.Types.ExtraParamName
-import Network.AWS.Route53Domains.Types.Nameserver
-import Network.AWS.Route53Domains.Types.OperationStatus
-import Network.AWS.Route53Domains.Types.OperationSummary
-import Network.AWS.Route53Domains.Types.OperationType
-import Network.AWS.Route53Domains.Types.ReachabilityStatus
-import Network.AWS.Route53Domains.Types.Tag
-import Network.AWS.Route53Domains.Types.Transferable
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53Domains.Types.BillingRecord
+import Amazonka.Route53Domains.Types.ContactDetail
+import Amazonka.Route53Domains.Types.ContactType
+import Amazonka.Route53Domains.Types.CountryCode
+import Amazonka.Route53Domains.Types.DomainAvailability
+import Amazonka.Route53Domains.Types.DomainSuggestion
+import Amazonka.Route53Domains.Types.DomainSummary
+import Amazonka.Route53Domains.Types.DomainTransferability
+import Amazonka.Route53Domains.Types.ExtraParam
+import Amazonka.Route53Domains.Types.ExtraParamName
+import Amazonka.Route53Domains.Types.Nameserver
+import Amazonka.Route53Domains.Types.OperationStatus
+import Amazonka.Route53Domains.Types.OperationSummary
+import Amazonka.Route53Domains.Types.OperationType
+import Amazonka.Route53Domains.Types.ReachabilityStatus
+import Amazonka.Route53Domains.Types.Tag
+import Amazonka.Route53Domains.Types.Transferable
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-05-15@ of the Amazon Route 53 Domains SDK configuration.
 defaultService :: Core.Service

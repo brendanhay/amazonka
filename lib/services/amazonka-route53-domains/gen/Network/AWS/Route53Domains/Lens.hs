@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Domains.Lens
+-- Module      : Amazonka.Route53Domains.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Lens
+module Amazonka.Route53Domains.Lens
   ( -- * Operations
 
     -- ** ListOperations
@@ -284,40 +284,40 @@ module Network.AWS.Route53Domains.Lens
   )
 where
 
-import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
-import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
-import Network.AWS.Route53Domains.CheckDomainAvailability
-import Network.AWS.Route53Domains.CheckDomainTransferability
-import Network.AWS.Route53Domains.DeleteTagsForDomain
-import Network.AWS.Route53Domains.DisableDomainAutoRenew
-import Network.AWS.Route53Domains.DisableDomainTransferLock
-import Network.AWS.Route53Domains.EnableDomainAutoRenew
-import Network.AWS.Route53Domains.EnableDomainTransferLock
-import Network.AWS.Route53Domains.GetContactReachabilityStatus
-import Network.AWS.Route53Domains.GetDomainDetail
-import Network.AWS.Route53Domains.GetDomainSuggestions
-import Network.AWS.Route53Domains.GetOperationDetail
-import Network.AWS.Route53Domains.ListDomains
-import Network.AWS.Route53Domains.ListOperations
-import Network.AWS.Route53Domains.ListTagsForDomain
-import Network.AWS.Route53Domains.RegisterDomain
-import Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
-import Network.AWS.Route53Domains.RenewDomain
-import Network.AWS.Route53Domains.ResendContactReachabilityEmail
-import Network.AWS.Route53Domains.RetrieveDomainAuthCode
-import Network.AWS.Route53Domains.TransferDomain
-import Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
-import Network.AWS.Route53Domains.Types.BillingRecord
-import Network.AWS.Route53Domains.Types.ContactDetail
-import Network.AWS.Route53Domains.Types.DomainSuggestion
-import Network.AWS.Route53Domains.Types.DomainSummary
-import Network.AWS.Route53Domains.Types.DomainTransferability
-import Network.AWS.Route53Domains.Types.ExtraParam
-import Network.AWS.Route53Domains.Types.Nameserver
-import Network.AWS.Route53Domains.Types.OperationSummary
-import Network.AWS.Route53Domains.Types.Tag
-import Network.AWS.Route53Domains.UpdateDomainContact
-import Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-import Network.AWS.Route53Domains.UpdateDomainNameservers
-import Network.AWS.Route53Domains.UpdateTagsForDomain
-import Network.AWS.Route53Domains.ViewBilling
+import Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+import Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
+import Amazonka.Route53Domains.CheckDomainAvailability
+import Amazonka.Route53Domains.CheckDomainTransferability
+import Amazonka.Route53Domains.DeleteTagsForDomain
+import Amazonka.Route53Domains.DisableDomainAutoRenew
+import Amazonka.Route53Domains.DisableDomainTransferLock
+import Amazonka.Route53Domains.EnableDomainAutoRenew
+import Amazonka.Route53Domains.EnableDomainTransferLock
+import Amazonka.Route53Domains.GetContactReachabilityStatus
+import Amazonka.Route53Domains.GetDomainDetail
+import Amazonka.Route53Domains.GetDomainSuggestions
+import Amazonka.Route53Domains.GetOperationDetail
+import Amazonka.Route53Domains.ListDomains
+import Amazonka.Route53Domains.ListOperations
+import Amazonka.Route53Domains.ListTagsForDomain
+import Amazonka.Route53Domains.RegisterDomain
+import Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
+import Amazonka.Route53Domains.RenewDomain
+import Amazonka.Route53Domains.ResendContactReachabilityEmail
+import Amazonka.Route53Domains.RetrieveDomainAuthCode
+import Amazonka.Route53Domains.TransferDomain
+import Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount
+import Amazonka.Route53Domains.Types.BillingRecord
+import Amazonka.Route53Domains.Types.ContactDetail
+import Amazonka.Route53Domains.Types.DomainSuggestion
+import Amazonka.Route53Domains.Types.DomainSummary
+import Amazonka.Route53Domains.Types.DomainTransferability
+import Amazonka.Route53Domains.Types.ExtraParam
+import Amazonka.Route53Domains.Types.Nameserver
+import Amazonka.Route53Domains.Types.OperationSummary
+import Amazonka.Route53Domains.Types.Tag
+import Amazonka.Route53Domains.UpdateDomainContact
+import Amazonka.Route53Domains.UpdateDomainContactPrivacy
+import Amazonka.Route53Domains.UpdateDomainNameservers
+import Amazonka.Route53Domains.UpdateTagsForDomain
+import Amazonka.Route53Domains.ViewBilling

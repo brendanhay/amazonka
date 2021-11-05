@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Domains.RenewDomain
+-- Module      : Amazonka.Route53Domains.RenewDomain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- information about renewing domain registration, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html Renewing Registration for a Domain>
 -- in the /Amazon Route 53 Developer Guide/.
-module Network.AWS.Route53Domains.RenewDomain
+module Amazonka.Route53Domains.RenewDomain
   ( -- * Creating a Request
     RenewDomain (..),
     newRenewDomain,
@@ -49,12 +49,12 @@ module Network.AWS.Route53Domains.RenewDomain
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53Domains.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53Domains.Types
 
 -- | A @RenewDomain@ request includes the number of years that you want to
 -- renew for and the current expiration year.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
+-- Module      : Amazonka.Route53Domains.UpdateDomainNameservers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- to track the progress and completion of the action. If the request is
 -- not completed successfully, the domain registrant will be notified by
 -- email.
-module Network.AWS.Route53Domains.UpdateDomainNameservers
+module Amazonka.Route53Domains.UpdateDomainNameservers
   ( -- * Creating a Request
     UpdateDomainNameservers (..),
     newUpdateDomainNameservers,
@@ -49,12 +49,12 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53Domains.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53Domains.Types
 
 -- | Replaces the current set of name servers for the domain with the
 -- specified set of name servers. If you use Amazon Route 53 as your DNS

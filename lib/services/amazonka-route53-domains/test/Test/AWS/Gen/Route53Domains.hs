@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53Domains where
 
+import Amazonka.Route53Domains
 import qualified Data.Proxy as Proxy
-import Network.AWS.Route53Domains
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Route53Domains.Internal

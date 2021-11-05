@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.DescribeRule
+-- Module      : Amazonka.CloudWatchEvents.DescribeRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- DescribeRule does not list the targets of a rule. To see the targets
 -- associated with a rule, use
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html ListTargetsByRule>.
-module Network.AWS.CloudWatchEvents.DescribeRule
+module Amazonka.CloudWatchEvents.DescribeRule
   ( -- * Creating a Request
     DescribeRule (..),
     newDescribeRule,
@@ -53,12 +53,12 @@ module Network.AWS.CloudWatchEvents.DescribeRule
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRule' smart constructor.
 data DescribeRule = DescribeRule'

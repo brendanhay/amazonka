@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
+-- Module      : Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters where
+module Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters where
 
-import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameter
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | These are custom parameters to use when the target is a SageMaker Model
 -- Building Pipeline that starts based on EventBridge events.

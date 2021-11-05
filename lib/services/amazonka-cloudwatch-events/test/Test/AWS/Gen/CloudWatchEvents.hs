@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudWatchEvents where
 
+import Amazonka.CloudWatchEvents
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudWatchEvents
 import Test.AWS.CloudWatchEvents.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

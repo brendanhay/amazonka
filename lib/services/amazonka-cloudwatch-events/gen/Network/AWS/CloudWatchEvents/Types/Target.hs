@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.Target
+-- Module      : Amazonka.CloudWatchEvents.Types.Target
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.Target where
+module Amazonka.CloudWatchEvents.Types.Target where
 
-import Network.AWS.CloudWatchEvents.Types.BatchParameters
-import Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
-import Network.AWS.CloudWatchEvents.Types.EcsParameters
-import Network.AWS.CloudWatchEvents.Types.HttpParameters
-import Network.AWS.CloudWatchEvents.Types.InputTransformer
-import Network.AWS.CloudWatchEvents.Types.KinesisParameters
-import Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
-import Network.AWS.CloudWatchEvents.Types.RetryPolicy
-import Network.AWS.CloudWatchEvents.Types.RunCommandParameters
-import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
-import Network.AWS.CloudWatchEvents.Types.SqsParameters
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchEvents.Types.BatchParameters
+import Amazonka.CloudWatchEvents.Types.DeadLetterConfig
+import Amazonka.CloudWatchEvents.Types.EcsParameters
+import Amazonka.CloudWatchEvents.Types.HttpParameters
+import Amazonka.CloudWatchEvents.Types.InputTransformer
+import Amazonka.CloudWatchEvents.Types.KinesisParameters
+import Amazonka.CloudWatchEvents.Types.RedshiftDataParameters
+import Amazonka.CloudWatchEvents.Types.RetryPolicy
+import Amazonka.CloudWatchEvents.Types.RunCommandParameters
+import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
+import Amazonka.CloudWatchEvents.Types.SqsParameters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Targets are the resources to be invoked when a rule is triggered. For a
 -- complete list of services and resources that can be set as a target, see

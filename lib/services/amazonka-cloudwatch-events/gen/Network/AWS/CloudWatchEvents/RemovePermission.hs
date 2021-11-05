@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.RemovePermission
+-- Module      : Amazonka.CloudWatchEvents.RemovePermission
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- granted it permission with @PutPermission@. You can find the
 -- @StatementId@ by using
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html DescribeEventBus>.
-module Network.AWS.CloudWatchEvents.RemovePermission
+module Amazonka.CloudWatchEvents.RemovePermission
   ( -- * Creating a Request
     RemovePermission (..),
     newRemovePermission,
@@ -42,12 +42,12 @@ module Network.AWS.CloudWatchEvents.RemovePermission
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'

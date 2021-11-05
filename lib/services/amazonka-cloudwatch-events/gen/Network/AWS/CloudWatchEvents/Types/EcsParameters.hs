@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.EcsParameters
+-- Module      : Amazonka.CloudWatchEvents.Types.EcsParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.EcsParameters where
+module Amazonka.CloudWatchEvents.Types.EcsParameters where
 
-import Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem
-import Network.AWS.CloudWatchEvents.Types.LaunchType
-import Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
-import Network.AWS.CloudWatchEvents.Types.PlacementConstraint
-import Network.AWS.CloudWatchEvents.Types.PlacementStrategy
-import Network.AWS.CloudWatchEvents.Types.PropagateTags
-import Network.AWS.CloudWatchEvents.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchEvents.Types.CapacityProviderStrategyItem
+import Amazonka.CloudWatchEvents.Types.LaunchType
+import Amazonka.CloudWatchEvents.Types.NetworkConfiguration
+import Amazonka.CloudWatchEvents.Types.PlacementConstraint
+import Amazonka.CloudWatchEvents.Types.PlacementStrategy
+import Amazonka.CloudWatchEvents.Types.PropagateTags
+import Amazonka.CloudWatchEvents.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The custom parameters to be used when the target is an Amazon ECS task.
 --

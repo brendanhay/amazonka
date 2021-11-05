@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types
+-- Module      : Amazonka.CloudWatchEvents.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types
+module Amazonka.CloudWatchEvents.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -514,82 +514,82 @@ module Network.AWS.CloudWatchEvents.Types
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types.ApiDestination
-import Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod
-import Network.AWS.CloudWatchEvents.Types.ApiDestinationState
-import Network.AWS.CloudWatchEvents.Types.Archive
-import Network.AWS.CloudWatchEvents.Types.ArchiveState
-import Network.AWS.CloudWatchEvents.Types.AssignPublicIp
-import Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
-import Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
-import Network.AWS.CloudWatchEvents.Types.BatchParameters
-import Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
-import Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem
-import Network.AWS.CloudWatchEvents.Types.Condition
-import Network.AWS.CloudWatchEvents.Types.Connection
-import Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionAuthResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType
-import Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionBodyParameter
-import Network.AWS.CloudWatchEvents.Types.ConnectionHeaderParameter
-import Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
-import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionQueryStringParameter
-import Network.AWS.CloudWatchEvents.Types.ConnectionState
-import Network.AWS.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.CreateConnectionAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters
-import Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
-import Network.AWS.CloudWatchEvents.Types.EcsParameters
-import Network.AWS.CloudWatchEvents.Types.EventBus
-import Network.AWS.CloudWatchEvents.Types.EventSource
-import Network.AWS.CloudWatchEvents.Types.EventSourceState
-import Network.AWS.CloudWatchEvents.Types.HttpParameters
-import Network.AWS.CloudWatchEvents.Types.InputTransformer
-import Network.AWS.CloudWatchEvents.Types.KinesisParameters
-import Network.AWS.CloudWatchEvents.Types.LaunchType
-import Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
-import Network.AWS.CloudWatchEvents.Types.PartnerEventSource
-import Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
-import Network.AWS.CloudWatchEvents.Types.PlacementConstraint
-import Network.AWS.CloudWatchEvents.Types.PlacementConstraintType
-import Network.AWS.CloudWatchEvents.Types.PlacementStrategy
-import Network.AWS.CloudWatchEvents.Types.PlacementStrategyType
-import Network.AWS.CloudWatchEvents.Types.PropagateTags
-import Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
-import Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
-import Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
-import Network.AWS.CloudWatchEvents.Types.PutPartnerEventsResultEntry
-import Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry
-import Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
-import Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry
-import Network.AWS.CloudWatchEvents.Types.Replay
-import Network.AWS.CloudWatchEvents.Types.ReplayDestination
-import Network.AWS.CloudWatchEvents.Types.ReplayState
-import Network.AWS.CloudWatchEvents.Types.RetryPolicy
-import Network.AWS.CloudWatchEvents.Types.Rule
-import Network.AWS.CloudWatchEvents.Types.RuleState
-import Network.AWS.CloudWatchEvents.Types.RunCommandParameters
-import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
-import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameter
-import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
-import Network.AWS.CloudWatchEvents.Types.SqsParameters
-import Network.AWS.CloudWatchEvents.Types.Tag
-import Network.AWS.CloudWatchEvents.Types.Target
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudWatchEvents.Types.ApiDestination
+import Amazonka.CloudWatchEvents.Types.ApiDestinationHttpMethod
+import Amazonka.CloudWatchEvents.Types.ApiDestinationState
+import Amazonka.CloudWatchEvents.Types.Archive
+import Amazonka.CloudWatchEvents.Types.ArchiveState
+import Amazonka.CloudWatchEvents.Types.AssignPublicIp
+import Amazonka.CloudWatchEvents.Types.AwsVpcConfiguration
+import Amazonka.CloudWatchEvents.Types.BatchArrayProperties
+import Amazonka.CloudWatchEvents.Types.BatchParameters
+import Amazonka.CloudWatchEvents.Types.BatchRetryStrategy
+import Amazonka.CloudWatchEvents.Types.CapacityProviderStrategyItem
+import Amazonka.CloudWatchEvents.Types.Condition
+import Amazonka.CloudWatchEvents.Types.Connection
+import Amazonka.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionAuthResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionAuthorizationType
+import Amazonka.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionBodyParameter
+import Amazonka.CloudWatchEvents.Types.ConnectionHeaderParameter
+import Amazonka.CloudWatchEvents.Types.ConnectionHttpParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
+import Amazonka.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionQueryStringParameter
+import Amazonka.CloudWatchEvents.Types.ConnectionState
+import Amazonka.CloudWatchEvents.Types.CreateConnectionApiKeyAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.CreateConnectionAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters
+import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.DeadLetterConfig
+import Amazonka.CloudWatchEvents.Types.EcsParameters
+import Amazonka.CloudWatchEvents.Types.EventBus
+import Amazonka.CloudWatchEvents.Types.EventSource
+import Amazonka.CloudWatchEvents.Types.EventSourceState
+import Amazonka.CloudWatchEvents.Types.HttpParameters
+import Amazonka.CloudWatchEvents.Types.InputTransformer
+import Amazonka.CloudWatchEvents.Types.KinesisParameters
+import Amazonka.CloudWatchEvents.Types.LaunchType
+import Amazonka.CloudWatchEvents.Types.NetworkConfiguration
+import Amazonka.CloudWatchEvents.Types.PartnerEventSource
+import Amazonka.CloudWatchEvents.Types.PartnerEventSourceAccount
+import Amazonka.CloudWatchEvents.Types.PlacementConstraint
+import Amazonka.CloudWatchEvents.Types.PlacementConstraintType
+import Amazonka.CloudWatchEvents.Types.PlacementStrategy
+import Amazonka.CloudWatchEvents.Types.PlacementStrategyType
+import Amazonka.CloudWatchEvents.Types.PropagateTags
+import Amazonka.CloudWatchEvents.Types.PutEventsRequestEntry
+import Amazonka.CloudWatchEvents.Types.PutEventsResultEntry
+import Amazonka.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
+import Amazonka.CloudWatchEvents.Types.PutPartnerEventsResultEntry
+import Amazonka.CloudWatchEvents.Types.PutTargetsResultEntry
+import Amazonka.CloudWatchEvents.Types.RedshiftDataParameters
+import Amazonka.CloudWatchEvents.Types.RemoveTargetsResultEntry
+import Amazonka.CloudWatchEvents.Types.Replay
+import Amazonka.CloudWatchEvents.Types.ReplayDestination
+import Amazonka.CloudWatchEvents.Types.ReplayState
+import Amazonka.CloudWatchEvents.Types.RetryPolicy
+import Amazonka.CloudWatchEvents.Types.Rule
+import Amazonka.CloudWatchEvents.Types.RuleState
+import Amazonka.CloudWatchEvents.Types.RunCommandParameters
+import Amazonka.CloudWatchEvents.Types.RunCommandTarget
+import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
+import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
+import Amazonka.CloudWatchEvents.Types.SqsParameters
+import Amazonka.CloudWatchEvents.Types.Tag
+import Amazonka.CloudWatchEvents.Types.Target
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthClientRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-10-07@ of the Amazon EventBridge SDK configuration.
 defaultService :: Core.Service

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.ListEventBuses
+-- Module      : Amazonka.CloudWatchEvents.ListEventBuses
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Lists all the event buses in your account, including the default event
 -- bus, custom event buses, and partner event buses.
-module Network.AWS.CloudWatchEvents.ListEventBuses
+module Amazonka.CloudWatchEvents.ListEventBuses
   ( -- * Creating a Request
     ListEventBuses (..),
     newListEventBuses,
@@ -43,12 +43,12 @@ module Network.AWS.CloudWatchEvents.ListEventBuses
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventBuses' smart constructor.
 data ListEventBuses = ListEventBuses'

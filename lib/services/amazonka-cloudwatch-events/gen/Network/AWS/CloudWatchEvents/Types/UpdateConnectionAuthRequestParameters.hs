@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters
+-- Module      : Amazonka.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters where
+module Amazonka.CloudWatchEvents.Types.UpdateConnectionAuthRequestParameters where
 
-import Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameters
-import Network.AWS.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchEvents.Types.ConnectionHttpParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionApiKeyAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionBasicAuthRequestParameters
+import Amazonka.CloudWatchEvents.Types.UpdateConnectionOAuthRequestParameters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the additional parameters to use for the connection.
 --

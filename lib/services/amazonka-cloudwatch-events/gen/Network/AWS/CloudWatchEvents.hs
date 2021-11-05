@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents
+-- Module      : Amazonka.CloudWatchEvents
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 --
 -- For more information about the features of Amazon EventBridge, see the
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide Amazon EventBridge User Guide>.
-module Network.AWS.CloudWatchEvents
+module Amazonka.CloudWatchEvents
   ( -- * Service Configuration
     defaultService,
 
@@ -661,60 +661,60 @@ module Network.AWS.CloudWatchEvents
   )
 where
 
-import Network.AWS.CloudWatchEvents.ActivateEventSource
-import Network.AWS.CloudWatchEvents.CancelReplay
-import Network.AWS.CloudWatchEvents.CreateApiDestination
-import Network.AWS.CloudWatchEvents.CreateArchive
-import Network.AWS.CloudWatchEvents.CreateConnection
-import Network.AWS.CloudWatchEvents.CreateEventBus
-import Network.AWS.CloudWatchEvents.CreatePartnerEventSource
-import Network.AWS.CloudWatchEvents.DeactivateEventSource
-import Network.AWS.CloudWatchEvents.DeauthorizeConnection
-import Network.AWS.CloudWatchEvents.DeleteApiDestination
-import Network.AWS.CloudWatchEvents.DeleteArchive
-import Network.AWS.CloudWatchEvents.DeleteConnection
-import Network.AWS.CloudWatchEvents.DeleteEventBus
-import Network.AWS.CloudWatchEvents.DeletePartnerEventSource
-import Network.AWS.CloudWatchEvents.DeleteRule
-import Network.AWS.CloudWatchEvents.DescribeApiDestination
-import Network.AWS.CloudWatchEvents.DescribeArchive
-import Network.AWS.CloudWatchEvents.DescribeConnection
-import Network.AWS.CloudWatchEvents.DescribeEventBus
-import Network.AWS.CloudWatchEvents.DescribeEventSource
-import Network.AWS.CloudWatchEvents.DescribePartnerEventSource
-import Network.AWS.CloudWatchEvents.DescribeReplay
-import Network.AWS.CloudWatchEvents.DescribeRule
-import Network.AWS.CloudWatchEvents.DisableRule
-import Network.AWS.CloudWatchEvents.EnableRule
-import Network.AWS.CloudWatchEvents.Lens
-import Network.AWS.CloudWatchEvents.ListApiDestinations
-import Network.AWS.CloudWatchEvents.ListArchives
-import Network.AWS.CloudWatchEvents.ListConnections
-import Network.AWS.CloudWatchEvents.ListEventBuses
-import Network.AWS.CloudWatchEvents.ListEventSources
-import Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
-import Network.AWS.CloudWatchEvents.ListPartnerEventSources
-import Network.AWS.CloudWatchEvents.ListReplays
-import Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
-import Network.AWS.CloudWatchEvents.ListRules
-import Network.AWS.CloudWatchEvents.ListTagsForResource
-import Network.AWS.CloudWatchEvents.ListTargetsByRule
-import Network.AWS.CloudWatchEvents.PutEvents
-import Network.AWS.CloudWatchEvents.PutPartnerEvents
-import Network.AWS.CloudWatchEvents.PutPermission
-import Network.AWS.CloudWatchEvents.PutRule
-import Network.AWS.CloudWatchEvents.PutTargets
-import Network.AWS.CloudWatchEvents.RemovePermission
-import Network.AWS.CloudWatchEvents.RemoveTargets
-import Network.AWS.CloudWatchEvents.StartReplay
-import Network.AWS.CloudWatchEvents.TagResource
-import Network.AWS.CloudWatchEvents.TestEventPattern
-import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.UntagResource
-import Network.AWS.CloudWatchEvents.UpdateApiDestination
-import Network.AWS.CloudWatchEvents.UpdateArchive
-import Network.AWS.CloudWatchEvents.UpdateConnection
-import Network.AWS.CloudWatchEvents.Waiters
+import Amazonka.CloudWatchEvents.ActivateEventSource
+import Amazonka.CloudWatchEvents.CancelReplay
+import Amazonka.CloudWatchEvents.CreateApiDestination
+import Amazonka.CloudWatchEvents.CreateArchive
+import Amazonka.CloudWatchEvents.CreateConnection
+import Amazonka.CloudWatchEvents.CreateEventBus
+import Amazonka.CloudWatchEvents.CreatePartnerEventSource
+import Amazonka.CloudWatchEvents.DeactivateEventSource
+import Amazonka.CloudWatchEvents.DeauthorizeConnection
+import Amazonka.CloudWatchEvents.DeleteApiDestination
+import Amazonka.CloudWatchEvents.DeleteArchive
+import Amazonka.CloudWatchEvents.DeleteConnection
+import Amazonka.CloudWatchEvents.DeleteEventBus
+import Amazonka.CloudWatchEvents.DeletePartnerEventSource
+import Amazonka.CloudWatchEvents.DeleteRule
+import Amazonka.CloudWatchEvents.DescribeApiDestination
+import Amazonka.CloudWatchEvents.DescribeArchive
+import Amazonka.CloudWatchEvents.DescribeConnection
+import Amazonka.CloudWatchEvents.DescribeEventBus
+import Amazonka.CloudWatchEvents.DescribeEventSource
+import Amazonka.CloudWatchEvents.DescribePartnerEventSource
+import Amazonka.CloudWatchEvents.DescribeReplay
+import Amazonka.CloudWatchEvents.DescribeRule
+import Amazonka.CloudWatchEvents.DisableRule
+import Amazonka.CloudWatchEvents.EnableRule
+import Amazonka.CloudWatchEvents.Lens
+import Amazonka.CloudWatchEvents.ListApiDestinations
+import Amazonka.CloudWatchEvents.ListArchives
+import Amazonka.CloudWatchEvents.ListConnections
+import Amazonka.CloudWatchEvents.ListEventBuses
+import Amazonka.CloudWatchEvents.ListEventSources
+import Amazonka.CloudWatchEvents.ListPartnerEventSourceAccounts
+import Amazonka.CloudWatchEvents.ListPartnerEventSources
+import Amazonka.CloudWatchEvents.ListReplays
+import Amazonka.CloudWatchEvents.ListRuleNamesByTarget
+import Amazonka.CloudWatchEvents.ListRules
+import Amazonka.CloudWatchEvents.ListTagsForResource
+import Amazonka.CloudWatchEvents.ListTargetsByRule
+import Amazonka.CloudWatchEvents.PutEvents
+import Amazonka.CloudWatchEvents.PutPartnerEvents
+import Amazonka.CloudWatchEvents.PutPermission
+import Amazonka.CloudWatchEvents.PutRule
+import Amazonka.CloudWatchEvents.PutTargets
+import Amazonka.CloudWatchEvents.RemovePermission
+import Amazonka.CloudWatchEvents.RemoveTargets
+import Amazonka.CloudWatchEvents.StartReplay
+import Amazonka.CloudWatchEvents.TagResource
+import Amazonka.CloudWatchEvents.TestEventPattern
+import Amazonka.CloudWatchEvents.Types
+import Amazonka.CloudWatchEvents.UntagResource
+import Amazonka.CloudWatchEvents.UpdateApiDestination
+import Amazonka.CloudWatchEvents.UpdateArchive
+import Amazonka.CloudWatchEvents.UpdateConnection
+import Amazonka.CloudWatchEvents.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

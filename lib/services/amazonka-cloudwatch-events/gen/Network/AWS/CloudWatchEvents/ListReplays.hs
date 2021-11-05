@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.ListReplays
+-- Module      : Amazonka.CloudWatchEvents.ListReplays
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists your replays. You can either list all the replays or you can
 -- provide a prefix to match to the replay names. Filter parameters are
 -- exclusive.
-module Network.AWS.CloudWatchEvents.ListReplays
+module Amazonka.CloudWatchEvents.ListReplays
   ( -- * Creating a Request
     ListReplays (..),
     newListReplays,
@@ -46,12 +46,12 @@ module Network.AWS.CloudWatchEvents.ListReplays
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReplays' smart constructor.
 data ListReplays = ListReplays'

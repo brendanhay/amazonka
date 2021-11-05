@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.ListArchives
+-- Module      : Amazonka.CloudWatchEvents.ListArchives
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists your archives. You can either list all the archives or you can
 -- provide a prefix to match to the archive names. Filter parameters are
 -- exclusive.
-module Network.AWS.CloudWatchEvents.ListArchives
+module Amazonka.CloudWatchEvents.ListArchives
   ( -- * Creating a Request
     ListArchives (..),
     newListArchives,
@@ -46,12 +46,12 @@ module Network.AWS.CloudWatchEvents.ListArchives
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListArchives' smart constructor.
 data ListArchives = ListArchives'

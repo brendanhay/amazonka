@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.DeleteRule
+-- Module      : Amazonka.CloudWatchEvents.DeleteRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- Amazon Web Services services to support functionality in those services.
 -- You can delete these rules using the @Force@ option, but you should do
 -- so only if you are sure the other service is not still using that rule.
-module Network.AWS.CloudWatchEvents.DeleteRule
+module Amazonka.CloudWatchEvents.DeleteRule
   ( -- * Creating a Request
     DeleteRule (..),
     newDeleteRule,
@@ -53,12 +53,12 @@ module Network.AWS.CloudWatchEvents.DeleteRule
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatchEvents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'

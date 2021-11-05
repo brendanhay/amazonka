@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
+-- Module      : Amazonka.CloudWatchEvents.Types.ConnectionOAuthResponseParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters where
+module Amazonka.CloudWatchEvents.Types.ConnectionOAuthResponseParameters where
 
-import Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
-import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatchEvents.Types.ConnectionHttpParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
+import Amazonka.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the response parameters when OAuth is specified as the
 -- authorization type.

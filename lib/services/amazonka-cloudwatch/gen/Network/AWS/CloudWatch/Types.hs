@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Types
+-- Module      : Amazonka.CloudWatch.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types
+module Amazonka.CloudWatch.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -315,48 +315,48 @@ module Network.AWS.CloudWatch.Types
   )
 where
 
-import Network.AWS.CloudWatch.Types.AlarmHistoryItem
-import Network.AWS.CloudWatch.Types.AlarmType
-import Network.AWS.CloudWatch.Types.AnomalyDetector
-import Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
-import Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
-import Network.AWS.CloudWatch.Types.ComparisonOperator
-import Network.AWS.CloudWatch.Types.CompositeAlarm
-import Network.AWS.CloudWatch.Types.DashboardEntry
-import Network.AWS.CloudWatch.Types.DashboardValidationMessage
-import Network.AWS.CloudWatch.Types.Datapoint
-import Network.AWS.CloudWatch.Types.Dimension
-import Network.AWS.CloudWatch.Types.DimensionFilter
-import Network.AWS.CloudWatch.Types.HistoryItemType
-import Network.AWS.CloudWatch.Types.InsightRule
-import Network.AWS.CloudWatch.Types.InsightRuleContributor
-import Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
-import Network.AWS.CloudWatch.Types.InsightRuleMetricDatapoint
-import Network.AWS.CloudWatch.Types.LabelOptions
-import Network.AWS.CloudWatch.Types.MessageData
-import Network.AWS.CloudWatch.Types.Metric
-import Network.AWS.CloudWatch.Types.MetricAlarm
-import Network.AWS.CloudWatch.Types.MetricDataQuery
-import Network.AWS.CloudWatch.Types.MetricDataResult
-import Network.AWS.CloudWatch.Types.MetricDatum
-import Network.AWS.CloudWatch.Types.MetricStat
-import Network.AWS.CloudWatch.Types.MetricStreamEntry
-import Network.AWS.CloudWatch.Types.MetricStreamFilter
-import Network.AWS.CloudWatch.Types.MetricStreamOutputFormat
-import Network.AWS.CloudWatch.Types.PartialFailure
-import Network.AWS.CloudWatch.Types.Range
-import Network.AWS.CloudWatch.Types.RecentlyActive
-import Network.AWS.CloudWatch.Types.ScanBy
-import Network.AWS.CloudWatch.Types.StandardUnit
-import Network.AWS.CloudWatch.Types.StateValue
-import Network.AWS.CloudWatch.Types.Statistic
-import Network.AWS.CloudWatch.Types.StatisticSet
-import Network.AWS.CloudWatch.Types.StatusCode
-import Network.AWS.CloudWatch.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudWatch.Types.AlarmHistoryItem
+import Amazonka.CloudWatch.Types.AlarmType
+import Amazonka.CloudWatch.Types.AnomalyDetector
+import Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
+import Amazonka.CloudWatch.Types.AnomalyDetectorStateValue
+import Amazonka.CloudWatch.Types.ComparisonOperator
+import Amazonka.CloudWatch.Types.CompositeAlarm
+import Amazonka.CloudWatch.Types.DashboardEntry
+import Amazonka.CloudWatch.Types.DashboardValidationMessage
+import Amazonka.CloudWatch.Types.Datapoint
+import Amazonka.CloudWatch.Types.Dimension
+import Amazonka.CloudWatch.Types.DimensionFilter
+import Amazonka.CloudWatch.Types.HistoryItemType
+import Amazonka.CloudWatch.Types.InsightRule
+import Amazonka.CloudWatch.Types.InsightRuleContributor
+import Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
+import Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
+import Amazonka.CloudWatch.Types.LabelOptions
+import Amazonka.CloudWatch.Types.MessageData
+import Amazonka.CloudWatch.Types.Metric
+import Amazonka.CloudWatch.Types.MetricAlarm
+import Amazonka.CloudWatch.Types.MetricDataQuery
+import Amazonka.CloudWatch.Types.MetricDataResult
+import Amazonka.CloudWatch.Types.MetricDatum
+import Amazonka.CloudWatch.Types.MetricStat
+import Amazonka.CloudWatch.Types.MetricStreamEntry
+import Amazonka.CloudWatch.Types.MetricStreamFilter
+import Amazonka.CloudWatch.Types.MetricStreamOutputFormat
+import Amazonka.CloudWatch.Types.PartialFailure
+import Amazonka.CloudWatch.Types.Range
+import Amazonka.CloudWatch.Types.RecentlyActive
+import Amazonka.CloudWatch.Types.ScanBy
+import Amazonka.CloudWatch.Types.StandardUnit
+import Amazonka.CloudWatch.Types.StateValue
+import Amazonka.CloudWatch.Types.Statistic
+import Amazonka.CloudWatch.Types.StatisticSet
+import Amazonka.CloudWatch.Types.StatusCode
+import Amazonka.CloudWatch.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-08-01@ of the Amazon CloudWatch SDK configuration.
 defaultService :: Core.Service

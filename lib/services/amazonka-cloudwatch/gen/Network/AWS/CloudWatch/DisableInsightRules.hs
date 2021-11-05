@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.DisableInsightRules
+-- Module      : Amazonka.CloudWatch.DisableInsightRules
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Disables the specified Contributor Insights rules. When rules are
 -- disabled, they do not analyze log groups and do not incur costs.
-module Network.AWS.CloudWatch.DisableInsightRules
+module Amazonka.CloudWatch.DisableInsightRules
   ( -- * Creating a Request
     DisableInsightRules (..),
     newDisableInsightRules,
@@ -40,12 +40,12 @@ module Network.AWS.CloudWatch.DisableInsightRules
   )
 where
 
-import Network.AWS.CloudWatch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisableInsightRules' smart constructor.
 data DisableInsightRules = DisableInsightRules'

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Types.AnomalyDetector
+-- Module      : Amazonka.CloudWatch.Types.AnomalyDetector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.AnomalyDetector where
+module Amazonka.CloudWatch.Types.AnomalyDetector where
 
-import Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
-import Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
-import Network.AWS.CloudWatch.Types.Dimension
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
+import Amazonka.CloudWatch.Types.AnomalyDetectorStateValue
+import Amazonka.CloudWatch.Types.Dimension
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An anomaly detection model associated with a particular CloudWatch
 -- metric and statistic. You can use the model to display a band of

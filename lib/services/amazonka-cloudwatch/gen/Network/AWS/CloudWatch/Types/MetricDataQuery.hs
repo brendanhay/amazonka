@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Types.MetricDataQuery
+-- Module      : Amazonka.CloudWatch.Types.MetricDataQuery
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.MetricDataQuery where
+module Amazonka.CloudWatch.Types.MetricDataQuery where
 
-import Network.AWS.CloudWatch.Types.MetricStat
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatch.Types.MetricStat
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This structure is used in both @GetMetricData@ and @PutMetricAlarm@. The
 -- supported use of this structure is different for those two operations.

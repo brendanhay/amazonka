@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Types.MetricStreamEntry
+-- Module      : Amazonka.CloudWatch.Types.MetricStreamEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.MetricStreamEntry where
+module Amazonka.CloudWatch.Types.MetricStreamEntry where
 
-import Network.AWS.CloudWatch.Types.MetricStreamOutputFormat
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatch.Types.MetricStreamOutputFormat
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This structure contains the configuration information about one metric
 -- stream.

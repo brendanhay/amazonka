@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Types.MetricAlarm
+-- Module      : Amazonka.CloudWatch.Types.MetricAlarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.MetricAlarm where
+module Amazonka.CloudWatch.Types.MetricAlarm where
 
-import Network.AWS.CloudWatch.Types.ComparisonOperator
-import Network.AWS.CloudWatch.Types.Dimension
-import Network.AWS.CloudWatch.Types.MetricDataQuery
-import Network.AWS.CloudWatch.Types.StandardUnit
-import Network.AWS.CloudWatch.Types.StateValue
-import Network.AWS.CloudWatch.Types.Statistic
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudWatch.Types.ComparisonOperator
+import Amazonka.CloudWatch.Types.Dimension
+import Amazonka.CloudWatch.Types.MetricDataQuery
+import Amazonka.CloudWatch.Types.StandardUnit
+import Amazonka.CloudWatch.Types.StateValue
+import Amazonka.CloudWatch.Types.Statistic
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details about a metric alarm.
 --

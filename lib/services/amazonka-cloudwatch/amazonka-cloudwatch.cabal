@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudWatch.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudWatch.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudWatch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudWatch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,86 +45,86 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudWatch
-    Network.AWS.CloudWatch.DeleteAlarms
-    Network.AWS.CloudWatch.DeleteAnomalyDetector
-    Network.AWS.CloudWatch.DeleteDashboards
-    Network.AWS.CloudWatch.DeleteInsightRules
-    Network.AWS.CloudWatch.DeleteMetricStream
-    Network.AWS.CloudWatch.DescribeAlarmHistory
-    Network.AWS.CloudWatch.DescribeAlarms
-    Network.AWS.CloudWatch.DescribeAlarmsForMetric
-    Network.AWS.CloudWatch.DescribeAnomalyDetectors
-    Network.AWS.CloudWatch.DescribeInsightRules
-    Network.AWS.CloudWatch.DisableAlarmActions
-    Network.AWS.CloudWatch.DisableInsightRules
-    Network.AWS.CloudWatch.EnableAlarmActions
-    Network.AWS.CloudWatch.EnableInsightRules
-    Network.AWS.CloudWatch.GetDashboard
-    Network.AWS.CloudWatch.GetInsightRuleReport
-    Network.AWS.CloudWatch.GetMetricData
-    Network.AWS.CloudWatch.GetMetricStatistics
-    Network.AWS.CloudWatch.GetMetricStream
-    Network.AWS.CloudWatch.GetMetricWidgetImage
-    Network.AWS.CloudWatch.Lens
-    Network.AWS.CloudWatch.ListDashboards
-    Network.AWS.CloudWatch.ListMetrics
-    Network.AWS.CloudWatch.ListMetricStreams
-    Network.AWS.CloudWatch.ListTagsForResource
-    Network.AWS.CloudWatch.PutAnomalyDetector
-    Network.AWS.CloudWatch.PutCompositeAlarm
-    Network.AWS.CloudWatch.PutDashboard
-    Network.AWS.CloudWatch.PutInsightRule
-    Network.AWS.CloudWatch.PutMetricAlarm
-    Network.AWS.CloudWatch.PutMetricData
-    Network.AWS.CloudWatch.PutMetricStream
-    Network.AWS.CloudWatch.SetAlarmState
-    Network.AWS.CloudWatch.StartMetricStreams
-    Network.AWS.CloudWatch.StopMetricStreams
-    Network.AWS.CloudWatch.TagResource
-    Network.AWS.CloudWatch.Types
-    Network.AWS.CloudWatch.Types.AlarmHistoryItem
-    Network.AWS.CloudWatch.Types.AlarmType
-    Network.AWS.CloudWatch.Types.AnomalyDetector
-    Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
-    Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
-    Network.AWS.CloudWatch.Types.ComparisonOperator
-    Network.AWS.CloudWatch.Types.CompositeAlarm
-    Network.AWS.CloudWatch.Types.DashboardEntry
-    Network.AWS.CloudWatch.Types.DashboardValidationMessage
-    Network.AWS.CloudWatch.Types.Datapoint
-    Network.AWS.CloudWatch.Types.Dimension
-    Network.AWS.CloudWatch.Types.DimensionFilter
-    Network.AWS.CloudWatch.Types.HistoryItemType
-    Network.AWS.CloudWatch.Types.InsightRule
-    Network.AWS.CloudWatch.Types.InsightRuleContributor
-    Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
-    Network.AWS.CloudWatch.Types.InsightRuleMetricDatapoint
-    Network.AWS.CloudWatch.Types.LabelOptions
-    Network.AWS.CloudWatch.Types.MessageData
-    Network.AWS.CloudWatch.Types.Metric
-    Network.AWS.CloudWatch.Types.MetricAlarm
-    Network.AWS.CloudWatch.Types.MetricDataQuery
-    Network.AWS.CloudWatch.Types.MetricDataResult
-    Network.AWS.CloudWatch.Types.MetricDatum
-    Network.AWS.CloudWatch.Types.MetricStat
-    Network.AWS.CloudWatch.Types.MetricStreamEntry
-    Network.AWS.CloudWatch.Types.MetricStreamFilter
-    Network.AWS.CloudWatch.Types.MetricStreamOutputFormat
-    Network.AWS.CloudWatch.Types.PartialFailure
-    Network.AWS.CloudWatch.Types.Range
-    Network.AWS.CloudWatch.Types.RecentlyActive
-    Network.AWS.CloudWatch.Types.ScanBy
-    Network.AWS.CloudWatch.Types.StandardUnit
-    Network.AWS.CloudWatch.Types.StateValue
-    Network.AWS.CloudWatch.Types.Statistic
-    Network.AWS.CloudWatch.Types.StatisticSet
-    Network.AWS.CloudWatch.Types.StatusCode
-    Network.AWS.CloudWatch.Types.Tag
-    Network.AWS.CloudWatch.UntagResource
-    Network.AWS.CloudWatch.Waiters
+    Amazonka.CloudWatch
+    Amazonka.CloudWatch.DeleteAlarms
+    Amazonka.CloudWatch.DeleteAnomalyDetector
+    Amazonka.CloudWatch.DeleteDashboards
+    Amazonka.CloudWatch.DeleteInsightRules
+    Amazonka.CloudWatch.DeleteMetricStream
+    Amazonka.CloudWatch.DescribeAlarmHistory
+    Amazonka.CloudWatch.DescribeAlarms
+    Amazonka.CloudWatch.DescribeAlarmsForMetric
+    Amazonka.CloudWatch.DescribeAnomalyDetectors
+    Amazonka.CloudWatch.DescribeInsightRules
+    Amazonka.CloudWatch.DisableAlarmActions
+    Amazonka.CloudWatch.DisableInsightRules
+    Amazonka.CloudWatch.EnableAlarmActions
+    Amazonka.CloudWatch.EnableInsightRules
+    Amazonka.CloudWatch.GetDashboard
+    Amazonka.CloudWatch.GetInsightRuleReport
+    Amazonka.CloudWatch.GetMetricData
+    Amazonka.CloudWatch.GetMetricStatistics
+    Amazonka.CloudWatch.GetMetricStream
+    Amazonka.CloudWatch.GetMetricWidgetImage
+    Amazonka.CloudWatch.Lens
+    Amazonka.CloudWatch.ListDashboards
+    Amazonka.CloudWatch.ListMetrics
+    Amazonka.CloudWatch.ListMetricStreams
+    Amazonka.CloudWatch.ListTagsForResource
+    Amazonka.CloudWatch.PutAnomalyDetector
+    Amazonka.CloudWatch.PutCompositeAlarm
+    Amazonka.CloudWatch.PutDashboard
+    Amazonka.CloudWatch.PutInsightRule
+    Amazonka.CloudWatch.PutMetricAlarm
+    Amazonka.CloudWatch.PutMetricData
+    Amazonka.CloudWatch.PutMetricStream
+    Amazonka.CloudWatch.SetAlarmState
+    Amazonka.CloudWatch.StartMetricStreams
+    Amazonka.CloudWatch.StopMetricStreams
+    Amazonka.CloudWatch.TagResource
+    Amazonka.CloudWatch.Types
+    Amazonka.CloudWatch.Types.AlarmHistoryItem
+    Amazonka.CloudWatch.Types.AlarmType
+    Amazonka.CloudWatch.Types.AnomalyDetector
+    Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
+    Amazonka.CloudWatch.Types.AnomalyDetectorStateValue
+    Amazonka.CloudWatch.Types.ComparisonOperator
+    Amazonka.CloudWatch.Types.CompositeAlarm
+    Amazonka.CloudWatch.Types.DashboardEntry
+    Amazonka.CloudWatch.Types.DashboardValidationMessage
+    Amazonka.CloudWatch.Types.Datapoint
+    Amazonka.CloudWatch.Types.Dimension
+    Amazonka.CloudWatch.Types.DimensionFilter
+    Amazonka.CloudWatch.Types.HistoryItemType
+    Amazonka.CloudWatch.Types.InsightRule
+    Amazonka.CloudWatch.Types.InsightRuleContributor
+    Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
+    Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
+    Amazonka.CloudWatch.Types.LabelOptions
+    Amazonka.CloudWatch.Types.MessageData
+    Amazonka.CloudWatch.Types.Metric
+    Amazonka.CloudWatch.Types.MetricAlarm
+    Amazonka.CloudWatch.Types.MetricDataQuery
+    Amazonka.CloudWatch.Types.MetricDataResult
+    Amazonka.CloudWatch.Types.MetricDatum
+    Amazonka.CloudWatch.Types.MetricStat
+    Amazonka.CloudWatch.Types.MetricStreamEntry
+    Amazonka.CloudWatch.Types.MetricStreamFilter
+    Amazonka.CloudWatch.Types.MetricStreamOutputFormat
+    Amazonka.CloudWatch.Types.PartialFailure
+    Amazonka.CloudWatch.Types.Range
+    Amazonka.CloudWatch.Types.RecentlyActive
+    Amazonka.CloudWatch.Types.ScanBy
+    Amazonka.CloudWatch.Types.StandardUnit
+    Amazonka.CloudWatch.Types.StateValue
+    Amazonka.CloudWatch.Types.Statistic
+    Amazonka.CloudWatch.Types.StatisticSet
+    Amazonka.CloudWatch.Types.StatusCode
+    Amazonka.CloudWatch.Types.Tag
+    Amazonka.CloudWatch.UntagResource
+    Amazonka.CloudWatch.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

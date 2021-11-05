@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.GetDashboard
+-- Module      : Amazonka.CloudWatch.GetDashboard
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- To copy an existing dashboard, use @GetDashboard@, and then use the data
 -- returned within @DashboardBody@ as the template for the new dashboard
 -- when you call @PutDashboard@ to create the copy.
-module Network.AWS.CloudWatch.GetDashboard
+module Amazonka.CloudWatch.GetDashboard
   ( -- * Creating a Request
     GetDashboard (..),
     newGetDashboard,
@@ -45,12 +45,12 @@ module Network.AWS.CloudWatch.GetDashboard
   )
 where
 
-import Network.AWS.CloudWatch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudWatch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDashboard' smart constructor.
 data GetDashboard = GetDashboard'

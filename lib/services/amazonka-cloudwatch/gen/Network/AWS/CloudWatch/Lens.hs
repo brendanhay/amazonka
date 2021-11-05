@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatch.Lens
+-- Module      : Amazonka.CloudWatch.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Lens
+module Amazonka.CloudWatch.Lens
   ( -- * Operations
 
     -- ** EnableAlarmActions
@@ -501,66 +501,66 @@ module Network.AWS.CloudWatch.Lens
   )
 where
 
-import Network.AWS.CloudWatch.DeleteAlarms
-import Network.AWS.CloudWatch.DeleteAnomalyDetector
-import Network.AWS.CloudWatch.DeleteDashboards
-import Network.AWS.CloudWatch.DeleteInsightRules
-import Network.AWS.CloudWatch.DeleteMetricStream
-import Network.AWS.CloudWatch.DescribeAlarmHistory
-import Network.AWS.CloudWatch.DescribeAlarms
-import Network.AWS.CloudWatch.DescribeAlarmsForMetric
-import Network.AWS.CloudWatch.DescribeAnomalyDetectors
-import Network.AWS.CloudWatch.DescribeInsightRules
-import Network.AWS.CloudWatch.DisableAlarmActions
-import Network.AWS.CloudWatch.DisableInsightRules
-import Network.AWS.CloudWatch.EnableAlarmActions
-import Network.AWS.CloudWatch.EnableInsightRules
-import Network.AWS.CloudWatch.GetDashboard
-import Network.AWS.CloudWatch.GetInsightRuleReport
-import Network.AWS.CloudWatch.GetMetricData
-import Network.AWS.CloudWatch.GetMetricStatistics
-import Network.AWS.CloudWatch.GetMetricStream
-import Network.AWS.CloudWatch.GetMetricWidgetImage
-import Network.AWS.CloudWatch.ListDashboards
-import Network.AWS.CloudWatch.ListMetricStreams
-import Network.AWS.CloudWatch.ListMetrics
-import Network.AWS.CloudWatch.ListTagsForResource
-import Network.AWS.CloudWatch.PutAnomalyDetector
-import Network.AWS.CloudWatch.PutCompositeAlarm
-import Network.AWS.CloudWatch.PutDashboard
-import Network.AWS.CloudWatch.PutInsightRule
-import Network.AWS.CloudWatch.PutMetricAlarm
-import Network.AWS.CloudWatch.PutMetricData
-import Network.AWS.CloudWatch.PutMetricStream
-import Network.AWS.CloudWatch.SetAlarmState
-import Network.AWS.CloudWatch.StartMetricStreams
-import Network.AWS.CloudWatch.StopMetricStreams
-import Network.AWS.CloudWatch.TagResource
-import Network.AWS.CloudWatch.Types.AlarmHistoryItem
-import Network.AWS.CloudWatch.Types.AnomalyDetector
-import Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
-import Network.AWS.CloudWatch.Types.CompositeAlarm
-import Network.AWS.CloudWatch.Types.DashboardEntry
-import Network.AWS.CloudWatch.Types.DashboardValidationMessage
-import Network.AWS.CloudWatch.Types.Datapoint
-import Network.AWS.CloudWatch.Types.Dimension
-import Network.AWS.CloudWatch.Types.DimensionFilter
-import Network.AWS.CloudWatch.Types.InsightRule
-import Network.AWS.CloudWatch.Types.InsightRuleContributor
-import Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
-import Network.AWS.CloudWatch.Types.InsightRuleMetricDatapoint
-import Network.AWS.CloudWatch.Types.LabelOptions
-import Network.AWS.CloudWatch.Types.MessageData
-import Network.AWS.CloudWatch.Types.Metric
-import Network.AWS.CloudWatch.Types.MetricAlarm
-import Network.AWS.CloudWatch.Types.MetricDataQuery
-import Network.AWS.CloudWatch.Types.MetricDataResult
-import Network.AWS.CloudWatch.Types.MetricDatum
-import Network.AWS.CloudWatch.Types.MetricStat
-import Network.AWS.CloudWatch.Types.MetricStreamEntry
-import Network.AWS.CloudWatch.Types.MetricStreamFilter
-import Network.AWS.CloudWatch.Types.PartialFailure
-import Network.AWS.CloudWatch.Types.Range
-import Network.AWS.CloudWatch.Types.StatisticSet
-import Network.AWS.CloudWatch.Types.Tag
-import Network.AWS.CloudWatch.UntagResource
+import Amazonka.CloudWatch.DeleteAlarms
+import Amazonka.CloudWatch.DeleteAnomalyDetector
+import Amazonka.CloudWatch.DeleteDashboards
+import Amazonka.CloudWatch.DeleteInsightRules
+import Amazonka.CloudWatch.DeleteMetricStream
+import Amazonka.CloudWatch.DescribeAlarmHistory
+import Amazonka.CloudWatch.DescribeAlarms
+import Amazonka.CloudWatch.DescribeAlarmsForMetric
+import Amazonka.CloudWatch.DescribeAnomalyDetectors
+import Amazonka.CloudWatch.DescribeInsightRules
+import Amazonka.CloudWatch.DisableAlarmActions
+import Amazonka.CloudWatch.DisableInsightRules
+import Amazonka.CloudWatch.EnableAlarmActions
+import Amazonka.CloudWatch.EnableInsightRules
+import Amazonka.CloudWatch.GetDashboard
+import Amazonka.CloudWatch.GetInsightRuleReport
+import Amazonka.CloudWatch.GetMetricData
+import Amazonka.CloudWatch.GetMetricStatistics
+import Amazonka.CloudWatch.GetMetricStream
+import Amazonka.CloudWatch.GetMetricWidgetImage
+import Amazonka.CloudWatch.ListDashboards
+import Amazonka.CloudWatch.ListMetricStreams
+import Amazonka.CloudWatch.ListMetrics
+import Amazonka.CloudWatch.ListTagsForResource
+import Amazonka.CloudWatch.PutAnomalyDetector
+import Amazonka.CloudWatch.PutCompositeAlarm
+import Amazonka.CloudWatch.PutDashboard
+import Amazonka.CloudWatch.PutInsightRule
+import Amazonka.CloudWatch.PutMetricAlarm
+import Amazonka.CloudWatch.PutMetricData
+import Amazonka.CloudWatch.PutMetricStream
+import Amazonka.CloudWatch.SetAlarmState
+import Amazonka.CloudWatch.StartMetricStreams
+import Amazonka.CloudWatch.StopMetricStreams
+import Amazonka.CloudWatch.TagResource
+import Amazonka.CloudWatch.Types.AlarmHistoryItem
+import Amazonka.CloudWatch.Types.AnomalyDetector
+import Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
+import Amazonka.CloudWatch.Types.CompositeAlarm
+import Amazonka.CloudWatch.Types.DashboardEntry
+import Amazonka.CloudWatch.Types.DashboardValidationMessage
+import Amazonka.CloudWatch.Types.Datapoint
+import Amazonka.CloudWatch.Types.Dimension
+import Amazonka.CloudWatch.Types.DimensionFilter
+import Amazonka.CloudWatch.Types.InsightRule
+import Amazonka.CloudWatch.Types.InsightRuleContributor
+import Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
+import Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
+import Amazonka.CloudWatch.Types.LabelOptions
+import Amazonka.CloudWatch.Types.MessageData
+import Amazonka.CloudWatch.Types.Metric
+import Amazonka.CloudWatch.Types.MetricAlarm
+import Amazonka.CloudWatch.Types.MetricDataQuery
+import Amazonka.CloudWatch.Types.MetricDataResult
+import Amazonka.CloudWatch.Types.MetricDatum
+import Amazonka.CloudWatch.Types.MetricStat
+import Amazonka.CloudWatch.Types.MetricStreamEntry
+import Amazonka.CloudWatch.Types.MetricStreamFilter
+import Amazonka.CloudWatch.Types.PartialFailure
+import Amazonka.CloudWatch.Types.Range
+import Amazonka.CloudWatch.Types.StatisticSet
+import Amazonka.CloudWatch.Types.Tag
+import Amazonka.CloudWatch.UntagResource

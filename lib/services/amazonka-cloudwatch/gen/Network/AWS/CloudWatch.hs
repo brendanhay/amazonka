@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudWatch
+-- Module      : Amazonka.CloudWatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Services, you can monitor your own custom metrics. With CloudWatch, you
 -- gain system-wide visibility into resource utilization, application
 -- performance, and operational health.
-module Network.AWS.CloudWatch
+module Amazonka.CloudWatch
   ( -- * Service Configuration
     defaultService,
 
@@ -447,45 +447,45 @@ module Network.AWS.CloudWatch
   )
 where
 
-import Network.AWS.CloudWatch.DeleteAlarms
-import Network.AWS.CloudWatch.DeleteAnomalyDetector
-import Network.AWS.CloudWatch.DeleteDashboards
-import Network.AWS.CloudWatch.DeleteInsightRules
-import Network.AWS.CloudWatch.DeleteMetricStream
-import Network.AWS.CloudWatch.DescribeAlarmHistory
-import Network.AWS.CloudWatch.DescribeAlarms
-import Network.AWS.CloudWatch.DescribeAlarmsForMetric
-import Network.AWS.CloudWatch.DescribeAnomalyDetectors
-import Network.AWS.CloudWatch.DescribeInsightRules
-import Network.AWS.CloudWatch.DisableAlarmActions
-import Network.AWS.CloudWatch.DisableInsightRules
-import Network.AWS.CloudWatch.EnableAlarmActions
-import Network.AWS.CloudWatch.EnableInsightRules
-import Network.AWS.CloudWatch.GetDashboard
-import Network.AWS.CloudWatch.GetInsightRuleReport
-import Network.AWS.CloudWatch.GetMetricData
-import Network.AWS.CloudWatch.GetMetricStatistics
-import Network.AWS.CloudWatch.GetMetricStream
-import Network.AWS.CloudWatch.GetMetricWidgetImage
-import Network.AWS.CloudWatch.Lens
-import Network.AWS.CloudWatch.ListDashboards
-import Network.AWS.CloudWatch.ListMetricStreams
-import Network.AWS.CloudWatch.ListMetrics
-import Network.AWS.CloudWatch.ListTagsForResource
-import Network.AWS.CloudWatch.PutAnomalyDetector
-import Network.AWS.CloudWatch.PutCompositeAlarm
-import Network.AWS.CloudWatch.PutDashboard
-import Network.AWS.CloudWatch.PutInsightRule
-import Network.AWS.CloudWatch.PutMetricAlarm
-import Network.AWS.CloudWatch.PutMetricData
-import Network.AWS.CloudWatch.PutMetricStream
-import Network.AWS.CloudWatch.SetAlarmState
-import Network.AWS.CloudWatch.StartMetricStreams
-import Network.AWS.CloudWatch.StopMetricStreams
-import Network.AWS.CloudWatch.TagResource
-import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.UntagResource
-import Network.AWS.CloudWatch.Waiters
+import Amazonka.CloudWatch.DeleteAlarms
+import Amazonka.CloudWatch.DeleteAnomalyDetector
+import Amazonka.CloudWatch.DeleteDashboards
+import Amazonka.CloudWatch.DeleteInsightRules
+import Amazonka.CloudWatch.DeleteMetricStream
+import Amazonka.CloudWatch.DescribeAlarmHistory
+import Amazonka.CloudWatch.DescribeAlarms
+import Amazonka.CloudWatch.DescribeAlarmsForMetric
+import Amazonka.CloudWatch.DescribeAnomalyDetectors
+import Amazonka.CloudWatch.DescribeInsightRules
+import Amazonka.CloudWatch.DisableAlarmActions
+import Amazonka.CloudWatch.DisableInsightRules
+import Amazonka.CloudWatch.EnableAlarmActions
+import Amazonka.CloudWatch.EnableInsightRules
+import Amazonka.CloudWatch.GetDashboard
+import Amazonka.CloudWatch.GetInsightRuleReport
+import Amazonka.CloudWatch.GetMetricData
+import Amazonka.CloudWatch.GetMetricStatistics
+import Amazonka.CloudWatch.GetMetricStream
+import Amazonka.CloudWatch.GetMetricWidgetImage
+import Amazonka.CloudWatch.Lens
+import Amazonka.CloudWatch.ListDashboards
+import Amazonka.CloudWatch.ListMetricStreams
+import Amazonka.CloudWatch.ListMetrics
+import Amazonka.CloudWatch.ListTagsForResource
+import Amazonka.CloudWatch.PutAnomalyDetector
+import Amazonka.CloudWatch.PutCompositeAlarm
+import Amazonka.CloudWatch.PutDashboard
+import Amazonka.CloudWatch.PutInsightRule
+import Amazonka.CloudWatch.PutMetricAlarm
+import Amazonka.CloudWatch.PutMetricData
+import Amazonka.CloudWatch.PutMetricStream
+import Amazonka.CloudWatch.SetAlarmState
+import Amazonka.CloudWatch.StartMetricStreams
+import Amazonka.CloudWatch.StopMetricStreams
+import Amazonka.CloudWatch.TagResource
+import Amazonka.CloudWatch.Types
+import Amazonka.CloudWatch.UntagResource
+import Amazonka.CloudWatch.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

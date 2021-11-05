@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.PutRecordBatch
+-- Module      : Amazonka.Firehose.PutRecordBatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -85,7 +85,7 @@
 -- Don\'t concatenate two or more base64 strings to form the data fields of
 -- your records. Instead, concatenate the raw data, then perform base64
 -- encoding.
-module Network.AWS.Firehose.PutRecordBatch
+module Amazonka.Firehose.PutRecordBatch
   ( -- * Creating a Request
     PutRecordBatch (..),
     newPutRecordBatch,
@@ -106,12 +106,12 @@ module Network.AWS.Firehose.PutRecordBatch
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'

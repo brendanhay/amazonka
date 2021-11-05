@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
+-- Module      : Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration where
+module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
-import Network.AWS.Firehose.Types.FailureDescription
-import Network.AWS.Firehose.Types.KeyType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.DeliveryStreamEncryptionStatus
+import Amazonka.Firehose.Types.FailureDescription
+import Amazonka.Firehose.Types.KeyType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the server-side encryption (SSE) status for
 -- the delivery stream, the type customer master key (CMK) in use, if any,

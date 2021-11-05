@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
+-- Module      : Amazonka.Firehose.Types.ElasticsearchDestinationDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchDestinationDescription where
+module Amazonka.Firehose.Types.ElasticsearchDestinationDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
-import Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
-import Network.AWS.Firehose.Types.ElasticsearchRetryOptions
-import Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.S3DestinationDescription
-import Network.AWS.Firehose.Types.VpcConfigurationDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.ElasticsearchBufferingHints
+import Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod
+import Amazonka.Firehose.Types.ElasticsearchRetryOptions
+import Amazonka.Firehose.Types.ElasticsearchS3BackupMode
+import Amazonka.Firehose.Types.ProcessingConfiguration
+import Amazonka.Firehose.Types.S3DestinationDescription
+import Amazonka.Firehose.Types.VpcConfigurationDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The destination description in Amazon ES.
 --

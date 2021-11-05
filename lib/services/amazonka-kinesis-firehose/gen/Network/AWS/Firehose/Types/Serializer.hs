@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.Serializer
+-- Module      : Amazonka.Firehose.Types.Serializer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.Serializer where
+module Amazonka.Firehose.Types.Serializer where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.OrcSerDe
-import Network.AWS.Firehose.Types.ParquetSerDe
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.OrcSerDe
+import Amazonka.Firehose.Types.ParquetSerDe
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The serializer that you want Kinesis Data Firehose to use to convert
 -- data to the target format before writing it to Amazon S3. Kinesis Data

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.ParquetSerDe
+-- Module      : Amazonka.Firehose.Types.ParquetSerDe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ParquetSerDe where
+module Amazonka.Firehose.Types.ParquetSerDe where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.ParquetCompression
-import Network.AWS.Firehose.Types.ParquetWriterVersion
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.ParquetCompression
+import Amazonka.Firehose.Types.ParquetWriterVersion
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A serializer to use for converting data to the Parquet format before
 -- storing it in Amazon S3. For more information, see

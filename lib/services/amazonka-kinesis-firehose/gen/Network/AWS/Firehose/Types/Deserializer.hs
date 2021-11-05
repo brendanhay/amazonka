@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.Deserializer
+-- Module      : Amazonka.Firehose.Types.Deserializer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.Deserializer where
+module Amazonka.Firehose.Types.Deserializer where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.HiveJsonSerDe
-import Network.AWS.Firehose.Types.OpenXJsonSerDe
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.HiveJsonSerDe
+import Amazonka.Firehose.Types.OpenXJsonSerDe
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The deserializer you want Kinesis Data Firehose to use for converting
 -- the input data from JSON. Kinesis Data Firehose then serializes the data

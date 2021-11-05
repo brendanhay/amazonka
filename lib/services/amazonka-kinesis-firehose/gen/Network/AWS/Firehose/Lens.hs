@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Lens
+-- Module      : Amazonka.Firehose.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Lens
+module Amazonka.Firehose.Lens
   ( -- * Operations
 
     -- ** PutRecord
@@ -587,81 +587,81 @@ module Network.AWS.Firehose.Lens
   )
 where
 
-import Network.AWS.Firehose.CreateDeliveryStream
-import Network.AWS.Firehose.DeleteDeliveryStream
-import Network.AWS.Firehose.DescribeDeliveryStream
-import Network.AWS.Firehose.ListDeliveryStreams
-import Network.AWS.Firehose.ListTagsForDeliveryStream
-import Network.AWS.Firehose.PutRecord
-import Network.AWS.Firehose.PutRecordBatch
-import Network.AWS.Firehose.StartDeliveryStreamEncryption
-import Network.AWS.Firehose.StopDeliveryStreamEncryption
-import Network.AWS.Firehose.TagDeliveryStream
-import Network.AWS.Firehose.Types.AmazonopensearchserviceBufferingHints
-import Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationConfiguration
-import Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationDescription
-import Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationUpdate
-import Network.AWS.Firehose.Types.AmazonopensearchserviceRetryOptions
-import Network.AWS.Firehose.Types.BufferingHints
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.CopyCommand
-import Network.AWS.Firehose.Types.DataFormatConversionConfiguration
-import Network.AWS.Firehose.Types.DeliveryStreamDescription
-import Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
-import Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
-import Network.AWS.Firehose.Types.Deserializer
-import Network.AWS.Firehose.Types.DestinationDescription
-import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
-import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
-import Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
-import Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
-import Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate
-import Network.AWS.Firehose.Types.ElasticsearchRetryOptions
-import Network.AWS.Firehose.Types.EncryptionConfiguration
-import Network.AWS.Firehose.Types.ExtendedS3DestinationConfiguration
-import Network.AWS.Firehose.Types.ExtendedS3DestinationDescription
-import Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate
-import Network.AWS.Firehose.Types.FailureDescription
-import Network.AWS.Firehose.Types.HiveJsonSerDe
-import Network.AWS.Firehose.Types.HttpEndpointBufferingHints
-import Network.AWS.Firehose.Types.HttpEndpointCommonAttribute
-import Network.AWS.Firehose.Types.HttpEndpointConfiguration
-import Network.AWS.Firehose.Types.HttpEndpointDescription
-import Network.AWS.Firehose.Types.HttpEndpointDestinationConfiguration
-import Network.AWS.Firehose.Types.HttpEndpointDestinationDescription
-import Network.AWS.Firehose.Types.HttpEndpointDestinationUpdate
-import Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration
-import Network.AWS.Firehose.Types.HttpEndpointRetryOptions
-import Network.AWS.Firehose.Types.InputFormatConfiguration
-import Network.AWS.Firehose.Types.KMSEncryptionConfig
-import Network.AWS.Firehose.Types.KinesisStreamSourceConfiguration
-import Network.AWS.Firehose.Types.KinesisStreamSourceDescription
-import Network.AWS.Firehose.Types.OpenXJsonSerDe
-import Network.AWS.Firehose.Types.OrcSerDe
-import Network.AWS.Firehose.Types.OutputFormatConfiguration
-import Network.AWS.Firehose.Types.ParquetSerDe
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.Processor
-import Network.AWS.Firehose.Types.ProcessorParameter
-import Network.AWS.Firehose.Types.PutRecordBatchResponseEntry
-import Network.AWS.Firehose.Types.Record
-import Network.AWS.Firehose.Types.RedshiftDestinationConfiguration
-import Network.AWS.Firehose.Types.RedshiftDestinationDescription
-import Network.AWS.Firehose.Types.RedshiftDestinationUpdate
-import Network.AWS.Firehose.Types.RedshiftRetryOptions
-import Network.AWS.Firehose.Types.RetryOptions
-import Network.AWS.Firehose.Types.S3DestinationConfiguration
-import Network.AWS.Firehose.Types.S3DestinationDescription
-import Network.AWS.Firehose.Types.S3DestinationUpdate
-import Network.AWS.Firehose.Types.SchemaConfiguration
-import Network.AWS.Firehose.Types.Serializer
-import Network.AWS.Firehose.Types.SourceDescription
-import Network.AWS.Firehose.Types.SplunkDestinationConfiguration
-import Network.AWS.Firehose.Types.SplunkDestinationDescription
-import Network.AWS.Firehose.Types.SplunkDestinationUpdate
-import Network.AWS.Firehose.Types.SplunkRetryOptions
-import Network.AWS.Firehose.Types.Tag
-import Network.AWS.Firehose.Types.VpcConfiguration
-import Network.AWS.Firehose.Types.VpcConfigurationDescription
-import Network.AWS.Firehose.UntagDeliveryStream
-import Network.AWS.Firehose.UpdateDestination
+import Amazonka.Firehose.CreateDeliveryStream
+import Amazonka.Firehose.DeleteDeliveryStream
+import Amazonka.Firehose.DescribeDeliveryStream
+import Amazonka.Firehose.ListDeliveryStreams
+import Amazonka.Firehose.ListTagsForDeliveryStream
+import Amazonka.Firehose.PutRecord
+import Amazonka.Firehose.PutRecordBatch
+import Amazonka.Firehose.StartDeliveryStreamEncryption
+import Amazonka.Firehose.StopDeliveryStreamEncryption
+import Amazonka.Firehose.TagDeliveryStream
+import Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
+import Amazonka.Firehose.Types.AmazonopensearchserviceDestinationConfiguration
+import Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription
+import Amazonka.Firehose.Types.AmazonopensearchserviceDestinationUpdate
+import Amazonka.Firehose.Types.AmazonopensearchserviceRetryOptions
+import Amazonka.Firehose.Types.BufferingHints
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.CopyCommand
+import Amazonka.Firehose.Types.DataFormatConversionConfiguration
+import Amazonka.Firehose.Types.DeliveryStreamDescription
+import Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration
+import Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
+import Amazonka.Firehose.Types.Deserializer
+import Amazonka.Firehose.Types.DestinationDescription
+import Amazonka.Firehose.Types.DynamicPartitioningConfiguration
+import Amazonka.Firehose.Types.ElasticsearchBufferingHints
+import Amazonka.Firehose.Types.ElasticsearchDestinationConfiguration
+import Amazonka.Firehose.Types.ElasticsearchDestinationDescription
+import Amazonka.Firehose.Types.ElasticsearchDestinationUpdate
+import Amazonka.Firehose.Types.ElasticsearchRetryOptions
+import Amazonka.Firehose.Types.EncryptionConfiguration
+import Amazonka.Firehose.Types.ExtendedS3DestinationConfiguration
+import Amazonka.Firehose.Types.ExtendedS3DestinationDescription
+import Amazonka.Firehose.Types.ExtendedS3DestinationUpdate
+import Amazonka.Firehose.Types.FailureDescription
+import Amazonka.Firehose.Types.HiveJsonSerDe
+import Amazonka.Firehose.Types.HttpEndpointBufferingHints
+import Amazonka.Firehose.Types.HttpEndpointCommonAttribute
+import Amazonka.Firehose.Types.HttpEndpointConfiguration
+import Amazonka.Firehose.Types.HttpEndpointDescription
+import Amazonka.Firehose.Types.HttpEndpointDestinationConfiguration
+import Amazonka.Firehose.Types.HttpEndpointDestinationDescription
+import Amazonka.Firehose.Types.HttpEndpointDestinationUpdate
+import Amazonka.Firehose.Types.HttpEndpointRequestConfiguration
+import Amazonka.Firehose.Types.HttpEndpointRetryOptions
+import Amazonka.Firehose.Types.InputFormatConfiguration
+import Amazonka.Firehose.Types.KMSEncryptionConfig
+import Amazonka.Firehose.Types.KinesisStreamSourceConfiguration
+import Amazonka.Firehose.Types.KinesisStreamSourceDescription
+import Amazonka.Firehose.Types.OpenXJsonSerDe
+import Amazonka.Firehose.Types.OrcSerDe
+import Amazonka.Firehose.Types.OutputFormatConfiguration
+import Amazonka.Firehose.Types.ParquetSerDe
+import Amazonka.Firehose.Types.ProcessingConfiguration
+import Amazonka.Firehose.Types.Processor
+import Amazonka.Firehose.Types.ProcessorParameter
+import Amazonka.Firehose.Types.PutRecordBatchResponseEntry
+import Amazonka.Firehose.Types.Record
+import Amazonka.Firehose.Types.RedshiftDestinationConfiguration
+import Amazonka.Firehose.Types.RedshiftDestinationDescription
+import Amazonka.Firehose.Types.RedshiftDestinationUpdate
+import Amazonka.Firehose.Types.RedshiftRetryOptions
+import Amazonka.Firehose.Types.RetryOptions
+import Amazonka.Firehose.Types.S3DestinationConfiguration
+import Amazonka.Firehose.Types.S3DestinationDescription
+import Amazonka.Firehose.Types.S3DestinationUpdate
+import Amazonka.Firehose.Types.SchemaConfiguration
+import Amazonka.Firehose.Types.Serializer
+import Amazonka.Firehose.Types.SourceDescription
+import Amazonka.Firehose.Types.SplunkDestinationConfiguration
+import Amazonka.Firehose.Types.SplunkDestinationDescription
+import Amazonka.Firehose.Types.SplunkDestinationUpdate
+import Amazonka.Firehose.Types.SplunkRetryOptions
+import Amazonka.Firehose.Types.Tag
+import Amazonka.Firehose.Types.VpcConfiguration
+import Amazonka.Firehose.Types.VpcConfigurationDescription
+import Amazonka.Firehose.UntagDeliveryStream
+import Amazonka.Firehose.UpdateDestination

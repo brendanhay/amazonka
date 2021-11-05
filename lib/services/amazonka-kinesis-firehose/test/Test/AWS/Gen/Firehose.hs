@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Firehose where
 
+import Amazonka.Firehose
 import qualified Data.Proxy as Proxy
-import Network.AWS.Firehose
 import Test.AWS.Firehose.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.InputFormatConfiguration
+-- Module      : Amazonka.Firehose.Types.InputFormatConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.InputFormatConfiguration where
+module Amazonka.Firehose.Types.InputFormatConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.Deserializer
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.Deserializer
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the deserializer you want to use to convert the format of the
 -- input data. This parameter is required if @Enabled@ is set to true.

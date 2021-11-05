@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.StopDeliveryStreamEncryption
+-- Module      : Amazonka.Firehose.StopDeliveryStreamEncryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- @StartDeliveryStreamEncryption@ 13 times and
 -- @StopDeliveryStreamEncryption@ 12 times for the same delivery stream in
 -- a 24-hour period.
-module Network.AWS.Firehose.StopDeliveryStreamEncryption
+module Amazonka.Firehose.StopDeliveryStreamEncryption
   ( -- * Creating a Request
     StopDeliveryStreamEncryption (..),
     newStopDeliveryStreamEncryption,
@@ -63,12 +63,12 @@ module Network.AWS.Firehose.StopDeliveryStreamEncryption
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopDeliveryStreamEncryption' smart constructor.
 data StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'

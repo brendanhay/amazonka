@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.ExtendedS3DestinationDescription
+-- Module      : Amazonka.Firehose.Types.ExtendedS3DestinationDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ExtendedS3DestinationDescription where
+module Amazonka.Firehose.Types.ExtendedS3DestinationDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.BufferingHints
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.CompressionFormat
-import Network.AWS.Firehose.Types.DataFormatConversionConfiguration
-import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
-import Network.AWS.Firehose.Types.EncryptionConfiguration
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.S3BackupMode
-import Network.AWS.Firehose.Types.S3DestinationDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.BufferingHints
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.CompressionFormat
+import Amazonka.Firehose.Types.DataFormatConversionConfiguration
+import Amazonka.Firehose.Types.DynamicPartitioningConfiguration
+import Amazonka.Firehose.Types.EncryptionConfiguration
+import Amazonka.Firehose.Types.ProcessingConfiguration
+import Amazonka.Firehose.Types.S3BackupMode
+import Amazonka.Firehose.Types.S3DestinationDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a destination in Amazon S3.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.TagDeliveryStream
+-- Module      : Amazonka.Firehose.TagDeliveryStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- Each delivery stream can have up to 50 tags.
 --
 -- This operation has a limit of five transactions per second per account.
-module Network.AWS.Firehose.TagDeliveryStream
+module Amazonka.Firehose.TagDeliveryStream
   ( -- * Creating a Request
     TagDeliveryStream (..),
     newTagDeliveryStream,
@@ -51,12 +51,12 @@ module Network.AWS.Firehose.TagDeliveryStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagDeliveryStream' smart constructor.
 data TagDeliveryStream = TagDeliveryStream'

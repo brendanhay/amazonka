@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.DeliveryStreamDescription
+-- Module      : Amazonka.Firehose.Types.DeliveryStreamDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamDescription where
+module Amazonka.Firehose.Types.DeliveryStreamDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
-import Network.AWS.Firehose.Types.DeliveryStreamStatus
-import Network.AWS.Firehose.Types.DeliveryStreamType
-import Network.AWS.Firehose.Types.DestinationDescription
-import Network.AWS.Firehose.Types.FailureDescription
-import Network.AWS.Firehose.Types.SourceDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.DeliveryStreamEncryptionConfiguration
+import Amazonka.Firehose.Types.DeliveryStreamStatus
+import Amazonka.Firehose.Types.DeliveryStreamType
+import Amazonka.Firehose.Types.DestinationDescription
+import Amazonka.Firehose.Types.FailureDescription
+import Amazonka.Firehose.Types.SourceDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a delivery stream.
 --

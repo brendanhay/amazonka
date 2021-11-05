@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.DeleteDeliveryStream
+-- Module      : Amazonka.Firehose.DeleteDeliveryStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- respect to delivering the data. Therefore, as a best practice, first
 -- stop any applications that are sending records before you delete a
 -- delivery stream.
-module Network.AWS.Firehose.DeleteDeliveryStream
+module Amazonka.Firehose.DeleteDeliveryStream
   ( -- * Creating a Request
     DeleteDeliveryStream (..),
     newDeleteDeliveryStream,
@@ -52,12 +52,12 @@ module Network.AWS.Firehose.DeleteDeliveryStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDeliveryStream' smart constructor.
 data DeleteDeliveryStream = DeleteDeliveryStream'

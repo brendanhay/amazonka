@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Firehose
+-- Module      : Amazonka.Firehose
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- real-time streaming data to destinations such as Amazon Simple Storage
 -- Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon
 -- Redshift, and Splunk.
-module Network.AWS.Firehose
+module Amazonka.Firehose
   ( -- * Service Configuration
     defaultService,
 
@@ -460,21 +460,21 @@ module Network.AWS.Firehose
   )
 where
 
-import Network.AWS.Firehose.CreateDeliveryStream
-import Network.AWS.Firehose.DeleteDeliveryStream
-import Network.AWS.Firehose.DescribeDeliveryStream
-import Network.AWS.Firehose.Lens
-import Network.AWS.Firehose.ListDeliveryStreams
-import Network.AWS.Firehose.ListTagsForDeliveryStream
-import Network.AWS.Firehose.PutRecord
-import Network.AWS.Firehose.PutRecordBatch
-import Network.AWS.Firehose.StartDeliveryStreamEncryption
-import Network.AWS.Firehose.StopDeliveryStreamEncryption
-import Network.AWS.Firehose.TagDeliveryStream
-import Network.AWS.Firehose.Types
-import Network.AWS.Firehose.UntagDeliveryStream
-import Network.AWS.Firehose.UpdateDestination
-import Network.AWS.Firehose.Waiters
+import Amazonka.Firehose.CreateDeliveryStream
+import Amazonka.Firehose.DeleteDeliveryStream
+import Amazonka.Firehose.DescribeDeliveryStream
+import Amazonka.Firehose.Lens
+import Amazonka.Firehose.ListDeliveryStreams
+import Amazonka.Firehose.ListTagsForDeliveryStream
+import Amazonka.Firehose.PutRecord
+import Amazonka.Firehose.PutRecordBatch
+import Amazonka.Firehose.StartDeliveryStreamEncryption
+import Amazonka.Firehose.StopDeliveryStreamEncryption
+import Amazonka.Firehose.TagDeliveryStream
+import Amazonka.Firehose.Types
+import Amazonka.Firehose.UntagDeliveryStream
+import Amazonka.Firehose.UpdateDestination
+import Amazonka.Firehose.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

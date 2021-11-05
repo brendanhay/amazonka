@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.FailureDescription
+-- Module      : Amazonka.Firehose.Types.FailureDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.FailureDescription where
+module Amazonka.Firehose.Types.FailureDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.DeliveryStreamFailureType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.DeliveryStreamFailureType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,

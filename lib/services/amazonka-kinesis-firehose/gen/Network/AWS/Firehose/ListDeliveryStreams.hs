@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.ListDeliveryStreams
+-- Module      : Amazonka.Firehose.ListDeliveryStreams
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- streams to list, you can request them by calling this operation again
 -- and setting the @ExclusiveStartDeliveryStreamName@ parameter to the name
 -- of the last delivery stream returned in the last call.
-module Network.AWS.Firehose.ListDeliveryStreams
+module Amazonka.Firehose.ListDeliveryStreams
   ( -- * Creating a Request
     ListDeliveryStreams (..),
     newListDeliveryStreams,
@@ -51,12 +51,12 @@ module Network.AWS.Firehose.ListDeliveryStreams
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'

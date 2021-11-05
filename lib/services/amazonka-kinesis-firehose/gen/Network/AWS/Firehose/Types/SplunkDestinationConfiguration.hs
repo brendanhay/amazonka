@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.SplunkDestinationConfiguration
+-- Module      : Amazonka.Firehose.Types.SplunkDestinationConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.SplunkDestinationConfiguration where
+module Amazonka.Firehose.Types.SplunkDestinationConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.HECEndpointType
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.S3DestinationConfiguration
-import Network.AWS.Firehose.Types.SplunkRetryOptions
-import Network.AWS.Firehose.Types.SplunkS3BackupMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.HECEndpointType
+import Amazonka.Firehose.Types.ProcessingConfiguration
+import Amazonka.Firehose.Types.S3DestinationConfiguration
+import Amazonka.Firehose.Types.SplunkRetryOptions
+import Amazonka.Firehose.Types.SplunkS3BackupMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a destination in Splunk.
 --

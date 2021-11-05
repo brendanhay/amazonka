@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate
+-- Module      : Amazonka.Firehose.Types.ElasticsearchDestinationUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate where
+module Amazonka.Firehose.Types.ElasticsearchDestinationUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.ElasticsearchBufferingHints
-import Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
-import Network.AWS.Firehose.Types.ElasticsearchRetryOptions
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.S3DestinationUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.ElasticsearchBufferingHints
+import Amazonka.Firehose.Types.ElasticsearchIndexRotationPeriod
+import Amazonka.Firehose.Types.ElasticsearchRetryOptions
+import Amazonka.Firehose.Types.ProcessingConfiguration
+import Amazonka.Firehose.Types.S3DestinationUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an update for a destination in Amazon ES.
 --

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.S3DestinationConfiguration
+-- Module      : Amazonka.Firehose.Types.S3DestinationConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.S3DestinationConfiguration where
+module Amazonka.Firehose.Types.S3DestinationConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.BufferingHints
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.CompressionFormat
-import Network.AWS.Firehose.Types.EncryptionConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.BufferingHints
+import Amazonka.Firehose.Types.CloudWatchLoggingOptions
+import Amazonka.Firehose.Types.CompressionFormat
+import Amazonka.Firehose.Types.EncryptionConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a destination in Amazon S3.
 --

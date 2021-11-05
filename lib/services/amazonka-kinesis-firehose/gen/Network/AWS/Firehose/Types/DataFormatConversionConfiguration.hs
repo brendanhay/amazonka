@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.DataFormatConversionConfiguration
+-- Module      : Amazonka.Firehose.Types.DataFormatConversionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DataFormatConversionConfiguration where
+module Amazonka.Firehose.Types.DataFormatConversionConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.InputFormatConfiguration
-import Network.AWS.Firehose.Types.OutputFormatConfiguration
-import Network.AWS.Firehose.Types.SchemaConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.InputFormatConfiguration
+import Amazonka.Firehose.Types.OutputFormatConfiguration
+import Amazonka.Firehose.Types.SchemaConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies that you want Kinesis Data Firehose to convert data from the
 -- JSON format to the Parquet or ORC format before writing it to Amazon S3.

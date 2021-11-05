@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
+-- Module      : Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput where
+module Amazonka.Firehose.Types.DeliveryStreamEncryptionConfigurationInput where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Firehose.Types.KeyType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Firehose.Types.KeyType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the type and Amazon Resource Name (ARN) of the CMK to use for
 -- Server-Side Encryption (SSE).

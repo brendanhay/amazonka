@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.UpdateRuleVersion
+-- Module      : Amazonka.FraudDetector.UpdateRuleVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates a rule version resulting in a new rule version. Updates a rule
 -- version resulting in a new rule version (version 1, 2, 3 ...).
-module Network.AWS.FraudDetector.UpdateRuleVersion
+module Amazonka.FraudDetector.UpdateRuleVersion
   ( -- * Creating a Request
     UpdateRuleVersion (..),
     newUpdateRuleVersion,
@@ -45,12 +45,12 @@ module Network.AWS.FraudDetector.UpdateRuleVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRuleVersion' smart constructor.
 data UpdateRuleVersion = UpdateRuleVersion'

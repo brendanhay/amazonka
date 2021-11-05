@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.DeleteEventType
+-- Module      : Amazonka.FraudDetector.DeleteEventType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- When you delete an event type, Amazon Fraud Detector permanently deletes
 -- that event type and the data is no longer stored in Amazon Fraud
 -- Detector.
-module Network.AWS.FraudDetector.DeleteEventType
+module Amazonka.FraudDetector.DeleteEventType
   ( -- * Creating a Request
     DeleteEventType (..),
     newDeleteEventType,
@@ -44,12 +44,12 @@ module Network.AWS.FraudDetector.DeleteEventType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteEventType' smart constructor.
 data DeleteEventType = DeleteEventType'

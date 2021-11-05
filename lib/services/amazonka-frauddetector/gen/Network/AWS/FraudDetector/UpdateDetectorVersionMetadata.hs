@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.UpdateDetectorVersionMetadata
+-- Module      : Amazonka.FraudDetector.UpdateDetectorVersionMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates the detector version\'s description. You can update the metadata
 -- for any detector version (@DRAFT, ACTIVE,@ or @INACTIVE@).
-module Network.AWS.FraudDetector.UpdateDetectorVersionMetadata
+module Amazonka.FraudDetector.UpdateDetectorVersionMetadata
   ( -- * Creating a Request
     UpdateDetectorVersionMetadata (..),
     newUpdateDetectorVersionMetadata,
@@ -41,12 +41,12 @@ module Network.AWS.FraudDetector.UpdateDetectorVersionMetadata
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDetectorVersionMetadata' smart constructor.
 data UpdateDetectorVersionMetadata = UpdateDetectorVersionMetadata'

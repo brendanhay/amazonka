@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FraudDetector where
 
+import Amazonka.FraudDetector
 import qualified Data.Proxy as Proxy
-import Network.AWS.FraudDetector
 import Test.AWS.Fixture
 import Test.AWS.FraudDetector.Internal
 import Test.AWS.Prelude

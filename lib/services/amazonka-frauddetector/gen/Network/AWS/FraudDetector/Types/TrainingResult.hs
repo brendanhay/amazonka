@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.Types.TrainingResult
+-- Module      : Amazonka.FraudDetector.Types.TrainingResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FraudDetector.Types.TrainingResult where
+module Amazonka.FraudDetector.Types.TrainingResult where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types.DataValidationMetrics
-import Network.AWS.FraudDetector.Types.TrainingMetrics
-import Network.AWS.FraudDetector.Types.VariableImportanceMetrics
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types.DataValidationMetrics
+import Amazonka.FraudDetector.Types.TrainingMetrics
+import Amazonka.FraudDetector.Types.VariableImportanceMetrics
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The training result details.
 --

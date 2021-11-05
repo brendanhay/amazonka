@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.UpdateModelVersion
+-- Module      : Amazonka.FraudDetector.UpdateModelVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- data access role attributes using this action. This action creates and
 -- trains a new minor version of the model, for example version 1.01, 1.02,
 -- 1.03.
-module Network.AWS.FraudDetector.UpdateModelVersion
+module Amazonka.FraudDetector.UpdateModelVersion
   ( -- * Creating a Request
     UpdateModelVersion (..),
     newUpdateModelVersion,
@@ -52,12 +52,12 @@ module Network.AWS.FraudDetector.UpdateModelVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateModelVersion' smart constructor.
 data UpdateModelVersion = UpdateModelVersion'

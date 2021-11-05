@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.PutEntityType
+-- Module      : Amazonka.FraudDetector.PutEntityType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- ID to indicate the specific entity who performed the event. An entity
 -- type classifies the entity. Example classifications include customer,
 -- merchant, or account.
-module Network.AWS.FraudDetector.PutEntityType
+module Amazonka.FraudDetector.PutEntityType
   ( -- * Creating a Request
     PutEntityType (..),
     newPutEntityType,
@@ -44,12 +44,12 @@ module Network.AWS.FraudDetector.PutEntityType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutEntityType' smart constructor.
 data PutEntityType = PutEntityType'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FraudDetector.Types
+-- Module      : Amazonka.FraudDetector.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FraudDetector.Types
+module Amazonka.FraudDetector.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -440,68 +440,68 @@ module Network.AWS.FraudDetector.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FraudDetector.Types.AsyncJobStatus
-import Network.AWS.FraudDetector.Types.BatchCreateVariableError
-import Network.AWS.FraudDetector.Types.BatchGetVariableError
-import Network.AWS.FraudDetector.Types.BatchImport
-import Network.AWS.FraudDetector.Types.BatchPrediction
-import Network.AWS.FraudDetector.Types.DataSource
-import Network.AWS.FraudDetector.Types.DataType
-import Network.AWS.FraudDetector.Types.DataValidationMetrics
-import Network.AWS.FraudDetector.Types.Detector
-import Network.AWS.FraudDetector.Types.DetectorVersionStatus
-import Network.AWS.FraudDetector.Types.DetectorVersionSummary
-import Network.AWS.FraudDetector.Types.Entity
-import Network.AWS.FraudDetector.Types.EntityType
-import Network.AWS.FraudDetector.Types.Event
-import Network.AWS.FraudDetector.Types.EventIngestion
-import Network.AWS.FraudDetector.Types.EventType
-import Network.AWS.FraudDetector.Types.ExternalEventsDetail
-import Network.AWS.FraudDetector.Types.ExternalModel
-import Network.AWS.FraudDetector.Types.ExternalModelOutputs
-import Network.AWS.FraudDetector.Types.ExternalModelSummary
-import Network.AWS.FraudDetector.Types.FieldValidationMessage
-import Network.AWS.FraudDetector.Types.FileValidationMessage
-import Network.AWS.FraudDetector.Types.IngestedEventStatistics
-import Network.AWS.FraudDetector.Types.IngestedEventsDetail
-import Network.AWS.FraudDetector.Types.IngestedEventsTimeWindow
-import Network.AWS.FraudDetector.Types.KMSKey
-import Network.AWS.FraudDetector.Types.Label
-import Network.AWS.FraudDetector.Types.LabelSchema
-import Network.AWS.FraudDetector.Types.Language
-import Network.AWS.FraudDetector.Types.LogOddsMetric
-import Network.AWS.FraudDetector.Types.MetricDataPoint
-import Network.AWS.FraudDetector.Types.Model
-import Network.AWS.FraudDetector.Types.ModelEndpointDataBlob
-import Network.AWS.FraudDetector.Types.ModelEndpointStatus
-import Network.AWS.FraudDetector.Types.ModelInputConfiguration
-import Network.AWS.FraudDetector.Types.ModelInputDataFormat
-import Network.AWS.FraudDetector.Types.ModelOutputConfiguration
-import Network.AWS.FraudDetector.Types.ModelOutputDataFormat
-import Network.AWS.FraudDetector.Types.ModelScores
-import Network.AWS.FraudDetector.Types.ModelSource
-import Network.AWS.FraudDetector.Types.ModelTypeEnum
-import Network.AWS.FraudDetector.Types.ModelVersion
-import Network.AWS.FraudDetector.Types.ModelVersionDetail
-import Network.AWS.FraudDetector.Types.ModelVersionStatus
-import Network.AWS.FraudDetector.Types.Outcome
-import Network.AWS.FraudDetector.Types.Rule
-import Network.AWS.FraudDetector.Types.RuleDetail
-import Network.AWS.FraudDetector.Types.RuleExecutionMode
-import Network.AWS.FraudDetector.Types.RuleResult
-import Network.AWS.FraudDetector.Types.Tag
-import Network.AWS.FraudDetector.Types.TrainingDataSchema
-import Network.AWS.FraudDetector.Types.TrainingDataSourceEnum
-import Network.AWS.FraudDetector.Types.TrainingMetrics
-import Network.AWS.FraudDetector.Types.TrainingResult
-import Network.AWS.FraudDetector.Types.UnlabeledEventsTreatment
-import Network.AWS.FraudDetector.Types.Variable
-import Network.AWS.FraudDetector.Types.VariableEntry
-import Network.AWS.FraudDetector.Types.VariableImportanceMetrics
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.FraudDetector.Types.AsyncJobStatus
+import Amazonka.FraudDetector.Types.BatchCreateVariableError
+import Amazonka.FraudDetector.Types.BatchGetVariableError
+import Amazonka.FraudDetector.Types.BatchImport
+import Amazonka.FraudDetector.Types.BatchPrediction
+import Amazonka.FraudDetector.Types.DataSource
+import Amazonka.FraudDetector.Types.DataType
+import Amazonka.FraudDetector.Types.DataValidationMetrics
+import Amazonka.FraudDetector.Types.Detector
+import Amazonka.FraudDetector.Types.DetectorVersionStatus
+import Amazonka.FraudDetector.Types.DetectorVersionSummary
+import Amazonka.FraudDetector.Types.Entity
+import Amazonka.FraudDetector.Types.EntityType
+import Amazonka.FraudDetector.Types.Event
+import Amazonka.FraudDetector.Types.EventIngestion
+import Amazonka.FraudDetector.Types.EventType
+import Amazonka.FraudDetector.Types.ExternalEventsDetail
+import Amazonka.FraudDetector.Types.ExternalModel
+import Amazonka.FraudDetector.Types.ExternalModelOutputs
+import Amazonka.FraudDetector.Types.ExternalModelSummary
+import Amazonka.FraudDetector.Types.FieldValidationMessage
+import Amazonka.FraudDetector.Types.FileValidationMessage
+import Amazonka.FraudDetector.Types.IngestedEventStatistics
+import Amazonka.FraudDetector.Types.IngestedEventsDetail
+import Amazonka.FraudDetector.Types.IngestedEventsTimeWindow
+import Amazonka.FraudDetector.Types.KMSKey
+import Amazonka.FraudDetector.Types.Label
+import Amazonka.FraudDetector.Types.LabelSchema
+import Amazonka.FraudDetector.Types.Language
+import Amazonka.FraudDetector.Types.LogOddsMetric
+import Amazonka.FraudDetector.Types.MetricDataPoint
+import Amazonka.FraudDetector.Types.Model
+import Amazonka.FraudDetector.Types.ModelEndpointDataBlob
+import Amazonka.FraudDetector.Types.ModelEndpointStatus
+import Amazonka.FraudDetector.Types.ModelInputConfiguration
+import Amazonka.FraudDetector.Types.ModelInputDataFormat
+import Amazonka.FraudDetector.Types.ModelOutputConfiguration
+import Amazonka.FraudDetector.Types.ModelOutputDataFormat
+import Amazonka.FraudDetector.Types.ModelScores
+import Amazonka.FraudDetector.Types.ModelSource
+import Amazonka.FraudDetector.Types.ModelTypeEnum
+import Amazonka.FraudDetector.Types.ModelVersion
+import Amazonka.FraudDetector.Types.ModelVersionDetail
+import Amazonka.FraudDetector.Types.ModelVersionStatus
+import Amazonka.FraudDetector.Types.Outcome
+import Amazonka.FraudDetector.Types.Rule
+import Amazonka.FraudDetector.Types.RuleDetail
+import Amazonka.FraudDetector.Types.RuleExecutionMode
+import Amazonka.FraudDetector.Types.RuleResult
+import Amazonka.FraudDetector.Types.Tag
+import Amazonka.FraudDetector.Types.TrainingDataSchema
+import Amazonka.FraudDetector.Types.TrainingDataSourceEnum
+import Amazonka.FraudDetector.Types.TrainingMetrics
+import Amazonka.FraudDetector.Types.TrainingResult
+import Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
+import Amazonka.FraudDetector.Types.Variable
+import Amazonka.FraudDetector.Types.VariableEntry
+import Amazonka.FraudDetector.Types.VariableImportanceMetrics
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-11-15@ of the Amazon Fraud Detector SDK configuration.
 defaultService :: Core.Service

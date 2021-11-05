@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.FraudDetector
+-- Module      : Amazonka.FraudDetector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- actions, data types, and errors. For more information about Amazon Fraud
 -- Detector features, see the
 -- <https://docs.aws.amazon.com/frauddetector/latest/ug/ Amazon Fraud Detector User Guide>.
-module Network.AWS.FraudDetector
+module Amazonka.FraudDetector
   ( -- * Service Configuration
     defaultService,
 
@@ -667,75 +667,75 @@ module Network.AWS.FraudDetector
   )
 where
 
-import Network.AWS.FraudDetector.BatchCreateVariable
-import Network.AWS.FraudDetector.BatchGetVariable
-import Network.AWS.FraudDetector.CancelBatchImportJob
-import Network.AWS.FraudDetector.CancelBatchPredictionJob
-import Network.AWS.FraudDetector.CreateBatchImportJob
-import Network.AWS.FraudDetector.CreateBatchPredictionJob
-import Network.AWS.FraudDetector.CreateDetectorVersion
-import Network.AWS.FraudDetector.CreateModel
-import Network.AWS.FraudDetector.CreateModelVersion
-import Network.AWS.FraudDetector.CreateRule
-import Network.AWS.FraudDetector.CreateVariable
-import Network.AWS.FraudDetector.DeleteBatchImportJob
-import Network.AWS.FraudDetector.DeleteBatchPredictionJob
-import Network.AWS.FraudDetector.DeleteDetector
-import Network.AWS.FraudDetector.DeleteDetectorVersion
-import Network.AWS.FraudDetector.DeleteEntityType
-import Network.AWS.FraudDetector.DeleteEvent
-import Network.AWS.FraudDetector.DeleteEventType
-import Network.AWS.FraudDetector.DeleteEventsByEventType
-import Network.AWS.FraudDetector.DeleteExternalModel
-import Network.AWS.FraudDetector.DeleteLabel
-import Network.AWS.FraudDetector.DeleteModel
-import Network.AWS.FraudDetector.DeleteModelVersion
-import Network.AWS.FraudDetector.DeleteOutcome
-import Network.AWS.FraudDetector.DeleteRule
-import Network.AWS.FraudDetector.DeleteVariable
-import Network.AWS.FraudDetector.DescribeDetector
-import Network.AWS.FraudDetector.DescribeModelVersions
-import Network.AWS.FraudDetector.GetBatchImportJobs
-import Network.AWS.FraudDetector.GetBatchPredictionJobs
-import Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus
-import Network.AWS.FraudDetector.GetDetectorVersion
-import Network.AWS.FraudDetector.GetDetectors
-import Network.AWS.FraudDetector.GetEntityTypes
-import Network.AWS.FraudDetector.GetEvent
-import Network.AWS.FraudDetector.GetEventPrediction
-import Network.AWS.FraudDetector.GetEventTypes
-import Network.AWS.FraudDetector.GetExternalModels
-import Network.AWS.FraudDetector.GetKMSEncryptionKey
-import Network.AWS.FraudDetector.GetLabels
-import Network.AWS.FraudDetector.GetModelVersion
-import Network.AWS.FraudDetector.GetModels
-import Network.AWS.FraudDetector.GetOutcomes
-import Network.AWS.FraudDetector.GetRules
-import Network.AWS.FraudDetector.GetVariables
-import Network.AWS.FraudDetector.Lens
-import Network.AWS.FraudDetector.ListTagsForResource
-import Network.AWS.FraudDetector.PutDetector
-import Network.AWS.FraudDetector.PutEntityType
-import Network.AWS.FraudDetector.PutEventType
-import Network.AWS.FraudDetector.PutExternalModel
-import Network.AWS.FraudDetector.PutKMSEncryptionKey
-import Network.AWS.FraudDetector.PutLabel
-import Network.AWS.FraudDetector.PutOutcome
-import Network.AWS.FraudDetector.SendEvent
-import Network.AWS.FraudDetector.TagResource
-import Network.AWS.FraudDetector.Types
-import Network.AWS.FraudDetector.UntagResource
-import Network.AWS.FraudDetector.UpdateDetectorVersion
-import Network.AWS.FraudDetector.UpdateDetectorVersionMetadata
-import Network.AWS.FraudDetector.UpdateDetectorVersionStatus
-import Network.AWS.FraudDetector.UpdateEventLabel
-import Network.AWS.FraudDetector.UpdateModel
-import Network.AWS.FraudDetector.UpdateModelVersion
-import Network.AWS.FraudDetector.UpdateModelVersionStatus
-import Network.AWS.FraudDetector.UpdateRuleMetadata
-import Network.AWS.FraudDetector.UpdateRuleVersion
-import Network.AWS.FraudDetector.UpdateVariable
-import Network.AWS.FraudDetector.Waiters
+import Amazonka.FraudDetector.BatchCreateVariable
+import Amazonka.FraudDetector.BatchGetVariable
+import Amazonka.FraudDetector.CancelBatchImportJob
+import Amazonka.FraudDetector.CancelBatchPredictionJob
+import Amazonka.FraudDetector.CreateBatchImportJob
+import Amazonka.FraudDetector.CreateBatchPredictionJob
+import Amazonka.FraudDetector.CreateDetectorVersion
+import Amazonka.FraudDetector.CreateModel
+import Amazonka.FraudDetector.CreateModelVersion
+import Amazonka.FraudDetector.CreateRule
+import Amazonka.FraudDetector.CreateVariable
+import Amazonka.FraudDetector.DeleteBatchImportJob
+import Amazonka.FraudDetector.DeleteBatchPredictionJob
+import Amazonka.FraudDetector.DeleteDetector
+import Amazonka.FraudDetector.DeleteDetectorVersion
+import Amazonka.FraudDetector.DeleteEntityType
+import Amazonka.FraudDetector.DeleteEvent
+import Amazonka.FraudDetector.DeleteEventType
+import Amazonka.FraudDetector.DeleteEventsByEventType
+import Amazonka.FraudDetector.DeleteExternalModel
+import Amazonka.FraudDetector.DeleteLabel
+import Amazonka.FraudDetector.DeleteModel
+import Amazonka.FraudDetector.DeleteModelVersion
+import Amazonka.FraudDetector.DeleteOutcome
+import Amazonka.FraudDetector.DeleteRule
+import Amazonka.FraudDetector.DeleteVariable
+import Amazonka.FraudDetector.DescribeDetector
+import Amazonka.FraudDetector.DescribeModelVersions
+import Amazonka.FraudDetector.GetBatchImportJobs
+import Amazonka.FraudDetector.GetBatchPredictionJobs
+import Amazonka.FraudDetector.GetDeleteEventsByEventTypeStatus
+import Amazonka.FraudDetector.GetDetectorVersion
+import Amazonka.FraudDetector.GetDetectors
+import Amazonka.FraudDetector.GetEntityTypes
+import Amazonka.FraudDetector.GetEvent
+import Amazonka.FraudDetector.GetEventPrediction
+import Amazonka.FraudDetector.GetEventTypes
+import Amazonka.FraudDetector.GetExternalModels
+import Amazonka.FraudDetector.GetKMSEncryptionKey
+import Amazonka.FraudDetector.GetLabels
+import Amazonka.FraudDetector.GetModelVersion
+import Amazonka.FraudDetector.GetModels
+import Amazonka.FraudDetector.GetOutcomes
+import Amazonka.FraudDetector.GetRules
+import Amazonka.FraudDetector.GetVariables
+import Amazonka.FraudDetector.Lens
+import Amazonka.FraudDetector.ListTagsForResource
+import Amazonka.FraudDetector.PutDetector
+import Amazonka.FraudDetector.PutEntityType
+import Amazonka.FraudDetector.PutEventType
+import Amazonka.FraudDetector.PutExternalModel
+import Amazonka.FraudDetector.PutKMSEncryptionKey
+import Amazonka.FraudDetector.PutLabel
+import Amazonka.FraudDetector.PutOutcome
+import Amazonka.FraudDetector.SendEvent
+import Amazonka.FraudDetector.TagResource
+import Amazonka.FraudDetector.Types
+import Amazonka.FraudDetector.UntagResource
+import Amazonka.FraudDetector.UpdateDetectorVersion
+import Amazonka.FraudDetector.UpdateDetectorVersionMetadata
+import Amazonka.FraudDetector.UpdateDetectorVersionStatus
+import Amazonka.FraudDetector.UpdateEventLabel
+import Amazonka.FraudDetector.UpdateModel
+import Amazonka.FraudDetector.UpdateModelVersion
+import Amazonka.FraudDetector.UpdateModelVersionStatus
+import Amazonka.FraudDetector.UpdateRuleMetadata
+import Amazonka.FraudDetector.UpdateRuleVersion
+import Amazonka.FraudDetector.UpdateVariable
+import Amazonka.FraudDetector.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

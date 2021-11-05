@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Signer where
 
+import Amazonka.Signer
 import qualified Data.Proxy as Proxy
-import Network.AWS.Signer
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Signer.Internal

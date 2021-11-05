@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Signer
+-- Module      : Amazonka.Signer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 --
 -- For more information about AWS Signer, see the
 -- <http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html AWS Signer Developer Guide>.
-module Network.AWS.Signer
+module Amazonka.Signer
   ( -- * Service Configuration
     defaultService,
 
@@ -287,26 +287,26 @@ module Network.AWS.Signer
   )
 where
 
-import Network.AWS.Signer.AddProfilePermission
-import Network.AWS.Signer.CancelSigningProfile
-import Network.AWS.Signer.DescribeSigningJob
-import Network.AWS.Signer.GetSigningPlatform
-import Network.AWS.Signer.GetSigningProfile
-import Network.AWS.Signer.Lens
-import Network.AWS.Signer.ListProfilePermissions
-import Network.AWS.Signer.ListSigningJobs
-import Network.AWS.Signer.ListSigningPlatforms
-import Network.AWS.Signer.ListSigningProfiles
-import Network.AWS.Signer.ListTagsForResource
-import Network.AWS.Signer.PutSigningProfile
-import Network.AWS.Signer.RemoveProfilePermission
-import Network.AWS.Signer.RevokeSignature
-import Network.AWS.Signer.RevokeSigningProfile
-import Network.AWS.Signer.StartSigningJob
-import Network.AWS.Signer.TagResource
-import Network.AWS.Signer.Types
-import Network.AWS.Signer.UntagResource
-import Network.AWS.Signer.Waiters
+import Amazonka.Signer.AddProfilePermission
+import Amazonka.Signer.CancelSigningProfile
+import Amazonka.Signer.DescribeSigningJob
+import Amazonka.Signer.GetSigningPlatform
+import Amazonka.Signer.GetSigningProfile
+import Amazonka.Signer.Lens
+import Amazonka.Signer.ListProfilePermissions
+import Amazonka.Signer.ListSigningJobs
+import Amazonka.Signer.ListSigningPlatforms
+import Amazonka.Signer.ListSigningProfiles
+import Amazonka.Signer.ListTagsForResource
+import Amazonka.Signer.PutSigningProfile
+import Amazonka.Signer.RemoveProfilePermission
+import Amazonka.Signer.RevokeSignature
+import Amazonka.Signer.RevokeSigningProfile
+import Amazonka.Signer.StartSigningJob
+import Amazonka.Signer.TagResource
+import Amazonka.Signer.Types
+import Amazonka.Signer.UntagResource
+import Amazonka.Signer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

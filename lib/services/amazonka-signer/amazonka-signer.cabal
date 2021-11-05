@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Signer.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Signer.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Signer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Signer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,56 +45,56 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Signer
-    Network.AWS.Signer.AddProfilePermission
-    Network.AWS.Signer.CancelSigningProfile
-    Network.AWS.Signer.DescribeSigningJob
-    Network.AWS.Signer.GetSigningPlatform
-    Network.AWS.Signer.GetSigningProfile
-    Network.AWS.Signer.Lens
-    Network.AWS.Signer.ListProfilePermissions
-    Network.AWS.Signer.ListSigningJobs
-    Network.AWS.Signer.ListSigningPlatforms
-    Network.AWS.Signer.ListSigningProfiles
-    Network.AWS.Signer.ListTagsForResource
-    Network.AWS.Signer.PutSigningProfile
-    Network.AWS.Signer.RemoveProfilePermission
-    Network.AWS.Signer.RevokeSignature
-    Network.AWS.Signer.RevokeSigningProfile
-    Network.AWS.Signer.StartSigningJob
-    Network.AWS.Signer.TagResource
-    Network.AWS.Signer.Types
-    Network.AWS.Signer.Types.Category
-    Network.AWS.Signer.Types.Destination
-    Network.AWS.Signer.Types.EncryptionAlgorithm
-    Network.AWS.Signer.Types.EncryptionAlgorithmOptions
-    Network.AWS.Signer.Types.HashAlgorithm
-    Network.AWS.Signer.Types.HashAlgorithmOptions
-    Network.AWS.Signer.Types.ImageFormat
-    Network.AWS.Signer.Types.Permission
-    Network.AWS.Signer.Types.S3Destination
-    Network.AWS.Signer.Types.S3SignedObject
-    Network.AWS.Signer.Types.S3Source
-    Network.AWS.Signer.Types.SignatureValidityPeriod
-    Network.AWS.Signer.Types.SignedObject
-    Network.AWS.Signer.Types.SigningConfiguration
-    Network.AWS.Signer.Types.SigningConfigurationOverrides
-    Network.AWS.Signer.Types.SigningImageFormat
-    Network.AWS.Signer.Types.SigningJob
-    Network.AWS.Signer.Types.SigningJobRevocationRecord
-    Network.AWS.Signer.Types.SigningMaterial
-    Network.AWS.Signer.Types.SigningPlatform
-    Network.AWS.Signer.Types.SigningPlatformOverrides
-    Network.AWS.Signer.Types.SigningProfile
-    Network.AWS.Signer.Types.SigningProfileRevocationRecord
-    Network.AWS.Signer.Types.SigningProfileStatus
-    Network.AWS.Signer.Types.SigningStatus
-    Network.AWS.Signer.Types.Source
-    Network.AWS.Signer.Types.ValidityType
-    Network.AWS.Signer.UntagResource
-    Network.AWS.Signer.Waiters
+    Amazonka.Signer
+    Amazonka.Signer.AddProfilePermission
+    Amazonka.Signer.CancelSigningProfile
+    Amazonka.Signer.DescribeSigningJob
+    Amazonka.Signer.GetSigningPlatform
+    Amazonka.Signer.GetSigningProfile
+    Amazonka.Signer.Lens
+    Amazonka.Signer.ListProfilePermissions
+    Amazonka.Signer.ListSigningJobs
+    Amazonka.Signer.ListSigningPlatforms
+    Amazonka.Signer.ListSigningProfiles
+    Amazonka.Signer.ListTagsForResource
+    Amazonka.Signer.PutSigningProfile
+    Amazonka.Signer.RemoveProfilePermission
+    Amazonka.Signer.RevokeSignature
+    Amazonka.Signer.RevokeSigningProfile
+    Amazonka.Signer.StartSigningJob
+    Amazonka.Signer.TagResource
+    Amazonka.Signer.Types
+    Amazonka.Signer.Types.Category
+    Amazonka.Signer.Types.Destination
+    Amazonka.Signer.Types.EncryptionAlgorithm
+    Amazonka.Signer.Types.EncryptionAlgorithmOptions
+    Amazonka.Signer.Types.HashAlgorithm
+    Amazonka.Signer.Types.HashAlgorithmOptions
+    Amazonka.Signer.Types.ImageFormat
+    Amazonka.Signer.Types.Permission
+    Amazonka.Signer.Types.S3Destination
+    Amazonka.Signer.Types.S3SignedObject
+    Amazonka.Signer.Types.S3Source
+    Amazonka.Signer.Types.SignatureValidityPeriod
+    Amazonka.Signer.Types.SignedObject
+    Amazonka.Signer.Types.SigningConfiguration
+    Amazonka.Signer.Types.SigningConfigurationOverrides
+    Amazonka.Signer.Types.SigningImageFormat
+    Amazonka.Signer.Types.SigningJob
+    Amazonka.Signer.Types.SigningJobRevocationRecord
+    Amazonka.Signer.Types.SigningMaterial
+    Amazonka.Signer.Types.SigningPlatform
+    Amazonka.Signer.Types.SigningPlatformOverrides
+    Amazonka.Signer.Types.SigningProfile
+    Amazonka.Signer.Types.SigningProfileRevocationRecord
+    Amazonka.Signer.Types.SigningProfileStatus
+    Amazonka.Signer.Types.SigningStatus
+    Amazonka.Signer.Types.Source
+    Amazonka.Signer.Types.ValidityType
+    Amazonka.Signer.UntagResource
+    Amazonka.Signer.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

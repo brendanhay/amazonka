@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Signer.Types
+-- Module      : Amazonka.Signer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Signer.Types
+module Amazonka.Signer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -200,37 +200,37 @@ module Network.AWS.Signer.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Signer.Types.Category
-import Network.AWS.Signer.Types.Destination
-import Network.AWS.Signer.Types.EncryptionAlgorithm
-import Network.AWS.Signer.Types.EncryptionAlgorithmOptions
-import Network.AWS.Signer.Types.HashAlgorithm
-import Network.AWS.Signer.Types.HashAlgorithmOptions
-import Network.AWS.Signer.Types.ImageFormat
-import Network.AWS.Signer.Types.Permission
-import Network.AWS.Signer.Types.S3Destination
-import Network.AWS.Signer.Types.S3SignedObject
-import Network.AWS.Signer.Types.S3Source
-import Network.AWS.Signer.Types.SignatureValidityPeriod
-import Network.AWS.Signer.Types.SignedObject
-import Network.AWS.Signer.Types.SigningConfiguration
-import Network.AWS.Signer.Types.SigningConfigurationOverrides
-import Network.AWS.Signer.Types.SigningImageFormat
-import Network.AWS.Signer.Types.SigningJob
-import Network.AWS.Signer.Types.SigningJobRevocationRecord
-import Network.AWS.Signer.Types.SigningMaterial
-import Network.AWS.Signer.Types.SigningPlatform
-import Network.AWS.Signer.Types.SigningPlatformOverrides
-import Network.AWS.Signer.Types.SigningProfile
-import Network.AWS.Signer.Types.SigningProfileRevocationRecord
-import Network.AWS.Signer.Types.SigningProfileStatus
-import Network.AWS.Signer.Types.SigningStatus
-import Network.AWS.Signer.Types.Source
-import Network.AWS.Signer.Types.ValidityType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Signer.Types.Category
+import Amazonka.Signer.Types.Destination
+import Amazonka.Signer.Types.EncryptionAlgorithm
+import Amazonka.Signer.Types.EncryptionAlgorithmOptions
+import Amazonka.Signer.Types.HashAlgorithm
+import Amazonka.Signer.Types.HashAlgorithmOptions
+import Amazonka.Signer.Types.ImageFormat
+import Amazonka.Signer.Types.Permission
+import Amazonka.Signer.Types.S3Destination
+import Amazonka.Signer.Types.S3SignedObject
+import Amazonka.Signer.Types.S3Source
+import Amazonka.Signer.Types.SignatureValidityPeriod
+import Amazonka.Signer.Types.SignedObject
+import Amazonka.Signer.Types.SigningConfiguration
+import Amazonka.Signer.Types.SigningConfigurationOverrides
+import Amazonka.Signer.Types.SigningImageFormat
+import Amazonka.Signer.Types.SigningJob
+import Amazonka.Signer.Types.SigningJobRevocationRecord
+import Amazonka.Signer.Types.SigningMaterial
+import Amazonka.Signer.Types.SigningPlatform
+import Amazonka.Signer.Types.SigningPlatformOverrides
+import Amazonka.Signer.Types.SigningProfile
+import Amazonka.Signer.Types.SigningProfileRevocationRecord
+import Amazonka.Signer.Types.SigningProfileStatus
+import Amazonka.Signer.Types.SigningStatus
+import Amazonka.Signer.Types.Source
+import Amazonka.Signer.Types.ValidityType
 
 -- | API version @2017-08-25@ of the Amazon Signer SDK configuration.
 defaultService :: Core.Service

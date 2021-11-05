@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Signer.ListSigningProfiles
+-- Module      : Amazonka.Signer.ListSigningProfiles
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- of your signing jobs have been returned.
 --
 -- This operation returns paginated results.
-module Network.AWS.Signer.ListSigningProfiles
+module Amazonka.Signer.ListSigningProfiles
   ( -- * Creating a Request
     ListSigningProfiles (..),
     newListSigningProfiles,
@@ -53,12 +53,12 @@ module Network.AWS.Signer.ListSigningProfiles
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Signer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Signer.Types
 
 -- | /See:/ 'newListSigningProfiles' smart constructor.
 data ListSigningProfiles = ListSigningProfiles'

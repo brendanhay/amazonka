@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Signer.Types.SigningJob
+-- Module      : Amazonka.Signer.Types.SigningJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Signer.Types.SigningJob where
+module Amazonka.Signer.Types.SigningJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Signer.Types.SignedObject
-import Network.AWS.Signer.Types.SigningMaterial
-import Network.AWS.Signer.Types.SigningStatus
-import Network.AWS.Signer.Types.Source
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Signer.Types.SignedObject
+import Amazonka.Signer.Types.SigningMaterial
+import Amazonka.Signer.Types.SigningStatus
+import Amazonka.Signer.Types.Source
 
 -- | Contains information about a signing job.
 --

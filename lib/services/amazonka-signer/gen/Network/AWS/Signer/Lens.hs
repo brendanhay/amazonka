@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Signer.Lens
+-- Module      : Amazonka.Signer.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Signer.Lens
+module Amazonka.Signer.Lens
   ( -- * Operations
 
     -- ** StartSigningJob
@@ -294,40 +294,40 @@ module Network.AWS.Signer.Lens
   )
 where
 
-import Network.AWS.Signer.AddProfilePermission
-import Network.AWS.Signer.CancelSigningProfile
-import Network.AWS.Signer.DescribeSigningJob
-import Network.AWS.Signer.GetSigningPlatform
-import Network.AWS.Signer.GetSigningProfile
-import Network.AWS.Signer.ListProfilePermissions
-import Network.AWS.Signer.ListSigningJobs
-import Network.AWS.Signer.ListSigningPlatforms
-import Network.AWS.Signer.ListSigningProfiles
-import Network.AWS.Signer.ListTagsForResource
-import Network.AWS.Signer.PutSigningProfile
-import Network.AWS.Signer.RemoveProfilePermission
-import Network.AWS.Signer.RevokeSignature
-import Network.AWS.Signer.RevokeSigningProfile
-import Network.AWS.Signer.StartSigningJob
-import Network.AWS.Signer.TagResource
-import Network.AWS.Signer.Types.Destination
-import Network.AWS.Signer.Types.EncryptionAlgorithmOptions
-import Network.AWS.Signer.Types.HashAlgorithmOptions
-import Network.AWS.Signer.Types.Permission
-import Network.AWS.Signer.Types.S3Destination
-import Network.AWS.Signer.Types.S3SignedObject
-import Network.AWS.Signer.Types.S3Source
-import Network.AWS.Signer.Types.SignatureValidityPeriod
-import Network.AWS.Signer.Types.SignedObject
-import Network.AWS.Signer.Types.SigningConfiguration
-import Network.AWS.Signer.Types.SigningConfigurationOverrides
-import Network.AWS.Signer.Types.SigningImageFormat
-import Network.AWS.Signer.Types.SigningJob
-import Network.AWS.Signer.Types.SigningJobRevocationRecord
-import Network.AWS.Signer.Types.SigningMaterial
-import Network.AWS.Signer.Types.SigningPlatform
-import Network.AWS.Signer.Types.SigningPlatformOverrides
-import Network.AWS.Signer.Types.SigningProfile
-import Network.AWS.Signer.Types.SigningProfileRevocationRecord
-import Network.AWS.Signer.Types.Source
-import Network.AWS.Signer.UntagResource
+import Amazonka.Signer.AddProfilePermission
+import Amazonka.Signer.CancelSigningProfile
+import Amazonka.Signer.DescribeSigningJob
+import Amazonka.Signer.GetSigningPlatform
+import Amazonka.Signer.GetSigningProfile
+import Amazonka.Signer.ListProfilePermissions
+import Amazonka.Signer.ListSigningJobs
+import Amazonka.Signer.ListSigningPlatforms
+import Amazonka.Signer.ListSigningProfiles
+import Amazonka.Signer.ListTagsForResource
+import Amazonka.Signer.PutSigningProfile
+import Amazonka.Signer.RemoveProfilePermission
+import Amazonka.Signer.RevokeSignature
+import Amazonka.Signer.RevokeSigningProfile
+import Amazonka.Signer.StartSigningJob
+import Amazonka.Signer.TagResource
+import Amazonka.Signer.Types.Destination
+import Amazonka.Signer.Types.EncryptionAlgorithmOptions
+import Amazonka.Signer.Types.HashAlgorithmOptions
+import Amazonka.Signer.Types.Permission
+import Amazonka.Signer.Types.S3Destination
+import Amazonka.Signer.Types.S3SignedObject
+import Amazonka.Signer.Types.S3Source
+import Amazonka.Signer.Types.SignatureValidityPeriod
+import Amazonka.Signer.Types.SignedObject
+import Amazonka.Signer.Types.SigningConfiguration
+import Amazonka.Signer.Types.SigningConfigurationOverrides
+import Amazonka.Signer.Types.SigningImageFormat
+import Amazonka.Signer.Types.SigningJob
+import Amazonka.Signer.Types.SigningJobRevocationRecord
+import Amazonka.Signer.Types.SigningMaterial
+import Amazonka.Signer.Types.SigningPlatform
+import Amazonka.Signer.Types.SigningPlatformOverrides
+import Amazonka.Signer.Types.SigningProfile
+import Amazonka.Signer.Types.SigningProfileRevocationRecord
+import Amazonka.Signer.Types.Source
+import Amazonka.Signer.UntagResource

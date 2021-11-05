@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Signer.RevokeSigningProfile
+-- Module      : Amazonka.Signer.RevokeSigningProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Changes the state of a signing profile to REVOKED. This indicates that
 -- signatures generated using the signing profile after an effective start
 -- date are no longer valid.
-module Network.AWS.Signer.RevokeSigningProfile
+module Amazonka.Signer.RevokeSigningProfile
   ( -- * Creating a Request
     RevokeSigningProfile (..),
     newRevokeSigningProfile,
@@ -40,12 +40,12 @@ module Network.AWS.Signer.RevokeSigningProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Signer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Signer.Types
 
 -- | /See:/ 'newRevokeSigningProfile' smart constructor.
 data RevokeSigningProfile = RevokeSigningProfile'

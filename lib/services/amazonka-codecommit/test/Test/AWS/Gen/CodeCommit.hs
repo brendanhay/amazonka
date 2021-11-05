@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeCommit where
 
+import Amazonka.CodeCommit
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeCommit
 import Test.AWS.CodeCommit.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

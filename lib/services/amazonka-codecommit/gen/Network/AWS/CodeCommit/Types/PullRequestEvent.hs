@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.Types.PullRequestEvent
+-- Module      : Amazonka.CodeCommit.Types.PullRequestEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.PullRequestEvent where
+module Amazonka.CodeCommit.Types.PullRequestEvent where
 
-import Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
-import Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
-import Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestEventType
-import Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeCommit.Types.ApprovalRuleEventMetadata
+import Amazonka.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
+import Amazonka.CodeCommit.Types.ApprovalStateChangedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestCreatedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestEventType
+import Amazonka.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestStatusChangedEventMetadata
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a pull request event.
 --

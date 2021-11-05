@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.Types.Difference
+-- Module      : Amazonka.CodeCommit.Types.Difference
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.Difference where
+module Amazonka.CodeCommit.Types.Difference where
 
-import Network.AWS.CodeCommit.Types.BlobMetadata
-import Network.AWS.CodeCommit.Types.ChangeTypeEnum
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeCommit.Types.BlobMetadata
+import Amazonka.CodeCommit.Types.ChangeTypeEnum
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a set of differences for a commit specifier.
 --

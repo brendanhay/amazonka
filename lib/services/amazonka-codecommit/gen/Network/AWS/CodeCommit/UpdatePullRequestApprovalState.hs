@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.UpdatePullRequestApprovalState
+-- Module      : Amazonka.CodeCommit.UpdatePullRequestApprovalState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates the state of a user\'s approval on a pull request. The user is
 -- derived from the signed-in account when the request is made.
-module Network.AWS.CodeCommit.UpdatePullRequestApprovalState
+module Amazonka.CodeCommit.UpdatePullRequestApprovalState
   ( -- * Creating a Request
     UpdatePullRequestApprovalState (..),
     newUpdatePullRequestApprovalState,
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.UpdatePullRequestApprovalState
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePullRequestApprovalState' smart constructor.
 data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'

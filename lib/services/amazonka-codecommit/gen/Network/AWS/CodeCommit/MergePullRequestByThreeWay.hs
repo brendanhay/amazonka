@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.MergePullRequestByThreeWay
+-- Module      : Amazonka.CodeCommit.MergePullRequestByThreeWay
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- destination branch for that pull request at the specified commit using
 -- the three-way merge strategy. If the merge is successful, it closes the
 -- pull request.
-module Network.AWS.CodeCommit.MergePullRequestByThreeWay
+module Amazonka.CodeCommit.MergePullRequestByThreeWay
   ( -- * Creating a Request
     MergePullRequestByThreeWay (..),
     newMergePullRequestByThreeWay,
@@ -51,12 +51,12 @@ module Network.AWS.CodeCommit.MergePullRequestByThreeWay
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newMergePullRequestByThreeWay' smart constructor.
 data MergePullRequestByThreeWay = MergePullRequestByThreeWay'

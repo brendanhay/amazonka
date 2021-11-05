@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.ListPullRequests
+-- Module      : Amazonka.CodeCommit.ListPullRequests
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- list can be refined by pull request status or pull request author ARN.
 --
 -- This operation returns paginated results.
-module Network.AWS.CodeCommit.ListPullRequests
+module Amazonka.CodeCommit.ListPullRequests
   ( -- * Creating a Request
     ListPullRequests (..),
     newListPullRequests,
@@ -47,12 +47,12 @@ module Network.AWS.CodeCommit.ListPullRequests
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPullRequests' smart constructor.
 data ListPullRequests = ListPullRequests'

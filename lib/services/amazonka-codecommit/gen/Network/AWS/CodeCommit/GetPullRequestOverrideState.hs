@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.GetPullRequestOverrideState
+-- Module      : Amazonka.CodeCommit.GetPullRequestOverrideState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- (overridden) for a pull request, and if so, the Amazon Resource Name
 -- (ARN) of the user or identity that overrode the rules and their
 -- requirements for the pull request.
-module Network.AWS.CodeCommit.GetPullRequestOverrideState
+module Amazonka.CodeCommit.GetPullRequestOverrideState
   ( -- * Creating a Request
     GetPullRequestOverrideState (..),
     newGetPullRequestOverrideState,
@@ -44,12 +44,12 @@ module Network.AWS.CodeCommit.GetPullRequestOverrideState
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPullRequestOverrideState' smart constructor.
 data GetPullRequestOverrideState = GetPullRequestOverrideState'

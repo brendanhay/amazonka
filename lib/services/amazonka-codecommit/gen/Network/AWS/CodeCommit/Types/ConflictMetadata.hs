@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.Types.ConflictMetadata
+-- Module      : Amazonka.CodeCommit.Types.ConflictMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ConflictMetadata where
+module Amazonka.CodeCommit.Types.ConflictMetadata where
 
-import Network.AWS.CodeCommit.Types.FileModes
-import Network.AWS.CodeCommit.Types.FileSizes
-import Network.AWS.CodeCommit.Types.IsBinaryFile
-import Network.AWS.CodeCommit.Types.MergeOperations
-import Network.AWS.CodeCommit.Types.ObjectTypes
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeCommit.Types.FileModes
+import Amazonka.CodeCommit.Types.FileSizes
+import Amazonka.CodeCommit.Types.IsBinaryFile
+import Amazonka.CodeCommit.Types.MergeOperations
+import Amazonka.CodeCommit.Types.ObjectTypes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the metadata for a conflict in a merge operation.
 --

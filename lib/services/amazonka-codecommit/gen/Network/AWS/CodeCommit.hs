@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeCommit
+-- Module      : Amazonka.CodeCommit
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -286,7 +286,7 @@
 --
 -- For information about how to use AWS CodeCommit, see the
 -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide>.
-module Network.AWS.CodeCommit
+module Amazonka.CodeCommit
   ( -- * Service Configuration
     defaultService,
 
@@ -1589,86 +1589,86 @@ module Network.AWS.CodeCommit
   )
 where
 
-import Network.AWS.CodeCommit.AssociateApprovalRuleTemplateWithRepository
-import Network.AWS.CodeCommit.BatchAssociateApprovalRuleTemplateWithRepositories
-import Network.AWS.CodeCommit.BatchDescribeMergeConflicts
-import Network.AWS.CodeCommit.BatchDisassociateApprovalRuleTemplateFromRepositories
-import Network.AWS.CodeCommit.BatchGetCommits
-import Network.AWS.CodeCommit.BatchGetRepositories
-import Network.AWS.CodeCommit.CreateApprovalRuleTemplate
-import Network.AWS.CodeCommit.CreateBranch
-import Network.AWS.CodeCommit.CreateCommit
-import Network.AWS.CodeCommit.CreatePullRequest
-import Network.AWS.CodeCommit.CreatePullRequestApprovalRule
-import Network.AWS.CodeCommit.CreateRepository
-import Network.AWS.CodeCommit.CreateUnreferencedMergeCommit
-import Network.AWS.CodeCommit.DeleteApprovalRuleTemplate
-import Network.AWS.CodeCommit.DeleteBranch
-import Network.AWS.CodeCommit.DeleteCommentContent
-import Network.AWS.CodeCommit.DeleteFile
-import Network.AWS.CodeCommit.DeletePullRequestApprovalRule
-import Network.AWS.CodeCommit.DeleteRepository
-import Network.AWS.CodeCommit.DescribeMergeConflicts
-import Network.AWS.CodeCommit.DescribePullRequestEvents
-import Network.AWS.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
-import Network.AWS.CodeCommit.EvaluatePullRequestApprovalRules
-import Network.AWS.CodeCommit.GetApprovalRuleTemplate
-import Network.AWS.CodeCommit.GetBlob
-import Network.AWS.CodeCommit.GetBranch
-import Network.AWS.CodeCommit.GetComment
-import Network.AWS.CodeCommit.GetCommentReactions
-import Network.AWS.CodeCommit.GetCommentsForComparedCommit
-import Network.AWS.CodeCommit.GetCommentsForPullRequest
-import Network.AWS.CodeCommit.GetCommit
-import Network.AWS.CodeCommit.GetDifferences
-import Network.AWS.CodeCommit.GetFile
-import Network.AWS.CodeCommit.GetFolder
-import Network.AWS.CodeCommit.GetMergeCommit
-import Network.AWS.CodeCommit.GetMergeConflicts
-import Network.AWS.CodeCommit.GetMergeOptions
-import Network.AWS.CodeCommit.GetPullRequest
-import Network.AWS.CodeCommit.GetPullRequestApprovalStates
-import Network.AWS.CodeCommit.GetPullRequestOverrideState
-import Network.AWS.CodeCommit.GetRepository
-import Network.AWS.CodeCommit.GetRepositoryTriggers
-import Network.AWS.CodeCommit.Lens
-import Network.AWS.CodeCommit.ListApprovalRuleTemplates
-import Network.AWS.CodeCommit.ListAssociatedApprovalRuleTemplatesForRepository
-import Network.AWS.CodeCommit.ListBranches
-import Network.AWS.CodeCommit.ListPullRequests
-import Network.AWS.CodeCommit.ListRepositories
-import Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate
-import Network.AWS.CodeCommit.ListTagsForResource
-import Network.AWS.CodeCommit.MergeBranchesByFastForward
-import Network.AWS.CodeCommit.MergeBranchesBySquash
-import Network.AWS.CodeCommit.MergeBranchesByThreeWay
-import Network.AWS.CodeCommit.MergePullRequestByFastForward
-import Network.AWS.CodeCommit.MergePullRequestBySquash
-import Network.AWS.CodeCommit.MergePullRequestByThreeWay
-import Network.AWS.CodeCommit.OverridePullRequestApprovalRules
-import Network.AWS.CodeCommit.PostCommentForComparedCommit
-import Network.AWS.CodeCommit.PostCommentForPullRequest
-import Network.AWS.CodeCommit.PostCommentReply
-import Network.AWS.CodeCommit.PutCommentReaction
-import Network.AWS.CodeCommit.PutFile
-import Network.AWS.CodeCommit.PutRepositoryTriggers
-import Network.AWS.CodeCommit.TagResource
-import Network.AWS.CodeCommit.TestRepositoryTriggers
-import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.UntagResource
-import Network.AWS.CodeCommit.UpdateApprovalRuleTemplateContent
-import Network.AWS.CodeCommit.UpdateApprovalRuleTemplateDescription
-import Network.AWS.CodeCommit.UpdateApprovalRuleTemplateName
-import Network.AWS.CodeCommit.UpdateComment
-import Network.AWS.CodeCommit.UpdateDefaultBranch
-import Network.AWS.CodeCommit.UpdatePullRequestApprovalRuleContent
-import Network.AWS.CodeCommit.UpdatePullRequestApprovalState
-import Network.AWS.CodeCommit.UpdatePullRequestDescription
-import Network.AWS.CodeCommit.UpdatePullRequestStatus
-import Network.AWS.CodeCommit.UpdatePullRequestTitle
-import Network.AWS.CodeCommit.UpdateRepositoryDescription
-import Network.AWS.CodeCommit.UpdateRepositoryName
-import Network.AWS.CodeCommit.Waiters
+import Amazonka.CodeCommit.AssociateApprovalRuleTemplateWithRepository
+import Amazonka.CodeCommit.BatchAssociateApprovalRuleTemplateWithRepositories
+import Amazonka.CodeCommit.BatchDescribeMergeConflicts
+import Amazonka.CodeCommit.BatchDisassociateApprovalRuleTemplateFromRepositories
+import Amazonka.CodeCommit.BatchGetCommits
+import Amazonka.CodeCommit.BatchGetRepositories
+import Amazonka.CodeCommit.CreateApprovalRuleTemplate
+import Amazonka.CodeCommit.CreateBranch
+import Amazonka.CodeCommit.CreateCommit
+import Amazonka.CodeCommit.CreatePullRequest
+import Amazonka.CodeCommit.CreatePullRequestApprovalRule
+import Amazonka.CodeCommit.CreateRepository
+import Amazonka.CodeCommit.CreateUnreferencedMergeCommit
+import Amazonka.CodeCommit.DeleteApprovalRuleTemplate
+import Amazonka.CodeCommit.DeleteBranch
+import Amazonka.CodeCommit.DeleteCommentContent
+import Amazonka.CodeCommit.DeleteFile
+import Amazonka.CodeCommit.DeletePullRequestApprovalRule
+import Amazonka.CodeCommit.DeleteRepository
+import Amazonka.CodeCommit.DescribeMergeConflicts
+import Amazonka.CodeCommit.DescribePullRequestEvents
+import Amazonka.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
+import Amazonka.CodeCommit.EvaluatePullRequestApprovalRules
+import Amazonka.CodeCommit.GetApprovalRuleTemplate
+import Amazonka.CodeCommit.GetBlob
+import Amazonka.CodeCommit.GetBranch
+import Amazonka.CodeCommit.GetComment
+import Amazonka.CodeCommit.GetCommentReactions
+import Amazonka.CodeCommit.GetCommentsForComparedCommit
+import Amazonka.CodeCommit.GetCommentsForPullRequest
+import Amazonka.CodeCommit.GetCommit
+import Amazonka.CodeCommit.GetDifferences
+import Amazonka.CodeCommit.GetFile
+import Amazonka.CodeCommit.GetFolder
+import Amazonka.CodeCommit.GetMergeCommit
+import Amazonka.CodeCommit.GetMergeConflicts
+import Amazonka.CodeCommit.GetMergeOptions
+import Amazonka.CodeCommit.GetPullRequest
+import Amazonka.CodeCommit.GetPullRequestApprovalStates
+import Amazonka.CodeCommit.GetPullRequestOverrideState
+import Amazonka.CodeCommit.GetRepository
+import Amazonka.CodeCommit.GetRepositoryTriggers
+import Amazonka.CodeCommit.Lens
+import Amazonka.CodeCommit.ListApprovalRuleTemplates
+import Amazonka.CodeCommit.ListAssociatedApprovalRuleTemplatesForRepository
+import Amazonka.CodeCommit.ListBranches
+import Amazonka.CodeCommit.ListPullRequests
+import Amazonka.CodeCommit.ListRepositories
+import Amazonka.CodeCommit.ListRepositoriesForApprovalRuleTemplate
+import Amazonka.CodeCommit.ListTagsForResource
+import Amazonka.CodeCommit.MergeBranchesByFastForward
+import Amazonka.CodeCommit.MergeBranchesBySquash
+import Amazonka.CodeCommit.MergeBranchesByThreeWay
+import Amazonka.CodeCommit.MergePullRequestByFastForward
+import Amazonka.CodeCommit.MergePullRequestBySquash
+import Amazonka.CodeCommit.MergePullRequestByThreeWay
+import Amazonka.CodeCommit.OverridePullRequestApprovalRules
+import Amazonka.CodeCommit.PostCommentForComparedCommit
+import Amazonka.CodeCommit.PostCommentForPullRequest
+import Amazonka.CodeCommit.PostCommentReply
+import Amazonka.CodeCommit.PutCommentReaction
+import Amazonka.CodeCommit.PutFile
+import Amazonka.CodeCommit.PutRepositoryTriggers
+import Amazonka.CodeCommit.TagResource
+import Amazonka.CodeCommit.TestRepositoryTriggers
+import Amazonka.CodeCommit.Types
+import Amazonka.CodeCommit.UntagResource
+import Amazonka.CodeCommit.UpdateApprovalRuleTemplateContent
+import Amazonka.CodeCommit.UpdateApprovalRuleTemplateDescription
+import Amazonka.CodeCommit.UpdateApprovalRuleTemplateName
+import Amazonka.CodeCommit.UpdateComment
+import Amazonka.CodeCommit.UpdateDefaultBranch
+import Amazonka.CodeCommit.UpdatePullRequestApprovalRuleContent
+import Amazonka.CodeCommit.UpdatePullRequestApprovalState
+import Amazonka.CodeCommit.UpdatePullRequestDescription
+import Amazonka.CodeCommit.UpdatePullRequestStatus
+import Amazonka.CodeCommit.UpdatePullRequestTitle
+import Amazonka.CodeCommit.UpdateRepositoryDescription
+import Amazonka.CodeCommit.UpdateRepositoryName
+import Amazonka.CodeCommit.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

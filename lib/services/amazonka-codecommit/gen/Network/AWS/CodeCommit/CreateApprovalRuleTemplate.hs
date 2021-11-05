@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.CreateApprovalRuleTemplate
+-- Module      : Amazonka.CodeCommit.CreateApprovalRuleTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- matches the conditions of the template for all pull requests that meet
 -- the conditions of the template. For more information, see
 -- AssociateApprovalRuleTemplateWithRepository.
-module Network.AWS.CodeCommit.CreateApprovalRuleTemplate
+module Amazonka.CodeCommit.CreateApprovalRuleTemplate
   ( -- * Creating a Request
     CreateApprovalRuleTemplate (..),
     newCreateApprovalRuleTemplate,
@@ -46,12 +46,12 @@ module Network.AWS.CodeCommit.CreateApprovalRuleTemplate
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApprovalRuleTemplate' smart constructor.
 data CreateApprovalRuleTemplate = CreateApprovalRuleTemplate'

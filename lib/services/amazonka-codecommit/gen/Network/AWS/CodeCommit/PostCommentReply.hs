@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.PostCommentReply
+-- Module      : Amazonka.CodeCommit.PostCommentReply
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Posts a comment in reply to an existing comment on a comparison between
 -- commits or a pull request.
-module Network.AWS.CodeCommit.PostCommentReply
+module Amazonka.CodeCommit.PostCommentReply
   ( -- * Creating a Request
     PostCommentReply (..),
     newPostCommentReply,
@@ -42,12 +42,12 @@ module Network.AWS.CodeCommit.PostCommentReply
   )
 where
 
-import Network.AWS.CodeCommit.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeCommit.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPostCommentReply' smart constructor.
 data PostCommentReply = PostCommentReply'

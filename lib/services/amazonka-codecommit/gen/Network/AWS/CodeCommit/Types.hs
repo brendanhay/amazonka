@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.Types
+-- Module      : Amazonka.CodeCommit.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types
+module Amazonka.CodeCommit.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -702,81 +702,81 @@ module Network.AWS.CodeCommit.Types
   )
 where
 
-import Network.AWS.CodeCommit.Types.Approval
-import Network.AWS.CodeCommit.Types.ApprovalRule
-import Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
-import Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
-import Network.AWS.CodeCommit.Types.ApprovalRuleTemplate
-import Network.AWS.CodeCommit.Types.ApprovalState
-import Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
-import Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
-import Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError
-import Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-import Network.AWS.CodeCommit.Types.BatchGetCommitsError
-import Network.AWS.CodeCommit.Types.BlobMetadata
-import Network.AWS.CodeCommit.Types.BranchInfo
-import Network.AWS.CodeCommit.Types.ChangeTypeEnum
-import Network.AWS.CodeCommit.Types.Comment
-import Network.AWS.CodeCommit.Types.CommentsForComparedCommit
-import Network.AWS.CodeCommit.Types.CommentsForPullRequest
-import Network.AWS.CodeCommit.Types.Commit
-import Network.AWS.CodeCommit.Types.Conflict
-import Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum
-import Network.AWS.CodeCommit.Types.ConflictMetadata
-import Network.AWS.CodeCommit.Types.ConflictResolution
-import Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
-import Network.AWS.CodeCommit.Types.DeleteFileEntry
-import Network.AWS.CodeCommit.Types.Difference
-import Network.AWS.CodeCommit.Types.Evaluation
-import Network.AWS.CodeCommit.Types.File
-import Network.AWS.CodeCommit.Types.FileMetadata
-import Network.AWS.CodeCommit.Types.FileModeTypeEnum
-import Network.AWS.CodeCommit.Types.FileModes
-import Network.AWS.CodeCommit.Types.FileSizes
-import Network.AWS.CodeCommit.Types.Folder
-import Network.AWS.CodeCommit.Types.IsBinaryFile
-import Network.AWS.CodeCommit.Types.Location
-import Network.AWS.CodeCommit.Types.MergeHunk
-import Network.AWS.CodeCommit.Types.MergeHunkDetail
-import Network.AWS.CodeCommit.Types.MergeMetadata
-import Network.AWS.CodeCommit.Types.MergeOperations
-import Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
-import Network.AWS.CodeCommit.Types.ObjectTypeEnum
-import Network.AWS.CodeCommit.Types.ObjectTypes
-import Network.AWS.CodeCommit.Types.OrderEnum
-import Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
-import Network.AWS.CodeCommit.Types.OverrideStatus
-import Network.AWS.CodeCommit.Types.PullRequest
-import Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestEvent
-import Network.AWS.CodeCommit.Types.PullRequestEventType
-import Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
-import Network.AWS.CodeCommit.Types.PullRequestStatusEnum
-import Network.AWS.CodeCommit.Types.PullRequestTarget
-import Network.AWS.CodeCommit.Types.PutFileEntry
-import Network.AWS.CodeCommit.Types.ReactionForComment
-import Network.AWS.CodeCommit.Types.ReactionValueFormats
-import Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
-import Network.AWS.CodeCommit.Types.ReplaceContentEntry
-import Network.AWS.CodeCommit.Types.ReplacementTypeEnum
-import Network.AWS.CodeCommit.Types.RepositoryMetadata
-import Network.AWS.CodeCommit.Types.RepositoryNameIdPair
-import Network.AWS.CodeCommit.Types.RepositoryTrigger
-import Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
-import Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure
-import Network.AWS.CodeCommit.Types.SetFileModeEntry
-import Network.AWS.CodeCommit.Types.SortByEnum
-import Network.AWS.CodeCommit.Types.SourceFileSpecifier
-import Network.AWS.CodeCommit.Types.SubModule
-import Network.AWS.CodeCommit.Types.SymbolicLink
-import Network.AWS.CodeCommit.Types.Target
-import Network.AWS.CodeCommit.Types.UserInfo
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeCommit.Types.Approval
+import Amazonka.CodeCommit.Types.ApprovalRule
+import Amazonka.CodeCommit.Types.ApprovalRuleEventMetadata
+import Amazonka.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
+import Amazonka.CodeCommit.Types.ApprovalRuleTemplate
+import Amazonka.CodeCommit.Types.ApprovalState
+import Amazonka.CodeCommit.Types.ApprovalStateChangedEventMetadata
+import Amazonka.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
+import Amazonka.CodeCommit.Types.BatchDescribeMergeConflictsError
+import Amazonka.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+import Amazonka.CodeCommit.Types.BatchGetCommitsError
+import Amazonka.CodeCommit.Types.BlobMetadata
+import Amazonka.CodeCommit.Types.BranchInfo
+import Amazonka.CodeCommit.Types.ChangeTypeEnum
+import Amazonka.CodeCommit.Types.Comment
+import Amazonka.CodeCommit.Types.CommentsForComparedCommit
+import Amazonka.CodeCommit.Types.CommentsForPullRequest
+import Amazonka.CodeCommit.Types.Commit
+import Amazonka.CodeCommit.Types.Conflict
+import Amazonka.CodeCommit.Types.ConflictDetailLevelTypeEnum
+import Amazonka.CodeCommit.Types.ConflictMetadata
+import Amazonka.CodeCommit.Types.ConflictResolution
+import Amazonka.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
+import Amazonka.CodeCommit.Types.DeleteFileEntry
+import Amazonka.CodeCommit.Types.Difference
+import Amazonka.CodeCommit.Types.Evaluation
+import Amazonka.CodeCommit.Types.File
+import Amazonka.CodeCommit.Types.FileMetadata
+import Amazonka.CodeCommit.Types.FileModeTypeEnum
+import Amazonka.CodeCommit.Types.FileModes
+import Amazonka.CodeCommit.Types.FileSizes
+import Amazonka.CodeCommit.Types.Folder
+import Amazonka.CodeCommit.Types.IsBinaryFile
+import Amazonka.CodeCommit.Types.Location
+import Amazonka.CodeCommit.Types.MergeHunk
+import Amazonka.CodeCommit.Types.MergeHunkDetail
+import Amazonka.CodeCommit.Types.MergeMetadata
+import Amazonka.CodeCommit.Types.MergeOperations
+import Amazonka.CodeCommit.Types.MergeOptionTypeEnum
+import Amazonka.CodeCommit.Types.ObjectTypeEnum
+import Amazonka.CodeCommit.Types.ObjectTypes
+import Amazonka.CodeCommit.Types.OrderEnum
+import Amazonka.CodeCommit.Types.OriginApprovalRuleTemplate
+import Amazonka.CodeCommit.Types.OverrideStatus
+import Amazonka.CodeCommit.Types.PullRequest
+import Amazonka.CodeCommit.Types.PullRequestCreatedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestEvent
+import Amazonka.CodeCommit.Types.PullRequestEventType
+import Amazonka.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestStatusChangedEventMetadata
+import Amazonka.CodeCommit.Types.PullRequestStatusEnum
+import Amazonka.CodeCommit.Types.PullRequestTarget
+import Amazonka.CodeCommit.Types.PutFileEntry
+import Amazonka.CodeCommit.Types.ReactionForComment
+import Amazonka.CodeCommit.Types.ReactionValueFormats
+import Amazonka.CodeCommit.Types.RelativeFileVersionEnum
+import Amazonka.CodeCommit.Types.ReplaceContentEntry
+import Amazonka.CodeCommit.Types.ReplacementTypeEnum
+import Amazonka.CodeCommit.Types.RepositoryMetadata
+import Amazonka.CodeCommit.Types.RepositoryNameIdPair
+import Amazonka.CodeCommit.Types.RepositoryTrigger
+import Amazonka.CodeCommit.Types.RepositoryTriggerEventEnum
+import Amazonka.CodeCommit.Types.RepositoryTriggerExecutionFailure
+import Amazonka.CodeCommit.Types.SetFileModeEntry
+import Amazonka.CodeCommit.Types.SortByEnum
+import Amazonka.CodeCommit.Types.SourceFileSpecifier
+import Amazonka.CodeCommit.Types.SubModule
+import Amazonka.CodeCommit.Types.SymbolicLink
+import Amazonka.CodeCommit.Types.Target
+import Amazonka.CodeCommit.Types.UserInfo
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-04-13@ of the Amazon CodeCommit SDK configuration.
 defaultService :: Core.Service

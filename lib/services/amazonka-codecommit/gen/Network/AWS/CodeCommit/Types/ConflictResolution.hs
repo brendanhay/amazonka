@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeCommit.Types.ConflictResolution
+-- Module      : Amazonka.CodeCommit.Types.ConflictResolution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ConflictResolution where
+module Amazonka.CodeCommit.Types.ConflictResolution where
 
-import Network.AWS.CodeCommit.Types.DeleteFileEntry
-import Network.AWS.CodeCommit.Types.ReplaceContentEntry
-import Network.AWS.CodeCommit.Types.SetFileModeEntry
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeCommit.Types.DeleteFileEntry
+import Amazonka.CodeCommit.Types.ReplaceContentEntry
+import Amazonka.CodeCommit.Types.SetFileModeEntry
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
 -- use when resolving conflicts during a merge.

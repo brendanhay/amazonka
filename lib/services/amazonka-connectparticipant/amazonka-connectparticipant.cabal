@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ConnectParticipant.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ConnectParticipant.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ConnectParticipant" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ConnectParticipant" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,32 +45,32 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ConnectParticipant
-    Network.AWS.ConnectParticipant.CompleteAttachmentUpload
-    Network.AWS.ConnectParticipant.CreateParticipantConnection
-    Network.AWS.ConnectParticipant.DisconnectParticipant
-    Network.AWS.ConnectParticipant.GetAttachment
-    Network.AWS.ConnectParticipant.GetTranscript
-    Network.AWS.ConnectParticipant.Lens
-    Network.AWS.ConnectParticipant.SendEvent
-    Network.AWS.ConnectParticipant.SendMessage
-    Network.AWS.ConnectParticipant.StartAttachmentUpload
-    Network.AWS.ConnectParticipant.Types
-    Network.AWS.ConnectParticipant.Types.ArtifactStatus
-    Network.AWS.ConnectParticipant.Types.AttachmentItem
-    Network.AWS.ConnectParticipant.Types.ChatItemType
-    Network.AWS.ConnectParticipant.Types.ConnectionCredentials
-    Network.AWS.ConnectParticipant.Types.ConnectionType
-    Network.AWS.ConnectParticipant.Types.Item
-    Network.AWS.ConnectParticipant.Types.ParticipantRole
-    Network.AWS.ConnectParticipant.Types.ScanDirection
-    Network.AWS.ConnectParticipant.Types.SortKey
-    Network.AWS.ConnectParticipant.Types.StartPosition
-    Network.AWS.ConnectParticipant.Types.UploadMetadata
-    Network.AWS.ConnectParticipant.Types.Websocket
-    Network.AWS.ConnectParticipant.Waiters
+    Amazonka.ConnectParticipant
+    Amazonka.ConnectParticipant.CompleteAttachmentUpload
+    Amazonka.ConnectParticipant.CreateParticipantConnection
+    Amazonka.ConnectParticipant.DisconnectParticipant
+    Amazonka.ConnectParticipant.GetAttachment
+    Amazonka.ConnectParticipant.GetTranscript
+    Amazonka.ConnectParticipant.Lens
+    Amazonka.ConnectParticipant.SendEvent
+    Amazonka.ConnectParticipant.SendMessage
+    Amazonka.ConnectParticipant.StartAttachmentUpload
+    Amazonka.ConnectParticipant.Types
+    Amazonka.ConnectParticipant.Types.ArtifactStatus
+    Amazonka.ConnectParticipant.Types.AttachmentItem
+    Amazonka.ConnectParticipant.Types.ChatItemType
+    Amazonka.ConnectParticipant.Types.ConnectionCredentials
+    Amazonka.ConnectParticipant.Types.ConnectionType
+    Amazonka.ConnectParticipant.Types.Item
+    Amazonka.ConnectParticipant.Types.ParticipantRole
+    Amazonka.ConnectParticipant.Types.ScanDirection
+    Amazonka.ConnectParticipant.Types.SortKey
+    Amazonka.ConnectParticipant.Types.StartPosition
+    Amazonka.ConnectParticipant.Types.UploadMetadata
+    Amazonka.ConnectParticipant.Types.Websocket
+    Amazonka.ConnectParticipant.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

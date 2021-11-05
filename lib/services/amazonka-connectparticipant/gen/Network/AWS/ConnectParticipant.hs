@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ConnectParticipant
+-- Module      : Amazonka.ConnectParticipant
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 --
 -- The APIs described here are used by chat participants, such as agents
 -- and customers.
-module Network.AWS.ConnectParticipant
+module Amazonka.ConnectParticipant
   ( -- * Service Configuration
     defaultService,
 
@@ -144,17 +144,17 @@ module Network.AWS.ConnectParticipant
   )
 where
 
-import Network.AWS.ConnectParticipant.CompleteAttachmentUpload
-import Network.AWS.ConnectParticipant.CreateParticipantConnection
-import Network.AWS.ConnectParticipant.DisconnectParticipant
-import Network.AWS.ConnectParticipant.GetAttachment
-import Network.AWS.ConnectParticipant.GetTranscript
-import Network.AWS.ConnectParticipant.Lens
-import Network.AWS.ConnectParticipant.SendEvent
-import Network.AWS.ConnectParticipant.SendMessage
-import Network.AWS.ConnectParticipant.StartAttachmentUpload
-import Network.AWS.ConnectParticipant.Types
-import Network.AWS.ConnectParticipant.Waiters
+import Amazonka.ConnectParticipant.CompleteAttachmentUpload
+import Amazonka.ConnectParticipant.CreateParticipantConnection
+import Amazonka.ConnectParticipant.DisconnectParticipant
+import Amazonka.ConnectParticipant.GetAttachment
+import Amazonka.ConnectParticipant.GetTranscript
+import Amazonka.ConnectParticipant.Lens
+import Amazonka.ConnectParticipant.SendEvent
+import Amazonka.ConnectParticipant.SendMessage
+import Amazonka.ConnectParticipant.StartAttachmentUpload
+import Amazonka.ConnectParticipant.Types
+import Amazonka.ConnectParticipant.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

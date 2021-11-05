@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ConnectParticipant.Types
+-- Module      : Amazonka.ConnectParticipant.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ConnectParticipant.Types
+module Amazonka.ConnectParticipant.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -91,22 +91,22 @@ module Network.AWS.ConnectParticipant.Types
   )
 where
 
-import Network.AWS.ConnectParticipant.Types.ArtifactStatus
-import Network.AWS.ConnectParticipant.Types.AttachmentItem
-import Network.AWS.ConnectParticipant.Types.ChatItemType
-import Network.AWS.ConnectParticipant.Types.ConnectionCredentials
-import Network.AWS.ConnectParticipant.Types.ConnectionType
-import Network.AWS.ConnectParticipant.Types.Item
-import Network.AWS.ConnectParticipant.Types.ParticipantRole
-import Network.AWS.ConnectParticipant.Types.ScanDirection
-import Network.AWS.ConnectParticipant.Types.SortKey
-import Network.AWS.ConnectParticipant.Types.StartPosition
-import Network.AWS.ConnectParticipant.Types.UploadMetadata
-import Network.AWS.ConnectParticipant.Types.Websocket
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ConnectParticipant.Types.ArtifactStatus
+import Amazonka.ConnectParticipant.Types.AttachmentItem
+import Amazonka.ConnectParticipant.Types.ChatItemType
+import Amazonka.ConnectParticipant.Types.ConnectionCredentials
+import Amazonka.ConnectParticipant.Types.ConnectionType
+import Amazonka.ConnectParticipant.Types.Item
+import Amazonka.ConnectParticipant.Types.ParticipantRole
+import Amazonka.ConnectParticipant.Types.ScanDirection
+import Amazonka.ConnectParticipant.Types.SortKey
+import Amazonka.ConnectParticipant.Types.StartPosition
+import Amazonka.ConnectParticipant.Types.UploadMetadata
+import Amazonka.ConnectParticipant.Types.Websocket
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-07@ of the Amazon Connect Participant Service SDK configuration.
 defaultService :: Core.Service

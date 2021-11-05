@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KinesisVideoArchivedMedia
+-- Module      : Amazonka.KinesisVideoArchivedMedia
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Derived from API version @2017-09-30@ of the AWS service descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideoArchivedMedia
+module Amazonka.KinesisVideoArchivedMedia
   ( -- * Service Configuration
     defaultService,
 
@@ -153,14 +153,14 @@ module Network.AWS.KinesisVideoArchivedMedia
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.GetClip
-import Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
-import Network.AWS.KinesisVideoArchivedMedia.Lens
-import Network.AWS.KinesisVideoArchivedMedia.ListFragments
-import Network.AWS.KinesisVideoArchivedMedia.Types
-import Network.AWS.KinesisVideoArchivedMedia.Waiters
+import Amazonka.KinesisVideoArchivedMedia.GetClip
+import Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
+import Amazonka.KinesisVideoArchivedMedia.Lens
+import Amazonka.KinesisVideoArchivedMedia.ListFragments
+import Amazonka.KinesisVideoArchivedMedia.Types
+import Amazonka.KinesisVideoArchivedMedia.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

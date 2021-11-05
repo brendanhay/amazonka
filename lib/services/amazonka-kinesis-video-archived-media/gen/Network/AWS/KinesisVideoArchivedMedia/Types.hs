@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideoArchivedMedia.Types
+-- Module      : Amazonka.KinesisVideoArchivedMedia.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types
+module Amazonka.KinesisVideoArchivedMedia.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -119,30 +119,30 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
-import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
+import Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.Fragment
+import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-09-30@ of the Amazon Kinesis Video Streams Archived Media SDK configuration.
 defaultService :: Core.Service

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideoArchivedMedia.Lens
+-- Module      : Amazonka.KinesisVideoArchivedMedia.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Lens
+module Amazonka.KinesisVideoArchivedMedia.Lens
   ( -- * Operations
 
     -- ** GetHLSStreamingSessionURL
@@ -108,17 +108,17 @@ module Network.AWS.KinesisVideoArchivedMedia.Lens
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.GetClip
-import Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
-import Network.AWS.KinesisVideoArchivedMedia.ListFragments
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
-import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
-import Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
-import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
+import Amazonka.KinesisVideoArchivedMedia.GetClip
+import Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
+import Amazonka.KinesisVideoArchivedMedia.ListFragments
+import Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.Fragment
+import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
+import Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+-- Module      : Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -158,7 +158,7 @@
 -- For more information, see the __Errors__ section at the bottom of this
 -- topic, as well as
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html Common Errors>.
-module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+module Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
   ( -- * Creating a Request
     GetDASHStreamingSessionURL (..),
     newGetDASHStreamingSessionURL,
@@ -183,12 +183,12 @@ module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideoArchivedMedia.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideoArchivedMedia.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDASHStreamingSessionURL' smart constructor.
 data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'

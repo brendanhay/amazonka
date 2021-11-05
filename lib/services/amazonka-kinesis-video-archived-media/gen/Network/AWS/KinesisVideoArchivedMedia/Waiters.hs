@@ -7,16 +7,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideoArchivedMedia.Waiters
+-- Module      : Amazonka.KinesisVideoArchivedMedia.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Waiters where
+module Amazonka.KinesisVideoArchivedMedia.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideoArchivedMedia.Lens
-import Network.AWS.KinesisVideoArchivedMedia.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideoArchivedMedia.Lens
+import Amazonka.KinesisVideoArchivedMedia.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude

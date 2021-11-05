@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisVideoArchivedMedia.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KinesisVideoArchivedMedia.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KinesisVideoArchivedMedia" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KinesisVideoArchivedMedia" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,37 +45,37 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KinesisVideoArchivedMedia
-    Network.AWS.KinesisVideoArchivedMedia.GetClip
-    Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
-    Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
-    Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
-    Network.AWS.KinesisVideoArchivedMedia.Lens
-    Network.AWS.KinesisVideoArchivedMedia.ListFragments
-    Network.AWS.KinesisVideoArchivedMedia.Types
-    Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
-    Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
-    Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
-    Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
-    Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
-    Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
-    Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
-    Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
-    Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
-    Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
-    Network.AWS.KinesisVideoArchivedMedia.Waiters
+    Amazonka.KinesisVideoArchivedMedia
+    Amazonka.KinesisVideoArchivedMedia.GetClip
+    Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
+    Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+    Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
+    Amazonka.KinesisVideoArchivedMedia.Lens
+    Amazonka.KinesisVideoArchivedMedia.ListFragments
+    Amazonka.KinesisVideoArchivedMedia.Types
+    Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
+    Amazonka.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
+    Amazonka.KinesisVideoArchivedMedia.Types.ClipTimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Types.ContainerFormat
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
+    Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Types.Fragment
+    Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
+    Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
+    Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
+    Amazonka.KinesisVideoArchivedMedia.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

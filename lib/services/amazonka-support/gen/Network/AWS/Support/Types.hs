@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Support.Types
+-- Module      : Amazonka.Support.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types
+module Amazonka.Support.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -155,26 +155,26 @@ module Network.AWS.Support.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Support.Types.Attachment
-import Network.AWS.Support.Types.AttachmentDetails
-import Network.AWS.Support.Types.CaseDetails
-import Network.AWS.Support.Types.Category
-import Network.AWS.Support.Types.Communication
-import Network.AWS.Support.Types.RecentCaseCommunications
-import Network.AWS.Support.Types.SeverityLevel
-import Network.AWS.Support.Types.SupportService
-import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
-import Network.AWS.Support.Types.TrustedAdvisorCheckDescription
-import Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus
-import Network.AWS.Support.Types.TrustedAdvisorCheckResult
-import Network.AWS.Support.Types.TrustedAdvisorCheckSummary
-import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
-import Network.AWS.Support.Types.TrustedAdvisorResourceDetail
-import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Support.Types.Attachment
+import Amazonka.Support.Types.AttachmentDetails
+import Amazonka.Support.Types.CaseDetails
+import Amazonka.Support.Types.Category
+import Amazonka.Support.Types.Communication
+import Amazonka.Support.Types.RecentCaseCommunications
+import Amazonka.Support.Types.SeverityLevel
+import Amazonka.Support.Types.SupportService
+import Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
+import Amazonka.Support.Types.TrustedAdvisorCheckDescription
+import Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus
+import Amazonka.Support.Types.TrustedAdvisorCheckResult
+import Amazonka.Support.Types.TrustedAdvisorCheckSummary
+import Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary
+import Amazonka.Support.Types.TrustedAdvisorResourceDetail
+import Amazonka.Support.Types.TrustedAdvisorResourcesSummary
 
 -- | API version @2013-04-15@ of the Amazon Support SDK configuration.
 defaultService :: Core.Service

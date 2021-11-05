@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Support
+-- Module      : Amazonka.Support
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -78,7 +78,7 @@
 -- in the /AWS Support User Guide/ for information about how to use this
 -- service to create and manage your support cases, and how to call Trusted
 -- Advisor for results of checks on your resources.
-module Network.AWS.Support
+module Amazonka.Support
   ( -- * Service Configuration
     defaultService,
 
@@ -270,23 +270,23 @@ module Network.AWS.Support
   )
 where
 
-import Network.AWS.Support.AddAttachmentsToSet
-import Network.AWS.Support.AddCommunicationToCase
-import Network.AWS.Support.CreateCase
-import Network.AWS.Support.DescribeAttachment
-import Network.AWS.Support.DescribeCases
-import Network.AWS.Support.DescribeCommunications
-import Network.AWS.Support.DescribeServices
-import Network.AWS.Support.DescribeSeverityLevels
-import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
-import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-import Network.AWS.Support.DescribeTrustedAdvisorChecks
-import Network.AWS.Support.Lens
-import Network.AWS.Support.RefreshTrustedAdvisorCheck
-import Network.AWS.Support.ResolveCase
-import Network.AWS.Support.Types
-import Network.AWS.Support.Waiters
+import Amazonka.Support.AddAttachmentsToSet
+import Amazonka.Support.AddCommunicationToCase
+import Amazonka.Support.CreateCase
+import Amazonka.Support.DescribeAttachment
+import Amazonka.Support.DescribeCases
+import Amazonka.Support.DescribeCommunications
+import Amazonka.Support.DescribeServices
+import Amazonka.Support.DescribeSeverityLevels
+import Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+import Amazonka.Support.DescribeTrustedAdvisorCheckResult
+import Amazonka.Support.DescribeTrustedAdvisorCheckSummaries
+import Amazonka.Support.DescribeTrustedAdvisorChecks
+import Amazonka.Support.Lens
+import Amazonka.Support.RefreshTrustedAdvisorCheck
+import Amazonka.Support.ResolveCase
+import Amazonka.Support.Types
+import Amazonka.Support.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

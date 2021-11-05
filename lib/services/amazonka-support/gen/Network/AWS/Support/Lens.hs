@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Support.Lens
+-- Module      : Amazonka.Support.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Lens
+module Amazonka.Support.Lens
   ( -- * Operations
 
     -- ** RefreshTrustedAdvisorCheck
@@ -212,33 +212,33 @@ module Network.AWS.Support.Lens
   )
 where
 
-import Network.AWS.Support.AddAttachmentsToSet
-import Network.AWS.Support.AddCommunicationToCase
-import Network.AWS.Support.CreateCase
-import Network.AWS.Support.DescribeAttachment
-import Network.AWS.Support.DescribeCases
-import Network.AWS.Support.DescribeCommunications
-import Network.AWS.Support.DescribeServices
-import Network.AWS.Support.DescribeSeverityLevels
-import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
-import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-import Network.AWS.Support.DescribeTrustedAdvisorChecks
-import Network.AWS.Support.RefreshTrustedAdvisorCheck
-import Network.AWS.Support.ResolveCase
-import Network.AWS.Support.Types.Attachment
-import Network.AWS.Support.Types.AttachmentDetails
-import Network.AWS.Support.Types.CaseDetails
-import Network.AWS.Support.Types.Category
-import Network.AWS.Support.Types.Communication
-import Network.AWS.Support.Types.RecentCaseCommunications
-import Network.AWS.Support.Types.SeverityLevel
-import Network.AWS.Support.Types.SupportService
-import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
-import Network.AWS.Support.Types.TrustedAdvisorCheckDescription
-import Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus
-import Network.AWS.Support.Types.TrustedAdvisorCheckResult
-import Network.AWS.Support.Types.TrustedAdvisorCheckSummary
-import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
-import Network.AWS.Support.Types.TrustedAdvisorResourceDetail
-import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
+import Amazonka.Support.AddAttachmentsToSet
+import Amazonka.Support.AddCommunicationToCase
+import Amazonka.Support.CreateCase
+import Amazonka.Support.DescribeAttachment
+import Amazonka.Support.DescribeCases
+import Amazonka.Support.DescribeCommunications
+import Amazonka.Support.DescribeServices
+import Amazonka.Support.DescribeSeverityLevels
+import Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+import Amazonka.Support.DescribeTrustedAdvisorCheckResult
+import Amazonka.Support.DescribeTrustedAdvisorCheckSummaries
+import Amazonka.Support.DescribeTrustedAdvisorChecks
+import Amazonka.Support.RefreshTrustedAdvisorCheck
+import Amazonka.Support.ResolveCase
+import Amazonka.Support.Types.Attachment
+import Amazonka.Support.Types.AttachmentDetails
+import Amazonka.Support.Types.CaseDetails
+import Amazonka.Support.Types.Category
+import Amazonka.Support.Types.Communication
+import Amazonka.Support.Types.RecentCaseCommunications
+import Amazonka.Support.Types.SeverityLevel
+import Amazonka.Support.Types.SupportService
+import Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
+import Amazonka.Support.Types.TrustedAdvisorCheckDescription
+import Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus
+import Amazonka.Support.Types.TrustedAdvisorCheckResult
+import Amazonka.Support.Types.TrustedAdvisorCheckSummary
+import Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary
+import Amazonka.Support.Types.TrustedAdvisorResourceDetail
+import Amazonka.Support.Types.TrustedAdvisorResourcesSummary

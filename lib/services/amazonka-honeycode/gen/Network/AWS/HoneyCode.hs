@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.HoneyCode
+-- Module      : Amazonka.HoneyCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- build mobile and web apps for teams—without programming. Build Honeycode
 -- apps for managing almost anything, like projects, customers, operations,
 -- approvals, resources, and even your team.
-module Network.AWS.HoneyCode
+module Amazonka.HoneyCode
   ( -- * Service Configuration
     defaultService,
 
@@ -245,21 +245,21 @@ module Network.AWS.HoneyCode
   )
 where
 
-import Network.AWS.HoneyCode.BatchCreateTableRows
-import Network.AWS.HoneyCode.BatchDeleteTableRows
-import Network.AWS.HoneyCode.BatchUpdateTableRows
-import Network.AWS.HoneyCode.BatchUpsertTableRows
-import Network.AWS.HoneyCode.DescribeTableDataImportJob
-import Network.AWS.HoneyCode.GetScreenData
-import Network.AWS.HoneyCode.InvokeScreenAutomation
-import Network.AWS.HoneyCode.Lens
-import Network.AWS.HoneyCode.ListTableColumns
-import Network.AWS.HoneyCode.ListTableRows
-import Network.AWS.HoneyCode.ListTables
-import Network.AWS.HoneyCode.QueryTableRows
-import Network.AWS.HoneyCode.StartTableDataImportJob
-import Network.AWS.HoneyCode.Types
-import Network.AWS.HoneyCode.Waiters
+import Amazonka.HoneyCode.BatchCreateTableRows
+import Amazonka.HoneyCode.BatchDeleteTableRows
+import Amazonka.HoneyCode.BatchUpdateTableRows
+import Amazonka.HoneyCode.BatchUpsertTableRows
+import Amazonka.HoneyCode.DescribeTableDataImportJob
+import Amazonka.HoneyCode.GetScreenData
+import Amazonka.HoneyCode.InvokeScreenAutomation
+import Amazonka.HoneyCode.Lens
+import Amazonka.HoneyCode.ListTableColumns
+import Amazonka.HoneyCode.ListTableRows
+import Amazonka.HoneyCode.ListTables
+import Amazonka.HoneyCode.QueryTableRows
+import Amazonka.HoneyCode.StartTableDataImportJob
+import Amazonka.HoneyCode.Types
+import Amazonka.HoneyCode.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

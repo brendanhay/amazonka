@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HoneyCode.Lens
+-- Module      : Amazonka.HoneyCode.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HoneyCode.Lens
+module Amazonka.HoneyCode.Lens
   ( -- * Operations
 
     -- ** BatchDeleteTableRows
@@ -241,39 +241,39 @@ module Network.AWS.HoneyCode.Lens
   )
 where
 
-import Network.AWS.HoneyCode.BatchCreateTableRows
-import Network.AWS.HoneyCode.BatchDeleteTableRows
-import Network.AWS.HoneyCode.BatchUpdateTableRows
-import Network.AWS.HoneyCode.BatchUpsertTableRows
-import Network.AWS.HoneyCode.DescribeTableDataImportJob
-import Network.AWS.HoneyCode.GetScreenData
-import Network.AWS.HoneyCode.InvokeScreenAutomation
-import Network.AWS.HoneyCode.ListTableColumns
-import Network.AWS.HoneyCode.ListTableRows
-import Network.AWS.HoneyCode.ListTables
-import Network.AWS.HoneyCode.QueryTableRows
-import Network.AWS.HoneyCode.StartTableDataImportJob
-import Network.AWS.HoneyCode.Types.Cell
-import Network.AWS.HoneyCode.Types.CellInput
-import Network.AWS.HoneyCode.Types.ColumnMetadata
-import Network.AWS.HoneyCode.Types.CreateRowData
-import Network.AWS.HoneyCode.Types.DataItem
-import Network.AWS.HoneyCode.Types.DelimitedTextImportOptions
-import Network.AWS.HoneyCode.Types.DestinationOptions
-import Network.AWS.HoneyCode.Types.FailedBatchItem
-import Network.AWS.HoneyCode.Types.Filter
-import Network.AWS.HoneyCode.Types.ImportDataSource
-import Network.AWS.HoneyCode.Types.ImportDataSourceConfig
-import Network.AWS.HoneyCode.Types.ImportJobSubmitter
-import Network.AWS.HoneyCode.Types.ImportOptions
-import Network.AWS.HoneyCode.Types.ResultRow
-import Network.AWS.HoneyCode.Types.ResultSet
-import Network.AWS.HoneyCode.Types.SourceDataColumnProperties
-import Network.AWS.HoneyCode.Types.Table
-import Network.AWS.HoneyCode.Types.TableColumn
-import Network.AWS.HoneyCode.Types.TableDataImportJobMetadata
-import Network.AWS.HoneyCode.Types.TableRow
-import Network.AWS.HoneyCode.Types.UpdateRowData
-import Network.AWS.HoneyCode.Types.UpsertRowData
-import Network.AWS.HoneyCode.Types.UpsertRowsResult
-import Network.AWS.HoneyCode.Types.VariableValue
+import Amazonka.HoneyCode.BatchCreateTableRows
+import Amazonka.HoneyCode.BatchDeleteTableRows
+import Amazonka.HoneyCode.BatchUpdateTableRows
+import Amazonka.HoneyCode.BatchUpsertTableRows
+import Amazonka.HoneyCode.DescribeTableDataImportJob
+import Amazonka.HoneyCode.GetScreenData
+import Amazonka.HoneyCode.InvokeScreenAutomation
+import Amazonka.HoneyCode.ListTableColumns
+import Amazonka.HoneyCode.ListTableRows
+import Amazonka.HoneyCode.ListTables
+import Amazonka.HoneyCode.QueryTableRows
+import Amazonka.HoneyCode.StartTableDataImportJob
+import Amazonka.HoneyCode.Types.Cell
+import Amazonka.HoneyCode.Types.CellInput
+import Amazonka.HoneyCode.Types.ColumnMetadata
+import Amazonka.HoneyCode.Types.CreateRowData
+import Amazonka.HoneyCode.Types.DataItem
+import Amazonka.HoneyCode.Types.DelimitedTextImportOptions
+import Amazonka.HoneyCode.Types.DestinationOptions
+import Amazonka.HoneyCode.Types.FailedBatchItem
+import Amazonka.HoneyCode.Types.Filter
+import Amazonka.HoneyCode.Types.ImportDataSource
+import Amazonka.HoneyCode.Types.ImportDataSourceConfig
+import Amazonka.HoneyCode.Types.ImportJobSubmitter
+import Amazonka.HoneyCode.Types.ImportOptions
+import Amazonka.HoneyCode.Types.ResultRow
+import Amazonka.HoneyCode.Types.ResultSet
+import Amazonka.HoneyCode.Types.SourceDataColumnProperties
+import Amazonka.HoneyCode.Types.Table
+import Amazonka.HoneyCode.Types.TableColumn
+import Amazonka.HoneyCode.Types.TableDataImportJobMetadata
+import Amazonka.HoneyCode.Types.TableRow
+import Amazonka.HoneyCode.Types.UpdateRowData
+import Amazonka.HoneyCode.Types.UpsertRowData
+import Amazonka.HoneyCode.Types.UpsertRowsResult
+import Amazonka.HoneyCode.Types.VariableValue

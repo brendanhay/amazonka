@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.HoneyCode where
 
+import Amazonka.HoneyCode
 import qualified Data.Proxy as Proxy
-import Network.AWS.HoneyCode
 import Test.AWS.Fixture
 import Test.AWS.HoneyCode.Internal
 import Test.AWS.Prelude

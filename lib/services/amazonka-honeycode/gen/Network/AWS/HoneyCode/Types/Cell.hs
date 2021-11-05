@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HoneyCode.Types.Cell
+-- Module      : Amazonka.HoneyCode.Types.Cell
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HoneyCode.Types.Cell where
+module Amazonka.HoneyCode.Types.Cell where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HoneyCode.Types.Format
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.HoneyCode.Types.Format
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a single cell in a table.
 --

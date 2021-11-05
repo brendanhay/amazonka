@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HoneyCode.BatchDeleteTableRows
+-- Module      : Amazonka.HoneyCode.BatchDeleteTableRows
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- The BatchDeleteTableRows API allows you to delete one or more rows from
 -- a table in a workbook. You need to specify the ids of the rows that you
 -- want to delete from the table.
-module Network.AWS.HoneyCode.BatchDeleteTableRows
+module Amazonka.HoneyCode.BatchDeleteTableRows
   ( -- * Creating a Request
     BatchDeleteTableRows (..),
     newBatchDeleteTableRows,
@@ -45,12 +45,12 @@ module Network.AWS.HoneyCode.BatchDeleteTableRows
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HoneyCode.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.HoneyCode.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDeleteTableRows' smart constructor.
 data BatchDeleteTableRows = BatchDeleteTableRows'

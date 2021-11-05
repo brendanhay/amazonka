@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HoneyCode.Types
+-- Module      : Amazonka.HoneyCode.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.HoneyCode.Types
+module Amazonka.HoneyCode.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -192,39 +192,39 @@ module Network.AWS.HoneyCode.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HoneyCode.Types.Cell
-import Network.AWS.HoneyCode.Types.CellInput
-import Network.AWS.HoneyCode.Types.ColumnMetadata
-import Network.AWS.HoneyCode.Types.CreateRowData
-import Network.AWS.HoneyCode.Types.DataItem
-import Network.AWS.HoneyCode.Types.DelimitedTextImportOptions
-import Network.AWS.HoneyCode.Types.DestinationOptions
-import Network.AWS.HoneyCode.Types.FailedBatchItem
-import Network.AWS.HoneyCode.Types.Filter
-import Network.AWS.HoneyCode.Types.Format
-import Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding
-import Network.AWS.HoneyCode.Types.ImportDataSource
-import Network.AWS.HoneyCode.Types.ImportDataSourceConfig
-import Network.AWS.HoneyCode.Types.ImportJobSubmitter
-import Network.AWS.HoneyCode.Types.ImportOptions
-import Network.AWS.HoneyCode.Types.ImportSourceDataFormat
-import Network.AWS.HoneyCode.Types.ResultRow
-import Network.AWS.HoneyCode.Types.ResultSet
-import Network.AWS.HoneyCode.Types.SourceDataColumnProperties
-import Network.AWS.HoneyCode.Types.Table
-import Network.AWS.HoneyCode.Types.TableColumn
-import Network.AWS.HoneyCode.Types.TableDataImportJobMetadata
-import Network.AWS.HoneyCode.Types.TableDataImportJobStatus
-import Network.AWS.HoneyCode.Types.TableRow
-import Network.AWS.HoneyCode.Types.UpdateRowData
-import Network.AWS.HoneyCode.Types.UpsertAction
-import Network.AWS.HoneyCode.Types.UpsertRowData
-import Network.AWS.HoneyCode.Types.UpsertRowsResult
-import Network.AWS.HoneyCode.Types.VariableValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.HoneyCode.Types.Cell
+import Amazonka.HoneyCode.Types.CellInput
+import Amazonka.HoneyCode.Types.ColumnMetadata
+import Amazonka.HoneyCode.Types.CreateRowData
+import Amazonka.HoneyCode.Types.DataItem
+import Amazonka.HoneyCode.Types.DelimitedTextImportOptions
+import Amazonka.HoneyCode.Types.DestinationOptions
+import Amazonka.HoneyCode.Types.FailedBatchItem
+import Amazonka.HoneyCode.Types.Filter
+import Amazonka.HoneyCode.Types.Format
+import Amazonka.HoneyCode.Types.ImportDataCharacterEncoding
+import Amazonka.HoneyCode.Types.ImportDataSource
+import Amazonka.HoneyCode.Types.ImportDataSourceConfig
+import Amazonka.HoneyCode.Types.ImportJobSubmitter
+import Amazonka.HoneyCode.Types.ImportOptions
+import Amazonka.HoneyCode.Types.ImportSourceDataFormat
+import Amazonka.HoneyCode.Types.ResultRow
+import Amazonka.HoneyCode.Types.ResultSet
+import Amazonka.HoneyCode.Types.SourceDataColumnProperties
+import Amazonka.HoneyCode.Types.Table
+import Amazonka.HoneyCode.Types.TableColumn
+import Amazonka.HoneyCode.Types.TableDataImportJobMetadata
+import Amazonka.HoneyCode.Types.TableDataImportJobStatus
+import Amazonka.HoneyCode.Types.TableRow
+import Amazonka.HoneyCode.Types.UpdateRowData
+import Amazonka.HoneyCode.Types.UpsertAction
+import Amazonka.HoneyCode.Types.UpsertRowData
+import Amazonka.HoneyCode.Types.UpsertRowsResult
+import Amazonka.HoneyCode.Types.VariableValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-03-01@ of the Amazon Honeycode SDK configuration.
 defaultService :: Core.Service

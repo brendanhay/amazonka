@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.HoneyCode.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.HoneyCode.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.HoneyCode" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.HoneyCode" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,53 +45,53 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.HoneyCode
-    Network.AWS.HoneyCode.BatchCreateTableRows
-    Network.AWS.HoneyCode.BatchDeleteTableRows
-    Network.AWS.HoneyCode.BatchUpdateTableRows
-    Network.AWS.HoneyCode.BatchUpsertTableRows
-    Network.AWS.HoneyCode.DescribeTableDataImportJob
-    Network.AWS.HoneyCode.GetScreenData
-    Network.AWS.HoneyCode.InvokeScreenAutomation
-    Network.AWS.HoneyCode.Lens
-    Network.AWS.HoneyCode.ListTableColumns
-    Network.AWS.HoneyCode.ListTableRows
-    Network.AWS.HoneyCode.ListTables
-    Network.AWS.HoneyCode.QueryTableRows
-    Network.AWS.HoneyCode.StartTableDataImportJob
-    Network.AWS.HoneyCode.Types
-    Network.AWS.HoneyCode.Types.Cell
-    Network.AWS.HoneyCode.Types.CellInput
-    Network.AWS.HoneyCode.Types.ColumnMetadata
-    Network.AWS.HoneyCode.Types.CreateRowData
-    Network.AWS.HoneyCode.Types.DataItem
-    Network.AWS.HoneyCode.Types.DelimitedTextImportOptions
-    Network.AWS.HoneyCode.Types.DestinationOptions
-    Network.AWS.HoneyCode.Types.FailedBatchItem
-    Network.AWS.HoneyCode.Types.Filter
-    Network.AWS.HoneyCode.Types.Format
-    Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding
-    Network.AWS.HoneyCode.Types.ImportDataSource
-    Network.AWS.HoneyCode.Types.ImportDataSourceConfig
-    Network.AWS.HoneyCode.Types.ImportJobSubmitter
-    Network.AWS.HoneyCode.Types.ImportOptions
-    Network.AWS.HoneyCode.Types.ImportSourceDataFormat
-    Network.AWS.HoneyCode.Types.ResultRow
-    Network.AWS.HoneyCode.Types.ResultSet
-    Network.AWS.HoneyCode.Types.SourceDataColumnProperties
-    Network.AWS.HoneyCode.Types.Table
-    Network.AWS.HoneyCode.Types.TableColumn
-    Network.AWS.HoneyCode.Types.TableDataImportJobMetadata
-    Network.AWS.HoneyCode.Types.TableDataImportJobStatus
-    Network.AWS.HoneyCode.Types.TableRow
-    Network.AWS.HoneyCode.Types.UpdateRowData
-    Network.AWS.HoneyCode.Types.UpsertAction
-    Network.AWS.HoneyCode.Types.UpsertRowData
-    Network.AWS.HoneyCode.Types.UpsertRowsResult
-    Network.AWS.HoneyCode.Types.VariableValue
-    Network.AWS.HoneyCode.Waiters
+    Amazonka.HoneyCode
+    Amazonka.HoneyCode.BatchCreateTableRows
+    Amazonka.HoneyCode.BatchDeleteTableRows
+    Amazonka.HoneyCode.BatchUpdateTableRows
+    Amazonka.HoneyCode.BatchUpsertTableRows
+    Amazonka.HoneyCode.DescribeTableDataImportJob
+    Amazonka.HoneyCode.GetScreenData
+    Amazonka.HoneyCode.InvokeScreenAutomation
+    Amazonka.HoneyCode.Lens
+    Amazonka.HoneyCode.ListTableColumns
+    Amazonka.HoneyCode.ListTableRows
+    Amazonka.HoneyCode.ListTables
+    Amazonka.HoneyCode.QueryTableRows
+    Amazonka.HoneyCode.StartTableDataImportJob
+    Amazonka.HoneyCode.Types
+    Amazonka.HoneyCode.Types.Cell
+    Amazonka.HoneyCode.Types.CellInput
+    Amazonka.HoneyCode.Types.ColumnMetadata
+    Amazonka.HoneyCode.Types.CreateRowData
+    Amazonka.HoneyCode.Types.DataItem
+    Amazonka.HoneyCode.Types.DelimitedTextImportOptions
+    Amazonka.HoneyCode.Types.DestinationOptions
+    Amazonka.HoneyCode.Types.FailedBatchItem
+    Amazonka.HoneyCode.Types.Filter
+    Amazonka.HoneyCode.Types.Format
+    Amazonka.HoneyCode.Types.ImportDataCharacterEncoding
+    Amazonka.HoneyCode.Types.ImportDataSource
+    Amazonka.HoneyCode.Types.ImportDataSourceConfig
+    Amazonka.HoneyCode.Types.ImportJobSubmitter
+    Amazonka.HoneyCode.Types.ImportOptions
+    Amazonka.HoneyCode.Types.ImportSourceDataFormat
+    Amazonka.HoneyCode.Types.ResultRow
+    Amazonka.HoneyCode.Types.ResultSet
+    Amazonka.HoneyCode.Types.SourceDataColumnProperties
+    Amazonka.HoneyCode.Types.Table
+    Amazonka.HoneyCode.Types.TableColumn
+    Amazonka.HoneyCode.Types.TableDataImportJobMetadata
+    Amazonka.HoneyCode.Types.TableDataImportJobStatus
+    Amazonka.HoneyCode.Types.TableRow
+    Amazonka.HoneyCode.Types.UpdateRowData
+    Amazonka.HoneyCode.Types.UpsertAction
+    Amazonka.HoneyCode.Types.UpsertRowData
+    Amazonka.HoneyCode.Types.UpsertRowsResult
+    Amazonka.HoneyCode.Types.VariableValue
+    Amazonka.HoneyCode.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

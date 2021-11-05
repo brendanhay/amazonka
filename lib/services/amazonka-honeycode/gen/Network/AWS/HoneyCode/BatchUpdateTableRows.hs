@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.HoneyCode.BatchUpdateTableRows
+-- Module      : Amazonka.HoneyCode.BatchUpdateTableRows
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- a particular row, then that column will not be updated for that row. To
 -- clear out the data in a specific cell, you need to set the value as an
 -- empty string (\"\").
-module Network.AWS.HoneyCode.BatchUpdateTableRows
+module Amazonka.HoneyCode.BatchUpdateTableRows
   ( -- * Creating a Request
     BatchUpdateTableRows (..),
     newBatchUpdateTableRows,
@@ -50,12 +50,12 @@ module Network.AWS.HoneyCode.BatchUpdateTableRows
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.HoneyCode.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.HoneyCode.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchUpdateTableRows' smart constructor.
 data BatchUpdateTableRows = BatchUpdateTableRows'

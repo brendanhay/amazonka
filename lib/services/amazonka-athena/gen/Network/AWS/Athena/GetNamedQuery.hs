@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.GetNamedQuery
+-- Module      : Amazonka.Athena.GetNamedQuery
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns information about a single query. Requires that you have access
 -- to the workgroup in which the query was saved.
-module Network.AWS.Athena.GetNamedQuery
+module Amazonka.Athena.GetNamedQuery
   ( -- * Creating a Request
     GetNamedQuery (..),
     newGetNamedQuery,
@@ -40,12 +40,12 @@ module Network.AWS.Athena.GetNamedQuery
   )
 where
 
-import Network.AWS.Athena.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Athena.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetNamedQuery' smart constructor.
 data GetNamedQuery = GetNamedQuery'

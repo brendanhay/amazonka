@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Types.ResultConfigurationUpdates
+-- Module      : Amazonka.Athena.Types.ResultConfigurationUpdates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.ResultConfigurationUpdates where
+module Amazonka.Athena.Types.ResultConfigurationUpdates where
 
-import Network.AWS.Athena.Types.EncryptionConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Athena.Types.EncryptionConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The information about the updates in the query results, such as output
 -- location and encryption configuration for the query results.

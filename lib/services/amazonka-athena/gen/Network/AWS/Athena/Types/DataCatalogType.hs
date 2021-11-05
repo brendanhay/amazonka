@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Types.DataCatalogType
+-- Module      : Amazonka.Athena.Types.DataCatalogType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.DataCatalogType
+module Amazonka.Athena.Types.DataCatalogType
   ( DataCatalogType
       ( ..,
         DataCatalogType_GLUE,
@@ -27,8 +27,8 @@ module Network.AWS.Athena.Types.DataCatalogType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype DataCatalogType = DataCatalogType'
   { fromDataCatalogType ::

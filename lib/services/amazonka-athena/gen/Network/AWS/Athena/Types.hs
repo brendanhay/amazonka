@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Types
+-- Module      : Amazonka.Athena.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types
+module Amazonka.Athena.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -265,44 +265,44 @@ module Network.AWS.Athena.Types
   )
 where
 
-import Network.AWS.Athena.Types.Column
-import Network.AWS.Athena.Types.ColumnInfo
-import Network.AWS.Athena.Types.ColumnNullable
-import Network.AWS.Athena.Types.DataCatalog
-import Network.AWS.Athena.Types.DataCatalogSummary
-import Network.AWS.Athena.Types.DataCatalogType
-import Network.AWS.Athena.Types.Database
-import Network.AWS.Athena.Types.Datum
-import Network.AWS.Athena.Types.EncryptionConfiguration
-import Network.AWS.Athena.Types.EncryptionOption
-import Network.AWS.Athena.Types.EngineVersion
-import Network.AWS.Athena.Types.NamedQuery
-import Network.AWS.Athena.Types.PreparedStatement
-import Network.AWS.Athena.Types.PreparedStatementSummary
-import Network.AWS.Athena.Types.QueryExecution
-import Network.AWS.Athena.Types.QueryExecutionContext
-import Network.AWS.Athena.Types.QueryExecutionState
-import Network.AWS.Athena.Types.QueryExecutionStatistics
-import Network.AWS.Athena.Types.QueryExecutionStatus
-import Network.AWS.Athena.Types.ResultConfiguration
-import Network.AWS.Athena.Types.ResultConfigurationUpdates
-import Network.AWS.Athena.Types.ResultSet
-import Network.AWS.Athena.Types.ResultSetMetadata
-import Network.AWS.Athena.Types.Row
-import Network.AWS.Athena.Types.StatementType
-import Network.AWS.Athena.Types.TableMetadata
-import Network.AWS.Athena.Types.Tag
-import Network.AWS.Athena.Types.UnprocessedNamedQueryId
-import Network.AWS.Athena.Types.UnprocessedQueryExecutionId
-import Network.AWS.Athena.Types.WorkGroup
-import Network.AWS.Athena.Types.WorkGroupConfiguration
-import Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
-import Network.AWS.Athena.Types.WorkGroupState
-import Network.AWS.Athena.Types.WorkGroupSummary
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Athena.Types.Column
+import Amazonka.Athena.Types.ColumnInfo
+import Amazonka.Athena.Types.ColumnNullable
+import Amazonka.Athena.Types.DataCatalog
+import Amazonka.Athena.Types.DataCatalogSummary
+import Amazonka.Athena.Types.DataCatalogType
+import Amazonka.Athena.Types.Database
+import Amazonka.Athena.Types.Datum
+import Amazonka.Athena.Types.EncryptionConfiguration
+import Amazonka.Athena.Types.EncryptionOption
+import Amazonka.Athena.Types.EngineVersion
+import Amazonka.Athena.Types.NamedQuery
+import Amazonka.Athena.Types.PreparedStatement
+import Amazonka.Athena.Types.PreparedStatementSummary
+import Amazonka.Athena.Types.QueryExecution
+import Amazonka.Athena.Types.QueryExecutionContext
+import Amazonka.Athena.Types.QueryExecutionState
+import Amazonka.Athena.Types.QueryExecutionStatistics
+import Amazonka.Athena.Types.QueryExecutionStatus
+import Amazonka.Athena.Types.ResultConfiguration
+import Amazonka.Athena.Types.ResultConfigurationUpdates
+import Amazonka.Athena.Types.ResultSet
+import Amazonka.Athena.Types.ResultSetMetadata
+import Amazonka.Athena.Types.Row
+import Amazonka.Athena.Types.StatementType
+import Amazonka.Athena.Types.TableMetadata
+import Amazonka.Athena.Types.Tag
+import Amazonka.Athena.Types.UnprocessedNamedQueryId
+import Amazonka.Athena.Types.UnprocessedQueryExecutionId
+import Amazonka.Athena.Types.WorkGroup
+import Amazonka.Athena.Types.WorkGroupConfiguration
+import Amazonka.Athena.Types.WorkGroupConfigurationUpdates
+import Amazonka.Athena.Types.WorkGroupState
+import Amazonka.Athena.Types.WorkGroupSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-05-18@ of the Amazon Athena SDK configuration.
 defaultService :: Core.Service

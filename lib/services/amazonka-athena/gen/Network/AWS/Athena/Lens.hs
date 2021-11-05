@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Lens
+-- Module      : Amazonka.Athena.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Lens
+module Amazonka.Athena.Lens
   ( -- * Operations
 
     -- ** ListDatabases
@@ -409,65 +409,65 @@ module Network.AWS.Athena.Lens
   )
 where
 
-import Network.AWS.Athena.BatchGetNamedQuery
-import Network.AWS.Athena.BatchGetQueryExecution
-import Network.AWS.Athena.CreateDataCatalog
-import Network.AWS.Athena.CreateNamedQuery
-import Network.AWS.Athena.CreatePreparedStatement
-import Network.AWS.Athena.CreateWorkGroup
-import Network.AWS.Athena.DeleteDataCatalog
-import Network.AWS.Athena.DeleteNamedQuery
-import Network.AWS.Athena.DeletePreparedStatement
-import Network.AWS.Athena.DeleteWorkGroup
-import Network.AWS.Athena.GetDataCatalog
-import Network.AWS.Athena.GetDatabase
-import Network.AWS.Athena.GetNamedQuery
-import Network.AWS.Athena.GetPreparedStatement
-import Network.AWS.Athena.GetQueryExecution
-import Network.AWS.Athena.GetQueryResults
-import Network.AWS.Athena.GetTableMetadata
-import Network.AWS.Athena.GetWorkGroup
-import Network.AWS.Athena.ListDataCatalogs
-import Network.AWS.Athena.ListDatabases
-import Network.AWS.Athena.ListEngineVersions
-import Network.AWS.Athena.ListNamedQueries
-import Network.AWS.Athena.ListPreparedStatements
-import Network.AWS.Athena.ListQueryExecutions
-import Network.AWS.Athena.ListTableMetadata
-import Network.AWS.Athena.ListTagsForResource
-import Network.AWS.Athena.ListWorkGroups
-import Network.AWS.Athena.StartQueryExecution
-import Network.AWS.Athena.StopQueryExecution
-import Network.AWS.Athena.TagResource
-import Network.AWS.Athena.Types.Column
-import Network.AWS.Athena.Types.ColumnInfo
-import Network.AWS.Athena.Types.DataCatalog
-import Network.AWS.Athena.Types.DataCatalogSummary
-import Network.AWS.Athena.Types.Database
-import Network.AWS.Athena.Types.Datum
-import Network.AWS.Athena.Types.EncryptionConfiguration
-import Network.AWS.Athena.Types.EngineVersion
-import Network.AWS.Athena.Types.NamedQuery
-import Network.AWS.Athena.Types.PreparedStatement
-import Network.AWS.Athena.Types.PreparedStatementSummary
-import Network.AWS.Athena.Types.QueryExecution
-import Network.AWS.Athena.Types.QueryExecutionContext
-import Network.AWS.Athena.Types.QueryExecutionStatistics
-import Network.AWS.Athena.Types.QueryExecutionStatus
-import Network.AWS.Athena.Types.ResultConfiguration
-import Network.AWS.Athena.Types.ResultConfigurationUpdates
-import Network.AWS.Athena.Types.ResultSet
-import Network.AWS.Athena.Types.ResultSetMetadata
-import Network.AWS.Athena.Types.Row
-import Network.AWS.Athena.Types.TableMetadata
-import Network.AWS.Athena.Types.Tag
-import Network.AWS.Athena.Types.UnprocessedNamedQueryId
-import Network.AWS.Athena.Types.UnprocessedQueryExecutionId
-import Network.AWS.Athena.Types.WorkGroup
-import Network.AWS.Athena.Types.WorkGroupConfiguration
-import Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
-import Network.AWS.Athena.Types.WorkGroupSummary
-import Network.AWS.Athena.UntagResource
-import Network.AWS.Athena.UpdateDataCatalog
-import Network.AWS.Athena.UpdatePreparedStatement
-import Network.AWS.Athena.UpdateWorkGroup
+import Amazonka.Athena.BatchGetNamedQuery
+import Amazonka.Athena.BatchGetQueryExecution
+import Amazonka.Athena.CreateDataCatalog
+import Amazonka.Athena.CreateNamedQuery
+import Amazonka.Athena.CreatePreparedStatement
+import Amazonka.Athena.CreateWorkGroup
+import Amazonka.Athena.DeleteDataCatalog
+import Amazonka.Athena.DeleteNamedQuery
+import Amazonka.Athena.DeletePreparedStatement
+import Amazonka.Athena.DeleteWorkGroup
+import Amazonka.Athena.GetDataCatalog
+import Amazonka.Athena.GetDatabase
+import Amazonka.Athena.GetNamedQuery
+import Amazonka.Athena.GetPreparedStatement
+import Amazonka.Athena.GetQueryExecution
+import Amazonka.Athena.GetQueryResults
+import Amazonka.Athena.GetTableMetadata
+import Amazonka.Athena.GetWorkGroup
+import Amazonka.Athena.ListDataCatalogs
+import Amazonka.Athena.ListDatabases
+import Amazonka.Athena.ListEngineVersions
+import Amazonka.Athena.ListNamedQueries
+import Amazonka.Athena.ListPreparedStatements
+import Amazonka.Athena.ListQueryExecutions
+import Amazonka.Athena.ListTableMetadata
+import Amazonka.Athena.ListTagsForResource
+import Amazonka.Athena.ListWorkGroups
+import Amazonka.Athena.StartQueryExecution
+import Amazonka.Athena.StopQueryExecution
+import Amazonka.Athena.TagResource
+import Amazonka.Athena.Types.Column
+import Amazonka.Athena.Types.ColumnInfo
+import Amazonka.Athena.Types.DataCatalog
+import Amazonka.Athena.Types.DataCatalogSummary
+import Amazonka.Athena.Types.Database
+import Amazonka.Athena.Types.Datum
+import Amazonka.Athena.Types.EncryptionConfiguration
+import Amazonka.Athena.Types.EngineVersion
+import Amazonka.Athena.Types.NamedQuery
+import Amazonka.Athena.Types.PreparedStatement
+import Amazonka.Athena.Types.PreparedStatementSummary
+import Amazonka.Athena.Types.QueryExecution
+import Amazonka.Athena.Types.QueryExecutionContext
+import Amazonka.Athena.Types.QueryExecutionStatistics
+import Amazonka.Athena.Types.QueryExecutionStatus
+import Amazonka.Athena.Types.ResultConfiguration
+import Amazonka.Athena.Types.ResultConfigurationUpdates
+import Amazonka.Athena.Types.ResultSet
+import Amazonka.Athena.Types.ResultSetMetadata
+import Amazonka.Athena.Types.Row
+import Amazonka.Athena.Types.TableMetadata
+import Amazonka.Athena.Types.Tag
+import Amazonka.Athena.Types.UnprocessedNamedQueryId
+import Amazonka.Athena.Types.UnprocessedQueryExecutionId
+import Amazonka.Athena.Types.WorkGroup
+import Amazonka.Athena.Types.WorkGroupConfiguration
+import Amazonka.Athena.Types.WorkGroupConfigurationUpdates
+import Amazonka.Athena.Types.WorkGroupSummary
+import Amazonka.Athena.UntagResource
+import Amazonka.Athena.UpdateDataCatalog
+import Amazonka.Athena.UpdatePreparedStatement
+import Amazonka.Athena.UpdateWorkGroup

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Athena
+-- Module      : Amazonka.Athena
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- For code samples using the Amazon Web Services SDK for Java, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
-module Network.AWS.Athena
+module Amazonka.Athena
   ( -- * Service Configuration
     defaultService,
 
@@ -396,43 +396,43 @@ module Network.AWS.Athena
   )
 where
 
-import Network.AWS.Athena.BatchGetNamedQuery
-import Network.AWS.Athena.BatchGetQueryExecution
-import Network.AWS.Athena.CreateDataCatalog
-import Network.AWS.Athena.CreateNamedQuery
-import Network.AWS.Athena.CreatePreparedStatement
-import Network.AWS.Athena.CreateWorkGroup
-import Network.AWS.Athena.DeleteDataCatalog
-import Network.AWS.Athena.DeleteNamedQuery
-import Network.AWS.Athena.DeletePreparedStatement
-import Network.AWS.Athena.DeleteWorkGroup
-import Network.AWS.Athena.GetDataCatalog
-import Network.AWS.Athena.GetDatabase
-import Network.AWS.Athena.GetNamedQuery
-import Network.AWS.Athena.GetPreparedStatement
-import Network.AWS.Athena.GetQueryExecution
-import Network.AWS.Athena.GetQueryResults
-import Network.AWS.Athena.GetTableMetadata
-import Network.AWS.Athena.GetWorkGroup
-import Network.AWS.Athena.Lens
-import Network.AWS.Athena.ListDataCatalogs
-import Network.AWS.Athena.ListDatabases
-import Network.AWS.Athena.ListEngineVersions
-import Network.AWS.Athena.ListNamedQueries
-import Network.AWS.Athena.ListPreparedStatements
-import Network.AWS.Athena.ListQueryExecutions
-import Network.AWS.Athena.ListTableMetadata
-import Network.AWS.Athena.ListTagsForResource
-import Network.AWS.Athena.ListWorkGroups
-import Network.AWS.Athena.StartQueryExecution
-import Network.AWS.Athena.StopQueryExecution
-import Network.AWS.Athena.TagResource
-import Network.AWS.Athena.Types
-import Network.AWS.Athena.UntagResource
-import Network.AWS.Athena.UpdateDataCatalog
-import Network.AWS.Athena.UpdatePreparedStatement
-import Network.AWS.Athena.UpdateWorkGroup
-import Network.AWS.Athena.Waiters
+import Amazonka.Athena.BatchGetNamedQuery
+import Amazonka.Athena.BatchGetQueryExecution
+import Amazonka.Athena.CreateDataCatalog
+import Amazonka.Athena.CreateNamedQuery
+import Amazonka.Athena.CreatePreparedStatement
+import Amazonka.Athena.CreateWorkGroup
+import Amazonka.Athena.DeleteDataCatalog
+import Amazonka.Athena.DeleteNamedQuery
+import Amazonka.Athena.DeletePreparedStatement
+import Amazonka.Athena.DeleteWorkGroup
+import Amazonka.Athena.GetDataCatalog
+import Amazonka.Athena.GetDatabase
+import Amazonka.Athena.GetNamedQuery
+import Amazonka.Athena.GetPreparedStatement
+import Amazonka.Athena.GetQueryExecution
+import Amazonka.Athena.GetQueryResults
+import Amazonka.Athena.GetTableMetadata
+import Amazonka.Athena.GetWorkGroup
+import Amazonka.Athena.Lens
+import Amazonka.Athena.ListDataCatalogs
+import Amazonka.Athena.ListDatabases
+import Amazonka.Athena.ListEngineVersions
+import Amazonka.Athena.ListNamedQueries
+import Amazonka.Athena.ListPreparedStatements
+import Amazonka.Athena.ListQueryExecutions
+import Amazonka.Athena.ListTableMetadata
+import Amazonka.Athena.ListTagsForResource
+import Amazonka.Athena.ListWorkGroups
+import Amazonka.Athena.StartQueryExecution
+import Amazonka.Athena.StopQueryExecution
+import Amazonka.Athena.TagResource
+import Amazonka.Athena.Types
+import Amazonka.Athena.UntagResource
+import Amazonka.Athena.UpdateDataCatalog
+import Amazonka.Athena.UpdatePreparedStatement
+import Amazonka.Athena.UpdateWorkGroup
+import Amazonka.Athena.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

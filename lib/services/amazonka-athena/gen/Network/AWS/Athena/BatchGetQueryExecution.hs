@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.BatchGetQueryExecution
+-- Module      : Amazonka.Athena.BatchGetQueryExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- ListQueryExecutionsInput$WorkGroup. Query executions differ from named
 -- (saved) queries. Use BatchGetNamedQueryInput to get details about named
 -- queries.
-module Network.AWS.Athena.BatchGetQueryExecution
+module Amazonka.Athena.BatchGetQueryExecution
   ( -- * Creating a Request
     BatchGetQueryExecution (..),
     newBatchGetQueryExecution,
@@ -46,12 +46,12 @@ module Network.AWS.Athena.BatchGetQueryExecution
   )
 where
 
-import Network.AWS.Athena.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Athena.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetQueryExecution' smart constructor.
 data BatchGetQueryExecution = BatchGetQueryExecution'

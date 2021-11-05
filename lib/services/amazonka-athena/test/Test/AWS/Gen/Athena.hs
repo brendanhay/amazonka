@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Athena where
 
+import Amazonka.Athena
 import qualified Data.Proxy as Proxy
-import Network.AWS.Athena
 import Test.AWS.Athena.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.GetQueryExecution
+-- Module      : Amazonka.Athena.GetQueryExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- access to the workgroup in which the query ran. Each time a query
 -- executes, information about the query execution is saved with a unique
 -- ID.
-module Network.AWS.Athena.GetQueryExecution
+module Amazonka.Athena.GetQueryExecution
   ( -- * Creating a Request
     GetQueryExecution (..),
     newGetQueryExecution,
@@ -42,12 +42,12 @@ module Network.AWS.Athena.GetQueryExecution
   )
 where
 
-import Network.AWS.Athena.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Athena.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetQueryExecution' smart constructor.
 data GetQueryExecution = GetQueryExecution'

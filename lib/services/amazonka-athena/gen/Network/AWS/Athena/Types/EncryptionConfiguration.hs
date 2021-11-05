@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Types.EncryptionConfiguration
+-- Module      : Amazonka.Athena.Types.EncryptionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.EncryptionConfiguration where
+module Amazonka.Athena.Types.EncryptionConfiguration where
 
-import Network.AWS.Athena.Types.EncryptionOption
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Athena.Types.EncryptionOption
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
 -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.

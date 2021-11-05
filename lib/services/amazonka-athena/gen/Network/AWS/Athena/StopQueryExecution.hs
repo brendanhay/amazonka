@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.StopQueryExecution
+-- Module      : Amazonka.Athena.StopQueryExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- For code samples using the Amazon Web Services SDK for Java, see
 -- <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
-module Network.AWS.Athena.StopQueryExecution
+module Amazonka.Athena.StopQueryExecution
   ( -- * Creating a Request
     StopQueryExecution (..),
     newStopQueryExecution,
@@ -43,12 +43,12 @@ module Network.AWS.Athena.StopQueryExecution
   )
 where
 
-import Network.AWS.Athena.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Athena.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopQueryExecution' smart constructor.
 data StopQueryExecution = StopQueryExecution'

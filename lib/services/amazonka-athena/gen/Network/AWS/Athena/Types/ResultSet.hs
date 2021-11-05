@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Athena.Types.ResultSet
+-- Module      : Amazonka.Athena.Types.ResultSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.ResultSet where
+module Amazonka.Athena.Types.ResultSet where
 
-import Network.AWS.Athena.Types.ResultSetMetadata
-import Network.AWS.Athena.Types.Row
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Athena.Types.ResultSetMetadata
+import Amazonka.Athena.Types.Row
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata and rows that comprise a query result set. The metadata
 -- describes the column structure and data types. To return a @ResultSet@

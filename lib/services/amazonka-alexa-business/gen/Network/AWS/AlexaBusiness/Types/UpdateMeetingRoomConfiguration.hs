@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
+-- Module      : Amazonka.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration where
+module Amazonka.AlexaBusiness.Types.UpdateMeetingRoomConfiguration where
 
-import Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder
-import Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
-import Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AlexaBusiness.Types.UpdateEndOfMeetingReminder
+import Amazonka.AlexaBusiness.Types.UpdateInstantBooking
+import Amazonka.AlexaBusiness.Types.UpdateRequireCheckIn
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Updates meeting room settings of a room profile.
 --

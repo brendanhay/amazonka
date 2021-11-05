@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.SendInvitation
+-- Module      : Amazonka.AlexaBusiness.SendInvitation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Sends an enrollment invitation email with a URL to a user. The URL is
 -- valid for 30 days or until you call this operation again, whichever
 -- comes first.
-module Network.AWS.AlexaBusiness.SendInvitation
+module Amazonka.AlexaBusiness.SendInvitation
   ( -- * Creating a Request
     SendInvitation (..),
     newSendInvitation,
@@ -40,12 +40,12 @@ module Network.AWS.AlexaBusiness.SendInvitation
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSendInvitation' smart constructor.
 data SendInvitation = SendInvitation'

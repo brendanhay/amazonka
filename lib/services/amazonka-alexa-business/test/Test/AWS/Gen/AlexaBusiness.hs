@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AlexaBusiness where
 
+import Amazonka.AlexaBusiness
 import qualified Data.Proxy as Proxy
-import Network.AWS.AlexaBusiness
 import Test.AWS.AlexaBusiness.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

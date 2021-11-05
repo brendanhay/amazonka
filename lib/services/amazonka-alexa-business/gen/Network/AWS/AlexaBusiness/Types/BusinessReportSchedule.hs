@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types.BusinessReportSchedule
+-- Module      : Amazonka.AlexaBusiness.Types.BusinessReportSchedule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportSchedule where
+module Amazonka.AlexaBusiness.Types.BusinessReportSchedule where
 
-import Network.AWS.AlexaBusiness.Types.BusinessReport
-import Network.AWS.AlexaBusiness.Types.BusinessReportContentRange
-import Network.AWS.AlexaBusiness.Types.BusinessReportFormat
-import Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AlexaBusiness.Types.BusinessReport
+import Amazonka.AlexaBusiness.Types.BusinessReportContentRange
+import Amazonka.AlexaBusiness.Types.BusinessReportFormat
+import Amazonka.AlexaBusiness.Types.BusinessReportRecurrence
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The schedule of the usage report.
 --

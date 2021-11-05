@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.DeleteDeviceUsageData
+-- Module      : Amazonka.AlexaBusiness.DeleteDeviceUsageData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- authorized users to delete the device\'s entire previous history of
 -- voice input data and associated response data. This action can be called
 -- once every 24 hours for a specific shared device.
-module Network.AWS.AlexaBusiness.DeleteDeviceUsageData
+module Amazonka.AlexaBusiness.DeleteDeviceUsageData
   ( -- * Creating a Request
     DeleteDeviceUsageData (..),
     newDeleteDeviceUsageData,
@@ -42,12 +42,12 @@ module Network.AWS.AlexaBusiness.DeleteDeviceUsageData
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDeviceUsageData' smart constructor.
 data DeleteDeviceUsageData = DeleteDeviceUsageData'

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types.Content
+-- Module      : Amazonka.AlexaBusiness.Types.Content
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Content where
+module Amazonka.AlexaBusiness.Types.Content where
 
-import Network.AWS.AlexaBusiness.Types.Audio
-import Network.AWS.AlexaBusiness.Types.Ssml
-import Network.AWS.AlexaBusiness.Types.TextMessage
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AlexaBusiness.Types.Audio
+import Amazonka.AlexaBusiness.Types.Ssml
+import Amazonka.AlexaBusiness.Types.TextMessage
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The content definition. This can contain only one text, SSML, or audio
 -- list object.

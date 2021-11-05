@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types.BusinessReport
+-- Module      : Amazonka.AlexaBusiness.Types.BusinessReport
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReport where
+module Amazonka.AlexaBusiness.Types.BusinessReport where
 
-import Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
-import Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
-import Network.AWS.AlexaBusiness.Types.BusinessReportStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AlexaBusiness.Types.BusinessReportFailureCode
+import Amazonka.AlexaBusiness.Types.BusinessReportS3Location
+import Amazonka.AlexaBusiness.Types.BusinessReportStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Usage report with specified parameters.
 --

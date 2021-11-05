@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.StartDeviceSync
+-- Module      : Amazonka.AlexaBusiness.StartDeviceSync
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 --     is assigned to a room), contacts, address books, delegation access
 --     for account linking, and communications (if enabled on the room
 --     profile).
-module Network.AWS.AlexaBusiness.StartDeviceSync
+module Amazonka.AlexaBusiness.StartDeviceSync
   ( -- * Creating a Request
     StartDeviceSync (..),
     newStartDeviceSync,
@@ -56,12 +56,12 @@ module Network.AWS.AlexaBusiness.StartDeviceSync
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDeviceSync' smart constructor.
 data StartDeviceSync = StartDeviceSync'

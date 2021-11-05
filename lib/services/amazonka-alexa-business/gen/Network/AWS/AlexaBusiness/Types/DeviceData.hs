@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types.DeviceData
+-- Module      : Amazonka.AlexaBusiness.Types.DeviceData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.DeviceData where
+module Amazonka.AlexaBusiness.Types.DeviceData where
 
-import Network.AWS.AlexaBusiness.Types.DeviceStatus
-import Network.AWS.AlexaBusiness.Types.DeviceStatusInfo
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AlexaBusiness.Types.DeviceStatus
+import Amazonka.AlexaBusiness.Types.DeviceStatusInfo
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Device attributes.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.PutSkillAuthorization
+-- Module      : Amazonka.AlexaBusiness.PutSkillAuthorization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- operation is called by an assumed IAM role, the skill being linked must
 -- be a private skill. Also, the skill must be owned by the AWS account
 -- that assumed the IAM role.
-module Network.AWS.AlexaBusiness.PutSkillAuthorization
+module Amazonka.AlexaBusiness.PutSkillAuthorization
   ( -- * Creating a Request
     PutSkillAuthorization (..),
     newPutSkillAuthorization,
@@ -43,12 +43,12 @@ module Network.AWS.AlexaBusiness.PutSkillAuthorization
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutSkillAuthorization' smart constructor.
 data PutSkillAuthorization = PutSkillAuthorization'

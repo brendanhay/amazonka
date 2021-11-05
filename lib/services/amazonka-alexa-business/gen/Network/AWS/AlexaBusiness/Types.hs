@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.Types
+-- Module      : Amazonka.AlexaBusiness.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types
+module Amazonka.AlexaBusiness.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -613,99 +613,99 @@ module Network.AWS.AlexaBusiness.Types
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.AddressBook
-import Network.AWS.AlexaBusiness.Types.AddressBookData
-import Network.AWS.AlexaBusiness.Types.Audio
-import Network.AWS.AlexaBusiness.Types.BusinessReport
-import Network.AWS.AlexaBusiness.Types.BusinessReportContentRange
-import Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
-import Network.AWS.AlexaBusiness.Types.BusinessReportFormat
-import Network.AWS.AlexaBusiness.Types.BusinessReportInterval
-import Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
-import Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
-import Network.AWS.AlexaBusiness.Types.BusinessReportSchedule
-import Network.AWS.AlexaBusiness.Types.BusinessReportStatus
-import Network.AWS.AlexaBusiness.Types.Category
-import Network.AWS.AlexaBusiness.Types.CommsProtocol
-import Network.AWS.AlexaBusiness.Types.ConferencePreference
-import Network.AWS.AlexaBusiness.Types.ConferenceProvider
-import Network.AWS.AlexaBusiness.Types.ConferenceProviderType
-import Network.AWS.AlexaBusiness.Types.ConnectionStatus
-import Network.AWS.AlexaBusiness.Types.Contact
-import Network.AWS.AlexaBusiness.Types.ContactData
-import Network.AWS.AlexaBusiness.Types.Content
-import Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder
-import Network.AWS.AlexaBusiness.Types.CreateInstantBooking
-import Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration
-import Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn
-import Network.AWS.AlexaBusiness.Types.DeveloperInfo
-import Network.AWS.AlexaBusiness.Types.Device
-import Network.AWS.AlexaBusiness.Types.DeviceData
-import Network.AWS.AlexaBusiness.Types.DeviceEvent
-import Network.AWS.AlexaBusiness.Types.DeviceEventType
-import Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo
-import Network.AWS.AlexaBusiness.Types.DeviceStatus
-import Network.AWS.AlexaBusiness.Types.DeviceStatusDetail
-import Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode
-import Network.AWS.AlexaBusiness.Types.DeviceStatusInfo
-import Network.AWS.AlexaBusiness.Types.DeviceUsageType
-import Network.AWS.AlexaBusiness.Types.DistanceUnit
-import Network.AWS.AlexaBusiness.Types.EnablementType
-import Network.AWS.AlexaBusiness.Types.EnablementTypeFilter
-import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminder
-import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
-import Network.AWS.AlexaBusiness.Types.EnrollmentStatus
-import Network.AWS.AlexaBusiness.Types.Feature
-import Network.AWS.AlexaBusiness.Types.Filter
-import Network.AWS.AlexaBusiness.Types.Gateway
-import Network.AWS.AlexaBusiness.Types.GatewayGroup
-import Network.AWS.AlexaBusiness.Types.GatewayGroupSummary
-import Network.AWS.AlexaBusiness.Types.GatewaySummary
-import Network.AWS.AlexaBusiness.Types.IPDialIn
-import Network.AWS.AlexaBusiness.Types.InstantBooking
-import Network.AWS.AlexaBusiness.Types.Locale
-import Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration
-import Network.AWS.AlexaBusiness.Types.MeetingSetting
-import Network.AWS.AlexaBusiness.Types.NetworkEapMethod
-import Network.AWS.AlexaBusiness.Types.NetworkProfile
-import Network.AWS.AlexaBusiness.Types.NetworkProfileData
-import Network.AWS.AlexaBusiness.Types.NetworkSecurityType
-import Network.AWS.AlexaBusiness.Types.PSTNDialIn
-import Network.AWS.AlexaBusiness.Types.PhoneNumber
-import Network.AWS.AlexaBusiness.Types.PhoneNumberType
-import Network.AWS.AlexaBusiness.Types.Profile
-import Network.AWS.AlexaBusiness.Types.ProfileData
-import Network.AWS.AlexaBusiness.Types.RequireCheckIn
-import Network.AWS.AlexaBusiness.Types.RequirePin
-import Network.AWS.AlexaBusiness.Types.Room
-import Network.AWS.AlexaBusiness.Types.RoomData
-import Network.AWS.AlexaBusiness.Types.RoomSkillParameter
-import Network.AWS.AlexaBusiness.Types.SipAddress
-import Network.AWS.AlexaBusiness.Types.SipType
-import Network.AWS.AlexaBusiness.Types.SkillDetails
-import Network.AWS.AlexaBusiness.Types.SkillGroup
-import Network.AWS.AlexaBusiness.Types.SkillGroupData
-import Network.AWS.AlexaBusiness.Types.SkillSummary
-import Network.AWS.AlexaBusiness.Types.SkillType
-import Network.AWS.AlexaBusiness.Types.SkillTypeFilter
-import Network.AWS.AlexaBusiness.Types.SkillsStoreSkill
-import Network.AWS.AlexaBusiness.Types.SmartHomeAppliance
-import Network.AWS.AlexaBusiness.Types.Sort
-import Network.AWS.AlexaBusiness.Types.SortValue
-import Network.AWS.AlexaBusiness.Types.Ssml
-import Network.AWS.AlexaBusiness.Types.Tag
-import Network.AWS.AlexaBusiness.Types.TemperatureUnit
-import Network.AWS.AlexaBusiness.Types.TextMessage
-import Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder
-import Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
-import Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
-import Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
-import Network.AWS.AlexaBusiness.Types.UserData
-import Network.AWS.AlexaBusiness.Types.WakeWord
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AlexaBusiness.Types.AddressBook
+import Amazonka.AlexaBusiness.Types.AddressBookData
+import Amazonka.AlexaBusiness.Types.Audio
+import Amazonka.AlexaBusiness.Types.BusinessReport
+import Amazonka.AlexaBusiness.Types.BusinessReportContentRange
+import Amazonka.AlexaBusiness.Types.BusinessReportFailureCode
+import Amazonka.AlexaBusiness.Types.BusinessReportFormat
+import Amazonka.AlexaBusiness.Types.BusinessReportInterval
+import Amazonka.AlexaBusiness.Types.BusinessReportRecurrence
+import Amazonka.AlexaBusiness.Types.BusinessReportS3Location
+import Amazonka.AlexaBusiness.Types.BusinessReportSchedule
+import Amazonka.AlexaBusiness.Types.BusinessReportStatus
+import Amazonka.AlexaBusiness.Types.Category
+import Amazonka.AlexaBusiness.Types.CommsProtocol
+import Amazonka.AlexaBusiness.Types.ConferencePreference
+import Amazonka.AlexaBusiness.Types.ConferenceProvider
+import Amazonka.AlexaBusiness.Types.ConferenceProviderType
+import Amazonka.AlexaBusiness.Types.ConnectionStatus
+import Amazonka.AlexaBusiness.Types.Contact
+import Amazonka.AlexaBusiness.Types.ContactData
+import Amazonka.AlexaBusiness.Types.Content
+import Amazonka.AlexaBusiness.Types.CreateEndOfMeetingReminder
+import Amazonka.AlexaBusiness.Types.CreateInstantBooking
+import Amazonka.AlexaBusiness.Types.CreateMeetingRoomConfiguration
+import Amazonka.AlexaBusiness.Types.CreateRequireCheckIn
+import Amazonka.AlexaBusiness.Types.DeveloperInfo
+import Amazonka.AlexaBusiness.Types.Device
+import Amazonka.AlexaBusiness.Types.DeviceData
+import Amazonka.AlexaBusiness.Types.DeviceEvent
+import Amazonka.AlexaBusiness.Types.DeviceEventType
+import Amazonka.AlexaBusiness.Types.DeviceNetworkProfileInfo
+import Amazonka.AlexaBusiness.Types.DeviceStatus
+import Amazonka.AlexaBusiness.Types.DeviceStatusDetail
+import Amazonka.AlexaBusiness.Types.DeviceStatusDetailCode
+import Amazonka.AlexaBusiness.Types.DeviceStatusInfo
+import Amazonka.AlexaBusiness.Types.DeviceUsageType
+import Amazonka.AlexaBusiness.Types.DistanceUnit
+import Amazonka.AlexaBusiness.Types.EnablementType
+import Amazonka.AlexaBusiness.Types.EnablementTypeFilter
+import Amazonka.AlexaBusiness.Types.EndOfMeetingReminder
+import Amazonka.AlexaBusiness.Types.EndOfMeetingReminderType
+import Amazonka.AlexaBusiness.Types.EnrollmentStatus
+import Amazonka.AlexaBusiness.Types.Feature
+import Amazonka.AlexaBusiness.Types.Filter
+import Amazonka.AlexaBusiness.Types.Gateway
+import Amazonka.AlexaBusiness.Types.GatewayGroup
+import Amazonka.AlexaBusiness.Types.GatewayGroupSummary
+import Amazonka.AlexaBusiness.Types.GatewaySummary
+import Amazonka.AlexaBusiness.Types.IPDialIn
+import Amazonka.AlexaBusiness.Types.InstantBooking
+import Amazonka.AlexaBusiness.Types.Locale
+import Amazonka.AlexaBusiness.Types.MeetingRoomConfiguration
+import Amazonka.AlexaBusiness.Types.MeetingSetting
+import Amazonka.AlexaBusiness.Types.NetworkEapMethod
+import Amazonka.AlexaBusiness.Types.NetworkProfile
+import Amazonka.AlexaBusiness.Types.NetworkProfileData
+import Amazonka.AlexaBusiness.Types.NetworkSecurityType
+import Amazonka.AlexaBusiness.Types.PSTNDialIn
+import Amazonka.AlexaBusiness.Types.PhoneNumber
+import Amazonka.AlexaBusiness.Types.PhoneNumberType
+import Amazonka.AlexaBusiness.Types.Profile
+import Amazonka.AlexaBusiness.Types.ProfileData
+import Amazonka.AlexaBusiness.Types.RequireCheckIn
+import Amazonka.AlexaBusiness.Types.RequirePin
+import Amazonka.AlexaBusiness.Types.Room
+import Amazonka.AlexaBusiness.Types.RoomData
+import Amazonka.AlexaBusiness.Types.RoomSkillParameter
+import Amazonka.AlexaBusiness.Types.SipAddress
+import Amazonka.AlexaBusiness.Types.SipType
+import Amazonka.AlexaBusiness.Types.SkillDetails
+import Amazonka.AlexaBusiness.Types.SkillGroup
+import Amazonka.AlexaBusiness.Types.SkillGroupData
+import Amazonka.AlexaBusiness.Types.SkillSummary
+import Amazonka.AlexaBusiness.Types.SkillType
+import Amazonka.AlexaBusiness.Types.SkillTypeFilter
+import Amazonka.AlexaBusiness.Types.SkillsStoreSkill
+import Amazonka.AlexaBusiness.Types.SmartHomeAppliance
+import Amazonka.AlexaBusiness.Types.Sort
+import Amazonka.AlexaBusiness.Types.SortValue
+import Amazonka.AlexaBusiness.Types.Ssml
+import Amazonka.AlexaBusiness.Types.Tag
+import Amazonka.AlexaBusiness.Types.TemperatureUnit
+import Amazonka.AlexaBusiness.Types.TextMessage
+import Amazonka.AlexaBusiness.Types.UpdateEndOfMeetingReminder
+import Amazonka.AlexaBusiness.Types.UpdateInstantBooking
+import Amazonka.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
+import Amazonka.AlexaBusiness.Types.UpdateRequireCheckIn
+import Amazonka.AlexaBusiness.Types.UserData
+import Amazonka.AlexaBusiness.Types.WakeWord
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-09@ of the Amazon Alexa For Business SDK configuration.
 defaultService :: Core.Service

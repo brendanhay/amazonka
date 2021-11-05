@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.SearchContacts
+-- Module      : Amazonka.AlexaBusiness.SearchContacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Searches contacts and lists the ones that meet a set of filter and sort
 -- criteria.
-module Network.AWS.AlexaBusiness.SearchContacts
+module Amazonka.AlexaBusiness.SearchContacts
   ( -- * Creating a Request
     SearchContacts (..),
     newSearchContacts,
@@ -45,12 +45,12 @@ module Network.AWS.AlexaBusiness.SearchContacts
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchContacts' smart constructor.
 data SearchContacts = SearchContacts'

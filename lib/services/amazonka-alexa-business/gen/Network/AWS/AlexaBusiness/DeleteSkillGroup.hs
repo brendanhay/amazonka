@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AlexaBusiness.DeleteSkillGroup
+-- Module      : Amazonka.AlexaBusiness.DeleteSkillGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a skill group by skill group ARN.
-module Network.AWS.AlexaBusiness.DeleteSkillGroup
+module Amazonka.AlexaBusiness.DeleteSkillGroup
   ( -- * Creating a Request
     DeleteSkillGroup (..),
     newDeleteSkillGroup,
@@ -38,12 +38,12 @@ module Network.AWS.AlexaBusiness.DeleteSkillGroup
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AlexaBusiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSkillGroup' smart constructor.
 data DeleteSkillGroup = DeleteSkillGroup'

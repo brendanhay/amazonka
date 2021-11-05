@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AlexaBusiness
+-- Module      : Amazonka.AlexaBusiness
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- Alexa Voice Service (AVS) can create fully integrated solutions,
 -- register their products with Alexa for Business, and manage them as
 -- shared devices in their organization.
-module Network.AWS.AlexaBusiness
+module Amazonka.AlexaBusiness
   ( -- * Service Configuration
     defaultService,
 
@@ -970,102 +970,102 @@ module Network.AWS.AlexaBusiness
   )
 where
 
-import Network.AWS.AlexaBusiness.ApproveSkill
-import Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
-import Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
-import Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
-import Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
-import Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
-import Network.AWS.AlexaBusiness.AssociateSkillWithUsers
-import Network.AWS.AlexaBusiness.CreateAddressBook
-import Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
-import Network.AWS.AlexaBusiness.CreateConferenceProvider
-import Network.AWS.AlexaBusiness.CreateContact
-import Network.AWS.AlexaBusiness.CreateGatewayGroup
-import Network.AWS.AlexaBusiness.CreateNetworkProfile
-import Network.AWS.AlexaBusiness.CreateProfile
-import Network.AWS.AlexaBusiness.CreateRoom
-import Network.AWS.AlexaBusiness.CreateSkillGroup
-import Network.AWS.AlexaBusiness.CreateUser
-import Network.AWS.AlexaBusiness.DeleteAddressBook
-import Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
-import Network.AWS.AlexaBusiness.DeleteConferenceProvider
-import Network.AWS.AlexaBusiness.DeleteContact
-import Network.AWS.AlexaBusiness.DeleteDevice
-import Network.AWS.AlexaBusiness.DeleteDeviceUsageData
-import Network.AWS.AlexaBusiness.DeleteGatewayGroup
-import Network.AWS.AlexaBusiness.DeleteNetworkProfile
-import Network.AWS.AlexaBusiness.DeleteProfile
-import Network.AWS.AlexaBusiness.DeleteRoom
-import Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
-import Network.AWS.AlexaBusiness.DeleteSkillAuthorization
-import Network.AWS.AlexaBusiness.DeleteSkillGroup
-import Network.AWS.AlexaBusiness.DeleteUser
-import Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
-import Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
-import Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
-import Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
-import Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
-import Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
-import Network.AWS.AlexaBusiness.GetAddressBook
-import Network.AWS.AlexaBusiness.GetConferencePreference
-import Network.AWS.AlexaBusiness.GetConferenceProvider
-import Network.AWS.AlexaBusiness.GetContact
-import Network.AWS.AlexaBusiness.GetDevice
-import Network.AWS.AlexaBusiness.GetGateway
-import Network.AWS.AlexaBusiness.GetGatewayGroup
-import Network.AWS.AlexaBusiness.GetInvitationConfiguration
-import Network.AWS.AlexaBusiness.GetNetworkProfile
-import Network.AWS.AlexaBusiness.GetProfile
-import Network.AWS.AlexaBusiness.GetRoom
-import Network.AWS.AlexaBusiness.GetRoomSkillParameter
-import Network.AWS.AlexaBusiness.GetSkillGroup
-import Network.AWS.AlexaBusiness.Lens
-import Network.AWS.AlexaBusiness.ListBusinessReportSchedules
-import Network.AWS.AlexaBusiness.ListConferenceProviders
-import Network.AWS.AlexaBusiness.ListDeviceEvents
-import Network.AWS.AlexaBusiness.ListGatewayGroups
-import Network.AWS.AlexaBusiness.ListGateways
-import Network.AWS.AlexaBusiness.ListSkills
-import Network.AWS.AlexaBusiness.ListSkillsStoreCategories
-import Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
-import Network.AWS.AlexaBusiness.ListSmartHomeAppliances
-import Network.AWS.AlexaBusiness.ListTags
-import Network.AWS.AlexaBusiness.PutConferencePreference
-import Network.AWS.AlexaBusiness.PutInvitationConfiguration
-import Network.AWS.AlexaBusiness.PutRoomSkillParameter
-import Network.AWS.AlexaBusiness.PutSkillAuthorization
-import Network.AWS.AlexaBusiness.RegisterAVSDevice
-import Network.AWS.AlexaBusiness.RejectSkill
-import Network.AWS.AlexaBusiness.ResolveRoom
-import Network.AWS.AlexaBusiness.RevokeInvitation
-import Network.AWS.AlexaBusiness.SearchAddressBooks
-import Network.AWS.AlexaBusiness.SearchContacts
-import Network.AWS.AlexaBusiness.SearchDevices
-import Network.AWS.AlexaBusiness.SearchNetworkProfiles
-import Network.AWS.AlexaBusiness.SearchProfiles
-import Network.AWS.AlexaBusiness.SearchRooms
-import Network.AWS.AlexaBusiness.SearchSkillGroups
-import Network.AWS.AlexaBusiness.SearchUsers
-import Network.AWS.AlexaBusiness.SendAnnouncement
-import Network.AWS.AlexaBusiness.SendInvitation
-import Network.AWS.AlexaBusiness.StartDeviceSync
-import Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
-import Network.AWS.AlexaBusiness.TagResource
-import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.UntagResource
-import Network.AWS.AlexaBusiness.UpdateAddressBook
-import Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
-import Network.AWS.AlexaBusiness.UpdateConferenceProvider
-import Network.AWS.AlexaBusiness.UpdateContact
-import Network.AWS.AlexaBusiness.UpdateDevice
-import Network.AWS.AlexaBusiness.UpdateGateway
-import Network.AWS.AlexaBusiness.UpdateGatewayGroup
-import Network.AWS.AlexaBusiness.UpdateNetworkProfile
-import Network.AWS.AlexaBusiness.UpdateProfile
-import Network.AWS.AlexaBusiness.UpdateRoom
-import Network.AWS.AlexaBusiness.UpdateSkillGroup
-import Network.AWS.AlexaBusiness.Waiters
+import Amazonka.AlexaBusiness.ApproveSkill
+import Amazonka.AlexaBusiness.AssociateContactWithAddressBook
+import Amazonka.AlexaBusiness.AssociateDeviceWithNetworkProfile
+import Amazonka.AlexaBusiness.AssociateDeviceWithRoom
+import Amazonka.AlexaBusiness.AssociateSkillGroupWithRoom
+import Amazonka.AlexaBusiness.AssociateSkillWithSkillGroup
+import Amazonka.AlexaBusiness.AssociateSkillWithUsers
+import Amazonka.AlexaBusiness.CreateAddressBook
+import Amazonka.AlexaBusiness.CreateBusinessReportSchedule
+import Amazonka.AlexaBusiness.CreateConferenceProvider
+import Amazonka.AlexaBusiness.CreateContact
+import Amazonka.AlexaBusiness.CreateGatewayGroup
+import Amazonka.AlexaBusiness.CreateNetworkProfile
+import Amazonka.AlexaBusiness.CreateProfile
+import Amazonka.AlexaBusiness.CreateRoom
+import Amazonka.AlexaBusiness.CreateSkillGroup
+import Amazonka.AlexaBusiness.CreateUser
+import Amazonka.AlexaBusiness.DeleteAddressBook
+import Amazonka.AlexaBusiness.DeleteBusinessReportSchedule
+import Amazonka.AlexaBusiness.DeleteConferenceProvider
+import Amazonka.AlexaBusiness.DeleteContact
+import Amazonka.AlexaBusiness.DeleteDevice
+import Amazonka.AlexaBusiness.DeleteDeviceUsageData
+import Amazonka.AlexaBusiness.DeleteGatewayGroup
+import Amazonka.AlexaBusiness.DeleteNetworkProfile
+import Amazonka.AlexaBusiness.DeleteProfile
+import Amazonka.AlexaBusiness.DeleteRoom
+import Amazonka.AlexaBusiness.DeleteRoomSkillParameter
+import Amazonka.AlexaBusiness.DeleteSkillAuthorization
+import Amazonka.AlexaBusiness.DeleteSkillGroup
+import Amazonka.AlexaBusiness.DeleteUser
+import Amazonka.AlexaBusiness.DisassociateContactFromAddressBook
+import Amazonka.AlexaBusiness.DisassociateDeviceFromRoom
+import Amazonka.AlexaBusiness.DisassociateSkillFromSkillGroup
+import Amazonka.AlexaBusiness.DisassociateSkillFromUsers
+import Amazonka.AlexaBusiness.DisassociateSkillGroupFromRoom
+import Amazonka.AlexaBusiness.ForgetSmartHomeAppliances
+import Amazonka.AlexaBusiness.GetAddressBook
+import Amazonka.AlexaBusiness.GetConferencePreference
+import Amazonka.AlexaBusiness.GetConferenceProvider
+import Amazonka.AlexaBusiness.GetContact
+import Amazonka.AlexaBusiness.GetDevice
+import Amazonka.AlexaBusiness.GetGateway
+import Amazonka.AlexaBusiness.GetGatewayGroup
+import Amazonka.AlexaBusiness.GetInvitationConfiguration
+import Amazonka.AlexaBusiness.GetNetworkProfile
+import Amazonka.AlexaBusiness.GetProfile
+import Amazonka.AlexaBusiness.GetRoom
+import Amazonka.AlexaBusiness.GetRoomSkillParameter
+import Amazonka.AlexaBusiness.GetSkillGroup
+import Amazonka.AlexaBusiness.Lens
+import Amazonka.AlexaBusiness.ListBusinessReportSchedules
+import Amazonka.AlexaBusiness.ListConferenceProviders
+import Amazonka.AlexaBusiness.ListDeviceEvents
+import Amazonka.AlexaBusiness.ListGatewayGroups
+import Amazonka.AlexaBusiness.ListGateways
+import Amazonka.AlexaBusiness.ListSkills
+import Amazonka.AlexaBusiness.ListSkillsStoreCategories
+import Amazonka.AlexaBusiness.ListSkillsStoreSkillsByCategory
+import Amazonka.AlexaBusiness.ListSmartHomeAppliances
+import Amazonka.AlexaBusiness.ListTags
+import Amazonka.AlexaBusiness.PutConferencePreference
+import Amazonka.AlexaBusiness.PutInvitationConfiguration
+import Amazonka.AlexaBusiness.PutRoomSkillParameter
+import Amazonka.AlexaBusiness.PutSkillAuthorization
+import Amazonka.AlexaBusiness.RegisterAVSDevice
+import Amazonka.AlexaBusiness.RejectSkill
+import Amazonka.AlexaBusiness.ResolveRoom
+import Amazonka.AlexaBusiness.RevokeInvitation
+import Amazonka.AlexaBusiness.SearchAddressBooks
+import Amazonka.AlexaBusiness.SearchContacts
+import Amazonka.AlexaBusiness.SearchDevices
+import Amazonka.AlexaBusiness.SearchNetworkProfiles
+import Amazonka.AlexaBusiness.SearchProfiles
+import Amazonka.AlexaBusiness.SearchRooms
+import Amazonka.AlexaBusiness.SearchSkillGroups
+import Amazonka.AlexaBusiness.SearchUsers
+import Amazonka.AlexaBusiness.SendAnnouncement
+import Amazonka.AlexaBusiness.SendInvitation
+import Amazonka.AlexaBusiness.StartDeviceSync
+import Amazonka.AlexaBusiness.StartSmartHomeApplianceDiscovery
+import Amazonka.AlexaBusiness.TagResource
+import Amazonka.AlexaBusiness.Types
+import Amazonka.AlexaBusiness.UntagResource
+import Amazonka.AlexaBusiness.UpdateAddressBook
+import Amazonka.AlexaBusiness.UpdateBusinessReportSchedule
+import Amazonka.AlexaBusiness.UpdateConferenceProvider
+import Amazonka.AlexaBusiness.UpdateContact
+import Amazonka.AlexaBusiness.UpdateDevice
+import Amazonka.AlexaBusiness.UpdateGateway
+import Amazonka.AlexaBusiness.UpdateGatewayGroup
+import Amazonka.AlexaBusiness.UpdateNetworkProfile
+import Amazonka.AlexaBusiness.UpdateProfile
+import Amazonka.AlexaBusiness.UpdateRoom
+import Amazonka.AlexaBusiness.UpdateSkillGroup
+import Amazonka.AlexaBusiness.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

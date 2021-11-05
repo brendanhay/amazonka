@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AuditManager.Types.AssessmentMetadata
+-- Module      : Amazonka.AuditManager.Types.AssessmentMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AuditManager.Types.AssessmentMetadata where
+module Amazonka.AuditManager.Types.AssessmentMetadata where
 
-import Network.AWS.AuditManager.Types.AssessmentReportsDestination
-import Network.AWS.AuditManager.Types.AssessmentStatus
-import Network.AWS.AuditManager.Types.Delegation
-import Network.AWS.AuditManager.Types.Role
-import Network.AWS.AuditManager.Types.Scope
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AuditManager.Types.AssessmentReportsDestination
+import Amazonka.AuditManager.Types.AssessmentStatus
+import Amazonka.AuditManager.Types.Delegation
+import Amazonka.AuditManager.Types.Role
+import Amazonka.AuditManager.Types.Scope
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata associated with the specified assessment.
 --

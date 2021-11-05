@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AuditManager.Types.CreateControlMappingSource
+-- Module      : Amazonka.AuditManager.Types.CreateControlMappingSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AuditManager.Types.CreateControlMappingSource where
+module Amazonka.AuditManager.Types.CreateControlMappingSource where
 
-import Network.AWS.AuditManager.Types.SourceFrequency
-import Network.AWS.AuditManager.Types.SourceKeyword
-import Network.AWS.AuditManager.Types.SourceSetUpOption
-import Network.AWS.AuditManager.Types.SourceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AuditManager.Types.SourceFrequency
+import Amazonka.AuditManager.Types.SourceKeyword
+import Amazonka.AuditManager.Types.SourceSetUpOption
+import Amazonka.AuditManager.Types.SourceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Control mapping fields that represent the source for evidence
 -- collection, along with related parameters and metadata. This does not

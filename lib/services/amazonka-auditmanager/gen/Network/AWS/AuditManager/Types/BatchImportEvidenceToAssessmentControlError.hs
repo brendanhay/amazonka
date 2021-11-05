@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
+-- Module      : Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AuditManager.Types.BatchImportEvidenceToAssessmentControlError where
+module Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError where
 
-import Network.AWS.AuditManager.Types.ManualEvidence
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AuditManager.Types.ManualEvidence
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An error entity for the @BatchImportEvidenceToAssessmentControl@ API.
 -- This is used to provide more meaningful errors than a simple string

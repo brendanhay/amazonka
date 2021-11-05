@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AuditManager
+-- Module      : Amazonka.AuditManager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --
 -- If you\'re new to Audit Manager, we recommend that you review the
 -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html Audit Manager User Guide>.
-module Network.AWS.AuditManager
+module Amazonka.AuditManager
   ( -- * Service Configuration
     defaultService,
 
@@ -601,60 +601,60 @@ module Network.AWS.AuditManager
   )
 where
 
-import Network.AWS.AuditManager.AssociateAssessmentReportEvidenceFolder
-import Network.AWS.AuditManager.BatchAssociateAssessmentReportEvidence
-import Network.AWS.AuditManager.BatchCreateDelegationByAssessment
-import Network.AWS.AuditManager.BatchDeleteDelegationByAssessment
-import Network.AWS.AuditManager.BatchDisassociateAssessmentReportEvidence
-import Network.AWS.AuditManager.BatchImportEvidenceToAssessmentControl
-import Network.AWS.AuditManager.CreateAssessment
-import Network.AWS.AuditManager.CreateAssessmentFramework
-import Network.AWS.AuditManager.CreateAssessmentReport
-import Network.AWS.AuditManager.CreateControl
-import Network.AWS.AuditManager.DeleteAssessment
-import Network.AWS.AuditManager.DeleteAssessmentFramework
-import Network.AWS.AuditManager.DeleteAssessmentReport
-import Network.AWS.AuditManager.DeleteControl
-import Network.AWS.AuditManager.DeregisterAccount
-import Network.AWS.AuditManager.DeregisterOrganizationAdminAccount
-import Network.AWS.AuditManager.DisassociateAssessmentReportEvidenceFolder
-import Network.AWS.AuditManager.GetAccountStatus
-import Network.AWS.AuditManager.GetAssessment
-import Network.AWS.AuditManager.GetAssessmentFramework
-import Network.AWS.AuditManager.GetAssessmentReportUrl
-import Network.AWS.AuditManager.GetChangeLogs
-import Network.AWS.AuditManager.GetControl
-import Network.AWS.AuditManager.GetDelegations
-import Network.AWS.AuditManager.GetEvidence
-import Network.AWS.AuditManager.GetEvidenceByEvidenceFolder
-import Network.AWS.AuditManager.GetEvidenceFolder
-import Network.AWS.AuditManager.GetEvidenceFoldersByAssessment
-import Network.AWS.AuditManager.GetEvidenceFoldersByAssessmentControl
-import Network.AWS.AuditManager.GetOrganizationAdminAccount
-import Network.AWS.AuditManager.GetServicesInScope
-import Network.AWS.AuditManager.GetSettings
-import Network.AWS.AuditManager.Lens
-import Network.AWS.AuditManager.ListAssessmentFrameworks
-import Network.AWS.AuditManager.ListAssessmentReports
-import Network.AWS.AuditManager.ListAssessments
-import Network.AWS.AuditManager.ListControls
-import Network.AWS.AuditManager.ListKeywordsForDataSource
-import Network.AWS.AuditManager.ListNotifications
-import Network.AWS.AuditManager.ListTagsForResource
-import Network.AWS.AuditManager.RegisterAccount
-import Network.AWS.AuditManager.RegisterOrganizationAdminAccount
-import Network.AWS.AuditManager.TagResource
-import Network.AWS.AuditManager.Types
-import Network.AWS.AuditManager.UntagResource
-import Network.AWS.AuditManager.UpdateAssessment
-import Network.AWS.AuditManager.UpdateAssessmentControl
-import Network.AWS.AuditManager.UpdateAssessmentControlSetStatus
-import Network.AWS.AuditManager.UpdateAssessmentFramework
-import Network.AWS.AuditManager.UpdateAssessmentStatus
-import Network.AWS.AuditManager.UpdateControl
-import Network.AWS.AuditManager.UpdateSettings
-import Network.AWS.AuditManager.ValidateAssessmentReportIntegrity
-import Network.AWS.AuditManager.Waiters
+import Amazonka.AuditManager.AssociateAssessmentReportEvidenceFolder
+import Amazonka.AuditManager.BatchAssociateAssessmentReportEvidence
+import Amazonka.AuditManager.BatchCreateDelegationByAssessment
+import Amazonka.AuditManager.BatchDeleteDelegationByAssessment
+import Amazonka.AuditManager.BatchDisassociateAssessmentReportEvidence
+import Amazonka.AuditManager.BatchImportEvidenceToAssessmentControl
+import Amazonka.AuditManager.CreateAssessment
+import Amazonka.AuditManager.CreateAssessmentFramework
+import Amazonka.AuditManager.CreateAssessmentReport
+import Amazonka.AuditManager.CreateControl
+import Amazonka.AuditManager.DeleteAssessment
+import Amazonka.AuditManager.DeleteAssessmentFramework
+import Amazonka.AuditManager.DeleteAssessmentReport
+import Amazonka.AuditManager.DeleteControl
+import Amazonka.AuditManager.DeregisterAccount
+import Amazonka.AuditManager.DeregisterOrganizationAdminAccount
+import Amazonka.AuditManager.DisassociateAssessmentReportEvidenceFolder
+import Amazonka.AuditManager.GetAccountStatus
+import Amazonka.AuditManager.GetAssessment
+import Amazonka.AuditManager.GetAssessmentFramework
+import Amazonka.AuditManager.GetAssessmentReportUrl
+import Amazonka.AuditManager.GetChangeLogs
+import Amazonka.AuditManager.GetControl
+import Amazonka.AuditManager.GetDelegations
+import Amazonka.AuditManager.GetEvidence
+import Amazonka.AuditManager.GetEvidenceByEvidenceFolder
+import Amazonka.AuditManager.GetEvidenceFolder
+import Amazonka.AuditManager.GetEvidenceFoldersByAssessment
+import Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
+import Amazonka.AuditManager.GetOrganizationAdminAccount
+import Amazonka.AuditManager.GetServicesInScope
+import Amazonka.AuditManager.GetSettings
+import Amazonka.AuditManager.Lens
+import Amazonka.AuditManager.ListAssessmentFrameworks
+import Amazonka.AuditManager.ListAssessmentReports
+import Amazonka.AuditManager.ListAssessments
+import Amazonka.AuditManager.ListControls
+import Amazonka.AuditManager.ListKeywordsForDataSource
+import Amazonka.AuditManager.ListNotifications
+import Amazonka.AuditManager.ListTagsForResource
+import Amazonka.AuditManager.RegisterAccount
+import Amazonka.AuditManager.RegisterOrganizationAdminAccount
+import Amazonka.AuditManager.TagResource
+import Amazonka.AuditManager.Types
+import Amazonka.AuditManager.UntagResource
+import Amazonka.AuditManager.UpdateAssessment
+import Amazonka.AuditManager.UpdateAssessmentControl
+import Amazonka.AuditManager.UpdateAssessmentControlSetStatus
+import Amazonka.AuditManager.UpdateAssessmentFramework
+import Amazonka.AuditManager.UpdateAssessmentStatus
+import Amazonka.AuditManager.UpdateControl
+import Amazonka.AuditManager.UpdateSettings
+import Amazonka.AuditManager.ValidateAssessmentReportIntegrity
+import Amazonka.AuditManager.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

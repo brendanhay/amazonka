@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AuditManager.RegisterOrganizationAdminAccount
+-- Module      : Amazonka.AuditManager.RegisterOrganizationAdminAccount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Enables an Amazon Web Services account within the organization as the
 -- delegated administrator for Audit Manager.
-module Network.AWS.AuditManager.RegisterOrganizationAdminAccount
+module Amazonka.AuditManager.RegisterOrganizationAdminAccount
   ( -- * Creating a Request
     RegisterOrganizationAdminAccount (..),
     newRegisterOrganizationAdminAccount,
@@ -41,12 +41,12 @@ module Network.AWS.AuditManager.RegisterOrganizationAdminAccount
   )
 where
 
-import Network.AWS.AuditManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AuditManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterOrganizationAdminAccount' smart constructor.
 data RegisterOrganizationAdminAccount = RegisterOrganizationAdminAccount'

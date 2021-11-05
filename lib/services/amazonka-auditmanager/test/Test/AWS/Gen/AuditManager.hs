@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AuditManager where
 
+import Amazonka.AuditManager
 import qualified Data.Proxy as Proxy
-import Network.AWS.AuditManager
 import Test.AWS.AuditManager.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

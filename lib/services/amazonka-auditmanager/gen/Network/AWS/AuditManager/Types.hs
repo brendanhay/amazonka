@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AuditManager.Types
+-- Module      : Amazonka.AuditManager.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AuditManager.Types
+module Amazonka.AuditManager.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -491,70 +491,70 @@ module Network.AWS.AuditManager.Types
   )
 where
 
-import Network.AWS.AuditManager.Types.AWSAccount
-import Network.AWS.AuditManager.Types.AWSService
-import Network.AWS.AuditManager.Types.AccountStatus
-import Network.AWS.AuditManager.Types.ActionEnum
-import Network.AWS.AuditManager.Types.Assessment
-import Network.AWS.AuditManager.Types.AssessmentControl
-import Network.AWS.AuditManager.Types.AssessmentControlSet
-import Network.AWS.AuditManager.Types.AssessmentEvidenceFolder
-import Network.AWS.AuditManager.Types.AssessmentFramework
-import Network.AWS.AuditManager.Types.AssessmentFrameworkMetadata
-import Network.AWS.AuditManager.Types.AssessmentMetadata
-import Network.AWS.AuditManager.Types.AssessmentMetadataItem
-import Network.AWS.AuditManager.Types.AssessmentReport
-import Network.AWS.AuditManager.Types.AssessmentReportDestinationType
-import Network.AWS.AuditManager.Types.AssessmentReportEvidenceError
-import Network.AWS.AuditManager.Types.AssessmentReportMetadata
-import Network.AWS.AuditManager.Types.AssessmentReportStatus
-import Network.AWS.AuditManager.Types.AssessmentReportsDestination
-import Network.AWS.AuditManager.Types.AssessmentStatus
-import Network.AWS.AuditManager.Types.BatchCreateDelegationByAssessmentError
-import Network.AWS.AuditManager.Types.BatchDeleteDelegationByAssessmentError
-import Network.AWS.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
-import Network.AWS.AuditManager.Types.ChangeLog
-import Network.AWS.AuditManager.Types.Control
-import Network.AWS.AuditManager.Types.ControlComment
-import Network.AWS.AuditManager.Types.ControlMappingSource
-import Network.AWS.AuditManager.Types.ControlMetadata
-import Network.AWS.AuditManager.Types.ControlResponse
-import Network.AWS.AuditManager.Types.ControlSet
-import Network.AWS.AuditManager.Types.ControlSetStatus
-import Network.AWS.AuditManager.Types.ControlStatus
-import Network.AWS.AuditManager.Types.ControlType
-import Network.AWS.AuditManager.Types.CreateAssessmentFrameworkControl
-import Network.AWS.AuditManager.Types.CreateAssessmentFrameworkControlSet
-import Network.AWS.AuditManager.Types.CreateControlMappingSource
-import Network.AWS.AuditManager.Types.CreateDelegationRequest
-import Network.AWS.AuditManager.Types.Delegation
-import Network.AWS.AuditManager.Types.DelegationMetadata
-import Network.AWS.AuditManager.Types.DelegationStatus
-import Network.AWS.AuditManager.Types.Evidence
-import Network.AWS.AuditManager.Types.Framework
-import Network.AWS.AuditManager.Types.FrameworkMetadata
-import Network.AWS.AuditManager.Types.FrameworkType
-import Network.AWS.AuditManager.Types.KeywordInputType
-import Network.AWS.AuditManager.Types.ManualEvidence
-import Network.AWS.AuditManager.Types.Notification
-import Network.AWS.AuditManager.Types.ObjectTypeEnum
-import Network.AWS.AuditManager.Types.Resource
-import Network.AWS.AuditManager.Types.Role
-import Network.AWS.AuditManager.Types.RoleType
-import Network.AWS.AuditManager.Types.Scope
-import Network.AWS.AuditManager.Types.ServiceMetadata
-import Network.AWS.AuditManager.Types.SettingAttribute
-import Network.AWS.AuditManager.Types.Settings
-import Network.AWS.AuditManager.Types.SourceFrequency
-import Network.AWS.AuditManager.Types.SourceKeyword
-import Network.AWS.AuditManager.Types.SourceSetUpOption
-import Network.AWS.AuditManager.Types.SourceType
-import Network.AWS.AuditManager.Types.URL
-import Network.AWS.AuditManager.Types.UpdateAssessmentFrameworkControlSet
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AuditManager.Types.AWSAccount
+import Amazonka.AuditManager.Types.AWSService
+import Amazonka.AuditManager.Types.AccountStatus
+import Amazonka.AuditManager.Types.ActionEnum
+import Amazonka.AuditManager.Types.Assessment
+import Amazonka.AuditManager.Types.AssessmentControl
+import Amazonka.AuditManager.Types.AssessmentControlSet
+import Amazonka.AuditManager.Types.AssessmentEvidenceFolder
+import Amazonka.AuditManager.Types.AssessmentFramework
+import Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
+import Amazonka.AuditManager.Types.AssessmentMetadata
+import Amazonka.AuditManager.Types.AssessmentMetadataItem
+import Amazonka.AuditManager.Types.AssessmentReport
+import Amazonka.AuditManager.Types.AssessmentReportDestinationType
+import Amazonka.AuditManager.Types.AssessmentReportEvidenceError
+import Amazonka.AuditManager.Types.AssessmentReportMetadata
+import Amazonka.AuditManager.Types.AssessmentReportStatus
+import Amazonka.AuditManager.Types.AssessmentReportsDestination
+import Amazonka.AuditManager.Types.AssessmentStatus
+import Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError
+import Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError
+import Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
+import Amazonka.AuditManager.Types.ChangeLog
+import Amazonka.AuditManager.Types.Control
+import Amazonka.AuditManager.Types.ControlComment
+import Amazonka.AuditManager.Types.ControlMappingSource
+import Amazonka.AuditManager.Types.ControlMetadata
+import Amazonka.AuditManager.Types.ControlResponse
+import Amazonka.AuditManager.Types.ControlSet
+import Amazonka.AuditManager.Types.ControlSetStatus
+import Amazonka.AuditManager.Types.ControlStatus
+import Amazonka.AuditManager.Types.ControlType
+import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
+import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet
+import Amazonka.AuditManager.Types.CreateControlMappingSource
+import Amazonka.AuditManager.Types.CreateDelegationRequest
+import Amazonka.AuditManager.Types.Delegation
+import Amazonka.AuditManager.Types.DelegationMetadata
+import Amazonka.AuditManager.Types.DelegationStatus
+import Amazonka.AuditManager.Types.Evidence
+import Amazonka.AuditManager.Types.Framework
+import Amazonka.AuditManager.Types.FrameworkMetadata
+import Amazonka.AuditManager.Types.FrameworkType
+import Amazonka.AuditManager.Types.KeywordInputType
+import Amazonka.AuditManager.Types.ManualEvidence
+import Amazonka.AuditManager.Types.Notification
+import Amazonka.AuditManager.Types.ObjectTypeEnum
+import Amazonka.AuditManager.Types.Resource
+import Amazonka.AuditManager.Types.Role
+import Amazonka.AuditManager.Types.RoleType
+import Amazonka.AuditManager.Types.Scope
+import Amazonka.AuditManager.Types.ServiceMetadata
+import Amazonka.AuditManager.Types.SettingAttribute
+import Amazonka.AuditManager.Types.Settings
+import Amazonka.AuditManager.Types.SourceFrequency
+import Amazonka.AuditManager.Types.SourceKeyword
+import Amazonka.AuditManager.Types.SourceSetUpOption
+import Amazonka.AuditManager.Types.SourceType
+import Amazonka.AuditManager.Types.URL
+import Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Audit Manager SDK configuration.
 defaultService :: Core.Service

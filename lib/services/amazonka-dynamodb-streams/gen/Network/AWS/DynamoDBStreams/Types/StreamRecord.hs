@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDBStreams.Types.StreamRecord
+-- Module      : Amazonka.DynamoDBStreams.Types.StreamRecord
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.StreamRecord where
+module Amazonka.DynamoDBStreams.Types.StreamRecord where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDBStreams.Types.AttributeValue
-import Network.AWS.DynamoDBStreams.Types.StreamViewType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Types.AttributeValue
+import Amazonka.DynamoDBStreams.Types.StreamViewType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A description of a single data modification that was performed on an
 -- item in a DynamoDB table.

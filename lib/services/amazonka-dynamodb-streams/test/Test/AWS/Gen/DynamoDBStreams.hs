@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DynamoDBStreams where
 
+import Amazonka.DynamoDBStreams
 import qualified Data.Proxy as Proxy
-import Network.AWS.DynamoDBStreams
 import Test.AWS.DynamoDBStreams.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

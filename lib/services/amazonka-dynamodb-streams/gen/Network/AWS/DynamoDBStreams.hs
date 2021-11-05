@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DynamoDBStreams
+-- Module      : Amazonka.DynamoDBStreams
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- with Streams, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams>
 -- in the Amazon DynamoDB Developer Guide.
-module Network.AWS.DynamoDBStreams
+module Amazonka.DynamoDBStreams
   ( -- * Service Configuration
     defaultService,
 
@@ -125,13 +125,13 @@ module Network.AWS.DynamoDBStreams
   )
 where
 
-import Network.AWS.DynamoDBStreams.DescribeStream
-import Network.AWS.DynamoDBStreams.GetRecords
-import Network.AWS.DynamoDBStreams.GetShardIterator
-import Network.AWS.DynamoDBStreams.Lens
-import Network.AWS.DynamoDBStreams.ListStreams
-import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.DynamoDBStreams.Waiters
+import Amazonka.DynamoDBStreams.DescribeStream
+import Amazonka.DynamoDBStreams.GetRecords
+import Amazonka.DynamoDBStreams.GetShardIterator
+import Amazonka.DynamoDBStreams.Lens
+import Amazonka.DynamoDBStreams.ListStreams
+import Amazonka.DynamoDBStreams.Types
+import Amazonka.DynamoDBStreams.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

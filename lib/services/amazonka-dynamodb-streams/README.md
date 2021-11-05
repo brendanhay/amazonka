@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.DynamoDBStreams](http://hackage.haskell.org/package/amazonka-dynamodb-streams/docs/Network-AWS-DynamoDBStreams.html)
+See [Amazonka.DynamoDBStreams](http://hackage.haskell.org/package/amazonka-dynamodb-streams/docs/Amazonka-DynamoDBStreams.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

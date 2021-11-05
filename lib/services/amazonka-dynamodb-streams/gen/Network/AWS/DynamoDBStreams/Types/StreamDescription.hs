@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDBStreams.Types.StreamDescription
+-- Module      : Amazonka.DynamoDBStreams.Types.StreamDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.StreamDescription where
+module Amazonka.DynamoDBStreams.Types.StreamDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-import Network.AWS.DynamoDBStreams.Types.Shard
-import Network.AWS.DynamoDBStreams.Types.StreamStatus
-import Network.AWS.DynamoDBStreams.Types.StreamViewType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Types.KeySchemaElement
+import Amazonka.DynamoDBStreams.Types.Shard
+import Amazonka.DynamoDBStreams.Types.StreamStatus
+import Amazonka.DynamoDBStreams.Types.StreamViewType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the data describing a particular stream.
 --

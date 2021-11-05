@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDBStreams.Types
+-- Module      : Amazonka.DynamoDBStreams.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types
+module Amazonka.DynamoDBStreams.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -121,24 +121,24 @@ module Network.AWS.DynamoDBStreams.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DynamoDBStreams.Types.AttributeValue
-import Network.AWS.DynamoDBStreams.Types.Identity
-import Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-import Network.AWS.DynamoDBStreams.Types.KeyType
-import Network.AWS.DynamoDBStreams.Types.OperationType
-import Network.AWS.DynamoDBStreams.Types.Record
-import Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
-import Network.AWS.DynamoDBStreams.Types.Shard
-import Network.AWS.DynamoDBStreams.Types.ShardIteratorType
-import Network.AWS.DynamoDBStreams.Types.Stream
-import Network.AWS.DynamoDBStreams.Types.StreamDescription
-import Network.AWS.DynamoDBStreams.Types.StreamRecord
-import Network.AWS.DynamoDBStreams.Types.StreamStatus
-import Network.AWS.DynamoDBStreams.Types.StreamViewType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDBStreams.Types.AttributeValue
+import Amazonka.DynamoDBStreams.Types.Identity
+import Amazonka.DynamoDBStreams.Types.KeySchemaElement
+import Amazonka.DynamoDBStreams.Types.KeyType
+import Amazonka.DynamoDBStreams.Types.OperationType
+import Amazonka.DynamoDBStreams.Types.Record
+import Amazonka.DynamoDBStreams.Types.SequenceNumberRange
+import Amazonka.DynamoDBStreams.Types.Shard
+import Amazonka.DynamoDBStreams.Types.ShardIteratorType
+import Amazonka.DynamoDBStreams.Types.Stream
+import Amazonka.DynamoDBStreams.Types.StreamDescription
+import Amazonka.DynamoDBStreams.Types.StreamRecord
+import Amazonka.DynamoDBStreams.Types.StreamStatus
+import Amazonka.DynamoDBStreams.Types.StreamViewType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-08-10@ of the Amazon DynamoDB Streams SDK configuration.
 defaultService :: Core.Service

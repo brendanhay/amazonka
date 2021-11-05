@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DynamoDBStreams.Lens
+-- Module      : Amazonka.DynamoDBStreams.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Lens
+module Amazonka.DynamoDBStreams.Lens
   ( -- * Operations
 
     -- ** GetShardIterator
@@ -111,16 +111,16 @@ module Network.AWS.DynamoDBStreams.Lens
   )
 where
 
-import Network.AWS.DynamoDBStreams.DescribeStream
-import Network.AWS.DynamoDBStreams.GetRecords
-import Network.AWS.DynamoDBStreams.GetShardIterator
-import Network.AWS.DynamoDBStreams.ListStreams
-import Network.AWS.DynamoDBStreams.Types.AttributeValue
-import Network.AWS.DynamoDBStreams.Types.Identity
-import Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-import Network.AWS.DynamoDBStreams.Types.Record
-import Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
-import Network.AWS.DynamoDBStreams.Types.Shard
-import Network.AWS.DynamoDBStreams.Types.Stream
-import Network.AWS.DynamoDBStreams.Types.StreamDescription
-import Network.AWS.DynamoDBStreams.Types.StreamRecord
+import Amazonka.DynamoDBStreams.DescribeStream
+import Amazonka.DynamoDBStreams.GetRecords
+import Amazonka.DynamoDBStreams.GetShardIterator
+import Amazonka.DynamoDBStreams.ListStreams
+import Amazonka.DynamoDBStreams.Types.AttributeValue
+import Amazonka.DynamoDBStreams.Types.Identity
+import Amazonka.DynamoDBStreams.Types.KeySchemaElement
+import Amazonka.DynamoDBStreams.Types.Record
+import Amazonka.DynamoDBStreams.Types.SequenceNumberRange
+import Amazonka.DynamoDBStreams.Types.Shard
+import Amazonka.DynamoDBStreams.Types.Stream
+import Amazonka.DynamoDBStreams.Types.StreamDescription
+import Amazonka.DynamoDBStreams.Types.StreamRecord

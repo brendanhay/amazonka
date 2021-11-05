@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMailMessageFlow.GetRawMessageContent
+-- Module      : Amazonka.WorkMailMessageFlow.GetRawMessageContent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves the raw content of an in-transit email message, in MIME
 -- format.
-module Network.AWS.WorkMailMessageFlow.GetRawMessageContent
+module Amazonka.WorkMailMessageFlow.GetRawMessageContent
   ( -- * Creating a Request
     GetRawMessageContent (..),
     newGetRawMessageContent,
@@ -40,12 +40,12 @@ module Network.AWS.WorkMailMessageFlow.GetRawMessageContent
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkMailMessageFlow.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkMailMessageFlow.Types
 
 -- | /See:/ 'newGetRawMessageContent' smart constructor.
 data GetRawMessageContent = GetRawMessageContent'

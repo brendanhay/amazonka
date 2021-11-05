@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WorkMailMessageFlow
+-- Module      : Amazonka.WorkMailMessageFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- The WorkMail Message Flow API provides access to email messages as they
 -- are being sent and received by a WorkMail organization.
-module Network.AWS.WorkMailMessageFlow
+module Amazonka.WorkMailMessageFlow
   ( -- * Service Configuration
     defaultService,
 
@@ -62,11 +62,11 @@ module Network.AWS.WorkMailMessageFlow
   )
 where
 
-import Network.AWS.WorkMailMessageFlow.GetRawMessageContent
-import Network.AWS.WorkMailMessageFlow.Lens
-import Network.AWS.WorkMailMessageFlow.PutRawMessageContent
-import Network.AWS.WorkMailMessageFlow.Types
-import Network.AWS.WorkMailMessageFlow.Waiters
+import Amazonka.WorkMailMessageFlow.GetRawMessageContent
+import Amazonka.WorkMailMessageFlow.Lens
+import Amazonka.WorkMailMessageFlow.PutRawMessageContent
+import Amazonka.WorkMailMessageFlow.Types
+import Amazonka.WorkMailMessageFlow.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

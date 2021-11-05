@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMailMessageFlow.Types
+-- Module      : Amazonka.WorkMailMessageFlow.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMailMessageFlow.Types
+module Amazonka.WorkMailMessageFlow.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -36,12 +36,12 @@ module Network.AWS.WorkMailMessageFlow.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WorkMailMessageFlow.Types.RawMessageContent
-import Network.AWS.WorkMailMessageFlow.Types.S3Reference
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WorkMailMessageFlow.Types.RawMessageContent
+import Amazonka.WorkMailMessageFlow.Types.S3Reference
 
 -- | API version @2019-05-01@ of the Amazon WorkMail Message Flow SDK configuration.
 defaultService :: Core.Service

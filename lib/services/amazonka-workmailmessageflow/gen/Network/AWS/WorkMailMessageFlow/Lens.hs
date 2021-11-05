@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMailMessageFlow.Lens
+-- Module      : Amazonka.WorkMailMessageFlow.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMailMessageFlow.Lens
+module Amazonka.WorkMailMessageFlow.Lens
   ( -- * Operations
 
     -- ** PutRawMessageContent
@@ -36,7 +36,7 @@ module Network.AWS.WorkMailMessageFlow.Lens
   )
 where
 
-import Network.AWS.WorkMailMessageFlow.GetRawMessageContent
-import Network.AWS.WorkMailMessageFlow.PutRawMessageContent
-import Network.AWS.WorkMailMessageFlow.Types.RawMessageContent
-import Network.AWS.WorkMailMessageFlow.Types.S3Reference
+import Amazonka.WorkMailMessageFlow.GetRawMessageContent
+import Amazonka.WorkMailMessageFlow.PutRawMessageContent
+import Amazonka.WorkMailMessageFlow.Types.RawMessageContent
+import Amazonka.WorkMailMessageFlow.Types.S3Reference

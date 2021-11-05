@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkMailMessageFlow where
 
+import Amazonka.WorkMailMessageFlow
 import qualified Data.Proxy as Proxy
-import Network.AWS.WorkMailMessageFlow
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.WorkMailMessageFlow.Internal

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkMailMessageFlow.Types.RawMessageContent
+-- Module      : Amazonka.WorkMailMessageFlow.Types.RawMessageContent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMailMessageFlow.Types.RawMessageContent where
+module Amazonka.WorkMailMessageFlow.Types.RawMessageContent where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WorkMailMessageFlow.Types.S3Reference
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkMailMessageFlow.Types.S3Reference
 
 -- | Provides the MIME content of the updated email message as an S3 object.
 -- All MIME content must meet the following criteria:

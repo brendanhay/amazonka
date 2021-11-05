@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerRuntime.InvokeEndpoint
+-- Module      : Amazonka.SageMakerRuntime.InvokeEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- Endpoints are scoped to an individual account, and are not public. The
 -- URL does not contain the account ID, but Amazon SageMaker determines the
 -- account ID from the authentication token that is supplied by the caller.
-module Network.AWS.SageMakerRuntime.InvokeEndpoint
+module Amazonka.SageMakerRuntime.InvokeEndpoint
   ( -- * Creating a Request
     InvokeEndpoint (..),
     newInvokeEndpoint,
@@ -75,12 +75,12 @@ module Network.AWS.SageMakerRuntime.InvokeEndpoint
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMakerRuntime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMakerRuntime.Types
 
 -- | /See:/ 'newInvokeEndpoint' smart constructor.
 data InvokeEndpoint = InvokeEndpoint'

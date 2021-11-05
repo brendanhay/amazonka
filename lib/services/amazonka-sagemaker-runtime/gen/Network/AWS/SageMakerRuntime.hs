@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SageMakerRuntime
+-- Module      : Amazonka.SageMakerRuntime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-05-13@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The Amazon SageMaker runtime API.
-module Network.AWS.SageMakerRuntime
+module Amazonka.SageMakerRuntime
   ( -- * Service Configuration
     defaultService,
 
@@ -53,11 +53,11 @@ module Network.AWS.SageMakerRuntime
   )
 where
 
-import Network.AWS.SageMakerRuntime.InvokeEndpoint
-import Network.AWS.SageMakerRuntime.InvokeEndpointAsync
-import Network.AWS.SageMakerRuntime.Lens
-import Network.AWS.SageMakerRuntime.Types
-import Network.AWS.SageMakerRuntime.Waiters
+import Amazonka.SageMakerRuntime.InvokeEndpoint
+import Amazonka.SageMakerRuntime.InvokeEndpointAsync
+import Amazonka.SageMakerRuntime.Lens
+import Amazonka.SageMakerRuntime.Types
+import Amazonka.SageMakerRuntime.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

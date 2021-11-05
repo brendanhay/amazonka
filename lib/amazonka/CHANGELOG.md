@@ -38,7 +38,7 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 [\#512](https://github.com/brendanhay/amazonka/pull/512)
 - Correct Stockholm in FromText Region
 [\#565](https://github.com/brendanhay/amazonka/pull/572)
-- Fix MonadUnlifIO compiler errors on ghc-8.10.1
+- Fix MonadUnliftIO compiler errors on ghc-8.10.1
 [\#572](https://github.com/brendanhay/amazonka/pull/572)
 - Deduplicate CreateCertificateFromCSR fixtures
 [\#500](https://github.com/brendanhay/amazonka/pull/500)

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.Types.AccountAssignment
+-- Module      : Amazonka.SSOAdmin.Types.AccountAssignment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSOAdmin.Types.AccountAssignment where
+module Amazonka.SSOAdmin.Types.AccountAssignment where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSOAdmin.Types.PrincipalType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSOAdmin.Types.PrincipalType
 
 -- | The assignment that indicates a principal\'s limited access to a
 -- specified Amazon Web Services account with a specified permission set.

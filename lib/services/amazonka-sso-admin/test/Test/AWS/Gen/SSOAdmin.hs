@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSOAdmin where
 
+import Amazonka.SSOAdmin
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSOAdmin
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSOAdmin.Internal

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
+-- Module      : Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- requests for a specified SSO instance.
 --
 -- This operation returns paginated results.
-module Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
+module Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
   ( -- * Creating a Request
     ListAccountAssignmentCreationStatus (..),
     newListAccountAssignmentCreationStatus,
@@ -46,12 +46,12 @@ module Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSOAdmin.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListAccountAssignmentCreationStatus' smart constructor.
 data ListAccountAssignmentCreationStatus = ListAccountAssignmentCreationStatus'

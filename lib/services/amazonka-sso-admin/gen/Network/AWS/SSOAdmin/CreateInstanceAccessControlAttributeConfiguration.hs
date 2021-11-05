@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
+-- Module      : Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- process. For more information about ABAC, see
 -- </singlesignon/latest/userguide/abac.html Attribute-Based Access Control>
 -- in the /Amazon Web Services SSO User Guide/.
-module Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
+module Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
   ( -- * Creating a Request
     CreateInstanceAccessControlAttributeConfiguration (..),
     newCreateInstanceAccessControlAttributeConfiguration,
@@ -44,12 +44,12 @@ module Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSOAdmin.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newCreateInstanceAccessControlAttributeConfiguration' smart constructor.
 data CreateInstanceAccessControlAttributeConfiguration = CreateInstanceAccessControlAttributeConfiguration'

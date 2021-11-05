@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
+-- Module      : Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- assignments, you will need to call @ ProvisionPermissionSet @ after this
 -- operation. Calling @ProvisionPermissionSet@ applies the corresponding
 -- IAM policy updates to all assigned accounts.
-module Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
+module Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
   ( -- * Creating a Request
     AttachManagedPolicyToPermissionSet (..),
     newAttachManagedPolicyToPermissionSet,
@@ -45,12 +45,12 @@ module Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSOAdmin.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newAttachManagedPolicyToPermissionSet' smart constructor.
 data AttachManagedPolicyToPermissionSet = AttachManagedPolicyToPermissionSet'

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.Types.ProvisioningStatus
+-- Module      : Amazonka.SSOAdmin.Types.ProvisioningStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSOAdmin.Types.ProvisioningStatus
+module Amazonka.SSOAdmin.Types.ProvisioningStatus
   ( ProvisioningStatus
       ( ..,
         ProvisioningStatus_LATEST_PERMISSION_SET_NOT_PROVISIONED,
@@ -26,8 +26,8 @@ module Network.AWS.SSOAdmin.Types.ProvisioningStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ProvisioningStatus = ProvisioningStatus'
   { fromProvisioningStatus ::

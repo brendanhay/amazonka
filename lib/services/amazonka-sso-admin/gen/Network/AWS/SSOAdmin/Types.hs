@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.Types
+-- Module      : Amazonka.SSOAdmin.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSOAdmin.Types
+module Amazonka.SSOAdmin.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -139,29 +139,29 @@ module Network.AWS.SSOAdmin.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSOAdmin.Types.AccessControlAttribute
-import Network.AWS.SSOAdmin.Types.AccessControlAttributeValue
-import Network.AWS.SSOAdmin.Types.AccountAssignment
-import Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus
-import Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
-import Network.AWS.SSOAdmin.Types.AttachedManagedPolicy
-import Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
-import Network.AWS.SSOAdmin.Types.InstanceMetadata
-import Network.AWS.SSOAdmin.Types.OperationStatusFilter
-import Network.AWS.SSOAdmin.Types.PermissionSet
-import Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus
-import Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
-import Network.AWS.SSOAdmin.Types.PrincipalType
-import Network.AWS.SSOAdmin.Types.ProvisionTargetType
-import Network.AWS.SSOAdmin.Types.ProvisioningStatus
-import Network.AWS.SSOAdmin.Types.StatusValues
-import Network.AWS.SSOAdmin.Types.Tag
-import Network.AWS.SSOAdmin.Types.TargetType
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSOAdmin.Types.AccessControlAttribute
+import Amazonka.SSOAdmin.Types.AccessControlAttributeValue
+import Amazonka.SSOAdmin.Types.AccountAssignment
+import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
+import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
+import Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
+import Amazonka.SSOAdmin.Types.InstanceMetadata
+import Amazonka.SSOAdmin.Types.OperationStatusFilter
+import Amazonka.SSOAdmin.Types.PermissionSet
+import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
+import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+import Amazonka.SSOAdmin.Types.PrincipalType
+import Amazonka.SSOAdmin.Types.ProvisionTargetType
+import Amazonka.SSOAdmin.Types.ProvisioningStatus
+import Amazonka.SSOAdmin.Types.StatusValues
+import Amazonka.SSOAdmin.Types.Tag
+import Amazonka.SSOAdmin.Types.TargetType
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-07-20@ of the Amazon Single Sign-On Admin SDK configuration.
 defaultService :: Core.Service

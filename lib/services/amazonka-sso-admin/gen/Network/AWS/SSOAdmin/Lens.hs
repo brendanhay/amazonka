@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOAdmin.Lens
+-- Module      : Amazonka.SSOAdmin.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSOAdmin.Lens
+module Amazonka.SSOAdmin.Lens
   ( -- * Operations
 
     -- ** DescribePermissionSet
@@ -312,47 +312,47 @@ module Network.AWS.SSOAdmin.Lens
   )
 where
 
-import Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
-import Network.AWS.SSOAdmin.CreateAccountAssignment
-import Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.CreatePermissionSet
-import Network.AWS.SSOAdmin.DeleteAccountAssignment
-import Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet
-import Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.DeletePermissionSet
-import Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus
-import Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus
-import Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.DescribePermissionSet
-import Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus
-import Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet
-import Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet
-import Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
-import Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus
-import Network.AWS.SSOAdmin.ListAccountAssignments
-import Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet
-import Network.AWS.SSOAdmin.ListInstances
-import Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet
-import Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus
-import Network.AWS.SSOAdmin.ListPermissionSets
-import Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount
-import Network.AWS.SSOAdmin.ListTagsForResource
-import Network.AWS.SSOAdmin.ProvisionPermissionSet
-import Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet
-import Network.AWS.SSOAdmin.TagResource
-import Network.AWS.SSOAdmin.Types.AccessControlAttribute
-import Network.AWS.SSOAdmin.Types.AccessControlAttributeValue
-import Network.AWS.SSOAdmin.Types.AccountAssignment
-import Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus
-import Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
-import Network.AWS.SSOAdmin.Types.AttachedManagedPolicy
-import Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.Types.InstanceMetadata
-import Network.AWS.SSOAdmin.Types.OperationStatusFilter
-import Network.AWS.SSOAdmin.Types.PermissionSet
-import Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus
-import Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
-import Network.AWS.SSOAdmin.Types.Tag
-import Network.AWS.SSOAdmin.UntagResource
-import Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
-import Network.AWS.SSOAdmin.UpdatePermissionSet
+import Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
+import Amazonka.SSOAdmin.CreateAccountAssignment
+import Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.CreatePermissionSet
+import Amazonka.SSOAdmin.DeleteAccountAssignment
+import Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
+import Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.DeletePermissionSet
+import Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
+import Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
+import Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.DescribePermissionSet
+import Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
+import Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
+import Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet
+import Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
+import Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
+import Amazonka.SSOAdmin.ListAccountAssignments
+import Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet
+import Amazonka.SSOAdmin.ListInstances
+import Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
+import Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
+import Amazonka.SSOAdmin.ListPermissionSets
+import Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount
+import Amazonka.SSOAdmin.ListTagsForResource
+import Amazonka.SSOAdmin.ProvisionPermissionSet
+import Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
+import Amazonka.SSOAdmin.TagResource
+import Amazonka.SSOAdmin.Types.AccessControlAttribute
+import Amazonka.SSOAdmin.Types.AccessControlAttributeValue
+import Amazonka.SSOAdmin.Types.AccountAssignment
+import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
+import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
+import Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.Types.InstanceMetadata
+import Amazonka.SSOAdmin.Types.OperationStatusFilter
+import Amazonka.SSOAdmin.Types.PermissionSet
+import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
+import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+import Amazonka.SSOAdmin.Types.Tag
+import Amazonka.SSOAdmin.UntagResource
+import Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
+import Amazonka.SSOAdmin.UpdatePermissionSet

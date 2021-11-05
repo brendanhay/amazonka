@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearchDomains.Search
+-- Module      : Amazonka.CloudSearchDomains.Search
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -45,7 +45,7 @@
 -- endpoint for your domain, use the Amazon CloudSearch configuration
 -- service @DescribeDomains@ action. A domain\'s endpoints are also
 -- displayed on the domain dashboard in the Amazon CloudSearch console.
-module Network.AWS.CloudSearchDomains.Search
+module Amazonka.CloudSearchDomains.Search
   ( -- * Creating a Request
     Search (..),
     newSearch,
@@ -79,12 +79,12 @@ module Network.AWS.CloudSearchDomains.Search
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudSearchDomains.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @Search@ request.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearchDomains.Types
+-- Module      : Amazonka.CloudSearchDomains.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types
+module Amazonka.CloudSearchDomains.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -98,22 +98,22 @@ module Network.AWS.CloudSearchDomains.Types
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types.Bucket
-import Network.AWS.CloudSearchDomains.Types.BucketInfo
-import Network.AWS.CloudSearchDomains.Types.ContentType
-import Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
-import Network.AWS.CloudSearchDomains.Types.FieldStats
-import Network.AWS.CloudSearchDomains.Types.Hit
-import Network.AWS.CloudSearchDomains.Types.Hits
-import Network.AWS.CloudSearchDomains.Types.QueryParser
-import Network.AWS.CloudSearchDomains.Types.SearchStatus
-import Network.AWS.CloudSearchDomains.Types.SuggestModel
-import Network.AWS.CloudSearchDomains.Types.SuggestStatus
-import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudSearchDomains.Types.Bucket
+import Amazonka.CloudSearchDomains.Types.BucketInfo
+import Amazonka.CloudSearchDomains.Types.ContentType
+import Amazonka.CloudSearchDomains.Types.DocumentServiceWarning
+import Amazonka.CloudSearchDomains.Types.FieldStats
+import Amazonka.CloudSearchDomains.Types.Hit
+import Amazonka.CloudSearchDomains.Types.Hits
+import Amazonka.CloudSearchDomains.Types.QueryParser
+import Amazonka.CloudSearchDomains.Types.SearchStatus
+import Amazonka.CloudSearchDomains.Types.SuggestModel
+import Amazonka.CloudSearchDomains.Types.SuggestStatus
+import Amazonka.CloudSearchDomains.Types.SuggestionMatch
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch Domain SDK configuration.
 defaultService :: Core.Service

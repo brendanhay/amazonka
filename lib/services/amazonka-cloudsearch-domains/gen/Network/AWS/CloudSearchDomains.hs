@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudSearchDomains
+-- Module      : Amazonka.CloudSearchDomains
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 --
 -- For more information, see the
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
-module Network.AWS.CloudSearchDomains
+module Amazonka.CloudSearchDomains
   ( -- * Service Configuration
     defaultService,
 
@@ -110,12 +110,12 @@ module Network.AWS.CloudSearchDomains
   )
 where
 
-import Network.AWS.CloudSearchDomains.Lens
-import Network.AWS.CloudSearchDomains.Search
-import Network.AWS.CloudSearchDomains.Suggest
-import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.CloudSearchDomains.UploadDocuments
-import Network.AWS.CloudSearchDomains.Waiters
+import Amazonka.CloudSearchDomains.Lens
+import Amazonka.CloudSearchDomains.Search
+import Amazonka.CloudSearchDomains.Suggest
+import Amazonka.CloudSearchDomains.Types
+import Amazonka.CloudSearchDomains.UploadDocuments
+import Amazonka.CloudSearchDomains.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

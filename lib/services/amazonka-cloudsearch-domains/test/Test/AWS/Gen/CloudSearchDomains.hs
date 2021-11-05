@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudSearchDomains where
 
+import Amazonka.CloudSearchDomains
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudSearchDomains
 import Test.AWS.CloudSearchDomains.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

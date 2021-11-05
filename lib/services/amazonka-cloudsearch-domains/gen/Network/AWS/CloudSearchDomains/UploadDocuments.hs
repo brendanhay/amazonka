@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
+-- Module      : Amazonka.CloudSearchDomains.UploadDocuments
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- uploading data for indexing, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html Uploading Data>
 -- in the /Amazon CloudSearch Developer Guide/.
-module Network.AWS.CloudSearchDomains.UploadDocuments
+module Amazonka.CloudSearchDomains.UploadDocuments
   ( -- * Creating a Request
     UploadDocuments (..),
     newUploadDocuments,
@@ -68,12 +68,12 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudSearchDomains.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @UploadDocuments@ request.
 --

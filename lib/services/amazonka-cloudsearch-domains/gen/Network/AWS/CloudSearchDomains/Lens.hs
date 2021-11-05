@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudSearchDomains.Lens
+-- Module      : Amazonka.CloudSearchDomains.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Lens
+module Amazonka.CloudSearchDomains.Lens
   ( -- * Operations
 
     -- ** Suggest
@@ -106,16 +106,16 @@ module Network.AWS.CloudSearchDomains.Lens
   )
 where
 
-import Network.AWS.CloudSearchDomains.Search
-import Network.AWS.CloudSearchDomains.Suggest
-import Network.AWS.CloudSearchDomains.Types.Bucket
-import Network.AWS.CloudSearchDomains.Types.BucketInfo
-import Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
-import Network.AWS.CloudSearchDomains.Types.FieldStats
-import Network.AWS.CloudSearchDomains.Types.Hit
-import Network.AWS.CloudSearchDomains.Types.Hits
-import Network.AWS.CloudSearchDomains.Types.SearchStatus
-import Network.AWS.CloudSearchDomains.Types.SuggestModel
-import Network.AWS.CloudSearchDomains.Types.SuggestStatus
-import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
-import Network.AWS.CloudSearchDomains.UploadDocuments
+import Amazonka.CloudSearchDomains.Search
+import Amazonka.CloudSearchDomains.Suggest
+import Amazonka.CloudSearchDomains.Types.Bucket
+import Amazonka.CloudSearchDomains.Types.BucketInfo
+import Amazonka.CloudSearchDomains.Types.DocumentServiceWarning
+import Amazonka.CloudSearchDomains.Types.FieldStats
+import Amazonka.CloudSearchDomains.Types.Hit
+import Amazonka.CloudSearchDomains.Types.Hits
+import Amazonka.CloudSearchDomains.Types.SearchStatus
+import Amazonka.CloudSearchDomains.Types.SuggestModel
+import Amazonka.CloudSearchDomains.Types.SuggestStatus
+import Amazonka.CloudSearchDomains.Types.SuggestionMatch
+import Amazonka.CloudSearchDomains.UploadDocuments

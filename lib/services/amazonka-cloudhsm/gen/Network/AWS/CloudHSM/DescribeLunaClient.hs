@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.DescribeLunaClient
+-- Module      : Amazonka.CloudHSM.DescribeLunaClient
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
 -- Retrieves information about an HSM client.
-module Network.AWS.CloudHSM.DescribeLunaClient
+module Amazonka.CloudHSM.DescribeLunaClient
   ( -- * Creating a Request
     DescribeLunaClient (..),
     newDescribeLunaClient,
@@ -58,12 +58,12 @@ module Network.AWS.CloudHSM.DescribeLunaClient
   )
 where
 
-import Network.AWS.CloudHSM.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'

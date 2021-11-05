@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudHSM.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudHSM.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudHSM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudHSM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,37 +45,37 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudHSM
-    Network.AWS.CloudHSM.AddTagsToResource
-    Network.AWS.CloudHSM.CreateHapg
-    Network.AWS.CloudHSM.CreateHsm
-    Network.AWS.CloudHSM.CreateLunaClient
-    Network.AWS.CloudHSM.DeleteHapg
-    Network.AWS.CloudHSM.DeleteHsm
-    Network.AWS.CloudHSM.DeleteLunaClient
-    Network.AWS.CloudHSM.DescribeHapg
-    Network.AWS.CloudHSM.DescribeHsm
-    Network.AWS.CloudHSM.DescribeLunaClient
-    Network.AWS.CloudHSM.GetConfig
-    Network.AWS.CloudHSM.Lens
-    Network.AWS.CloudHSM.ListAvailableZones
-    Network.AWS.CloudHSM.ListHapgs
-    Network.AWS.CloudHSM.ListHsms
-    Network.AWS.CloudHSM.ListLunaClients
-    Network.AWS.CloudHSM.ListTagsForResource
-    Network.AWS.CloudHSM.ModifyHapg
-    Network.AWS.CloudHSM.ModifyHsm
-    Network.AWS.CloudHSM.ModifyLunaClient
-    Network.AWS.CloudHSM.RemoveTagsFromResource
-    Network.AWS.CloudHSM.Types
-    Network.AWS.CloudHSM.Types.ClientVersion
-    Network.AWS.CloudHSM.Types.CloudHsmObjectState
-    Network.AWS.CloudHSM.Types.HsmStatus
-    Network.AWS.CloudHSM.Types.SubscriptionType
-    Network.AWS.CloudHSM.Types.Tag
-    Network.AWS.CloudHSM.Waiters
+    Amazonka.CloudHSM
+    Amazonka.CloudHSM.AddTagsToResource
+    Amazonka.CloudHSM.CreateHapg
+    Amazonka.CloudHSM.CreateHsm
+    Amazonka.CloudHSM.CreateLunaClient
+    Amazonka.CloudHSM.DeleteHapg
+    Amazonka.CloudHSM.DeleteHsm
+    Amazonka.CloudHSM.DeleteLunaClient
+    Amazonka.CloudHSM.DescribeHapg
+    Amazonka.CloudHSM.DescribeHsm
+    Amazonka.CloudHSM.DescribeLunaClient
+    Amazonka.CloudHSM.GetConfig
+    Amazonka.CloudHSM.Lens
+    Amazonka.CloudHSM.ListAvailableZones
+    Amazonka.CloudHSM.ListHapgs
+    Amazonka.CloudHSM.ListHsms
+    Amazonka.CloudHSM.ListLunaClients
+    Amazonka.CloudHSM.ListTagsForResource
+    Amazonka.CloudHSM.ModifyHapg
+    Amazonka.CloudHSM.ModifyHsm
+    Amazonka.CloudHSM.ModifyLunaClient
+    Amazonka.CloudHSM.RemoveTagsFromResource
+    Amazonka.CloudHSM.Types
+    Amazonka.CloudHSM.Types.ClientVersion
+    Amazonka.CloudHSM.Types.CloudHsmObjectState
+    Amazonka.CloudHSM.Types.HsmStatus
+    Amazonka.CloudHSM.Types.SubscriptionType
+    Amazonka.CloudHSM.Types.Tag
+    Amazonka.CloudHSM.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

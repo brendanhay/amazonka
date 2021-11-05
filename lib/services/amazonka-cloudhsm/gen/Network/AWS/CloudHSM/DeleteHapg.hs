@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.DeleteHapg
+-- Module      : Amazonka.CloudHSM.DeleteHapg
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
 -- Deletes a high-availability partition group.
-module Network.AWS.CloudHSM.DeleteHapg
+module Amazonka.CloudHSM.DeleteHapg
   ( -- * Creating a Request
     DeleteHapg (..),
     newDeleteHapg,
@@ -53,12 +53,12 @@ module Network.AWS.CloudHSM.DeleteHapg
   )
 where
 
-import Network.AWS.CloudHSM.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the inputs for the DeleteHapg action.
 --

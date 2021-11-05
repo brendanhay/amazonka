@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.GetConfig
+-- Module      : Amazonka.CloudHSM.GetConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 --
 -- Gets the configuration files necessary to connect to all high
 -- availability partition groups the client is associated with.
-module Network.AWS.CloudHSM.GetConfig
+module Amazonka.CloudHSM.GetConfig
   ( -- * Creating a Request
     GetConfig (..),
     newGetConfig,
@@ -58,12 +58,12 @@ module Network.AWS.CloudHSM.GetConfig
   )
 where
 
-import Network.AWS.CloudHSM.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConfig' smart constructor.
 data GetConfig = GetConfig'

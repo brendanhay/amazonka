@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudHSM
+-- Module      : Amazonka.CloudHSM
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>,
 -- and the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
-module Network.AWS.CloudHSM
+module Amazonka.CloudHSM
   ( -- * Service Configuration
     defaultService,
 
@@ -188,29 +188,29 @@ module Network.AWS.CloudHSM
   )
 where
 
-import Network.AWS.CloudHSM.AddTagsToResource
-import Network.AWS.CloudHSM.CreateHapg
-import Network.AWS.CloudHSM.CreateHsm
-import Network.AWS.CloudHSM.CreateLunaClient
-import Network.AWS.CloudHSM.DeleteHapg
-import Network.AWS.CloudHSM.DeleteHsm
-import Network.AWS.CloudHSM.DeleteLunaClient
-import Network.AWS.CloudHSM.DescribeHapg
-import Network.AWS.CloudHSM.DescribeHsm
-import Network.AWS.CloudHSM.DescribeLunaClient
-import Network.AWS.CloudHSM.GetConfig
-import Network.AWS.CloudHSM.Lens
-import Network.AWS.CloudHSM.ListAvailableZones
-import Network.AWS.CloudHSM.ListHapgs
-import Network.AWS.CloudHSM.ListHsms
-import Network.AWS.CloudHSM.ListLunaClients
-import Network.AWS.CloudHSM.ListTagsForResource
-import Network.AWS.CloudHSM.ModifyHapg
-import Network.AWS.CloudHSM.ModifyHsm
-import Network.AWS.CloudHSM.ModifyLunaClient
-import Network.AWS.CloudHSM.RemoveTagsFromResource
-import Network.AWS.CloudHSM.Types
-import Network.AWS.CloudHSM.Waiters
+import Amazonka.CloudHSM.AddTagsToResource
+import Amazonka.CloudHSM.CreateHapg
+import Amazonka.CloudHSM.CreateHsm
+import Amazonka.CloudHSM.CreateLunaClient
+import Amazonka.CloudHSM.DeleteHapg
+import Amazonka.CloudHSM.DeleteHsm
+import Amazonka.CloudHSM.DeleteLunaClient
+import Amazonka.CloudHSM.DescribeHapg
+import Amazonka.CloudHSM.DescribeHsm
+import Amazonka.CloudHSM.DescribeLunaClient
+import Amazonka.CloudHSM.GetConfig
+import Amazonka.CloudHSM.Lens
+import Amazonka.CloudHSM.ListAvailableZones
+import Amazonka.CloudHSM.ListHapgs
+import Amazonka.CloudHSM.ListHsms
+import Amazonka.CloudHSM.ListLunaClients
+import Amazonka.CloudHSM.ListTagsForResource
+import Amazonka.CloudHSM.ModifyHapg
+import Amazonka.CloudHSM.ModifyHsm
+import Amazonka.CloudHSM.ModifyLunaClient
+import Amazonka.CloudHSM.RemoveTagsFromResource
+import Amazonka.CloudHSM.Types
+import Amazonka.CloudHSM.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

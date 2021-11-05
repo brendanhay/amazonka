@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.CreateHsm
+-- Module      : Amazonka.CloudHSM.CreateHsm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- It can take up to 20 minutes to create and provision an HSM. You can
 -- monitor the status of the HSM with the DescribeHsm operation. The HSM is
 -- ready to be initialized when the status changes to @RUNNING@.
-module Network.AWS.CloudHSM.CreateHsm
+module Amazonka.CloudHSM.CreateHsm
   ( -- * Creating a Request
     CreateHsm (..),
     newCreateHsm,
@@ -71,12 +71,12 @@ module Network.AWS.CloudHSM.CreateHsm
   )
 where
 
-import Network.AWS.CloudHSM.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the inputs for the @CreateHsm@ operation.
 --

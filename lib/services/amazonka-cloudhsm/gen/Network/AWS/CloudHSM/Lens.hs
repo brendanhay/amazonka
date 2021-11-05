@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.Lens
+-- Module      : Amazonka.CloudHSM.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSM.Lens
+module Amazonka.CloudHSM.Lens
   ( -- * Operations
 
     -- ** DeleteHapg
@@ -180,24 +180,24 @@ module Network.AWS.CloudHSM.Lens
   )
 where
 
-import Network.AWS.CloudHSM.AddTagsToResource
-import Network.AWS.CloudHSM.CreateHapg
-import Network.AWS.CloudHSM.CreateHsm
-import Network.AWS.CloudHSM.CreateLunaClient
-import Network.AWS.CloudHSM.DeleteHapg
-import Network.AWS.CloudHSM.DeleteHsm
-import Network.AWS.CloudHSM.DeleteLunaClient
-import Network.AWS.CloudHSM.DescribeHapg
-import Network.AWS.CloudHSM.DescribeHsm
-import Network.AWS.CloudHSM.DescribeLunaClient
-import Network.AWS.CloudHSM.GetConfig
-import Network.AWS.CloudHSM.ListAvailableZones
-import Network.AWS.CloudHSM.ListHapgs
-import Network.AWS.CloudHSM.ListHsms
-import Network.AWS.CloudHSM.ListLunaClients
-import Network.AWS.CloudHSM.ListTagsForResource
-import Network.AWS.CloudHSM.ModifyHapg
-import Network.AWS.CloudHSM.ModifyHsm
-import Network.AWS.CloudHSM.ModifyLunaClient
-import Network.AWS.CloudHSM.RemoveTagsFromResource
-import Network.AWS.CloudHSM.Types.Tag
+import Amazonka.CloudHSM.AddTagsToResource
+import Amazonka.CloudHSM.CreateHapg
+import Amazonka.CloudHSM.CreateHsm
+import Amazonka.CloudHSM.CreateLunaClient
+import Amazonka.CloudHSM.DeleteHapg
+import Amazonka.CloudHSM.DeleteHsm
+import Amazonka.CloudHSM.DeleteLunaClient
+import Amazonka.CloudHSM.DescribeHapg
+import Amazonka.CloudHSM.DescribeHsm
+import Amazonka.CloudHSM.DescribeLunaClient
+import Amazonka.CloudHSM.GetConfig
+import Amazonka.CloudHSM.ListAvailableZones
+import Amazonka.CloudHSM.ListHapgs
+import Amazonka.CloudHSM.ListHsms
+import Amazonka.CloudHSM.ListLunaClients
+import Amazonka.CloudHSM.ListTagsForResource
+import Amazonka.CloudHSM.ModifyHapg
+import Amazonka.CloudHSM.ModifyHsm
+import Amazonka.CloudHSM.ModifyLunaClient
+import Amazonka.CloudHSM.RemoveTagsFromResource
+import Amazonka.CloudHSM.Types.Tag

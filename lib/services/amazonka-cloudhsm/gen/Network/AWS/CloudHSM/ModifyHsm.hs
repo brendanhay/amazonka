@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.ModifyHsm
+-- Module      : Amazonka.CloudHSM.ModifyHsm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -41,7 +41,7 @@
 -- production HSM, you should ensure that your AWS CloudHSM service is
 -- configured for high availability, and consider executing this operation
 -- during a maintenance window.
-module Network.AWS.CloudHSM.ModifyHsm
+module Amazonka.CloudHSM.ModifyHsm
   ( -- * Creating a Request
     ModifyHsm (..),
     newModifyHsm,
@@ -64,12 +64,12 @@ module Network.AWS.CloudHSM.ModifyHsm
   )
 where
 
-import Network.AWS.CloudHSM.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the inputs for the ModifyHsm operation.
 --

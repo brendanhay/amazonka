@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.EndpointInput
+-- Module      : Amazonka.SageMaker.Types.EndpointInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointInput where
+module Amazonka.SageMaker.Types.EndpointInput where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType
-import Network.AWS.SageMaker.Types.ProcessingS3InputMode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ProcessingS3DataDistributionType
+import Amazonka.SageMaker.Types.ProcessingS3InputMode
 
 -- | Input object for the endpoint
 --

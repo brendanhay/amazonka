@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TrainingInputMode
+-- Module      : Amazonka.SageMaker.Types.TrainingInputMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingInputMode
+module Amazonka.SageMaker.Types.TrainingInputMode
   ( TrainingInputMode
       ( ..,
         TrainingInputMode_FastFile,
@@ -27,8 +27,8 @@ module Network.AWS.SageMaker.Types.TrainingInputMode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The training input mode that the algorithm supports. For more
 -- information about input modes, see

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.MonitoringJobDefinition
+-- Module      : Amazonka.SageMaker.Types.MonitoringJobDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringJobDefinition where
+module Amazonka.SageMaker.Types.MonitoringJobDefinition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.MonitoringAppSpecification
-import Network.AWS.SageMaker.Types.MonitoringBaselineConfig
-import Network.AWS.SageMaker.Types.MonitoringInput
-import Network.AWS.SageMaker.Types.MonitoringOutputConfig
-import Network.AWS.SageMaker.Types.MonitoringResources
-import Network.AWS.SageMaker.Types.MonitoringStoppingCondition
-import Network.AWS.SageMaker.Types.NetworkConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.MonitoringAppSpecification
+import Amazonka.SageMaker.Types.MonitoringBaselineConfig
+import Amazonka.SageMaker.Types.MonitoringInput
+import Amazonka.SageMaker.Types.MonitoringOutputConfig
+import Amazonka.SageMaker.Types.MonitoringResources
+import Amazonka.SageMaker.Types.MonitoringStoppingCondition
+import Amazonka.SageMaker.Types.NetworkConfig
 
 -- | Defines the monitoring job.
 --

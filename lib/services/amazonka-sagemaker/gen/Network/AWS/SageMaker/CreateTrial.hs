@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateTrial
+-- Module      : Amazonka.SageMaker.CreateTrial
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- To get a list of all your trials, call the ListTrials API. To view a
 -- trial\'s properties, call the DescribeTrial API. To create a trial
 -- component, call the CreateTrialComponent API.
-module Network.AWS.SageMaker.CreateTrial
+module Amazonka.SageMaker.CreateTrial
   ( -- * Creating a Request
     CreateTrial (..),
     newCreateTrial,
@@ -57,12 +57,12 @@ module Network.AWS.SageMaker.CreateTrial
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateTrial' smart constructor.
 data CreateTrial = CreateTrial'

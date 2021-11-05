@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig
+-- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig where
+module Amazonka.SageMaker.Types.HyperParameterTuningJobConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType
-import Network.AWS.SageMaker.Types.ParameterRanges
-import Network.AWS.SageMaker.Types.ResourceLimits
-import Network.AWS.SageMaker.Types.TrainingJobEarlyStoppingType
-import Network.AWS.SageMaker.Types.TuningJobCompletionCriteria
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
+import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
+import Amazonka.SageMaker.Types.ParameterRanges
+import Amazonka.SageMaker.Types.ResourceLimits
+import Amazonka.SageMaker.Types.TrainingJobEarlyStoppingType
+import Amazonka.SageMaker.Types.TuningJobCompletionCriteria
 
 -- | Configures a hyperparameter tuning job.
 --

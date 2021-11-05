@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TrainingSpecification
+-- Module      : Amazonka.SageMaker.Types.TrainingSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingSpecification where
+module Amazonka.SageMaker.Types.TrainingSpecification where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.ChannelSpecification
-import Network.AWS.SageMaker.Types.HyperParameterSpecification
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
-import Network.AWS.SageMaker.Types.MetricDefinition
-import Network.AWS.SageMaker.Types.TrainingInstanceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ChannelSpecification
+import Amazonka.SageMaker.Types.HyperParameterSpecification
+import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
+import Amazonka.SageMaker.Types.MetricDefinition
+import Amazonka.SageMaker.Types.TrainingInstanceType
 
 -- | Defines how the algorithm is used for a training job.
 --

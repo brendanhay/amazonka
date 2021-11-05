@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TargetPlatform
+-- Module      : Amazonka.SageMaker.Types.TargetPlatform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TargetPlatform where
+module Amazonka.SageMaker.Types.TargetPlatform where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.TargetPlatformAccelerator
-import Network.AWS.SageMaker.Types.TargetPlatformArch
-import Network.AWS.SageMaker.Types.TargetPlatformOs
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.TargetPlatformAccelerator
+import Amazonka.SageMaker.Types.TargetPlatformArch
+import Amazonka.SageMaker.Types.TargetPlatformOs
 
 -- | Contains information about a target platform that you want your model to
 -- run on, such as OS, architecture, and accelerators. It is an alternative

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.DeleteHumanTaskUi
+-- Module      : Amazonka.SageMaker.DeleteHumanTaskUi
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- To see a list of human task user interfaces (work task templates) in
 -- your account, use . When you delete a worker task template, it no longer
 -- appears when you call @ListHumanTaskUis@.
-module Network.AWS.SageMaker.DeleteHumanTaskUi
+module Amazonka.SageMaker.DeleteHumanTaskUi
   ( -- * Creating a Request
     DeleteHumanTaskUi (..),
     newDeleteHumanTaskUi,
@@ -43,12 +43,12 @@ module Network.AWS.SageMaker.DeleteHumanTaskUi
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDeleteHumanTaskUi' smart constructor.
 data DeleteHumanTaskUi = DeleteHumanTaskUi'

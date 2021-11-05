@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.AlgorithmValidationProfile
+-- Module      : Amazonka.SageMaker.Types.AlgorithmValidationProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AlgorithmValidationProfile where
+module Amazonka.SageMaker.Types.AlgorithmValidationProfile where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.TrainingJobDefinition
-import Network.AWS.SageMaker.Types.TransformJobDefinition
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.TrainingJobDefinition
+import Amazonka.SageMaker.Types.TransformJobDefinition
 
 -- | Defines a training job and a batch transform job that Amazon SageMaker
 -- runs to validate your algorithm.

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ContainerDefinition
+-- Module      : Amazonka.SageMaker.Types.ContainerDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ContainerDefinition where
+module Amazonka.SageMaker.Types.ContainerDefinition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.ContainerMode
-import Network.AWS.SageMaker.Types.ImageConfig
-import Network.AWS.SageMaker.Types.MultiModelConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ContainerMode
+import Amazonka.SageMaker.Types.ImageConfig
+import Amazonka.SageMaker.Types.MultiModelConfig
 
 -- | Describes the container, as part of model definition.
 --

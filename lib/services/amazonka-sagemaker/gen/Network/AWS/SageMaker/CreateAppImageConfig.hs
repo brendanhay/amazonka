@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateAppImageConfig
+-- Module      : Amazonka.SageMaker.CreateAppImageConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a configuration for running a SageMaker image as a KernelGateway
 -- app. The configuration specifies the Amazon Elastic File System (EFS)
 -- storage volume on the image, and a list of the kernels in the image.
-module Network.AWS.SageMaker.CreateAppImageConfig
+module Amazonka.SageMaker.CreateAppImageConfig
   ( -- * Creating a Request
     CreateAppImageConfig (..),
     newCreateAppImageConfig,
@@ -43,12 +43,12 @@ module Network.AWS.SageMaker.CreateAppImageConfig
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAppImageConfig' smart constructor.
 data CreateAppImageConfig = CreateAppImageConfig'

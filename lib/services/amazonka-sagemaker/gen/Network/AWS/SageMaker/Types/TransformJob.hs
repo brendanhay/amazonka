@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TransformJob
+-- Module      : Amazonka.SageMaker.Types.TransformJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TransformJob where
+module Amazonka.SageMaker.Types.TransformJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.BatchStrategy
-import Network.AWS.SageMaker.Types.DataProcessing
-import Network.AWS.SageMaker.Types.ExperimentConfig
-import Network.AWS.SageMaker.Types.ModelClientConfig
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.TransformInput
-import Network.AWS.SageMaker.Types.TransformJobStatus
-import Network.AWS.SageMaker.Types.TransformOutput
-import Network.AWS.SageMaker.Types.TransformResources
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.BatchStrategy
+import Amazonka.SageMaker.Types.DataProcessing
+import Amazonka.SageMaker.Types.ExperimentConfig
+import Amazonka.SageMaker.Types.ModelClientConfig
+import Amazonka.SageMaker.Types.Tag
+import Amazonka.SageMaker.Types.TransformInput
+import Amazonka.SageMaker.Types.TransformJobStatus
+import Amazonka.SageMaker.Types.TransformOutput
+import Amazonka.SageMaker.Types.TransformResources
 
 -- | A batch transform job. For information about SageMaker batch transform,
 -- see

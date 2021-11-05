@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TransformInput
+-- Module      : Amazonka.SageMaker.Types.TransformInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TransformInput where
+module Amazonka.SageMaker.Types.TransformInput where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.CompressionType
-import Network.AWS.SageMaker.Types.SplitType
-import Network.AWS.SageMaker.Types.TransformDataSource
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.CompressionType
+import Amazonka.SageMaker.Types.SplitType
+import Amazonka.SageMaker.Types.TransformDataSource
 
 -- | Describes the input source of a transform job and the way the transform
 -- job consumes it.

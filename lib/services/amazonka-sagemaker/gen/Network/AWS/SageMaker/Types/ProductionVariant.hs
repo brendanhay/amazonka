@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ProductionVariant
+-- Module      : Amazonka.SageMaker.Types.ProductionVariant
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProductionVariant where
+module Amazonka.SageMaker.Types.ProductionVariant where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.ProductionVariantAcceleratorType
-import Network.AWS.SageMaker.Types.ProductionVariantCoreDumpConfig
-import Network.AWS.SageMaker.Types.ProductionVariantInstanceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ProductionVariantAcceleratorType
+import Amazonka.SageMaker.Types.ProductionVariantCoreDumpConfig
+import Amazonka.SageMaker.Types.ProductionVariantInstanceType
 
 -- | Identifies a model that you want to host and the resources chosen to
 -- deploy for hosting it. If you are deploying multiple models, tell Amazon

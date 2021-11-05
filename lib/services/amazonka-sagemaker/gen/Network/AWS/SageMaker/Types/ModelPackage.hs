@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ModelPackage
+-- Module      : Amazonka.SageMaker.Types.ModelPackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelPackage where
+module Amazonka.SageMaker.Types.ModelPackage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.InferenceSpecification
-import Network.AWS.SageMaker.Types.MetadataProperties
-import Network.AWS.SageMaker.Types.ModelApprovalStatus
-import Network.AWS.SageMaker.Types.ModelMetrics
-import Network.AWS.SageMaker.Types.ModelPackageStatus
-import Network.AWS.SageMaker.Types.ModelPackageStatusDetails
-import Network.AWS.SageMaker.Types.ModelPackageValidationSpecification
-import Network.AWS.SageMaker.Types.SourceAlgorithmSpecification
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.UserContext
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.InferenceSpecification
+import Amazonka.SageMaker.Types.MetadataProperties
+import Amazonka.SageMaker.Types.ModelApprovalStatus
+import Amazonka.SageMaker.Types.ModelMetrics
+import Amazonka.SageMaker.Types.ModelPackageStatus
+import Amazonka.SageMaker.Types.ModelPackageStatusDetails
+import Amazonka.SageMaker.Types.ModelPackageValidationSpecification
+import Amazonka.SageMaker.Types.SourceAlgorithmSpecification
+import Amazonka.SageMaker.Types.Tag
+import Amazonka.SageMaker.Types.UserContext
 
 -- | A versioned model that can be deployed for SageMaker inference.
 --

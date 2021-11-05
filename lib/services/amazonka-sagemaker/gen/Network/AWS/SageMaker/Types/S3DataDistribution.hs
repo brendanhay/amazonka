@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.S3DataDistribution
+-- Module      : Amazonka.SageMaker.Types.S3DataDistribution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.S3DataDistribution
+module Amazonka.SageMaker.Types.S3DataDistribution
   ( S3DataDistribution
       ( ..,
         S3DataDistribution_FullyReplicated,
@@ -26,8 +26,8 @@ module Network.AWS.SageMaker.Types.S3DataDistribution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype S3DataDistribution = S3DataDistribution'
   { fromS3DataDistribution ::

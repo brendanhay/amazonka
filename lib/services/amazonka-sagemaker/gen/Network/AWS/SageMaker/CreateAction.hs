@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateAction
+-- Module      : Amazonka.SageMaker.CreateAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- HPO job. Generally, an action involves at least one input or output
 -- artifact. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html Amazon SageMaker ML Lineage Tracking>.
-module Network.AWS.SageMaker.CreateAction
+module Amazonka.SageMaker.CreateAction
   ( -- * Creating a Request
     CreateAction (..),
     newCreateAction,
@@ -50,12 +50,12 @@ module Network.AWS.SageMaker.CreateAction
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAction' smart constructor.
 data CreateAction = CreateAction'

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ActionSummary
+-- Module      : Amazonka.SageMaker.Types.ActionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ActionSummary where
+module Amazonka.SageMaker.Types.ActionSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.ActionSource
-import Network.AWS.SageMaker.Types.ActionStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ActionSource
+import Amazonka.SageMaker.Types.ActionStatus
 
 -- | Lists the properties of an /action/. An action represents an action or
 -- activity. Some examples are a workflow step and a model deployment.

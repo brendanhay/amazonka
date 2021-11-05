@@ -7,28 +7,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Waiters
+-- Module      : Amazonka.SageMaker.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Waiters where
+module Amazonka.SageMaker.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.DescribeEndpoint
-import Network.AWS.SageMaker.DescribeImage
-import Network.AWS.SageMaker.DescribeImageVersion
-import Network.AWS.SageMaker.DescribeNotebookInstance
-import Network.AWS.SageMaker.DescribeProcessingJob
-import Network.AWS.SageMaker.DescribeTrainingJob
-import Network.AWS.SageMaker.DescribeTransformJob
-import Network.AWS.SageMaker.Lens
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.DescribeEndpoint
+import Amazonka.SageMaker.DescribeImage
+import Amazonka.SageMaker.DescribeImageVersion
+import Amazonka.SageMaker.DescribeNotebookInstance
+import Amazonka.SageMaker.DescribeProcessingJob
+import Amazonka.SageMaker.DescribeTrainingJob
+import Amazonka.SageMaker.DescribeTransformJob
+import Amazonka.SageMaker.Lens
+import Amazonka.SageMaker.Types
 
--- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageUpdated :: Core.Wait DescribeImage
 newImageUpdated =
   Core.Wait
@@ -56,7 +56,7 @@ newImageUpdated =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageDeleted :: Core.Wait DescribeImage
 newImageDeleted =
   Core.Wait
@@ -80,7 +80,7 @@ newImageDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceDeleted =
   Core.Wait
@@ -102,7 +102,7 @@ newNotebookInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageVersionDeleted :: Core.Wait DescribeImageVersion
 newImageVersionDeleted =
   Core.Wait
@@ -126,7 +126,7 @@ newImageVersionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newEndpointDeleted :: Core.Wait DescribeEndpoint
 newEndpointDeleted =
   Core.Wait
@@ -146,7 +146,7 @@ newEndpointDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newEndpointInService :: Core.Wait DescribeEndpoint
 newEndpointInService =
   Core.Wait
@@ -172,7 +172,7 @@ newEndpointInService =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageCreated :: Core.Wait DescribeImage
 newImageCreated =
   Core.Wait
@@ -200,7 +200,7 @@ newImageCreated =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newTransformJobCompletedOrStopped :: Core.Wait DescribeTransformJob
 newTransformJobCompletedOrStopped =
   Core.Wait
@@ -233,7 +233,7 @@ newTransformJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceInService =
   Core.Wait
@@ -259,7 +259,7 @@ newNotebookInstanceInService =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
 newProcessingJobCompletedOrStopped =
   Core.Wait
@@ -292,7 +292,7 @@ newProcessingJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageVersionCreated :: Core.Wait DescribeImageVersion
 newImageVersionCreated =
   Core.Wait
@@ -320,7 +320,7 @@ newImageVersionCreated =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
 newTrainingJobCompletedOrStopped :: Core.Wait DescribeTrainingJob
 newTrainingJobCompletedOrStopped =
   Core.Wait
@@ -353,7 +353,7 @@ newTrainingJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
 newNotebookInstanceStopped =
   Core.Wait

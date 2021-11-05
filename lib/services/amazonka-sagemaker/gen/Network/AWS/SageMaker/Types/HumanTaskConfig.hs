@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HumanTaskConfig
+-- Module      : Amazonka.SageMaker.Types.HumanTaskConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HumanTaskConfig where
+module Amazonka.SageMaker.Types.HumanTaskConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.AnnotationConsolidationConfig
-import Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice
-import Network.AWS.SageMaker.Types.UiConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.AnnotationConsolidationConfig
+import Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
+import Amazonka.SageMaker.Types.UiConfig
 
 -- | Information required for human workers to complete a labeling task.
 --

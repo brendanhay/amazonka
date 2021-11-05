@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.ListEdgePackagingJobs
+-- Module      : Amazonka.SageMaker.ListEdgePackagingJobs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a list of edge packaging jobs.
 --
 -- This operation returns paginated results.
-module Network.AWS.SageMaker.ListEdgePackagingJobs
+module Amazonka.SageMaker.ListEdgePackagingJobs
   ( -- * Creating a Request
     ListEdgePackagingJobs (..),
     newListEdgePackagingJobs,
@@ -52,12 +52,12 @@ module Network.AWS.SageMaker.ListEdgePackagingJobs
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListEdgePackagingJobs' smart constructor.
 data ListEdgePackagingJobs = ListEdgePackagingJobs'

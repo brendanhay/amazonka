@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.SearchRecord
+-- Module      : Amazonka.SageMaker.Types.SearchRecord
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SearchRecord where
+module Amazonka.SageMaker.Types.SearchRecord where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.Endpoint
-import Network.AWS.SageMaker.Types.Experiment
-import Network.AWS.SageMaker.Types.FeatureGroup
-import Network.AWS.SageMaker.Types.ModelPackage
-import Network.AWS.SageMaker.Types.ModelPackageGroup
-import Network.AWS.SageMaker.Types.Pipeline
-import Network.AWS.SageMaker.Types.PipelineExecution
-import Network.AWS.SageMaker.Types.Project
-import Network.AWS.SageMaker.Types.TrainingJob
-import Network.AWS.SageMaker.Types.Trial
-import Network.AWS.SageMaker.Types.TrialComponent
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.Endpoint
+import Amazonka.SageMaker.Types.Experiment
+import Amazonka.SageMaker.Types.FeatureGroup
+import Amazonka.SageMaker.Types.ModelPackage
+import Amazonka.SageMaker.Types.ModelPackageGroup
+import Amazonka.SageMaker.Types.Pipeline
+import Amazonka.SageMaker.Types.PipelineExecution
+import Amazonka.SageMaker.Types.Project
+import Amazonka.SageMaker.Types.TrainingJob
+import Amazonka.SageMaker.Types.Trial
+import Amazonka.SageMaker.Types.TrialComponent
 
 -- | A single resource returned as part of the Search API response.
 --

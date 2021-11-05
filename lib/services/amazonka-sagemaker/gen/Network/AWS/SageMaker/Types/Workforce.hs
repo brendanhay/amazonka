@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.Workforce
+-- Module      : Amazonka.SageMaker.Types.Workforce
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.Workforce where
+module Amazonka.SageMaker.Types.Workforce where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.CognitoConfig
-import Network.AWS.SageMaker.Types.OidcConfigForResponse
-import Network.AWS.SageMaker.Types.SourceIpConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.CognitoConfig
+import Amazonka.SageMaker.Types.OidcConfigForResponse
+import Amazonka.SageMaker.Types.SourceIpConfig
 
 -- | A single private workforce, which is automatically created when you
 -- create your first private work team. You can create one private work

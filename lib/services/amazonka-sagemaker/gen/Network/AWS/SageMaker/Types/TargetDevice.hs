@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TargetDevice
+-- Module      : Amazonka.SageMaker.Types.TargetDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TargetDevice
+module Amazonka.SageMaker.Types.TargetDevice
   ( TargetDevice
       ( ..,
         TargetDevice_Aisage,
@@ -55,8 +55,8 @@ module Network.AWS.SageMaker.Types.TargetDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype TargetDevice = TargetDevice'
   { fromTargetDevice ::

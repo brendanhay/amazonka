@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HyperParameterAlgorithmSpecification
+-- Module      : Amazonka.SageMaker.Types.HyperParameterAlgorithmSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterAlgorithmSpecification where
+module Amazonka.SageMaker.Types.HyperParameterAlgorithmSpecification where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.MetricDefinition
-import Network.AWS.SageMaker.Types.TrainingInputMode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.MetricDefinition
+import Amazonka.SageMaker.Types.TrainingInputMode
 
 -- | Specifies which training algorithm to use for training jobs that a
 -- hyperparameter tuning job launches and the metrics to monitor.

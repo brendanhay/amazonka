@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.FeatureGroup
+-- Module      : Amazonka.SageMaker.Types.FeatureGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.FeatureGroup where
+module Amazonka.SageMaker.Types.FeatureGroup where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.FeatureDefinition
-import Network.AWS.SageMaker.Types.FeatureGroupStatus
-import Network.AWS.SageMaker.Types.OfflineStoreConfig
-import Network.AWS.SageMaker.Types.OfflineStoreStatus
-import Network.AWS.SageMaker.Types.OnlineStoreConfig
-import Network.AWS.SageMaker.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.FeatureDefinition
+import Amazonka.SageMaker.Types.FeatureGroupStatus
+import Amazonka.SageMaker.Types.OfflineStoreConfig
+import Amazonka.SageMaker.Types.OfflineStoreStatus
+import Amazonka.SageMaker.Types.OnlineStoreConfig
+import Amazonka.SageMaker.Types.Tag
 
 -- | Amazon SageMaker Feature Store stores features in a collection called
 -- Feature Group. A Feature Group can be visualized as a table which has

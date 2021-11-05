@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.DescribeHumanTaskUi
+-- Module      : Amazonka.SageMaker.DescribeHumanTaskUi
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns information about the requested human task user interface
 -- (worker task template).
-module Network.AWS.SageMaker.DescribeHumanTaskUi
+module Amazonka.SageMaker.DescribeHumanTaskUi
   ( -- * Creating a Request
     DescribeHumanTaskUi (..),
     newDescribeHumanTaskUi,
@@ -44,12 +44,12 @@ module Network.AWS.SageMaker.DescribeHumanTaskUi
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDescribeHumanTaskUi' smart constructor.
 data DescribeHumanTaskUi = DescribeHumanTaskUi'

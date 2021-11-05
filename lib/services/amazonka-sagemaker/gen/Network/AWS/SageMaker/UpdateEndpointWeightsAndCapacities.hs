@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
+-- Module      : Amazonka.SageMaker.UpdateEndpointWeightsAndCapacities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- the endpoint status to @Updating@. After updating the endpoint, it sets
 -- the status to @InService@. To check the status of an endpoint, use the
 -- DescribeEndpoint API.
-module Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
+module Amazonka.SageMaker.UpdateEndpointWeightsAndCapacities
   ( -- * Creating a Request
     UpdateEndpointWeightsAndCapacities (..),
     newUpdateEndpointWeightsAndCapacities,
@@ -45,12 +45,12 @@ module Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateEndpointWeightsAndCapacities' smart constructor.
 data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'

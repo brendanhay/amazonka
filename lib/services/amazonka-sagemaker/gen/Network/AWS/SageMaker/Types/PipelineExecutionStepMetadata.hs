@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata
+-- Module      : Amazonka.SageMaker.Types.PipelineExecutionStepMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata where
+module Amazonka.SageMaker.Types.PipelineExecutionStepMetadata where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.CallbackStepMetadata
-import Network.AWS.SageMaker.Types.ConditionStepMetadata
-import Network.AWS.SageMaker.Types.LambdaStepMetadata
-import Network.AWS.SageMaker.Types.ModelStepMetadata
-import Network.AWS.SageMaker.Types.ProcessingJobStepMetadata
-import Network.AWS.SageMaker.Types.RegisterModelStepMetadata
-import Network.AWS.SageMaker.Types.TrainingJobStepMetadata
-import Network.AWS.SageMaker.Types.TransformJobStepMetadata
-import Network.AWS.SageMaker.Types.TuningJobStepMetaData
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.CallbackStepMetadata
+import Amazonka.SageMaker.Types.ConditionStepMetadata
+import Amazonka.SageMaker.Types.LambdaStepMetadata
+import Amazonka.SageMaker.Types.ModelStepMetadata
+import Amazonka.SageMaker.Types.ProcessingJobStepMetadata
+import Amazonka.SageMaker.Types.RegisterModelStepMetadata
+import Amazonka.SageMaker.Types.TrainingJobStepMetadata
+import Amazonka.SageMaker.Types.TransformJobStepMetadata
+import Amazonka.SageMaker.Types.TuningJobStepMetaData
 
 -- | Metadata for a step execution.
 --

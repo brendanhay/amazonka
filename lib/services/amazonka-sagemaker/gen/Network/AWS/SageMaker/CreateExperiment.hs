@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateExperiment
+-- Module      : Amazonka.SageMaker.CreateExperiment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- view an experiment\'s properties, call the DescribeExperiment API. To
 -- get a list of all the trials associated with an experiment, call the
 -- ListTrials API. To create a trial call the CreateTrial API.
-module Network.AWS.SageMaker.CreateExperiment
+module Amazonka.SageMaker.CreateExperiment
   ( -- * Creating a Request
     CreateExperiment (..),
     newCreateExperiment,
@@ -67,12 +67,12 @@ module Network.AWS.SageMaker.CreateExperiment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateExperiment' smart constructor.
 data CreateExperiment = CreateExperiment'

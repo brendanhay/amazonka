@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ModelQualityJobInput
+-- Module      : Amazonka.SageMaker.Types.ModelQualityJobInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelQualityJobInput where
+module Amazonka.SageMaker.Types.ModelQualityJobInput where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.EndpointInput
-import Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.EndpointInput
+import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 
 -- | The input for the model quality monitoring job. Currently endponts are
 -- supported for input for model quality monitoring jobs.

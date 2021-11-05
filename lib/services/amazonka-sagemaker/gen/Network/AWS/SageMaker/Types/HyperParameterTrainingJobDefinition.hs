@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HyperParameterTrainingJobDefinition
+-- Module      : Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTrainingJobDefinition where
+module Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.Channel
-import Network.AWS.SageMaker.Types.CheckpointConfig
-import Network.AWS.SageMaker.Types.HyperParameterAlgorithmSpecification
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
-import Network.AWS.SageMaker.Types.OutputDataConfig
-import Network.AWS.SageMaker.Types.ParameterRanges
-import Network.AWS.SageMaker.Types.ResourceConfig
-import Network.AWS.SageMaker.Types.RetryStrategy
-import Network.AWS.SageMaker.Types.StoppingCondition
-import Network.AWS.SageMaker.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.Channel
+import Amazonka.SageMaker.Types.CheckpointConfig
+import Amazonka.SageMaker.Types.HyperParameterAlgorithmSpecification
+import Amazonka.SageMaker.Types.HyperParameterTuningJobObjective
+import Amazonka.SageMaker.Types.OutputDataConfig
+import Amazonka.SageMaker.Types.ParameterRanges
+import Amazonka.SageMaker.Types.ResourceConfig
+import Amazonka.SageMaker.Types.RetryStrategy
+import Amazonka.SageMaker.Types.StoppingCondition
+import Amazonka.SageMaker.Types.VpcConfig
 
 -- | Defines the training jobs launched by a hyperparameter tuning job.
 --

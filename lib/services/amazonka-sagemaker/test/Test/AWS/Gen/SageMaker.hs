@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMaker where
 
+import Amazonka.SageMaker
 import qualified Data.Proxy as Proxy
-import Network.AWS.SageMaker
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SageMaker.Internal

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartConfig
+-- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartConfig where
+module Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType
-import Network.AWS.SageMaker.Types.ParentHyperParameterTuningJob
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartType
+import Amazonka.SageMaker.Types.ParentHyperParameterTuningJob
 
 -- | Specifies the configuration for a hyperparameter tuning job that uses
 -- one or more previous hyperparameter tuning jobs as a starting point. The

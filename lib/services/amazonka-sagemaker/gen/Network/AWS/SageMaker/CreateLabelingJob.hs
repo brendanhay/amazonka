@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateLabelingJob
+-- Module      : Amazonka.SageMaker.CreateLabelingJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -63,7 +63,7 @@
 -- in the Amazon SageMaker Developer Guide. To learn how to create a
 -- streaming labeling job, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-create-job.html Create a Streaming Labeling Job>.
-module Network.AWS.SageMaker.CreateLabelingJob
+module Amazonka.SageMaker.CreateLabelingJob
   ( -- * Creating a Request
     CreateLabelingJob (..),
     newCreateLabelingJob,
@@ -90,12 +90,12 @@ module Network.AWS.SageMaker.CreateLabelingJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateLabelingJob' smart constructor.
 data CreateLabelingJob = CreateLabelingJob'

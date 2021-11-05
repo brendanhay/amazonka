@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TrialComponent
+-- Module      : Amazonka.SageMaker.Types.TrialComponent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialComponent where
+module Amazonka.SageMaker.Types.TrialComponent where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.MetadataProperties
-import Network.AWS.SageMaker.Types.Parent
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.TrialComponentArtifact
-import Network.AWS.SageMaker.Types.TrialComponentMetricSummary
-import Network.AWS.SageMaker.Types.TrialComponentParameterValue
-import Network.AWS.SageMaker.Types.TrialComponentSource
-import Network.AWS.SageMaker.Types.TrialComponentSourceDetail
-import Network.AWS.SageMaker.Types.TrialComponentStatus
-import Network.AWS.SageMaker.Types.UserContext
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.MetadataProperties
+import Amazonka.SageMaker.Types.Parent
+import Amazonka.SageMaker.Types.Tag
+import Amazonka.SageMaker.Types.TrialComponentArtifact
+import Amazonka.SageMaker.Types.TrialComponentMetricSummary
+import Amazonka.SageMaker.Types.TrialComponentParameterValue
+import Amazonka.SageMaker.Types.TrialComponentSource
+import Amazonka.SageMaker.Types.TrialComponentSourceDetail
+import Amazonka.SageMaker.Types.TrialComponentStatus
+import Amazonka.SageMaker.Types.UserContext
 
 -- | The properties of a trial component as returned by the Search API.
 --

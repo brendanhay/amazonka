@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.StopHyperParameterTuningJob
+-- Module      : Amazonka.SageMaker.StopHyperParameterTuningJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- write to Amazon CloudWatch Logs are still available in CloudWatch. After
 -- the tuning job moves to the @Stopped@ state, it releases all reserved
 -- resources for the tuning job.
-module Network.AWS.SageMaker.StopHyperParameterTuningJob
+module Amazonka.SageMaker.StopHyperParameterTuningJob
   ( -- * Creating a Request
     StopHyperParameterTuningJob (..),
     newStopHyperParameterTuningJob,
@@ -42,12 +42,12 @@ module Network.AWS.SageMaker.StopHyperParameterTuningJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newStopHyperParameterTuningJob' smart constructor.
 data StopHyperParameterTuningJob = StopHyperParameterTuningJob'

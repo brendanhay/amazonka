@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.SearchExpression
+-- Module      : Amazonka.SageMaker.Types.SearchExpression
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SearchExpression where
+module Amazonka.SageMaker.Types.SearchExpression where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.BooleanOperator
-import Network.AWS.SageMaker.Types.Filter
-import Network.AWS.SageMaker.Types.NestedFilters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.BooleanOperator
+import Amazonka.SageMaker.Types.Filter
+import Amazonka.SageMaker.Types.NestedFilters
 
 -- | A multi-expression that searches for the specified resource or resources
 -- in a search. All resource objects that satisfy the expression\'s

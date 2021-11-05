@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.Endpoint
+-- Module      : Amazonka.SageMaker.Types.Endpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.Endpoint where
+module Amazonka.SageMaker.Types.Endpoint where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.DataCaptureConfigSummary
-import Network.AWS.SageMaker.Types.EndpointStatus
-import Network.AWS.SageMaker.Types.MonitoringSchedule
-import Network.AWS.SageMaker.Types.ProductionVariantSummary
-import Network.AWS.SageMaker.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.DataCaptureConfigSummary
+import Amazonka.SageMaker.Types.EndpointStatus
+import Amazonka.SageMaker.Types.MonitoringSchedule
+import Amazonka.SageMaker.Types.ProductionVariantSummary
+import Amazonka.SageMaker.Types.Tag
 
 -- | A hosted endpoint for real-time inference.
 --

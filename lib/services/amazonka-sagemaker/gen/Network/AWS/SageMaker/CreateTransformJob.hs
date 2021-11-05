@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.CreateTransformJob
+-- Module      : Amazonka.SageMaker.CreateTransformJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 --
 -- For more information about how batch transformation works, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html Batch Transform>.
-module Network.AWS.SageMaker.CreateTransformJob
+module Amazonka.SageMaker.CreateTransformJob
   ( -- * Creating a Request
     CreateTransformJob (..),
     newCreateTransformJob,
@@ -79,12 +79,12 @@ module Network.AWS.SageMaker.CreateTransformJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateTransformJob' smart constructor.
 data CreateTransformJob = CreateTransformJob'

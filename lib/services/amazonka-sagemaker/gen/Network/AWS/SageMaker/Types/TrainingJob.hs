@@ -11,36 +11,36 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.TrainingJob
+-- Module      : Amazonka.SageMaker.Types.TrainingJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingJob where
+module Amazonka.SageMaker.Types.TrainingJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.AlgorithmSpecification
-import Network.AWS.SageMaker.Types.Channel
-import Network.AWS.SageMaker.Types.CheckpointConfig
-import Network.AWS.SageMaker.Types.DebugHookConfig
-import Network.AWS.SageMaker.Types.DebugRuleConfiguration
-import Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus
-import Network.AWS.SageMaker.Types.ExperimentConfig
-import Network.AWS.SageMaker.Types.MetricData
-import Network.AWS.SageMaker.Types.ModelArtifacts
-import Network.AWS.SageMaker.Types.OutputDataConfig
-import Network.AWS.SageMaker.Types.ResourceConfig
-import Network.AWS.SageMaker.Types.RetryStrategy
-import Network.AWS.SageMaker.Types.SecondaryStatus
-import Network.AWS.SageMaker.Types.SecondaryStatusTransition
-import Network.AWS.SageMaker.Types.StoppingCondition
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.TensorBoardOutputConfig
-import Network.AWS.SageMaker.Types.TrainingJobStatus
-import Network.AWS.SageMaker.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.AlgorithmSpecification
+import Amazonka.SageMaker.Types.Channel
+import Amazonka.SageMaker.Types.CheckpointConfig
+import Amazonka.SageMaker.Types.DebugHookConfig
+import Amazonka.SageMaker.Types.DebugRuleConfiguration
+import Amazonka.SageMaker.Types.DebugRuleEvaluationStatus
+import Amazonka.SageMaker.Types.ExperimentConfig
+import Amazonka.SageMaker.Types.MetricData
+import Amazonka.SageMaker.Types.ModelArtifacts
+import Amazonka.SageMaker.Types.OutputDataConfig
+import Amazonka.SageMaker.Types.ResourceConfig
+import Amazonka.SageMaker.Types.RetryStrategy
+import Amazonka.SageMaker.Types.SecondaryStatus
+import Amazonka.SageMaker.Types.SecondaryStatusTransition
+import Amazonka.SageMaker.Types.StoppingCondition
+import Amazonka.SageMaker.Types.Tag
+import Amazonka.SageMaker.Types.TensorBoardOutputConfig
+import Amazonka.SageMaker.Types.TrainingJobStatus
+import Amazonka.SageMaker.Types.VpcConfig
 
 -- | Contains information about a training job.
 --

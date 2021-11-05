@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.StopPipelineExecution
+-- Module      : Amazonka.SageMaker.StopPipelineExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -47,7 +47,7 @@
 -- until the timeout is hit, whichever occurs first, and then stops. If the
 -- Lambda function finishes, the pipeline execution status is @Stopped@. If
 -- the timeout is hit the pipeline execution status is @Failed@.
-module Network.AWS.SageMaker.StopPipelineExecution
+module Amazonka.SageMaker.StopPipelineExecution
   ( -- * Creating a Request
     StopPipelineExecution (..),
     newStopPipelineExecution,
@@ -66,12 +66,12 @@ module Network.AWS.SageMaker.StopPipelineExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newStopPipelineExecution' smart constructor.
 data StopPipelineExecution = StopPipelineExecution'

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.HyperParameterTuningJobSummary
+-- Module      : Amazonka.SageMaker.Types.HyperParameterTuningJobSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobSummary where
+module Amazonka.SageMaker.Types.HyperParameterTuningJobSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType
-import Network.AWS.SageMaker.Types.ObjectiveStatusCounters
-import Network.AWS.SageMaker.Types.ResourceLimits
-import Network.AWS.SageMaker.Types.TrainingJobStatusCounters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.HyperParameterTuningJobStatus
+import Amazonka.SageMaker.Types.HyperParameterTuningJobStrategyType
+import Amazonka.SageMaker.Types.ObjectiveStatusCounters
+import Amazonka.SageMaker.Types.ResourceLimits
+import Amazonka.SageMaker.Types.TrainingJobStatusCounters
 
 -- | Provides summary information about a hyperparameter tuning job.
 --

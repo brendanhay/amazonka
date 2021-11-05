@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.ProcessingJob
+-- Module      : Amazonka.SageMaker.Types.ProcessingJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingJob where
+module Amazonka.SageMaker.Types.ProcessingJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.AppSpecification
-import Network.AWS.SageMaker.Types.ExperimentConfig
-import Network.AWS.SageMaker.Types.NetworkConfig
-import Network.AWS.SageMaker.Types.ProcessingInput
-import Network.AWS.SageMaker.Types.ProcessingJobStatus
-import Network.AWS.SageMaker.Types.ProcessingOutputConfig
-import Network.AWS.SageMaker.Types.ProcessingResources
-import Network.AWS.SageMaker.Types.ProcessingStoppingCondition
-import Network.AWS.SageMaker.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.AppSpecification
+import Amazonka.SageMaker.Types.ExperimentConfig
+import Amazonka.SageMaker.Types.NetworkConfig
+import Amazonka.SageMaker.Types.ProcessingInput
+import Amazonka.SageMaker.Types.ProcessingJobStatus
+import Amazonka.SageMaker.Types.ProcessingOutputConfig
+import Amazonka.SageMaker.Types.ProcessingResources
+import Amazonka.SageMaker.Types.ProcessingStoppingCondition
+import Amazonka.SageMaker.Types.Tag
 
 -- | An Amazon SageMaker processing job that is used to analyze data and
 -- evaluate models. For more information, see

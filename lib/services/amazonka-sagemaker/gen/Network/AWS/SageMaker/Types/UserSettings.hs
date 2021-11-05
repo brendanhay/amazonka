@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.Types.UserSettings
+-- Module      : Amazonka.SageMaker.Types.UserSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UserSettings where
+module Amazonka.SageMaker.Types.UserSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMaker.Types.JupyterServerAppSettings
-import Network.AWS.SageMaker.Types.KernelGatewayAppSettings
-import Network.AWS.SageMaker.Types.SharingSettings
-import Network.AWS.SageMaker.Types.TensorBoardAppSettings
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.JupyterServerAppSettings
+import Amazonka.SageMaker.Types.KernelGatewayAppSettings
+import Amazonka.SageMaker.Types.SharingSettings
+import Amazonka.SageMaker.Types.TensorBoardAppSettings
 
 -- | A collection of settings that apply to users of Amazon SageMaker Studio.
 -- These settings are specified when the @CreateUserProfile@ API is called,

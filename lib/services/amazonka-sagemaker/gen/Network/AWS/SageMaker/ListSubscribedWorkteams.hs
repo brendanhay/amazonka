@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMaker.ListSubscribedWorkteams
+-- Module      : Amazonka.SageMaker.ListSubscribedWorkteams
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- satisfies the filter specified in the @NameContains@ parameter.
 --
 -- This operation returns paginated results.
-module Network.AWS.SageMaker.ListSubscribedWorkteams
+module Amazonka.SageMaker.ListSubscribedWorkteams
   ( -- * Creating a Request
     ListSubscribedWorkteams (..),
     newListSubscribedWorkteams,
@@ -46,12 +46,12 @@ module Network.AWS.SageMaker.ListSubscribedWorkteams
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMaker.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListSubscribedWorkteams' smart constructor.
 data ListSubscribedWorkteams = ListSubscribedWorkteams'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SageMakerEdge
+-- Module      : Amazonka.SageMakerEdge
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- SageMaker Edge Manager dataplane service for communicating with active
 -- agents.
-module Network.AWS.SageMakerEdge
+module Amazonka.SageMakerEdge
   ( -- * Service Configuration
     defaultService,
 
@@ -53,11 +53,11 @@ module Network.AWS.SageMakerEdge
   )
 where
 
-import Network.AWS.SageMakerEdge.GetDeviceRegistration
-import Network.AWS.SageMakerEdge.Lens
-import Network.AWS.SageMakerEdge.SendHeartbeat
-import Network.AWS.SageMakerEdge.Types
-import Network.AWS.SageMakerEdge.Waiters
+import Amazonka.SageMakerEdge.GetDeviceRegistration
+import Amazonka.SageMakerEdge.Lens
+import Amazonka.SageMakerEdge.SendHeartbeat
+import Amazonka.SageMakerEdge.Types
+import Amazonka.SageMakerEdge.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerEdge.Lens
+-- Module      : Amazonka.SageMakerEdge.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMakerEdge.Lens
+module Amazonka.SageMakerEdge.Lens
   ( -- * Operations
 
     -- ** SendHeartbeat
@@ -45,7 +45,7 @@ module Network.AWS.SageMakerEdge.Lens
   )
 where
 
-import Network.AWS.SageMakerEdge.GetDeviceRegistration
-import Network.AWS.SageMakerEdge.SendHeartbeat
-import Network.AWS.SageMakerEdge.Types.EdgeMetric
-import Network.AWS.SageMakerEdge.Types.Model
+import Amazonka.SageMakerEdge.GetDeviceRegistration
+import Amazonka.SageMakerEdge.SendHeartbeat
+import Amazonka.SageMakerEdge.Types.EdgeMetric
+import Amazonka.SageMakerEdge.Types.Model

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerEdge.GetDeviceRegistration
+-- Module      : Amazonka.SageMakerEdge.GetDeviceRegistration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Use to check if a device is registered with SageMaker Edge Manager.
-module Network.AWS.SageMakerEdge.GetDeviceRegistration
+module Amazonka.SageMakerEdge.GetDeviceRegistration
   ( -- * Creating a Request
     GetDeviceRegistration (..),
     newGetDeviceRegistration,
@@ -41,12 +41,12 @@ module Network.AWS.SageMakerEdge.GetDeviceRegistration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMakerEdge.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMakerEdge.Types
 
 -- | /See:/ 'newGetDeviceRegistration' smart constructor.
 data GetDeviceRegistration = GetDeviceRegistration'

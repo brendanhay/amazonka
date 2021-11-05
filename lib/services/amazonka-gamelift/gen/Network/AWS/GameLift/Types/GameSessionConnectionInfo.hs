@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.GameSessionConnectionInfo
+-- Module      : Amazonka.GameLift.Types.GameSessionConnectionInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionConnectionInfo where
+module Amazonka.GameLift.Types.GameSessionConnectionInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.MatchedPlayerSession
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.MatchedPlayerSession
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Connection information for a new game session that is created in
 -- response to a StartMatchmaking request. Once a match is made, the

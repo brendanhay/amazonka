@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GameLift where
 
+import Amazonka.GameLift
 import qualified Data.Proxy as Proxy
-import Network.AWS.GameLift
 import Test.AWS.Fixture
 import Test.AWS.GameLift.Internal
 import Test.AWS.Prelude

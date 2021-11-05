@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.MatchmakingTicket
+-- Module      : Amazonka.GameLift.Types.MatchmakingTicket
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MatchmakingTicket where
+module Amazonka.GameLift.Types.MatchmakingTicket where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.GameSessionConnectionInfo
-import Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
-import Network.AWS.GameLift.Types.Player
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.GameSessionConnectionInfo
+import Amazonka.GameLift.Types.MatchmakingConfigurationStatus
+import Amazonka.GameLift.Types.Player
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ticket generated to track the progress of a matchmaking request. Each
 -- ticket is uniquely identified by a ticket ID, supplied by the requester,

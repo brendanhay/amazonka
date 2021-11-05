@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.GameSessionQueue
+-- Module      : Amazonka.GameLift.Types.GameSessionQueue
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionQueue where
+module Amazonka.GameLift.Types.GameSessionQueue where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.FilterConfiguration
-import Network.AWS.GameLift.Types.GameSessionQueueDestination
-import Network.AWS.GameLift.Types.PlayerLatencyPolicy
-import Network.AWS.GameLift.Types.PriorityConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.FilterConfiguration
+import Amazonka.GameLift.Types.GameSessionQueueDestination
+import Amazonka.GameLift.Types.PlayerLatencyPolicy
+import Amazonka.GameLift.Types.PriorityConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration for a game session placement mechanism that processes
 -- requests for new game sessions. A queue can be used on its own or as

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.Instance
+-- Module      : Amazonka.GameLift.Types.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.Instance where
+module Amazonka.GameLift.Types.Instance where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.EC2InstanceType
-import Network.AWS.GameLift.Types.InstanceStatus
-import Network.AWS.GameLift.Types.OperatingSystem
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.EC2InstanceType
+import Amazonka.GameLift.Types.InstanceStatus
+import Amazonka.GameLift.Types.OperatingSystem
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an EC2 instance of virtual computing resources that hosts one
 -- or more game servers. In GameLift, a fleet can contain zero or more

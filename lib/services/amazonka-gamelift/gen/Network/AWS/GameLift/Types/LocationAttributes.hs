@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.LocationAttributes
+-- Module      : Amazonka.GameLift.Types.LocationAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.LocationAttributes where
+module Amazonka.GameLift.Types.LocationAttributes where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.FleetAction
-import Network.AWS.GameLift.Types.LocationState
-import Network.AWS.GameLift.Types.LocationUpdateStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.FleetAction
+import Amazonka.GameLift.Types.LocationState
+import Amazonka.GameLift.Types.LocationUpdateStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a location in a multi-location fleet.
 --

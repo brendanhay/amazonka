@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.Build
+-- Module      : Amazonka.GameLift.Types.Build
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.Build where
+module Amazonka.GameLift.Types.Build where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.BuildStatus
-import Network.AWS.GameLift.Types.OperatingSystem
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.BuildStatus
+import Amazonka.GameLift.Types.OperatingSystem
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Properties describing a custom game build.
 --

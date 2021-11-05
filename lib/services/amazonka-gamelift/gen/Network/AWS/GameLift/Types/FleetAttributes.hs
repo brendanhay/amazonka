@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.FleetAttributes
+-- Module      : Amazonka.GameLift.Types.FleetAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FleetAttributes where
+module Amazonka.GameLift.Types.FleetAttributes where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.CertificateConfiguration
-import Network.AWS.GameLift.Types.EC2InstanceType
-import Network.AWS.GameLift.Types.FleetAction
-import Network.AWS.GameLift.Types.FleetStatus
-import Network.AWS.GameLift.Types.FleetType
-import Network.AWS.GameLift.Types.OperatingSystem
-import Network.AWS.GameLift.Types.ProtectionPolicy
-import Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.CertificateConfiguration
+import Amazonka.GameLift.Types.EC2InstanceType
+import Amazonka.GameLift.Types.FleetAction
+import Amazonka.GameLift.Types.FleetStatus
+import Amazonka.GameLift.Types.FleetType
+import Amazonka.GameLift.Types.OperatingSystem
+import Amazonka.GameLift.Types.ProtectionPolicy
+import Amazonka.GameLift.Types.ResourceCreationLimitPolicy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a GameLift fleet of game hosting resources.
 --

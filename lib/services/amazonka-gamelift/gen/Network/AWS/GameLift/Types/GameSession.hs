@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.GameSession
+-- Module      : Amazonka.GameLift.Types.GameSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSession where
+module Amazonka.GameLift.Types.GameSession where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.GameProperty
-import Network.AWS.GameLift.Types.GameSessionStatus
-import Network.AWS.GameLift.Types.GameSessionStatusReason
-import Network.AWS.GameLift.Types.PlayerSessionCreationPolicy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.GameProperty
+import Amazonka.GameLift.Types.GameSessionStatus
+import Amazonka.GameLift.Types.GameSessionStatusReason
+import Amazonka.GameLift.Types.PlayerSessionCreationPolicy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Properties describing a game session.
 --

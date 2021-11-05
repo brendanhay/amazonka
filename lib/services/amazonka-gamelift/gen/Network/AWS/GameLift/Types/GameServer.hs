@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.GameServer
+-- Module      : Amazonka.GameLift.Types.GameServer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServer where
+module Amazonka.GameLift.Types.GameServer where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.GameServerClaimStatus
-import Network.AWS.GameLift.Types.GameServerUtilizationStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.GameServerClaimStatus
+import Amazonka.GameLift.Types.GameServerUtilizationStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | __This data type is used with the GameLift FleetIQ and game server
 -- groups.__

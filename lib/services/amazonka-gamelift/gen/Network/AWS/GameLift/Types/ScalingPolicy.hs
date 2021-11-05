@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.ScalingPolicy
+-- Module      : Amazonka.GameLift.Types.ScalingPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.ScalingPolicy where
+module Amazonka.GameLift.Types.ScalingPolicy where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.ComparisonOperatorType
-import Network.AWS.GameLift.Types.LocationUpdateStatus
-import Network.AWS.GameLift.Types.MetricName
-import Network.AWS.GameLift.Types.PolicyType
-import Network.AWS.GameLift.Types.ScalingAdjustmentType
-import Network.AWS.GameLift.Types.ScalingStatusType
-import Network.AWS.GameLift.Types.TargetConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.ComparisonOperatorType
+import Amazonka.GameLift.Types.LocationUpdateStatus
+import Amazonka.GameLift.Types.MetricName
+import Amazonka.GameLift.Types.PolicyType
+import Amazonka.GameLift.Types.ScalingAdjustmentType
+import Amazonka.GameLift.Types.ScalingStatusType
+import Amazonka.GameLift.Types.TargetConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Rule that controls how a fleet is scaled. Scaling policies are uniquely
 -- identified by the combination of name and fleet ID.

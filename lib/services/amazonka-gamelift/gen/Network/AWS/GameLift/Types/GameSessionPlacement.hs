@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.GameSessionPlacement
+-- Module      : Amazonka.GameLift.Types.GameSessionPlacement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionPlacement where
+module Amazonka.GameLift.Types.GameSessionPlacement where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.GameProperty
-import Network.AWS.GameLift.Types.GameSessionPlacementState
-import Network.AWS.GameLift.Types.PlacedPlayerSession
-import Network.AWS.GameLift.Types.PlayerLatency
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.GameProperty
+import Amazonka.GameLift.Types.GameSessionPlacementState
+import Amazonka.GameLift.Types.PlacedPlayerSession
+import Amazonka.GameLift.Types.PlayerLatency
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Object that describes a StartGameSessionPlacement request. This object
 -- includes the full details of the original request plus the current

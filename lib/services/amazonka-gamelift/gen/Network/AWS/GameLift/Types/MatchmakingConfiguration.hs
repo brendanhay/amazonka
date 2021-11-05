@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.MatchmakingConfiguration
+-- Module      : Amazonka.GameLift.Types.MatchmakingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MatchmakingConfiguration where
+module Amazonka.GameLift.Types.MatchmakingConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.BackfillMode
-import Network.AWS.GameLift.Types.FlexMatchMode
-import Network.AWS.GameLift.Types.GameProperty
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.BackfillMode
+import Amazonka.GameLift.Types.FlexMatchMode
+import Amazonka.GameLift.Types.GameProperty
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Guidelines for use with FlexMatch to match players into games. All
 -- matchmaking requests must specify a matchmaking configuration.

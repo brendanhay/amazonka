@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types
+-- Module      : Amazonka.GameLift.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types
+module Amazonka.GameLift.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -684,105 +684,105 @@ module Network.AWS.GameLift.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.AcceptanceType
-import Network.AWS.GameLift.Types.Alias
-import Network.AWS.GameLift.Types.AttributeValue
-import Network.AWS.GameLift.Types.AwsCredentials
-import Network.AWS.GameLift.Types.BackfillMode
-import Network.AWS.GameLift.Types.BalancingStrategy
-import Network.AWS.GameLift.Types.Build
-import Network.AWS.GameLift.Types.BuildStatus
-import Network.AWS.GameLift.Types.CertificateConfiguration
-import Network.AWS.GameLift.Types.CertificateType
-import Network.AWS.GameLift.Types.ComparisonOperatorType
-import Network.AWS.GameLift.Types.DesiredPlayerSession
-import Network.AWS.GameLift.Types.EC2InstanceCounts
-import Network.AWS.GameLift.Types.EC2InstanceLimit
-import Network.AWS.GameLift.Types.EC2InstanceType
-import Network.AWS.GameLift.Types.Event
-import Network.AWS.GameLift.Types.EventCode
-import Network.AWS.GameLift.Types.FilterConfiguration
-import Network.AWS.GameLift.Types.FleetAction
-import Network.AWS.GameLift.Types.FleetAttributes
-import Network.AWS.GameLift.Types.FleetCapacity
-import Network.AWS.GameLift.Types.FleetStatus
-import Network.AWS.GameLift.Types.FleetType
-import Network.AWS.GameLift.Types.FleetUtilization
-import Network.AWS.GameLift.Types.FlexMatchMode
-import Network.AWS.GameLift.Types.GameProperty
-import Network.AWS.GameLift.Types.GameServer
-import Network.AWS.GameLift.Types.GameServerClaimStatus
-import Network.AWS.GameLift.Types.GameServerGroup
-import Network.AWS.GameLift.Types.GameServerGroupAction
-import Network.AWS.GameLift.Types.GameServerGroupAutoScalingPolicy
-import Network.AWS.GameLift.Types.GameServerGroupDeleteOption
-import Network.AWS.GameLift.Types.GameServerGroupInstanceType
-import Network.AWS.GameLift.Types.GameServerGroupStatus
-import Network.AWS.GameLift.Types.GameServerHealthCheck
-import Network.AWS.GameLift.Types.GameServerInstance
-import Network.AWS.GameLift.Types.GameServerInstanceStatus
-import Network.AWS.GameLift.Types.GameServerProtectionPolicy
-import Network.AWS.GameLift.Types.GameServerUtilizationStatus
-import Network.AWS.GameLift.Types.GameSession
-import Network.AWS.GameLift.Types.GameSessionConnectionInfo
-import Network.AWS.GameLift.Types.GameSessionDetail
-import Network.AWS.GameLift.Types.GameSessionPlacement
-import Network.AWS.GameLift.Types.GameSessionPlacementState
-import Network.AWS.GameLift.Types.GameSessionQueue
-import Network.AWS.GameLift.Types.GameSessionQueueDestination
-import Network.AWS.GameLift.Types.GameSessionStatus
-import Network.AWS.GameLift.Types.GameSessionStatusReason
-import Network.AWS.GameLift.Types.Instance
-import Network.AWS.GameLift.Types.InstanceAccess
-import Network.AWS.GameLift.Types.InstanceCredentials
-import Network.AWS.GameLift.Types.InstanceDefinition
-import Network.AWS.GameLift.Types.InstanceStatus
-import Network.AWS.GameLift.Types.IpPermission
-import Network.AWS.GameLift.Types.IpProtocol
-import Network.AWS.GameLift.Types.LaunchTemplateSpecification
-import Network.AWS.GameLift.Types.LocationAttributes
-import Network.AWS.GameLift.Types.LocationConfiguration
-import Network.AWS.GameLift.Types.LocationState
-import Network.AWS.GameLift.Types.LocationUpdateStatus
-import Network.AWS.GameLift.Types.MatchedPlayerSession
-import Network.AWS.GameLift.Types.MatchmakingConfiguration
-import Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
-import Network.AWS.GameLift.Types.MatchmakingRuleSet
-import Network.AWS.GameLift.Types.MatchmakingTicket
-import Network.AWS.GameLift.Types.MetricName
-import Network.AWS.GameLift.Types.OperatingSystem
-import Network.AWS.GameLift.Types.PlacedPlayerSession
-import Network.AWS.GameLift.Types.Player
-import Network.AWS.GameLift.Types.PlayerLatency
-import Network.AWS.GameLift.Types.PlayerLatencyPolicy
-import Network.AWS.GameLift.Types.PlayerSession
-import Network.AWS.GameLift.Types.PlayerSessionCreationPolicy
-import Network.AWS.GameLift.Types.PlayerSessionStatus
-import Network.AWS.GameLift.Types.PolicyType
-import Network.AWS.GameLift.Types.PriorityConfiguration
-import Network.AWS.GameLift.Types.PriorityType
-import Network.AWS.GameLift.Types.ProtectionPolicy
-import Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
-import Network.AWS.GameLift.Types.RoutingStrategy
-import Network.AWS.GameLift.Types.RoutingStrategyType
-import Network.AWS.GameLift.Types.RuntimeConfiguration
-import Network.AWS.GameLift.Types.S3Location
-import Network.AWS.GameLift.Types.ScalingAdjustmentType
-import Network.AWS.GameLift.Types.ScalingPolicy
-import Network.AWS.GameLift.Types.ScalingStatusType
-import Network.AWS.GameLift.Types.Script
-import Network.AWS.GameLift.Types.ServerProcess
-import Network.AWS.GameLift.Types.SortOrder
-import Network.AWS.GameLift.Types.Tag
-import Network.AWS.GameLift.Types.TargetConfiguration
-import Network.AWS.GameLift.Types.TargetTrackingConfiguration
-import Network.AWS.GameLift.Types.VpcPeeringAuthorization
-import Network.AWS.GameLift.Types.VpcPeeringConnection
-import Network.AWS.GameLift.Types.VpcPeeringConnectionStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.AcceptanceType
+import Amazonka.GameLift.Types.Alias
+import Amazonka.GameLift.Types.AttributeValue
+import Amazonka.GameLift.Types.AwsCredentials
+import Amazonka.GameLift.Types.BackfillMode
+import Amazonka.GameLift.Types.BalancingStrategy
+import Amazonka.GameLift.Types.Build
+import Amazonka.GameLift.Types.BuildStatus
+import Amazonka.GameLift.Types.CertificateConfiguration
+import Amazonka.GameLift.Types.CertificateType
+import Amazonka.GameLift.Types.ComparisonOperatorType
+import Amazonka.GameLift.Types.DesiredPlayerSession
+import Amazonka.GameLift.Types.EC2InstanceCounts
+import Amazonka.GameLift.Types.EC2InstanceLimit
+import Amazonka.GameLift.Types.EC2InstanceType
+import Amazonka.GameLift.Types.Event
+import Amazonka.GameLift.Types.EventCode
+import Amazonka.GameLift.Types.FilterConfiguration
+import Amazonka.GameLift.Types.FleetAction
+import Amazonka.GameLift.Types.FleetAttributes
+import Amazonka.GameLift.Types.FleetCapacity
+import Amazonka.GameLift.Types.FleetStatus
+import Amazonka.GameLift.Types.FleetType
+import Amazonka.GameLift.Types.FleetUtilization
+import Amazonka.GameLift.Types.FlexMatchMode
+import Amazonka.GameLift.Types.GameProperty
+import Amazonka.GameLift.Types.GameServer
+import Amazonka.GameLift.Types.GameServerClaimStatus
+import Amazonka.GameLift.Types.GameServerGroup
+import Amazonka.GameLift.Types.GameServerGroupAction
+import Amazonka.GameLift.Types.GameServerGroupAutoScalingPolicy
+import Amazonka.GameLift.Types.GameServerGroupDeleteOption
+import Amazonka.GameLift.Types.GameServerGroupInstanceType
+import Amazonka.GameLift.Types.GameServerGroupStatus
+import Amazonka.GameLift.Types.GameServerHealthCheck
+import Amazonka.GameLift.Types.GameServerInstance
+import Amazonka.GameLift.Types.GameServerInstanceStatus
+import Amazonka.GameLift.Types.GameServerProtectionPolicy
+import Amazonka.GameLift.Types.GameServerUtilizationStatus
+import Amazonka.GameLift.Types.GameSession
+import Amazonka.GameLift.Types.GameSessionConnectionInfo
+import Amazonka.GameLift.Types.GameSessionDetail
+import Amazonka.GameLift.Types.GameSessionPlacement
+import Amazonka.GameLift.Types.GameSessionPlacementState
+import Amazonka.GameLift.Types.GameSessionQueue
+import Amazonka.GameLift.Types.GameSessionQueueDestination
+import Amazonka.GameLift.Types.GameSessionStatus
+import Amazonka.GameLift.Types.GameSessionStatusReason
+import Amazonka.GameLift.Types.Instance
+import Amazonka.GameLift.Types.InstanceAccess
+import Amazonka.GameLift.Types.InstanceCredentials
+import Amazonka.GameLift.Types.InstanceDefinition
+import Amazonka.GameLift.Types.InstanceStatus
+import Amazonka.GameLift.Types.IpPermission
+import Amazonka.GameLift.Types.IpProtocol
+import Amazonka.GameLift.Types.LaunchTemplateSpecification
+import Amazonka.GameLift.Types.LocationAttributes
+import Amazonka.GameLift.Types.LocationConfiguration
+import Amazonka.GameLift.Types.LocationState
+import Amazonka.GameLift.Types.LocationUpdateStatus
+import Amazonka.GameLift.Types.MatchedPlayerSession
+import Amazonka.GameLift.Types.MatchmakingConfiguration
+import Amazonka.GameLift.Types.MatchmakingConfigurationStatus
+import Amazonka.GameLift.Types.MatchmakingRuleSet
+import Amazonka.GameLift.Types.MatchmakingTicket
+import Amazonka.GameLift.Types.MetricName
+import Amazonka.GameLift.Types.OperatingSystem
+import Amazonka.GameLift.Types.PlacedPlayerSession
+import Amazonka.GameLift.Types.Player
+import Amazonka.GameLift.Types.PlayerLatency
+import Amazonka.GameLift.Types.PlayerLatencyPolicy
+import Amazonka.GameLift.Types.PlayerSession
+import Amazonka.GameLift.Types.PlayerSessionCreationPolicy
+import Amazonka.GameLift.Types.PlayerSessionStatus
+import Amazonka.GameLift.Types.PolicyType
+import Amazonka.GameLift.Types.PriorityConfiguration
+import Amazonka.GameLift.Types.PriorityType
+import Amazonka.GameLift.Types.ProtectionPolicy
+import Amazonka.GameLift.Types.ResourceCreationLimitPolicy
+import Amazonka.GameLift.Types.RoutingStrategy
+import Amazonka.GameLift.Types.RoutingStrategyType
+import Amazonka.GameLift.Types.RuntimeConfiguration
+import Amazonka.GameLift.Types.S3Location
+import Amazonka.GameLift.Types.ScalingAdjustmentType
+import Amazonka.GameLift.Types.ScalingPolicy
+import Amazonka.GameLift.Types.ScalingStatusType
+import Amazonka.GameLift.Types.Script
+import Amazonka.GameLift.Types.ServerProcess
+import Amazonka.GameLift.Types.SortOrder
+import Amazonka.GameLift.Types.Tag
+import Amazonka.GameLift.Types.TargetConfiguration
+import Amazonka.GameLift.Types.TargetTrackingConfiguration
+import Amazonka.GameLift.Types.VpcPeeringAuthorization
+import Amazonka.GameLift.Types.VpcPeeringConnection
+import Amazonka.GameLift.Types.VpcPeeringConnectionStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-10-01@ of the Amazon GameLift SDK configuration.
 defaultService :: Core.Service

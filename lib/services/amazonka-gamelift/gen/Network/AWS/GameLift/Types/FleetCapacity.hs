@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.FleetCapacity
+-- Module      : Amazonka.GameLift.Types.FleetCapacity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FleetCapacity where
+module Amazonka.GameLift.Types.FleetCapacity where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GameLift.Types.EC2InstanceCounts
-import Network.AWS.GameLift.Types.EC2InstanceType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GameLift.Types.EC2InstanceCounts
+import Amazonka.GameLift.Types.EC2InstanceType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Current resource capacity settings in a specified fleet or location. The
 -- location value might refer to a fleet\'s remote location or its home

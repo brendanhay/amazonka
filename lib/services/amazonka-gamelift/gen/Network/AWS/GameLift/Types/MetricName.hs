@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GameLift.Types.MetricName
+-- Module      : Amazonka.GameLift.Types.MetricName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MetricName
+module Amazonka.GameLift.Types.MetricName
   ( MetricName
       ( ..,
         MetricName_ActivatingGameSessions,
@@ -35,8 +35,8 @@ module Network.AWS.GameLift.Types.MetricName
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype MetricName = MetricName'
   { fromMetricName ::

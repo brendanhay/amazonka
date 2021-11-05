@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
+-- Module      : Amazonka.OpsWorks.AttachElasticLoadBalancer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
-module Network.AWS.OpsWorks.AttachElasticLoadBalancer
+module Amazonka.OpsWorks.AttachElasticLoadBalancer
   ( -- * Creating a Request
     AttachElasticLoadBalancer (..),
     newAttachElasticLoadBalancer,
@@ -51,12 +51,12 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAttachElasticLoadBalancer' smart constructor.
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'

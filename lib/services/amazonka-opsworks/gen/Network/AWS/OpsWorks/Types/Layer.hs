@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.Layer
+-- Module      : Amazonka.OpsWorks.Types.Layer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Layer where
+module Amazonka.OpsWorks.Types.Layer where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.CloudWatchLogsConfiguration
-import Network.AWS.OpsWorks.Types.LayerAttributesKeys
-import Network.AWS.OpsWorks.Types.LayerType
-import Network.AWS.OpsWorks.Types.LifecycleEventConfiguration
-import Network.AWS.OpsWorks.Types.Recipes
-import Network.AWS.OpsWorks.Types.VolumeConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration
+import Amazonka.OpsWorks.Types.LayerAttributesKeys
+import Amazonka.OpsWorks.Types.LayerType
+import Amazonka.OpsWorks.Types.LifecycleEventConfiguration
+import Amazonka.OpsWorks.Types.Recipes
+import Amazonka.OpsWorks.Types.VolumeConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a layer.
 --

@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.App
+-- Module      : Amazonka.OpsWorks.Types.App
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.App where
+module Amazonka.OpsWorks.Types.App where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.AppAttributesKeys
-import Network.AWS.OpsWorks.Types.AppType
-import Network.AWS.OpsWorks.Types.DataSource
-import Network.AWS.OpsWorks.Types.EnvironmentVariable
-import Network.AWS.OpsWorks.Types.Source
-import Network.AWS.OpsWorks.Types.SslConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.AppAttributesKeys
+import Amazonka.OpsWorks.Types.AppType
+import Amazonka.OpsWorks.Types.DataSource
+import Amazonka.OpsWorks.Types.EnvironmentVariable
+import Amazonka.OpsWorks.Types.Source
+import Amazonka.OpsWorks.Types.SslConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the app.
 --

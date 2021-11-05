@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.EbsBlockDevice
+-- Module      : Amazonka.OpsWorks.Types.EbsBlockDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.EbsBlockDevice where
+module Amazonka.OpsWorks.Types.EbsBlockDevice where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.VolumeType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.VolumeType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EBS volume. This data type maps directly to the
 -- Amazon EC2

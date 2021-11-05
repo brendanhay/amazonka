@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types
+-- Module      : Amazonka.OpsWorks.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types
+module Amazonka.OpsWorks.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -559,68 +559,68 @@ module Network.AWS.OpsWorks.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.AgentVersion
-import Network.AWS.OpsWorks.Types.App
-import Network.AWS.OpsWorks.Types.AppAttributesKeys
-import Network.AWS.OpsWorks.Types.AppType
-import Network.AWS.OpsWorks.Types.Architecture
-import Network.AWS.OpsWorks.Types.AutoScalingThresholds
-import Network.AWS.OpsWorks.Types.AutoScalingType
-import Network.AWS.OpsWorks.Types.BlockDeviceMapping
-import Network.AWS.OpsWorks.Types.ChefConfiguration
-import Network.AWS.OpsWorks.Types.CloudWatchLogsConfiguration
-import Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
-import Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
-import Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream
-import Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone
-import Network.AWS.OpsWorks.Types.Command
-import Network.AWS.OpsWorks.Types.DataSource
-import Network.AWS.OpsWorks.Types.Deployment
-import Network.AWS.OpsWorks.Types.DeploymentCommand
-import Network.AWS.OpsWorks.Types.DeploymentCommandName
-import Network.AWS.OpsWorks.Types.EbsBlockDevice
-import Network.AWS.OpsWorks.Types.EcsCluster
-import Network.AWS.OpsWorks.Types.ElasticIp
-import Network.AWS.OpsWorks.Types.ElasticLoadBalancer
-import Network.AWS.OpsWorks.Types.EnvironmentVariable
-import Network.AWS.OpsWorks.Types.Instance
-import Network.AWS.OpsWorks.Types.InstanceIdentity
-import Network.AWS.OpsWorks.Types.InstancesCount
-import Network.AWS.OpsWorks.Types.Layer
-import Network.AWS.OpsWorks.Types.LayerAttributesKeys
-import Network.AWS.OpsWorks.Types.LayerType
-import Network.AWS.OpsWorks.Types.LifecycleEventConfiguration
-import Network.AWS.OpsWorks.Types.LoadBasedAutoScalingConfiguration
-import Network.AWS.OpsWorks.Types.OperatingSystem
-import Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager
-import Network.AWS.OpsWorks.Types.Permission
-import Network.AWS.OpsWorks.Types.RaidArray
-import Network.AWS.OpsWorks.Types.RdsDbInstance
-import Network.AWS.OpsWorks.Types.Recipes
-import Network.AWS.OpsWorks.Types.ReportedOs
-import Network.AWS.OpsWorks.Types.RootDeviceType
-import Network.AWS.OpsWorks.Types.SelfUserProfile
-import Network.AWS.OpsWorks.Types.ServiceError
-import Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
-import Network.AWS.OpsWorks.Types.Source
-import Network.AWS.OpsWorks.Types.SourceType
-import Network.AWS.OpsWorks.Types.SslConfiguration
-import Network.AWS.OpsWorks.Types.Stack
-import Network.AWS.OpsWorks.Types.StackAttributesKeys
-import Network.AWS.OpsWorks.Types.StackConfigurationManager
-import Network.AWS.OpsWorks.Types.StackSummary
-import Network.AWS.OpsWorks.Types.TemporaryCredential
-import Network.AWS.OpsWorks.Types.TimeBasedAutoScalingConfiguration
-import Network.AWS.OpsWorks.Types.UserProfile
-import Network.AWS.OpsWorks.Types.VirtualizationType
-import Network.AWS.OpsWorks.Types.Volume
-import Network.AWS.OpsWorks.Types.VolumeConfiguration
-import Network.AWS.OpsWorks.Types.VolumeType
-import Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.AgentVersion
+import Amazonka.OpsWorks.Types.App
+import Amazonka.OpsWorks.Types.AppAttributesKeys
+import Amazonka.OpsWorks.Types.AppType
+import Amazonka.OpsWorks.Types.Architecture
+import Amazonka.OpsWorks.Types.AutoScalingThresholds
+import Amazonka.OpsWorks.Types.AutoScalingType
+import Amazonka.OpsWorks.Types.BlockDeviceMapping
+import Amazonka.OpsWorks.Types.ChefConfiguration
+import Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration
+import Amazonka.OpsWorks.Types.CloudWatchLogsEncoding
+import Amazonka.OpsWorks.Types.CloudWatchLogsInitialPosition
+import Amazonka.OpsWorks.Types.CloudWatchLogsLogStream
+import Amazonka.OpsWorks.Types.CloudWatchLogsTimeZone
+import Amazonka.OpsWorks.Types.Command
+import Amazonka.OpsWorks.Types.DataSource
+import Amazonka.OpsWorks.Types.Deployment
+import Amazonka.OpsWorks.Types.DeploymentCommand
+import Amazonka.OpsWorks.Types.DeploymentCommandName
+import Amazonka.OpsWorks.Types.EbsBlockDevice
+import Amazonka.OpsWorks.Types.EcsCluster
+import Amazonka.OpsWorks.Types.ElasticIp
+import Amazonka.OpsWorks.Types.ElasticLoadBalancer
+import Amazonka.OpsWorks.Types.EnvironmentVariable
+import Amazonka.OpsWorks.Types.Instance
+import Amazonka.OpsWorks.Types.InstanceIdentity
+import Amazonka.OpsWorks.Types.InstancesCount
+import Amazonka.OpsWorks.Types.Layer
+import Amazonka.OpsWorks.Types.LayerAttributesKeys
+import Amazonka.OpsWorks.Types.LayerType
+import Amazonka.OpsWorks.Types.LifecycleEventConfiguration
+import Amazonka.OpsWorks.Types.LoadBasedAutoScalingConfiguration
+import Amazonka.OpsWorks.Types.OperatingSystem
+import Amazonka.OpsWorks.Types.OperatingSystemConfigurationManager
+import Amazonka.OpsWorks.Types.Permission
+import Amazonka.OpsWorks.Types.RaidArray
+import Amazonka.OpsWorks.Types.RdsDbInstance
+import Amazonka.OpsWorks.Types.Recipes
+import Amazonka.OpsWorks.Types.ReportedOs
+import Amazonka.OpsWorks.Types.RootDeviceType
+import Amazonka.OpsWorks.Types.SelfUserProfile
+import Amazonka.OpsWorks.Types.ServiceError
+import Amazonka.OpsWorks.Types.ShutdownEventConfiguration
+import Amazonka.OpsWorks.Types.Source
+import Amazonka.OpsWorks.Types.SourceType
+import Amazonka.OpsWorks.Types.SslConfiguration
+import Amazonka.OpsWorks.Types.Stack
+import Amazonka.OpsWorks.Types.StackAttributesKeys
+import Amazonka.OpsWorks.Types.StackConfigurationManager
+import Amazonka.OpsWorks.Types.StackSummary
+import Amazonka.OpsWorks.Types.TemporaryCredential
+import Amazonka.OpsWorks.Types.TimeBasedAutoScalingConfiguration
+import Amazonka.OpsWorks.Types.UserProfile
+import Amazonka.OpsWorks.Types.VirtualizationType
+import Amazonka.OpsWorks.Types.Volume
+import Amazonka.OpsWorks.Types.VolumeConfiguration
+import Amazonka.OpsWorks.Types.VolumeType
+import Amazonka.OpsWorks.Types.WeeklyAutoScalingSchedule
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-02-18@ of the Amazon OpsWorks SDK configuration.
 defaultService :: Core.Service

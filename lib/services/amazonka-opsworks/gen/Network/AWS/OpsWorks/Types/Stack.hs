@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.Stack
+-- Module      : Amazonka.OpsWorks.Types.Stack
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Stack where
+module Amazonka.OpsWorks.Types.Stack where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.ChefConfiguration
-import Network.AWS.OpsWorks.Types.RootDeviceType
-import Network.AWS.OpsWorks.Types.Source
-import Network.AWS.OpsWorks.Types.StackAttributesKeys
-import Network.AWS.OpsWorks.Types.StackConfigurationManager
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.ChefConfiguration
+import Amazonka.OpsWorks.Types.RootDeviceType
+import Amazonka.OpsWorks.Types.Source
+import Amazonka.OpsWorks.Types.StackAttributesKeys
+import Amazonka.OpsWorks.Types.StackConfigurationManager
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack.
 --

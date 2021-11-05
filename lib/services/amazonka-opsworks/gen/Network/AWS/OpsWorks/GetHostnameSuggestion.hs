@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
+-- Module      : Amazonka.OpsWorks.GetHostnameSuggestion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
-module Network.AWS.OpsWorks.GetHostnameSuggestion
+module Amazonka.OpsWorks.GetHostnameSuggestion
   ( -- * Creating a Request
     GetHostnameSuggestion (..),
     newGetHostnameSuggestion,
@@ -47,12 +47,12 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetHostnameSuggestion' smart constructor.
 data GetHostnameSuggestion = GetHostnameSuggestion'

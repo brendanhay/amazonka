@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
+-- Module      : Amazonka.OpsWorks.Types.CloudWatchLogsInitialPosition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
+module Amazonka.OpsWorks.Types.CloudWatchLogsInitialPosition
   ( CloudWatchLogsInitialPosition
       ( ..,
         CloudWatchLogsInitialPosition_End_of_file,
@@ -26,8 +26,8 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies where to start to read data (start_of_file or end_of_file).
 -- The default is start_of_file. It\'s only used if there is no state

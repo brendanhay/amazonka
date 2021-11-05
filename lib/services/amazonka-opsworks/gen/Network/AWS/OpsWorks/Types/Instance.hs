@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.Instance
+-- Module      : Amazonka.OpsWorks.Types.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Instance where
+module Amazonka.OpsWorks.Types.Instance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.Architecture
-import Network.AWS.OpsWorks.Types.AutoScalingType
-import Network.AWS.OpsWorks.Types.BlockDeviceMapping
-import Network.AWS.OpsWorks.Types.ReportedOs
-import Network.AWS.OpsWorks.Types.RootDeviceType
-import Network.AWS.OpsWorks.Types.VirtualizationType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.Types.Architecture
+import Amazonka.OpsWorks.Types.AutoScalingType
+import Amazonka.OpsWorks.Types.BlockDeviceMapping
+import Amazonka.OpsWorks.Types.ReportedOs
+import Amazonka.OpsWorks.Types.RootDeviceType
+import Amazonka.OpsWorks.Types.VirtualizationType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance.
 --

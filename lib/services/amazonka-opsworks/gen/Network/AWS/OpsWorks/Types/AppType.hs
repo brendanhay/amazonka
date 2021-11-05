@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Types.AppType
+-- Module      : Amazonka.OpsWorks.Types.AppType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.AppType
+module Amazonka.OpsWorks.Types.AppType
   ( AppType
       ( ..,
         AppType_Aws_flow_ruby,
@@ -31,8 +31,8 @@ module Network.AWS.OpsWorks.Types.AppType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype AppType = AppType' {fromAppType :: Core.Text}
   deriving stock

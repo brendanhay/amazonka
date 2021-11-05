@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.OpsWorks
+-- Module      : Amazonka.OpsWorks
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -91,7 +91,7 @@
 -- You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
 -- recommend migrating your existing Linux stacks to Chef 12 as soon as
 -- possible.
-module Network.AWS.OpsWorks
+module Amazonka.OpsWorks
   ( -- * Service Configuration
     defaultService,
 
@@ -793,83 +793,83 @@ module Network.AWS.OpsWorks
   )
 where
 
-import Network.AWS.OpsWorks.AssignInstance
-import Network.AWS.OpsWorks.AssignVolume
-import Network.AWS.OpsWorks.AssociateElasticIp
-import Network.AWS.OpsWorks.AttachElasticLoadBalancer
-import Network.AWS.OpsWorks.CloneStack
-import Network.AWS.OpsWorks.CreateApp
-import Network.AWS.OpsWorks.CreateDeployment
-import Network.AWS.OpsWorks.CreateInstance
-import Network.AWS.OpsWorks.CreateLayer
-import Network.AWS.OpsWorks.CreateStack
-import Network.AWS.OpsWorks.CreateUserProfile
-import Network.AWS.OpsWorks.DeleteApp
-import Network.AWS.OpsWorks.DeleteInstance
-import Network.AWS.OpsWorks.DeleteLayer
-import Network.AWS.OpsWorks.DeleteStack
-import Network.AWS.OpsWorks.DeleteUserProfile
-import Network.AWS.OpsWorks.DeregisterEcsCluster
-import Network.AWS.OpsWorks.DeregisterElasticIp
-import Network.AWS.OpsWorks.DeregisterInstance
-import Network.AWS.OpsWorks.DeregisterRdsDbInstance
-import Network.AWS.OpsWorks.DeregisterVolume
-import Network.AWS.OpsWorks.DescribeAgentVersions
-import Network.AWS.OpsWorks.DescribeApps
-import Network.AWS.OpsWorks.DescribeCommands
-import Network.AWS.OpsWorks.DescribeDeployments
-import Network.AWS.OpsWorks.DescribeEcsClusters
-import Network.AWS.OpsWorks.DescribeElasticIps
-import Network.AWS.OpsWorks.DescribeElasticLoadBalancers
-import Network.AWS.OpsWorks.DescribeInstances
-import Network.AWS.OpsWorks.DescribeLayers
-import Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
-import Network.AWS.OpsWorks.DescribeMyUserProfile
-import Network.AWS.OpsWorks.DescribeOperatingSystems
-import Network.AWS.OpsWorks.DescribePermissions
-import Network.AWS.OpsWorks.DescribeRaidArrays
-import Network.AWS.OpsWorks.DescribeRdsDbInstances
-import Network.AWS.OpsWorks.DescribeServiceErrors
-import Network.AWS.OpsWorks.DescribeStackProvisioningParameters
-import Network.AWS.OpsWorks.DescribeStackSummary
-import Network.AWS.OpsWorks.DescribeStacks
-import Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
-import Network.AWS.OpsWorks.DescribeUserProfiles
-import Network.AWS.OpsWorks.DescribeVolumes
-import Network.AWS.OpsWorks.DetachElasticLoadBalancer
-import Network.AWS.OpsWorks.DisassociateElasticIp
-import Network.AWS.OpsWorks.GetHostnameSuggestion
-import Network.AWS.OpsWorks.GrantAccess
-import Network.AWS.OpsWorks.Lens
-import Network.AWS.OpsWorks.ListTags
-import Network.AWS.OpsWorks.RebootInstance
-import Network.AWS.OpsWorks.RegisterEcsCluster
-import Network.AWS.OpsWorks.RegisterElasticIp
-import Network.AWS.OpsWorks.RegisterInstance
-import Network.AWS.OpsWorks.RegisterRdsDbInstance
-import Network.AWS.OpsWorks.RegisterVolume
-import Network.AWS.OpsWorks.SetLoadBasedAutoScaling
-import Network.AWS.OpsWorks.SetPermission
-import Network.AWS.OpsWorks.SetTimeBasedAutoScaling
-import Network.AWS.OpsWorks.StartInstance
-import Network.AWS.OpsWorks.StartStack
-import Network.AWS.OpsWorks.StopInstance
-import Network.AWS.OpsWorks.StopStack
-import Network.AWS.OpsWorks.TagResource
-import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.UnassignInstance
-import Network.AWS.OpsWorks.UnassignVolume
-import Network.AWS.OpsWorks.UntagResource
-import Network.AWS.OpsWorks.UpdateApp
-import Network.AWS.OpsWorks.UpdateElasticIp
-import Network.AWS.OpsWorks.UpdateInstance
-import Network.AWS.OpsWorks.UpdateLayer
-import Network.AWS.OpsWorks.UpdateMyUserProfile
-import Network.AWS.OpsWorks.UpdateRdsDbInstance
-import Network.AWS.OpsWorks.UpdateStack
-import Network.AWS.OpsWorks.UpdateUserProfile
-import Network.AWS.OpsWorks.UpdateVolume
-import Network.AWS.OpsWorks.Waiters
+import Amazonka.OpsWorks.AssignInstance
+import Amazonka.OpsWorks.AssignVolume
+import Amazonka.OpsWorks.AssociateElasticIp
+import Amazonka.OpsWorks.AttachElasticLoadBalancer
+import Amazonka.OpsWorks.CloneStack
+import Amazonka.OpsWorks.CreateApp
+import Amazonka.OpsWorks.CreateDeployment
+import Amazonka.OpsWorks.CreateInstance
+import Amazonka.OpsWorks.CreateLayer
+import Amazonka.OpsWorks.CreateStack
+import Amazonka.OpsWorks.CreateUserProfile
+import Amazonka.OpsWorks.DeleteApp
+import Amazonka.OpsWorks.DeleteInstance
+import Amazonka.OpsWorks.DeleteLayer
+import Amazonka.OpsWorks.DeleteStack
+import Amazonka.OpsWorks.DeleteUserProfile
+import Amazonka.OpsWorks.DeregisterEcsCluster
+import Amazonka.OpsWorks.DeregisterElasticIp
+import Amazonka.OpsWorks.DeregisterInstance
+import Amazonka.OpsWorks.DeregisterRdsDbInstance
+import Amazonka.OpsWorks.DeregisterVolume
+import Amazonka.OpsWorks.DescribeAgentVersions
+import Amazonka.OpsWorks.DescribeApps
+import Amazonka.OpsWorks.DescribeCommands
+import Amazonka.OpsWorks.DescribeDeployments
+import Amazonka.OpsWorks.DescribeEcsClusters
+import Amazonka.OpsWorks.DescribeElasticIps
+import Amazonka.OpsWorks.DescribeElasticLoadBalancers
+import Amazonka.OpsWorks.DescribeInstances
+import Amazonka.OpsWorks.DescribeLayers
+import Amazonka.OpsWorks.DescribeLoadBasedAutoScaling
+import Amazonka.OpsWorks.DescribeMyUserProfile
+import Amazonka.OpsWorks.DescribeOperatingSystems
+import Amazonka.OpsWorks.DescribePermissions
+import Amazonka.OpsWorks.DescribeRaidArrays
+import Amazonka.OpsWorks.DescribeRdsDbInstances
+import Amazonka.OpsWorks.DescribeServiceErrors
+import Amazonka.OpsWorks.DescribeStackProvisioningParameters
+import Amazonka.OpsWorks.DescribeStackSummary
+import Amazonka.OpsWorks.DescribeStacks
+import Amazonka.OpsWorks.DescribeTimeBasedAutoScaling
+import Amazonka.OpsWorks.DescribeUserProfiles
+import Amazonka.OpsWorks.DescribeVolumes
+import Amazonka.OpsWorks.DetachElasticLoadBalancer
+import Amazonka.OpsWorks.DisassociateElasticIp
+import Amazonka.OpsWorks.GetHostnameSuggestion
+import Amazonka.OpsWorks.GrantAccess
+import Amazonka.OpsWorks.Lens
+import Amazonka.OpsWorks.ListTags
+import Amazonka.OpsWorks.RebootInstance
+import Amazonka.OpsWorks.RegisterEcsCluster
+import Amazonka.OpsWorks.RegisterElasticIp
+import Amazonka.OpsWorks.RegisterInstance
+import Amazonka.OpsWorks.RegisterRdsDbInstance
+import Amazonka.OpsWorks.RegisterVolume
+import Amazonka.OpsWorks.SetLoadBasedAutoScaling
+import Amazonka.OpsWorks.SetPermission
+import Amazonka.OpsWorks.SetTimeBasedAutoScaling
+import Amazonka.OpsWorks.StartInstance
+import Amazonka.OpsWorks.StartStack
+import Amazonka.OpsWorks.StopInstance
+import Amazonka.OpsWorks.StopStack
+import Amazonka.OpsWorks.TagResource
+import Amazonka.OpsWorks.Types
+import Amazonka.OpsWorks.UnassignInstance
+import Amazonka.OpsWorks.UnassignVolume
+import Amazonka.OpsWorks.UntagResource
+import Amazonka.OpsWorks.UpdateApp
+import Amazonka.OpsWorks.UpdateElasticIp
+import Amazonka.OpsWorks.UpdateInstance
+import Amazonka.OpsWorks.UpdateLayer
+import Amazonka.OpsWorks.UpdateMyUserProfile
+import Amazonka.OpsWorks.UpdateRdsDbInstance
+import Amazonka.OpsWorks.UpdateStack
+import Amazonka.OpsWorks.UpdateUserProfile
+import Amazonka.OpsWorks.UpdateVolume
+import Amazonka.OpsWorks.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

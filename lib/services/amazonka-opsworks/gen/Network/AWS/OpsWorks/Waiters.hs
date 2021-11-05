@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorks.Waiters
+-- Module      : Amazonka.OpsWorks.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Waiters where
+module Amazonka.OpsWorks.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.DescribeApps
-import Network.AWS.OpsWorks.DescribeDeployments
-import Network.AWS.OpsWorks.DescribeInstances
-import Network.AWS.OpsWorks.Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorks.DescribeApps
+import Amazonka.OpsWorks.DescribeDeployments
+import Amazonka.OpsWorks.DescribeInstances
+import Amazonka.OpsWorks.Lens
+import Amazonka.OpsWorks.Types
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
   Core.Wait
@@ -155,7 +155,7 @@ newInstanceTerminated =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newDeploymentSuccessful :: Core.Wait DescribeDeployments
 newDeploymentSuccessful =
   Core.Wait
@@ -192,7 +192,7 @@ newDeploymentSuccessful =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceStopped :: Core.Wait DescribeInstances
 newInstanceStopped =
   Core.Wait
@@ -320,7 +320,7 @@ newInstanceStopped =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceOnline :: Core.Wait DescribeInstances
 newInstanceOnline =
   Core.Wait
@@ -448,7 +448,7 @@ newInstanceOnline =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newAppExists :: Core.Wait DescribeApps
 newAppExists =
   Core.Wait
@@ -461,7 +461,7 @@ newAppExists =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceRegistered :: Core.Wait DescribeInstances
 newInstanceRegistered =
   Core.Wait

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
+-- Module      : Amazonka.AppIntegrationS.ListDataIntegrationAssociations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- recreate the DataIntegration using the
 -- <https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html CreateDataIntegration>
 -- API.
-module Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
+module Amazonka.AppIntegrationS.ListDataIntegrationAssociations
   ( -- * Creating a Request
     ListDataIntegrationAssociations (..),
     newListDataIntegrationAssociations,
@@ -48,12 +48,12 @@ module Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
   )
 where
 
-import Network.AWS.AppIntegrationS.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppIntegrationS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataIntegrationAssociations' smart constructor.
 data ListDataIntegrationAssociations = ListDataIntegrationAssociations'

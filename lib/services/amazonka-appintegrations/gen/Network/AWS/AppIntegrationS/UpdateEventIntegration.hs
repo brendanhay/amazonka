@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppIntegrationS.UpdateEventIntegration
+-- Module      : Amazonka.AppIntegrationS.UpdateEventIntegration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the description of an event integration.
-module Network.AWS.AppIntegrationS.UpdateEventIntegration
+module Amazonka.AppIntegrationS.UpdateEventIntegration
   ( -- * Creating a Request
     UpdateEventIntegration (..),
     newUpdateEventIntegration,
@@ -39,12 +39,12 @@ module Network.AWS.AppIntegrationS.UpdateEventIntegration
   )
 where
 
-import Network.AWS.AppIntegrationS.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppIntegrationS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEventIntegration' smart constructor.
 data UpdateEventIntegration = UpdateEventIntegration'

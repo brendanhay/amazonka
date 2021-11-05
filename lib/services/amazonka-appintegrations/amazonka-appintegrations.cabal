@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AppIntegrationS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AppIntegrationS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AppIntegrationS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AppIntegrationS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,33 +45,33 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AppIntegrationS
-    Network.AWS.AppIntegrationS.CreateDataIntegration
-    Network.AWS.AppIntegrationS.CreateEventIntegration
-    Network.AWS.AppIntegrationS.DeleteDataIntegration
-    Network.AWS.AppIntegrationS.DeleteEventIntegration
-    Network.AWS.AppIntegrationS.GetDataIntegration
-    Network.AWS.AppIntegrationS.GetEventIntegration
-    Network.AWS.AppIntegrationS.Lens
-    Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
-    Network.AWS.AppIntegrationS.ListDataIntegrations
-    Network.AWS.AppIntegrationS.ListEventIntegrationAssociations
-    Network.AWS.AppIntegrationS.ListEventIntegrations
-    Network.AWS.AppIntegrationS.ListTagsForResource
-    Network.AWS.AppIntegrationS.TagResource
-    Network.AWS.AppIntegrationS.Types
-    Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary
-    Network.AWS.AppIntegrationS.Types.DataIntegrationSummary
-    Network.AWS.AppIntegrationS.Types.EventFilter
-    Network.AWS.AppIntegrationS.Types.EventIntegration
-    Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation
-    Network.AWS.AppIntegrationS.Types.ScheduleConfiguration
-    Network.AWS.AppIntegrationS.UntagResource
-    Network.AWS.AppIntegrationS.UpdateDataIntegration
-    Network.AWS.AppIntegrationS.UpdateEventIntegration
-    Network.AWS.AppIntegrationS.Waiters
+    Amazonka.AppIntegrationS
+    Amazonka.AppIntegrationS.CreateDataIntegration
+    Amazonka.AppIntegrationS.CreateEventIntegration
+    Amazonka.AppIntegrationS.DeleteDataIntegration
+    Amazonka.AppIntegrationS.DeleteEventIntegration
+    Amazonka.AppIntegrationS.GetDataIntegration
+    Amazonka.AppIntegrationS.GetEventIntegration
+    Amazonka.AppIntegrationS.Lens
+    Amazonka.AppIntegrationS.ListDataIntegrationAssociations
+    Amazonka.AppIntegrationS.ListDataIntegrations
+    Amazonka.AppIntegrationS.ListEventIntegrationAssociations
+    Amazonka.AppIntegrationS.ListEventIntegrations
+    Amazonka.AppIntegrationS.ListTagsForResource
+    Amazonka.AppIntegrationS.TagResource
+    Amazonka.AppIntegrationS.Types
+    Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary
+    Amazonka.AppIntegrationS.Types.DataIntegrationSummary
+    Amazonka.AppIntegrationS.Types.EventFilter
+    Amazonka.AppIntegrationS.Types.EventIntegration
+    Amazonka.AppIntegrationS.Types.EventIntegrationAssociation
+    Amazonka.AppIntegrationS.Types.ScheduleConfiguration
+    Amazonka.AppIntegrationS.UntagResource
+    Amazonka.AppIntegrationS.UpdateDataIntegration
+    Amazonka.AppIntegrationS.UpdateEventIntegration
+    Amazonka.AppIntegrationS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppIntegrationS.Lens
+-- Module      : Amazonka.AppIntegrationS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppIntegrationS.Lens
+module Amazonka.AppIntegrationS.Lens
   ( -- * Operations
 
     -- ** GetEventIntegration
@@ -167,24 +167,24 @@ module Network.AWS.AppIntegrationS.Lens
   )
 where
 
-import Network.AWS.AppIntegrationS.CreateDataIntegration
-import Network.AWS.AppIntegrationS.CreateEventIntegration
-import Network.AWS.AppIntegrationS.DeleteDataIntegration
-import Network.AWS.AppIntegrationS.DeleteEventIntegration
-import Network.AWS.AppIntegrationS.GetDataIntegration
-import Network.AWS.AppIntegrationS.GetEventIntegration
-import Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
-import Network.AWS.AppIntegrationS.ListDataIntegrations
-import Network.AWS.AppIntegrationS.ListEventIntegrationAssociations
-import Network.AWS.AppIntegrationS.ListEventIntegrations
-import Network.AWS.AppIntegrationS.ListTagsForResource
-import Network.AWS.AppIntegrationS.TagResource
-import Network.AWS.AppIntegrationS.Types.DataIntegrationAssociationSummary
-import Network.AWS.AppIntegrationS.Types.DataIntegrationSummary
-import Network.AWS.AppIntegrationS.Types.EventFilter
-import Network.AWS.AppIntegrationS.Types.EventIntegration
-import Network.AWS.AppIntegrationS.Types.EventIntegrationAssociation
-import Network.AWS.AppIntegrationS.Types.ScheduleConfiguration
-import Network.AWS.AppIntegrationS.UntagResource
-import Network.AWS.AppIntegrationS.UpdateDataIntegration
-import Network.AWS.AppIntegrationS.UpdateEventIntegration
+import Amazonka.AppIntegrationS.CreateDataIntegration
+import Amazonka.AppIntegrationS.CreateEventIntegration
+import Amazonka.AppIntegrationS.DeleteDataIntegration
+import Amazonka.AppIntegrationS.DeleteEventIntegration
+import Amazonka.AppIntegrationS.GetDataIntegration
+import Amazonka.AppIntegrationS.GetEventIntegration
+import Amazonka.AppIntegrationS.ListDataIntegrationAssociations
+import Amazonka.AppIntegrationS.ListDataIntegrations
+import Amazonka.AppIntegrationS.ListEventIntegrationAssociations
+import Amazonka.AppIntegrationS.ListEventIntegrations
+import Amazonka.AppIntegrationS.ListTagsForResource
+import Amazonka.AppIntegrationS.TagResource
+import Amazonka.AppIntegrationS.Types.DataIntegrationAssociationSummary
+import Amazonka.AppIntegrationS.Types.DataIntegrationSummary
+import Amazonka.AppIntegrationS.Types.EventFilter
+import Amazonka.AppIntegrationS.Types.EventIntegration
+import Amazonka.AppIntegrationS.Types.EventIntegrationAssociation
+import Amazonka.AppIntegrationS.Types.ScheduleConfiguration
+import Amazonka.AppIntegrationS.UntagResource
+import Amazonka.AppIntegrationS.UpdateDataIntegration
+import Amazonka.AppIntegrationS.UpdateEventIntegration

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppIntegrationS
+-- Module      : Amazonka.AppIntegrationS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- and
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html Deliver information to agents using Amazon Connect Wisdom>
 -- in the /Amazon Connect Administrator Guide/.
-module Network.AWS.AppIntegrationS
+module Amazonka.AppIntegrationS
   ( -- * Service Configuration
     defaultService,
 
@@ -172,24 +172,24 @@ module Network.AWS.AppIntegrationS
   )
 where
 
-import Network.AWS.AppIntegrationS.CreateDataIntegration
-import Network.AWS.AppIntegrationS.CreateEventIntegration
-import Network.AWS.AppIntegrationS.DeleteDataIntegration
-import Network.AWS.AppIntegrationS.DeleteEventIntegration
-import Network.AWS.AppIntegrationS.GetDataIntegration
-import Network.AWS.AppIntegrationS.GetEventIntegration
-import Network.AWS.AppIntegrationS.Lens
-import Network.AWS.AppIntegrationS.ListDataIntegrationAssociations
-import Network.AWS.AppIntegrationS.ListDataIntegrations
-import Network.AWS.AppIntegrationS.ListEventIntegrationAssociations
-import Network.AWS.AppIntegrationS.ListEventIntegrations
-import Network.AWS.AppIntegrationS.ListTagsForResource
-import Network.AWS.AppIntegrationS.TagResource
-import Network.AWS.AppIntegrationS.Types
-import Network.AWS.AppIntegrationS.UntagResource
-import Network.AWS.AppIntegrationS.UpdateDataIntegration
-import Network.AWS.AppIntegrationS.UpdateEventIntegration
-import Network.AWS.AppIntegrationS.Waiters
+import Amazonka.AppIntegrationS.CreateDataIntegration
+import Amazonka.AppIntegrationS.CreateEventIntegration
+import Amazonka.AppIntegrationS.DeleteDataIntegration
+import Amazonka.AppIntegrationS.DeleteEventIntegration
+import Amazonka.AppIntegrationS.GetDataIntegration
+import Amazonka.AppIntegrationS.GetEventIntegration
+import Amazonka.AppIntegrationS.Lens
+import Amazonka.AppIntegrationS.ListDataIntegrationAssociations
+import Amazonka.AppIntegrationS.ListDataIntegrations
+import Amazonka.AppIntegrationS.ListEventIntegrationAssociations
+import Amazonka.AppIntegrationS.ListEventIntegrations
+import Amazonka.AppIntegrationS.ListTagsForResource
+import Amazonka.AppIntegrationS.TagResource
+import Amazonka.AppIntegrationS.Types
+import Amazonka.AppIntegrationS.UntagResource
+import Amazonka.AppIntegrationS.UpdateDataIntegration
+import Amazonka.AppIntegrationS.UpdateEventIntegration
+import Amazonka.AppIntegrationS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

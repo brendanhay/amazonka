@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTDeviceAdvisor.Lens
+-- Module      : Amazonka.IoTDeviceAdvisor.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTDeviceAdvisor.Lens
+module Amazonka.IoTDeviceAdvisor.Lens
   ( -- * Operations
 
     -- ** GetSuiteRunReport
@@ -176,24 +176,24 @@ module Network.AWS.IoTDeviceAdvisor.Lens
   )
 where
 
-import Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.GetSuiteRun
-import Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport
-import Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions
-import Network.AWS.IoTDeviceAdvisor.ListSuiteRuns
-import Network.AWS.IoTDeviceAdvisor.ListTagsForResource
-import Network.AWS.IoTDeviceAdvisor.StartSuiteRun
-import Network.AWS.IoTDeviceAdvisor.StopSuiteRun
-import Network.AWS.IoTDeviceAdvisor.TagResource
-import Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest
-import Network.AWS.IoTDeviceAdvisor.Types.GroupResult
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation
-import Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun
-import Network.AWS.IoTDeviceAdvisor.Types.TestResult
-import Network.AWS.IoTDeviceAdvisor.UntagResource
-import Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetSuiteRun
+import Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
+import Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
+import Amazonka.IoTDeviceAdvisor.ListSuiteRuns
+import Amazonka.IoTDeviceAdvisor.ListTagsForResource
+import Amazonka.IoTDeviceAdvisor.StartSuiteRun
+import Amazonka.IoTDeviceAdvisor.StopSuiteRun
+import Amazonka.IoTDeviceAdvisor.TagResource
+import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
+import Amazonka.IoTDeviceAdvisor.Types.GroupResult
+import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
+import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
+import Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
+import Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+import Amazonka.IoTDeviceAdvisor.Types.TestResult
+import Amazonka.IoTDeviceAdvisor.UntagResource
+import Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition

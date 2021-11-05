@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
+-- Module      : Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration where
+module Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Gets Suite Definition Configuration.
 --

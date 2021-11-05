@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTDeviceAdvisor
+-- Module      : Amazonka.IoTDeviceAdvisor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- reports to submit to the AWS Partner Network to get your device
 -- qualified for the AWS Partner Device Catalog without the need to send
 -- your device in and wait for it to be tested.
-module Network.AWS.IoTDeviceAdvisor
+module Amazonka.IoTDeviceAdvisor
   ( -- * Service Configuration
     defaultService,
 
@@ -167,22 +167,22 @@ module Network.AWS.IoTDeviceAdvisor
   )
 where
 
-import Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.GetSuiteRun
-import Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport
-import Network.AWS.IoTDeviceAdvisor.Lens
-import Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions
-import Network.AWS.IoTDeviceAdvisor.ListSuiteRuns
-import Network.AWS.IoTDeviceAdvisor.ListTagsForResource
-import Network.AWS.IoTDeviceAdvisor.StartSuiteRun
-import Network.AWS.IoTDeviceAdvisor.StopSuiteRun
-import Network.AWS.IoTDeviceAdvisor.TagResource
-import Network.AWS.IoTDeviceAdvisor.Types
-import Network.AWS.IoTDeviceAdvisor.UntagResource
-import Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition
-import Network.AWS.IoTDeviceAdvisor.Waiters
+import Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetSuiteRun
+import Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
+import Amazonka.IoTDeviceAdvisor.Lens
+import Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
+import Amazonka.IoTDeviceAdvisor.ListSuiteRuns
+import Amazonka.IoTDeviceAdvisor.ListTagsForResource
+import Amazonka.IoTDeviceAdvisor.StartSuiteRun
+import Amazonka.IoTDeviceAdvisor.StopSuiteRun
+import Amazonka.IoTDeviceAdvisor.TagResource
+import Amazonka.IoTDeviceAdvisor.Types
+import Amazonka.IoTDeviceAdvisor.UntagResource
+import Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

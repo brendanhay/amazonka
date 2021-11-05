@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTDeviceAdvisor.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTDeviceAdvisor.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTDeviceAdvisor" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTDeviceAdvisor" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,35 +45,35 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTDeviceAdvisor
-    Network.AWS.IoTDeviceAdvisor.CreateSuiteDefinition
-    Network.AWS.IoTDeviceAdvisor.DeleteSuiteDefinition
-    Network.AWS.IoTDeviceAdvisor.GetSuiteDefinition
-    Network.AWS.IoTDeviceAdvisor.GetSuiteRun
-    Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport
-    Network.AWS.IoTDeviceAdvisor.Lens
-    Network.AWS.IoTDeviceAdvisor.ListSuiteDefinitions
-    Network.AWS.IoTDeviceAdvisor.ListSuiteRuns
-    Network.AWS.IoTDeviceAdvisor.ListTagsForResource
-    Network.AWS.IoTDeviceAdvisor.StartSuiteRun
-    Network.AWS.IoTDeviceAdvisor.StopSuiteRun
-    Network.AWS.IoTDeviceAdvisor.TagResource
-    Network.AWS.IoTDeviceAdvisor.Types
-    Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest
-    Network.AWS.IoTDeviceAdvisor.Types.GroupResult
-    Network.AWS.IoTDeviceAdvisor.Types.Status
-    Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
-    Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
-    Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration
-    Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation
-    Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus
-    Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun
-    Network.AWS.IoTDeviceAdvisor.Types.TestResult
-    Network.AWS.IoTDeviceAdvisor.UntagResource
-    Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition
-    Network.AWS.IoTDeviceAdvisor.Waiters
+    Amazonka.IoTDeviceAdvisor
+    Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
+    Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+    Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
+    Amazonka.IoTDeviceAdvisor.GetSuiteRun
+    Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
+    Amazonka.IoTDeviceAdvisor.Lens
+    Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
+    Amazonka.IoTDeviceAdvisor.ListSuiteRuns
+    Amazonka.IoTDeviceAdvisor.ListTagsForResource
+    Amazonka.IoTDeviceAdvisor.StartSuiteRun
+    Amazonka.IoTDeviceAdvisor.StopSuiteRun
+    Amazonka.IoTDeviceAdvisor.TagResource
+    Amazonka.IoTDeviceAdvisor.Types
+    Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
+    Amazonka.IoTDeviceAdvisor.Types.GroupResult
+    Amazonka.IoTDeviceAdvisor.Types.Status
+    Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
+    Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
+    Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
+    Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
+    Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
+    Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+    Amazonka.IoTDeviceAdvisor.Types.TestResult
+    Amazonka.IoTDeviceAdvisor.UntagResource
+    Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
+    Amazonka.IoTDeviceAdvisor.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

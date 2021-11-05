@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTDeviceAdvisor.Types
+-- Module      : Amazonka.IoTDeviceAdvisor.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTDeviceAdvisor.Types
+module Amazonka.IoTDeviceAdvisor.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -99,20 +99,20 @@ module Network.AWS.IoTDeviceAdvisor.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTDeviceAdvisor.Types.DeviceUnderTest
-import Network.AWS.IoTDeviceAdvisor.Types.GroupResult
-import Network.AWS.IoTDeviceAdvisor.Types.Status
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteRunConfiguration
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation
-import Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus
-import Network.AWS.IoTDeviceAdvisor.Types.TestCaseRun
-import Network.AWS.IoTDeviceAdvisor.Types.TestResult
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
+import Amazonka.IoTDeviceAdvisor.Types.GroupResult
+import Amazonka.IoTDeviceAdvisor.Types.Status
+import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
+import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
+import Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
+import Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
+import Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+import Amazonka.IoTDeviceAdvisor.Types.TestResult
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-09-18@ of the Amazon IoT Core Device Advisor SDK configuration.
 defaultService :: Core.Service

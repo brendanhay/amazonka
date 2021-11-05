@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoTDeviceAdvisor where
 
+import Amazonka.IoTDeviceAdvisor
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoTDeviceAdvisor
 import Test.AWS.Fixture
 import Test.AWS.IoTDeviceAdvisor.Internal
 import Test.AWS.Prelude

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FIS.Types
+-- Module      : Amazonka.FIS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FIS.Types
+module Amazonka.FIS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -231,37 +231,37 @@ module Network.AWS.FIS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FIS.Types.Action
-import Network.AWS.FIS.Types.ActionParameter
-import Network.AWS.FIS.Types.ActionSummary
-import Network.AWS.FIS.Types.ActionTarget
-import Network.AWS.FIS.Types.CreateExperimentTemplateActionInput
-import Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput
-import Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput
-import Network.AWS.FIS.Types.Experiment
-import Network.AWS.FIS.Types.ExperimentAction
-import Network.AWS.FIS.Types.ExperimentActionState
-import Network.AWS.FIS.Types.ExperimentActionStatus
-import Network.AWS.FIS.Types.ExperimentState
-import Network.AWS.FIS.Types.ExperimentStatus
-import Network.AWS.FIS.Types.ExperimentStopCondition
-import Network.AWS.FIS.Types.ExperimentSummary
-import Network.AWS.FIS.Types.ExperimentTarget
-import Network.AWS.FIS.Types.ExperimentTargetFilter
-import Network.AWS.FIS.Types.ExperimentTemplate
-import Network.AWS.FIS.Types.ExperimentTemplateAction
-import Network.AWS.FIS.Types.ExperimentTemplateStopCondition
-import Network.AWS.FIS.Types.ExperimentTemplateSummary
-import Network.AWS.FIS.Types.ExperimentTemplateTarget
-import Network.AWS.FIS.Types.ExperimentTemplateTargetFilter
-import Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter
-import Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem
-import Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput
-import Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.FIS.Types.Action
+import Amazonka.FIS.Types.ActionParameter
+import Amazonka.FIS.Types.ActionSummary
+import Amazonka.FIS.Types.ActionTarget
+import Amazonka.FIS.Types.CreateExperimentTemplateActionInput
+import Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
+import Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
+import Amazonka.FIS.Types.Experiment
+import Amazonka.FIS.Types.ExperimentAction
+import Amazonka.FIS.Types.ExperimentActionState
+import Amazonka.FIS.Types.ExperimentActionStatus
+import Amazonka.FIS.Types.ExperimentState
+import Amazonka.FIS.Types.ExperimentStatus
+import Amazonka.FIS.Types.ExperimentStopCondition
+import Amazonka.FIS.Types.ExperimentSummary
+import Amazonka.FIS.Types.ExperimentTarget
+import Amazonka.FIS.Types.ExperimentTargetFilter
+import Amazonka.FIS.Types.ExperimentTemplate
+import Amazonka.FIS.Types.ExperimentTemplateAction
+import Amazonka.FIS.Types.ExperimentTemplateStopCondition
+import Amazonka.FIS.Types.ExperimentTemplateSummary
+import Amazonka.FIS.Types.ExperimentTemplateTarget
+import Amazonka.FIS.Types.ExperimentTemplateTargetFilter
+import Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
+import Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
+import Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
+import Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-12-01@ of the Amazon Fault Injection Simulator SDK configuration.
 defaultService :: Core.Service

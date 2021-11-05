@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FIS.Types.Experiment
+-- Module      : Amazonka.FIS.Types.Experiment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FIS.Types.Experiment where
+module Amazonka.FIS.Types.Experiment where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FIS.Types.ExperimentAction
-import Network.AWS.FIS.Types.ExperimentState
-import Network.AWS.FIS.Types.ExperimentStopCondition
-import Network.AWS.FIS.Types.ExperimentTarget
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FIS.Types.ExperimentAction
+import Amazonka.FIS.Types.ExperimentState
+import Amazonka.FIS.Types.ExperimentStopCondition
+import Amazonka.FIS.Types.ExperimentTarget
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an experiment.
 --

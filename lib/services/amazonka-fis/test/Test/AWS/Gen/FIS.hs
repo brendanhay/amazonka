@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.FIS where
 
+import Amazonka.FIS
 import qualified Data.Proxy as Proxy
-import Network.AWS.FIS
 import Test.AWS.FIS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

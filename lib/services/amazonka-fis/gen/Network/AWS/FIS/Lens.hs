@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FIS.Lens
+-- Module      : Amazonka.FIS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FIS.Lens
+module Amazonka.FIS.Lens
   ( -- * Operations
 
     -- ** GetExperimentTemplate
@@ -258,42 +258,42 @@ module Network.AWS.FIS.Lens
   )
 where
 
-import Network.AWS.FIS.CreateExperimentTemplate
-import Network.AWS.FIS.DeleteExperimentTemplate
-import Network.AWS.FIS.GetAction
-import Network.AWS.FIS.GetExperiment
-import Network.AWS.FIS.GetExperimentTemplate
-import Network.AWS.FIS.ListActions
-import Network.AWS.FIS.ListExperimentTemplates
-import Network.AWS.FIS.ListExperiments
-import Network.AWS.FIS.ListTagsForResource
-import Network.AWS.FIS.StartExperiment
-import Network.AWS.FIS.StopExperiment
-import Network.AWS.FIS.TagResource
-import Network.AWS.FIS.Types.Action
-import Network.AWS.FIS.Types.ActionParameter
-import Network.AWS.FIS.Types.ActionSummary
-import Network.AWS.FIS.Types.ActionTarget
-import Network.AWS.FIS.Types.CreateExperimentTemplateActionInput
-import Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput
-import Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput
-import Network.AWS.FIS.Types.Experiment
-import Network.AWS.FIS.Types.ExperimentAction
-import Network.AWS.FIS.Types.ExperimentActionState
-import Network.AWS.FIS.Types.ExperimentState
-import Network.AWS.FIS.Types.ExperimentStopCondition
-import Network.AWS.FIS.Types.ExperimentSummary
-import Network.AWS.FIS.Types.ExperimentTarget
-import Network.AWS.FIS.Types.ExperimentTargetFilter
-import Network.AWS.FIS.Types.ExperimentTemplate
-import Network.AWS.FIS.Types.ExperimentTemplateAction
-import Network.AWS.FIS.Types.ExperimentTemplateStopCondition
-import Network.AWS.FIS.Types.ExperimentTemplateSummary
-import Network.AWS.FIS.Types.ExperimentTemplateTarget
-import Network.AWS.FIS.Types.ExperimentTemplateTargetFilter
-import Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter
-import Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem
-import Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput
-import Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput
-import Network.AWS.FIS.UntagResource
-import Network.AWS.FIS.UpdateExperimentTemplate
+import Amazonka.FIS.CreateExperimentTemplate
+import Amazonka.FIS.DeleteExperimentTemplate
+import Amazonka.FIS.GetAction
+import Amazonka.FIS.GetExperiment
+import Amazonka.FIS.GetExperimentTemplate
+import Amazonka.FIS.ListActions
+import Amazonka.FIS.ListExperimentTemplates
+import Amazonka.FIS.ListExperiments
+import Amazonka.FIS.ListTagsForResource
+import Amazonka.FIS.StartExperiment
+import Amazonka.FIS.StopExperiment
+import Amazonka.FIS.TagResource
+import Amazonka.FIS.Types.Action
+import Amazonka.FIS.Types.ActionParameter
+import Amazonka.FIS.Types.ActionSummary
+import Amazonka.FIS.Types.ActionTarget
+import Amazonka.FIS.Types.CreateExperimentTemplateActionInput
+import Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
+import Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
+import Amazonka.FIS.Types.Experiment
+import Amazonka.FIS.Types.ExperimentAction
+import Amazonka.FIS.Types.ExperimentActionState
+import Amazonka.FIS.Types.ExperimentState
+import Amazonka.FIS.Types.ExperimentStopCondition
+import Amazonka.FIS.Types.ExperimentSummary
+import Amazonka.FIS.Types.ExperimentTarget
+import Amazonka.FIS.Types.ExperimentTargetFilter
+import Amazonka.FIS.Types.ExperimentTemplate
+import Amazonka.FIS.Types.ExperimentTemplateAction
+import Amazonka.FIS.Types.ExperimentTemplateStopCondition
+import Amazonka.FIS.Types.ExperimentTemplateSummary
+import Amazonka.FIS.Types.ExperimentTemplateTarget
+import Amazonka.FIS.Types.ExperimentTemplateTargetFilter
+import Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
+import Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
+import Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
+import Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
+import Amazonka.FIS.UntagResource
+import Amazonka.FIS.UpdateExperimentTemplate

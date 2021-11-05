@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.FIS
+-- Module      : Amazonka.FIS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- perform fault injection experiments on your AWS workloads. For more
 -- information, see the
 -- <https://docs.aws.amazon.com/fis/latest/userguide/ AWS Fault Injection Simulator User Guide>.
-module Network.AWS.FIS
+module Amazonka.FIS
   ( -- * Service Configuration
     defaultService,
 
@@ -234,23 +234,23 @@ module Network.AWS.FIS
   )
 where
 
-import Network.AWS.FIS.CreateExperimentTemplate
-import Network.AWS.FIS.DeleteExperimentTemplate
-import Network.AWS.FIS.GetAction
-import Network.AWS.FIS.GetExperiment
-import Network.AWS.FIS.GetExperimentTemplate
-import Network.AWS.FIS.Lens
-import Network.AWS.FIS.ListActions
-import Network.AWS.FIS.ListExperimentTemplates
-import Network.AWS.FIS.ListExperiments
-import Network.AWS.FIS.ListTagsForResource
-import Network.AWS.FIS.StartExperiment
-import Network.AWS.FIS.StopExperiment
-import Network.AWS.FIS.TagResource
-import Network.AWS.FIS.Types
-import Network.AWS.FIS.UntagResource
-import Network.AWS.FIS.UpdateExperimentTemplate
-import Network.AWS.FIS.Waiters
+import Amazonka.FIS.CreateExperimentTemplate
+import Amazonka.FIS.DeleteExperimentTemplate
+import Amazonka.FIS.GetAction
+import Amazonka.FIS.GetExperiment
+import Amazonka.FIS.GetExperimentTemplate
+import Amazonka.FIS.Lens
+import Amazonka.FIS.ListActions
+import Amazonka.FIS.ListExperimentTemplates
+import Amazonka.FIS.ListExperiments
+import Amazonka.FIS.ListTagsForResource
+import Amazonka.FIS.StartExperiment
+import Amazonka.FIS.StopExperiment
+import Amazonka.FIS.TagResource
+import Amazonka.FIS.Types
+import Amazonka.FIS.UntagResource
+import Amazonka.FIS.UpdateExperimentTemplate
+import Amazonka.FIS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

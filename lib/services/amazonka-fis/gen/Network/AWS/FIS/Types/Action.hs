@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FIS.Types.Action
+-- Module      : Amazonka.FIS.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FIS.Types.Action where
+module Amazonka.FIS.Types.Action where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FIS.Types.ActionParameter
-import Network.AWS.FIS.Types.ActionTarget
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.FIS.Types.ActionParameter
+import Amazonka.FIS.Types.ActionTarget
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action. For more information, see
 -- <https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html AWS FIS actions>

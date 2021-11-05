@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SSMIncidents
+-- Module      : Amazonka.SSMIncidents
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- primary goal of reducing the time-to-resolution of critical incidents,
 -- Incident Manager automates response plans and enables responder team
 -- escalation.
-module Network.AWS.SSMIncidents
+module Amazonka.SSMIncidents
   ( -- * Service Configuration
     defaultService,
 
@@ -373,38 +373,38 @@ module Network.AWS.SSMIncidents
   )
 where
 
-import Network.AWS.SSMIncidents.CreateReplicationSet
-import Network.AWS.SSMIncidents.CreateResponsePlan
-import Network.AWS.SSMIncidents.CreateTimelineEvent
-import Network.AWS.SSMIncidents.DeleteIncidentRecord
-import Network.AWS.SSMIncidents.DeleteReplicationSet
-import Network.AWS.SSMIncidents.DeleteResourcePolicy
-import Network.AWS.SSMIncidents.DeleteResponsePlan
-import Network.AWS.SSMIncidents.DeleteTimelineEvent
-import Network.AWS.SSMIncidents.GetIncidentRecord
-import Network.AWS.SSMIncidents.GetReplicationSet
-import Network.AWS.SSMIncidents.GetResourcePolicies
-import Network.AWS.SSMIncidents.GetResponsePlan
-import Network.AWS.SSMIncidents.GetTimelineEvent
-import Network.AWS.SSMIncidents.Lens
-import Network.AWS.SSMIncidents.ListIncidentRecords
-import Network.AWS.SSMIncidents.ListRelatedItems
-import Network.AWS.SSMIncidents.ListReplicationSets
-import Network.AWS.SSMIncidents.ListResponsePlans
-import Network.AWS.SSMIncidents.ListTagsForResource
-import Network.AWS.SSMIncidents.ListTimelineEvents
-import Network.AWS.SSMIncidents.PutResourcePolicy
-import Network.AWS.SSMIncidents.StartIncident
-import Network.AWS.SSMIncidents.TagResource
-import Network.AWS.SSMIncidents.Types
-import Network.AWS.SSMIncidents.UntagResource
-import Network.AWS.SSMIncidents.UpdateDeletionProtection
-import Network.AWS.SSMIncidents.UpdateIncidentRecord
-import Network.AWS.SSMIncidents.UpdateRelatedItems
-import Network.AWS.SSMIncidents.UpdateReplicationSet
-import Network.AWS.SSMIncidents.UpdateResponsePlan
-import Network.AWS.SSMIncidents.UpdateTimelineEvent
-import Network.AWS.SSMIncidents.Waiters
+import Amazonka.SSMIncidents.CreateReplicationSet
+import Amazonka.SSMIncidents.CreateResponsePlan
+import Amazonka.SSMIncidents.CreateTimelineEvent
+import Amazonka.SSMIncidents.DeleteIncidentRecord
+import Amazonka.SSMIncidents.DeleteReplicationSet
+import Amazonka.SSMIncidents.DeleteResourcePolicy
+import Amazonka.SSMIncidents.DeleteResponsePlan
+import Amazonka.SSMIncidents.DeleteTimelineEvent
+import Amazonka.SSMIncidents.GetIncidentRecord
+import Amazonka.SSMIncidents.GetReplicationSet
+import Amazonka.SSMIncidents.GetResourcePolicies
+import Amazonka.SSMIncidents.GetResponsePlan
+import Amazonka.SSMIncidents.GetTimelineEvent
+import Amazonka.SSMIncidents.Lens
+import Amazonka.SSMIncidents.ListIncidentRecords
+import Amazonka.SSMIncidents.ListRelatedItems
+import Amazonka.SSMIncidents.ListReplicationSets
+import Amazonka.SSMIncidents.ListResponsePlans
+import Amazonka.SSMIncidents.ListTagsForResource
+import Amazonka.SSMIncidents.ListTimelineEvents
+import Amazonka.SSMIncidents.PutResourcePolicy
+import Amazonka.SSMIncidents.StartIncident
+import Amazonka.SSMIncidents.TagResource
+import Amazonka.SSMIncidents.Types
+import Amazonka.SSMIncidents.UntagResource
+import Amazonka.SSMIncidents.UpdateDeletionProtection
+import Amazonka.SSMIncidents.UpdateIncidentRecord
+import Amazonka.SSMIncidents.UpdateRelatedItems
+import Amazonka.SSMIncidents.UpdateReplicationSet
+import Amazonka.SSMIncidents.UpdateResponsePlan
+import Amazonka.SSMIncidents.UpdateTimelineEvent
+import Amazonka.SSMIncidents.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMIncidents.CreateTimelineEvent
+-- Module      : Amazonka.SSMIncidents.CreateTimelineEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Manager, marking key moment during an incident. You can create custom
 -- timeline events to mark important events that are automatically detected
 -- by Incident Manager.
-module Network.AWS.SSMIncidents.CreateTimelineEvent
+module Amazonka.SSMIncidents.CreateTimelineEvent
   ( -- * Creating a Request
     CreateTimelineEvent (..),
     newCreateTimelineEvent,
@@ -48,12 +48,12 @@ module Network.AWS.SSMIncidents.CreateTimelineEvent
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMIncidents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateTimelineEvent' smart constructor.
 data CreateTimelineEvent = CreateTimelineEvent'

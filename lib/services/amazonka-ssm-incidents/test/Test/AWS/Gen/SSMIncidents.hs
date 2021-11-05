@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSMIncidents where
 
+import Amazonka.SSMIncidents
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSMIncidents
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSMIncidents.Internal

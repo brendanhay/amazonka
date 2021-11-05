@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMIncidents.GetTimelineEvent
+-- Module      : Amazonka.SSMIncidents.GetTimelineEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a timeline event based on its ID and incident record.
-module Network.AWS.SSMIncidents.GetTimelineEvent
+module Amazonka.SSMIncidents.GetTimelineEvent
   ( -- * Creating a Request
     GetTimelineEvent (..),
     newGetTimelineEvent,
@@ -40,12 +40,12 @@ module Network.AWS.SSMIncidents.GetTimelineEvent
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMIncidents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newGetTimelineEvent' smart constructor.
 data GetTimelineEvent = GetTimelineEvent'

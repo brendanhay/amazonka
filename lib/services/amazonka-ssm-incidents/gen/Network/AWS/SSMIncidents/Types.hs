@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMIncidents.Types
+-- Module      : Amazonka.SSMIncidents.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSMIncidents.Types
+module Amazonka.SSMIncidents.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -255,45 +255,45 @@ module Network.AWS.SSMIncidents.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSMIncidents.Types.Action
-import Network.AWS.SSMIncidents.Types.AddRegionAction
-import Network.AWS.SSMIncidents.Types.AttributeValueList
-import Network.AWS.SSMIncidents.Types.AutomationExecution
-import Network.AWS.SSMIncidents.Types.ChatChannel
-import Network.AWS.SSMIncidents.Types.Condition
-import Network.AWS.SSMIncidents.Types.DeleteRegionAction
-import Network.AWS.SSMIncidents.Types.EmptyChatChannel
-import Network.AWS.SSMIncidents.Types.EventSummary
-import Network.AWS.SSMIncidents.Types.Filter
-import Network.AWS.SSMIncidents.Types.IncidentRecord
-import Network.AWS.SSMIncidents.Types.IncidentRecordSource
-import Network.AWS.SSMIncidents.Types.IncidentRecordStatus
-import Network.AWS.SSMIncidents.Types.IncidentRecordSummary
-import Network.AWS.SSMIncidents.Types.IncidentTemplate
-import Network.AWS.SSMIncidents.Types.ItemIdentifier
-import Network.AWS.SSMIncidents.Types.ItemType
-import Network.AWS.SSMIncidents.Types.ItemValue
-import Network.AWS.SSMIncidents.Types.NotificationTargetItem
-import Network.AWS.SSMIncidents.Types.RegionInfo
-import Network.AWS.SSMIncidents.Types.RegionMapInputValue
-import Network.AWS.SSMIncidents.Types.RegionStatus
-import Network.AWS.SSMIncidents.Types.RelatedItem
-import Network.AWS.SSMIncidents.Types.RelatedItemsUpdate
-import Network.AWS.SSMIncidents.Types.ReplicationSet
-import Network.AWS.SSMIncidents.Types.ReplicationSetStatus
-import Network.AWS.SSMIncidents.Types.ResourcePolicy
-import Network.AWS.SSMIncidents.Types.ResponsePlanSummary
-import Network.AWS.SSMIncidents.Types.SortOrder
-import Network.AWS.SSMIncidents.Types.SsmAutomation
-import Network.AWS.SSMIncidents.Types.SsmTargetAccount
-import Network.AWS.SSMIncidents.Types.TimelineEvent
-import Network.AWS.SSMIncidents.Types.TimelineEventSort
-import Network.AWS.SSMIncidents.Types.TriggerDetails
-import Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMIncidents.Types.Action
+import Amazonka.SSMIncidents.Types.AddRegionAction
+import Amazonka.SSMIncidents.Types.AttributeValueList
+import Amazonka.SSMIncidents.Types.AutomationExecution
+import Amazonka.SSMIncidents.Types.ChatChannel
+import Amazonka.SSMIncidents.Types.Condition
+import Amazonka.SSMIncidents.Types.DeleteRegionAction
+import Amazonka.SSMIncidents.Types.EmptyChatChannel
+import Amazonka.SSMIncidents.Types.EventSummary
+import Amazonka.SSMIncidents.Types.Filter
+import Amazonka.SSMIncidents.Types.IncidentRecord
+import Amazonka.SSMIncidents.Types.IncidentRecordSource
+import Amazonka.SSMIncidents.Types.IncidentRecordStatus
+import Amazonka.SSMIncidents.Types.IncidentRecordSummary
+import Amazonka.SSMIncidents.Types.IncidentTemplate
+import Amazonka.SSMIncidents.Types.ItemIdentifier
+import Amazonka.SSMIncidents.Types.ItemType
+import Amazonka.SSMIncidents.Types.ItemValue
+import Amazonka.SSMIncidents.Types.NotificationTargetItem
+import Amazonka.SSMIncidents.Types.RegionInfo
+import Amazonka.SSMIncidents.Types.RegionMapInputValue
+import Amazonka.SSMIncidents.Types.RegionStatus
+import Amazonka.SSMIncidents.Types.RelatedItem
+import Amazonka.SSMIncidents.Types.RelatedItemsUpdate
+import Amazonka.SSMIncidents.Types.ReplicationSet
+import Amazonka.SSMIncidents.Types.ReplicationSetStatus
+import Amazonka.SSMIncidents.Types.ResourcePolicy
+import Amazonka.SSMIncidents.Types.ResponsePlanSummary
+import Amazonka.SSMIncidents.Types.SortOrder
+import Amazonka.SSMIncidents.Types.SsmAutomation
+import Amazonka.SSMIncidents.Types.SsmTargetAccount
+import Amazonka.SSMIncidents.Types.TimelineEvent
+import Amazonka.SSMIncidents.Types.TimelineEventSort
+import Amazonka.SSMIncidents.Types.TriggerDetails
+import Amazonka.SSMIncidents.Types.UpdateReplicationSetAction
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-05-10@ of the Amazon Systems Manager Incident Manager SDK configuration.
 defaultService :: Core.Service

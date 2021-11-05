@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMIncidents.UpdateRelatedItems
+-- Module      : Amazonka.SSMIncidents.UpdateRelatedItems
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Add or remove related items from the related items tab of an incident
 -- record.
-module Network.AWS.SSMIncidents.UpdateRelatedItems
+module Amazonka.SSMIncidents.UpdateRelatedItems
   ( -- * Creating a Request
     UpdateRelatedItems (..),
     newUpdateRelatedItems,
@@ -41,12 +41,12 @@ module Network.AWS.SSMIncidents.UpdateRelatedItems
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMIncidents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateRelatedItems' smart constructor.
 data UpdateRelatedItems = UpdateRelatedItems'

@@ -7,22 +7,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMIncidents.Waiters
+-- Module      : Amazonka.SSMIncidents.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSMIncidents.Waiters where
+module Amazonka.SSMIncidents.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSMIncidents.GetReplicationSet
-import Network.AWS.SSMIncidents.Lens
-import Network.AWS.SSMIncidents.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMIncidents.GetReplicationSet
+import Amazonka.SSMIncidents.Lens
+import Amazonka.SSMIncidents.Types
 
--- | Polls 'Network.AWS.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
+-- | Polls 'Amazonka.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newWaitForReplicationSetActive :: Core.Wait GetReplicationSet
 newWaitForReplicationSetActive =
   Core.Wait
@@ -62,7 +62,7 @@ newWaitForReplicationSetActive =
         ]
     }
 
--- | Polls 'Network.AWS.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
+-- | Polls 'Amazonka.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newWaitForReplicationSetDeleted :: Core.Wait GetReplicationSet
 newWaitForReplicationSetDeleted =
   Core.Wait

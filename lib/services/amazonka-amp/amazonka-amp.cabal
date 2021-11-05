@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AMP.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AMP.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AMP" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AMP" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,40 +45,40 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AMP
-    Network.AWS.AMP.CreateAlertManagerDefinition
-    Network.AWS.AMP.CreateRuleGroupsNamespace
-    Network.AWS.AMP.CreateWorkspace
-    Network.AWS.AMP.DeleteAlertManagerDefinition
-    Network.AWS.AMP.DeleteRuleGroupsNamespace
-    Network.AWS.AMP.DeleteWorkspace
-    Network.AWS.AMP.DescribeAlertManagerDefinition
-    Network.AWS.AMP.DescribeRuleGroupsNamespace
-    Network.AWS.AMP.DescribeWorkspace
-    Network.AWS.AMP.Lens
-    Network.AWS.AMP.ListRuleGroupsNamespaces
-    Network.AWS.AMP.ListTagsForResource
-    Network.AWS.AMP.ListWorkspaces
-    Network.AWS.AMP.PutAlertManagerDefinition
-    Network.AWS.AMP.PutRuleGroupsNamespace
-    Network.AWS.AMP.TagResource
-    Network.AWS.AMP.Types
-    Network.AWS.AMP.Types.AlertManagerDefinitionDescription
-    Network.AWS.AMP.Types.AlertManagerDefinitionStatus
-    Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode
-    Network.AWS.AMP.Types.RuleGroupsNamespaceDescription
-    Network.AWS.AMP.Types.RuleGroupsNamespaceStatus
-    Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode
-    Network.AWS.AMP.Types.RuleGroupsNamespaceSummary
-    Network.AWS.AMP.Types.WorkspaceDescription
-    Network.AWS.AMP.Types.WorkspaceStatus
-    Network.AWS.AMP.Types.WorkspaceStatusCode
-    Network.AWS.AMP.Types.WorkspaceSummary
-    Network.AWS.AMP.UntagResource
-    Network.AWS.AMP.UpdateWorkspaceAlias
-    Network.AWS.AMP.Waiters
+    Amazonka.AMP
+    Amazonka.AMP.CreateAlertManagerDefinition
+    Amazonka.AMP.CreateRuleGroupsNamespace
+    Amazonka.AMP.CreateWorkspace
+    Amazonka.AMP.DeleteAlertManagerDefinition
+    Amazonka.AMP.DeleteRuleGroupsNamespace
+    Amazonka.AMP.DeleteWorkspace
+    Amazonka.AMP.DescribeAlertManagerDefinition
+    Amazonka.AMP.DescribeRuleGroupsNamespace
+    Amazonka.AMP.DescribeWorkspace
+    Amazonka.AMP.Lens
+    Amazonka.AMP.ListRuleGroupsNamespaces
+    Amazonka.AMP.ListTagsForResource
+    Amazonka.AMP.ListWorkspaces
+    Amazonka.AMP.PutAlertManagerDefinition
+    Amazonka.AMP.PutRuleGroupsNamespace
+    Amazonka.AMP.TagResource
+    Amazonka.AMP.Types
+    Amazonka.AMP.Types.AlertManagerDefinitionDescription
+    Amazonka.AMP.Types.AlertManagerDefinitionStatus
+    Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
+    Amazonka.AMP.Types.RuleGroupsNamespaceDescription
+    Amazonka.AMP.Types.RuleGroupsNamespaceStatus
+    Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode
+    Amazonka.AMP.Types.RuleGroupsNamespaceSummary
+    Amazonka.AMP.Types.WorkspaceDescription
+    Amazonka.AMP.Types.WorkspaceStatus
+    Amazonka.AMP.Types.WorkspaceStatusCode
+    Amazonka.AMP.Types.WorkspaceSummary
+    Amazonka.AMP.UntagResource
+    Amazonka.AMP.UpdateWorkspaceAlias
+    Amazonka.AMP.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AMP.Lens
+-- Module      : Amazonka.AMP.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AMP.Lens
+module Amazonka.AMP.Lens
   ( -- * Operations
 
     -- ** ListWorkspaces
@@ -182,28 +182,28 @@ module Network.AWS.AMP.Lens
   )
 where
 
-import Network.AWS.AMP.CreateAlertManagerDefinition
-import Network.AWS.AMP.CreateRuleGroupsNamespace
-import Network.AWS.AMP.CreateWorkspace
-import Network.AWS.AMP.DeleteAlertManagerDefinition
-import Network.AWS.AMP.DeleteRuleGroupsNamespace
-import Network.AWS.AMP.DeleteWorkspace
-import Network.AWS.AMP.DescribeAlertManagerDefinition
-import Network.AWS.AMP.DescribeRuleGroupsNamespace
-import Network.AWS.AMP.DescribeWorkspace
-import Network.AWS.AMP.ListRuleGroupsNamespaces
-import Network.AWS.AMP.ListTagsForResource
-import Network.AWS.AMP.ListWorkspaces
-import Network.AWS.AMP.PutAlertManagerDefinition
-import Network.AWS.AMP.PutRuleGroupsNamespace
-import Network.AWS.AMP.TagResource
-import Network.AWS.AMP.Types.AlertManagerDefinitionDescription
-import Network.AWS.AMP.Types.AlertManagerDefinitionStatus
-import Network.AWS.AMP.Types.RuleGroupsNamespaceDescription
-import Network.AWS.AMP.Types.RuleGroupsNamespaceStatus
-import Network.AWS.AMP.Types.RuleGroupsNamespaceSummary
-import Network.AWS.AMP.Types.WorkspaceDescription
-import Network.AWS.AMP.Types.WorkspaceStatus
-import Network.AWS.AMP.Types.WorkspaceSummary
-import Network.AWS.AMP.UntagResource
-import Network.AWS.AMP.UpdateWorkspaceAlias
+import Amazonka.AMP.CreateAlertManagerDefinition
+import Amazonka.AMP.CreateRuleGroupsNamespace
+import Amazonka.AMP.CreateWorkspace
+import Amazonka.AMP.DeleteAlertManagerDefinition
+import Amazonka.AMP.DeleteRuleGroupsNamespace
+import Amazonka.AMP.DeleteWorkspace
+import Amazonka.AMP.DescribeAlertManagerDefinition
+import Amazonka.AMP.DescribeRuleGroupsNamespace
+import Amazonka.AMP.DescribeWorkspace
+import Amazonka.AMP.ListRuleGroupsNamespaces
+import Amazonka.AMP.ListTagsForResource
+import Amazonka.AMP.ListWorkspaces
+import Amazonka.AMP.PutAlertManagerDefinition
+import Amazonka.AMP.PutRuleGroupsNamespace
+import Amazonka.AMP.TagResource
+import Amazonka.AMP.Types.AlertManagerDefinitionDescription
+import Amazonka.AMP.Types.AlertManagerDefinitionStatus
+import Amazonka.AMP.Types.RuleGroupsNamespaceDescription
+import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
+import Amazonka.AMP.Types.RuleGroupsNamespaceSummary
+import Amazonka.AMP.Types.WorkspaceDescription
+import Amazonka.AMP.Types.WorkspaceStatus
+import Amazonka.AMP.Types.WorkspaceSummary
+import Amazonka.AMP.UntagResource
+import Amazonka.AMP.UpdateWorkspaceAlias

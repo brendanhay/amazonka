@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AMP.DescribeRuleGroupsNamespace
+-- Module      : Amazonka.AMP.DescribeRuleGroupsNamespace
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe a rule groups namespace.
-module Network.AWS.AMP.DescribeRuleGroupsNamespace
+module Amazonka.AMP.DescribeRuleGroupsNamespace
   ( -- * Creating a Request
     DescribeRuleGroupsNamespace (..),
     newDescribeRuleGroupsNamespace,
@@ -40,12 +40,12 @@ module Network.AWS.AMP.DescribeRuleGroupsNamespace
   )
 where
 
-import Network.AWS.AMP.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AMP.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of a DescribeRuleGroupsNamespace operation.
 --

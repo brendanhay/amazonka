@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AMP
+-- Module      : Amazonka.AMP
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2020-08-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Managed Service for Prometheus
-module Network.AWS.AMP
+module Amazonka.AMP
   ( -- * Service Configuration
     defaultService,
 
@@ -199,26 +199,26 @@ module Network.AWS.AMP
   )
 where
 
-import Network.AWS.AMP.CreateAlertManagerDefinition
-import Network.AWS.AMP.CreateRuleGroupsNamespace
-import Network.AWS.AMP.CreateWorkspace
-import Network.AWS.AMP.DeleteAlertManagerDefinition
-import Network.AWS.AMP.DeleteRuleGroupsNamespace
-import Network.AWS.AMP.DeleteWorkspace
-import Network.AWS.AMP.DescribeAlertManagerDefinition
-import Network.AWS.AMP.DescribeRuleGroupsNamespace
-import Network.AWS.AMP.DescribeWorkspace
-import Network.AWS.AMP.Lens
-import Network.AWS.AMP.ListRuleGroupsNamespaces
-import Network.AWS.AMP.ListTagsForResource
-import Network.AWS.AMP.ListWorkspaces
-import Network.AWS.AMP.PutAlertManagerDefinition
-import Network.AWS.AMP.PutRuleGroupsNamespace
-import Network.AWS.AMP.TagResource
-import Network.AWS.AMP.Types
-import Network.AWS.AMP.UntagResource
-import Network.AWS.AMP.UpdateWorkspaceAlias
-import Network.AWS.AMP.Waiters
+import Amazonka.AMP.CreateAlertManagerDefinition
+import Amazonka.AMP.CreateRuleGroupsNamespace
+import Amazonka.AMP.CreateWorkspace
+import Amazonka.AMP.DeleteAlertManagerDefinition
+import Amazonka.AMP.DeleteRuleGroupsNamespace
+import Amazonka.AMP.DeleteWorkspace
+import Amazonka.AMP.DescribeAlertManagerDefinition
+import Amazonka.AMP.DescribeRuleGroupsNamespace
+import Amazonka.AMP.DescribeWorkspace
+import Amazonka.AMP.Lens
+import Amazonka.AMP.ListRuleGroupsNamespaces
+import Amazonka.AMP.ListTagsForResource
+import Amazonka.AMP.ListWorkspaces
+import Amazonka.AMP.PutAlertManagerDefinition
+import Amazonka.AMP.PutRuleGroupsNamespace
+import Amazonka.AMP.TagResource
+import Amazonka.AMP.Types
+import Amazonka.AMP.UntagResource
+import Amazonka.AMP.UpdateWorkspaceAlias
+import Amazonka.AMP.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

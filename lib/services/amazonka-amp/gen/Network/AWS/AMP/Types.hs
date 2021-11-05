@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AMP.Types
+-- Module      : Amazonka.AMP.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AMP.Types
+module Amazonka.AMP.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -103,21 +103,21 @@ module Network.AWS.AMP.Types
   )
 where
 
-import Network.AWS.AMP.Types.AlertManagerDefinitionDescription
-import Network.AWS.AMP.Types.AlertManagerDefinitionStatus
-import Network.AWS.AMP.Types.AlertManagerDefinitionStatusCode
-import Network.AWS.AMP.Types.RuleGroupsNamespaceDescription
-import Network.AWS.AMP.Types.RuleGroupsNamespaceStatus
-import Network.AWS.AMP.Types.RuleGroupsNamespaceStatusCode
-import Network.AWS.AMP.Types.RuleGroupsNamespaceSummary
-import Network.AWS.AMP.Types.WorkspaceDescription
-import Network.AWS.AMP.Types.WorkspaceStatus
-import Network.AWS.AMP.Types.WorkspaceStatusCode
-import Network.AWS.AMP.Types.WorkspaceSummary
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AMP.Types.AlertManagerDefinitionDescription
+import Amazonka.AMP.Types.AlertManagerDefinitionStatus
+import Amazonka.AMP.Types.AlertManagerDefinitionStatusCode
+import Amazonka.AMP.Types.RuleGroupsNamespaceDescription
+import Amazonka.AMP.Types.RuleGroupsNamespaceStatus
+import Amazonka.AMP.Types.RuleGroupsNamespaceStatusCode
+import Amazonka.AMP.Types.RuleGroupsNamespaceSummary
+import Amazonka.AMP.Types.WorkspaceDescription
+import Amazonka.AMP.Types.WorkspaceStatus
+import Amazonka.AMP.Types.WorkspaceStatusCode
+import Amazonka.AMP.Types.WorkspaceSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-01@ of the Amazon Prometheus Service SDK configuration.
 defaultService :: Core.Service

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AMP where
 
+import Amazonka.AMP
 import qualified Data.Proxy as Proxy
-import Network.AWS.AMP
 import Test.AWS.AMP.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

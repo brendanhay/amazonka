@@ -7,22 +7,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AMP.Waiters
+-- Module      : Amazonka.AMP.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AMP.Waiters where
+module Amazonka.AMP.Waiters where
 
-import Network.AWS.AMP.DescribeWorkspace
-import Network.AWS.AMP.Lens
-import Network.AWS.AMP.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AMP.DescribeWorkspace
+import Amazonka.AMP.Lens
+import Amazonka.AMP.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newWorkspaceDeleted :: Core.Wait DescribeWorkspace
 newWorkspaceDeleted =
   Core.Wait
@@ -44,7 +44,7 @@ newWorkspaceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newWorkspaceActive :: Core.Wait DescribeWorkspace
 newWorkspaceActive =
   Core.Wait

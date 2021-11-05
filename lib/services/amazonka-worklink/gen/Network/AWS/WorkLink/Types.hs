@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkLink.Types
+-- Module      : Amazonka.WorkLink.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkLink.Types
+module Amazonka.WorkLink.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -82,20 +82,20 @@ module Network.AWS.WorkLink.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WorkLink.Types.AuthorizationProviderType
-import Network.AWS.WorkLink.Types.DeviceStatus
-import Network.AWS.WorkLink.Types.DeviceSummary
-import Network.AWS.WorkLink.Types.DomainStatus
-import Network.AWS.WorkLink.Types.DomainSummary
-import Network.AWS.WorkLink.Types.FleetStatus
-import Network.AWS.WorkLink.Types.FleetSummary
-import Network.AWS.WorkLink.Types.IdentityProviderType
-import Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary
-import Network.AWS.WorkLink.Types.WebsiteCaSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WorkLink.Types.AuthorizationProviderType
+import Amazonka.WorkLink.Types.DeviceStatus
+import Amazonka.WorkLink.Types.DeviceSummary
+import Amazonka.WorkLink.Types.DomainStatus
+import Amazonka.WorkLink.Types.DomainSummary
+import Amazonka.WorkLink.Types.FleetStatus
+import Amazonka.WorkLink.Types.FleetSummary
+import Amazonka.WorkLink.Types.IdentityProviderType
+import Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary
+import Amazonka.WorkLink.Types.WebsiteCaSummary
 
 -- | API version @2018-09-25@ of the Amazon WorkLink SDK configuration.
 defaultService :: Core.Service

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WorkLink
+-- Module      : Amazonka.WorkLink
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- authorized internal web content in a secure rendering service in the AWS
 -- cloud. Amazon WorkLink doesn\'t download or store any internal web
 -- content on mobile devices.
-module Network.AWS.WorkLink
+module Amazonka.WorkLink
   ( -- * Service Configuration
     defaultService,
 
@@ -288,42 +288,42 @@ module Network.AWS.WorkLink
   )
 where
 
-import Network.AWS.WorkLink.AssociateDomain
-import Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider
-import Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority
-import Network.AWS.WorkLink.CreateFleet
-import Network.AWS.WorkLink.DeleteFleet
-import Network.AWS.WorkLink.DescribeAuditStreamConfiguration
-import Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration
-import Network.AWS.WorkLink.DescribeDevice
-import Network.AWS.WorkLink.DescribeDevicePolicyConfiguration
-import Network.AWS.WorkLink.DescribeDomain
-import Network.AWS.WorkLink.DescribeFleetMetadata
-import Network.AWS.WorkLink.DescribeIdentityProviderConfiguration
-import Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority
-import Network.AWS.WorkLink.DisassociateDomain
-import Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider
-import Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority
-import Network.AWS.WorkLink.Lens
-import Network.AWS.WorkLink.ListDevices
-import Network.AWS.WorkLink.ListDomains
-import Network.AWS.WorkLink.ListFleets
-import Network.AWS.WorkLink.ListTagsForResource
-import Network.AWS.WorkLink.ListWebsiteAuthorizationProviders
-import Network.AWS.WorkLink.ListWebsiteCertificateAuthorities
-import Network.AWS.WorkLink.RestoreDomainAccess
-import Network.AWS.WorkLink.RevokeDomainAccess
-import Network.AWS.WorkLink.SignOutUser
-import Network.AWS.WorkLink.TagResource
-import Network.AWS.WorkLink.Types
-import Network.AWS.WorkLink.UntagResource
-import Network.AWS.WorkLink.UpdateAuditStreamConfiguration
-import Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration
-import Network.AWS.WorkLink.UpdateDevicePolicyConfiguration
-import Network.AWS.WorkLink.UpdateDomainMetadata
-import Network.AWS.WorkLink.UpdateFleetMetadata
-import Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
-import Network.AWS.WorkLink.Waiters
+import Amazonka.WorkLink.AssociateDomain
+import Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider
+import Amazonka.WorkLink.AssociateWebsiteCertificateAuthority
+import Amazonka.WorkLink.CreateFleet
+import Amazonka.WorkLink.DeleteFleet
+import Amazonka.WorkLink.DescribeAuditStreamConfiguration
+import Amazonka.WorkLink.DescribeCompanyNetworkConfiguration
+import Amazonka.WorkLink.DescribeDevice
+import Amazonka.WorkLink.DescribeDevicePolicyConfiguration
+import Amazonka.WorkLink.DescribeDomain
+import Amazonka.WorkLink.DescribeFleetMetadata
+import Amazonka.WorkLink.DescribeIdentityProviderConfiguration
+import Amazonka.WorkLink.DescribeWebsiteCertificateAuthority
+import Amazonka.WorkLink.DisassociateDomain
+import Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider
+import Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority
+import Amazonka.WorkLink.Lens
+import Amazonka.WorkLink.ListDevices
+import Amazonka.WorkLink.ListDomains
+import Amazonka.WorkLink.ListFleets
+import Amazonka.WorkLink.ListTagsForResource
+import Amazonka.WorkLink.ListWebsiteAuthorizationProviders
+import Amazonka.WorkLink.ListWebsiteCertificateAuthorities
+import Amazonka.WorkLink.RestoreDomainAccess
+import Amazonka.WorkLink.RevokeDomainAccess
+import Amazonka.WorkLink.SignOutUser
+import Amazonka.WorkLink.TagResource
+import Amazonka.WorkLink.Types
+import Amazonka.WorkLink.UntagResource
+import Amazonka.WorkLink.UpdateAuditStreamConfiguration
+import Amazonka.WorkLink.UpdateCompanyNetworkConfiguration
+import Amazonka.WorkLink.UpdateDevicePolicyConfiguration
+import Amazonka.WorkLink.UpdateDomainMetadata
+import Amazonka.WorkLink.UpdateFleetMetadata
+import Amazonka.WorkLink.UpdateIdentityProviderConfiguration
+import Amazonka.WorkLink.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

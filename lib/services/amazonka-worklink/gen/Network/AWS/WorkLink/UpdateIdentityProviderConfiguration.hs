@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
+-- Module      : Amazonka.WorkLink.UpdateIdentityProviderConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the identity provider configuration for the fleet.
-module Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
+module Amazonka.WorkLink.UpdateIdentityProviderConfiguration
   ( -- * Creating a Request
     UpdateIdentityProviderConfiguration (..),
     newUpdateIdentityProviderConfiguration,
@@ -40,12 +40,12 @@ module Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkLink.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkLink.Types
 
 -- | /See:/ 'newUpdateIdentityProviderConfiguration' smart constructor.
 data UpdateIdentityProviderConfiguration = UpdateIdentityProviderConfiguration'

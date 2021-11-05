@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkLink.DescribeDevice
+-- Module      : Amazonka.WorkLink.DescribeDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides information about a user\'s device.
-module Network.AWS.WorkLink.DescribeDevice
+module Amazonka.WorkLink.DescribeDevice
   ( -- * Creating a Request
     DescribeDevice (..),
     newDescribeDevice,
@@ -48,12 +48,12 @@ module Network.AWS.WorkLink.DescribeDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkLink.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkLink.Types
 
 -- | /See:/ 'newDescribeDevice' smart constructor.
 data DescribeDevice = DescribeDevice'

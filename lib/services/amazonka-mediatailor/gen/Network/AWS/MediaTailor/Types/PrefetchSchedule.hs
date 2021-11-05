@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Types.PrefetchSchedule
+-- Module      : Amazonka.MediaTailor.Types.PrefetchSchedule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Types.PrefetchSchedule where
+module Amazonka.MediaTailor.Types.PrefetchSchedule where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaTailor.Types.PrefetchConsumption
-import Network.AWS.MediaTailor.Types.PrefetchRetrieval
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaTailor.Types.PrefetchConsumption
+import Amazonka.MediaTailor.Types.PrefetchRetrieval
+import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains prefetch schedule information.
 --

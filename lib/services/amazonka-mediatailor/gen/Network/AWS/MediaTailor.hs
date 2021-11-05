@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaTailor
+-- Module      : Amazonka.MediaTailor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- configurations and channels the same as you do through the console. For
 -- example, you specify ad insertion behavior and mapping information for
 -- the origin server and the ad decision server (ADS).
-module Network.AWS.MediaTailor
+module Amazonka.MediaTailor
   ( -- * Service Configuration
     defaultService,
 
@@ -435,46 +435,46 @@ module Network.AWS.MediaTailor
   )
 where
 
-import Network.AWS.MediaTailor.ConfigureLogsForPlaybackConfiguration
-import Network.AWS.MediaTailor.CreateChannel
-import Network.AWS.MediaTailor.CreatePrefetchSchedule
-import Network.AWS.MediaTailor.CreateProgram
-import Network.AWS.MediaTailor.CreateSourceLocation
-import Network.AWS.MediaTailor.CreateVodSource
-import Network.AWS.MediaTailor.DeleteChannel
-import Network.AWS.MediaTailor.DeleteChannelPolicy
-import Network.AWS.MediaTailor.DeletePlaybackConfiguration
-import Network.AWS.MediaTailor.DeletePrefetchSchedule
-import Network.AWS.MediaTailor.DeleteProgram
-import Network.AWS.MediaTailor.DeleteSourceLocation
-import Network.AWS.MediaTailor.DeleteVodSource
-import Network.AWS.MediaTailor.DescribeChannel
-import Network.AWS.MediaTailor.DescribeProgram
-import Network.AWS.MediaTailor.DescribeSourceLocation
-import Network.AWS.MediaTailor.DescribeVodSource
-import Network.AWS.MediaTailor.GetChannelPolicy
-import Network.AWS.MediaTailor.GetChannelSchedule
-import Network.AWS.MediaTailor.GetPlaybackConfiguration
-import Network.AWS.MediaTailor.GetPrefetchSchedule
-import Network.AWS.MediaTailor.Lens
-import Network.AWS.MediaTailor.ListAlerts
-import Network.AWS.MediaTailor.ListChannels
-import Network.AWS.MediaTailor.ListPlaybackConfigurations
-import Network.AWS.MediaTailor.ListPrefetchSchedules
-import Network.AWS.MediaTailor.ListSourceLocations
-import Network.AWS.MediaTailor.ListTagsForResource
-import Network.AWS.MediaTailor.ListVodSources
-import Network.AWS.MediaTailor.PutChannelPolicy
-import Network.AWS.MediaTailor.PutPlaybackConfiguration
-import Network.AWS.MediaTailor.StartChannel
-import Network.AWS.MediaTailor.StopChannel
-import Network.AWS.MediaTailor.TagResource
-import Network.AWS.MediaTailor.Types
-import Network.AWS.MediaTailor.UntagResource
-import Network.AWS.MediaTailor.UpdateChannel
-import Network.AWS.MediaTailor.UpdateSourceLocation
-import Network.AWS.MediaTailor.UpdateVodSource
-import Network.AWS.MediaTailor.Waiters
+import Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
+import Amazonka.MediaTailor.CreateChannel
+import Amazonka.MediaTailor.CreatePrefetchSchedule
+import Amazonka.MediaTailor.CreateProgram
+import Amazonka.MediaTailor.CreateSourceLocation
+import Amazonka.MediaTailor.CreateVodSource
+import Amazonka.MediaTailor.DeleteChannel
+import Amazonka.MediaTailor.DeleteChannelPolicy
+import Amazonka.MediaTailor.DeletePlaybackConfiguration
+import Amazonka.MediaTailor.DeletePrefetchSchedule
+import Amazonka.MediaTailor.DeleteProgram
+import Amazonka.MediaTailor.DeleteSourceLocation
+import Amazonka.MediaTailor.DeleteVodSource
+import Amazonka.MediaTailor.DescribeChannel
+import Amazonka.MediaTailor.DescribeProgram
+import Amazonka.MediaTailor.DescribeSourceLocation
+import Amazonka.MediaTailor.DescribeVodSource
+import Amazonka.MediaTailor.GetChannelPolicy
+import Amazonka.MediaTailor.GetChannelSchedule
+import Amazonka.MediaTailor.GetPlaybackConfiguration
+import Amazonka.MediaTailor.GetPrefetchSchedule
+import Amazonka.MediaTailor.Lens
+import Amazonka.MediaTailor.ListAlerts
+import Amazonka.MediaTailor.ListChannels
+import Amazonka.MediaTailor.ListPlaybackConfigurations
+import Amazonka.MediaTailor.ListPrefetchSchedules
+import Amazonka.MediaTailor.ListSourceLocations
+import Amazonka.MediaTailor.ListTagsForResource
+import Amazonka.MediaTailor.ListVodSources
+import Amazonka.MediaTailor.PutChannelPolicy
+import Amazonka.MediaTailor.PutPlaybackConfiguration
+import Amazonka.MediaTailor.StartChannel
+import Amazonka.MediaTailor.StopChannel
+import Amazonka.MediaTailor.TagResource
+import Amazonka.MediaTailor.Types
+import Amazonka.MediaTailor.UntagResource
+import Amazonka.MediaTailor.UpdateChannel
+import Amazonka.MediaTailor.UpdateSourceLocation
+import Amazonka.MediaTailor.UpdateVodSource
+import Amazonka.MediaTailor.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Types.PlaybackConfiguration
+-- Module      : Amazonka.MediaTailor.Types.PlaybackConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Types.PlaybackConfiguration where
+module Amazonka.MediaTailor.Types.PlaybackConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaTailor.Types.AvailSuppression
-import Network.AWS.MediaTailor.Types.Bumper
-import Network.AWS.MediaTailor.Types.CdnConfiguration
-import Network.AWS.MediaTailor.Types.DashConfiguration
-import Network.AWS.MediaTailor.Types.HlsConfiguration
-import Network.AWS.MediaTailor.Types.LivePreRollConfiguration
-import Network.AWS.MediaTailor.Types.LogConfiguration
-import Network.AWS.MediaTailor.Types.ManifestProcessingRules
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaTailor.Types.AvailSuppression
+import Amazonka.MediaTailor.Types.Bumper
+import Amazonka.MediaTailor.Types.CdnConfiguration
+import Amazonka.MediaTailor.Types.DashConfiguration
+import Amazonka.MediaTailor.Types.HlsConfiguration
+import Amazonka.MediaTailor.Types.LivePreRollConfiguration
+import Amazonka.MediaTailor.Types.LogConfiguration
+import Amazonka.MediaTailor.Types.ManifestProcessingRules
+import qualified Amazonka.Prelude as Prelude
 
 -- | Creates a playback configuration. For information about MediaTailor
 -- configurations, see

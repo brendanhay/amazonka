@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MediaTailor where
 
+import Amazonka.MediaTailor
 import qualified Data.Proxy as Proxy
-import Network.AWS.MediaTailor
 import Test.AWS.Fixture
 import Test.AWS.MediaTailor.Internal
 import Test.AWS.Prelude

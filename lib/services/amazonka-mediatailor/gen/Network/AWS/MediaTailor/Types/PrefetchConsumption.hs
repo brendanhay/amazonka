@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Types.PrefetchConsumption
+-- Module      : Amazonka.MediaTailor.Types.PrefetchConsumption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Types.PrefetchConsumption where
+module Amazonka.MediaTailor.Types.PrefetchConsumption where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaTailor.Types.AvailMatchingCriteria
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaTailor.Types.AvailMatchingCriteria
+import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains settings that determine how and when that
 -- MediaTailor places prefetched ads into upcoming ad breaks.

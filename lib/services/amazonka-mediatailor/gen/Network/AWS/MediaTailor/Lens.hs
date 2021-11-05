@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Lens
+-- Module      : Amazonka.MediaTailor.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Lens
+module Amazonka.MediaTailor.Lens
   ( -- * Operations
 
     -- ** CreateSourceLocation
@@ -583,75 +583,75 @@ module Network.AWS.MediaTailor.Lens
   )
 where
 
-import Network.AWS.MediaTailor.ConfigureLogsForPlaybackConfiguration
-import Network.AWS.MediaTailor.CreateChannel
-import Network.AWS.MediaTailor.CreatePrefetchSchedule
-import Network.AWS.MediaTailor.CreateProgram
-import Network.AWS.MediaTailor.CreateSourceLocation
-import Network.AWS.MediaTailor.CreateVodSource
-import Network.AWS.MediaTailor.DeleteChannel
-import Network.AWS.MediaTailor.DeleteChannelPolicy
-import Network.AWS.MediaTailor.DeletePlaybackConfiguration
-import Network.AWS.MediaTailor.DeletePrefetchSchedule
-import Network.AWS.MediaTailor.DeleteProgram
-import Network.AWS.MediaTailor.DeleteSourceLocation
-import Network.AWS.MediaTailor.DeleteVodSource
-import Network.AWS.MediaTailor.DescribeChannel
-import Network.AWS.MediaTailor.DescribeProgram
-import Network.AWS.MediaTailor.DescribeSourceLocation
-import Network.AWS.MediaTailor.DescribeVodSource
-import Network.AWS.MediaTailor.GetChannelPolicy
-import Network.AWS.MediaTailor.GetChannelSchedule
-import Network.AWS.MediaTailor.GetPlaybackConfiguration
-import Network.AWS.MediaTailor.GetPrefetchSchedule
-import Network.AWS.MediaTailor.ListAlerts
-import Network.AWS.MediaTailor.ListChannels
-import Network.AWS.MediaTailor.ListPlaybackConfigurations
-import Network.AWS.MediaTailor.ListPrefetchSchedules
-import Network.AWS.MediaTailor.ListSourceLocations
-import Network.AWS.MediaTailor.ListTagsForResource
-import Network.AWS.MediaTailor.ListVodSources
-import Network.AWS.MediaTailor.PutChannelPolicy
-import Network.AWS.MediaTailor.PutPlaybackConfiguration
-import Network.AWS.MediaTailor.StartChannel
-import Network.AWS.MediaTailor.StopChannel
-import Network.AWS.MediaTailor.TagResource
-import Network.AWS.MediaTailor.Types.AccessConfiguration
-import Network.AWS.MediaTailor.Types.AdBreak
-import Network.AWS.MediaTailor.Types.AdMarkerPassthrough
-import Network.AWS.MediaTailor.Types.Alert
-import Network.AWS.MediaTailor.Types.AvailMatchingCriteria
-import Network.AWS.MediaTailor.Types.AvailSuppression
-import Network.AWS.MediaTailor.Types.Bumper
-import Network.AWS.MediaTailor.Types.CdnConfiguration
-import Network.AWS.MediaTailor.Types.Channel
-import Network.AWS.MediaTailor.Types.DashConfiguration
-import Network.AWS.MediaTailor.Types.DashConfigurationForPut
-import Network.AWS.MediaTailor.Types.DashPlaylistSettings
-import Network.AWS.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
-import Network.AWS.MediaTailor.Types.HlsConfiguration
-import Network.AWS.MediaTailor.Types.HlsPlaylistSettings
-import Network.AWS.MediaTailor.Types.HttpConfiguration
-import Network.AWS.MediaTailor.Types.HttpPackageConfiguration
-import Network.AWS.MediaTailor.Types.LivePreRollConfiguration
-import Network.AWS.MediaTailor.Types.LogConfiguration
-import Network.AWS.MediaTailor.Types.ManifestProcessingRules
-import Network.AWS.MediaTailor.Types.PlaybackConfiguration
-import Network.AWS.MediaTailor.Types.PrefetchConsumption
-import Network.AWS.MediaTailor.Types.PrefetchRetrieval
-import Network.AWS.MediaTailor.Types.PrefetchSchedule
-import Network.AWS.MediaTailor.Types.RequestOutputItem
-import Network.AWS.MediaTailor.Types.ResponseOutputItem
-import Network.AWS.MediaTailor.Types.ScheduleAdBreak
-import Network.AWS.MediaTailor.Types.ScheduleConfiguration
-import Network.AWS.MediaTailor.Types.ScheduleEntry
-import Network.AWS.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
-import Network.AWS.MediaTailor.Types.SlateSource
-import Network.AWS.MediaTailor.Types.SourceLocation
-import Network.AWS.MediaTailor.Types.SpliceInsertMessage
-import Network.AWS.MediaTailor.Types.Transition
-import Network.AWS.MediaTailor.Types.VodSource
-import Network.AWS.MediaTailor.UntagResource
-import Network.AWS.MediaTailor.UpdateChannel
-import Network.AWS.MediaTailor.UpdateSourceLocation
-import Network.AWS.MediaTailor.UpdateVodSource
+import Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
+import Amazonka.MediaTailor.CreateChannel
+import Amazonka.MediaTailor.CreatePrefetchSchedule
+import Amazonka.MediaTailor.CreateProgram
+import Amazonka.MediaTailor.CreateSourceLocation
+import Amazonka.MediaTailor.CreateVodSource
+import Amazonka.MediaTailor.DeleteChannel
+import Amazonka.MediaTailor.DeleteChannelPolicy
+import Amazonka.MediaTailor.DeletePlaybackConfiguration
+import Amazonka.MediaTailor.DeletePrefetchSchedule
+import Amazonka.MediaTailor.DeleteProgram
+import Amazonka.MediaTailor.DeleteSourceLocation
+import Amazonka.MediaTailor.DeleteVodSource
+import Amazonka.MediaTailor.DescribeChannel
+import Amazonka.MediaTailor.DescribeProgram
+import Amazonka.MediaTailor.DescribeSourceLocation
+import Amazonka.MediaTailor.DescribeVodSource
+import Amazonka.MediaTailor.GetChannelPolicy
+import Amazonka.MediaTailor.GetChannelSchedule
+import Amazonka.MediaTailor.GetPlaybackConfiguration
+import Amazonka.MediaTailor.GetPrefetchSchedule
+import Amazonka.MediaTailor.ListAlerts
+import Amazonka.MediaTailor.ListChannels
+import Amazonka.MediaTailor.ListPlaybackConfigurations
+import Amazonka.MediaTailor.ListPrefetchSchedules
+import Amazonka.MediaTailor.ListSourceLocations
+import Amazonka.MediaTailor.ListTagsForResource
+import Amazonka.MediaTailor.ListVodSources
+import Amazonka.MediaTailor.PutChannelPolicy
+import Amazonka.MediaTailor.PutPlaybackConfiguration
+import Amazonka.MediaTailor.StartChannel
+import Amazonka.MediaTailor.StopChannel
+import Amazonka.MediaTailor.TagResource
+import Amazonka.MediaTailor.Types.AccessConfiguration
+import Amazonka.MediaTailor.Types.AdBreak
+import Amazonka.MediaTailor.Types.AdMarkerPassthrough
+import Amazonka.MediaTailor.Types.Alert
+import Amazonka.MediaTailor.Types.AvailMatchingCriteria
+import Amazonka.MediaTailor.Types.AvailSuppression
+import Amazonka.MediaTailor.Types.Bumper
+import Amazonka.MediaTailor.Types.CdnConfiguration
+import Amazonka.MediaTailor.Types.Channel
+import Amazonka.MediaTailor.Types.DashConfiguration
+import Amazonka.MediaTailor.Types.DashConfigurationForPut
+import Amazonka.MediaTailor.Types.DashPlaylistSettings
+import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.HlsConfiguration
+import Amazonka.MediaTailor.Types.HlsPlaylistSettings
+import Amazonka.MediaTailor.Types.HttpConfiguration
+import Amazonka.MediaTailor.Types.HttpPackageConfiguration
+import Amazonka.MediaTailor.Types.LivePreRollConfiguration
+import Amazonka.MediaTailor.Types.LogConfiguration
+import Amazonka.MediaTailor.Types.ManifestProcessingRules
+import Amazonka.MediaTailor.Types.PlaybackConfiguration
+import Amazonka.MediaTailor.Types.PrefetchConsumption
+import Amazonka.MediaTailor.Types.PrefetchRetrieval
+import Amazonka.MediaTailor.Types.PrefetchSchedule
+import Amazonka.MediaTailor.Types.RequestOutputItem
+import Amazonka.MediaTailor.Types.ResponseOutputItem
+import Amazonka.MediaTailor.Types.ScheduleAdBreak
+import Amazonka.MediaTailor.Types.ScheduleConfiguration
+import Amazonka.MediaTailor.Types.ScheduleEntry
+import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
+import Amazonka.MediaTailor.Types.SlateSource
+import Amazonka.MediaTailor.Types.SourceLocation
+import Amazonka.MediaTailor.Types.SpliceInsertMessage
+import Amazonka.MediaTailor.Types.Transition
+import Amazonka.MediaTailor.Types.VodSource
+import Amazonka.MediaTailor.UntagResource
+import Amazonka.MediaTailor.UpdateChannel
+import Amazonka.MediaTailor.UpdateSourceLocation
+import Amazonka.MediaTailor.UpdateVodSource

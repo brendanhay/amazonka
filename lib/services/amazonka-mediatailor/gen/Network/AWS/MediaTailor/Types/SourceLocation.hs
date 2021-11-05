@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Types.SourceLocation
+-- Module      : Amazonka.MediaTailor.Types.SourceLocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Types.SourceLocation where
+module Amazonka.MediaTailor.Types.SourceLocation where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaTailor.Types.AccessConfiguration
-import Network.AWS.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
-import Network.AWS.MediaTailor.Types.HttpConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaTailor.Types.AccessConfiguration
+import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.HttpConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | This response includes only the \"type\" : \"object\" property.
 --

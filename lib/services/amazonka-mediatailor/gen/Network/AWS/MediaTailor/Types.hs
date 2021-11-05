@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaTailor.Types
+-- Module      : Amazonka.MediaTailor.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaTailor.Types
+module Amazonka.MediaTailor.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -322,55 +322,55 @@ module Network.AWS.MediaTailor.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaTailor.Types.AccessConfiguration
-import Network.AWS.MediaTailor.Types.AccessType
-import Network.AWS.MediaTailor.Types.AdBreak
-import Network.AWS.MediaTailor.Types.AdMarkerPassthrough
-import Network.AWS.MediaTailor.Types.Alert
-import Network.AWS.MediaTailor.Types.AvailMatchingCriteria
-import Network.AWS.MediaTailor.Types.AvailSuppression
-import Network.AWS.MediaTailor.Types.Bumper
-import Network.AWS.MediaTailor.Types.CdnConfiguration
-import Network.AWS.MediaTailor.Types.Channel
-import Network.AWS.MediaTailor.Types.ChannelState
-import Network.AWS.MediaTailor.Types.DashConfiguration
-import Network.AWS.MediaTailor.Types.DashConfigurationForPut
-import Network.AWS.MediaTailor.Types.DashPlaylistSettings
-import Network.AWS.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
-import Network.AWS.MediaTailor.Types.HlsConfiguration
-import Network.AWS.MediaTailor.Types.HlsPlaylistSettings
-import Network.AWS.MediaTailor.Types.HttpConfiguration
-import Network.AWS.MediaTailor.Types.HttpPackageConfiguration
-import Network.AWS.MediaTailor.Types.LivePreRollConfiguration
-import Network.AWS.MediaTailor.Types.LogConfiguration
-import Network.AWS.MediaTailor.Types.ManifestProcessingRules
-import Network.AWS.MediaTailor.Types.MessageType
-import Network.AWS.MediaTailor.Types.Mode
-import Network.AWS.MediaTailor.Types.Operator
-import Network.AWS.MediaTailor.Types.OriginManifestType
-import Network.AWS.MediaTailor.Types.PlaybackConfiguration
-import Network.AWS.MediaTailor.Types.PlaybackMode
-import Network.AWS.MediaTailor.Types.PrefetchConsumption
-import Network.AWS.MediaTailor.Types.PrefetchRetrieval
-import Network.AWS.MediaTailor.Types.PrefetchSchedule
-import Network.AWS.MediaTailor.Types.RelativePosition
-import Network.AWS.MediaTailor.Types.RequestOutputItem
-import Network.AWS.MediaTailor.Types.ResponseOutputItem
-import Network.AWS.MediaTailor.Types.ScheduleAdBreak
-import Network.AWS.MediaTailor.Types.ScheduleConfiguration
-import Network.AWS.MediaTailor.Types.ScheduleEntry
-import Network.AWS.MediaTailor.Types.ScheduleEntryType
-import Network.AWS.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
-import Network.AWS.MediaTailor.Types.SlateSource
-import Network.AWS.MediaTailor.Types.SourceLocation
-import Network.AWS.MediaTailor.Types.SpliceInsertMessage
-import Network.AWS.MediaTailor.Types.Transition
-import Network.AWS.MediaTailor.Types.Type
-import Network.AWS.MediaTailor.Types.VodSource
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaTailor.Types.AccessConfiguration
+import Amazonka.MediaTailor.Types.AccessType
+import Amazonka.MediaTailor.Types.AdBreak
+import Amazonka.MediaTailor.Types.AdMarkerPassthrough
+import Amazonka.MediaTailor.Types.Alert
+import Amazonka.MediaTailor.Types.AvailMatchingCriteria
+import Amazonka.MediaTailor.Types.AvailSuppression
+import Amazonka.MediaTailor.Types.Bumper
+import Amazonka.MediaTailor.Types.CdnConfiguration
+import Amazonka.MediaTailor.Types.Channel
+import Amazonka.MediaTailor.Types.ChannelState
+import Amazonka.MediaTailor.Types.DashConfiguration
+import Amazonka.MediaTailor.Types.DashConfigurationForPut
+import Amazonka.MediaTailor.Types.DashPlaylistSettings
+import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.HlsConfiguration
+import Amazonka.MediaTailor.Types.HlsPlaylistSettings
+import Amazonka.MediaTailor.Types.HttpConfiguration
+import Amazonka.MediaTailor.Types.HttpPackageConfiguration
+import Amazonka.MediaTailor.Types.LivePreRollConfiguration
+import Amazonka.MediaTailor.Types.LogConfiguration
+import Amazonka.MediaTailor.Types.ManifestProcessingRules
+import Amazonka.MediaTailor.Types.MessageType
+import Amazonka.MediaTailor.Types.Mode
+import Amazonka.MediaTailor.Types.Operator
+import Amazonka.MediaTailor.Types.OriginManifestType
+import Amazonka.MediaTailor.Types.PlaybackConfiguration
+import Amazonka.MediaTailor.Types.PlaybackMode
+import Amazonka.MediaTailor.Types.PrefetchConsumption
+import Amazonka.MediaTailor.Types.PrefetchRetrieval
+import Amazonka.MediaTailor.Types.PrefetchSchedule
+import Amazonka.MediaTailor.Types.RelativePosition
+import Amazonka.MediaTailor.Types.RequestOutputItem
+import Amazonka.MediaTailor.Types.ResponseOutputItem
+import Amazonka.MediaTailor.Types.ScheduleAdBreak
+import Amazonka.MediaTailor.Types.ScheduleConfiguration
+import Amazonka.MediaTailor.Types.ScheduleEntry
+import Amazonka.MediaTailor.Types.ScheduleEntryType
+import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
+import Amazonka.MediaTailor.Types.SlateSource
+import Amazonka.MediaTailor.Types.SourceLocation
+import Amazonka.MediaTailor.Types.SpliceInsertMessage
+import Amazonka.MediaTailor.Types.Transition
+import Amazonka.MediaTailor.Types.Type
+import Amazonka.MediaTailor.Types.VodSource
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-04-23@ of the Amazon MediaTailor SDK configuration.
 defaultService :: Core.Service

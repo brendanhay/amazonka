@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.Types
+-- Module      : Amazonka.GroundStation.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GroundStation.Types
+module Amazonka.GroundStation.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -296,55 +296,55 @@ module Network.AWS.GroundStation.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GroundStation.Types.AngleUnits
-import Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails
-import Network.AWS.GroundStation.Types.AntennaDownlinkConfig
-import Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
-import Network.AWS.GroundStation.Types.AntennaUplinkConfig
-import Network.AWS.GroundStation.Types.BandwidthUnits
-import Network.AWS.GroundStation.Types.ConfigCapabilityType
-import Network.AWS.GroundStation.Types.ConfigDetails
-import Network.AWS.GroundStation.Types.ConfigIdResponse
-import Network.AWS.GroundStation.Types.ConfigListItem
-import Network.AWS.GroundStation.Types.ConfigTypeData
-import Network.AWS.GroundStation.Types.ContactData
-import Network.AWS.GroundStation.Types.ContactIdResponse
-import Network.AWS.GroundStation.Types.ContactStatus
-import Network.AWS.GroundStation.Types.Criticality
-import Network.AWS.GroundStation.Types.DataflowDetail
-import Network.AWS.GroundStation.Types.DataflowEndpoint
-import Network.AWS.GroundStation.Types.DataflowEndpointConfig
-import Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse
-import Network.AWS.GroundStation.Types.DataflowEndpointListItem
-import Network.AWS.GroundStation.Types.DecodeConfig
-import Network.AWS.GroundStation.Types.DemodulationConfig
-import Network.AWS.GroundStation.Types.Destination
-import Network.AWS.GroundStation.Types.Eirp
-import Network.AWS.GroundStation.Types.EirpUnits
-import Network.AWS.GroundStation.Types.Elevation
-import Network.AWS.GroundStation.Types.EndpointDetails
-import Network.AWS.GroundStation.Types.EndpointStatus
-import Network.AWS.GroundStation.Types.Frequency
-import Network.AWS.GroundStation.Types.FrequencyBandwidth
-import Network.AWS.GroundStation.Types.FrequencyUnits
-import Network.AWS.GroundStation.Types.GroundStationData
-import Network.AWS.GroundStation.Types.MissionProfileIdResponse
-import Network.AWS.GroundStation.Types.MissionProfileListItem
-import Network.AWS.GroundStation.Types.Polarization
-import Network.AWS.GroundStation.Types.S3RecordingConfig
-import Network.AWS.GroundStation.Types.S3RecordingDetails
-import Network.AWS.GroundStation.Types.SatelliteListItem
-import Network.AWS.GroundStation.Types.SecurityDetails
-import Network.AWS.GroundStation.Types.SocketAddress
-import Network.AWS.GroundStation.Types.Source
-import Network.AWS.GroundStation.Types.SpectrumConfig
-import Network.AWS.GroundStation.Types.TrackingConfig
-import Network.AWS.GroundStation.Types.UplinkEchoConfig
-import Network.AWS.GroundStation.Types.UplinkSpectrumConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.GroundStation.Types.AngleUnits
+import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
+import Amazonka.GroundStation.Types.AntennaDownlinkConfig
+import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+import Amazonka.GroundStation.Types.AntennaUplinkConfig
+import Amazonka.GroundStation.Types.BandwidthUnits
+import Amazonka.GroundStation.Types.ConfigCapabilityType
+import Amazonka.GroundStation.Types.ConfigDetails
+import Amazonka.GroundStation.Types.ConfigIdResponse
+import Amazonka.GroundStation.Types.ConfigListItem
+import Amazonka.GroundStation.Types.ConfigTypeData
+import Amazonka.GroundStation.Types.ContactData
+import Amazonka.GroundStation.Types.ContactIdResponse
+import Amazonka.GroundStation.Types.ContactStatus
+import Amazonka.GroundStation.Types.Criticality
+import Amazonka.GroundStation.Types.DataflowDetail
+import Amazonka.GroundStation.Types.DataflowEndpoint
+import Amazonka.GroundStation.Types.DataflowEndpointConfig
+import Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse
+import Amazonka.GroundStation.Types.DataflowEndpointListItem
+import Amazonka.GroundStation.Types.DecodeConfig
+import Amazonka.GroundStation.Types.DemodulationConfig
+import Amazonka.GroundStation.Types.Destination
+import Amazonka.GroundStation.Types.Eirp
+import Amazonka.GroundStation.Types.EirpUnits
+import Amazonka.GroundStation.Types.Elevation
+import Amazonka.GroundStation.Types.EndpointDetails
+import Amazonka.GroundStation.Types.EndpointStatus
+import Amazonka.GroundStation.Types.Frequency
+import Amazonka.GroundStation.Types.FrequencyBandwidth
+import Amazonka.GroundStation.Types.FrequencyUnits
+import Amazonka.GroundStation.Types.GroundStationData
+import Amazonka.GroundStation.Types.MissionProfileIdResponse
+import Amazonka.GroundStation.Types.MissionProfileListItem
+import Amazonka.GroundStation.Types.Polarization
+import Amazonka.GroundStation.Types.S3RecordingConfig
+import Amazonka.GroundStation.Types.S3RecordingDetails
+import Amazonka.GroundStation.Types.SatelliteListItem
+import Amazonka.GroundStation.Types.SecurityDetails
+import Amazonka.GroundStation.Types.SocketAddress
+import Amazonka.GroundStation.Types.Source
+import Amazonka.GroundStation.Types.SpectrumConfig
+import Amazonka.GroundStation.Types.TrackingConfig
+import Amazonka.GroundStation.Types.UplinkEchoConfig
+import Amazonka.GroundStation.Types.UplinkSpectrumConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-05-23@ of the Amazon Ground Station SDK configuration.
 defaultService :: Core.Service

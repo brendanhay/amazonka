@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.CreateConfig
+-- Module      : Amazonka.GroundStation.CreateConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a @Config@ with the specified @configData@ parameters.
 --
 -- Only one type of @configData@ can be specified.
-module Network.AWS.GroundStation.CreateConfig
+module Amazonka.GroundStation.CreateConfig
   ( -- * Creating a Request
     CreateConfig (..),
     newCreateConfig,
@@ -44,12 +44,12 @@ module Network.AWS.GroundStation.CreateConfig
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GroundStation.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GroundStation.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

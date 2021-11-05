@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.Types.ConfigTypeData
+-- Module      : Amazonka.GroundStation.Types.ConfigTypeData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GroundStation.Types.ConfigTypeData where
+module Amazonka.GroundStation.Types.ConfigTypeData where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GroundStation.Types.AntennaDownlinkConfig
-import Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
-import Network.AWS.GroundStation.Types.AntennaUplinkConfig
-import Network.AWS.GroundStation.Types.DataflowEndpointConfig
-import Network.AWS.GroundStation.Types.S3RecordingConfig
-import Network.AWS.GroundStation.Types.TrackingConfig
-import Network.AWS.GroundStation.Types.UplinkEchoConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GroundStation.Types.AntennaDownlinkConfig
+import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+import Amazonka.GroundStation.Types.AntennaUplinkConfig
+import Amazonka.GroundStation.Types.DataflowEndpointConfig
+import Amazonka.GroundStation.Types.S3RecordingConfig
+import Amazonka.GroundStation.Types.TrackingConfig
+import Amazonka.GroundStation.Types.UplinkEchoConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing the parameters of a @Config@.
 --

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.Types.TrackingConfig
+-- Module      : Amazonka.GroundStation.Types.TrackingConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GroundStation.Types.TrackingConfig where
+module Amazonka.GroundStation.Types.TrackingConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GroundStation.Types.Criticality
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GroundStation.Types.Criticality
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Object that determines whether tracking should be used during a contact
 -- executed with this @Config@ in the mission profile.

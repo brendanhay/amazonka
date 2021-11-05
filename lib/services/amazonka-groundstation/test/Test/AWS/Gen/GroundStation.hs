@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GroundStation where
 
+import Amazonka.GroundStation
 import qualified Data.Proxy as Proxy
-import Network.AWS.GroundStation
 import Test.AWS.Fixture
 import Test.AWS.GroundStation.Internal
 import Test.AWS.Prelude

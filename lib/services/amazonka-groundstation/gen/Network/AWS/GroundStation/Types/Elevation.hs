@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.Types.Elevation
+-- Module      : Amazonka.GroundStation.Types.Elevation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GroundStation.Types.Elevation where
+module Amazonka.GroundStation.Types.Elevation where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GroundStation.Types.AngleUnits
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GroundStation.Types.AngleUnits
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Elevation angle of the satellite in the sky during a contact.
 --

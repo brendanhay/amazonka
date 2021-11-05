@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.GroundStation
+-- Module      : Amazonka.GroundStation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- communications, downlink and process satellite data, and scale your
 -- satellite operations efficiently and cost-effectively without having to
 -- build or manage your own ground station infrastructure.
-module Network.AWS.GroundStation
+module Amazonka.GroundStation
   ( -- * Service Configuration
     defaultService,
 
@@ -366,34 +366,34 @@ module Network.AWS.GroundStation
   )
 where
 
-import Network.AWS.GroundStation.CancelContact
-import Network.AWS.GroundStation.CreateConfig
-import Network.AWS.GroundStation.CreateDataflowEndpointGroup
-import Network.AWS.GroundStation.CreateMissionProfile
-import Network.AWS.GroundStation.DeleteConfig
-import Network.AWS.GroundStation.DeleteDataflowEndpointGroup
-import Network.AWS.GroundStation.DeleteMissionProfile
-import Network.AWS.GroundStation.DescribeContact
-import Network.AWS.GroundStation.GetConfig
-import Network.AWS.GroundStation.GetDataflowEndpointGroup
-import Network.AWS.GroundStation.GetMinuteUsage
-import Network.AWS.GroundStation.GetMissionProfile
-import Network.AWS.GroundStation.GetSatellite
-import Network.AWS.GroundStation.Lens
-import Network.AWS.GroundStation.ListConfigs
-import Network.AWS.GroundStation.ListContacts
-import Network.AWS.GroundStation.ListDataflowEndpointGroups
-import Network.AWS.GroundStation.ListGroundStations
-import Network.AWS.GroundStation.ListMissionProfiles
-import Network.AWS.GroundStation.ListSatellites
-import Network.AWS.GroundStation.ListTagsForResource
-import Network.AWS.GroundStation.ReserveContact
-import Network.AWS.GroundStation.TagResource
-import Network.AWS.GroundStation.Types
-import Network.AWS.GroundStation.UntagResource
-import Network.AWS.GroundStation.UpdateConfig
-import Network.AWS.GroundStation.UpdateMissionProfile
-import Network.AWS.GroundStation.Waiters
+import Amazonka.GroundStation.CancelContact
+import Amazonka.GroundStation.CreateConfig
+import Amazonka.GroundStation.CreateDataflowEndpointGroup
+import Amazonka.GroundStation.CreateMissionProfile
+import Amazonka.GroundStation.DeleteConfig
+import Amazonka.GroundStation.DeleteDataflowEndpointGroup
+import Amazonka.GroundStation.DeleteMissionProfile
+import Amazonka.GroundStation.DescribeContact
+import Amazonka.GroundStation.GetConfig
+import Amazonka.GroundStation.GetDataflowEndpointGroup
+import Amazonka.GroundStation.GetMinuteUsage
+import Amazonka.GroundStation.GetMissionProfile
+import Amazonka.GroundStation.GetSatellite
+import Amazonka.GroundStation.Lens
+import Amazonka.GroundStation.ListConfigs
+import Amazonka.GroundStation.ListContacts
+import Amazonka.GroundStation.ListDataflowEndpointGroups
+import Amazonka.GroundStation.ListGroundStations
+import Amazonka.GroundStation.ListMissionProfiles
+import Amazonka.GroundStation.ListSatellites
+import Amazonka.GroundStation.ListTagsForResource
+import Amazonka.GroundStation.ReserveContact
+import Amazonka.GroundStation.TagResource
+import Amazonka.GroundStation.Types
+import Amazonka.GroundStation.UntagResource
+import Amazonka.GroundStation.UpdateConfig
+import Amazonka.GroundStation.UpdateMissionProfile
+import Amazonka.GroundStation.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

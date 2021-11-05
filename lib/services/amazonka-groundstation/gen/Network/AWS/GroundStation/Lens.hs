@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GroundStation.Lens
+-- Module      : Amazonka.GroundStation.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GroundStation.Lens
+module Amazonka.GroundStation.Lens
   ( -- * Operations
 
     -- ** DeleteDataflowEndpointGroup
@@ -394,64 +394,64 @@ module Network.AWS.GroundStation.Lens
   )
 where
 
-import Network.AWS.GroundStation.CancelContact
-import Network.AWS.GroundStation.CreateConfig
-import Network.AWS.GroundStation.CreateDataflowEndpointGroup
-import Network.AWS.GroundStation.CreateMissionProfile
-import Network.AWS.GroundStation.DeleteConfig
-import Network.AWS.GroundStation.DeleteDataflowEndpointGroup
-import Network.AWS.GroundStation.DeleteMissionProfile
-import Network.AWS.GroundStation.DescribeContact
-import Network.AWS.GroundStation.GetConfig
-import Network.AWS.GroundStation.GetDataflowEndpointGroup
-import Network.AWS.GroundStation.GetMinuteUsage
-import Network.AWS.GroundStation.GetMissionProfile
-import Network.AWS.GroundStation.GetSatellite
-import Network.AWS.GroundStation.ListConfigs
-import Network.AWS.GroundStation.ListContacts
-import Network.AWS.GroundStation.ListDataflowEndpointGroups
-import Network.AWS.GroundStation.ListGroundStations
-import Network.AWS.GroundStation.ListMissionProfiles
-import Network.AWS.GroundStation.ListSatellites
-import Network.AWS.GroundStation.ListTagsForResource
-import Network.AWS.GroundStation.ReserveContact
-import Network.AWS.GroundStation.TagResource
-import Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails
-import Network.AWS.GroundStation.Types.AntennaDownlinkConfig
-import Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
-import Network.AWS.GroundStation.Types.AntennaUplinkConfig
-import Network.AWS.GroundStation.Types.ConfigDetails
-import Network.AWS.GroundStation.Types.ConfigIdResponse
-import Network.AWS.GroundStation.Types.ConfigListItem
-import Network.AWS.GroundStation.Types.ConfigTypeData
-import Network.AWS.GroundStation.Types.ContactData
-import Network.AWS.GroundStation.Types.ContactIdResponse
-import Network.AWS.GroundStation.Types.DataflowDetail
-import Network.AWS.GroundStation.Types.DataflowEndpoint
-import Network.AWS.GroundStation.Types.DataflowEndpointConfig
-import Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse
-import Network.AWS.GroundStation.Types.DataflowEndpointListItem
-import Network.AWS.GroundStation.Types.DecodeConfig
-import Network.AWS.GroundStation.Types.DemodulationConfig
-import Network.AWS.GroundStation.Types.Destination
-import Network.AWS.GroundStation.Types.Eirp
-import Network.AWS.GroundStation.Types.Elevation
-import Network.AWS.GroundStation.Types.EndpointDetails
-import Network.AWS.GroundStation.Types.Frequency
-import Network.AWS.GroundStation.Types.FrequencyBandwidth
-import Network.AWS.GroundStation.Types.GroundStationData
-import Network.AWS.GroundStation.Types.MissionProfileIdResponse
-import Network.AWS.GroundStation.Types.MissionProfileListItem
-import Network.AWS.GroundStation.Types.S3RecordingConfig
-import Network.AWS.GroundStation.Types.S3RecordingDetails
-import Network.AWS.GroundStation.Types.SatelliteListItem
-import Network.AWS.GroundStation.Types.SecurityDetails
-import Network.AWS.GroundStation.Types.SocketAddress
-import Network.AWS.GroundStation.Types.Source
-import Network.AWS.GroundStation.Types.SpectrumConfig
-import Network.AWS.GroundStation.Types.TrackingConfig
-import Network.AWS.GroundStation.Types.UplinkEchoConfig
-import Network.AWS.GroundStation.Types.UplinkSpectrumConfig
-import Network.AWS.GroundStation.UntagResource
-import Network.AWS.GroundStation.UpdateConfig
-import Network.AWS.GroundStation.UpdateMissionProfile
+import Amazonka.GroundStation.CancelContact
+import Amazonka.GroundStation.CreateConfig
+import Amazonka.GroundStation.CreateDataflowEndpointGroup
+import Amazonka.GroundStation.CreateMissionProfile
+import Amazonka.GroundStation.DeleteConfig
+import Amazonka.GroundStation.DeleteDataflowEndpointGroup
+import Amazonka.GroundStation.DeleteMissionProfile
+import Amazonka.GroundStation.DescribeContact
+import Amazonka.GroundStation.GetConfig
+import Amazonka.GroundStation.GetDataflowEndpointGroup
+import Amazonka.GroundStation.GetMinuteUsage
+import Amazonka.GroundStation.GetMissionProfile
+import Amazonka.GroundStation.GetSatellite
+import Amazonka.GroundStation.ListConfigs
+import Amazonka.GroundStation.ListContacts
+import Amazonka.GroundStation.ListDataflowEndpointGroups
+import Amazonka.GroundStation.ListGroundStations
+import Amazonka.GroundStation.ListMissionProfiles
+import Amazonka.GroundStation.ListSatellites
+import Amazonka.GroundStation.ListTagsForResource
+import Amazonka.GroundStation.ReserveContact
+import Amazonka.GroundStation.TagResource
+import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
+import Amazonka.GroundStation.Types.AntennaDownlinkConfig
+import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+import Amazonka.GroundStation.Types.AntennaUplinkConfig
+import Amazonka.GroundStation.Types.ConfigDetails
+import Amazonka.GroundStation.Types.ConfigIdResponse
+import Amazonka.GroundStation.Types.ConfigListItem
+import Amazonka.GroundStation.Types.ConfigTypeData
+import Amazonka.GroundStation.Types.ContactData
+import Amazonka.GroundStation.Types.ContactIdResponse
+import Amazonka.GroundStation.Types.DataflowDetail
+import Amazonka.GroundStation.Types.DataflowEndpoint
+import Amazonka.GroundStation.Types.DataflowEndpointConfig
+import Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse
+import Amazonka.GroundStation.Types.DataflowEndpointListItem
+import Amazonka.GroundStation.Types.DecodeConfig
+import Amazonka.GroundStation.Types.DemodulationConfig
+import Amazonka.GroundStation.Types.Destination
+import Amazonka.GroundStation.Types.Eirp
+import Amazonka.GroundStation.Types.Elevation
+import Amazonka.GroundStation.Types.EndpointDetails
+import Amazonka.GroundStation.Types.Frequency
+import Amazonka.GroundStation.Types.FrequencyBandwidth
+import Amazonka.GroundStation.Types.GroundStationData
+import Amazonka.GroundStation.Types.MissionProfileIdResponse
+import Amazonka.GroundStation.Types.MissionProfileListItem
+import Amazonka.GroundStation.Types.S3RecordingConfig
+import Amazonka.GroundStation.Types.S3RecordingDetails
+import Amazonka.GroundStation.Types.SatelliteListItem
+import Amazonka.GroundStation.Types.SecurityDetails
+import Amazonka.GroundStation.Types.SocketAddress
+import Amazonka.GroundStation.Types.Source
+import Amazonka.GroundStation.Types.SpectrumConfig
+import Amazonka.GroundStation.Types.TrackingConfig
+import Amazonka.GroundStation.Types.UplinkEchoConfig
+import Amazonka.GroundStation.Types.UplinkSpectrumConfig
+import Amazonka.GroundStation.UntagResource
+import Amazonka.GroundStation.UpdateConfig
+import Amazonka.GroundStation.UpdateMissionProfile

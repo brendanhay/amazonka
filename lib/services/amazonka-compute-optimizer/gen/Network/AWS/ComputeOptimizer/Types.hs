@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.Types
+-- Module      : Amazonka.ComputeOptimizer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComputeOptimizer.Types
+module Amazonka.ComputeOptimizer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -367,71 +367,71 @@ module Network.AWS.ComputeOptimizer.Types
   )
 where
 
-import Network.AWS.ComputeOptimizer.Types.AccountEnrollmentStatus
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendation
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.CpuVendorArchitecture
-import Network.AWS.ComputeOptimizer.Types.EBSFilter
-import Network.AWS.ComputeOptimizer.Types.EBSFilterName
-import Network.AWS.ComputeOptimizer.Types.EBSFinding
-import Network.AWS.ComputeOptimizer.Types.EBSMetricName
-import Network.AWS.ComputeOptimizer.Types.EBSUtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.EnrollmentFilter
-import Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName
-import Network.AWS.ComputeOptimizer.Types.ExportDestination
-import Network.AWS.ComputeOptimizer.Types.ExportableAutoScalingGroupField
-import Network.AWS.ComputeOptimizer.Types.ExportableInstanceField
-import Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField
-import Network.AWS.ComputeOptimizer.Types.ExportableVolumeField
-import Network.AWS.ComputeOptimizer.Types.FileFormat
-import Network.AWS.ComputeOptimizer.Types.Filter
-import Network.AWS.ComputeOptimizer.Types.FilterName
-import Network.AWS.ComputeOptimizer.Types.Finding
-import Network.AWS.ComputeOptimizer.Types.FindingReasonCode
-import Network.AWS.ComputeOptimizer.Types.GetRecommendationError
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendation
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.JobFilter
-import Network.AWS.ComputeOptimizer.Types.JobFilterName
-import Network.AWS.ComputeOptimizer.Types.JobStatus
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMetricName
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMetricStatistic
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendation
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFilterName
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.MetricName
-import Network.AWS.ComputeOptimizer.Types.MetricStatistic
-import Network.AWS.ComputeOptimizer.Types.PlatformDifference
-import Network.AWS.ComputeOptimizer.Types.ProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.ReasonCodeSummary
-import Network.AWS.ComputeOptimizer.Types.RecommendationExportJob
-import Network.AWS.ComputeOptimizer.Types.RecommendationPreferences
-import Network.AWS.ComputeOptimizer.Types.RecommendationSource
-import Network.AWS.ComputeOptimizer.Types.RecommendationSourceType
-import Network.AWS.ComputeOptimizer.Types.RecommendationSummary
-import Network.AWS.ComputeOptimizer.Types.RecommendedOptionProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.ResourceType
-import Network.AWS.ComputeOptimizer.Types.S3Destination
-import Network.AWS.ComputeOptimizer.Types.S3DestinationConfig
-import Network.AWS.ComputeOptimizer.Types.Status
-import Network.AWS.ComputeOptimizer.Types.Summary
-import Network.AWS.ComputeOptimizer.Types.UtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.VolumeConfiguration
-import Network.AWS.ComputeOptimizer.Types.VolumeRecommendation
-import Network.AWS.ComputeOptimizer.Types.VolumeRecommendationOption
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.CpuVendorArchitecture
+import Amazonka.ComputeOptimizer.Types.EBSFilter
+import Amazonka.ComputeOptimizer.Types.EBSFilterName
+import Amazonka.ComputeOptimizer.Types.EBSFinding
+import Amazonka.ComputeOptimizer.Types.EBSMetricName
+import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
+import Amazonka.ComputeOptimizer.Types.EnrollmentFilterName
+import Amazonka.ComputeOptimizer.Types.ExportDestination
+import Amazonka.ComputeOptimizer.Types.ExportableAutoScalingGroupField
+import Amazonka.ComputeOptimizer.Types.ExportableInstanceField
+import Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
+import Amazonka.ComputeOptimizer.Types.ExportableVolumeField
+import Amazonka.ComputeOptimizer.Types.FileFormat
+import Amazonka.ComputeOptimizer.Types.Filter
+import Amazonka.ComputeOptimizer.Types.FilterName
+import Amazonka.ComputeOptimizer.Types.Finding
+import Amazonka.ComputeOptimizer.Types.FindingReasonCode
+import Amazonka.ComputeOptimizer.Types.GetRecommendationError
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendation
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.JobFilter
+import Amazonka.ComputeOptimizer.Types.JobFilterName
+import Amazonka.ComputeOptimizer.Types.JobStatus
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricName
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMetricStatistic
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilterName
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.MetricName
+import Amazonka.ComputeOptimizer.Types.MetricStatistic
+import Amazonka.ComputeOptimizer.Types.PlatformDifference
+import Amazonka.ComputeOptimizer.Types.ProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
+import Amazonka.ComputeOptimizer.Types.RecommendationExportJob
+import Amazonka.ComputeOptimizer.Types.RecommendationPreferences
+import Amazonka.ComputeOptimizer.Types.RecommendationSource
+import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
+import Amazonka.ComputeOptimizer.Types.RecommendationSummary
+import Amazonka.ComputeOptimizer.Types.RecommendedOptionProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ResourceType
+import Amazonka.ComputeOptimizer.Types.S3Destination
+import Amazonka.ComputeOptimizer.Types.S3DestinationConfig
+import Amazonka.ComputeOptimizer.Types.Status
+import Amazonka.ComputeOptimizer.Types.Summary
+import Amazonka.ComputeOptimizer.Types.UtilizationMetric
+import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
+import Amazonka.ComputeOptimizer.Types.VolumeRecommendation
+import Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-11-01@ of the Amazon Compute Optimizer SDK configuration.
 defaultService :: Core.Service

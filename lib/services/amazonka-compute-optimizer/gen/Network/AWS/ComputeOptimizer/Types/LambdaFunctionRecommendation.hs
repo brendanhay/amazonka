@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendation
+-- Module      : Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendation where
+module Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation where
 
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Lambda function recommendation.
 --

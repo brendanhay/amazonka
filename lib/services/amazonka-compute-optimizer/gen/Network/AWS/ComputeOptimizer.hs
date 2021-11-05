@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer
+-- Module      : Amazonka.ComputeOptimizer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Compute Optimizer, including the required permissions to use the
 -- service, see the
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/ Compute Optimizer User Guide>.
-module Network.AWS.ComputeOptimizer
+module Amazonka.ComputeOptimizer
   ( -- * Service Configuration
     defaultService,
 
@@ -369,23 +369,23 @@ module Network.AWS.ComputeOptimizer
   )
 where
 
-import Network.AWS.ComputeOptimizer.DescribeRecommendationExportJobs
-import Network.AWS.ComputeOptimizer.ExportAutoScalingGroupRecommendations
-import Network.AWS.ComputeOptimizer.ExportEBSVolumeRecommendations
-import Network.AWS.ComputeOptimizer.ExportEC2InstanceRecommendations
-import Network.AWS.ComputeOptimizer.ExportLambdaFunctionRecommendations
-import Network.AWS.ComputeOptimizer.GetAutoScalingGroupRecommendations
-import Network.AWS.ComputeOptimizer.GetEBSVolumeRecommendations
-import Network.AWS.ComputeOptimizer.GetEC2InstanceRecommendations
-import Network.AWS.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
-import Network.AWS.ComputeOptimizer.GetEnrollmentStatus
-import Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization
-import Network.AWS.ComputeOptimizer.GetLambdaFunctionRecommendations
-import Network.AWS.ComputeOptimizer.GetRecommendationSummaries
-import Network.AWS.ComputeOptimizer.Lens
-import Network.AWS.ComputeOptimizer.Types
-import Network.AWS.ComputeOptimizer.UpdateEnrollmentStatus
-import Network.AWS.ComputeOptimizer.Waiters
+import Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
+import Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
+import Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
+import Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
+import Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
+import Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
+import Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetEnrollmentStatus
+import Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
+import Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
+import Amazonka.ComputeOptimizer.GetRecommendationSummaries
+import Amazonka.ComputeOptimizer.Lens
+import Amazonka.ComputeOptimizer.Types
+import Amazonka.ComputeOptimizer.UpdateEnrollmentStatus
+import Amazonka.ComputeOptimizer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

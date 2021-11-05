@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.Types.InstanceRecommendation
+-- Module      : Amazonka.ComputeOptimizer.Types.InstanceRecommendation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComputeOptimizer.Types.InstanceRecommendation where
+module Amazonka.ComputeOptimizer.Types.InstanceRecommendation where
 
-import Network.AWS.ComputeOptimizer.Types.Finding
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.RecommendationSource
-import Network.AWS.ComputeOptimizer.Types.UtilizationMetric
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComputeOptimizer.Types.Finding
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.RecommendationSource
+import Amazonka.ComputeOptimizer.Types.UtilizationMetric
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Amazon EC2 instance recommendation.
 --

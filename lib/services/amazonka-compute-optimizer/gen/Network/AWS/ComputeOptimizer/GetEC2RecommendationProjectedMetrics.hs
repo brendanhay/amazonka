@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+-- Module      : Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- metric is returned only for resources that have the unified CloudWatch
 -- agent installed on them. For more information, see
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent>.
-module Network.AWS.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+module Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
   ( -- * Creating a Request
     GetEC2RecommendationProjectedMetrics (..),
     newGetEC2RecommendationProjectedMetrics,
@@ -51,12 +51,12 @@ module Network.AWS.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
   )
 where
 
-import Network.AWS.ComputeOptimizer.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComputeOptimizer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEC2RecommendationProjectedMetrics' smart constructor.
 data GetEC2RecommendationProjectedMetrics = GetEC2RecommendationProjectedMetrics'

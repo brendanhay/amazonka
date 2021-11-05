@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendation
+-- Module      : Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendation where
+module Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation where
 
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.Finding
-import Network.AWS.ComputeOptimizer.Types.UtilizationMetric
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.Finding
+import Amazonka.ComputeOptimizer.Types.UtilizationMetric
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Auto Scaling group recommendation.
 --

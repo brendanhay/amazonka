@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ComputeOptimizer where
 
+import Amazonka.ComputeOptimizer
 import qualified Data.Proxy as Proxy
-import Network.AWS.ComputeOptimizer
 import Test.AWS.ComputeOptimizer.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

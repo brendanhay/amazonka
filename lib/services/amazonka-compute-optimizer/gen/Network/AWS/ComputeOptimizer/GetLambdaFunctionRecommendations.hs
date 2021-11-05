@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.GetLambdaFunctionRecommendations
+-- Module      : Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- specific set of requirements. For more information, see the
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html Supported resources and requirements>
 -- in the /Compute Optimizer User Guide/.
-module Network.AWS.ComputeOptimizer.GetLambdaFunctionRecommendations
+module Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
   ( -- * Creating a Request
     GetLambdaFunctionRecommendations (..),
     newGetLambdaFunctionRecommendations,
@@ -49,12 +49,12 @@ module Network.AWS.ComputeOptimizer.GetLambdaFunctionRecommendations
   )
 where
 
-import Network.AWS.ComputeOptimizer.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComputeOptimizer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLambdaFunctionRecommendations' smart constructor.
 data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'

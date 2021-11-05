@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComputeOptimizer.Lens
+-- Module      : Amazonka.ComputeOptimizer.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComputeOptimizer.Lens
+module Amazonka.ComputeOptimizer.Lens
   ( -- * Operations
 
     -- ** ExportEBSVolumeRecommendations
@@ -346,49 +346,49 @@ module Network.AWS.ComputeOptimizer.Lens
   )
 where
 
-import Network.AWS.ComputeOptimizer.DescribeRecommendationExportJobs
-import Network.AWS.ComputeOptimizer.ExportAutoScalingGroupRecommendations
-import Network.AWS.ComputeOptimizer.ExportEBSVolumeRecommendations
-import Network.AWS.ComputeOptimizer.ExportEC2InstanceRecommendations
-import Network.AWS.ComputeOptimizer.ExportLambdaFunctionRecommendations
-import Network.AWS.ComputeOptimizer.GetAutoScalingGroupRecommendations
-import Network.AWS.ComputeOptimizer.GetEBSVolumeRecommendations
-import Network.AWS.ComputeOptimizer.GetEC2InstanceRecommendations
-import Network.AWS.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
-import Network.AWS.ComputeOptimizer.GetEnrollmentStatus
-import Network.AWS.ComputeOptimizer.GetEnrollmentStatusesForOrganization
-import Network.AWS.ComputeOptimizer.GetLambdaFunctionRecommendations
-import Network.AWS.ComputeOptimizer.GetRecommendationSummaries
-import Network.AWS.ComputeOptimizer.Types.AccountEnrollmentStatus
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendation
-import Network.AWS.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.EBSFilter
-import Network.AWS.ComputeOptimizer.Types.EBSUtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.EnrollmentFilter
-import Network.AWS.ComputeOptimizer.Types.ExportDestination
-import Network.AWS.ComputeOptimizer.Types.Filter
-import Network.AWS.ComputeOptimizer.Types.GetRecommendationError
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendation
-import Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.JobFilter
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendation
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter
-import Network.AWS.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.ProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.ReasonCodeSummary
-import Network.AWS.ComputeOptimizer.Types.RecommendationExportJob
-import Network.AWS.ComputeOptimizer.Types.RecommendationPreferences
-import Network.AWS.ComputeOptimizer.Types.RecommendationSource
-import Network.AWS.ComputeOptimizer.Types.RecommendationSummary
-import Network.AWS.ComputeOptimizer.Types.RecommendedOptionProjectedMetric
-import Network.AWS.ComputeOptimizer.Types.S3Destination
-import Network.AWS.ComputeOptimizer.Types.S3DestinationConfig
-import Network.AWS.ComputeOptimizer.Types.Summary
-import Network.AWS.ComputeOptimizer.Types.UtilizationMetric
-import Network.AWS.ComputeOptimizer.Types.VolumeConfiguration
-import Network.AWS.ComputeOptimizer.Types.VolumeRecommendation
-import Network.AWS.ComputeOptimizer.Types.VolumeRecommendationOption
-import Network.AWS.ComputeOptimizer.UpdateEnrollmentStatus
+import Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
+import Amazonka.ComputeOptimizer.ExportAutoScalingGroupRecommendations
+import Amazonka.ComputeOptimizer.ExportEBSVolumeRecommendations
+import Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
+import Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
+import Amazonka.ComputeOptimizer.GetEBSVolumeRecommendations
+import Amazonka.ComputeOptimizer.GetEC2InstanceRecommendations
+import Amazonka.ComputeOptimizer.GetEC2RecommendationProjectedMetrics
+import Amazonka.ComputeOptimizer.GetEnrollmentStatus
+import Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
+import Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
+import Amazonka.ComputeOptimizer.GetRecommendationSummaries
+import Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation
+import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.EBSFilter
+import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
+import Amazonka.ComputeOptimizer.Types.ExportDestination
+import Amazonka.ComputeOptimizer.Types.Filter
+import Amazonka.ComputeOptimizer.Types.GetRecommendationError
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendation
+import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.JobFilter
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendation
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFilter
+import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.ProjectedMetric
+import Amazonka.ComputeOptimizer.Types.ReasonCodeSummary
+import Amazonka.ComputeOptimizer.Types.RecommendationExportJob
+import Amazonka.ComputeOptimizer.Types.RecommendationPreferences
+import Amazonka.ComputeOptimizer.Types.RecommendationSource
+import Amazonka.ComputeOptimizer.Types.RecommendationSummary
+import Amazonka.ComputeOptimizer.Types.RecommendedOptionProjectedMetric
+import Amazonka.ComputeOptimizer.Types.S3Destination
+import Amazonka.ComputeOptimizer.Types.S3DestinationConfig
+import Amazonka.ComputeOptimizer.Types.Summary
+import Amazonka.ComputeOptimizer.Types.UtilizationMetric
+import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
+import Amazonka.ComputeOptimizer.Types.VolumeRecommendation
+import Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption
+import Amazonka.ComputeOptimizer.UpdateEnrollmentStatus

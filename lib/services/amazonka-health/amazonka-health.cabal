@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AWSHealth.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AWSHealth.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AWSHealth" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AWSHealth" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,48 +45,48 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AWSHealth
-    Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
-    Network.AWS.AWSHealth.DescribeAffectedEntities
-    Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
-    Network.AWS.AWSHealth.DescribeEntityAggregates
-    Network.AWS.AWSHealth.DescribeEventAggregates
-    Network.AWS.AWSHealth.DescribeEventDetails
-    Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
-    Network.AWS.AWSHealth.DescribeEvents
-    Network.AWS.AWSHealth.DescribeEventsForOrganization
-    Network.AWS.AWSHealth.DescribeEventTypes
-    Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
-    Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
-    Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
-    Network.AWS.AWSHealth.Lens
-    Network.AWS.AWSHealth.Types
-    Network.AWS.AWSHealth.Types.AffectedEntity
-    Network.AWS.AWSHealth.Types.DateTimeRange
-    Network.AWS.AWSHealth.Types.EntityAggregate
-    Network.AWS.AWSHealth.Types.EntityFilter
-    Network.AWS.AWSHealth.Types.EntityStatusCode
-    Network.AWS.AWSHealth.Types.Event
-    Network.AWS.AWSHealth.Types.EventAccountFilter
-    Network.AWS.AWSHealth.Types.EventAggregate
-    Network.AWS.AWSHealth.Types.EventAggregateField
-    Network.AWS.AWSHealth.Types.EventDescription
-    Network.AWS.AWSHealth.Types.EventDetails
-    Network.AWS.AWSHealth.Types.EventDetailsErrorItem
-    Network.AWS.AWSHealth.Types.EventFilter
-    Network.AWS.AWSHealth.Types.EventScopeCode
-    Network.AWS.AWSHealth.Types.EventStatusCode
-    Network.AWS.AWSHealth.Types.EventType
-    Network.AWS.AWSHealth.Types.EventTypeCategory
-    Network.AWS.AWSHealth.Types.EventTypeFilter
-    Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
-    Network.AWS.AWSHealth.Types.OrganizationEvent
-    Network.AWS.AWSHealth.Types.OrganizationEventDetails
-    Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
-    Network.AWS.AWSHealth.Types.OrganizationEventFilter
-    Network.AWS.AWSHealth.Waiters
+    Amazonka.AWSHealth
+    Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
+    Amazonka.AWSHealth.DescribeAffectedEntities
+    Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization
+    Amazonka.AWSHealth.DescribeEntityAggregates
+    Amazonka.AWSHealth.DescribeEventAggregates
+    Amazonka.AWSHealth.DescribeEventDetails
+    Amazonka.AWSHealth.DescribeEventDetailsForOrganization
+    Amazonka.AWSHealth.DescribeEvents
+    Amazonka.AWSHealth.DescribeEventsForOrganization
+    Amazonka.AWSHealth.DescribeEventTypes
+    Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization
+    Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
+    Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization
+    Amazonka.AWSHealth.Lens
+    Amazonka.AWSHealth.Types
+    Amazonka.AWSHealth.Types.AffectedEntity
+    Amazonka.AWSHealth.Types.DateTimeRange
+    Amazonka.AWSHealth.Types.EntityAggregate
+    Amazonka.AWSHealth.Types.EntityFilter
+    Amazonka.AWSHealth.Types.EntityStatusCode
+    Amazonka.AWSHealth.Types.Event
+    Amazonka.AWSHealth.Types.EventAccountFilter
+    Amazonka.AWSHealth.Types.EventAggregate
+    Amazonka.AWSHealth.Types.EventAggregateField
+    Amazonka.AWSHealth.Types.EventDescription
+    Amazonka.AWSHealth.Types.EventDetails
+    Amazonka.AWSHealth.Types.EventDetailsErrorItem
+    Amazonka.AWSHealth.Types.EventFilter
+    Amazonka.AWSHealth.Types.EventScopeCode
+    Amazonka.AWSHealth.Types.EventStatusCode
+    Amazonka.AWSHealth.Types.EventType
+    Amazonka.AWSHealth.Types.EventTypeCategory
+    Amazonka.AWSHealth.Types.EventTypeFilter
+    Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+    Amazonka.AWSHealth.Types.OrganizationEvent
+    Amazonka.AWSHealth.Types.OrganizationEventDetails
+    Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem
+    Amazonka.AWSHealth.Types.OrganizationEventFilter
+    Amazonka.AWSHealth.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

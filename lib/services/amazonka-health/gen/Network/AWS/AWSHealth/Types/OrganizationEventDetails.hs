@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.Types.OrganizationEventDetails
+-- Module      : Amazonka.AWSHealth.Types.OrganizationEventDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.OrganizationEventDetails where
+module Amazonka.AWSHealth.Types.OrganizationEventDetails where
 
-import Network.AWS.AWSHealth.Types.Event
-import Network.AWS.AWSHealth.Types.EventDescription
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AWSHealth.Types.Event
+import Amazonka.AWSHealth.Types.EventDescription
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about an event. A combination of an
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>

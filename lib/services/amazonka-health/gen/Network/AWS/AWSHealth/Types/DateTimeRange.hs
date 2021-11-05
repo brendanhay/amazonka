@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.Types.DateTimeRange
+-- Module      : Amazonka.AWSHealth.Types.DateTimeRange
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.DateTimeRange where
+module Amazonka.AWSHealth.Types.DateTimeRange where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A range of dates and times that is used by the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html EventFilter>

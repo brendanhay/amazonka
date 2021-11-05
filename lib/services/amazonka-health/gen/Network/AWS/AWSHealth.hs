@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AWSHealth
+-- Module      : Amazonka.AWSHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -61,7 +61,7 @@
 --     you call the @DescribeEventsForOrganization@ operation to get all
 --     events in your organization, you might receive several page results.
 --     Specify the @nextToken@ in the next request to return more results.
-module Network.AWS.AWSHealth
+module Amazonka.AWSHealth
   ( -- * Service Configuration
     defaultService,
 
@@ -252,22 +252,22 @@ module Network.AWS.AWSHealth
   )
 where
 
-import Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
-import Network.AWS.AWSHealth.DescribeAffectedEntities
-import Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
-import Network.AWS.AWSHealth.DescribeEntityAggregates
-import Network.AWS.AWSHealth.DescribeEventAggregates
-import Network.AWS.AWSHealth.DescribeEventDetails
-import Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
-import Network.AWS.AWSHealth.DescribeEventTypes
-import Network.AWS.AWSHealth.DescribeEvents
-import Network.AWS.AWSHealth.DescribeEventsForOrganization
-import Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
-import Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
-import Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
-import Network.AWS.AWSHealth.Lens
-import Network.AWS.AWSHealth.Types
-import Network.AWS.AWSHealth.Waiters
+import Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
+import Amazonka.AWSHealth.DescribeAffectedEntities
+import Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization
+import Amazonka.AWSHealth.DescribeEntityAggregates
+import Amazonka.AWSHealth.DescribeEventAggregates
+import Amazonka.AWSHealth.DescribeEventDetails
+import Amazonka.AWSHealth.DescribeEventDetailsForOrganization
+import Amazonka.AWSHealth.DescribeEventTypes
+import Amazonka.AWSHealth.DescribeEvents
+import Amazonka.AWSHealth.DescribeEventsForOrganization
+import Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization
+import Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
+import Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization
+import Amazonka.AWSHealth.Lens
+import Amazonka.AWSHealth.Types
+import Amazonka.AWSHealth.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

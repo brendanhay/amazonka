@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.DescribeEntityAggregates
+-- Module      : Amazonka.AWSHealth.DescribeEntityAggregates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the number of entities that are affected by each of the
 -- specified events. If no events are specified, the counts of all affected
 -- entities are returned.
-module Network.AWS.AWSHealth.DescribeEntityAggregates
+module Amazonka.AWSHealth.DescribeEntityAggregates
   ( -- * Creating a Request
     DescribeEntityAggregates (..),
     newDescribeEntityAggregates,
@@ -41,12 +41,12 @@ module Network.AWS.AWSHealth.DescribeEntityAggregates
   )
 where
 
-import Network.AWS.AWSHealth.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AWSHealth.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEntityAggregates' smart constructor.
 data DescribeEntityAggregates = DescribeEntityAggregates'

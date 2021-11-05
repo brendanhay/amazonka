@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.Lens
+-- Module      : Amazonka.AWSHealth.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Lens
+module Amazonka.AWSHealth.Lens
   ( -- * Operations
 
     -- ** EnableHealthServiceAccessForOrganization
@@ -237,34 +237,34 @@ module Network.AWS.AWSHealth.Lens
   )
 where
 
-import Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
-import Network.AWS.AWSHealth.DescribeAffectedEntities
-import Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
-import Network.AWS.AWSHealth.DescribeEntityAggregates
-import Network.AWS.AWSHealth.DescribeEventAggregates
-import Network.AWS.AWSHealth.DescribeEventDetails
-import Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
-import Network.AWS.AWSHealth.DescribeEventTypes
-import Network.AWS.AWSHealth.DescribeEvents
-import Network.AWS.AWSHealth.DescribeEventsForOrganization
-import Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
-import Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
-import Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
-import Network.AWS.AWSHealth.Types.AffectedEntity
-import Network.AWS.AWSHealth.Types.DateTimeRange
-import Network.AWS.AWSHealth.Types.EntityAggregate
-import Network.AWS.AWSHealth.Types.EntityFilter
-import Network.AWS.AWSHealth.Types.Event
-import Network.AWS.AWSHealth.Types.EventAccountFilter
-import Network.AWS.AWSHealth.Types.EventAggregate
-import Network.AWS.AWSHealth.Types.EventDescription
-import Network.AWS.AWSHealth.Types.EventDetails
-import Network.AWS.AWSHealth.Types.EventDetailsErrorItem
-import Network.AWS.AWSHealth.Types.EventFilter
-import Network.AWS.AWSHealth.Types.EventType
-import Network.AWS.AWSHealth.Types.EventTypeFilter
-import Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
-import Network.AWS.AWSHealth.Types.OrganizationEvent
-import Network.AWS.AWSHealth.Types.OrganizationEventDetails
-import Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
-import Network.AWS.AWSHealth.Types.OrganizationEventFilter
+import Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
+import Amazonka.AWSHealth.DescribeAffectedEntities
+import Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization
+import Amazonka.AWSHealth.DescribeEntityAggregates
+import Amazonka.AWSHealth.DescribeEventAggregates
+import Amazonka.AWSHealth.DescribeEventDetails
+import Amazonka.AWSHealth.DescribeEventDetailsForOrganization
+import Amazonka.AWSHealth.DescribeEventTypes
+import Amazonka.AWSHealth.DescribeEvents
+import Amazonka.AWSHealth.DescribeEventsForOrganization
+import Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization
+import Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
+import Amazonka.AWSHealth.EnableHealthServiceAccessForOrganization
+import Amazonka.AWSHealth.Types.AffectedEntity
+import Amazonka.AWSHealth.Types.DateTimeRange
+import Amazonka.AWSHealth.Types.EntityAggregate
+import Amazonka.AWSHealth.Types.EntityFilter
+import Amazonka.AWSHealth.Types.Event
+import Amazonka.AWSHealth.Types.EventAccountFilter
+import Amazonka.AWSHealth.Types.EventAggregate
+import Amazonka.AWSHealth.Types.EventDescription
+import Amazonka.AWSHealth.Types.EventDetails
+import Amazonka.AWSHealth.Types.EventDetailsErrorItem
+import Amazonka.AWSHealth.Types.EventFilter
+import Amazonka.AWSHealth.Types.EventType
+import Amazonka.AWSHealth.Types.EventTypeFilter
+import Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+import Amazonka.AWSHealth.Types.OrganizationEvent
+import Amazonka.AWSHealth.Types.OrganizationEventDetails
+import Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem
+import Amazonka.AWSHealth.Types.OrganizationEventFilter

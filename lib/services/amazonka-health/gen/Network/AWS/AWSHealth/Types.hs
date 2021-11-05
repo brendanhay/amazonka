@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.Types
+-- Module      : Amazonka.AWSHealth.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types
+module Amazonka.AWSHealth.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -202,33 +202,33 @@ module Network.AWS.AWSHealth.Types
   )
 where
 
-import Network.AWS.AWSHealth.Types.AffectedEntity
-import Network.AWS.AWSHealth.Types.DateTimeRange
-import Network.AWS.AWSHealth.Types.EntityAggregate
-import Network.AWS.AWSHealth.Types.EntityFilter
-import Network.AWS.AWSHealth.Types.EntityStatusCode
-import Network.AWS.AWSHealth.Types.Event
-import Network.AWS.AWSHealth.Types.EventAccountFilter
-import Network.AWS.AWSHealth.Types.EventAggregate
-import Network.AWS.AWSHealth.Types.EventAggregateField
-import Network.AWS.AWSHealth.Types.EventDescription
-import Network.AWS.AWSHealth.Types.EventDetails
-import Network.AWS.AWSHealth.Types.EventDetailsErrorItem
-import Network.AWS.AWSHealth.Types.EventFilter
-import Network.AWS.AWSHealth.Types.EventScopeCode
-import Network.AWS.AWSHealth.Types.EventStatusCode
-import Network.AWS.AWSHealth.Types.EventType
-import Network.AWS.AWSHealth.Types.EventTypeCategory
-import Network.AWS.AWSHealth.Types.EventTypeFilter
-import Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
-import Network.AWS.AWSHealth.Types.OrganizationEvent
-import Network.AWS.AWSHealth.Types.OrganizationEventDetails
-import Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
-import Network.AWS.AWSHealth.Types.OrganizationEventFilter
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AWSHealth.Types.AffectedEntity
+import Amazonka.AWSHealth.Types.DateTimeRange
+import Amazonka.AWSHealth.Types.EntityAggregate
+import Amazonka.AWSHealth.Types.EntityFilter
+import Amazonka.AWSHealth.Types.EntityStatusCode
+import Amazonka.AWSHealth.Types.Event
+import Amazonka.AWSHealth.Types.EventAccountFilter
+import Amazonka.AWSHealth.Types.EventAggregate
+import Amazonka.AWSHealth.Types.EventAggregateField
+import Amazonka.AWSHealth.Types.EventDescription
+import Amazonka.AWSHealth.Types.EventDetails
+import Amazonka.AWSHealth.Types.EventDetailsErrorItem
+import Amazonka.AWSHealth.Types.EventFilter
+import Amazonka.AWSHealth.Types.EventScopeCode
+import Amazonka.AWSHealth.Types.EventStatusCode
+import Amazonka.AWSHealth.Types.EventType
+import Amazonka.AWSHealth.Types.EventTypeCategory
+import Amazonka.AWSHealth.Types.EventTypeFilter
+import Amazonka.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+import Amazonka.AWSHealth.Types.OrganizationEvent
+import Amazonka.AWSHealth.Types.OrganizationEventDetails
+import Amazonka.AWSHealth.Types.OrganizationEventDetailsErrorItem
+import Amazonka.AWSHealth.Types.OrganizationEventFilter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-08-04@ of the Amazon Health APIs and Notifications SDK configuration.
 defaultService :: Core.Service

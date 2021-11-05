@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
+-- Module      : Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -43,7 +43,7 @@
 -- you call the AWS Health API operations for organizational view, AWS
 -- Health returns an error. AWS Health continues to aggregate health events
 -- for your AWS account.
-module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
+module Amazonka.AWSHealth.DisableHealthServiceAccessForOrganization
   ( -- * Creating a Request
     DisableHealthServiceAccessForOrganization (..),
     newDisableHealthServiceAccessForOrganization,
@@ -54,12 +54,12 @@ module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
   )
 where
 
-import Network.AWS.AWSHealth.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AWSHealth.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisableHealthServiceAccessForOrganization' smart constructor.
 data DisableHealthServiceAccessForOrganization = DisableHealthServiceAccessForOrganization'

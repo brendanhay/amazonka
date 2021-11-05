@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.PersonalizeRuntime
+-- Module      : Amazonka.PersonalizeRuntime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Derived from API version @2018-05-22@ of the AWS service descriptions, licensed under Apache 2.0.
-module Network.AWS.PersonalizeRuntime
+module Amazonka.PersonalizeRuntime
   ( -- * Service Configuration
     defaultService,
 
@@ -49,11 +49,11 @@ module Network.AWS.PersonalizeRuntime
   )
 where
 
-import Network.AWS.PersonalizeRuntime.GetPersonalizedRanking
-import Network.AWS.PersonalizeRuntime.GetRecommendations
-import Network.AWS.PersonalizeRuntime.Lens
-import Network.AWS.PersonalizeRuntime.Types
-import Network.AWS.PersonalizeRuntime.Waiters
+import Amazonka.PersonalizeRuntime.GetPersonalizedRanking
+import Amazonka.PersonalizeRuntime.GetRecommendations
+import Amazonka.PersonalizeRuntime.Lens
+import Amazonka.PersonalizeRuntime.Types
+import Amazonka.PersonalizeRuntime.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

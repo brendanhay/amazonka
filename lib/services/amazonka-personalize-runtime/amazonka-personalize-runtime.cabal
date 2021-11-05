@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.PersonalizeRuntime.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.PersonalizeRuntime.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.PersonalizeRuntime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.PersonalizeRuntime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,15 +45,15 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.PersonalizeRuntime
-    Network.AWS.PersonalizeRuntime.GetPersonalizedRanking
-    Network.AWS.PersonalizeRuntime.GetRecommendations
-    Network.AWS.PersonalizeRuntime.Lens
-    Network.AWS.PersonalizeRuntime.Types
-    Network.AWS.PersonalizeRuntime.Types.PredictedItem
-    Network.AWS.PersonalizeRuntime.Waiters
+    Amazonka.PersonalizeRuntime
+    Amazonka.PersonalizeRuntime.GetPersonalizedRanking
+    Amazonka.PersonalizeRuntime.GetRecommendations
+    Amazonka.PersonalizeRuntime.Lens
+    Amazonka.PersonalizeRuntime.Types
+    Amazonka.PersonalizeRuntime.Types.PredictedItem
+    Amazonka.PersonalizeRuntime.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.PersonalizeRuntime](http://hackage.haskell.org/package/amazonka-personalize-runtime/docs/Network-AWS-PersonalizeRuntime.html)
+See [Amazonka.PersonalizeRuntime](http://hackage.haskell.org/package/amazonka-personalize-runtime/docs/Amazonka-PersonalizeRuntime.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

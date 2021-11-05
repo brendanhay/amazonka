@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PersonalizeRuntime.Lens
+-- Module      : Amazonka.PersonalizeRuntime.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PersonalizeRuntime.Lens
+module Amazonka.PersonalizeRuntime.Lens
   ( -- * Operations
 
     -- ** GetRecommendations
@@ -45,6 +45,6 @@ module Network.AWS.PersonalizeRuntime.Lens
   )
 where
 
-import Network.AWS.PersonalizeRuntime.GetPersonalizedRanking
-import Network.AWS.PersonalizeRuntime.GetRecommendations
-import Network.AWS.PersonalizeRuntime.Types.PredictedItem
+import Amazonka.PersonalizeRuntime.GetPersonalizedRanking
+import Amazonka.PersonalizeRuntime.GetRecommendations
+import Amazonka.PersonalizeRuntime.Types.PredictedItem

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PersonalizeRuntime.Types
+-- Module      : Amazonka.PersonalizeRuntime.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PersonalizeRuntime.Types
+module Amazonka.PersonalizeRuntime.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -28,11 +28,11 @@ module Network.AWS.PersonalizeRuntime.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PersonalizeRuntime.Types.PredictedItem
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PersonalizeRuntime.Types.PredictedItem
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-05-22@ of the Amazon Personalize Runtime SDK configuration.
 defaultService :: Core.Service

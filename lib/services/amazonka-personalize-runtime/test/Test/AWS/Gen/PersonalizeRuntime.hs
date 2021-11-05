@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PersonalizeRuntime where
 
+import Amazonka.PersonalizeRuntime
 import qualified Data.Proxy as Proxy
-import Network.AWS.PersonalizeRuntime
 import Test.AWS.Fixture
 import Test.AWS.PersonalizeRuntime.Internal
 import Test.AWS.Prelude

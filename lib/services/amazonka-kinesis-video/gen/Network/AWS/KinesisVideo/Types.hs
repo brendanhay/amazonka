@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideo.Types
+-- Module      : Amazonka.KinesisVideo.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types
+module Amazonka.KinesisVideo.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -113,25 +113,25 @@ module Network.AWS.KinesisVideo.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideo.Types.APIName
-import Network.AWS.KinesisVideo.Types.ChannelInfo
-import Network.AWS.KinesisVideo.Types.ChannelNameCondition
-import Network.AWS.KinesisVideo.Types.ChannelProtocol
-import Network.AWS.KinesisVideo.Types.ChannelRole
-import Network.AWS.KinesisVideo.Types.ChannelType
-import Network.AWS.KinesisVideo.Types.ComparisonOperator
-import Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
-import Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
-import Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
-import Network.AWS.KinesisVideo.Types.StreamInfo
-import Network.AWS.KinesisVideo.Types.StreamNameCondition
-import Network.AWS.KinesisVideo.Types.StreamStatus
-import Network.AWS.KinesisVideo.Types.Tag
-import Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideo.Types.APIName
+import Amazonka.KinesisVideo.Types.ChannelInfo
+import Amazonka.KinesisVideo.Types.ChannelNameCondition
+import Amazonka.KinesisVideo.Types.ChannelProtocol
+import Amazonka.KinesisVideo.Types.ChannelRole
+import Amazonka.KinesisVideo.Types.ChannelType
+import Amazonka.KinesisVideo.Types.ComparisonOperator
+import Amazonka.KinesisVideo.Types.ResourceEndpointListItem
+import Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
+import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
+import Amazonka.KinesisVideo.Types.StreamInfo
+import Amazonka.KinesisVideo.Types.StreamNameCondition
+import Amazonka.KinesisVideo.Types.StreamStatus
+import Amazonka.KinesisVideo.Types.Tag
+import Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-09-30@ of the Amazon Kinesis Video Streams SDK configuration.
 defaultService :: Core.Service

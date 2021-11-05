@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KinesisVideo
+-- Module      : Amazonka.KinesisVideo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Derived from API version @2017-09-30@ of the AWS service descriptions, licensed under Apache 2.0.
-module Network.AWS.KinesisVideo
+module Amazonka.KinesisVideo
   ( -- * Service Configuration
     defaultService,
 
@@ -233,28 +233,28 @@ module Network.AWS.KinesisVideo
   )
 where
 
-import Network.AWS.KinesisVideo.CreateSignalingChannel
-import Network.AWS.KinesisVideo.CreateStream
-import Network.AWS.KinesisVideo.DeleteSignalingChannel
-import Network.AWS.KinesisVideo.DeleteStream
-import Network.AWS.KinesisVideo.DescribeSignalingChannel
-import Network.AWS.KinesisVideo.DescribeStream
-import Network.AWS.KinesisVideo.GetDataEndpoint
-import Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
-import Network.AWS.KinesisVideo.Lens
-import Network.AWS.KinesisVideo.ListSignalingChannels
-import Network.AWS.KinesisVideo.ListStreams
-import Network.AWS.KinesisVideo.ListTagsForResource
-import Network.AWS.KinesisVideo.ListTagsForStream
-import Network.AWS.KinesisVideo.TagResource
-import Network.AWS.KinesisVideo.TagStream
-import Network.AWS.KinesisVideo.Types
-import Network.AWS.KinesisVideo.UntagResource
-import Network.AWS.KinesisVideo.UntagStream
-import Network.AWS.KinesisVideo.UpdateDataRetention
-import Network.AWS.KinesisVideo.UpdateSignalingChannel
-import Network.AWS.KinesisVideo.UpdateStream
-import Network.AWS.KinesisVideo.Waiters
+import Amazonka.KinesisVideo.CreateSignalingChannel
+import Amazonka.KinesisVideo.CreateStream
+import Amazonka.KinesisVideo.DeleteSignalingChannel
+import Amazonka.KinesisVideo.DeleteStream
+import Amazonka.KinesisVideo.DescribeSignalingChannel
+import Amazonka.KinesisVideo.DescribeStream
+import Amazonka.KinesisVideo.GetDataEndpoint
+import Amazonka.KinesisVideo.GetSignalingChannelEndpoint
+import Amazonka.KinesisVideo.Lens
+import Amazonka.KinesisVideo.ListSignalingChannels
+import Amazonka.KinesisVideo.ListStreams
+import Amazonka.KinesisVideo.ListTagsForResource
+import Amazonka.KinesisVideo.ListTagsForStream
+import Amazonka.KinesisVideo.TagResource
+import Amazonka.KinesisVideo.TagStream
+import Amazonka.KinesisVideo.Types
+import Amazonka.KinesisVideo.UntagResource
+import Amazonka.KinesisVideo.UntagStream
+import Amazonka.KinesisVideo.UpdateDataRetention
+import Amazonka.KinesisVideo.UpdateSignalingChannel
+import Amazonka.KinesisVideo.UpdateStream
+import Amazonka.KinesisVideo.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

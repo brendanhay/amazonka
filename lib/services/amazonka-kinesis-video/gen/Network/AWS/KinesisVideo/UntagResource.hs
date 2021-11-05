@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideo.UntagResource
+-- Module      : Amazonka.KinesisVideo.UntagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Removes one or more tags from a signaling channel. In the request,
 -- specify only a tag key or keys; don\'t specify the value. If you specify
 -- a tag key that does not exist, it\'s ignored.
-module Network.AWS.KinesisVideo.UntagResource
+module Amazonka.KinesisVideo.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
     newUntagResource,
@@ -41,12 +41,12 @@ module Network.AWS.KinesisVideo.UntagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideo.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideo.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'

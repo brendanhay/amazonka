@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideo.DeleteSignalingChannel
+-- Module      : Amazonka.KinesisVideo.DeleteSignalingChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a specified signaling channel. @DeleteSignalingChannel@ is an
 -- asynchronous operation. If you don\'t specify the channel\'s current
 -- version, the most recent version is deleted.
-module Network.AWS.KinesisVideo.DeleteSignalingChannel
+module Amazonka.KinesisVideo.DeleteSignalingChannel
   ( -- * Creating a Request
     DeleteSignalingChannel (..),
     newDeleteSignalingChannel,
@@ -41,12 +41,12 @@ module Network.AWS.KinesisVideo.DeleteSignalingChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideo.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideo.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSignalingChannel' smart constructor.
 data DeleteSignalingChannel = DeleteSignalingChannel'

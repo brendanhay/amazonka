@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideo.Types.ChannelInfo
+-- Module      : Amazonka.KinesisVideo.Types.ChannelInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types.ChannelInfo where
+module Amazonka.KinesisVideo.Types.ChannelInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideo.Types.ChannelType
-import Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
-import Network.AWS.KinesisVideo.Types.StreamStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideo.Types.ChannelType
+import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
+import Amazonka.KinesisVideo.Types.StreamStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that encapsulates a signaling channel\'s metadata and
 -- properties.

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+-- Module      : Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters where
+module Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.CmafEncryption
-import Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
-import Network.AWS.MediaPackage.Types.StreamSelection
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.CmafEncryption
+import Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+import Amazonka.MediaPackage.Types.StreamSelection
+import qualified Amazonka.Prelude as Prelude
 
 -- | A Common Media Application Format (CMAF) packaging configuration.
 --

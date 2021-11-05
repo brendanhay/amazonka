@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.OriginEndpoint
+-- Module      : Amazonka.MediaPackage.Types.OriginEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.OriginEndpoint where
+module Amazonka.MediaPackage.Types.OriginEndpoint where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.Authorization
-import Network.AWS.MediaPackage.Types.CmafPackage
-import Network.AWS.MediaPackage.Types.DashPackage
-import Network.AWS.MediaPackage.Types.HlsPackage
-import Network.AWS.MediaPackage.Types.MssPackage
-import Network.AWS.MediaPackage.Types.Origination
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.Authorization
+import Amazonka.MediaPackage.Types.CmafPackage
+import Amazonka.MediaPackage.Types.DashPackage
+import Amazonka.MediaPackage.Types.HlsPackage
+import Amazonka.MediaPackage.Types.MssPackage
+import Amazonka.MediaPackage.Types.Origination
+import qualified Amazonka.Prelude as Prelude
 
 -- | An OriginEndpoint resource configuration.
 --

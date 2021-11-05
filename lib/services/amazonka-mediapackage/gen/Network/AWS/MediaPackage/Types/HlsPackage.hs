@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.HlsPackage
+-- Module      : Amazonka.MediaPackage.Types.HlsPackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.HlsPackage where
+module Amazonka.MediaPackage.Types.HlsPackage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.AdMarkers
-import Network.AWS.MediaPackage.Types.AdTriggersElement
-import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
-import Network.AWS.MediaPackage.Types.HlsEncryption
-import Network.AWS.MediaPackage.Types.PlaylistType
-import Network.AWS.MediaPackage.Types.StreamSelection
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.AdMarkers
+import Amazonka.MediaPackage.Types.AdTriggersElement
+import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
+import Amazonka.MediaPackage.Types.HlsEncryption
+import Amazonka.MediaPackage.Types.PlaylistType
+import Amazonka.MediaPackage.Types.StreamSelection
+import qualified Amazonka.Prelude as Prelude
 
 -- | An HTTP Live Streaming (HLS) packaging configuration.
 --

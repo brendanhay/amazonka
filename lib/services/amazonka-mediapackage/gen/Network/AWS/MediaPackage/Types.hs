@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types
+-- Module      : Amazonka.MediaPackage.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types
+module Amazonka.MediaPackage.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -287,48 +287,48 @@ module Network.AWS.MediaPackage.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.AdMarkers
-import Network.AWS.MediaPackage.Types.AdTriggersElement
-import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
-import Network.AWS.MediaPackage.Types.Authorization
-import Network.AWS.MediaPackage.Types.Channel
-import Network.AWS.MediaPackage.Types.CmafEncryption
-import Network.AWS.MediaPackage.Types.CmafPackage
-import Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
-import Network.AWS.MediaPackage.Types.DashEncryption
-import Network.AWS.MediaPackage.Types.DashPackage
-import Network.AWS.MediaPackage.Types.EgressAccessLogs
-import Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
-import Network.AWS.MediaPackage.Types.EncryptionMethod
-import Network.AWS.MediaPackage.Types.HarvestJob
-import Network.AWS.MediaPackage.Types.HlsEncryption
-import Network.AWS.MediaPackage.Types.HlsIngest
-import Network.AWS.MediaPackage.Types.HlsManifest
-import Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
-import Network.AWS.MediaPackage.Types.HlsPackage
-import Network.AWS.MediaPackage.Types.IngestEndpoint
-import Network.AWS.MediaPackage.Types.IngressAccessLogs
-import Network.AWS.MediaPackage.Types.ManifestLayout
-import Network.AWS.MediaPackage.Types.MssEncryption
-import Network.AWS.MediaPackage.Types.MssPackage
-import Network.AWS.MediaPackage.Types.OriginEndpoint
-import Network.AWS.MediaPackage.Types.Origination
-import Network.AWS.MediaPackage.Types.PeriodTriggersElement
-import Network.AWS.MediaPackage.Types.PlaylistType
-import Network.AWS.MediaPackage.Types.PresetSpeke20Audio
-import Network.AWS.MediaPackage.Types.PresetSpeke20Video
-import Network.AWS.MediaPackage.Types.Profile
-import Network.AWS.MediaPackage.Types.S3Destination
-import Network.AWS.MediaPackage.Types.SegmentTemplateFormat
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import Network.AWS.MediaPackage.Types.Status
-import Network.AWS.MediaPackage.Types.StreamOrder
-import Network.AWS.MediaPackage.Types.StreamSelection
-import Network.AWS.MediaPackage.Types.UtcTiming
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.AdMarkers
+import Amazonka.MediaPackage.Types.AdTriggersElement
+import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
+import Amazonka.MediaPackage.Types.Authorization
+import Amazonka.MediaPackage.Types.Channel
+import Amazonka.MediaPackage.Types.CmafEncryption
+import Amazonka.MediaPackage.Types.CmafPackage
+import Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+import Amazonka.MediaPackage.Types.DashEncryption
+import Amazonka.MediaPackage.Types.DashPackage
+import Amazonka.MediaPackage.Types.EgressAccessLogs
+import Amazonka.MediaPackage.Types.EncryptionContractConfiguration
+import Amazonka.MediaPackage.Types.EncryptionMethod
+import Amazonka.MediaPackage.Types.HarvestJob
+import Amazonka.MediaPackage.Types.HlsEncryption
+import Amazonka.MediaPackage.Types.HlsIngest
+import Amazonka.MediaPackage.Types.HlsManifest
+import Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+import Amazonka.MediaPackage.Types.HlsPackage
+import Amazonka.MediaPackage.Types.IngestEndpoint
+import Amazonka.MediaPackage.Types.IngressAccessLogs
+import Amazonka.MediaPackage.Types.ManifestLayout
+import Amazonka.MediaPackage.Types.MssEncryption
+import Amazonka.MediaPackage.Types.MssPackage
+import Amazonka.MediaPackage.Types.OriginEndpoint
+import Amazonka.MediaPackage.Types.Origination
+import Amazonka.MediaPackage.Types.PeriodTriggersElement
+import Amazonka.MediaPackage.Types.PlaylistType
+import Amazonka.MediaPackage.Types.PresetSpeke20Audio
+import Amazonka.MediaPackage.Types.PresetSpeke20Video
+import Amazonka.MediaPackage.Types.Profile
+import Amazonka.MediaPackage.Types.S3Destination
+import Amazonka.MediaPackage.Types.SegmentTemplateFormat
+import Amazonka.MediaPackage.Types.SpekeKeyProvider
+import Amazonka.MediaPackage.Types.Status
+import Amazonka.MediaPackage.Types.StreamOrder
+import Amazonka.MediaPackage.Types.StreamSelection
+import Amazonka.MediaPackage.Types.UtcTiming
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-10-12@ of the Amazon Elemental MediaPackage SDK configuration.
 defaultService :: Core.Service

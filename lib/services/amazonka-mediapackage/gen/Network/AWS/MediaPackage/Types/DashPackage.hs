@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.DashPackage
+-- Module      : Amazonka.MediaPackage.Types.DashPackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.DashPackage where
+module Amazonka.MediaPackage.Types.DashPackage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.AdTriggersElement
-import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
-import Network.AWS.MediaPackage.Types.DashEncryption
-import Network.AWS.MediaPackage.Types.ManifestLayout
-import Network.AWS.MediaPackage.Types.PeriodTriggersElement
-import Network.AWS.MediaPackage.Types.Profile
-import Network.AWS.MediaPackage.Types.SegmentTemplateFormat
-import Network.AWS.MediaPackage.Types.StreamSelection
-import Network.AWS.MediaPackage.Types.UtcTiming
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.AdTriggersElement
+import Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
+import Amazonka.MediaPackage.Types.DashEncryption
+import Amazonka.MediaPackage.Types.ManifestLayout
+import Amazonka.MediaPackage.Types.PeriodTriggersElement
+import Amazonka.MediaPackage.Types.Profile
+import Amazonka.MediaPackage.Types.SegmentTemplateFormat
+import Amazonka.MediaPackage.Types.StreamSelection
+import Amazonka.MediaPackage.Types.UtcTiming
+import qualified Amazonka.Prelude as Prelude
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 --

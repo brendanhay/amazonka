@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
+-- Module      : Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
+module Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
   ( AdsOnDeliveryRestrictions
       ( ..,
         AdsOnDeliveryRestrictions_BOTH,
@@ -28,8 +28,8 @@ module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | This setting allows the delivery restriction flags on SCTE-35
 -- segmentation descriptors to determine whether a message signals an ad.

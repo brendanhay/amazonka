@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaPackage
+-- Module      : Amazonka.MediaPackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-10-12@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS Elemental MediaPackage
-module Network.AWS.MediaPackage
+module Amazonka.MediaPackage
   ( -- * Service Configuration
     defaultService,
 
@@ -292,27 +292,27 @@ module Network.AWS.MediaPackage
   )
 where
 
-import Network.AWS.MediaPackage.ConfigureLogs
-import Network.AWS.MediaPackage.CreateChannel
-import Network.AWS.MediaPackage.CreateHarvestJob
-import Network.AWS.MediaPackage.CreateOriginEndpoint
-import Network.AWS.MediaPackage.DeleteChannel
-import Network.AWS.MediaPackage.DeleteOriginEndpoint
-import Network.AWS.MediaPackage.DescribeChannel
-import Network.AWS.MediaPackage.DescribeHarvestJob
-import Network.AWS.MediaPackage.DescribeOriginEndpoint
-import Network.AWS.MediaPackage.Lens
-import Network.AWS.MediaPackage.ListChannels
-import Network.AWS.MediaPackage.ListHarvestJobs
-import Network.AWS.MediaPackage.ListOriginEndpoints
-import Network.AWS.MediaPackage.ListTagsForResource
-import Network.AWS.MediaPackage.RotateIngestEndpointCredentials
-import Network.AWS.MediaPackage.TagResource
-import Network.AWS.MediaPackage.Types
-import Network.AWS.MediaPackage.UntagResource
-import Network.AWS.MediaPackage.UpdateChannel
-import Network.AWS.MediaPackage.UpdateOriginEndpoint
-import Network.AWS.MediaPackage.Waiters
+import Amazonka.MediaPackage.ConfigureLogs
+import Amazonka.MediaPackage.CreateChannel
+import Amazonka.MediaPackage.CreateHarvestJob
+import Amazonka.MediaPackage.CreateOriginEndpoint
+import Amazonka.MediaPackage.DeleteChannel
+import Amazonka.MediaPackage.DeleteOriginEndpoint
+import Amazonka.MediaPackage.DescribeChannel
+import Amazonka.MediaPackage.DescribeHarvestJob
+import Amazonka.MediaPackage.DescribeOriginEndpoint
+import Amazonka.MediaPackage.Lens
+import Amazonka.MediaPackage.ListChannels
+import Amazonka.MediaPackage.ListHarvestJobs
+import Amazonka.MediaPackage.ListOriginEndpoints
+import Amazonka.MediaPackage.ListTagsForResource
+import Amazonka.MediaPackage.RotateIngestEndpointCredentials
+import Amazonka.MediaPackage.TagResource
+import Amazonka.MediaPackage.Types
+import Amazonka.MediaPackage.UntagResource
+import Amazonka.MediaPackage.UpdateChannel
+import Amazonka.MediaPackage.UpdateOriginEndpoint
+import Amazonka.MediaPackage.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

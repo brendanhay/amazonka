@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Lens
+-- Module      : Amazonka.MediaPackage.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Lens
+module Amazonka.MediaPackage.Lens
   ( -- * Operations
 
     -- ** CreateHarvestJob
@@ -408,44 +408,44 @@ module Network.AWS.MediaPackage.Lens
   )
 where
 
-import Network.AWS.MediaPackage.ConfigureLogs
-import Network.AWS.MediaPackage.CreateChannel
-import Network.AWS.MediaPackage.CreateHarvestJob
-import Network.AWS.MediaPackage.CreateOriginEndpoint
-import Network.AWS.MediaPackage.DeleteChannel
-import Network.AWS.MediaPackage.DeleteOriginEndpoint
-import Network.AWS.MediaPackage.DescribeChannel
-import Network.AWS.MediaPackage.DescribeHarvestJob
-import Network.AWS.MediaPackage.DescribeOriginEndpoint
-import Network.AWS.MediaPackage.ListChannels
-import Network.AWS.MediaPackage.ListHarvestJobs
-import Network.AWS.MediaPackage.ListOriginEndpoints
-import Network.AWS.MediaPackage.ListTagsForResource
-import Network.AWS.MediaPackage.RotateIngestEndpointCredentials
-import Network.AWS.MediaPackage.TagResource
-import Network.AWS.MediaPackage.Types.Authorization
-import Network.AWS.MediaPackage.Types.Channel
-import Network.AWS.MediaPackage.Types.CmafEncryption
-import Network.AWS.MediaPackage.Types.CmafPackage
-import Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
-import Network.AWS.MediaPackage.Types.DashEncryption
-import Network.AWS.MediaPackage.Types.DashPackage
-import Network.AWS.MediaPackage.Types.EgressAccessLogs
-import Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
-import Network.AWS.MediaPackage.Types.HarvestJob
-import Network.AWS.MediaPackage.Types.HlsEncryption
-import Network.AWS.MediaPackage.Types.HlsIngest
-import Network.AWS.MediaPackage.Types.HlsManifest
-import Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
-import Network.AWS.MediaPackage.Types.HlsPackage
-import Network.AWS.MediaPackage.Types.IngestEndpoint
-import Network.AWS.MediaPackage.Types.IngressAccessLogs
-import Network.AWS.MediaPackage.Types.MssEncryption
-import Network.AWS.MediaPackage.Types.MssPackage
-import Network.AWS.MediaPackage.Types.OriginEndpoint
-import Network.AWS.MediaPackage.Types.S3Destination
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import Network.AWS.MediaPackage.Types.StreamSelection
-import Network.AWS.MediaPackage.UntagResource
-import Network.AWS.MediaPackage.UpdateChannel
-import Network.AWS.MediaPackage.UpdateOriginEndpoint
+import Amazonka.MediaPackage.ConfigureLogs
+import Amazonka.MediaPackage.CreateChannel
+import Amazonka.MediaPackage.CreateHarvestJob
+import Amazonka.MediaPackage.CreateOriginEndpoint
+import Amazonka.MediaPackage.DeleteChannel
+import Amazonka.MediaPackage.DeleteOriginEndpoint
+import Amazonka.MediaPackage.DescribeChannel
+import Amazonka.MediaPackage.DescribeHarvestJob
+import Amazonka.MediaPackage.DescribeOriginEndpoint
+import Amazonka.MediaPackage.ListChannels
+import Amazonka.MediaPackage.ListHarvestJobs
+import Amazonka.MediaPackage.ListOriginEndpoints
+import Amazonka.MediaPackage.ListTagsForResource
+import Amazonka.MediaPackage.RotateIngestEndpointCredentials
+import Amazonka.MediaPackage.TagResource
+import Amazonka.MediaPackage.Types.Authorization
+import Amazonka.MediaPackage.Types.Channel
+import Amazonka.MediaPackage.Types.CmafEncryption
+import Amazonka.MediaPackage.Types.CmafPackage
+import Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+import Amazonka.MediaPackage.Types.DashEncryption
+import Amazonka.MediaPackage.Types.DashPackage
+import Amazonka.MediaPackage.Types.EgressAccessLogs
+import Amazonka.MediaPackage.Types.EncryptionContractConfiguration
+import Amazonka.MediaPackage.Types.HarvestJob
+import Amazonka.MediaPackage.Types.HlsEncryption
+import Amazonka.MediaPackage.Types.HlsIngest
+import Amazonka.MediaPackage.Types.HlsManifest
+import Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+import Amazonka.MediaPackage.Types.HlsPackage
+import Amazonka.MediaPackage.Types.IngestEndpoint
+import Amazonka.MediaPackage.Types.IngressAccessLogs
+import Amazonka.MediaPackage.Types.MssEncryption
+import Amazonka.MediaPackage.Types.MssPackage
+import Amazonka.MediaPackage.Types.OriginEndpoint
+import Amazonka.MediaPackage.Types.S3Destination
+import Amazonka.MediaPackage.Types.SpekeKeyProvider
+import Amazonka.MediaPackage.Types.StreamSelection
+import Amazonka.MediaPackage.UntagResource
+import Amazonka.MediaPackage.UpdateChannel
+import Amazonka.MediaPackage.UpdateOriginEndpoint

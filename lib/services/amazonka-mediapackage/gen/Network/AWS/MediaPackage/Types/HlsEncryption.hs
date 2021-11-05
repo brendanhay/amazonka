@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaPackage.Types.HlsEncryption
+-- Module      : Amazonka.MediaPackage.Types.HlsEncryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.HlsEncryption where
+module Amazonka.MediaPackage.Types.HlsEncryption where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.EncryptionMethod
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaPackage.Types.EncryptionMethod
+import Amazonka.MediaPackage.Types.SpekeKeyProvider
+import qualified Amazonka.Prelude as Prelude
 
 -- | An HTTP Live Streaming (HLS) encryption configuration.
 --

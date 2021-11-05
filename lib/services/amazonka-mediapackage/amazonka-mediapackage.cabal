@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaPackage.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MediaPackage.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MediaPackage" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MediaPackage" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,68 +45,68 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MediaPackage
-    Network.AWS.MediaPackage.ConfigureLogs
-    Network.AWS.MediaPackage.CreateChannel
-    Network.AWS.MediaPackage.CreateHarvestJob
-    Network.AWS.MediaPackage.CreateOriginEndpoint
-    Network.AWS.MediaPackage.DeleteChannel
-    Network.AWS.MediaPackage.DeleteOriginEndpoint
-    Network.AWS.MediaPackage.DescribeChannel
-    Network.AWS.MediaPackage.DescribeHarvestJob
-    Network.AWS.MediaPackage.DescribeOriginEndpoint
-    Network.AWS.MediaPackage.Lens
-    Network.AWS.MediaPackage.ListChannels
-    Network.AWS.MediaPackage.ListHarvestJobs
-    Network.AWS.MediaPackage.ListOriginEndpoints
-    Network.AWS.MediaPackage.ListTagsForResource
-    Network.AWS.MediaPackage.RotateIngestEndpointCredentials
-    Network.AWS.MediaPackage.TagResource
-    Network.AWS.MediaPackage.Types
-    Network.AWS.MediaPackage.Types.AdMarkers
-    Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
-    Network.AWS.MediaPackage.Types.AdTriggersElement
-    Network.AWS.MediaPackage.Types.Authorization
-    Network.AWS.MediaPackage.Types.Channel
-    Network.AWS.MediaPackage.Types.CmafEncryption
-    Network.AWS.MediaPackage.Types.CmafPackage
-    Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
-    Network.AWS.MediaPackage.Types.DashEncryption
-    Network.AWS.MediaPackage.Types.DashPackage
-    Network.AWS.MediaPackage.Types.EgressAccessLogs
-    Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
-    Network.AWS.MediaPackage.Types.EncryptionMethod
-    Network.AWS.MediaPackage.Types.HarvestJob
-    Network.AWS.MediaPackage.Types.HlsEncryption
-    Network.AWS.MediaPackage.Types.HlsIngest
-    Network.AWS.MediaPackage.Types.HlsManifest
-    Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
-    Network.AWS.MediaPackage.Types.HlsPackage
-    Network.AWS.MediaPackage.Types.IngestEndpoint
-    Network.AWS.MediaPackage.Types.IngressAccessLogs
-    Network.AWS.MediaPackage.Types.ManifestLayout
-    Network.AWS.MediaPackage.Types.MssEncryption
-    Network.AWS.MediaPackage.Types.MssPackage
-    Network.AWS.MediaPackage.Types.Origination
-    Network.AWS.MediaPackage.Types.OriginEndpoint
-    Network.AWS.MediaPackage.Types.PeriodTriggersElement
-    Network.AWS.MediaPackage.Types.PlaylistType
-    Network.AWS.MediaPackage.Types.PresetSpeke20Audio
-    Network.AWS.MediaPackage.Types.PresetSpeke20Video
-    Network.AWS.MediaPackage.Types.Profile
-    Network.AWS.MediaPackage.Types.S3Destination
-    Network.AWS.MediaPackage.Types.SegmentTemplateFormat
-    Network.AWS.MediaPackage.Types.SpekeKeyProvider
-    Network.AWS.MediaPackage.Types.Status
-    Network.AWS.MediaPackage.Types.StreamOrder
-    Network.AWS.MediaPackage.Types.StreamSelection
-    Network.AWS.MediaPackage.Types.UtcTiming
-    Network.AWS.MediaPackage.UntagResource
-    Network.AWS.MediaPackage.UpdateChannel
-    Network.AWS.MediaPackage.UpdateOriginEndpoint
-    Network.AWS.MediaPackage.Waiters
+    Amazonka.MediaPackage
+    Amazonka.MediaPackage.ConfigureLogs
+    Amazonka.MediaPackage.CreateChannel
+    Amazonka.MediaPackage.CreateHarvestJob
+    Amazonka.MediaPackage.CreateOriginEndpoint
+    Amazonka.MediaPackage.DeleteChannel
+    Amazonka.MediaPackage.DeleteOriginEndpoint
+    Amazonka.MediaPackage.DescribeChannel
+    Amazonka.MediaPackage.DescribeHarvestJob
+    Amazonka.MediaPackage.DescribeOriginEndpoint
+    Amazonka.MediaPackage.Lens
+    Amazonka.MediaPackage.ListChannels
+    Amazonka.MediaPackage.ListHarvestJobs
+    Amazonka.MediaPackage.ListOriginEndpoints
+    Amazonka.MediaPackage.ListTagsForResource
+    Amazonka.MediaPackage.RotateIngestEndpointCredentials
+    Amazonka.MediaPackage.TagResource
+    Amazonka.MediaPackage.Types
+    Amazonka.MediaPackage.Types.AdMarkers
+    Amazonka.MediaPackage.Types.AdsOnDeliveryRestrictions
+    Amazonka.MediaPackage.Types.AdTriggersElement
+    Amazonka.MediaPackage.Types.Authorization
+    Amazonka.MediaPackage.Types.Channel
+    Amazonka.MediaPackage.Types.CmafEncryption
+    Amazonka.MediaPackage.Types.CmafPackage
+    Amazonka.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+    Amazonka.MediaPackage.Types.DashEncryption
+    Amazonka.MediaPackage.Types.DashPackage
+    Amazonka.MediaPackage.Types.EgressAccessLogs
+    Amazonka.MediaPackage.Types.EncryptionContractConfiguration
+    Amazonka.MediaPackage.Types.EncryptionMethod
+    Amazonka.MediaPackage.Types.HarvestJob
+    Amazonka.MediaPackage.Types.HlsEncryption
+    Amazonka.MediaPackage.Types.HlsIngest
+    Amazonka.MediaPackage.Types.HlsManifest
+    Amazonka.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+    Amazonka.MediaPackage.Types.HlsPackage
+    Amazonka.MediaPackage.Types.IngestEndpoint
+    Amazonka.MediaPackage.Types.IngressAccessLogs
+    Amazonka.MediaPackage.Types.ManifestLayout
+    Amazonka.MediaPackage.Types.MssEncryption
+    Amazonka.MediaPackage.Types.MssPackage
+    Amazonka.MediaPackage.Types.Origination
+    Amazonka.MediaPackage.Types.OriginEndpoint
+    Amazonka.MediaPackage.Types.PeriodTriggersElement
+    Amazonka.MediaPackage.Types.PlaylistType
+    Amazonka.MediaPackage.Types.PresetSpeke20Audio
+    Amazonka.MediaPackage.Types.PresetSpeke20Video
+    Amazonka.MediaPackage.Types.Profile
+    Amazonka.MediaPackage.Types.S3Destination
+    Amazonka.MediaPackage.Types.SegmentTemplateFormat
+    Amazonka.MediaPackage.Types.SpekeKeyProvider
+    Amazonka.MediaPackage.Types.Status
+    Amazonka.MediaPackage.Types.StreamOrder
+    Amazonka.MediaPackage.Types.StreamSelection
+    Amazonka.MediaPackage.Types.UtcTiming
+    Amazonka.MediaPackage.UntagResource
+    Amazonka.MediaPackage.UpdateChannel
+    Amazonka.MediaPackage.UpdateOriginEndpoint
+    Amazonka.MediaPackage.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription
+-- Module      : Amazonka.ElasticBeanstalk.Types.ConfigurationOptionDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription where
+module Amazonka.ElasticBeanstalk.Types.ConfigurationOptionDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
-import Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType
+import Amazonka.ElasticBeanstalk.Types.OptionRestrictionRegex
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the possible values for a configuration option.
 --

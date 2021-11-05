@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+-- Module      : Amazonka.ElasticBeanstalk.CreateApplicationVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- bucket and key location, you can\'t change that Amazon S3 location. If
 -- you change the Amazon S3 location, you receive an exception when you
 -- attempt to launch an environment from the application version.
-module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+module Amazonka.ElasticBeanstalk.CreateApplicationVersion
   ( -- * Creating a Request
     CreateApplicationVersion (..),
     newCreateApplicationVersion,
@@ -65,12 +65,12 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

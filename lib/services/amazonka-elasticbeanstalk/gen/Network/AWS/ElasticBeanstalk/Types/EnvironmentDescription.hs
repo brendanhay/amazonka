@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
+-- Module      : Amazonka.ElasticBeanstalk.Types.EnvironmentDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription where
+module Amazonka.ElasticBeanstalk.Types.EnvironmentDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentTier
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.EnvironmentHealth
+import Amazonka.ElasticBeanstalk.Types.EnvironmentHealthStatus
+import Amazonka.ElasticBeanstalk.Types.EnvironmentLink
+import Amazonka.ElasticBeanstalk.Types.EnvironmentResourcesDescription
+import Amazonka.ElasticBeanstalk.Types.EnvironmentStatus
+import Amazonka.ElasticBeanstalk.Types.EnvironmentTier
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the properties of an environment.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+-- Module      : Amazonka.ElasticBeanstalk.DescribeConfigurationOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- stack defines. The description includes the values the options, their
 -- default values, and an indication of the required action on a running
 -- environment if an option value is changed.
-module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+module Amazonka.ElasticBeanstalk.DescribeConfigurationOptions
   ( -- * Creating a Request
     DescribeConfigurationOptions (..),
     newDescribeConfigurationOptions,
@@ -50,12 +50,12 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Result message containing a list of application version descriptions.
 --

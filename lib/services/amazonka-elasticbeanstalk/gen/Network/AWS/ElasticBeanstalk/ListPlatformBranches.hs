@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.ListPlatformBranches
+-- Module      : Amazonka.ElasticBeanstalk.ListPlatformBranches
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- For definitions of platform branch and other platform-related terms, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html AWS Elastic Beanstalk Platforms Glossary>.
-module Network.AWS.ElasticBeanstalk.ListPlatformBranches
+module Amazonka.ElasticBeanstalk.ListPlatformBranches
   ( -- * Creating a Request
     ListPlatformBranches (..),
     newListPlatformBranches,
@@ -46,12 +46,12 @@ module Network.AWS.ElasticBeanstalk.ListPlatformBranches
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlatformBranches' smart constructor.
 data ListPlatformBranches = ListPlatformBranches'

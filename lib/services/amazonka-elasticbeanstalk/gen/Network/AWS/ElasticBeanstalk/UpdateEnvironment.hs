@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
+-- Module      : Amazonka.ElasticBeanstalk.UpdateEnvironment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- settings, a draft configuration is created and
 -- DescribeConfigurationSettings for this environment returns two setting
 -- descriptions with different @DeploymentStatus@ values.
-module Network.AWS.ElasticBeanstalk.UpdateEnvironment
+module Amazonka.ElasticBeanstalk.UpdateEnvironment
   ( -- * Creating a Request
     UpdateEnvironment (..),
     newUpdateEnvironment,
@@ -81,12 +81,12 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Request to update an environment.
 --

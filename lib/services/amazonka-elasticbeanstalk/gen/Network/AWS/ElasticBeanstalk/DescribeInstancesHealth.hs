@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+-- Module      : Amazonka.ElasticBeanstalk.DescribeInstancesHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves detailed information about the health of instances in your AWS
 -- Elastic Beanstalk. This operation requires
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html enhanced health reporting>.
-module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+module Amazonka.ElasticBeanstalk.DescribeInstancesHealth
   ( -- * Creating a Request
     DescribeInstancesHealth (..),
     newDescribeInstancesHealth,
@@ -46,12 +46,12 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Parameters for a call to @DescribeInstancesHealth@.
 --

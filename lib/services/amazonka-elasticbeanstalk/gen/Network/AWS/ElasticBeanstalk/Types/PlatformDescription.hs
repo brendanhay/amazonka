@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types.PlatformDescription
+-- Module      : Amazonka.ElasticBeanstalk.Types.PlatformDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.PlatformDescription where
+module Amazonka.ElasticBeanstalk.Types.PlatformDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.CustomAmi
-import Network.AWS.ElasticBeanstalk.Types.PlatformFramework
-import Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
-import Network.AWS.ElasticBeanstalk.Types.PlatformStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.CustomAmi
+import Amazonka.ElasticBeanstalk.Types.PlatformFramework
+import Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage
+import Amazonka.ElasticBeanstalk.Types.PlatformStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about a platform version.
 --

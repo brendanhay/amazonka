@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+-- Module      : Amazonka.ElasticBeanstalk.RetrieveEnvironmentInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Related Topics
 --
 -- -   RequestEnvironmentInfo
-module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+module Amazonka.ElasticBeanstalk.RetrieveEnvironmentInfo
   ( -- * Creating a Request
     RetrieveEnvironmentInfo (..),
     newRetrieveEnvironmentInfo,
@@ -46,12 +46,12 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Request to download logs retrieved with RequestEnvironmentInfo.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types
+-- Module      : Amazonka.ElasticBeanstalk.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types
+module Amazonka.ElasticBeanstalk.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -589,87 +589,87 @@ module Network.AWS.ElasticBeanstalk.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
-import Network.AWS.ElasticBeanstalk.Types.ActionStatus
-import Network.AWS.ElasticBeanstalk.Types.ActionType
-import Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
-import Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage
-import Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
-import Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
-import Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup
-import Network.AWS.ElasticBeanstalk.Types.BuildConfiguration
-import Network.AWS.ElasticBeanstalk.Types.Builder
-import Network.AWS.ElasticBeanstalk.Types.CPUUtilization
-import Network.AWS.ElasticBeanstalk.Types.ComputeType
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
-import Network.AWS.ElasticBeanstalk.Types.ConfigurationSettingsDescription
-import Network.AWS.ElasticBeanstalk.Types.CustomAmi
-import Network.AWS.ElasticBeanstalk.Types.Deployment
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoDescription
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
-import Network.AWS.ElasticBeanstalk.Types.EnvironmentTier
-import Network.AWS.ElasticBeanstalk.Types.EventDescription
-import Network.AWS.ElasticBeanstalk.Types.EventSeverity
-import Network.AWS.ElasticBeanstalk.Types.FailureType
-import Network.AWS.ElasticBeanstalk.Types.Instance
-import Network.AWS.ElasticBeanstalk.Types.InstanceHealthSummary
-import Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
-import Network.AWS.ElasticBeanstalk.Types.Latency
-import Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
-import Network.AWS.ElasticBeanstalk.Types.LaunchTemplate
-import Network.AWS.ElasticBeanstalk.Types.Listener
-import Network.AWS.ElasticBeanstalk.Types.LoadBalancer
-import Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
-import Network.AWS.ElasticBeanstalk.Types.ManagedAction
-import Network.AWS.ElasticBeanstalk.Types.ManagedActionHistoryItem
-import Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
-import Network.AWS.ElasticBeanstalk.Types.MaxCountRule
-import Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
-import Network.AWS.ElasticBeanstalk.Types.OptionSpecification
-import Network.AWS.ElasticBeanstalk.Types.PlatformBranchSummary
-import Network.AWS.ElasticBeanstalk.Types.PlatformDescription
-import Network.AWS.ElasticBeanstalk.Types.PlatformFilter
-import Network.AWS.ElasticBeanstalk.Types.PlatformFramework
-import Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
-import Network.AWS.ElasticBeanstalk.Types.PlatformStatus
-import Network.AWS.ElasticBeanstalk.Types.PlatformSummary
-import Network.AWS.ElasticBeanstalk.Types.Queue
-import Network.AWS.ElasticBeanstalk.Types.ResourceQuota
-import Network.AWS.ElasticBeanstalk.Types.ResourceQuotas
-import Network.AWS.ElasticBeanstalk.Types.S3Location
-import Network.AWS.ElasticBeanstalk.Types.SearchFilter
-import Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth
-import Network.AWS.ElasticBeanstalk.Types.SolutionStackDescription
-import Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
-import Network.AWS.ElasticBeanstalk.Types.SourceConfiguration
-import Network.AWS.ElasticBeanstalk.Types.SourceRepository
-import Network.AWS.ElasticBeanstalk.Types.SourceType
-import Network.AWS.ElasticBeanstalk.Types.StatusCodes
-import Network.AWS.ElasticBeanstalk.Types.SystemStatus
-import Network.AWS.ElasticBeanstalk.Types.Tag
-import Network.AWS.ElasticBeanstalk.Types.Trigger
-import Network.AWS.ElasticBeanstalk.Types.ValidationMessage
-import Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.ActionHistoryStatus
+import Amazonka.ElasticBeanstalk.Types.ActionStatus
+import Amazonka.ElasticBeanstalk.Types.ActionType
+import Amazonka.ElasticBeanstalk.Types.ApplicationDescription
+import Amazonka.ElasticBeanstalk.Types.ApplicationDescriptionMessage
+import Amazonka.ElasticBeanstalk.Types.ApplicationMetrics
+import Amazonka.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
+import Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription
+import Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
+import Amazonka.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
+import Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus
+import Amazonka.ElasticBeanstalk.Types.AutoScalingGroup
+import Amazonka.ElasticBeanstalk.Types.BuildConfiguration
+import Amazonka.ElasticBeanstalk.Types.Builder
+import Amazonka.ElasticBeanstalk.Types.CPUUtilization
+import Amazonka.ElasticBeanstalk.Types.ComputeType
+import Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
+import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionDescription
+import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting
+import Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType
+import Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription
+import Amazonka.ElasticBeanstalk.Types.CustomAmi
+import Amazonka.ElasticBeanstalk.Types.Deployment
+import Amazonka.ElasticBeanstalk.Types.EnvironmentDescription
+import Amazonka.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
+import Amazonka.ElasticBeanstalk.Types.EnvironmentHealth
+import Amazonka.ElasticBeanstalk.Types.EnvironmentHealthAttribute
+import Amazonka.ElasticBeanstalk.Types.EnvironmentHealthStatus
+import Amazonka.ElasticBeanstalk.Types.EnvironmentInfoDescription
+import Amazonka.ElasticBeanstalk.Types.EnvironmentInfoType
+import Amazonka.ElasticBeanstalk.Types.EnvironmentLink
+import Amazonka.ElasticBeanstalk.Types.EnvironmentResourceDescription
+import Amazonka.ElasticBeanstalk.Types.EnvironmentResourcesDescription
+import Amazonka.ElasticBeanstalk.Types.EnvironmentStatus
+import Amazonka.ElasticBeanstalk.Types.EnvironmentTier
+import Amazonka.ElasticBeanstalk.Types.EventDescription
+import Amazonka.ElasticBeanstalk.Types.EventSeverity
+import Amazonka.ElasticBeanstalk.Types.FailureType
+import Amazonka.ElasticBeanstalk.Types.Instance
+import Amazonka.ElasticBeanstalk.Types.InstanceHealthSummary
+import Amazonka.ElasticBeanstalk.Types.InstancesHealthAttribute
+import Amazonka.ElasticBeanstalk.Types.Latency
+import Amazonka.ElasticBeanstalk.Types.LaunchConfiguration
+import Amazonka.ElasticBeanstalk.Types.LaunchTemplate
+import Amazonka.ElasticBeanstalk.Types.Listener
+import Amazonka.ElasticBeanstalk.Types.LoadBalancer
+import Amazonka.ElasticBeanstalk.Types.LoadBalancerDescription
+import Amazonka.ElasticBeanstalk.Types.ManagedAction
+import Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem
+import Amazonka.ElasticBeanstalk.Types.MaxAgeRule
+import Amazonka.ElasticBeanstalk.Types.MaxCountRule
+import Amazonka.ElasticBeanstalk.Types.OptionRestrictionRegex
+import Amazonka.ElasticBeanstalk.Types.OptionSpecification
+import Amazonka.ElasticBeanstalk.Types.PlatformBranchSummary
+import Amazonka.ElasticBeanstalk.Types.PlatformDescription
+import Amazonka.ElasticBeanstalk.Types.PlatformFilter
+import Amazonka.ElasticBeanstalk.Types.PlatformFramework
+import Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage
+import Amazonka.ElasticBeanstalk.Types.PlatformStatus
+import Amazonka.ElasticBeanstalk.Types.PlatformSummary
+import Amazonka.ElasticBeanstalk.Types.Queue
+import Amazonka.ElasticBeanstalk.Types.ResourceQuota
+import Amazonka.ElasticBeanstalk.Types.ResourceQuotas
+import Amazonka.ElasticBeanstalk.Types.S3Location
+import Amazonka.ElasticBeanstalk.Types.SearchFilter
+import Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth
+import Amazonka.ElasticBeanstalk.Types.SolutionStackDescription
+import Amazonka.ElasticBeanstalk.Types.SourceBuildInformation
+import Amazonka.ElasticBeanstalk.Types.SourceConfiguration
+import Amazonka.ElasticBeanstalk.Types.SourceRepository
+import Amazonka.ElasticBeanstalk.Types.SourceType
+import Amazonka.ElasticBeanstalk.Types.StatusCodes
+import Amazonka.ElasticBeanstalk.Types.SystemStatus
+import Amazonka.ElasticBeanstalk.Types.Tag
+import Amazonka.ElasticBeanstalk.Types.Trigger
+import Amazonka.ElasticBeanstalk.Types.ValidationMessage
+import Amazonka.ElasticBeanstalk.Types.ValidationSeverity
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-12-01@ of the Amazon Elastic Beanstalk SDK configuration.
 defaultService :: Core.Service

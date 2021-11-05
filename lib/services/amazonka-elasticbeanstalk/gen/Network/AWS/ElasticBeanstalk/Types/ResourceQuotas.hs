@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types.ResourceQuotas
+-- Module      : Amazonka.ElasticBeanstalk.Types.ResourceQuotas
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ResourceQuotas where
+module Amazonka.ElasticBeanstalk.Types.ResourceQuotas where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.ResourceQuota
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.ResourceQuota
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A set of per-resource AWS Elastic Beanstalk quotas associated with an
 -- AWS account. They reflect Elastic Beanstalk resource limits for this

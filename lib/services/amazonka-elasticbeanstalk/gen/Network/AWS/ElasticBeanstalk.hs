@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk
+-- Module      : Amazonka.ElasticBeanstalk
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- supports, go to
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints>
 -- in the /Amazon Web Services Glossary/.
-module Network.AWS.ElasticBeanstalk
+module Amazonka.ElasticBeanstalk
   ( -- * Service Configuration
     defaultService,
 
@@ -686,56 +686,56 @@ module Network.AWS.ElasticBeanstalk
   )
 where
 
-import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-import Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
-import Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole
-import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-import Network.AWS.ElasticBeanstalk.ComposeEnvironments
-import Network.AWS.ElasticBeanstalk.CreateApplication
-import Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-import Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.CreateEnvironment
-import Network.AWS.ElasticBeanstalk.CreatePlatformVersion
-import Network.AWS.ElasticBeanstalk.CreateStorageLocation
-import Network.AWS.ElasticBeanstalk.DeleteApplication
-import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-import Network.AWS.ElasticBeanstalk.DeletePlatformVersion
-import Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
-import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-import Network.AWS.ElasticBeanstalk.DescribeApplications
-import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-import Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-import Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
-import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
-import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
-import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-import Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import Network.AWS.ElasticBeanstalk.DescribeEvents
-import Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
-import Network.AWS.ElasticBeanstalk.DescribePlatformVersion
-import Network.AWS.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
-import Network.AWS.ElasticBeanstalk.Lens
-import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import Network.AWS.ElasticBeanstalk.ListPlatformBranches
-import Network.AWS.ElasticBeanstalk.ListPlatformVersions
-import Network.AWS.ElasticBeanstalk.ListTagsForResource
-import Network.AWS.ElasticBeanstalk.RebuildEnvironment
-import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-import Network.AWS.ElasticBeanstalk.RestartAppServer
-import Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-import Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-import Network.AWS.ElasticBeanstalk.TerminateEnvironment
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.UpdateApplication
-import Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
-import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.UpdateEnvironment
-import Network.AWS.ElasticBeanstalk.UpdateTagsForResource
-import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
-import Network.AWS.ElasticBeanstalk.Waiters
+import Amazonka.ElasticBeanstalk.AbortEnvironmentUpdate
+import Amazonka.ElasticBeanstalk.ApplyEnvironmentManagedAction
+import Amazonka.ElasticBeanstalk.AssociateEnvironmentOperationsRole
+import Amazonka.ElasticBeanstalk.CheckDNSAvailability
+import Amazonka.ElasticBeanstalk.ComposeEnvironments
+import Amazonka.ElasticBeanstalk.CreateApplication
+import Amazonka.ElasticBeanstalk.CreateApplicationVersion
+import Amazonka.ElasticBeanstalk.CreateConfigurationTemplate
+import Amazonka.ElasticBeanstalk.CreateEnvironment
+import Amazonka.ElasticBeanstalk.CreatePlatformVersion
+import Amazonka.ElasticBeanstalk.CreateStorageLocation
+import Amazonka.ElasticBeanstalk.DeleteApplication
+import Amazonka.ElasticBeanstalk.DeleteApplicationVersion
+import Amazonka.ElasticBeanstalk.DeleteConfigurationTemplate
+import Amazonka.ElasticBeanstalk.DeleteEnvironmentConfiguration
+import Amazonka.ElasticBeanstalk.DeletePlatformVersion
+import Amazonka.ElasticBeanstalk.DescribeAccountAttributes
+import Amazonka.ElasticBeanstalk.DescribeApplicationVersions
+import Amazonka.ElasticBeanstalk.DescribeApplications
+import Amazonka.ElasticBeanstalk.DescribeConfigurationOptions
+import Amazonka.ElasticBeanstalk.DescribeConfigurationSettings
+import Amazonka.ElasticBeanstalk.DescribeEnvironmentHealth
+import Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+import Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActions
+import Amazonka.ElasticBeanstalk.DescribeEnvironmentResources
+import Amazonka.ElasticBeanstalk.DescribeEnvironments
+import Amazonka.ElasticBeanstalk.DescribeEvents
+import Amazonka.ElasticBeanstalk.DescribeInstancesHealth
+import Amazonka.ElasticBeanstalk.DescribePlatformVersion
+import Amazonka.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
+import Amazonka.ElasticBeanstalk.Lens
+import Amazonka.ElasticBeanstalk.ListAvailableSolutionStacks
+import Amazonka.ElasticBeanstalk.ListPlatformBranches
+import Amazonka.ElasticBeanstalk.ListPlatformVersions
+import Amazonka.ElasticBeanstalk.ListTagsForResource
+import Amazonka.ElasticBeanstalk.RebuildEnvironment
+import Amazonka.ElasticBeanstalk.RequestEnvironmentInfo
+import Amazonka.ElasticBeanstalk.RestartAppServer
+import Amazonka.ElasticBeanstalk.RetrieveEnvironmentInfo
+import Amazonka.ElasticBeanstalk.SwapEnvironmentCNAMEs
+import Amazonka.ElasticBeanstalk.TerminateEnvironment
+import Amazonka.ElasticBeanstalk.Types
+import Amazonka.ElasticBeanstalk.UpdateApplication
+import Amazonka.ElasticBeanstalk.UpdateApplicationResourceLifecycle
+import Amazonka.ElasticBeanstalk.UpdateApplicationVersion
+import Amazonka.ElasticBeanstalk.UpdateConfigurationTemplate
+import Amazonka.ElasticBeanstalk.UpdateEnvironment
+import Amazonka.ElasticBeanstalk.UpdateTagsForResource
+import Amazonka.ElasticBeanstalk.ValidateConfigurationSettings
+import Amazonka.ElasticBeanstalk.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

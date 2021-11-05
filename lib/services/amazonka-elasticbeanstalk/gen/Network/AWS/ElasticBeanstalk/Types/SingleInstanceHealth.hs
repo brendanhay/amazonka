@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth
+-- Module      : Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth where
+module Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
-import Network.AWS.ElasticBeanstalk.Types.Deployment
-import Network.AWS.ElasticBeanstalk.Types.SystemStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types.ApplicationMetrics
+import Amazonka.ElasticBeanstalk.Types.Deployment
+import Amazonka.ElasticBeanstalk.Types.SystemStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed health information about an Amazon EC2 instance in your Elastic
 -- Beanstalk environment.

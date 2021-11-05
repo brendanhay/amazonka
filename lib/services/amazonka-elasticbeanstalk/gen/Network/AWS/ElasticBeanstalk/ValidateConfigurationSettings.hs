@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+-- Module      : Amazonka.ElasticBeanstalk.ValidateConfigurationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- This action returns a list of messages indicating any errors or warnings
 -- associated with the selection of option values.
-module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+module Amazonka.ElasticBeanstalk.ValidateConfigurationSettings
   ( -- * Creating a Request
     ValidateConfigurationSettings (..),
     newValidateConfigurationSettings,
@@ -46,12 +46,12 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticBeanstalk.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticBeanstalk.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A list of validation messages for a specified configuration template.
 --

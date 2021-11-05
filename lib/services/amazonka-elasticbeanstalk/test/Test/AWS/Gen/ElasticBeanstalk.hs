@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticBeanstalk where
 
+import Amazonka.ElasticBeanstalk
 import qualified Data.Proxy as Proxy
-import Network.AWS.ElasticBeanstalk
 import Test.AWS.ElasticBeanstalk.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

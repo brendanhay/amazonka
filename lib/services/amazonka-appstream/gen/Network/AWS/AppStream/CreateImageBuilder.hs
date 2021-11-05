@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.CreateImageBuilder
+-- Module      : Amazonka.AppStream.CreateImageBuilder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- The initial state of the builder is @PENDING@. When it is ready, the
 -- state is @RUNNING@.
-module Network.AWS.AppStream.CreateImageBuilder
+module Amazonka.AppStream.CreateImageBuilder
   ( -- * Creating a Request
     CreateImageBuilder (..),
     newCreateImageBuilder,
@@ -55,12 +55,12 @@ module Network.AWS.AppStream.CreateImageBuilder
   )
 where
 
-import Network.AWS.AppStream.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppStream.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateImageBuilder' smart constructor.
 data CreateImageBuilder = CreateImageBuilder'

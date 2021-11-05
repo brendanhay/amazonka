@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.DeleteDirectoryConfig
+-- Module      : Amazonka.AppStream.DeleteDirectoryConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes the specified Directory Config object from AppStream 2.0. This
 -- object includes the information required to join streaming instances to
 -- an Active Directory domain.
-module Network.AWS.AppStream.DeleteDirectoryConfig
+module Amazonka.AppStream.DeleteDirectoryConfig
   ( -- * Creating a Request
     DeleteDirectoryConfig (..),
     newDeleteDirectoryConfig,
@@ -40,12 +40,12 @@ module Network.AWS.AppStream.DeleteDirectoryConfig
   )
 where
 
-import Network.AWS.AppStream.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppStream.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDirectoryConfig' smart constructor.
 data DeleteDirectoryConfig = DeleteDirectoryConfig'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.EnableUser
+-- Module      : Amazonka.AppStream.EnableUser
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Enables a user in the user pool. After being enabled, users can sign in
 -- to AppStream 2.0 and open applications from the stacks to which they are
 -- assigned.
-module Network.AWS.AppStream.EnableUser
+module Amazonka.AppStream.EnableUser
   ( -- * Creating a Request
     EnableUser (..),
     newEnableUser,
@@ -41,12 +41,12 @@ module Network.AWS.AppStream.EnableUser
   )
 where
 
-import Network.AWS.AppStream.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppStream.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableUser' smart constructor.
 data EnableUser = EnableUser'

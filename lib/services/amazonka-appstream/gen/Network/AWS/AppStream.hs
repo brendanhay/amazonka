@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppStream
+-- Module      : Amazonka.AppStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- -   <http://aws.amazon.com/appstream2 Amazon AppStream 2.0 product page>
 --
 -- -   <http://aws.amazon.com/documentation/appstream2 Amazon AppStream 2.0 documentation>
-module Network.AWS.AppStream
+module Amazonka.AppStream
   ( -- * Service Configuration
     defaultService,
 
@@ -570,57 +570,57 @@ module Network.AWS.AppStream
   )
 where
 
-import Network.AWS.AppStream.AssociateFleet
-import Network.AWS.AppStream.BatchAssociateUserStack
-import Network.AWS.AppStream.BatchDisassociateUserStack
-import Network.AWS.AppStream.CopyImage
-import Network.AWS.AppStream.CreateDirectoryConfig
-import Network.AWS.AppStream.CreateFleet
-import Network.AWS.AppStream.CreateImageBuilder
-import Network.AWS.AppStream.CreateImageBuilderStreamingURL
-import Network.AWS.AppStream.CreateStack
-import Network.AWS.AppStream.CreateStreamingURL
-import Network.AWS.AppStream.CreateUpdatedImage
-import Network.AWS.AppStream.CreateUsageReportSubscription
-import Network.AWS.AppStream.CreateUser
-import Network.AWS.AppStream.DeleteDirectoryConfig
-import Network.AWS.AppStream.DeleteFleet
-import Network.AWS.AppStream.DeleteImage
-import Network.AWS.AppStream.DeleteImageBuilder
-import Network.AWS.AppStream.DeleteImagePermissions
-import Network.AWS.AppStream.DeleteStack
-import Network.AWS.AppStream.DeleteUsageReportSubscription
-import Network.AWS.AppStream.DeleteUser
-import Network.AWS.AppStream.DescribeDirectoryConfigs
-import Network.AWS.AppStream.DescribeFleets
-import Network.AWS.AppStream.DescribeImageBuilders
-import Network.AWS.AppStream.DescribeImagePermissions
-import Network.AWS.AppStream.DescribeImages
-import Network.AWS.AppStream.DescribeSessions
-import Network.AWS.AppStream.DescribeStacks
-import Network.AWS.AppStream.DescribeUsageReportSubscriptions
-import Network.AWS.AppStream.DescribeUserStackAssociations
-import Network.AWS.AppStream.DescribeUsers
-import Network.AWS.AppStream.DisableUser
-import Network.AWS.AppStream.DisassociateFleet
-import Network.AWS.AppStream.EnableUser
-import Network.AWS.AppStream.ExpireSession
-import Network.AWS.AppStream.Lens
-import Network.AWS.AppStream.ListAssociatedFleets
-import Network.AWS.AppStream.ListAssociatedStacks
-import Network.AWS.AppStream.ListTagsForResource
-import Network.AWS.AppStream.StartFleet
-import Network.AWS.AppStream.StartImageBuilder
-import Network.AWS.AppStream.StopFleet
-import Network.AWS.AppStream.StopImageBuilder
-import Network.AWS.AppStream.TagResource
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.UntagResource
-import Network.AWS.AppStream.UpdateDirectoryConfig
-import Network.AWS.AppStream.UpdateFleet
-import Network.AWS.AppStream.UpdateImagePermissions
-import Network.AWS.AppStream.UpdateStack
-import Network.AWS.AppStream.Waiters
+import Amazonka.AppStream.AssociateFleet
+import Amazonka.AppStream.BatchAssociateUserStack
+import Amazonka.AppStream.BatchDisassociateUserStack
+import Amazonka.AppStream.CopyImage
+import Amazonka.AppStream.CreateDirectoryConfig
+import Amazonka.AppStream.CreateFleet
+import Amazonka.AppStream.CreateImageBuilder
+import Amazonka.AppStream.CreateImageBuilderStreamingURL
+import Amazonka.AppStream.CreateStack
+import Amazonka.AppStream.CreateStreamingURL
+import Amazonka.AppStream.CreateUpdatedImage
+import Amazonka.AppStream.CreateUsageReportSubscription
+import Amazonka.AppStream.CreateUser
+import Amazonka.AppStream.DeleteDirectoryConfig
+import Amazonka.AppStream.DeleteFleet
+import Amazonka.AppStream.DeleteImage
+import Amazonka.AppStream.DeleteImageBuilder
+import Amazonka.AppStream.DeleteImagePermissions
+import Amazonka.AppStream.DeleteStack
+import Amazonka.AppStream.DeleteUsageReportSubscription
+import Amazonka.AppStream.DeleteUser
+import Amazonka.AppStream.DescribeDirectoryConfigs
+import Amazonka.AppStream.DescribeFleets
+import Amazonka.AppStream.DescribeImageBuilders
+import Amazonka.AppStream.DescribeImagePermissions
+import Amazonka.AppStream.DescribeImages
+import Amazonka.AppStream.DescribeSessions
+import Amazonka.AppStream.DescribeStacks
+import Amazonka.AppStream.DescribeUsageReportSubscriptions
+import Amazonka.AppStream.DescribeUserStackAssociations
+import Amazonka.AppStream.DescribeUsers
+import Amazonka.AppStream.DisableUser
+import Amazonka.AppStream.DisassociateFleet
+import Amazonka.AppStream.EnableUser
+import Amazonka.AppStream.ExpireSession
+import Amazonka.AppStream.Lens
+import Amazonka.AppStream.ListAssociatedFleets
+import Amazonka.AppStream.ListAssociatedStacks
+import Amazonka.AppStream.ListTagsForResource
+import Amazonka.AppStream.StartFleet
+import Amazonka.AppStream.StartImageBuilder
+import Amazonka.AppStream.StopFleet
+import Amazonka.AppStream.StopImageBuilder
+import Amazonka.AppStream.TagResource
+import Amazonka.AppStream.Types
+import Amazonka.AppStream.UntagResource
+import Amazonka.AppStream.UpdateDirectoryConfig
+import Amazonka.AppStream.UpdateFleet
+import Amazonka.AppStream.UpdateImagePermissions
+import Amazonka.AppStream.UpdateStack
+import Amazonka.AppStream.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Lens
+-- Module      : Amazonka.AppStream.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Lens
+module Amazonka.AppStream.Lens
   ( -- * Operations
 
     -- ** CreateUsageReportSubscription
@@ -591,81 +591,81 @@ module Network.AWS.AppStream.Lens
   )
 where
 
-import Network.AWS.AppStream.AssociateFleet
-import Network.AWS.AppStream.BatchAssociateUserStack
-import Network.AWS.AppStream.BatchDisassociateUserStack
-import Network.AWS.AppStream.CopyImage
-import Network.AWS.AppStream.CreateDirectoryConfig
-import Network.AWS.AppStream.CreateFleet
-import Network.AWS.AppStream.CreateImageBuilder
-import Network.AWS.AppStream.CreateImageBuilderStreamingURL
-import Network.AWS.AppStream.CreateStack
-import Network.AWS.AppStream.CreateStreamingURL
-import Network.AWS.AppStream.CreateUpdatedImage
-import Network.AWS.AppStream.CreateUsageReportSubscription
-import Network.AWS.AppStream.CreateUser
-import Network.AWS.AppStream.DeleteDirectoryConfig
-import Network.AWS.AppStream.DeleteFleet
-import Network.AWS.AppStream.DeleteImage
-import Network.AWS.AppStream.DeleteImageBuilder
-import Network.AWS.AppStream.DeleteImagePermissions
-import Network.AWS.AppStream.DeleteStack
-import Network.AWS.AppStream.DeleteUsageReportSubscription
-import Network.AWS.AppStream.DeleteUser
-import Network.AWS.AppStream.DescribeDirectoryConfigs
-import Network.AWS.AppStream.DescribeFleets
-import Network.AWS.AppStream.DescribeImageBuilders
-import Network.AWS.AppStream.DescribeImagePermissions
-import Network.AWS.AppStream.DescribeImages
-import Network.AWS.AppStream.DescribeSessions
-import Network.AWS.AppStream.DescribeStacks
-import Network.AWS.AppStream.DescribeUsageReportSubscriptions
-import Network.AWS.AppStream.DescribeUserStackAssociations
-import Network.AWS.AppStream.DescribeUsers
-import Network.AWS.AppStream.DisableUser
-import Network.AWS.AppStream.DisassociateFleet
-import Network.AWS.AppStream.EnableUser
-import Network.AWS.AppStream.ExpireSession
-import Network.AWS.AppStream.ListAssociatedFleets
-import Network.AWS.AppStream.ListAssociatedStacks
-import Network.AWS.AppStream.ListTagsForResource
-import Network.AWS.AppStream.StartFleet
-import Network.AWS.AppStream.StartImageBuilder
-import Network.AWS.AppStream.StopFleet
-import Network.AWS.AppStream.StopImageBuilder
-import Network.AWS.AppStream.TagResource
-import Network.AWS.AppStream.Types.AccessEndpoint
-import Network.AWS.AppStream.Types.Application
-import Network.AWS.AppStream.Types.ApplicationSettings
-import Network.AWS.AppStream.Types.ApplicationSettingsResponse
-import Network.AWS.AppStream.Types.ComputeCapacity
-import Network.AWS.AppStream.Types.ComputeCapacityStatus
-import Network.AWS.AppStream.Types.DirectoryConfig
-import Network.AWS.AppStream.Types.DomainJoinInfo
-import Network.AWS.AppStream.Types.Fleet
-import Network.AWS.AppStream.Types.FleetError
-import Network.AWS.AppStream.Types.Image
-import Network.AWS.AppStream.Types.ImageBuilder
-import Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
-import Network.AWS.AppStream.Types.ImagePermissions
-import Network.AWS.AppStream.Types.ImageStateChangeReason
-import Network.AWS.AppStream.Types.LastReportGenerationExecutionError
-import Network.AWS.AppStream.Types.NetworkAccessConfiguration
-import Network.AWS.AppStream.Types.ResourceError
-import Network.AWS.AppStream.Types.ServiceAccountCredentials
-import Network.AWS.AppStream.Types.Session
-import Network.AWS.AppStream.Types.SharedImagePermissions
-import Network.AWS.AppStream.Types.Stack
-import Network.AWS.AppStream.Types.StackError
-import Network.AWS.AppStream.Types.StorageConnector
-import Network.AWS.AppStream.Types.UsageReportSubscription
-import Network.AWS.AppStream.Types.User
-import Network.AWS.AppStream.Types.UserSetting
-import Network.AWS.AppStream.Types.UserStackAssociation
-import Network.AWS.AppStream.Types.UserStackAssociationError
-import Network.AWS.AppStream.Types.VpcConfig
-import Network.AWS.AppStream.UntagResource
-import Network.AWS.AppStream.UpdateDirectoryConfig
-import Network.AWS.AppStream.UpdateFleet
-import Network.AWS.AppStream.UpdateImagePermissions
-import Network.AWS.AppStream.UpdateStack
+import Amazonka.AppStream.AssociateFleet
+import Amazonka.AppStream.BatchAssociateUserStack
+import Amazonka.AppStream.BatchDisassociateUserStack
+import Amazonka.AppStream.CopyImage
+import Amazonka.AppStream.CreateDirectoryConfig
+import Amazonka.AppStream.CreateFleet
+import Amazonka.AppStream.CreateImageBuilder
+import Amazonka.AppStream.CreateImageBuilderStreamingURL
+import Amazonka.AppStream.CreateStack
+import Amazonka.AppStream.CreateStreamingURL
+import Amazonka.AppStream.CreateUpdatedImage
+import Amazonka.AppStream.CreateUsageReportSubscription
+import Amazonka.AppStream.CreateUser
+import Amazonka.AppStream.DeleteDirectoryConfig
+import Amazonka.AppStream.DeleteFleet
+import Amazonka.AppStream.DeleteImage
+import Amazonka.AppStream.DeleteImageBuilder
+import Amazonka.AppStream.DeleteImagePermissions
+import Amazonka.AppStream.DeleteStack
+import Amazonka.AppStream.DeleteUsageReportSubscription
+import Amazonka.AppStream.DeleteUser
+import Amazonka.AppStream.DescribeDirectoryConfigs
+import Amazonka.AppStream.DescribeFleets
+import Amazonka.AppStream.DescribeImageBuilders
+import Amazonka.AppStream.DescribeImagePermissions
+import Amazonka.AppStream.DescribeImages
+import Amazonka.AppStream.DescribeSessions
+import Amazonka.AppStream.DescribeStacks
+import Amazonka.AppStream.DescribeUsageReportSubscriptions
+import Amazonka.AppStream.DescribeUserStackAssociations
+import Amazonka.AppStream.DescribeUsers
+import Amazonka.AppStream.DisableUser
+import Amazonka.AppStream.DisassociateFleet
+import Amazonka.AppStream.EnableUser
+import Amazonka.AppStream.ExpireSession
+import Amazonka.AppStream.ListAssociatedFleets
+import Amazonka.AppStream.ListAssociatedStacks
+import Amazonka.AppStream.ListTagsForResource
+import Amazonka.AppStream.StartFleet
+import Amazonka.AppStream.StartImageBuilder
+import Amazonka.AppStream.StopFleet
+import Amazonka.AppStream.StopImageBuilder
+import Amazonka.AppStream.TagResource
+import Amazonka.AppStream.Types.AccessEndpoint
+import Amazonka.AppStream.Types.Application
+import Amazonka.AppStream.Types.ApplicationSettings
+import Amazonka.AppStream.Types.ApplicationSettingsResponse
+import Amazonka.AppStream.Types.ComputeCapacity
+import Amazonka.AppStream.Types.ComputeCapacityStatus
+import Amazonka.AppStream.Types.DirectoryConfig
+import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.Fleet
+import Amazonka.AppStream.Types.FleetError
+import Amazonka.AppStream.Types.Image
+import Amazonka.AppStream.Types.ImageBuilder
+import Amazonka.AppStream.Types.ImageBuilderStateChangeReason
+import Amazonka.AppStream.Types.ImagePermissions
+import Amazonka.AppStream.Types.ImageStateChangeReason
+import Amazonka.AppStream.Types.LastReportGenerationExecutionError
+import Amazonka.AppStream.Types.NetworkAccessConfiguration
+import Amazonka.AppStream.Types.ResourceError
+import Amazonka.AppStream.Types.ServiceAccountCredentials
+import Amazonka.AppStream.Types.Session
+import Amazonka.AppStream.Types.SharedImagePermissions
+import Amazonka.AppStream.Types.Stack
+import Amazonka.AppStream.Types.StackError
+import Amazonka.AppStream.Types.StorageConnector
+import Amazonka.AppStream.Types.UsageReportSubscription
+import Amazonka.AppStream.Types.User
+import Amazonka.AppStream.Types.UserSetting
+import Amazonka.AppStream.Types.UserStackAssociation
+import Amazonka.AppStream.Types.UserStackAssociationError
+import Amazonka.AppStream.Types.VpcConfig
+import Amazonka.AppStream.UntagResource
+import Amazonka.AppStream.UpdateDirectoryConfig
+import Amazonka.AppStream.UpdateFleet
+import Amazonka.AppStream.UpdateImagePermissions
+import Amazonka.AppStream.UpdateStack

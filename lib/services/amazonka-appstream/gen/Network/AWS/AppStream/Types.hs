@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Types
+-- Module      : Amazonka.AppStream.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types
+module Amazonka.AppStream.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -374,64 +374,64 @@ module Network.AWS.AppStream.Types
   )
 where
 
-import Network.AWS.AppStream.Types.AccessEndpoint
-import Network.AWS.AppStream.Types.AccessEndpointType
-import Network.AWS.AppStream.Types.Action
-import Network.AWS.AppStream.Types.Application
-import Network.AWS.AppStream.Types.ApplicationSettings
-import Network.AWS.AppStream.Types.ApplicationSettingsResponse
-import Network.AWS.AppStream.Types.AuthenticationType
-import Network.AWS.AppStream.Types.ComputeCapacity
-import Network.AWS.AppStream.Types.ComputeCapacityStatus
-import Network.AWS.AppStream.Types.DirectoryConfig
-import Network.AWS.AppStream.Types.DomainJoinInfo
-import Network.AWS.AppStream.Types.Fleet
-import Network.AWS.AppStream.Types.FleetAttribute
-import Network.AWS.AppStream.Types.FleetError
-import Network.AWS.AppStream.Types.FleetErrorCode
-import Network.AWS.AppStream.Types.FleetState
-import Network.AWS.AppStream.Types.FleetType
-import Network.AWS.AppStream.Types.Image
-import Network.AWS.AppStream.Types.ImageBuilder
-import Network.AWS.AppStream.Types.ImageBuilderState
-import Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
-import Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
-import Network.AWS.AppStream.Types.ImagePermissions
-import Network.AWS.AppStream.Types.ImageState
-import Network.AWS.AppStream.Types.ImageStateChangeReason
-import Network.AWS.AppStream.Types.ImageStateChangeReasonCode
-import Network.AWS.AppStream.Types.LastReportGenerationExecutionError
-import Network.AWS.AppStream.Types.MessageAction
-import Network.AWS.AppStream.Types.NetworkAccessConfiguration
-import Network.AWS.AppStream.Types.Permission
-import Network.AWS.AppStream.Types.PlatformType
-import Network.AWS.AppStream.Types.ResourceError
-import Network.AWS.AppStream.Types.ServiceAccountCredentials
-import Network.AWS.AppStream.Types.Session
-import Network.AWS.AppStream.Types.SessionConnectionState
-import Network.AWS.AppStream.Types.SessionState
-import Network.AWS.AppStream.Types.SharedImagePermissions
-import Network.AWS.AppStream.Types.Stack
-import Network.AWS.AppStream.Types.StackAttribute
-import Network.AWS.AppStream.Types.StackError
-import Network.AWS.AppStream.Types.StackErrorCode
-import Network.AWS.AppStream.Types.StorageConnector
-import Network.AWS.AppStream.Types.StorageConnectorType
-import Network.AWS.AppStream.Types.StreamView
-import Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
-import Network.AWS.AppStream.Types.UsageReportSchedule
-import Network.AWS.AppStream.Types.UsageReportSubscription
-import Network.AWS.AppStream.Types.User
-import Network.AWS.AppStream.Types.UserSetting
-import Network.AWS.AppStream.Types.UserStackAssociation
-import Network.AWS.AppStream.Types.UserStackAssociationError
-import Network.AWS.AppStream.Types.UserStackAssociationErrorCode
-import Network.AWS.AppStream.Types.VisibilityType
-import Network.AWS.AppStream.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AppStream.Types.AccessEndpoint
+import Amazonka.AppStream.Types.AccessEndpointType
+import Amazonka.AppStream.Types.Action
+import Amazonka.AppStream.Types.Application
+import Amazonka.AppStream.Types.ApplicationSettings
+import Amazonka.AppStream.Types.ApplicationSettingsResponse
+import Amazonka.AppStream.Types.AuthenticationType
+import Amazonka.AppStream.Types.ComputeCapacity
+import Amazonka.AppStream.Types.ComputeCapacityStatus
+import Amazonka.AppStream.Types.DirectoryConfig
+import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.Fleet
+import Amazonka.AppStream.Types.FleetAttribute
+import Amazonka.AppStream.Types.FleetError
+import Amazonka.AppStream.Types.FleetErrorCode
+import Amazonka.AppStream.Types.FleetState
+import Amazonka.AppStream.Types.FleetType
+import Amazonka.AppStream.Types.Image
+import Amazonka.AppStream.Types.ImageBuilder
+import Amazonka.AppStream.Types.ImageBuilderState
+import Amazonka.AppStream.Types.ImageBuilderStateChangeReason
+import Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode
+import Amazonka.AppStream.Types.ImagePermissions
+import Amazonka.AppStream.Types.ImageState
+import Amazonka.AppStream.Types.ImageStateChangeReason
+import Amazonka.AppStream.Types.ImageStateChangeReasonCode
+import Amazonka.AppStream.Types.LastReportGenerationExecutionError
+import Amazonka.AppStream.Types.MessageAction
+import Amazonka.AppStream.Types.NetworkAccessConfiguration
+import Amazonka.AppStream.Types.Permission
+import Amazonka.AppStream.Types.PlatformType
+import Amazonka.AppStream.Types.ResourceError
+import Amazonka.AppStream.Types.ServiceAccountCredentials
+import Amazonka.AppStream.Types.Session
+import Amazonka.AppStream.Types.SessionConnectionState
+import Amazonka.AppStream.Types.SessionState
+import Amazonka.AppStream.Types.SharedImagePermissions
+import Amazonka.AppStream.Types.Stack
+import Amazonka.AppStream.Types.StackAttribute
+import Amazonka.AppStream.Types.StackError
+import Amazonka.AppStream.Types.StackErrorCode
+import Amazonka.AppStream.Types.StorageConnector
+import Amazonka.AppStream.Types.StorageConnectorType
+import Amazonka.AppStream.Types.StreamView
+import Amazonka.AppStream.Types.UsageReportExecutionErrorCode
+import Amazonka.AppStream.Types.UsageReportSchedule
+import Amazonka.AppStream.Types.UsageReportSubscription
+import Amazonka.AppStream.Types.User
+import Amazonka.AppStream.Types.UserSetting
+import Amazonka.AppStream.Types.UserStackAssociation
+import Amazonka.AppStream.Types.UserStackAssociationError
+import Amazonka.AppStream.Types.UserStackAssociationErrorCode
+import Amazonka.AppStream.Types.VisibilityType
+import Amazonka.AppStream.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-12-01@ of the Amazon AppStream SDK configuration.
 defaultService :: Core.Service

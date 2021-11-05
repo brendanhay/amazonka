@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Types.ImageBuilder
+-- Module      : Amazonka.AppStream.Types.ImageBuilder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ImageBuilder where
+module Amazonka.AppStream.Types.ImageBuilder where
 
-import Network.AWS.AppStream.Types.AccessEndpoint
-import Network.AWS.AppStream.Types.DomainJoinInfo
-import Network.AWS.AppStream.Types.ImageBuilderState
-import Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
-import Network.AWS.AppStream.Types.NetworkAccessConfiguration
-import Network.AWS.AppStream.Types.PlatformType
-import Network.AWS.AppStream.Types.ResourceError
-import Network.AWS.AppStream.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppStream.Types.AccessEndpoint
+import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.ImageBuilderState
+import Amazonka.AppStream.Types.ImageBuilderStateChangeReason
+import Amazonka.AppStream.Types.NetworkAccessConfiguration
+import Amazonka.AppStream.Types.PlatformType
+import Amazonka.AppStream.Types.ResourceError
+import Amazonka.AppStream.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a virtual machine that is used to create an image.
 --

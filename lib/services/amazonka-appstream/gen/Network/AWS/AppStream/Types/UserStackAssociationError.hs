@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Types.UserStackAssociationError
+-- Module      : Amazonka.AppStream.Types.UserStackAssociationError
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.UserStackAssociationError where
+module Amazonka.AppStream.Types.UserStackAssociationError where
 
-import Network.AWS.AppStream.Types.UserStackAssociation
-import Network.AWS.AppStream.Types.UserStackAssociationErrorCode
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppStream.Types.UserStackAssociation
+import Amazonka.AppStream.Types.UserStackAssociationErrorCode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the error that is returned when a user can’t be associated
 -- with or disassociated from a stack.

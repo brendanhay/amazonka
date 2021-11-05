@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Types.Fleet
+-- Module      : Amazonka.AppStream.Types.Fleet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Fleet where
+module Amazonka.AppStream.Types.Fleet where
 
-import Network.AWS.AppStream.Types.ComputeCapacityStatus
-import Network.AWS.AppStream.Types.DomainJoinInfo
-import Network.AWS.AppStream.Types.FleetError
-import Network.AWS.AppStream.Types.FleetState
-import Network.AWS.AppStream.Types.FleetType
-import Network.AWS.AppStream.Types.StreamView
-import Network.AWS.AppStream.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppStream.Types.ComputeCapacityStatus
+import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.FleetError
+import Amazonka.AppStream.Types.FleetState
+import Amazonka.AppStream.Types.FleetType
+import Amazonka.AppStream.Types.StreamView
+import Amazonka.AppStream.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a fleet.
 --

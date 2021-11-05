@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.DescribeImagePermissions
+-- Module      : Amazonka.AppStream.DescribeImagePermissions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves a list that describes the permissions for shared AWS account
 -- IDs on a private image that you own.
-module Network.AWS.AppStream.DescribeImagePermissions
+module Amazonka.AppStream.DescribeImagePermissions
   ( -- * Creating a Request
     DescribeImagePermissions (..),
     newDescribeImagePermissions,
@@ -45,12 +45,12 @@ module Network.AWS.AppStream.DescribeImagePermissions
   )
 where
 
-import Network.AWS.AppStream.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppStream.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImagePermissions' smart constructor.
 data DescribeImagePermissions = DescribeImagePermissions'

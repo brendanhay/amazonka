@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppStream.Types.Stack
+-- Module      : Amazonka.AppStream.Types.Stack
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Stack where
+module Amazonka.AppStream.Types.Stack where
 
-import Network.AWS.AppStream.Types.AccessEndpoint
-import Network.AWS.AppStream.Types.ApplicationSettingsResponse
-import Network.AWS.AppStream.Types.StackError
-import Network.AWS.AppStream.Types.StorageConnector
-import Network.AWS.AppStream.Types.UserSetting
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppStream.Types.AccessEndpoint
+import Amazonka.AppStream.Types.ApplicationSettingsResponse
+import Amazonka.AppStream.Types.StackError
+import Amazonka.AppStream.Types.StorageConnector
+import Amazonka.AppStream.Types.UserSetting
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a stack.
 --

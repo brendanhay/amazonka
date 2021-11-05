@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.SensitiveDataResult
+-- Module      : Amazonka.SecurityHub.Types.SensitiveDataResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.SensitiveDataResult where
+module Amazonka.SecurityHub.Types.SensitiveDataResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.SensitiveDataDetections
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.SensitiveDataDetections
 
 -- | Contains a detected instance of sensitive data that are based on
 -- built-in identifiers.

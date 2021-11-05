@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsRdsDbInstanceDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsRdsDbInstanceDetails where
+module Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsRdsDbDomainMembership
-import Network.AWS.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole
-import Network.AWS.SecurityHub.Types.AwsRdsDbInstanceEndpoint
-import Network.AWS.SecurityHub.Types.AwsRdsDbInstanceVpcSecurityGroup
-import Network.AWS.SecurityHub.Types.AwsRdsDbOptionGroupMembership
-import Network.AWS.SecurityHub.Types.AwsRdsDbParameterGroup
-import Network.AWS.SecurityHub.Types.AwsRdsDbPendingModifiedValues
-import Network.AWS.SecurityHub.Types.AwsRdsDbProcessorFeature
-import Network.AWS.SecurityHub.Types.AwsRdsDbStatusInfo
-import Network.AWS.SecurityHub.Types.AwsRdsDbSubnetGroup
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsRdsDbDomainMembership
+import Amazonka.SecurityHub.Types.AwsRdsDbInstanceAssociatedRole
+import Amazonka.SecurityHub.Types.AwsRdsDbInstanceEndpoint
+import Amazonka.SecurityHub.Types.AwsRdsDbInstanceVpcSecurityGroup
+import Amazonka.SecurityHub.Types.AwsRdsDbOptionGroupMembership
+import Amazonka.SecurityHub.Types.AwsRdsDbParameterGroup
+import Amazonka.SecurityHub.Types.AwsRdsDbPendingModifiedValues
+import Amazonka.SecurityHub.Types.AwsRdsDbProcessorFeature
+import Amazonka.SecurityHub.Types.AwsRdsDbStatusInfo
+import Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroup
 
 -- | Contains the details of an Amazon RDS DB instance.
 --

@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsSecurityFindingFilters
+-- Module      : Amazonka.SecurityHub.Types.AwsSecurityFindingFilters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsSecurityFindingFilters where
+module Amazonka.SecurityHub.Types.AwsSecurityFindingFilters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.DateFilter
-import Network.AWS.SecurityHub.Types.IpFilter
-import Network.AWS.SecurityHub.Types.KeywordFilter
-import Network.AWS.SecurityHub.Types.MapFilter
-import Network.AWS.SecurityHub.Types.NumberFilter
-import Network.AWS.SecurityHub.Types.StringFilter
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.DateFilter
+import Amazonka.SecurityHub.Types.IpFilter
+import Amazonka.SecurityHub.Types.KeywordFilter
+import Amazonka.SecurityHub.Types.MapFilter
+import Amazonka.SecurityHub.Types.NumberFilter
+import Amazonka.SecurityHub.Types.StringFilter
 
 -- | A collection of attributes that are applied to all active Security
 -- Hub-aggregated findings and that result in a subset of findings that are

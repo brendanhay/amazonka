@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsLambdaFunctionDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsLambdaFunctionDetails where
+module Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionCode
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionEnvironment
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionLayer
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionTracingConfig
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionVpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionCode
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionDeadLetterConfig
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionEnvironment
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionLayer
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionTracingConfig
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionVpcConfig
 
 -- | Details about a function\'s configuration.
 --

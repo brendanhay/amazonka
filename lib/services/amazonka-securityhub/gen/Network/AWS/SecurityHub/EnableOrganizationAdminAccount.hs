@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.EnableOrganizationAdminAccount
+-- Module      : Amazonka.SecurityHub.EnableOrganizationAdminAccount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Designates the Security Hub administrator account for an organization.
 -- Can only be called by the organization management account.
-module Network.AWS.SecurityHub.EnableOrganizationAdminAccount
+module Amazonka.SecurityHub.EnableOrganizationAdminAccount
   ( -- * Creating a Request
     EnableOrganizationAdminAccount (..),
     newEnableOrganizationAdminAccount,
@@ -39,12 +39,12 @@ module Network.AWS.SecurityHub.EnableOrganizationAdminAccount
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecurityHub.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newEnableOrganizationAdminAccount' smart constructor.
 data EnableOrganizationAdminAccount = EnableOrganizationAdminAccount'

@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsRedshiftClusterDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsRedshiftClusterDetails where
+module Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterClusterNode
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterClusterParameterGroup
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterClusterSecurityGroup
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterClusterSnapshotCopyStatus
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterDeferredMaintenanceWindow
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterElasticIpStatus
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterEndpoint
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterHsmStatus
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterIamRole
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterResizeInfo
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterRestoreStatus
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterVpcSecurityGroup
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterNode
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterGroup
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterSecurityGroup
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterSnapshotCopyStatus
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterDeferredMaintenanceWindow
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterElasticIpStatus
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterEndpoint
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterHsmStatus
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterIamRole
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterResizeInfo
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterRestoreStatus
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterVpcSecurityGroup
 
 -- | Details about an Amazon Redshift cluster.
 --

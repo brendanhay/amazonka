@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails where
+module Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainVPCOptions
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainVPCOptions
 
 -- | Information about an Elasticsearch domain.
 --

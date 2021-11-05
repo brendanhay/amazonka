@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.Occurrences
+-- Module      : Amazonka.SecurityHub.Types.Occurrences
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.Occurrences where
+module Amazonka.SecurityHub.Types.Occurrences where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.Cell
-import Network.AWS.SecurityHub.Types.Page
-import Network.AWS.SecurityHub.Types.Range
-import Network.AWS.SecurityHub.Types.Record
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.Cell
+import Amazonka.SecurityHub.Types.Page
+import Amazonka.SecurityHub.Types.Range
+import Amazonka.SecurityHub.Types.Record
 
 -- | The detected occurrences of sensitive data.
 --

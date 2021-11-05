@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.GetInvitationsCount
+-- Module      : Amazonka.SecurityHub.GetInvitationsCount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the count of all Security Hub membership invitations that were
 -- sent to the current member account, not including the currently accepted
 -- invitation.
-module Network.AWS.SecurityHub.GetInvitationsCount
+module Amazonka.SecurityHub.GetInvitationsCount
   ( -- * Creating a Request
     GetInvitationsCount (..),
     newGetInvitationsCount,
@@ -38,12 +38,12 @@ module Network.AWS.SecurityHub.GetInvitationsCount
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecurityHub.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newGetInvitationsCount' smart constructor.
 data GetInvitationsCount = GetInvitationsCount'

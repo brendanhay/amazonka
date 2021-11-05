@@ -11,36 +11,36 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsSecurityFinding
+-- Module      : Amazonka.SecurityHub.Types.AwsSecurityFinding
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsSecurityFinding where
+module Amazonka.SecurityHub.Types.AwsSecurityFinding where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.Action
-import Network.AWS.SecurityHub.Types.Compliance
-import Network.AWS.SecurityHub.Types.FindingProviderFields
-import Network.AWS.SecurityHub.Types.Malware
-import Network.AWS.SecurityHub.Types.Network
-import Network.AWS.SecurityHub.Types.NetworkPathComponent
-import Network.AWS.SecurityHub.Types.Note
-import Network.AWS.SecurityHub.Types.PatchSummary
-import Network.AWS.SecurityHub.Types.ProcessDetails
-import Network.AWS.SecurityHub.Types.RecordState
-import Network.AWS.SecurityHub.Types.RelatedFinding
-import Network.AWS.SecurityHub.Types.Remediation
-import Network.AWS.SecurityHub.Types.Resource
-import Network.AWS.SecurityHub.Types.Severity
-import Network.AWS.SecurityHub.Types.ThreatIntelIndicator
-import Network.AWS.SecurityHub.Types.VerificationState
-import Network.AWS.SecurityHub.Types.Vulnerability
-import Network.AWS.SecurityHub.Types.Workflow
-import Network.AWS.SecurityHub.Types.WorkflowState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.Action
+import Amazonka.SecurityHub.Types.Compliance
+import Amazonka.SecurityHub.Types.FindingProviderFields
+import Amazonka.SecurityHub.Types.Malware
+import Amazonka.SecurityHub.Types.Network
+import Amazonka.SecurityHub.Types.NetworkPathComponent
+import Amazonka.SecurityHub.Types.Note
+import Amazonka.SecurityHub.Types.PatchSummary
+import Amazonka.SecurityHub.Types.ProcessDetails
+import Amazonka.SecurityHub.Types.RecordState
+import Amazonka.SecurityHub.Types.RelatedFinding
+import Amazonka.SecurityHub.Types.Remediation
+import Amazonka.SecurityHub.Types.Resource
+import Amazonka.SecurityHub.Types.Severity
+import Amazonka.SecurityHub.Types.ThreatIntelIndicator
+import Amazonka.SecurityHub.Types.VerificationState
+import Amazonka.SecurityHub.Types.Vulnerability
+import Amazonka.SecurityHub.Types.Workflow
+import Amazonka.SecurityHub.Types.WorkflowState
 
 -- | Provides consistent format for the contents of the Security
 -- Hub-aggregated findings. @AwsSecurityFinding@ format enables you to

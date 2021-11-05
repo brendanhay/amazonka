@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.BatchUpdateFindings
+-- Module      : Amazonka.SecurityHub.BatchUpdateFindings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -55,7 +55,7 @@
 -- suppress findings or change the finding severity. See
 -- <https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access Configuring access to BatchUpdateFindings>
 -- in the /Security Hub User Guide/.
-module Network.AWS.SecurityHub.BatchUpdateFindings
+module Amazonka.SecurityHub.BatchUpdateFindings
   ( -- * Creating a Request
     BatchUpdateFindings (..),
     newBatchUpdateFindings,
@@ -83,12 +83,12 @@ module Network.AWS.SecurityHub.BatchUpdateFindings
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecurityHub.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newBatchUpdateFindings' smart constructor.
 data BatchUpdateFindings = BatchUpdateFindings'

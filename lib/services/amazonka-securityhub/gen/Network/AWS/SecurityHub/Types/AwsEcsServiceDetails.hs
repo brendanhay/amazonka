@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsEcsServiceDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsEcsServiceDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsEcsServiceDetails where
+module Amazonka.SecurityHub.Types.AwsEcsServiceDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsEcsServiceCapacityProviderStrategyDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceDeploymentControllerDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceNetworkConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServicePlacementConstraintsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServicePlacementStrategiesDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceServiceRegistriesDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsEcsServiceCapacityProviderStrategyDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentControllerDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceLoadBalancersDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceNetworkConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsEcsServicePlacementConstraintsDetails
+import Amazonka.SecurityHub.Types.AwsEcsServicePlacementStrategiesDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceServiceRegistriesDetails
 
 -- | Provides details about a service within an ECS cluster.
 --

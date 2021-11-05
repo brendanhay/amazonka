@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.DeleteMembers
+-- Module      : Amazonka.SecurityHub.DeleteMembers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- Can be used to delete member accounts that belong to an organization as
 -- well as member accounts that were invited manually.
-module Network.AWS.SecurityHub.DeleteMembers
+module Amazonka.SecurityHub.DeleteMembers
   ( -- * Creating a Request
     DeleteMembers (..),
     newDeleteMembers,
@@ -42,12 +42,12 @@ module Network.AWS.SecurityHub.DeleteMembers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecurityHub.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDeleteMembers' smart constructor.
 data DeleteMembers = DeleteMembers'

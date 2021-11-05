@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateDetails where
+module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidationOption
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateExtendedKeyUsage
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateKeyUsage
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateOptions
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateRenewalSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidationOption
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateExtendedKeyUsage
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateKeyUsage
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateOptions
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateRenewalSummary
 
 -- | Provides details about an Certificate Manager certificate.
 --

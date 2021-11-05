@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.Action
+-- Module      : Amazonka.SecurityHub.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.Action where
+module Amazonka.SecurityHub.Types.Action where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsApiCallAction
-import Network.AWS.SecurityHub.Types.DnsRequestAction
-import Network.AWS.SecurityHub.Types.NetworkConnectionAction
-import Network.AWS.SecurityHub.Types.PortProbeAction
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsApiCallAction
+import Amazonka.SecurityHub.Types.DnsRequestAction
+import Amazonka.SecurityHub.Types.NetworkConnectionAction
+import Amazonka.SecurityHub.Types.PortProbeAction
 
 -- | Provides details about one of the following actions that affects or that
 -- was taken on a resource:

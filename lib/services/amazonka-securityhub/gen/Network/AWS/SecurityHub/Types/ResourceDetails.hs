@@ -11,75 +11,75 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.ResourceDetails
+-- Module      : Amazonka.SecurityHub.Types.ResourceDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.ResourceDetails where
+module Amazonka.SecurityHub.Types.ResourceDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails
-import Network.AWS.SecurityHub.Types.AwsApiGatewayStageDetails
-import Network.AWS.SecurityHub.Types.AwsApiGatewayV2ApiDetails
-import Network.AWS.SecurityHub.Types.AwsApiGatewayV2StageDetails
-import Network.AWS.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
-import Network.AWS.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsCertificateManagerCertificateDetails
-import Network.AWS.SecurityHub.Types.AwsCloudFrontDistributionDetails
-import Network.AWS.SecurityHub.Types.AwsCloudTrailTrailDetails
-import Network.AWS.SecurityHub.Types.AwsCodeBuildProjectDetails
-import Network.AWS.SecurityHub.Types.AwsDynamoDbTableDetails
-import Network.AWS.SecurityHub.Types.AwsEc2EipDetails
-import Network.AWS.SecurityHub.Types.AwsEc2InstanceDetails
-import Network.AWS.SecurityHub.Types.AwsEc2NetworkAclDetails
-import Network.AWS.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
-import Network.AWS.SecurityHub.Types.AwsEc2SecurityGroupDetails
-import Network.AWS.SecurityHub.Types.AwsEc2SubnetDetails
-import Network.AWS.SecurityHub.Types.AwsEc2VolumeDetails
-import Network.AWS.SecurityHub.Types.AwsEc2VpcDetails
-import Network.AWS.SecurityHub.Types.AwsEc2VpcEndpointServiceDetails
-import Network.AWS.SecurityHub.Types.AwsEc2VpnConnectionDetails
-import Network.AWS.SecurityHub.Types.AwsEcrContainerImageDetails
-import Network.AWS.SecurityHub.Types.AwsEcrRepositoryDetails
-import Network.AWS.SecurityHub.Types.AwsEcsClusterDetails
-import Network.AWS.SecurityHub.Types.AwsEcsServiceDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails
-import Network.AWS.SecurityHub.Types.AwsEksClusterDetails
-import Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
-import Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerDetails
-import Network.AWS.SecurityHub.Types.AwsElbv2LoadBalancerDetails
-import Network.AWS.SecurityHub.Types.AwsIamAccessKeyDetails
-import Network.AWS.SecurityHub.Types.AwsIamGroupDetails
-import Network.AWS.SecurityHub.Types.AwsIamPolicyDetails
-import Network.AWS.SecurityHub.Types.AwsIamRoleDetails
-import Network.AWS.SecurityHub.Types.AwsIamUserDetails
-import Network.AWS.SecurityHub.Types.AwsKmsKeyDetails
-import Network.AWS.SecurityHub.Types.AwsLambdaFunctionDetails
-import Network.AWS.SecurityHub.Types.AwsLambdaLayerVersionDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
-import Network.AWS.SecurityHub.Types.AwsRdsDbClusterDetails
-import Network.AWS.SecurityHub.Types.AwsRdsDbClusterSnapshotDetails
-import Network.AWS.SecurityHub.Types.AwsRdsDbInstanceDetails
-import Network.AWS.SecurityHub.Types.AwsRdsDbSnapshotDetails
-import Network.AWS.SecurityHub.Types.AwsRdsEventSubscriptionDetails
-import Network.AWS.SecurityHub.Types.AwsRedshiftClusterDetails
-import Network.AWS.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
-import Network.AWS.SecurityHub.Types.AwsS3BucketDetails
-import Network.AWS.SecurityHub.Types.AwsS3ObjectDetails
-import Network.AWS.SecurityHub.Types.AwsSecretsManagerSecretDetails
-import Network.AWS.SecurityHub.Types.AwsSnsTopicDetails
-import Network.AWS.SecurityHub.Types.AwsSqsQueueDetails
-import Network.AWS.SecurityHub.Types.AwsSsmPatchComplianceDetails
-import Network.AWS.SecurityHub.Types.AwsWafRateBasedRuleDetails
-import Network.AWS.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
-import Network.AWS.SecurityHub.Types.AwsWafWebAclDetails
-import Network.AWS.SecurityHub.Types.AwsXrayEncryptionConfigDetails
-import Network.AWS.SecurityHub.Types.ContainerDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsApiGatewayRestApiDetails
+import Amazonka.SecurityHub.Types.AwsApiGatewayStageDetails
+import Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails
+import Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails
+import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
+import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails
+import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDetails
+import Amazonka.SecurityHub.Types.AwsCloudTrailTrailDetails
+import Amazonka.SecurityHub.Types.AwsCodeBuildProjectDetails
+import Amazonka.SecurityHub.Types.AwsDynamoDbTableDetails
+import Amazonka.SecurityHub.Types.AwsEc2EipDetails
+import Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
+import Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
+import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
+import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails
+import Amazonka.SecurityHub.Types.AwsEc2SubnetDetails
+import Amazonka.SecurityHub.Types.AwsEc2VolumeDetails
+import Amazonka.SecurityHub.Types.AwsEc2VpcDetails
+import Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceDetails
+import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionDetails
+import Amazonka.SecurityHub.Types.AwsEcrContainerImageDetails
+import Amazonka.SecurityHub.Types.AwsEcrRepositoryDetails
+import Amazonka.SecurityHub.Types.AwsEcsClusterDetails
+import Amazonka.SecurityHub.Types.AwsEcsServiceDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionDetails
+import Amazonka.SecurityHub.Types.AwsEksClusterDetails
+import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
+import Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerDetails
+import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerDetails
+import Amazonka.SecurityHub.Types.AwsIamAccessKeyDetails
+import Amazonka.SecurityHub.Types.AwsIamGroupDetails
+import Amazonka.SecurityHub.Types.AwsIamPolicyDetails
+import Amazonka.SecurityHub.Types.AwsIamRoleDetails
+import Amazonka.SecurityHub.Types.AwsIamUserDetails
+import Amazonka.SecurityHub.Types.AwsKmsKeyDetails
+import Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails
+import Amazonka.SecurityHub.Types.AwsLambdaLayerVersionDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
+import Amazonka.SecurityHub.Types.AwsRdsDbClusterDetails
+import Amazonka.SecurityHub.Types.AwsRdsDbClusterSnapshotDetails
+import Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails
+import Amazonka.SecurityHub.Types.AwsRdsDbSnapshotDetails
+import Amazonka.SecurityHub.Types.AwsRdsEventSubscriptionDetails
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails
+import Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
+import Amazonka.SecurityHub.Types.AwsS3BucketDetails
+import Amazonka.SecurityHub.Types.AwsS3ObjectDetails
+import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails
+import Amazonka.SecurityHub.Types.AwsSnsTopicDetails
+import Amazonka.SecurityHub.Types.AwsSqsQueueDetails
+import Amazonka.SecurityHub.Types.AwsSsmPatchComplianceDetails
+import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails
+import Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
+import Amazonka.SecurityHub.Types.AwsWafWebAclDetails
+import Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails
+import Amazonka.SecurityHub.Types.ContainerDetails
 
 -- | Additional details about a resource related to a finding.
 --

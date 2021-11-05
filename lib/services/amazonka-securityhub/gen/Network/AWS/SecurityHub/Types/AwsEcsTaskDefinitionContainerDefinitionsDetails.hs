@@ -11,33 +11,33 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails where
+module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
 
 -- | A container definition that describes a container in the task.
 --

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsElbLoadBalancerDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsElbLoadBalancerDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsElbLoadBalancerDetails where
+module Amazonka.SecurityHub.Types.AwsElbLoadBalancerDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerAttributes
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerBackendServerDescription
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerHealthCheck
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerInstance
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerListenerDescription
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerPolicies
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerSourceSecurityGroup
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerBackendServerDescription
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerHealthCheck
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerInstance
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerListenerDescription
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerPolicies
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerSourceSecurityGroup
 
 -- | Contains details about a Classic Load Balancer.
 --

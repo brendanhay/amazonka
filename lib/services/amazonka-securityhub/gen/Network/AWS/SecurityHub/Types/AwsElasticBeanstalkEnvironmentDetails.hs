@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails where
+module Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentEnvironmentLink
-import Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentOptionSetting
-import Network.AWS.SecurityHub.Types.AwsElasticBeanstalkEnvironmentTier
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentEnvironmentLink
+import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentOptionSetting
+import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentTier
 
 -- | Contains details about an Elastic Beanstalk environment.
 --

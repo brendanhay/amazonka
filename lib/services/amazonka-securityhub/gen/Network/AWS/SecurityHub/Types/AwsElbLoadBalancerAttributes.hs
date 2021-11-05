@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsElbLoadBalancerAttributes
+-- Module      : Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsElbLoadBalancerAttributes where
+module Amazonka.SecurityHub.Types.AwsElbLoadBalancerAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerAccessLog
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerConnectionDraining
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerConnectionSettings
-import Network.AWS.SecurityHub.Types.AwsElbLoadBalancerCrossZoneLoadBalancing
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAccessLog
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionDraining
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionSettings
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerCrossZoneLoadBalancing
 
 -- | Contains attributes for the load balancer.
 --

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainDetails where
+module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOptionsDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
-import Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainVpcOptionsDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOptionsDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainVpcOptionsDetails
 
 -- | Information about an Amazon OpenSearch Service domain.
 --

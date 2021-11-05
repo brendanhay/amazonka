@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsWafRateBasedRuleDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsWafRateBasedRuleDetails where
+module Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate
 
 -- | Details about a rate-based rule for global resources. A rate-based rule
 -- provides settings to indicate when to allow, block, or count a request.

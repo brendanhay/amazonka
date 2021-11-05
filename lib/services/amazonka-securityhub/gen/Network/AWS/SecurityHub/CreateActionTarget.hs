@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.CreateActionTarget
+-- Module      : Amazonka.SecurityHub.CreateActionTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- You can use custom actions on findings and insights in Security Hub to
 -- trigger target actions in Amazon CloudWatch Events.
-module Network.AWS.SecurityHub.CreateActionTarget
+module Amazonka.SecurityHub.CreateActionTarget
   ( -- * Creating a Request
     CreateActionTarget (..),
     newCreateActionTarget,
@@ -44,12 +44,12 @@ module Network.AWS.SecurityHub.CreateActionTarget
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecurityHub.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newCreateActionTarget' smart constructor.
 data CreateActionTarget = CreateActionTarget'

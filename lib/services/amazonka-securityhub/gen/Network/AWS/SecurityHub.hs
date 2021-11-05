@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SecurityHub
+-- Module      : Amazonka.SecurityHub
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -53,7 +53,7 @@
 --
 -- -   All other operations - @RateLimit@ of 10 requests per second.
 --     @BurstLimit@ of 30 requests per second.
-module Network.AWS.SecurityHub
+module Amazonka.SecurityHub
   ( -- * Service Configuration
     defaultService,
 
@@ -2010,62 +2010,62 @@ module Network.AWS.SecurityHub
   )
 where
 
-import Network.AWS.SecurityHub.AcceptAdministratorInvitation
-import Network.AWS.SecurityHub.BatchDisableStandards
-import Network.AWS.SecurityHub.BatchEnableStandards
-import Network.AWS.SecurityHub.BatchImportFindings
-import Network.AWS.SecurityHub.BatchUpdateFindings
-import Network.AWS.SecurityHub.CreateActionTarget
-import Network.AWS.SecurityHub.CreateFindingAggregator
-import Network.AWS.SecurityHub.CreateInsight
-import Network.AWS.SecurityHub.CreateMembers
-import Network.AWS.SecurityHub.DeclineInvitations
-import Network.AWS.SecurityHub.DeleteActionTarget
-import Network.AWS.SecurityHub.DeleteFindingAggregator
-import Network.AWS.SecurityHub.DeleteInsight
-import Network.AWS.SecurityHub.DeleteInvitations
-import Network.AWS.SecurityHub.DeleteMembers
-import Network.AWS.SecurityHub.DescribeActionTargets
-import Network.AWS.SecurityHub.DescribeHub
-import Network.AWS.SecurityHub.DescribeOrganizationConfiguration
-import Network.AWS.SecurityHub.DescribeProducts
-import Network.AWS.SecurityHub.DescribeStandards
-import Network.AWS.SecurityHub.DescribeStandardsControls
-import Network.AWS.SecurityHub.DisableImportFindingsForProduct
-import Network.AWS.SecurityHub.DisableOrganizationAdminAccount
-import Network.AWS.SecurityHub.DisableSecurityHub
-import Network.AWS.SecurityHub.DisassociateFromAdministratorAccount
-import Network.AWS.SecurityHub.DisassociateMembers
-import Network.AWS.SecurityHub.EnableImportFindingsForProduct
-import Network.AWS.SecurityHub.EnableOrganizationAdminAccount
-import Network.AWS.SecurityHub.EnableSecurityHub
-import Network.AWS.SecurityHub.GetAdministratorAccount
-import Network.AWS.SecurityHub.GetEnabledStandards
-import Network.AWS.SecurityHub.GetFindingAggregator
-import Network.AWS.SecurityHub.GetFindings
-import Network.AWS.SecurityHub.GetInsightResults
-import Network.AWS.SecurityHub.GetInsights
-import Network.AWS.SecurityHub.GetInvitationsCount
-import Network.AWS.SecurityHub.GetMembers
-import Network.AWS.SecurityHub.InviteMembers
-import Network.AWS.SecurityHub.Lens
-import Network.AWS.SecurityHub.ListEnabledProductsForImport
-import Network.AWS.SecurityHub.ListFindingAggregators
-import Network.AWS.SecurityHub.ListInvitations
-import Network.AWS.SecurityHub.ListMembers
-import Network.AWS.SecurityHub.ListOrganizationAdminAccounts
-import Network.AWS.SecurityHub.ListTagsForResource
-import Network.AWS.SecurityHub.TagResource
-import Network.AWS.SecurityHub.Types
-import Network.AWS.SecurityHub.UntagResource
-import Network.AWS.SecurityHub.UpdateActionTarget
-import Network.AWS.SecurityHub.UpdateFindingAggregator
-import Network.AWS.SecurityHub.UpdateFindings
-import Network.AWS.SecurityHub.UpdateInsight
-import Network.AWS.SecurityHub.UpdateOrganizationConfiguration
-import Network.AWS.SecurityHub.UpdateSecurityHubConfiguration
-import Network.AWS.SecurityHub.UpdateStandardsControl
-import Network.AWS.SecurityHub.Waiters
+import Amazonka.SecurityHub.AcceptAdministratorInvitation
+import Amazonka.SecurityHub.BatchDisableStandards
+import Amazonka.SecurityHub.BatchEnableStandards
+import Amazonka.SecurityHub.BatchImportFindings
+import Amazonka.SecurityHub.BatchUpdateFindings
+import Amazonka.SecurityHub.CreateActionTarget
+import Amazonka.SecurityHub.CreateFindingAggregator
+import Amazonka.SecurityHub.CreateInsight
+import Amazonka.SecurityHub.CreateMembers
+import Amazonka.SecurityHub.DeclineInvitations
+import Amazonka.SecurityHub.DeleteActionTarget
+import Amazonka.SecurityHub.DeleteFindingAggregator
+import Amazonka.SecurityHub.DeleteInsight
+import Amazonka.SecurityHub.DeleteInvitations
+import Amazonka.SecurityHub.DeleteMembers
+import Amazonka.SecurityHub.DescribeActionTargets
+import Amazonka.SecurityHub.DescribeHub
+import Amazonka.SecurityHub.DescribeOrganizationConfiguration
+import Amazonka.SecurityHub.DescribeProducts
+import Amazonka.SecurityHub.DescribeStandards
+import Amazonka.SecurityHub.DescribeStandardsControls
+import Amazonka.SecurityHub.DisableImportFindingsForProduct
+import Amazonka.SecurityHub.DisableOrganizationAdminAccount
+import Amazonka.SecurityHub.DisableSecurityHub
+import Amazonka.SecurityHub.DisassociateFromAdministratorAccount
+import Amazonka.SecurityHub.DisassociateMembers
+import Amazonka.SecurityHub.EnableImportFindingsForProduct
+import Amazonka.SecurityHub.EnableOrganizationAdminAccount
+import Amazonka.SecurityHub.EnableSecurityHub
+import Amazonka.SecurityHub.GetAdministratorAccount
+import Amazonka.SecurityHub.GetEnabledStandards
+import Amazonka.SecurityHub.GetFindingAggregator
+import Amazonka.SecurityHub.GetFindings
+import Amazonka.SecurityHub.GetInsightResults
+import Amazonka.SecurityHub.GetInsights
+import Amazonka.SecurityHub.GetInvitationsCount
+import Amazonka.SecurityHub.GetMembers
+import Amazonka.SecurityHub.InviteMembers
+import Amazonka.SecurityHub.Lens
+import Amazonka.SecurityHub.ListEnabledProductsForImport
+import Amazonka.SecurityHub.ListFindingAggregators
+import Amazonka.SecurityHub.ListInvitations
+import Amazonka.SecurityHub.ListMembers
+import Amazonka.SecurityHub.ListOrganizationAdminAccounts
+import Amazonka.SecurityHub.ListTagsForResource
+import Amazonka.SecurityHub.TagResource
+import Amazonka.SecurityHub.Types
+import Amazonka.SecurityHub.UntagResource
+import Amazonka.SecurityHub.UpdateActionTarget
+import Amazonka.SecurityHub.UpdateFindingAggregator
+import Amazonka.SecurityHub.UpdateFindings
+import Amazonka.SecurityHub.UpdateInsight
+import Amazonka.SecurityHub.UpdateOrganizationConfiguration
+import Amazonka.SecurityHub.UpdateSecurityHubConfiguration
+import Amazonka.SecurityHub.UpdateStandardsControl
+import Amazonka.SecurityHub.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

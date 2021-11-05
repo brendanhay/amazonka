@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionDetails where
+module Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionInferenceAcceleratorsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails
 
 -- | details about a task definition. A task definition describes the
 -- container and volume definitions of an Amazon Elastic Container Service

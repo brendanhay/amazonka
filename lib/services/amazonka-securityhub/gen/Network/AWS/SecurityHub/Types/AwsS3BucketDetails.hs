@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecurityHub.Types.AwsS3BucketDetails
+-- Module      : Amazonka.SecurityHub.Types.AwsS3BucketDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecurityHub.Types.AwsS3BucketDetails where
+module Amazonka.SecurityHub.Types.AwsS3BucketDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
-import Network.AWS.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails
-import Network.AWS.SecurityHub.Types.AwsS3BucketLoggingConfiguration
-import Network.AWS.SecurityHub.Types.AwsS3BucketNotificationConfiguration
-import Network.AWS.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration
-import Network.AWS.SecurityHub.Types.AwsS3BucketWebsiteConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
+import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration
+import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration
+import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration
+import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration
 
 -- | The details of an Amazon S3 bucket.
 --

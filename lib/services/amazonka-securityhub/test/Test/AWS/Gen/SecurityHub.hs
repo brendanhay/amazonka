@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SecurityHub where
 
+import Amazonka.SecurityHub
 import qualified Data.Proxy as Proxy
-import Network.AWS.SecurityHub
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SecurityHub.Internal

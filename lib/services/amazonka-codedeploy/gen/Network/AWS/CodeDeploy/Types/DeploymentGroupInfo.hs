@@ -11,33 +11,33 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.DeploymentGroupInfo
+-- Module      : Amazonka.CodeDeploy.Types.DeploymentGroupInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentGroupInfo where
+module Amazonka.CodeDeploy.Types.DeploymentGroupInfo where
 
-import Network.AWS.CodeDeploy.Types.AlarmConfiguration
-import Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
-import Network.AWS.CodeDeploy.Types.AutoScalingGroup
-import Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
-import Network.AWS.CodeDeploy.Types.ComputePlatform
-import Network.AWS.CodeDeploy.Types.DeploymentStyle
-import Network.AWS.CodeDeploy.Types.EC2TagFilter
-import Network.AWS.CodeDeploy.Types.EC2TagSet
-import Network.AWS.CodeDeploy.Types.ECSService
-import Network.AWS.CodeDeploy.Types.LastDeploymentInfo
-import Network.AWS.CodeDeploy.Types.LoadBalancerInfo
-import Network.AWS.CodeDeploy.Types.OnPremisesTagSet
-import Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy
-import Network.AWS.CodeDeploy.Types.RevisionLocation
-import Network.AWS.CodeDeploy.Types.TagFilter
-import Network.AWS.CodeDeploy.Types.TriggerConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.AlarmConfiguration
+import Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
+import Amazonka.CodeDeploy.Types.AutoScalingGroup
+import Amazonka.CodeDeploy.Types.BlueGreenDeploymentConfiguration
+import Amazonka.CodeDeploy.Types.ComputePlatform
+import Amazonka.CodeDeploy.Types.DeploymentStyle
+import Amazonka.CodeDeploy.Types.EC2TagFilter
+import Amazonka.CodeDeploy.Types.EC2TagSet
+import Amazonka.CodeDeploy.Types.ECSService
+import Amazonka.CodeDeploy.Types.LastDeploymentInfo
+import Amazonka.CodeDeploy.Types.LoadBalancerInfo
+import Amazonka.CodeDeploy.Types.OnPremisesTagSet
+import Amazonka.CodeDeploy.Types.OutdatedInstancesStrategy
+import Amazonka.CodeDeploy.Types.RevisionLocation
+import Amazonka.CodeDeploy.Types.TagFilter
+import Amazonka.CodeDeploy.Types.TriggerConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment group.
 --

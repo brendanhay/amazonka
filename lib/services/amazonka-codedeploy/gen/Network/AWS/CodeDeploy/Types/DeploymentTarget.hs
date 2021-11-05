@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.DeploymentTarget
+-- Module      : Amazonka.CodeDeploy.Types.DeploymentTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentTarget where
+module Amazonka.CodeDeploy.Types.DeploymentTarget where
 
-import Network.AWS.CodeDeploy.Types.CloudFormationTarget
-import Network.AWS.CodeDeploy.Types.DeploymentTargetType
-import Network.AWS.CodeDeploy.Types.ECSTarget
-import Network.AWS.CodeDeploy.Types.InstanceTarget
-import Network.AWS.CodeDeploy.Types.LambdaTarget
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.CloudFormationTarget
+import Amazonka.CodeDeploy.Types.DeploymentTargetType
+import Amazonka.CodeDeploy.Types.ECSTarget
+import Amazonka.CodeDeploy.Types.InstanceTarget
+import Amazonka.CodeDeploy.Types.LambdaTarget
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the deployment target.
 --

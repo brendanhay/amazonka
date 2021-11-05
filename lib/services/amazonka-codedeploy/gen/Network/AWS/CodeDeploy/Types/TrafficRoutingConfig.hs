@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
+-- Module      : Amazonka.CodeDeploy.Types.TrafficRoutingConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TrafficRoutingConfig where
+module Amazonka.CodeDeploy.Types.TrafficRoutingConfig where
 
-import Network.AWS.CodeDeploy.Types.TimeBasedCanary
-import Network.AWS.CodeDeploy.Types.TimeBasedLinear
-import Network.AWS.CodeDeploy.Types.TrafficRoutingType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.TimeBasedCanary
+import Amazonka.CodeDeploy.Types.TimeBasedLinear
+import Amazonka.CodeDeploy.Types.TrafficRoutingType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that specifies how traffic is shifted from one version
 -- of a Lambda function to another version during an AWS Lambda deployment,

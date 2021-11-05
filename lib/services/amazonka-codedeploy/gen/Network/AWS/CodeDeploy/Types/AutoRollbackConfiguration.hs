@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
+-- Module      : Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration where
+module Amazonka.CodeDeploy.Types.AutoRollbackConfiguration where
 
-import Network.AWS.CodeDeploy.Types.AutoRollbackEvent
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.AutoRollbackEvent
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a configuration for automatically rolling back to a
 -- previous version of an application revision when a deployment is not

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.RevisionLocation
+-- Module      : Amazonka.CodeDeploy.Types.RevisionLocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.RevisionLocation where
+module Amazonka.CodeDeploy.Types.RevisionLocation where
 
-import Network.AWS.CodeDeploy.Types.AppSpecContent
-import Network.AWS.CodeDeploy.Types.GitHubLocation
-import Network.AWS.CodeDeploy.Types.RawString
-import Network.AWS.CodeDeploy.Types.RevisionLocationType
-import Network.AWS.CodeDeploy.Types.S3Location
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.AppSpecContent
+import Amazonka.CodeDeploy.Types.GitHubLocation
+import Amazonka.CodeDeploy.Types.RawString
+import Amazonka.CodeDeploy.Types.RevisionLocationType
+import Amazonka.CodeDeploy.Types.S3Location
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of an application revision.
 --

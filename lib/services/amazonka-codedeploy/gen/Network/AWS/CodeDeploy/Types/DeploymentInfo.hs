@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.DeploymentInfo
+-- Module      : Amazonka.CodeDeploy.Types.DeploymentInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentInfo where
+module Amazonka.CodeDeploy.Types.DeploymentInfo where
 
-import Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
-import Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
-import Network.AWS.CodeDeploy.Types.ComputePlatform
-import Network.AWS.CodeDeploy.Types.DeploymentCreator
-import Network.AWS.CodeDeploy.Types.DeploymentOverview
-import Network.AWS.CodeDeploy.Types.DeploymentStatus
-import Network.AWS.CodeDeploy.Types.DeploymentStyle
-import Network.AWS.CodeDeploy.Types.ErrorInformation
-import Network.AWS.CodeDeploy.Types.FileExistsBehavior
-import Network.AWS.CodeDeploy.Types.LoadBalancerInfo
-import Network.AWS.CodeDeploy.Types.RelatedDeployments
-import Network.AWS.CodeDeploy.Types.RevisionLocation
-import Network.AWS.CodeDeploy.Types.RollbackInfo
-import Network.AWS.CodeDeploy.Types.TargetInstances
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
+import Amazonka.CodeDeploy.Types.BlueGreenDeploymentConfiguration
+import Amazonka.CodeDeploy.Types.ComputePlatform
+import Amazonka.CodeDeploy.Types.DeploymentCreator
+import Amazonka.CodeDeploy.Types.DeploymentOverview
+import Amazonka.CodeDeploy.Types.DeploymentStatus
+import Amazonka.CodeDeploy.Types.DeploymentStyle
+import Amazonka.CodeDeploy.Types.ErrorInformation
+import Amazonka.CodeDeploy.Types.FileExistsBehavior
+import Amazonka.CodeDeploy.Types.LoadBalancerInfo
+import Amazonka.CodeDeploy.Types.RelatedDeployments
+import Amazonka.CodeDeploy.Types.RevisionLocation
+import Amazonka.CodeDeploy.Types.RollbackInfo
+import Amazonka.CodeDeploy.Types.TargetInstances
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a deployment.
 --

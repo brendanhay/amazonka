@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeDeploy
+-- Module      : Amazonka.CodeDeploy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -88,7 +88,7 @@
 -- -   <https://docs.aws.amazon.com/cli/latest/reference/deploy/index.html AWS CLI Reference for AWS CodeDeploy>
 --
 -- -   <https://forums.aws.amazon.com/forum.jspa?forumID=179 AWS CodeDeploy Developer Forum>
-module Network.AWS.CodeDeploy
+module Amazonka.CodeDeploy
   ( -- * Service Configuration
     defaultService,
 
@@ -1007,52 +1007,52 @@ module Network.AWS.CodeDeploy
   )
 where
 
-import Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
-import Network.AWS.CodeDeploy.BatchGetApplicationRevisions
-import Network.AWS.CodeDeploy.BatchGetApplications
-import Network.AWS.CodeDeploy.BatchGetDeploymentGroups
-import Network.AWS.CodeDeploy.BatchGetDeploymentTargets
-import Network.AWS.CodeDeploy.BatchGetDeployments
-import Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-import Network.AWS.CodeDeploy.ContinueDeployment
-import Network.AWS.CodeDeploy.CreateApplication
-import Network.AWS.CodeDeploy.CreateDeployment
-import Network.AWS.CodeDeploy.CreateDeploymentConfig
-import Network.AWS.CodeDeploy.CreateDeploymentGroup
-import Network.AWS.CodeDeploy.DeleteApplication
-import Network.AWS.CodeDeploy.DeleteDeploymentConfig
-import Network.AWS.CodeDeploy.DeleteDeploymentGroup
-import Network.AWS.CodeDeploy.DeleteGitHubAccountToken
-import Network.AWS.CodeDeploy.DeleteResourcesByExternalId
-import Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
-import Network.AWS.CodeDeploy.GetApplication
-import Network.AWS.CodeDeploy.GetApplicationRevision
-import Network.AWS.CodeDeploy.GetDeployment
-import Network.AWS.CodeDeploy.GetDeploymentConfig
-import Network.AWS.CodeDeploy.GetDeploymentGroup
-import Network.AWS.CodeDeploy.GetDeploymentTarget
-import Network.AWS.CodeDeploy.GetOnPremisesInstance
-import Network.AWS.CodeDeploy.Lens
-import Network.AWS.CodeDeploy.ListApplicationRevisions
-import Network.AWS.CodeDeploy.ListApplications
-import Network.AWS.CodeDeploy.ListDeploymentConfigs
-import Network.AWS.CodeDeploy.ListDeploymentGroups
-import Network.AWS.CodeDeploy.ListDeploymentTargets
-import Network.AWS.CodeDeploy.ListDeployments
-import Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
-import Network.AWS.CodeDeploy.ListOnPremisesInstances
-import Network.AWS.CodeDeploy.ListTagsForResource
-import Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
-import Network.AWS.CodeDeploy.RegisterApplicationRevision
-import Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-import Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-import Network.AWS.CodeDeploy.StopDeployment
-import Network.AWS.CodeDeploy.TagResource
-import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.UntagResource
-import Network.AWS.CodeDeploy.UpdateApplication
-import Network.AWS.CodeDeploy.UpdateDeploymentGroup
-import Network.AWS.CodeDeploy.Waiters
+import Amazonka.CodeDeploy.AddTagsToOnPremisesInstances
+import Amazonka.CodeDeploy.BatchGetApplicationRevisions
+import Amazonka.CodeDeploy.BatchGetApplications
+import Amazonka.CodeDeploy.BatchGetDeploymentGroups
+import Amazonka.CodeDeploy.BatchGetDeploymentTargets
+import Amazonka.CodeDeploy.BatchGetDeployments
+import Amazonka.CodeDeploy.BatchGetOnPremisesInstances
+import Amazonka.CodeDeploy.ContinueDeployment
+import Amazonka.CodeDeploy.CreateApplication
+import Amazonka.CodeDeploy.CreateDeployment
+import Amazonka.CodeDeploy.CreateDeploymentConfig
+import Amazonka.CodeDeploy.CreateDeploymentGroup
+import Amazonka.CodeDeploy.DeleteApplication
+import Amazonka.CodeDeploy.DeleteDeploymentConfig
+import Amazonka.CodeDeploy.DeleteDeploymentGroup
+import Amazonka.CodeDeploy.DeleteGitHubAccountToken
+import Amazonka.CodeDeploy.DeleteResourcesByExternalId
+import Amazonka.CodeDeploy.DeregisterOnPremisesInstance
+import Amazonka.CodeDeploy.GetApplication
+import Amazonka.CodeDeploy.GetApplicationRevision
+import Amazonka.CodeDeploy.GetDeployment
+import Amazonka.CodeDeploy.GetDeploymentConfig
+import Amazonka.CodeDeploy.GetDeploymentGroup
+import Amazonka.CodeDeploy.GetDeploymentTarget
+import Amazonka.CodeDeploy.GetOnPremisesInstance
+import Amazonka.CodeDeploy.Lens
+import Amazonka.CodeDeploy.ListApplicationRevisions
+import Amazonka.CodeDeploy.ListApplications
+import Amazonka.CodeDeploy.ListDeploymentConfigs
+import Amazonka.CodeDeploy.ListDeploymentGroups
+import Amazonka.CodeDeploy.ListDeploymentTargets
+import Amazonka.CodeDeploy.ListDeployments
+import Amazonka.CodeDeploy.ListGitHubAccountTokenNames
+import Amazonka.CodeDeploy.ListOnPremisesInstances
+import Amazonka.CodeDeploy.ListTagsForResource
+import Amazonka.CodeDeploy.PutLifecycleEventHookExecutionStatus
+import Amazonka.CodeDeploy.RegisterApplicationRevision
+import Amazonka.CodeDeploy.RegisterOnPremisesInstance
+import Amazonka.CodeDeploy.RemoveTagsFromOnPremisesInstances
+import Amazonka.CodeDeploy.StopDeployment
+import Amazonka.CodeDeploy.TagResource
+import Amazonka.CodeDeploy.Types
+import Amazonka.CodeDeploy.UntagResource
+import Amazonka.CodeDeploy.UpdateApplication
+import Amazonka.CodeDeploy.UpdateDeploymentGroup
+import Amazonka.CodeDeploy.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

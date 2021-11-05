@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.GetDeployment
+-- Module      : Amazonka.CodeDeploy.GetDeployment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- revision is always null. Use @GetApplicationRevision@ and the @sha256@
 -- property of the returned @appSpecContent@ object to get the content of
 -- the deployment’s AppSpec file.
-module Network.AWS.CodeDeploy.GetDeployment
+module Amazonka.CodeDeploy.GetDeployment
   ( -- * Creating a Request
     GetDeployment (..),
     newGetDeployment,
@@ -44,12 +44,12 @@ module Network.AWS.CodeDeploy.GetDeployment
   )
 where
 
-import Network.AWS.CodeDeploy.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeDeploy.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of a @GetDeployment@ operation.
 --

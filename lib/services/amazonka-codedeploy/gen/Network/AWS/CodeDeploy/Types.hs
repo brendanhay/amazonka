@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types
+-- Module      : Amazonka.CodeDeploy.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types
+module Amazonka.CodeDeploy.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -658,94 +658,94 @@ module Network.AWS.CodeDeploy.Types
   )
 where
 
-import Network.AWS.CodeDeploy.Types.Alarm
-import Network.AWS.CodeDeploy.Types.AlarmConfiguration
-import Network.AWS.CodeDeploy.Types.AppSpecContent
-import Network.AWS.CodeDeploy.Types.ApplicationInfo
-import Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy
-import Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
-import Network.AWS.CodeDeploy.Types.AutoRollbackEvent
-import Network.AWS.CodeDeploy.Types.AutoScalingGroup
-import Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
-import Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption
-import Network.AWS.CodeDeploy.Types.BundleType
-import Network.AWS.CodeDeploy.Types.CloudFormationTarget
-import Network.AWS.CodeDeploy.Types.ComputePlatform
-import Network.AWS.CodeDeploy.Types.DeployErrorCode
-import Network.AWS.CodeDeploy.Types.DeploymentConfigInfo
-import Network.AWS.CodeDeploy.Types.DeploymentCreator
-import Network.AWS.CodeDeploy.Types.DeploymentGroupInfo
-import Network.AWS.CodeDeploy.Types.DeploymentInfo
-import Network.AWS.CodeDeploy.Types.DeploymentOption
-import Network.AWS.CodeDeploy.Types.DeploymentOverview
-import Network.AWS.CodeDeploy.Types.DeploymentReadyAction
-import Network.AWS.CodeDeploy.Types.DeploymentReadyOption
-import Network.AWS.CodeDeploy.Types.DeploymentStatus
-import Network.AWS.CodeDeploy.Types.DeploymentStyle
-import Network.AWS.CodeDeploy.Types.DeploymentTarget
-import Network.AWS.CodeDeploy.Types.DeploymentTargetType
-import Network.AWS.CodeDeploy.Types.DeploymentType
-import Network.AWS.CodeDeploy.Types.DeploymentWaitType
-import Network.AWS.CodeDeploy.Types.Diagnostics
-import Network.AWS.CodeDeploy.Types.EC2TagFilter
-import Network.AWS.CodeDeploy.Types.EC2TagFilterType
-import Network.AWS.CodeDeploy.Types.EC2TagSet
-import Network.AWS.CodeDeploy.Types.ECSService
-import Network.AWS.CodeDeploy.Types.ECSTarget
-import Network.AWS.CodeDeploy.Types.ECSTaskSet
-import Network.AWS.CodeDeploy.Types.ELBInfo
-import Network.AWS.CodeDeploy.Types.ErrorInformation
-import Network.AWS.CodeDeploy.Types.FileExistsBehavior
-import Network.AWS.CodeDeploy.Types.GenericRevisionInfo
-import Network.AWS.CodeDeploy.Types.GitHubLocation
-import Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
-import Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption
-import Network.AWS.CodeDeploy.Types.InstanceAction
-import Network.AWS.CodeDeploy.Types.InstanceInfo
-import Network.AWS.CodeDeploy.Types.InstanceTarget
-import Network.AWS.CodeDeploy.Types.LambdaFunctionInfo
-import Network.AWS.CodeDeploy.Types.LambdaTarget
-import Network.AWS.CodeDeploy.Types.LastDeploymentInfo
-import Network.AWS.CodeDeploy.Types.LifecycleErrorCode
-import Network.AWS.CodeDeploy.Types.LifecycleEvent
-import Network.AWS.CodeDeploy.Types.LifecycleEventStatus
-import Network.AWS.CodeDeploy.Types.ListStateFilterAction
-import Network.AWS.CodeDeploy.Types.LoadBalancerInfo
-import Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
-import Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
-import Network.AWS.CodeDeploy.Types.OnPremisesTagSet
-import Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy
-import Network.AWS.CodeDeploy.Types.RawString
-import Network.AWS.CodeDeploy.Types.RegistrationStatus
-import Network.AWS.CodeDeploy.Types.RelatedDeployments
-import Network.AWS.CodeDeploy.Types.RevisionInfo
-import Network.AWS.CodeDeploy.Types.RevisionLocation
-import Network.AWS.CodeDeploy.Types.RevisionLocationType
-import Network.AWS.CodeDeploy.Types.RollbackInfo
-import Network.AWS.CodeDeploy.Types.S3Location
-import Network.AWS.CodeDeploy.Types.SortOrder
-import Network.AWS.CodeDeploy.Types.StopStatus
-import Network.AWS.CodeDeploy.Types.Tag
-import Network.AWS.CodeDeploy.Types.TagFilter
-import Network.AWS.CodeDeploy.Types.TagFilterType
-import Network.AWS.CodeDeploy.Types.TargetFilterName
-import Network.AWS.CodeDeploy.Types.TargetGroupInfo
-import Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
-import Network.AWS.CodeDeploy.Types.TargetInstances
-import Network.AWS.CodeDeploy.Types.TargetLabel
-import Network.AWS.CodeDeploy.Types.TargetStatus
-import Network.AWS.CodeDeploy.Types.TimeBasedCanary
-import Network.AWS.CodeDeploy.Types.TimeBasedLinear
-import Network.AWS.CodeDeploy.Types.TimeRange
-import Network.AWS.CodeDeploy.Types.TrafficRoute
-import Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
-import Network.AWS.CodeDeploy.Types.TrafficRoutingType
-import Network.AWS.CodeDeploy.Types.TriggerConfig
-import Network.AWS.CodeDeploy.Types.TriggerEventType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeDeploy.Types.Alarm
+import Amazonka.CodeDeploy.Types.AlarmConfiguration
+import Amazonka.CodeDeploy.Types.AppSpecContent
+import Amazonka.CodeDeploy.Types.ApplicationInfo
+import Amazonka.CodeDeploy.Types.ApplicationRevisionSortBy
+import Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
+import Amazonka.CodeDeploy.Types.AutoRollbackEvent
+import Amazonka.CodeDeploy.Types.AutoScalingGroup
+import Amazonka.CodeDeploy.Types.BlueGreenDeploymentConfiguration
+import Amazonka.CodeDeploy.Types.BlueInstanceTerminationOption
+import Amazonka.CodeDeploy.Types.BundleType
+import Amazonka.CodeDeploy.Types.CloudFormationTarget
+import Amazonka.CodeDeploy.Types.ComputePlatform
+import Amazonka.CodeDeploy.Types.DeployErrorCode
+import Amazonka.CodeDeploy.Types.DeploymentConfigInfo
+import Amazonka.CodeDeploy.Types.DeploymentCreator
+import Amazonka.CodeDeploy.Types.DeploymentGroupInfo
+import Amazonka.CodeDeploy.Types.DeploymentInfo
+import Amazonka.CodeDeploy.Types.DeploymentOption
+import Amazonka.CodeDeploy.Types.DeploymentOverview
+import Amazonka.CodeDeploy.Types.DeploymentReadyAction
+import Amazonka.CodeDeploy.Types.DeploymentReadyOption
+import Amazonka.CodeDeploy.Types.DeploymentStatus
+import Amazonka.CodeDeploy.Types.DeploymentStyle
+import Amazonka.CodeDeploy.Types.DeploymentTarget
+import Amazonka.CodeDeploy.Types.DeploymentTargetType
+import Amazonka.CodeDeploy.Types.DeploymentType
+import Amazonka.CodeDeploy.Types.DeploymentWaitType
+import Amazonka.CodeDeploy.Types.Diagnostics
+import Amazonka.CodeDeploy.Types.EC2TagFilter
+import Amazonka.CodeDeploy.Types.EC2TagFilterType
+import Amazonka.CodeDeploy.Types.EC2TagSet
+import Amazonka.CodeDeploy.Types.ECSService
+import Amazonka.CodeDeploy.Types.ECSTarget
+import Amazonka.CodeDeploy.Types.ECSTaskSet
+import Amazonka.CodeDeploy.Types.ELBInfo
+import Amazonka.CodeDeploy.Types.ErrorInformation
+import Amazonka.CodeDeploy.Types.FileExistsBehavior
+import Amazonka.CodeDeploy.Types.GenericRevisionInfo
+import Amazonka.CodeDeploy.Types.GitHubLocation
+import Amazonka.CodeDeploy.Types.GreenFleetProvisioningAction
+import Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption
+import Amazonka.CodeDeploy.Types.InstanceAction
+import Amazonka.CodeDeploy.Types.InstanceInfo
+import Amazonka.CodeDeploy.Types.InstanceTarget
+import Amazonka.CodeDeploy.Types.LambdaFunctionInfo
+import Amazonka.CodeDeploy.Types.LambdaTarget
+import Amazonka.CodeDeploy.Types.LastDeploymentInfo
+import Amazonka.CodeDeploy.Types.LifecycleErrorCode
+import Amazonka.CodeDeploy.Types.LifecycleEvent
+import Amazonka.CodeDeploy.Types.LifecycleEventStatus
+import Amazonka.CodeDeploy.Types.ListStateFilterAction
+import Amazonka.CodeDeploy.Types.LoadBalancerInfo
+import Amazonka.CodeDeploy.Types.MinimumHealthyHosts
+import Amazonka.CodeDeploy.Types.MinimumHealthyHostsType
+import Amazonka.CodeDeploy.Types.OnPremisesTagSet
+import Amazonka.CodeDeploy.Types.OutdatedInstancesStrategy
+import Amazonka.CodeDeploy.Types.RawString
+import Amazonka.CodeDeploy.Types.RegistrationStatus
+import Amazonka.CodeDeploy.Types.RelatedDeployments
+import Amazonka.CodeDeploy.Types.RevisionInfo
+import Amazonka.CodeDeploy.Types.RevisionLocation
+import Amazonka.CodeDeploy.Types.RevisionLocationType
+import Amazonka.CodeDeploy.Types.RollbackInfo
+import Amazonka.CodeDeploy.Types.S3Location
+import Amazonka.CodeDeploy.Types.SortOrder
+import Amazonka.CodeDeploy.Types.StopStatus
+import Amazonka.CodeDeploy.Types.Tag
+import Amazonka.CodeDeploy.Types.TagFilter
+import Amazonka.CodeDeploy.Types.TagFilterType
+import Amazonka.CodeDeploy.Types.TargetFilterName
+import Amazonka.CodeDeploy.Types.TargetGroupInfo
+import Amazonka.CodeDeploy.Types.TargetGroupPairInfo
+import Amazonka.CodeDeploy.Types.TargetInstances
+import Amazonka.CodeDeploy.Types.TargetLabel
+import Amazonka.CodeDeploy.Types.TargetStatus
+import Amazonka.CodeDeploy.Types.TimeBasedCanary
+import Amazonka.CodeDeploy.Types.TimeBasedLinear
+import Amazonka.CodeDeploy.Types.TimeRange
+import Amazonka.CodeDeploy.Types.TrafficRoute
+import Amazonka.CodeDeploy.Types.TrafficRoutingConfig
+import Amazonka.CodeDeploy.Types.TrafficRoutingType
+import Amazonka.CodeDeploy.Types.TriggerConfig
+import Amazonka.CodeDeploy.Types.TriggerEventType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-10-06@ of the Amazon CodeDeploy SDK configuration.
 defaultService :: Core.Service

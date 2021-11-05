@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeDeploy where
 
+import Amazonka.CodeDeploy
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeDeploy
 import Test.AWS.CodeDeploy.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

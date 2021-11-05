@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.BatchGetDeploymentTargets
+-- Module      : Amazonka.CodeDeploy.BatchGetDeploymentTargets
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 --
 -- -   __CloudFormation__: Information about targets of blue\/green
 --     deployments initiated by a CloudFormation stack update.
-module Network.AWS.CodeDeploy.BatchGetDeploymentTargets
+module Amazonka.CodeDeploy.BatchGetDeploymentTargets
   ( -- * Creating a Request
     BatchGetDeploymentTargets (..),
     newBatchGetDeploymentTargets,
@@ -55,12 +55,12 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentTargets
   )
 where
 
-import Network.AWS.CodeDeploy.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeDeploy.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetDeploymentTargets' smart constructor.
 data BatchGetDeploymentTargets = BatchGetDeploymentTargets'

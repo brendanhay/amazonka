@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeDeploy.Types.ECSTarget
+-- Module      : Amazonka.CodeDeploy.Types.ECSTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ECSTarget where
+module Amazonka.CodeDeploy.Types.ECSTarget where
 
-import Network.AWS.CodeDeploy.Types.ECSTaskSet
-import Network.AWS.CodeDeploy.Types.LifecycleEvent
-import Network.AWS.CodeDeploy.Types.TargetStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeDeploy.Types.ECSTaskSet
+import Amazonka.CodeDeploy.Types.LifecycleEvent
+import Amazonka.CodeDeploy.Types.TargetStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the target of an Amazon ECS deployment.
 --

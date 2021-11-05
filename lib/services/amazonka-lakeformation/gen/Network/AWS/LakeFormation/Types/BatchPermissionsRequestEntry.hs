@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry
+-- Module      : Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry where
+module Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types.DataLakePrincipal
-import Network.AWS.LakeFormation.Types.Permission
-import Network.AWS.LakeFormation.Types.Resource
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types.DataLakePrincipal
+import Amazonka.LakeFormation.Types.Permission
+import Amazonka.LakeFormation.Types.Resource
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A permission to a resource granted by batch operation to the principal.
 --

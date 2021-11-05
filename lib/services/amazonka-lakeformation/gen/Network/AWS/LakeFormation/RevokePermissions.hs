@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.RevokePermissions
+-- Module      : Amazonka.LakeFormation.RevokePermissions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Revokes permissions to the principal to access metadata in the Data
 -- Catalog and data organized in underlying data storage such as Amazon S3.
-module Network.AWS.LakeFormation.RevokePermissions
+module Amazonka.LakeFormation.RevokePermissions
   ( -- * Creating a Request
     RevokePermissions (..),
     newRevokePermissions,
@@ -43,12 +43,12 @@ module Network.AWS.LakeFormation.RevokePermissions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRevokePermissions' smart constructor.
 data RevokePermissions = RevokePermissions'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Types
+-- Module      : Amazonka.LakeFormation.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Types
+module Amazonka.LakeFormation.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -221,42 +221,42 @@ module Network.AWS.LakeFormation.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry
-import Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry
-import Network.AWS.LakeFormation.Types.CatalogResource
-import Network.AWS.LakeFormation.Types.ColumnLFTag
-import Network.AWS.LakeFormation.Types.ColumnWildcard
-import Network.AWS.LakeFormation.Types.ComparisonOperator
-import Network.AWS.LakeFormation.Types.DataLakePrincipal
-import Network.AWS.LakeFormation.Types.DataLakeResourceType
-import Network.AWS.LakeFormation.Types.DataLakeSettings
-import Network.AWS.LakeFormation.Types.DataLocationResource
-import Network.AWS.LakeFormation.Types.DatabaseResource
-import Network.AWS.LakeFormation.Types.DetailsMap
-import Network.AWS.LakeFormation.Types.ErrorDetail
-import Network.AWS.LakeFormation.Types.FieldNameString
-import Network.AWS.LakeFormation.Types.FilterCondition
-import Network.AWS.LakeFormation.Types.LFTag
-import Network.AWS.LakeFormation.Types.LFTagError
-import Network.AWS.LakeFormation.Types.LFTagKeyResource
-import Network.AWS.LakeFormation.Types.LFTagPair
-import Network.AWS.LakeFormation.Types.LFTagPolicyResource
-import Network.AWS.LakeFormation.Types.Permission
-import Network.AWS.LakeFormation.Types.PrincipalPermissions
-import Network.AWS.LakeFormation.Types.PrincipalResourcePermissions
-import Network.AWS.LakeFormation.Types.Resource
-import Network.AWS.LakeFormation.Types.ResourceInfo
-import Network.AWS.LakeFormation.Types.ResourceShareType
-import Network.AWS.LakeFormation.Types.ResourceType
-import Network.AWS.LakeFormation.Types.TableResource
-import Network.AWS.LakeFormation.Types.TableWildcard
-import Network.AWS.LakeFormation.Types.TableWithColumnsResource
-import Network.AWS.LakeFormation.Types.TaggedDatabase
-import Network.AWS.LakeFormation.Types.TaggedTable
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry
+import Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
+import Amazonka.LakeFormation.Types.CatalogResource
+import Amazonka.LakeFormation.Types.ColumnLFTag
+import Amazonka.LakeFormation.Types.ColumnWildcard
+import Amazonka.LakeFormation.Types.ComparisonOperator
+import Amazonka.LakeFormation.Types.DataLakePrincipal
+import Amazonka.LakeFormation.Types.DataLakeResourceType
+import Amazonka.LakeFormation.Types.DataLakeSettings
+import Amazonka.LakeFormation.Types.DataLocationResource
+import Amazonka.LakeFormation.Types.DatabaseResource
+import Amazonka.LakeFormation.Types.DetailsMap
+import Amazonka.LakeFormation.Types.ErrorDetail
+import Amazonka.LakeFormation.Types.FieldNameString
+import Amazonka.LakeFormation.Types.FilterCondition
+import Amazonka.LakeFormation.Types.LFTag
+import Amazonka.LakeFormation.Types.LFTagError
+import Amazonka.LakeFormation.Types.LFTagKeyResource
+import Amazonka.LakeFormation.Types.LFTagPair
+import Amazonka.LakeFormation.Types.LFTagPolicyResource
+import Amazonka.LakeFormation.Types.Permission
+import Amazonka.LakeFormation.Types.PrincipalPermissions
+import Amazonka.LakeFormation.Types.PrincipalResourcePermissions
+import Amazonka.LakeFormation.Types.Resource
+import Amazonka.LakeFormation.Types.ResourceInfo
+import Amazonka.LakeFormation.Types.ResourceShareType
+import Amazonka.LakeFormation.Types.ResourceType
+import Amazonka.LakeFormation.Types.TableResource
+import Amazonka.LakeFormation.Types.TableWildcard
+import Amazonka.LakeFormation.Types.TableWithColumnsResource
+import Amazonka.LakeFormation.Types.TaggedDatabase
+import Amazonka.LakeFormation.Types.TaggedTable
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-03-31@ of the Amazon Lake Formation SDK configuration.
 defaultService :: Core.Service

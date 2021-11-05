@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.SearchDatabasesByLFTags
+-- Module      : Amazonka.LakeFormation.SearchDatabasesByLFTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- can use @SearchDatabasesByTags@ to find all resources where the given
 -- @TagConditions@ are valid to verify whether the returned resources can
 -- be shared.
-module Network.AWS.LakeFormation.SearchDatabasesByLFTags
+module Amazonka.LakeFormation.SearchDatabasesByLFTags
   ( -- * Creating a Request
     SearchDatabasesByLFTags (..),
     newSearchDatabasesByLFTags,
@@ -48,12 +48,12 @@ module Network.AWS.LakeFormation.SearchDatabasesByLFTags
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchDatabasesByLFTags' smart constructor.
 data SearchDatabasesByLFTags = SearchDatabasesByLFTags'

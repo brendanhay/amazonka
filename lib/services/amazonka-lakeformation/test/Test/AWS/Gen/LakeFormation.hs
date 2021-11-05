@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LakeFormation where
 
+import Amazonka.LakeFormation
 import qualified Data.Proxy as Proxy
-import Network.AWS.LakeFormation
 import Test.AWS.Fixture
 import Test.AWS.LakeFormation.Internal
 import Test.AWS.Prelude

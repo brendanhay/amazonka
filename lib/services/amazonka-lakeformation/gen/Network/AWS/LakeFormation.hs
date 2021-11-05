@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LakeFormation
+-- Module      : Amazonka.LakeFormation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- AWS Lake Formation
 --
 -- Defines the public endpoint for the AWS Lake Formation service.
-module Network.AWS.LakeFormation
+module Amazonka.LakeFormation
   ( -- * Service Configuration
     defaultService,
 
@@ -318,32 +318,32 @@ module Network.AWS.LakeFormation
   )
 where
 
-import Network.AWS.LakeFormation.AddLFTagsToResource
-import Network.AWS.LakeFormation.BatchGrantPermissions
-import Network.AWS.LakeFormation.BatchRevokePermissions
-import Network.AWS.LakeFormation.CreateLFTag
-import Network.AWS.LakeFormation.DeleteLFTag
-import Network.AWS.LakeFormation.DeregisterResource
-import Network.AWS.LakeFormation.DescribeResource
-import Network.AWS.LakeFormation.GetDataLakeSettings
-import Network.AWS.LakeFormation.GetEffectivePermissionsForPath
-import Network.AWS.LakeFormation.GetLFTag
-import Network.AWS.LakeFormation.GetResourceLFTags
-import Network.AWS.LakeFormation.GrantPermissions
-import Network.AWS.LakeFormation.Lens
-import Network.AWS.LakeFormation.ListLFTags
-import Network.AWS.LakeFormation.ListPermissions
-import Network.AWS.LakeFormation.ListResources
-import Network.AWS.LakeFormation.PutDataLakeSettings
-import Network.AWS.LakeFormation.RegisterResource
-import Network.AWS.LakeFormation.RemoveLFTagsFromResource
-import Network.AWS.LakeFormation.RevokePermissions
-import Network.AWS.LakeFormation.SearchDatabasesByLFTags
-import Network.AWS.LakeFormation.SearchTablesByLFTags
-import Network.AWS.LakeFormation.Types
-import Network.AWS.LakeFormation.UpdateLFTag
-import Network.AWS.LakeFormation.UpdateResource
-import Network.AWS.LakeFormation.Waiters
+import Amazonka.LakeFormation.AddLFTagsToResource
+import Amazonka.LakeFormation.BatchGrantPermissions
+import Amazonka.LakeFormation.BatchRevokePermissions
+import Amazonka.LakeFormation.CreateLFTag
+import Amazonka.LakeFormation.DeleteLFTag
+import Amazonka.LakeFormation.DeregisterResource
+import Amazonka.LakeFormation.DescribeResource
+import Amazonka.LakeFormation.GetDataLakeSettings
+import Amazonka.LakeFormation.GetEffectivePermissionsForPath
+import Amazonka.LakeFormation.GetLFTag
+import Amazonka.LakeFormation.GetResourceLFTags
+import Amazonka.LakeFormation.GrantPermissions
+import Amazonka.LakeFormation.Lens
+import Amazonka.LakeFormation.ListLFTags
+import Amazonka.LakeFormation.ListPermissions
+import Amazonka.LakeFormation.ListResources
+import Amazonka.LakeFormation.PutDataLakeSettings
+import Amazonka.LakeFormation.RegisterResource
+import Amazonka.LakeFormation.RemoveLFTagsFromResource
+import Amazonka.LakeFormation.RevokePermissions
+import Amazonka.LakeFormation.SearchDatabasesByLFTags
+import Amazonka.LakeFormation.SearchTablesByLFTags
+import Amazonka.LakeFormation.Types
+import Amazonka.LakeFormation.UpdateLFTag
+import Amazonka.LakeFormation.UpdateResource
+import Amazonka.LakeFormation.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

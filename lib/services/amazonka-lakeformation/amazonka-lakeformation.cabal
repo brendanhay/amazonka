@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.LakeFormation.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.LakeFormation.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.LakeFormation" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.LakeFormation" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,67 +45,67 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.LakeFormation
-    Network.AWS.LakeFormation.AddLFTagsToResource
-    Network.AWS.LakeFormation.BatchGrantPermissions
-    Network.AWS.LakeFormation.BatchRevokePermissions
-    Network.AWS.LakeFormation.CreateLFTag
-    Network.AWS.LakeFormation.DeleteLFTag
-    Network.AWS.LakeFormation.DeregisterResource
-    Network.AWS.LakeFormation.DescribeResource
-    Network.AWS.LakeFormation.GetDataLakeSettings
-    Network.AWS.LakeFormation.GetEffectivePermissionsForPath
-    Network.AWS.LakeFormation.GetLFTag
-    Network.AWS.LakeFormation.GetResourceLFTags
-    Network.AWS.LakeFormation.GrantPermissions
-    Network.AWS.LakeFormation.Lens
-    Network.AWS.LakeFormation.ListLFTags
-    Network.AWS.LakeFormation.ListPermissions
-    Network.AWS.LakeFormation.ListResources
-    Network.AWS.LakeFormation.PutDataLakeSettings
-    Network.AWS.LakeFormation.RegisterResource
-    Network.AWS.LakeFormation.RemoveLFTagsFromResource
-    Network.AWS.LakeFormation.RevokePermissions
-    Network.AWS.LakeFormation.SearchDatabasesByLFTags
-    Network.AWS.LakeFormation.SearchTablesByLFTags
-    Network.AWS.LakeFormation.Types
-    Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry
-    Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry
-    Network.AWS.LakeFormation.Types.CatalogResource
-    Network.AWS.LakeFormation.Types.ColumnLFTag
-    Network.AWS.LakeFormation.Types.ColumnWildcard
-    Network.AWS.LakeFormation.Types.ComparisonOperator
-    Network.AWS.LakeFormation.Types.DatabaseResource
-    Network.AWS.LakeFormation.Types.DataLakePrincipal
-    Network.AWS.LakeFormation.Types.DataLakeResourceType
-    Network.AWS.LakeFormation.Types.DataLakeSettings
-    Network.AWS.LakeFormation.Types.DataLocationResource
-    Network.AWS.LakeFormation.Types.DetailsMap
-    Network.AWS.LakeFormation.Types.ErrorDetail
-    Network.AWS.LakeFormation.Types.FieldNameString
-    Network.AWS.LakeFormation.Types.FilterCondition
-    Network.AWS.LakeFormation.Types.LFTag
-    Network.AWS.LakeFormation.Types.LFTagError
-    Network.AWS.LakeFormation.Types.LFTagKeyResource
-    Network.AWS.LakeFormation.Types.LFTagPair
-    Network.AWS.LakeFormation.Types.LFTagPolicyResource
-    Network.AWS.LakeFormation.Types.Permission
-    Network.AWS.LakeFormation.Types.PrincipalPermissions
-    Network.AWS.LakeFormation.Types.PrincipalResourcePermissions
-    Network.AWS.LakeFormation.Types.Resource
-    Network.AWS.LakeFormation.Types.ResourceInfo
-    Network.AWS.LakeFormation.Types.ResourceShareType
-    Network.AWS.LakeFormation.Types.ResourceType
-    Network.AWS.LakeFormation.Types.TableResource
-    Network.AWS.LakeFormation.Types.TableWildcard
-    Network.AWS.LakeFormation.Types.TableWithColumnsResource
-    Network.AWS.LakeFormation.Types.TaggedDatabase
-    Network.AWS.LakeFormation.Types.TaggedTable
-    Network.AWS.LakeFormation.UpdateLFTag
-    Network.AWS.LakeFormation.UpdateResource
-    Network.AWS.LakeFormation.Waiters
+    Amazonka.LakeFormation
+    Amazonka.LakeFormation.AddLFTagsToResource
+    Amazonka.LakeFormation.BatchGrantPermissions
+    Amazonka.LakeFormation.BatchRevokePermissions
+    Amazonka.LakeFormation.CreateLFTag
+    Amazonka.LakeFormation.DeleteLFTag
+    Amazonka.LakeFormation.DeregisterResource
+    Amazonka.LakeFormation.DescribeResource
+    Amazonka.LakeFormation.GetDataLakeSettings
+    Amazonka.LakeFormation.GetEffectivePermissionsForPath
+    Amazonka.LakeFormation.GetLFTag
+    Amazonka.LakeFormation.GetResourceLFTags
+    Amazonka.LakeFormation.GrantPermissions
+    Amazonka.LakeFormation.Lens
+    Amazonka.LakeFormation.ListLFTags
+    Amazonka.LakeFormation.ListPermissions
+    Amazonka.LakeFormation.ListResources
+    Amazonka.LakeFormation.PutDataLakeSettings
+    Amazonka.LakeFormation.RegisterResource
+    Amazonka.LakeFormation.RemoveLFTagsFromResource
+    Amazonka.LakeFormation.RevokePermissions
+    Amazonka.LakeFormation.SearchDatabasesByLFTags
+    Amazonka.LakeFormation.SearchTablesByLFTags
+    Amazonka.LakeFormation.Types
+    Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry
+    Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
+    Amazonka.LakeFormation.Types.CatalogResource
+    Amazonka.LakeFormation.Types.ColumnLFTag
+    Amazonka.LakeFormation.Types.ColumnWildcard
+    Amazonka.LakeFormation.Types.ComparisonOperator
+    Amazonka.LakeFormation.Types.DatabaseResource
+    Amazonka.LakeFormation.Types.DataLakePrincipal
+    Amazonka.LakeFormation.Types.DataLakeResourceType
+    Amazonka.LakeFormation.Types.DataLakeSettings
+    Amazonka.LakeFormation.Types.DataLocationResource
+    Amazonka.LakeFormation.Types.DetailsMap
+    Amazonka.LakeFormation.Types.ErrorDetail
+    Amazonka.LakeFormation.Types.FieldNameString
+    Amazonka.LakeFormation.Types.FilterCondition
+    Amazonka.LakeFormation.Types.LFTag
+    Amazonka.LakeFormation.Types.LFTagError
+    Amazonka.LakeFormation.Types.LFTagKeyResource
+    Amazonka.LakeFormation.Types.LFTagPair
+    Amazonka.LakeFormation.Types.LFTagPolicyResource
+    Amazonka.LakeFormation.Types.Permission
+    Amazonka.LakeFormation.Types.PrincipalPermissions
+    Amazonka.LakeFormation.Types.PrincipalResourcePermissions
+    Amazonka.LakeFormation.Types.Resource
+    Amazonka.LakeFormation.Types.ResourceInfo
+    Amazonka.LakeFormation.Types.ResourceShareType
+    Amazonka.LakeFormation.Types.ResourceType
+    Amazonka.LakeFormation.Types.TableResource
+    Amazonka.LakeFormation.Types.TableWildcard
+    Amazonka.LakeFormation.Types.TableWithColumnsResource
+    Amazonka.LakeFormation.Types.TaggedDatabase
+    Amazonka.LakeFormation.Types.TaggedTable
+    Amazonka.LakeFormation.UpdateLFTag
+    Amazonka.LakeFormation.UpdateResource
+    Amazonka.LakeFormation.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

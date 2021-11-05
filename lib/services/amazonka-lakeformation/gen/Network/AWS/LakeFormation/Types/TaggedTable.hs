@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Types.TaggedTable
+-- Module      : Amazonka.LakeFormation.Types.TaggedTable
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Types.TaggedTable where
+module Amazonka.LakeFormation.Types.TaggedTable where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types.ColumnLFTag
-import Network.AWS.LakeFormation.Types.LFTagPair
-import Network.AWS.LakeFormation.Types.TableResource
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types.ColumnLFTag
+import Amazonka.LakeFormation.Types.LFTagPair
+import Amazonka.LakeFormation.Types.TableResource
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure describing a table resource with tags.
 --

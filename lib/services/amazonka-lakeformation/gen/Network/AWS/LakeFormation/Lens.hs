@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Lens
+-- Module      : Amazonka.LakeFormation.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Lens
+module Amazonka.LakeFormation.Lens
   ( -- * Operations
 
     -- ** BatchRevokePermissions
@@ -302,52 +302,52 @@ module Network.AWS.LakeFormation.Lens
   )
 where
 
-import Network.AWS.LakeFormation.AddLFTagsToResource
-import Network.AWS.LakeFormation.BatchGrantPermissions
-import Network.AWS.LakeFormation.BatchRevokePermissions
-import Network.AWS.LakeFormation.CreateLFTag
-import Network.AWS.LakeFormation.DeleteLFTag
-import Network.AWS.LakeFormation.DeregisterResource
-import Network.AWS.LakeFormation.DescribeResource
-import Network.AWS.LakeFormation.GetDataLakeSettings
-import Network.AWS.LakeFormation.GetEffectivePermissionsForPath
-import Network.AWS.LakeFormation.GetLFTag
-import Network.AWS.LakeFormation.GetResourceLFTags
-import Network.AWS.LakeFormation.GrantPermissions
-import Network.AWS.LakeFormation.ListLFTags
-import Network.AWS.LakeFormation.ListPermissions
-import Network.AWS.LakeFormation.ListResources
-import Network.AWS.LakeFormation.PutDataLakeSettings
-import Network.AWS.LakeFormation.RegisterResource
-import Network.AWS.LakeFormation.RemoveLFTagsFromResource
-import Network.AWS.LakeFormation.RevokePermissions
-import Network.AWS.LakeFormation.SearchDatabasesByLFTags
-import Network.AWS.LakeFormation.SearchTablesByLFTags
-import Network.AWS.LakeFormation.Types.BatchPermissionsFailureEntry
-import Network.AWS.LakeFormation.Types.BatchPermissionsRequestEntry
-import Network.AWS.LakeFormation.Types.CatalogResource
-import Network.AWS.LakeFormation.Types.ColumnLFTag
-import Network.AWS.LakeFormation.Types.ColumnWildcard
-import Network.AWS.LakeFormation.Types.DataLakePrincipal
-import Network.AWS.LakeFormation.Types.DataLakeSettings
-import Network.AWS.LakeFormation.Types.DataLocationResource
-import Network.AWS.LakeFormation.Types.DatabaseResource
-import Network.AWS.LakeFormation.Types.DetailsMap
-import Network.AWS.LakeFormation.Types.ErrorDetail
-import Network.AWS.LakeFormation.Types.FilterCondition
-import Network.AWS.LakeFormation.Types.LFTag
-import Network.AWS.LakeFormation.Types.LFTagError
-import Network.AWS.LakeFormation.Types.LFTagKeyResource
-import Network.AWS.LakeFormation.Types.LFTagPair
-import Network.AWS.LakeFormation.Types.LFTagPolicyResource
-import Network.AWS.LakeFormation.Types.PrincipalPermissions
-import Network.AWS.LakeFormation.Types.PrincipalResourcePermissions
-import Network.AWS.LakeFormation.Types.Resource
-import Network.AWS.LakeFormation.Types.ResourceInfo
-import Network.AWS.LakeFormation.Types.TableResource
-import Network.AWS.LakeFormation.Types.TableWildcard
-import Network.AWS.LakeFormation.Types.TableWithColumnsResource
-import Network.AWS.LakeFormation.Types.TaggedDatabase
-import Network.AWS.LakeFormation.Types.TaggedTable
-import Network.AWS.LakeFormation.UpdateLFTag
-import Network.AWS.LakeFormation.UpdateResource
+import Amazonka.LakeFormation.AddLFTagsToResource
+import Amazonka.LakeFormation.BatchGrantPermissions
+import Amazonka.LakeFormation.BatchRevokePermissions
+import Amazonka.LakeFormation.CreateLFTag
+import Amazonka.LakeFormation.DeleteLFTag
+import Amazonka.LakeFormation.DeregisterResource
+import Amazonka.LakeFormation.DescribeResource
+import Amazonka.LakeFormation.GetDataLakeSettings
+import Amazonka.LakeFormation.GetEffectivePermissionsForPath
+import Amazonka.LakeFormation.GetLFTag
+import Amazonka.LakeFormation.GetResourceLFTags
+import Amazonka.LakeFormation.GrantPermissions
+import Amazonka.LakeFormation.ListLFTags
+import Amazonka.LakeFormation.ListPermissions
+import Amazonka.LakeFormation.ListResources
+import Amazonka.LakeFormation.PutDataLakeSettings
+import Amazonka.LakeFormation.RegisterResource
+import Amazonka.LakeFormation.RemoveLFTagsFromResource
+import Amazonka.LakeFormation.RevokePermissions
+import Amazonka.LakeFormation.SearchDatabasesByLFTags
+import Amazonka.LakeFormation.SearchTablesByLFTags
+import Amazonka.LakeFormation.Types.BatchPermissionsFailureEntry
+import Amazonka.LakeFormation.Types.BatchPermissionsRequestEntry
+import Amazonka.LakeFormation.Types.CatalogResource
+import Amazonka.LakeFormation.Types.ColumnLFTag
+import Amazonka.LakeFormation.Types.ColumnWildcard
+import Amazonka.LakeFormation.Types.DataLakePrincipal
+import Amazonka.LakeFormation.Types.DataLakeSettings
+import Amazonka.LakeFormation.Types.DataLocationResource
+import Amazonka.LakeFormation.Types.DatabaseResource
+import Amazonka.LakeFormation.Types.DetailsMap
+import Amazonka.LakeFormation.Types.ErrorDetail
+import Amazonka.LakeFormation.Types.FilterCondition
+import Amazonka.LakeFormation.Types.LFTag
+import Amazonka.LakeFormation.Types.LFTagError
+import Amazonka.LakeFormation.Types.LFTagKeyResource
+import Amazonka.LakeFormation.Types.LFTagPair
+import Amazonka.LakeFormation.Types.LFTagPolicyResource
+import Amazonka.LakeFormation.Types.PrincipalPermissions
+import Amazonka.LakeFormation.Types.PrincipalResourcePermissions
+import Amazonka.LakeFormation.Types.Resource
+import Amazonka.LakeFormation.Types.ResourceInfo
+import Amazonka.LakeFormation.Types.TableResource
+import Amazonka.LakeFormation.Types.TableWildcard
+import Amazonka.LakeFormation.Types.TableWithColumnsResource
+import Amazonka.LakeFormation.Types.TaggedDatabase
+import Amazonka.LakeFormation.Types.TaggedTable
+import Amazonka.LakeFormation.UpdateLFTag
+import Amazonka.LakeFormation.UpdateResource

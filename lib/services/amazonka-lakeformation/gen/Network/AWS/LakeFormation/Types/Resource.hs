@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Types.Resource
+-- Module      : Amazonka.LakeFormation.Types.Resource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Types.Resource where
+module Amazonka.LakeFormation.Types.Resource where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types.CatalogResource
-import Network.AWS.LakeFormation.Types.DataLocationResource
-import Network.AWS.LakeFormation.Types.DatabaseResource
-import Network.AWS.LakeFormation.Types.LFTagKeyResource
-import Network.AWS.LakeFormation.Types.LFTagPolicyResource
-import Network.AWS.LakeFormation.Types.TableResource
-import Network.AWS.LakeFormation.Types.TableWithColumnsResource
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types.CatalogResource
+import Amazonka.LakeFormation.Types.DataLocationResource
+import Amazonka.LakeFormation.Types.DatabaseResource
+import Amazonka.LakeFormation.Types.LFTagKeyResource
+import Amazonka.LakeFormation.Types.LFTagPolicyResource
+import Amazonka.LakeFormation.Types.TableResource
+import Amazonka.LakeFormation.Types.TableWithColumnsResource
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for the resource.
 --

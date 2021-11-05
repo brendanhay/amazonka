@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LakeFormation.Types.DataLakeSettings
+-- Module      : Amazonka.LakeFormation.Types.DataLakeSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LakeFormation.Types.DataLakeSettings where
+module Amazonka.LakeFormation.Types.DataLakeSettings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.LakeFormation.Types.DataLakePrincipal
-import Network.AWS.LakeFormation.Types.PrincipalPermissions
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.LakeFormation.Types.DataLakePrincipal
+import Amazonka.LakeFormation.Types.PrincipalPermissions
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure representing a list of AWS Lake Formation principals
 -- designated as data lake administrators and lists of principal permission

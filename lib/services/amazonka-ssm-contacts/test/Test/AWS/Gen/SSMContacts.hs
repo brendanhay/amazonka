@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSMContacts where
 
+import Amazonka.SSMContacts
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSMContacts
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSMContacts.Internal

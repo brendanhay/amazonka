@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SSMContacts
+-- Module      : Amazonka.SSMContacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- primary goal of reducing the time-to-resolution of critical incidents,
 -- Incident Manager automates response plans and enables responder team
 -- escalation.
-module Network.AWS.SSMContacts
+module Amazonka.SSMContacts
   ( -- * Service Configuration
     defaultService,
 
@@ -295,36 +295,36 @@ module Network.AWS.SSMContacts
   )
 where
 
-import Network.AWS.SSMContacts.AcceptPage
-import Network.AWS.SSMContacts.ActivateContactChannel
-import Network.AWS.SSMContacts.CreateContact
-import Network.AWS.SSMContacts.CreateContactChannel
-import Network.AWS.SSMContacts.DeactivateContactChannel
-import Network.AWS.SSMContacts.DeleteContact
-import Network.AWS.SSMContacts.DeleteContactChannel
-import Network.AWS.SSMContacts.DescribeEngagement
-import Network.AWS.SSMContacts.DescribePage
-import Network.AWS.SSMContacts.GetContact
-import Network.AWS.SSMContacts.GetContactChannel
-import Network.AWS.SSMContacts.GetContactPolicy
-import Network.AWS.SSMContacts.Lens
-import Network.AWS.SSMContacts.ListContactChannels
-import Network.AWS.SSMContacts.ListContacts
-import Network.AWS.SSMContacts.ListEngagements
-import Network.AWS.SSMContacts.ListPageReceipts
-import Network.AWS.SSMContacts.ListPagesByContact
-import Network.AWS.SSMContacts.ListPagesByEngagement
-import Network.AWS.SSMContacts.ListTagsForResource
-import Network.AWS.SSMContacts.PutContactPolicy
-import Network.AWS.SSMContacts.SendActivationCode
-import Network.AWS.SSMContacts.StartEngagement
-import Network.AWS.SSMContacts.StopEngagement
-import Network.AWS.SSMContacts.TagResource
-import Network.AWS.SSMContacts.Types
-import Network.AWS.SSMContacts.UntagResource
-import Network.AWS.SSMContacts.UpdateContact
-import Network.AWS.SSMContacts.UpdateContactChannel
-import Network.AWS.SSMContacts.Waiters
+import Amazonka.SSMContacts.AcceptPage
+import Amazonka.SSMContacts.ActivateContactChannel
+import Amazonka.SSMContacts.CreateContact
+import Amazonka.SSMContacts.CreateContactChannel
+import Amazonka.SSMContacts.DeactivateContactChannel
+import Amazonka.SSMContacts.DeleteContact
+import Amazonka.SSMContacts.DeleteContactChannel
+import Amazonka.SSMContacts.DescribeEngagement
+import Amazonka.SSMContacts.DescribePage
+import Amazonka.SSMContacts.GetContact
+import Amazonka.SSMContacts.GetContactChannel
+import Amazonka.SSMContacts.GetContactPolicy
+import Amazonka.SSMContacts.Lens
+import Amazonka.SSMContacts.ListContactChannels
+import Amazonka.SSMContacts.ListContacts
+import Amazonka.SSMContacts.ListEngagements
+import Amazonka.SSMContacts.ListPageReceipts
+import Amazonka.SSMContacts.ListPagesByContact
+import Amazonka.SSMContacts.ListPagesByEngagement
+import Amazonka.SSMContacts.ListTagsForResource
+import Amazonka.SSMContacts.PutContactPolicy
+import Amazonka.SSMContacts.SendActivationCode
+import Amazonka.SSMContacts.StartEngagement
+import Amazonka.SSMContacts.StopEngagement
+import Amazonka.SSMContacts.TagResource
+import Amazonka.SSMContacts.Types
+import Amazonka.SSMContacts.UntagResource
+import Amazonka.SSMContacts.UpdateContact
+import Amazonka.SSMContacts.UpdateContactChannel
+import Amazonka.SSMContacts.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

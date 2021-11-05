@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMContacts.Lens
+-- Module      : Amazonka.SSMContacts.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSMContacts.Lens
+module Amazonka.SSMContacts.Lens
   ( -- * Operations
 
     -- ** ListPagesByEngagement
@@ -290,43 +290,43 @@ module Network.AWS.SSMContacts.Lens
   )
 where
 
-import Network.AWS.SSMContacts.AcceptPage
-import Network.AWS.SSMContacts.ActivateContactChannel
-import Network.AWS.SSMContacts.CreateContact
-import Network.AWS.SSMContacts.CreateContactChannel
-import Network.AWS.SSMContacts.DeactivateContactChannel
-import Network.AWS.SSMContacts.DeleteContact
-import Network.AWS.SSMContacts.DeleteContactChannel
-import Network.AWS.SSMContacts.DescribeEngagement
-import Network.AWS.SSMContacts.DescribePage
-import Network.AWS.SSMContacts.GetContact
-import Network.AWS.SSMContacts.GetContactChannel
-import Network.AWS.SSMContacts.GetContactPolicy
-import Network.AWS.SSMContacts.ListContactChannels
-import Network.AWS.SSMContacts.ListContacts
-import Network.AWS.SSMContacts.ListEngagements
-import Network.AWS.SSMContacts.ListPageReceipts
-import Network.AWS.SSMContacts.ListPagesByContact
-import Network.AWS.SSMContacts.ListPagesByEngagement
-import Network.AWS.SSMContacts.ListTagsForResource
-import Network.AWS.SSMContacts.PutContactPolicy
-import Network.AWS.SSMContacts.SendActivationCode
-import Network.AWS.SSMContacts.StartEngagement
-import Network.AWS.SSMContacts.StopEngagement
-import Network.AWS.SSMContacts.TagResource
-import Network.AWS.SSMContacts.Types.ChannelTargetInfo
-import Network.AWS.SSMContacts.Types.Contact
-import Network.AWS.SSMContacts.Types.ContactChannel
-import Network.AWS.SSMContacts.Types.ContactChannelAddress
-import Network.AWS.SSMContacts.Types.ContactTargetInfo
-import Network.AWS.SSMContacts.Types.Engagement
-import Network.AWS.SSMContacts.Types.Page
-import Network.AWS.SSMContacts.Types.Plan
-import Network.AWS.SSMContacts.Types.Receipt
-import Network.AWS.SSMContacts.Types.Stage
-import Network.AWS.SSMContacts.Types.Tag
-import Network.AWS.SSMContacts.Types.Target
-import Network.AWS.SSMContacts.Types.TimeRange
-import Network.AWS.SSMContacts.UntagResource
-import Network.AWS.SSMContacts.UpdateContact
-import Network.AWS.SSMContacts.UpdateContactChannel
+import Amazonka.SSMContacts.AcceptPage
+import Amazonka.SSMContacts.ActivateContactChannel
+import Amazonka.SSMContacts.CreateContact
+import Amazonka.SSMContacts.CreateContactChannel
+import Amazonka.SSMContacts.DeactivateContactChannel
+import Amazonka.SSMContacts.DeleteContact
+import Amazonka.SSMContacts.DeleteContactChannel
+import Amazonka.SSMContacts.DescribeEngagement
+import Amazonka.SSMContacts.DescribePage
+import Amazonka.SSMContacts.GetContact
+import Amazonka.SSMContacts.GetContactChannel
+import Amazonka.SSMContacts.GetContactPolicy
+import Amazonka.SSMContacts.ListContactChannels
+import Amazonka.SSMContacts.ListContacts
+import Amazonka.SSMContacts.ListEngagements
+import Amazonka.SSMContacts.ListPageReceipts
+import Amazonka.SSMContacts.ListPagesByContact
+import Amazonka.SSMContacts.ListPagesByEngagement
+import Amazonka.SSMContacts.ListTagsForResource
+import Amazonka.SSMContacts.PutContactPolicy
+import Amazonka.SSMContacts.SendActivationCode
+import Amazonka.SSMContacts.StartEngagement
+import Amazonka.SSMContacts.StopEngagement
+import Amazonka.SSMContacts.TagResource
+import Amazonka.SSMContacts.Types.ChannelTargetInfo
+import Amazonka.SSMContacts.Types.Contact
+import Amazonka.SSMContacts.Types.ContactChannel
+import Amazonka.SSMContacts.Types.ContactChannelAddress
+import Amazonka.SSMContacts.Types.ContactTargetInfo
+import Amazonka.SSMContacts.Types.Engagement
+import Amazonka.SSMContacts.Types.Page
+import Amazonka.SSMContacts.Types.Plan
+import Amazonka.SSMContacts.Types.Receipt
+import Amazonka.SSMContacts.Types.Stage
+import Amazonka.SSMContacts.Types.Tag
+import Amazonka.SSMContacts.Types.Target
+import Amazonka.SSMContacts.Types.TimeRange
+import Amazonka.SSMContacts.UntagResource
+import Amazonka.SSMContacts.UpdateContact
+import Amazonka.SSMContacts.UpdateContactChannel

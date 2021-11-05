@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMContacts.StopEngagement
+-- Module      : Amazonka.SSMContacts.StopEngagement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Stops an engagement before it finishes the final stage of the escalation
 -- plan or engagement plan. Further contacts aren\'t engaged.
-module Network.AWS.SSMContacts.StopEngagement
+module Amazonka.SSMContacts.StopEngagement
   ( -- * Creating a Request
     StopEngagement (..),
     newStopEngagement,
@@ -40,12 +40,12 @@ module Network.AWS.SSMContacts.StopEngagement
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMContacts.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newStopEngagement' smart constructor.
 data StopEngagement = StopEngagement'

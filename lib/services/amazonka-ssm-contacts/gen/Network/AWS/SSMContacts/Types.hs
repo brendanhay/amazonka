@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMContacts.Types
+-- Module      : Amazonka.SSMContacts.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSMContacts.Types
+module Amazonka.SSMContacts.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -140,29 +140,29 @@ module Network.AWS.SSMContacts.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSMContacts.Types.AcceptCodeValidation
-import Network.AWS.SSMContacts.Types.AcceptType
-import Network.AWS.SSMContacts.Types.ActivationStatus
-import Network.AWS.SSMContacts.Types.ChannelTargetInfo
-import Network.AWS.SSMContacts.Types.ChannelType
-import Network.AWS.SSMContacts.Types.Contact
-import Network.AWS.SSMContacts.Types.ContactChannel
-import Network.AWS.SSMContacts.Types.ContactChannelAddress
-import Network.AWS.SSMContacts.Types.ContactTargetInfo
-import Network.AWS.SSMContacts.Types.ContactType
-import Network.AWS.SSMContacts.Types.Engagement
-import Network.AWS.SSMContacts.Types.Page
-import Network.AWS.SSMContacts.Types.Plan
-import Network.AWS.SSMContacts.Types.Receipt
-import Network.AWS.SSMContacts.Types.ReceiptType
-import Network.AWS.SSMContacts.Types.Stage
-import Network.AWS.SSMContacts.Types.Tag
-import Network.AWS.SSMContacts.Types.Target
-import Network.AWS.SSMContacts.Types.TimeRange
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSMContacts.Types.AcceptCodeValidation
+import Amazonka.SSMContacts.Types.AcceptType
+import Amazonka.SSMContacts.Types.ActivationStatus
+import Amazonka.SSMContacts.Types.ChannelTargetInfo
+import Amazonka.SSMContacts.Types.ChannelType
+import Amazonka.SSMContacts.Types.Contact
+import Amazonka.SSMContacts.Types.ContactChannel
+import Amazonka.SSMContacts.Types.ContactChannelAddress
+import Amazonka.SSMContacts.Types.ContactTargetInfo
+import Amazonka.SSMContacts.Types.ContactType
+import Amazonka.SSMContacts.Types.Engagement
+import Amazonka.SSMContacts.Types.Page
+import Amazonka.SSMContacts.Types.Plan
+import Amazonka.SSMContacts.Types.Receipt
+import Amazonka.SSMContacts.Types.ReceiptType
+import Amazonka.SSMContacts.Types.Stage
+import Amazonka.SSMContacts.Types.Tag
+import Amazonka.SSMContacts.Types.Target
+import Amazonka.SSMContacts.Types.TimeRange
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-05-03@ of the Amazon Systems Manager Incident Manager Contacts SDK configuration.
 defaultService :: Core.Service

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMContacts.DeleteContactChannel
+-- Module      : Amazonka.SSMContacts.DeleteContactChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- the contact\'s engagement plan. If you delete the only contact channel
 -- for a contact, you won\'t be able to engage that contact during an
 -- incident.
-module Network.AWS.SSMContacts.DeleteContactChannel
+module Amazonka.SSMContacts.DeleteContactChannel
   ( -- * Creating a Request
     DeleteContactChannel (..),
     newDeleteContactChannel,
@@ -42,12 +42,12 @@ module Network.AWS.SSMContacts.DeleteContactChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMContacts.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newDeleteContactChannel' smart constructor.
 data DeleteContactChannel = DeleteContactChannel'

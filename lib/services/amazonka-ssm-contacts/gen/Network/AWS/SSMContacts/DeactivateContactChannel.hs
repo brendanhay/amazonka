@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSMContacts.DeactivateContactChannel
+-- Module      : Amazonka.SSMContacts.DeactivateContactChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- To no longer receive Incident Manager engagements to a contact channel,
 -- you can deactivate the channel.
-module Network.AWS.SSMContacts.DeactivateContactChannel
+module Amazonka.SSMContacts.DeactivateContactChannel
   ( -- * Creating a Request
     DeactivateContactChannel (..),
     newDeactivateContactChannel,
@@ -39,12 +39,12 @@ module Network.AWS.SSMContacts.DeactivateContactChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSMContacts.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newDeactivateContactChannel' smart constructor.
 data DeactivateContactChannel = DeactivateContactChannel'

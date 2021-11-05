@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.Lens
+-- Module      : Amazonka.Translate.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Lens
+module Amazonka.Translate.Lens
   ( -- * Operations
 
     -- ** DescribeTextTranslationJob
@@ -223,31 +223,31 @@ module Network.AWS.Translate.Lens
   )
 where
 
-import Network.AWS.Translate.CreateParallelData
-import Network.AWS.Translate.DeleteParallelData
-import Network.AWS.Translate.DeleteTerminology
-import Network.AWS.Translate.DescribeTextTranslationJob
-import Network.AWS.Translate.GetParallelData
-import Network.AWS.Translate.GetTerminology
-import Network.AWS.Translate.ImportTerminology
-import Network.AWS.Translate.ListParallelData
-import Network.AWS.Translate.ListTerminologies
-import Network.AWS.Translate.ListTextTranslationJobs
-import Network.AWS.Translate.StartTextTranslationJob
-import Network.AWS.Translate.StopTextTranslationJob
-import Network.AWS.Translate.TranslateText
-import Network.AWS.Translate.Types.AppliedTerminology
-import Network.AWS.Translate.Types.EncryptionKey
-import Network.AWS.Translate.Types.InputDataConfig
-import Network.AWS.Translate.Types.JobDetails
-import Network.AWS.Translate.Types.OutputDataConfig
-import Network.AWS.Translate.Types.ParallelDataConfig
-import Network.AWS.Translate.Types.ParallelDataDataLocation
-import Network.AWS.Translate.Types.ParallelDataProperties
-import Network.AWS.Translate.Types.Term
-import Network.AWS.Translate.Types.TerminologyData
-import Network.AWS.Translate.Types.TerminologyDataLocation
-import Network.AWS.Translate.Types.TerminologyProperties
-import Network.AWS.Translate.Types.TextTranslationJobFilter
-import Network.AWS.Translate.Types.TextTranslationJobProperties
-import Network.AWS.Translate.UpdateParallelData
+import Amazonka.Translate.CreateParallelData
+import Amazonka.Translate.DeleteParallelData
+import Amazonka.Translate.DeleteTerminology
+import Amazonka.Translate.DescribeTextTranslationJob
+import Amazonka.Translate.GetParallelData
+import Amazonka.Translate.GetTerminology
+import Amazonka.Translate.ImportTerminology
+import Amazonka.Translate.ListParallelData
+import Amazonka.Translate.ListTerminologies
+import Amazonka.Translate.ListTextTranslationJobs
+import Amazonka.Translate.StartTextTranslationJob
+import Amazonka.Translate.StopTextTranslationJob
+import Amazonka.Translate.TranslateText
+import Amazonka.Translate.Types.AppliedTerminology
+import Amazonka.Translate.Types.EncryptionKey
+import Amazonka.Translate.Types.InputDataConfig
+import Amazonka.Translate.Types.JobDetails
+import Amazonka.Translate.Types.OutputDataConfig
+import Amazonka.Translate.Types.ParallelDataConfig
+import Amazonka.Translate.Types.ParallelDataDataLocation
+import Amazonka.Translate.Types.ParallelDataProperties
+import Amazonka.Translate.Types.Term
+import Amazonka.Translate.Types.TerminologyData
+import Amazonka.Translate.Types.TerminologyDataLocation
+import Amazonka.Translate.Types.TerminologyProperties
+import Amazonka.Translate.Types.TextTranslationJobFilter
+import Amazonka.Translate.Types.TextTranslationJobProperties
+import Amazonka.Translate.UpdateParallelData

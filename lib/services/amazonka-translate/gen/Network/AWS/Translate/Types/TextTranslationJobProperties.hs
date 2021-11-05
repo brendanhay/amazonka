@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.Types.TextTranslationJobProperties
+-- Module      : Amazonka.Translate.Types.TextTranslationJobProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.TextTranslationJobProperties where
+module Amazonka.Translate.Types.TextTranslationJobProperties where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Translate.Types.InputDataConfig
-import Network.AWS.Translate.Types.JobDetails
-import Network.AWS.Translate.Types.JobStatus
-import Network.AWS.Translate.Types.OutputDataConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Translate.Types.InputDataConfig
+import Amazonka.Translate.Types.JobDetails
+import Amazonka.Translate.Types.JobStatus
+import Amazonka.Translate.Types.OutputDataConfig
 
 -- | Provides information about a translation job.
 --

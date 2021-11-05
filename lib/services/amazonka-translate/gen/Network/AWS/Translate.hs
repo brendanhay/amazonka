@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Translate
+-- Module      : Amazonka.Translate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- Provides translation between one source language and another of the same
 -- set of languages.
-module Network.AWS.Translate
+module Amazonka.Translate
   ( -- * Service Configuration
     defaultService,
 
@@ -227,23 +227,23 @@ module Network.AWS.Translate
   )
 where
 
-import Network.AWS.Translate.CreateParallelData
-import Network.AWS.Translate.DeleteParallelData
-import Network.AWS.Translate.DeleteTerminology
-import Network.AWS.Translate.DescribeTextTranslationJob
-import Network.AWS.Translate.GetParallelData
-import Network.AWS.Translate.GetTerminology
-import Network.AWS.Translate.ImportTerminology
-import Network.AWS.Translate.Lens
-import Network.AWS.Translate.ListParallelData
-import Network.AWS.Translate.ListTerminologies
-import Network.AWS.Translate.ListTextTranslationJobs
-import Network.AWS.Translate.StartTextTranslationJob
-import Network.AWS.Translate.StopTextTranslationJob
-import Network.AWS.Translate.TranslateText
-import Network.AWS.Translate.Types
-import Network.AWS.Translate.UpdateParallelData
-import Network.AWS.Translate.Waiters
+import Amazonka.Translate.CreateParallelData
+import Amazonka.Translate.DeleteParallelData
+import Amazonka.Translate.DeleteTerminology
+import Amazonka.Translate.DescribeTextTranslationJob
+import Amazonka.Translate.GetParallelData
+import Amazonka.Translate.GetTerminology
+import Amazonka.Translate.ImportTerminology
+import Amazonka.Translate.Lens
+import Amazonka.Translate.ListParallelData
+import Amazonka.Translate.ListTerminologies
+import Amazonka.Translate.ListTextTranslationJobs
+import Amazonka.Translate.StartTextTranslationJob
+import Amazonka.Translate.StopTextTranslationJob
+import Amazonka.Translate.TranslateText
+import Amazonka.Translate.Types
+import Amazonka.Translate.UpdateParallelData
+import Amazonka.Translate.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

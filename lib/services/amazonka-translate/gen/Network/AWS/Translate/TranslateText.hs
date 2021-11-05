@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.TranslateText
+-- Module      : Amazonka.Translate.TranslateText
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Translates input text from the source language to the target language.
 -- For a list of available languages and language codes, see
 -- what-is-languages.
-module Network.AWS.Translate.TranslateText
+module Amazonka.Translate.TranslateText
   ( -- * Creating a Request
     TranslateText (..),
     newTranslateText,
@@ -47,12 +47,12 @@ module Network.AWS.Translate.TranslateText
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Translate.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Translate.Types
 
 -- | /See:/ 'newTranslateText' smart constructor.
 data TranslateText = TranslateText'

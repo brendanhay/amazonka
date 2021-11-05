@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.CreateParallelData
+-- Module      : Amazonka.Translate.CreateParallelData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- source phrases and their translations from your translation memory. By
 -- adding parallel data, you can influence the style, tone, and word choice
 -- in your translation output.
-module Network.AWS.Translate.CreateParallelData
+module Amazonka.Translate.CreateParallelData
   ( -- * Creating a Request
     CreateParallelData (..),
     newCreateParallelData,
@@ -48,12 +48,12 @@ module Network.AWS.Translate.CreateParallelData
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Translate.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Translate.Types
 
 -- | /See:/ 'newCreateParallelData' smart constructor.
 data CreateParallelData = CreateParallelData'

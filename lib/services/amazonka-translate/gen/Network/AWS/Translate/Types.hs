@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.Types
+-- Module      : Amazonka.Translate.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types
+module Amazonka.Translate.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -172,30 +172,30 @@ module Network.AWS.Translate.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Translate.Types.AppliedTerminology
-import Network.AWS.Translate.Types.EncryptionKey
-import Network.AWS.Translate.Types.EncryptionKeyType
-import Network.AWS.Translate.Types.InputDataConfig
-import Network.AWS.Translate.Types.JobDetails
-import Network.AWS.Translate.Types.JobStatus
-import Network.AWS.Translate.Types.MergeStrategy
-import Network.AWS.Translate.Types.OutputDataConfig
-import Network.AWS.Translate.Types.ParallelDataConfig
-import Network.AWS.Translate.Types.ParallelDataDataLocation
-import Network.AWS.Translate.Types.ParallelDataFormat
-import Network.AWS.Translate.Types.ParallelDataProperties
-import Network.AWS.Translate.Types.ParallelDataStatus
-import Network.AWS.Translate.Types.Term
-import Network.AWS.Translate.Types.TerminologyData
-import Network.AWS.Translate.Types.TerminologyDataFormat
-import Network.AWS.Translate.Types.TerminologyDataLocation
-import Network.AWS.Translate.Types.TerminologyProperties
-import Network.AWS.Translate.Types.TextTranslationJobFilter
-import Network.AWS.Translate.Types.TextTranslationJobProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Translate.Types.AppliedTerminology
+import Amazonka.Translate.Types.EncryptionKey
+import Amazonka.Translate.Types.EncryptionKeyType
+import Amazonka.Translate.Types.InputDataConfig
+import Amazonka.Translate.Types.JobDetails
+import Amazonka.Translate.Types.JobStatus
+import Amazonka.Translate.Types.MergeStrategy
+import Amazonka.Translate.Types.OutputDataConfig
+import Amazonka.Translate.Types.ParallelDataConfig
+import Amazonka.Translate.Types.ParallelDataDataLocation
+import Amazonka.Translate.Types.ParallelDataFormat
+import Amazonka.Translate.Types.ParallelDataProperties
+import Amazonka.Translate.Types.ParallelDataStatus
+import Amazonka.Translate.Types.Term
+import Amazonka.Translate.Types.TerminologyData
+import Amazonka.Translate.Types.TerminologyDataFormat
+import Amazonka.Translate.Types.TerminologyDataLocation
+import Amazonka.Translate.Types.TerminologyProperties
+import Amazonka.Translate.Types.TextTranslationJobFilter
+import Amazonka.Translate.Types.TextTranslationJobProperties
 
 -- | API version @2017-07-01@ of the Amazon Translate SDK configuration.
 defaultService :: Core.Service

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Translate where
 
+import Amazonka.Translate
 import qualified Data.Proxy as Proxy
-import Network.AWS.Translate
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Translate.Internal

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Translate.ImportTerminology
+-- Module      : Amazonka.Translate.ImportTerminology
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- terminology take up to 10 minutes to fully propagate and be available
 -- for use in a translation due to cache policies with the DataPlane
 -- service that performs the translations.
-module Network.AWS.Translate.ImportTerminology
+module Amazonka.Translate.ImportTerminology
   ( -- * Creating a Request
     ImportTerminology (..),
     newImportTerminology,
@@ -53,12 +53,12 @@ module Network.AWS.Translate.ImportTerminology
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Translate.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Translate.Types
 
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutVision.Types
+-- Module      : Amazonka.LookoutVision.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutVision.Types
+module Amazonka.LookoutVision.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -164,30 +164,30 @@ module Network.AWS.LookoutVision.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutVision.Types.DatasetDescription
-import Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest
-import Network.AWS.LookoutVision.Types.DatasetImageStats
-import Network.AWS.LookoutVision.Types.DatasetMetadata
-import Network.AWS.LookoutVision.Types.DatasetSource
-import Network.AWS.LookoutVision.Types.DatasetStatus
-import Network.AWS.LookoutVision.Types.DetectAnomalyResult
-import Network.AWS.LookoutVision.Types.ImageSource
-import Network.AWS.LookoutVision.Types.InputS3Object
-import Network.AWS.LookoutVision.Types.ModelDescription
-import Network.AWS.LookoutVision.Types.ModelHostingStatus
-import Network.AWS.LookoutVision.Types.ModelMetadata
-import Network.AWS.LookoutVision.Types.ModelPerformance
-import Network.AWS.LookoutVision.Types.ModelStatus
-import Network.AWS.LookoutVision.Types.OutputConfig
-import Network.AWS.LookoutVision.Types.OutputS3Object
-import Network.AWS.LookoutVision.Types.ProjectDescription
-import Network.AWS.LookoutVision.Types.ProjectMetadata
-import Network.AWS.LookoutVision.Types.S3Location
-import Network.AWS.LookoutVision.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutVision.Types.DatasetDescription
+import Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
+import Amazonka.LookoutVision.Types.DatasetImageStats
+import Amazonka.LookoutVision.Types.DatasetMetadata
+import Amazonka.LookoutVision.Types.DatasetSource
+import Amazonka.LookoutVision.Types.DatasetStatus
+import Amazonka.LookoutVision.Types.DetectAnomalyResult
+import Amazonka.LookoutVision.Types.ImageSource
+import Amazonka.LookoutVision.Types.InputS3Object
+import Amazonka.LookoutVision.Types.ModelDescription
+import Amazonka.LookoutVision.Types.ModelHostingStatus
+import Amazonka.LookoutVision.Types.ModelMetadata
+import Amazonka.LookoutVision.Types.ModelPerformance
+import Amazonka.LookoutVision.Types.ModelStatus
+import Amazonka.LookoutVision.Types.OutputConfig
+import Amazonka.LookoutVision.Types.OutputS3Object
+import Amazonka.LookoutVision.Types.ProjectDescription
+import Amazonka.LookoutVision.Types.ProjectMetadata
+import Amazonka.LookoutVision.Types.S3Location
+import Amazonka.LookoutVision.Types.Tag
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-11-20@ of the Amazon Lookout for Vision SDK configuration.
 defaultService :: Core.Service

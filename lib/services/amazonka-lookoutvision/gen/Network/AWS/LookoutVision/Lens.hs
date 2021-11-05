@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutVision.Lens
+-- Module      : Amazonka.LookoutVision.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutVision.Lens
+module Amazonka.LookoutVision.Lens
   ( -- * Operations
 
     -- ** ListProjects
@@ -247,39 +247,39 @@ module Network.AWS.LookoutVision.Lens
   )
 where
 
-import Network.AWS.LookoutVision.CreateDataset
-import Network.AWS.LookoutVision.CreateModel
-import Network.AWS.LookoutVision.CreateProject
-import Network.AWS.LookoutVision.DeleteDataset
-import Network.AWS.LookoutVision.DeleteModel
-import Network.AWS.LookoutVision.DeleteProject
-import Network.AWS.LookoutVision.DescribeDataset
-import Network.AWS.LookoutVision.DescribeModel
-import Network.AWS.LookoutVision.DescribeProject
-import Network.AWS.LookoutVision.DetectAnomalies
-import Network.AWS.LookoutVision.ListDatasetEntries
-import Network.AWS.LookoutVision.ListModels
-import Network.AWS.LookoutVision.ListProjects
-import Network.AWS.LookoutVision.ListTagsForResource
-import Network.AWS.LookoutVision.StartModel
-import Network.AWS.LookoutVision.StopModel
-import Network.AWS.LookoutVision.TagResource
-import Network.AWS.LookoutVision.Types.DatasetDescription
-import Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest
-import Network.AWS.LookoutVision.Types.DatasetImageStats
-import Network.AWS.LookoutVision.Types.DatasetMetadata
-import Network.AWS.LookoutVision.Types.DatasetSource
-import Network.AWS.LookoutVision.Types.DetectAnomalyResult
-import Network.AWS.LookoutVision.Types.ImageSource
-import Network.AWS.LookoutVision.Types.InputS3Object
-import Network.AWS.LookoutVision.Types.ModelDescription
-import Network.AWS.LookoutVision.Types.ModelMetadata
-import Network.AWS.LookoutVision.Types.ModelPerformance
-import Network.AWS.LookoutVision.Types.OutputConfig
-import Network.AWS.LookoutVision.Types.OutputS3Object
-import Network.AWS.LookoutVision.Types.ProjectDescription
-import Network.AWS.LookoutVision.Types.ProjectMetadata
-import Network.AWS.LookoutVision.Types.S3Location
-import Network.AWS.LookoutVision.Types.Tag
-import Network.AWS.LookoutVision.UntagResource
-import Network.AWS.LookoutVision.UpdateDatasetEntries
+import Amazonka.LookoutVision.CreateDataset
+import Amazonka.LookoutVision.CreateModel
+import Amazonka.LookoutVision.CreateProject
+import Amazonka.LookoutVision.DeleteDataset
+import Amazonka.LookoutVision.DeleteModel
+import Amazonka.LookoutVision.DeleteProject
+import Amazonka.LookoutVision.DescribeDataset
+import Amazonka.LookoutVision.DescribeModel
+import Amazonka.LookoutVision.DescribeProject
+import Amazonka.LookoutVision.DetectAnomalies
+import Amazonka.LookoutVision.ListDatasetEntries
+import Amazonka.LookoutVision.ListModels
+import Amazonka.LookoutVision.ListProjects
+import Amazonka.LookoutVision.ListTagsForResource
+import Amazonka.LookoutVision.StartModel
+import Amazonka.LookoutVision.StopModel
+import Amazonka.LookoutVision.TagResource
+import Amazonka.LookoutVision.Types.DatasetDescription
+import Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
+import Amazonka.LookoutVision.Types.DatasetImageStats
+import Amazonka.LookoutVision.Types.DatasetMetadata
+import Amazonka.LookoutVision.Types.DatasetSource
+import Amazonka.LookoutVision.Types.DetectAnomalyResult
+import Amazonka.LookoutVision.Types.ImageSource
+import Amazonka.LookoutVision.Types.InputS3Object
+import Amazonka.LookoutVision.Types.ModelDescription
+import Amazonka.LookoutVision.Types.ModelMetadata
+import Amazonka.LookoutVision.Types.ModelPerformance
+import Amazonka.LookoutVision.Types.OutputConfig
+import Amazonka.LookoutVision.Types.OutputS3Object
+import Amazonka.LookoutVision.Types.ProjectDescription
+import Amazonka.LookoutVision.Types.ProjectMetadata
+import Amazonka.LookoutVision.Types.S3Location
+import Amazonka.LookoutVision.Types.Tag
+import Amazonka.LookoutVision.UntagResource
+import Amazonka.LookoutVision.UpdateDatasetEntries

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LookoutVision where
 
+import Amazonka.LookoutVision
 import qualified Data.Proxy as Proxy
-import Network.AWS.LookoutVision
 import Test.AWS.Fixture
 import Test.AWS.LookoutVision.Internal
 import Test.AWS.Prelude

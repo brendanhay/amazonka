@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LookoutVision
+-- Module      : Amazonka.LookoutVision
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- or structures, irregularities in production lines, and even minuscule
 -- defects in silicon wafers — or any other physical item where quality is
 -- important such as a missing capacitor on printed circuit boards.
-module Network.AWS.LookoutVision
+module Amazonka.LookoutVision
   ( -- * Service Configuration
     defaultService,
 
@@ -250,28 +250,28 @@ module Network.AWS.LookoutVision
   )
 where
 
-import Network.AWS.LookoutVision.CreateDataset
-import Network.AWS.LookoutVision.CreateModel
-import Network.AWS.LookoutVision.CreateProject
-import Network.AWS.LookoutVision.DeleteDataset
-import Network.AWS.LookoutVision.DeleteModel
-import Network.AWS.LookoutVision.DeleteProject
-import Network.AWS.LookoutVision.DescribeDataset
-import Network.AWS.LookoutVision.DescribeModel
-import Network.AWS.LookoutVision.DescribeProject
-import Network.AWS.LookoutVision.DetectAnomalies
-import Network.AWS.LookoutVision.Lens
-import Network.AWS.LookoutVision.ListDatasetEntries
-import Network.AWS.LookoutVision.ListModels
-import Network.AWS.LookoutVision.ListProjects
-import Network.AWS.LookoutVision.ListTagsForResource
-import Network.AWS.LookoutVision.StartModel
-import Network.AWS.LookoutVision.StopModel
-import Network.AWS.LookoutVision.TagResource
-import Network.AWS.LookoutVision.Types
-import Network.AWS.LookoutVision.UntagResource
-import Network.AWS.LookoutVision.UpdateDatasetEntries
-import Network.AWS.LookoutVision.Waiters
+import Amazonka.LookoutVision.CreateDataset
+import Amazonka.LookoutVision.CreateModel
+import Amazonka.LookoutVision.CreateProject
+import Amazonka.LookoutVision.DeleteDataset
+import Amazonka.LookoutVision.DeleteModel
+import Amazonka.LookoutVision.DeleteProject
+import Amazonka.LookoutVision.DescribeDataset
+import Amazonka.LookoutVision.DescribeModel
+import Amazonka.LookoutVision.DescribeProject
+import Amazonka.LookoutVision.DetectAnomalies
+import Amazonka.LookoutVision.Lens
+import Amazonka.LookoutVision.ListDatasetEntries
+import Amazonka.LookoutVision.ListModels
+import Amazonka.LookoutVision.ListProjects
+import Amazonka.LookoutVision.ListTagsForResource
+import Amazonka.LookoutVision.StartModel
+import Amazonka.LookoutVision.StopModel
+import Amazonka.LookoutVision.TagResource
+import Amazonka.LookoutVision.Types
+import Amazonka.LookoutVision.UntagResource
+import Amazonka.LookoutVision.UpdateDatasetEntries
+import Amazonka.LookoutVision.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SES
+-- Module      : Amazonka.SES
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
 -- in the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide>.
-module Network.AWS.SES
+module Amazonka.SES
   ( -- * Service Configuration
     defaultService,
 
@@ -780,80 +780,80 @@ module Network.AWS.SES
   )
 where
 
-import Network.AWS.SES.CloneReceiptRuleSet
-import Network.AWS.SES.CreateConfigurationSet
-import Network.AWS.SES.CreateConfigurationSetEventDestination
-import Network.AWS.SES.CreateConfigurationSetTrackingOptions
-import Network.AWS.SES.CreateCustomVerificationEmailTemplate
-import Network.AWS.SES.CreateReceiptFilter
-import Network.AWS.SES.CreateReceiptRule
-import Network.AWS.SES.CreateReceiptRuleSet
-import Network.AWS.SES.CreateTemplate
-import Network.AWS.SES.DeleteConfigurationSet
-import Network.AWS.SES.DeleteConfigurationSetEventDestination
-import Network.AWS.SES.DeleteConfigurationSetTrackingOptions
-import Network.AWS.SES.DeleteCustomVerificationEmailTemplate
-import Network.AWS.SES.DeleteIdentity
-import Network.AWS.SES.DeleteIdentityPolicy
-import Network.AWS.SES.DeleteReceiptFilter
-import Network.AWS.SES.DeleteReceiptRule
-import Network.AWS.SES.DeleteReceiptRuleSet
-import Network.AWS.SES.DeleteTemplate
-import Network.AWS.SES.DeleteVerifiedEmailAddress
-import Network.AWS.SES.DescribeActiveReceiptRuleSet
-import Network.AWS.SES.DescribeConfigurationSet
-import Network.AWS.SES.DescribeReceiptRule
-import Network.AWS.SES.DescribeReceiptRuleSet
-import Network.AWS.SES.GetAccountSendingEnabled
-import Network.AWS.SES.GetCustomVerificationEmailTemplate
-import Network.AWS.SES.GetIdentityDkimAttributes
-import Network.AWS.SES.GetIdentityMailFromDomainAttributes
-import Network.AWS.SES.GetIdentityNotificationAttributes
-import Network.AWS.SES.GetIdentityPolicies
-import Network.AWS.SES.GetIdentityVerificationAttributes
-import Network.AWS.SES.GetSendQuota
-import Network.AWS.SES.GetSendStatistics
-import Network.AWS.SES.GetTemplate
-import Network.AWS.SES.Lens
-import Network.AWS.SES.ListConfigurationSets
-import Network.AWS.SES.ListCustomVerificationEmailTemplates
-import Network.AWS.SES.ListIdentities
-import Network.AWS.SES.ListIdentityPolicies
-import Network.AWS.SES.ListReceiptFilters
-import Network.AWS.SES.ListReceiptRuleSets
-import Network.AWS.SES.ListTemplates
-import Network.AWS.SES.ListVerifiedEmailAddresses
-import Network.AWS.SES.PutConfigurationSetDeliveryOptions
-import Network.AWS.SES.PutIdentityPolicy
-import Network.AWS.SES.ReorderReceiptRuleSet
-import Network.AWS.SES.SendBounce
-import Network.AWS.SES.SendBulkTemplatedEmail
-import Network.AWS.SES.SendCustomVerificationEmail
-import Network.AWS.SES.SendEmail
-import Network.AWS.SES.SendRawEmail
-import Network.AWS.SES.SendTemplatedEmail
-import Network.AWS.SES.SetActiveReceiptRuleSet
-import Network.AWS.SES.SetIdentityDkimEnabled
-import Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
-import Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
-import Network.AWS.SES.SetIdentityMailFromDomain
-import Network.AWS.SES.SetIdentityNotificationTopic
-import Network.AWS.SES.SetReceiptRulePosition
-import Network.AWS.SES.TestRenderTemplate
-import Network.AWS.SES.Types
-import Network.AWS.SES.UpdateAccountSendingEnabled
-import Network.AWS.SES.UpdateConfigurationSetEventDestination
-import Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
-import Network.AWS.SES.UpdateConfigurationSetSendingEnabled
-import Network.AWS.SES.UpdateConfigurationSetTrackingOptions
-import Network.AWS.SES.UpdateCustomVerificationEmailTemplate
-import Network.AWS.SES.UpdateReceiptRule
-import Network.AWS.SES.UpdateTemplate
-import Network.AWS.SES.VerifyDomainDkim
-import Network.AWS.SES.VerifyDomainIdentity
-import Network.AWS.SES.VerifyEmailAddress
-import Network.AWS.SES.VerifyEmailIdentity
-import Network.AWS.SES.Waiters
+import Amazonka.SES.CloneReceiptRuleSet
+import Amazonka.SES.CreateConfigurationSet
+import Amazonka.SES.CreateConfigurationSetEventDestination
+import Amazonka.SES.CreateConfigurationSetTrackingOptions
+import Amazonka.SES.CreateCustomVerificationEmailTemplate
+import Amazonka.SES.CreateReceiptFilter
+import Amazonka.SES.CreateReceiptRule
+import Amazonka.SES.CreateReceiptRuleSet
+import Amazonka.SES.CreateTemplate
+import Amazonka.SES.DeleteConfigurationSet
+import Amazonka.SES.DeleteConfigurationSetEventDestination
+import Amazonka.SES.DeleteConfigurationSetTrackingOptions
+import Amazonka.SES.DeleteCustomVerificationEmailTemplate
+import Amazonka.SES.DeleteIdentity
+import Amazonka.SES.DeleteIdentityPolicy
+import Amazonka.SES.DeleteReceiptFilter
+import Amazonka.SES.DeleteReceiptRule
+import Amazonka.SES.DeleteReceiptRuleSet
+import Amazonka.SES.DeleteTemplate
+import Amazonka.SES.DeleteVerifiedEmailAddress
+import Amazonka.SES.DescribeActiveReceiptRuleSet
+import Amazonka.SES.DescribeConfigurationSet
+import Amazonka.SES.DescribeReceiptRule
+import Amazonka.SES.DescribeReceiptRuleSet
+import Amazonka.SES.GetAccountSendingEnabled
+import Amazonka.SES.GetCustomVerificationEmailTemplate
+import Amazonka.SES.GetIdentityDkimAttributes
+import Amazonka.SES.GetIdentityMailFromDomainAttributes
+import Amazonka.SES.GetIdentityNotificationAttributes
+import Amazonka.SES.GetIdentityPolicies
+import Amazonka.SES.GetIdentityVerificationAttributes
+import Amazonka.SES.GetSendQuota
+import Amazonka.SES.GetSendStatistics
+import Amazonka.SES.GetTemplate
+import Amazonka.SES.Lens
+import Amazonka.SES.ListConfigurationSets
+import Amazonka.SES.ListCustomVerificationEmailTemplates
+import Amazonka.SES.ListIdentities
+import Amazonka.SES.ListIdentityPolicies
+import Amazonka.SES.ListReceiptFilters
+import Amazonka.SES.ListReceiptRuleSets
+import Amazonka.SES.ListTemplates
+import Amazonka.SES.ListVerifiedEmailAddresses
+import Amazonka.SES.PutConfigurationSetDeliveryOptions
+import Amazonka.SES.PutIdentityPolicy
+import Amazonka.SES.ReorderReceiptRuleSet
+import Amazonka.SES.SendBounce
+import Amazonka.SES.SendBulkTemplatedEmail
+import Amazonka.SES.SendCustomVerificationEmail
+import Amazonka.SES.SendEmail
+import Amazonka.SES.SendRawEmail
+import Amazonka.SES.SendTemplatedEmail
+import Amazonka.SES.SetActiveReceiptRuleSet
+import Amazonka.SES.SetIdentityDkimEnabled
+import Amazonka.SES.SetIdentityFeedbackForwardingEnabled
+import Amazonka.SES.SetIdentityHeadersInNotificationsEnabled
+import Amazonka.SES.SetIdentityMailFromDomain
+import Amazonka.SES.SetIdentityNotificationTopic
+import Amazonka.SES.SetReceiptRulePosition
+import Amazonka.SES.TestRenderTemplate
+import Amazonka.SES.Types
+import Amazonka.SES.UpdateAccountSendingEnabled
+import Amazonka.SES.UpdateConfigurationSetEventDestination
+import Amazonka.SES.UpdateConfigurationSetReputationMetricsEnabled
+import Amazonka.SES.UpdateConfigurationSetSendingEnabled
+import Amazonka.SES.UpdateConfigurationSetTrackingOptions
+import Amazonka.SES.UpdateCustomVerificationEmailTemplate
+import Amazonka.SES.UpdateReceiptRule
+import Amazonka.SES.UpdateTemplate
+import Amazonka.SES.VerifyDomainDkim
+import Amazonka.SES.VerifyDomainIdentity
+import Amazonka.SES.VerifyEmailAddress
+import Amazonka.SES.VerifyEmailIdentity
+import Amazonka.SES.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

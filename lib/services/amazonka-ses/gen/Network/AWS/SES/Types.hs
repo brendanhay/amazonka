@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.Types
+-- Module      : Amazonka.SES.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types
+module Amazonka.SES.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -389,67 +389,67 @@ module Network.AWS.SES.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SES.Types.AddHeaderAction
-import Network.AWS.SES.Types.BehaviorOnMXFailure
-import Network.AWS.SES.Types.Body
-import Network.AWS.SES.Types.BounceAction
-import Network.AWS.SES.Types.BounceType
-import Network.AWS.SES.Types.BouncedRecipientInfo
-import Network.AWS.SES.Types.BulkEmailDestination
-import Network.AWS.SES.Types.BulkEmailDestinationStatus
-import Network.AWS.SES.Types.BulkEmailStatus
-import Network.AWS.SES.Types.CloudWatchDestination
-import Network.AWS.SES.Types.CloudWatchDimensionConfiguration
-import Network.AWS.SES.Types.ConfigurationSet
-import Network.AWS.SES.Types.ConfigurationSetAttribute
-import Network.AWS.SES.Types.Content
-import Network.AWS.SES.Types.CustomMailFromStatus
-import Network.AWS.SES.Types.CustomVerificationEmailTemplate
-import Network.AWS.SES.Types.DeliveryOptions
-import Network.AWS.SES.Types.Destination
-import Network.AWS.SES.Types.DimensionValueSource
-import Network.AWS.SES.Types.DsnAction
-import Network.AWS.SES.Types.EventDestination
-import Network.AWS.SES.Types.EventType
-import Network.AWS.SES.Types.ExtensionField
-import Network.AWS.SES.Types.IdentityDkimAttributes
-import Network.AWS.SES.Types.IdentityMailFromDomainAttributes
-import Network.AWS.SES.Types.IdentityNotificationAttributes
-import Network.AWS.SES.Types.IdentityType
-import Network.AWS.SES.Types.IdentityVerificationAttributes
-import Network.AWS.SES.Types.InvocationType
-import Network.AWS.SES.Types.KinesisFirehoseDestination
-import Network.AWS.SES.Types.LambdaAction
-import Network.AWS.SES.Types.Message
-import Network.AWS.SES.Types.MessageDsn
-import Network.AWS.SES.Types.MessageTag
-import Network.AWS.SES.Types.NotificationType
-import Network.AWS.SES.Types.RawMessage
-import Network.AWS.SES.Types.ReceiptAction
-import Network.AWS.SES.Types.ReceiptFilter
-import Network.AWS.SES.Types.ReceiptFilterPolicy
-import Network.AWS.SES.Types.ReceiptIpFilter
-import Network.AWS.SES.Types.ReceiptRule
-import Network.AWS.SES.Types.ReceiptRuleSetMetadata
-import Network.AWS.SES.Types.RecipientDsnFields
-import Network.AWS.SES.Types.ReputationOptions
-import Network.AWS.SES.Types.S3Action
-import Network.AWS.SES.Types.SNSAction
-import Network.AWS.SES.Types.SNSActionEncoding
-import Network.AWS.SES.Types.SNSDestination
-import Network.AWS.SES.Types.SendDataPoint
-import Network.AWS.SES.Types.StopAction
-import Network.AWS.SES.Types.StopScope
-import Network.AWS.SES.Types.Template
-import Network.AWS.SES.Types.TemplateMetadata
-import Network.AWS.SES.Types.TlsPolicy
-import Network.AWS.SES.Types.TrackingOptions
-import Network.AWS.SES.Types.VerificationStatus
-import Network.AWS.SES.Types.WorkmailAction
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SES.Types.AddHeaderAction
+import Amazonka.SES.Types.BehaviorOnMXFailure
+import Amazonka.SES.Types.Body
+import Amazonka.SES.Types.BounceAction
+import Amazonka.SES.Types.BounceType
+import Amazonka.SES.Types.BouncedRecipientInfo
+import Amazonka.SES.Types.BulkEmailDestination
+import Amazonka.SES.Types.BulkEmailDestinationStatus
+import Amazonka.SES.Types.BulkEmailStatus
+import Amazonka.SES.Types.CloudWatchDestination
+import Amazonka.SES.Types.CloudWatchDimensionConfiguration
+import Amazonka.SES.Types.ConfigurationSet
+import Amazonka.SES.Types.ConfigurationSetAttribute
+import Amazonka.SES.Types.Content
+import Amazonka.SES.Types.CustomMailFromStatus
+import Amazonka.SES.Types.CustomVerificationEmailTemplate
+import Amazonka.SES.Types.DeliveryOptions
+import Amazonka.SES.Types.Destination
+import Amazonka.SES.Types.DimensionValueSource
+import Amazonka.SES.Types.DsnAction
+import Amazonka.SES.Types.EventDestination
+import Amazonka.SES.Types.EventType
+import Amazonka.SES.Types.ExtensionField
+import Amazonka.SES.Types.IdentityDkimAttributes
+import Amazonka.SES.Types.IdentityMailFromDomainAttributes
+import Amazonka.SES.Types.IdentityNotificationAttributes
+import Amazonka.SES.Types.IdentityType
+import Amazonka.SES.Types.IdentityVerificationAttributes
+import Amazonka.SES.Types.InvocationType
+import Amazonka.SES.Types.KinesisFirehoseDestination
+import Amazonka.SES.Types.LambdaAction
+import Amazonka.SES.Types.Message
+import Amazonka.SES.Types.MessageDsn
+import Amazonka.SES.Types.MessageTag
+import Amazonka.SES.Types.NotificationType
+import Amazonka.SES.Types.RawMessage
+import Amazonka.SES.Types.ReceiptAction
+import Amazonka.SES.Types.ReceiptFilter
+import Amazonka.SES.Types.ReceiptFilterPolicy
+import Amazonka.SES.Types.ReceiptIpFilter
+import Amazonka.SES.Types.ReceiptRule
+import Amazonka.SES.Types.ReceiptRuleSetMetadata
+import Amazonka.SES.Types.RecipientDsnFields
+import Amazonka.SES.Types.ReputationOptions
+import Amazonka.SES.Types.S3Action
+import Amazonka.SES.Types.SNSAction
+import Amazonka.SES.Types.SNSActionEncoding
+import Amazonka.SES.Types.SNSDestination
+import Amazonka.SES.Types.SendDataPoint
+import Amazonka.SES.Types.StopAction
+import Amazonka.SES.Types.StopScope
+import Amazonka.SES.Types.Template
+import Amazonka.SES.Types.TemplateMetadata
+import Amazonka.SES.Types.TlsPolicy
+import Amazonka.SES.Types.TrackingOptions
+import Amazonka.SES.Types.VerificationStatus
+import Amazonka.SES.Types.WorkmailAction
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-12-01@ of the Amazon Simple Email Service SDK configuration.
 defaultService :: Core.Service

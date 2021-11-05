@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.GetSendQuota
+-- Module      : Amazonka.SES.GetSendQuota
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Provides the sending limits for the Amazon SES account.
 --
 -- You can execute this operation no more than once per second.
-module Network.AWS.SES.GetSendQuota
+module Amazonka.SES.GetSendQuota
   ( -- * Creating a Request
     GetSendQuota (..),
     newGetSendQuota,
@@ -40,12 +40,12 @@ module Network.AWS.SES.GetSendQuota
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | /See:/ 'newGetSendQuota' smart constructor.
 data GetSendQuota = GetSendQuota'

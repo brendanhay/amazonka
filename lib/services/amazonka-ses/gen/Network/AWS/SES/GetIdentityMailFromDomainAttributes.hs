@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.GetIdentityMailFromDomainAttributes
+-- Module      : Amazonka.SES.GetIdentityMailFromDomainAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- This operation is throttled at one request per second and can only get
 -- custom MAIL FROM attributes for up to 100 identities at a time.
-module Network.AWS.SES.GetIdentityMailFromDomainAttributes
+module Amazonka.SES.GetIdentityMailFromDomainAttributes
   ( -- * Creating a Request
     GetIdentityMailFromDomainAttributes (..),
     newGetIdentityMailFromDomainAttributes,
@@ -43,12 +43,12 @@ module Network.AWS.SES.GetIdentityMailFromDomainAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | Represents a request to return the Amazon SES custom MAIL FROM
 -- attributes for a list of identities. For information about using a

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.SendBulkTemplatedEmail
+-- Module      : Amazonka.SES.SendBulkTemplatedEmail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 --
 -- -   The number of destinations you can contact in a single call to the
 --     API may be limited by your account\'s maximum sending rate.
-module Network.AWS.SES.SendBulkTemplatedEmail
+module Amazonka.SES.SendBulkTemplatedEmail
   ( -- * Creating a Request
     SendBulkTemplatedEmail (..),
     newSendBulkTemplatedEmail,
@@ -84,12 +84,12 @@ module Network.AWS.SES.SendBulkTemplatedEmail
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | Represents a request to send a templated email to multiple destinations
 -- using Amazon SES. For more information, see the

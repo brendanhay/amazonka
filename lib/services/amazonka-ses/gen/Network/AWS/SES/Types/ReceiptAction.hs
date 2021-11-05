@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.Types.ReceiptAction
+-- Module      : Amazonka.SES.Types.ReceiptAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.ReceiptAction where
+module Amazonka.SES.Types.ReceiptAction where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SES.Types.AddHeaderAction
-import Network.AWS.SES.Types.BounceAction
-import Network.AWS.SES.Types.LambdaAction
-import Network.AWS.SES.Types.S3Action
-import Network.AWS.SES.Types.SNSAction
-import Network.AWS.SES.Types.StopAction
-import Network.AWS.SES.Types.WorkmailAction
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SES.Types.AddHeaderAction
+import Amazonka.SES.Types.BounceAction
+import Amazonka.SES.Types.LambdaAction
+import Amazonka.SES.Types.S3Action
+import Amazonka.SES.Types.SNSAction
+import Amazonka.SES.Types.StopAction
+import Amazonka.SES.Types.WorkmailAction
 
 -- | An action that Amazon SES can take when it receives an email on behalf
 -- of one or more email addresses or domains that you own. An instance of

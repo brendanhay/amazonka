@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.Types.IdentityMailFromDomainAttributes
+-- Module      : Amazonka.SES.Types.IdentityMailFromDomainAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.IdentityMailFromDomainAttributes where
+module Amazonka.SES.Types.IdentityMailFromDomainAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SES.Types.BehaviorOnMXFailure
-import Network.AWS.SES.Types.CustomMailFromStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SES.Types.BehaviorOnMXFailure
+import Amazonka.SES.Types.CustomMailFromStatus
 
 -- | Represents the custom MAIL FROM domain attributes of a verified identity
 -- (email address or domain).

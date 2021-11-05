@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+-- Module      : Amazonka.SES.DeleteConfigurationSetTrackingOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- Deleting this kind of association will result in emails sent using the
 -- specified configuration set to capture open and click events using the
 -- standard, Amazon SES-operated domains.
-module Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+module Amazonka.SES.DeleteConfigurationSetTrackingOptions
   ( -- * Creating a Request
     DeleteConfigurationSetTrackingOptions (..),
     newDeleteConfigurationSetTrackingOptions,
@@ -49,12 +49,12 @@ module Network.AWS.SES.DeleteConfigurationSetTrackingOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | Represents a request to delete open and click tracking options in a
 -- configuration set.

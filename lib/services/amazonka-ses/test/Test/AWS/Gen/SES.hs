@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SES where
 
+import Amazonka.SES
 import qualified Data.Proxy as Proxy
-import Network.AWS.SES
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SES.Internal

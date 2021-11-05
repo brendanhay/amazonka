@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.UpdateConfigurationSetEventDestination
+-- Module      : Amazonka.SES.UpdateConfigurationSetEventDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- SNS).
 --
 -- You can execute this operation no more than once per second.
-module Network.AWS.SES.UpdateConfigurationSetEventDestination
+module Amazonka.SES.UpdateConfigurationSetEventDestination
   ( -- * Creating a Request
     UpdateConfigurationSetEventDestination (..),
     newUpdateConfigurationSetEventDestination,
@@ -52,12 +52,12 @@ module Network.AWS.SES.UpdateConfigurationSetEventDestination
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | Represents a request to update the event destination of a configuration
 -- set. Configuration sets enable you to publish email sending events. For

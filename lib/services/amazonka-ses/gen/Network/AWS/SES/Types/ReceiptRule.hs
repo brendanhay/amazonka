@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.Types.ReceiptRule
+-- Module      : Amazonka.SES.Types.ReceiptRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.ReceiptRule where
+module Amazonka.SES.Types.ReceiptRule where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SES.Types.ReceiptAction
-import Network.AWS.SES.Types.TlsPolicy
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SES.Types.ReceiptAction
+import Amazonka.SES.Types.TlsPolicy
 
 -- | Receipt rules enable you to specify which actions Amazon SES should take
 -- when it receives mail on behalf of one or more email addresses or

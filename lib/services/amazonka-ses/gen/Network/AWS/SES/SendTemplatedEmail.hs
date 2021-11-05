@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SES.SendTemplatedEmail
+-- Module      : Amazonka.SES.SendTemplatedEmail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -66,7 +66,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Sending Personalized Email Using the Amazon SES API>
 -- in the /Amazon Simple Email Service Developer Guide/.
-module Network.AWS.SES.SendTemplatedEmail
+module Amazonka.SES.SendTemplatedEmail
   ( -- * Creating a Request
     SendTemplatedEmail (..),
     newSendTemplatedEmail,
@@ -94,12 +94,12 @@ module Network.AWS.SES.SendTemplatedEmail
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SES.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SES.Types
 
 -- | Represents a request to send a templated email using Amazon SES. For
 -- more information, see the

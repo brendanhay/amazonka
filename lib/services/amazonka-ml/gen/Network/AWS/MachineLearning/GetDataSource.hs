@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.GetDataSource
+-- Module      : Amazonka.MachineLearning.GetDataSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- @GetDataSource@ provides results in normal or verbose format. The
 -- verbose format adds the schema description and the list of files pointed
 -- to by the DataSource to the normal format.
-module Network.AWS.MachineLearning.GetDataSource
+module Amazonka.MachineLearning.GetDataSource
   ( -- * Creating a Request
     GetDataSource (..),
     newGetDataSource,
@@ -64,12 +64,12 @@ module Network.AWS.MachineLearning.GetDataSource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDataSource' smart constructor.
 data GetDataSource = GetDataSource'

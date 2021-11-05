@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.Lens
+-- Module      : Amazonka.MachineLearning.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Lens
+module Amazonka.MachineLearning.Lens
   ( -- * Operations
 
     -- ** UpdateDataSource
@@ -466,48 +466,48 @@ module Network.AWS.MachineLearning.Lens
   )
 where
 
-import Network.AWS.MachineLearning.AddTags
-import Network.AWS.MachineLearning.CreateBatchPrediction
-import Network.AWS.MachineLearning.CreateDataSourceFromRDS
-import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-import Network.AWS.MachineLearning.CreateDataSourceFromS3
-import Network.AWS.MachineLearning.CreateEvaluation
-import Network.AWS.MachineLearning.CreateMLModel
-import Network.AWS.MachineLearning.CreateRealtimeEndpoint
-import Network.AWS.MachineLearning.DeleteBatchPrediction
-import Network.AWS.MachineLearning.DeleteDataSource
-import Network.AWS.MachineLearning.DeleteEvaluation
-import Network.AWS.MachineLearning.DeleteMLModel
-import Network.AWS.MachineLearning.DeleteRealtimeEndpoint
-import Network.AWS.MachineLearning.DeleteTags
-import Network.AWS.MachineLearning.DescribeBatchPredictions
-import Network.AWS.MachineLearning.DescribeDataSources
-import Network.AWS.MachineLearning.DescribeEvaluations
-import Network.AWS.MachineLearning.DescribeMLModels
-import Network.AWS.MachineLearning.DescribeTags
-import Network.AWS.MachineLearning.GetBatchPrediction
-import Network.AWS.MachineLearning.GetDataSource
-import Network.AWS.MachineLearning.GetEvaluation
-import Network.AWS.MachineLearning.GetMLModel
-import Network.AWS.MachineLearning.Predict
-import Network.AWS.MachineLearning.Types.BatchPrediction
-import Network.AWS.MachineLearning.Types.DataSource
-import Network.AWS.MachineLearning.Types.Evaluation
-import Network.AWS.MachineLearning.Types.MLModel
-import Network.AWS.MachineLearning.Types.PerformanceMetrics
-import Network.AWS.MachineLearning.Types.Prediction
-import Network.AWS.MachineLearning.Types.RDSDataSpec
-import Network.AWS.MachineLearning.Types.RDSDatabase
-import Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
-import Network.AWS.MachineLearning.Types.RDSMetadata
-import Network.AWS.MachineLearning.Types.RealtimeEndpointInfo
-import Network.AWS.MachineLearning.Types.RedshiftDataSpec
-import Network.AWS.MachineLearning.Types.RedshiftDatabase
-import Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
-import Network.AWS.MachineLearning.Types.RedshiftMetadata
-import Network.AWS.MachineLearning.Types.S3DataSpec
-import Network.AWS.MachineLearning.Types.Tag
-import Network.AWS.MachineLearning.UpdateBatchPrediction
-import Network.AWS.MachineLearning.UpdateDataSource
-import Network.AWS.MachineLearning.UpdateEvaluation
-import Network.AWS.MachineLearning.UpdateMLModel
+import Amazonka.MachineLearning.AddTags
+import Amazonka.MachineLearning.CreateBatchPrediction
+import Amazonka.MachineLearning.CreateDataSourceFromRDS
+import Amazonka.MachineLearning.CreateDataSourceFromRedshift
+import Amazonka.MachineLearning.CreateDataSourceFromS3
+import Amazonka.MachineLearning.CreateEvaluation
+import Amazonka.MachineLearning.CreateMLModel
+import Amazonka.MachineLearning.CreateRealtimeEndpoint
+import Amazonka.MachineLearning.DeleteBatchPrediction
+import Amazonka.MachineLearning.DeleteDataSource
+import Amazonka.MachineLearning.DeleteEvaluation
+import Amazonka.MachineLearning.DeleteMLModel
+import Amazonka.MachineLearning.DeleteRealtimeEndpoint
+import Amazonka.MachineLearning.DeleteTags
+import Amazonka.MachineLearning.DescribeBatchPredictions
+import Amazonka.MachineLearning.DescribeDataSources
+import Amazonka.MachineLearning.DescribeEvaluations
+import Amazonka.MachineLearning.DescribeMLModels
+import Amazonka.MachineLearning.DescribeTags
+import Amazonka.MachineLearning.GetBatchPrediction
+import Amazonka.MachineLearning.GetDataSource
+import Amazonka.MachineLearning.GetEvaluation
+import Amazonka.MachineLearning.GetMLModel
+import Amazonka.MachineLearning.Predict
+import Amazonka.MachineLearning.Types.BatchPrediction
+import Amazonka.MachineLearning.Types.DataSource
+import Amazonka.MachineLearning.Types.Evaluation
+import Amazonka.MachineLearning.Types.MLModel
+import Amazonka.MachineLearning.Types.PerformanceMetrics
+import Amazonka.MachineLearning.Types.Prediction
+import Amazonka.MachineLearning.Types.RDSDataSpec
+import Amazonka.MachineLearning.Types.RDSDatabase
+import Amazonka.MachineLearning.Types.RDSDatabaseCredentials
+import Amazonka.MachineLearning.Types.RDSMetadata
+import Amazonka.MachineLearning.Types.RealtimeEndpointInfo
+import Amazonka.MachineLearning.Types.RedshiftDataSpec
+import Amazonka.MachineLearning.Types.RedshiftDatabase
+import Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials
+import Amazonka.MachineLearning.Types.RedshiftMetadata
+import Amazonka.MachineLearning.Types.S3DataSpec
+import Amazonka.MachineLearning.Types.Tag
+import Amazonka.MachineLearning.UpdateBatchPrediction
+import Amazonka.MachineLearning.UpdateDataSource
+import Amazonka.MachineLearning.UpdateEvaluation
+import Amazonka.MachineLearning.UpdateMLModel

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MachineLearning where
 
+import Amazonka.MachineLearning
 import qualified Data.Proxy as Proxy
-import Network.AWS.MachineLearning
 import Test.AWS.Fixture
 import Test.AWS.MachineLearning.Internal
 import Test.AWS.Prelude

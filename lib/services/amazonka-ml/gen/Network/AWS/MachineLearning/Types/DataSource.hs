@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.Types.DataSource
+-- Module      : Amazonka.MachineLearning.Types.DataSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.DataSource where
+module Amazonka.MachineLearning.Types.DataSource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.EntityStatus
-import Network.AWS.MachineLearning.Types.RDSMetadata
-import Network.AWS.MachineLearning.Types.RedshiftMetadata
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.Types.EntityStatus
+import Amazonka.MachineLearning.Types.RDSMetadata
+import Amazonka.MachineLearning.Types.RedshiftMetadata
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of the @GetDataSource@ operation.
 --

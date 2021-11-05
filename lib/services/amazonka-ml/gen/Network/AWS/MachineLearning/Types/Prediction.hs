@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.Types.Prediction
+-- Module      : Amazonka.MachineLearning.Types.Prediction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.Prediction where
+module Amazonka.MachineLearning.Types.Prediction where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.DetailsAttributes
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.Types.DetailsAttributes
+import qualified Amazonka.Prelude as Prelude
 
 -- | The output from a @Predict@ operation:
 --

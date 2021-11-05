@@ -7,25 +7,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.Waiters
+-- Module      : Amazonka.MachineLearning.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Waiters where
+module Amazonka.MachineLearning.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.DescribeBatchPredictions
-import Network.AWS.MachineLearning.DescribeDataSources
-import Network.AWS.MachineLearning.DescribeEvaluations
-import Network.AWS.MachineLearning.DescribeMLModels
-import Network.AWS.MachineLearning.Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.DescribeBatchPredictions
+import Amazonka.MachineLearning.DescribeDataSources
+import Amazonka.MachineLearning.DescribeEvaluations
+import Amazonka.MachineLearning.DescribeMLModels
+import Amazonka.MachineLearning.Lens
+import Amazonka.MachineLearning.Types
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newMLModelAvailable :: Core.Wait DescribeMLModels
 newMLModelAvailable =
   Core.Wait
@@ -62,7 +62,7 @@ newMLModelAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
 newBatchPredictionAvailable =
   Core.Wait
@@ -100,7 +100,7 @@ newBatchPredictionAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDataSourceAvailable :: Core.Wait DescribeDataSources
 newDataSourceAvailable =
   Core.Wait
@@ -137,7 +137,7 @@ newDataSourceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newEvaluationAvailable :: Core.Wait DescribeEvaluations
 newEvaluationAvailable =
   Core.Wait

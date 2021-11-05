@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
+-- Module      : Amazonka.MachineLearning.CreateRealtimeEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a real-time endpoint for the @MLModel@. The endpoint contains
 -- the URI of the @MLModel@; that is, the location to send real-time
 -- prediction requests for the specified @MLModel@.
-module Network.AWS.MachineLearning.CreateRealtimeEndpoint
+module Amazonka.MachineLearning.CreateRealtimeEndpoint
   ( -- * Creating a Request
     CreateRealtimeEndpoint (..),
     newCreateRealtimeEndpoint,
@@ -42,12 +42,12 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRealtimeEndpoint' smart constructor.
 data CreateRealtimeEndpoint = CreateRealtimeEndpoint'

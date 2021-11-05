@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MachineLearning.Types
+-- Module      : Amazonka.MachineLearning.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types
+module Amazonka.MachineLearning.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -246,38 +246,38 @@ module Network.AWS.MachineLearning.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.Algorithm
-import Network.AWS.MachineLearning.Types.BatchPrediction
-import Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
-import Network.AWS.MachineLearning.Types.DataSource
-import Network.AWS.MachineLearning.Types.DataSourceFilterVariable
-import Network.AWS.MachineLearning.Types.DetailsAttributes
-import Network.AWS.MachineLearning.Types.EntityStatus
-import Network.AWS.MachineLearning.Types.Evaluation
-import Network.AWS.MachineLearning.Types.EvaluationFilterVariable
-import Network.AWS.MachineLearning.Types.MLModel
-import Network.AWS.MachineLearning.Types.MLModelFilterVariable
-import Network.AWS.MachineLearning.Types.MLModelType
-import Network.AWS.MachineLearning.Types.PerformanceMetrics
-import Network.AWS.MachineLearning.Types.Prediction
-import Network.AWS.MachineLearning.Types.RDSDataSpec
-import Network.AWS.MachineLearning.Types.RDSDatabase
-import Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
-import Network.AWS.MachineLearning.Types.RDSMetadata
-import Network.AWS.MachineLearning.Types.RealtimeEndpointInfo
-import Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
-import Network.AWS.MachineLearning.Types.RedshiftDataSpec
-import Network.AWS.MachineLearning.Types.RedshiftDatabase
-import Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
-import Network.AWS.MachineLearning.Types.RedshiftMetadata
-import Network.AWS.MachineLearning.Types.S3DataSpec
-import Network.AWS.MachineLearning.Types.SortOrder
-import Network.AWS.MachineLearning.Types.Tag
-import Network.AWS.MachineLearning.Types.TaggableResourceType
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MachineLearning.Types.Algorithm
+import Amazonka.MachineLearning.Types.BatchPrediction
+import Amazonka.MachineLearning.Types.BatchPredictionFilterVariable
+import Amazonka.MachineLearning.Types.DataSource
+import Amazonka.MachineLearning.Types.DataSourceFilterVariable
+import Amazonka.MachineLearning.Types.DetailsAttributes
+import Amazonka.MachineLearning.Types.EntityStatus
+import Amazonka.MachineLearning.Types.Evaluation
+import Amazonka.MachineLearning.Types.EvaluationFilterVariable
+import Amazonka.MachineLearning.Types.MLModel
+import Amazonka.MachineLearning.Types.MLModelFilterVariable
+import Amazonka.MachineLearning.Types.MLModelType
+import Amazonka.MachineLearning.Types.PerformanceMetrics
+import Amazonka.MachineLearning.Types.Prediction
+import Amazonka.MachineLearning.Types.RDSDataSpec
+import Amazonka.MachineLearning.Types.RDSDatabase
+import Amazonka.MachineLearning.Types.RDSDatabaseCredentials
+import Amazonka.MachineLearning.Types.RDSMetadata
+import Amazonka.MachineLearning.Types.RealtimeEndpointInfo
+import Amazonka.MachineLearning.Types.RealtimeEndpointStatus
+import Amazonka.MachineLearning.Types.RedshiftDataSpec
+import Amazonka.MachineLearning.Types.RedshiftDatabase
+import Amazonka.MachineLearning.Types.RedshiftDatabaseCredentials
+import Amazonka.MachineLearning.Types.RedshiftMetadata
+import Amazonka.MachineLearning.Types.S3DataSpec
+import Amazonka.MachineLearning.Types.SortOrder
+import Amazonka.MachineLearning.Types.Tag
+import Amazonka.MachineLearning.Types.TaggableResourceType
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-12-12@ of the Amazon Machine Learning SDK configuration.
 defaultService :: Core.Service

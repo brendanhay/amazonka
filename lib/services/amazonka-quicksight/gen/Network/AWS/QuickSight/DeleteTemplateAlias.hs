@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.DeleteTemplateAlias
+-- Module      : Amazonka.QuickSight.DeleteTemplateAlias
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes the item that the specified template alias points to. If you
 -- provide a specific alias, you delete the version of the template that
 -- the alias points to.
-module Network.AWS.QuickSight.DeleteTemplateAlias
+module Amazonka.QuickSight.DeleteTemplateAlias
   ( -- * Creating a Request
     DeleteTemplateAlias (..),
     newDeleteTemplateAlias,
@@ -46,12 +46,12 @@ module Network.AWS.QuickSight.DeleteTemplateAlias
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTemplateAlias' smart constructor.
 data DeleteTemplateAlias = DeleteTemplateAlias'

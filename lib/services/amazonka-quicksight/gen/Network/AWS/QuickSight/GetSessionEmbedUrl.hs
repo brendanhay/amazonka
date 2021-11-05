@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.GetSessionEmbedUrl
+-- Module      : Amazonka.QuickSight.GetSessionEmbedUrl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- -   <https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html Embedding Analytics>
 --
 -- -   <https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html Customizing Access to the Amazon QuickSight Console>
-module Network.AWS.QuickSight.GetSessionEmbedUrl
+module Amazonka.QuickSight.GetSessionEmbedUrl
   ( -- * Creating a Request
     GetSessionEmbedUrl (..),
     newGetSessionEmbedUrl,
@@ -57,12 +57,12 @@ module Network.AWS.QuickSight.GetSessionEmbedUrl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSessionEmbedUrl' smart constructor.
 data GetSessionEmbedUrl = GetSessionEmbedUrl'

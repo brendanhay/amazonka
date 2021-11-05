@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QuickSight where
 
+import Amazonka.QuickSight
 import qualified Data.Proxy as Proxy
-import Network.AWS.QuickSight
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.QuickSight.Internal

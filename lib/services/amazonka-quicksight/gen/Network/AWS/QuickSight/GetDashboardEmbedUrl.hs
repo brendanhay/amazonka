@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.GetDashboardEmbedUrl
+-- Module      : Amazonka.QuickSight.GetDashboardEmbedUrl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- For more information about the high-level steps for embedding and for an
 -- interactive demo of the ways you can customize embedding, visit the
 -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal>.
-module Network.AWS.QuickSight.GetDashboardEmbedUrl
+module Amazonka.QuickSight.GetDashboardEmbedUrl
   ( -- * Creating a Request
     GetDashboardEmbedUrl (..),
     newGetDashboardEmbedUrl,
@@ -72,12 +72,12 @@ module Network.AWS.QuickSight.GetDashboardEmbedUrl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDashboardEmbedUrl' smart constructor.
 data GetDashboardEmbedUrl = GetDashboardEmbedUrl'

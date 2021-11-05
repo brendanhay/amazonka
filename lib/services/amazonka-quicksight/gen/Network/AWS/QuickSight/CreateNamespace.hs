@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.CreateNamespace
+-- Module      : Amazonka.QuickSight.CreateNamespace
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- account. By default, there is a limit of 100 namespaces per Amazon Web
 -- Services account. To increase your limit, create a ticket with Amazon
 -- Web Services Support.
-module Network.AWS.QuickSight.CreateNamespace
+module Amazonka.QuickSight.CreateNamespace
   ( -- * Creating a Request
     CreateNamespace (..),
     newCreateNamespace,
@@ -58,12 +58,12 @@ module Network.AWS.QuickSight.CreateNamespace
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNamespace' smart constructor.
 data CreateNamespace = CreateNamespace'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.DescribeAccountCustomization
+-- Module      : Amazonka.QuickSight.DescribeAccountCustomization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -76,7 +76,7 @@
 --     Region. To apply them in other Amazon Web Services Regions, run the
 --     @CreateAccountCustomization@ command in each Amazon Web Services
 --     Region where you want to apply the same customizations.
-module Network.AWS.QuickSight.DescribeAccountCustomization
+module Amazonka.QuickSight.DescribeAccountCustomization
   ( -- * Creating a Request
     DescribeAccountCustomization (..),
     newDescribeAccountCustomization,
@@ -100,12 +100,12 @@ module Network.AWS.QuickSight.DescribeAccountCustomization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountCustomization' smart constructor.
 data DescribeAccountCustomization = DescribeAccountCustomization'

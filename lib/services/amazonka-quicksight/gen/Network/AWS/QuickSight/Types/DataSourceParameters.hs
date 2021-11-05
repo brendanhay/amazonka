@@ -11,38 +11,38 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.Types.DataSourceParameters
+-- Module      : Amazonka.QuickSight.Types.DataSourceParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QuickSight.Types.DataSourceParameters where
+module Amazonka.QuickSight.Types.DataSourceParameters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types.AmazonElasticsearchParameters
-import Network.AWS.QuickSight.Types.AmazonOpenSearchParameters
-import Network.AWS.QuickSight.Types.AthenaParameters
-import Network.AWS.QuickSight.Types.AuroraParameters
-import Network.AWS.QuickSight.Types.AuroraPostgreSqlParameters
-import Network.AWS.QuickSight.Types.AwsIotAnalyticsParameters
-import Network.AWS.QuickSight.Types.JiraParameters
-import Network.AWS.QuickSight.Types.MariaDbParameters
-import Network.AWS.QuickSight.Types.MySqlParameters
-import Network.AWS.QuickSight.Types.OracleParameters
-import Network.AWS.QuickSight.Types.PostgreSqlParameters
-import Network.AWS.QuickSight.Types.PrestoParameters
-import Network.AWS.QuickSight.Types.RdsParameters
-import Network.AWS.QuickSight.Types.RedshiftParameters
-import Network.AWS.QuickSight.Types.S3Parameters
-import Network.AWS.QuickSight.Types.ServiceNowParameters
-import Network.AWS.QuickSight.Types.SnowflakeParameters
-import Network.AWS.QuickSight.Types.SparkParameters
-import Network.AWS.QuickSight.Types.SqlServerParameters
-import Network.AWS.QuickSight.Types.TeradataParameters
-import Network.AWS.QuickSight.Types.TwitterParameters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.AmazonElasticsearchParameters
+import Amazonka.QuickSight.Types.AmazonOpenSearchParameters
+import Amazonka.QuickSight.Types.AthenaParameters
+import Amazonka.QuickSight.Types.AuroraParameters
+import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
+import Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
+import Amazonka.QuickSight.Types.JiraParameters
+import Amazonka.QuickSight.Types.MariaDbParameters
+import Amazonka.QuickSight.Types.MySqlParameters
+import Amazonka.QuickSight.Types.OracleParameters
+import Amazonka.QuickSight.Types.PostgreSqlParameters
+import Amazonka.QuickSight.Types.PrestoParameters
+import Amazonka.QuickSight.Types.RdsParameters
+import Amazonka.QuickSight.Types.RedshiftParameters
+import Amazonka.QuickSight.Types.S3Parameters
+import Amazonka.QuickSight.Types.ServiceNowParameters
+import Amazonka.QuickSight.Types.SnowflakeParameters
+import Amazonka.QuickSight.Types.SparkParameters
+import Amazonka.QuickSight.Types.SqlServerParameters
+import Amazonka.QuickSight.Types.TeradataParameters
+import Amazonka.QuickSight.Types.TwitterParameters
 
 -- | The parameters that Amazon QuickSight uses to connect to your underlying
 -- data source. This is a variant type structure. For this structure to be

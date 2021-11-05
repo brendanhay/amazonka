@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.Types.ThemeConfiguration
+-- Module      : Amazonka.QuickSight.Types.ThemeConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QuickSight.Types.ThemeConfiguration where
+module Amazonka.QuickSight.Types.ThemeConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types.DataColorPalette
-import Network.AWS.QuickSight.Types.SheetStyle
-import Network.AWS.QuickSight.Types.UIColorPalette
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.DataColorPalette
+import Amazonka.QuickSight.Types.SheetStyle
+import Amazonka.QuickSight.Types.UIColorPalette
 
 -- | The theme configuration. This configuration contains all of the display
 -- properties for a theme.

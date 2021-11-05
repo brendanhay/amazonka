@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.DeleteGroupMembership
+-- Module      : Amazonka.QuickSight.DeleteGroupMembership
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Removes a user from a group so that the user is no longer a member of
 -- the group.
-module Network.AWS.QuickSight.DeleteGroupMembership
+module Amazonka.QuickSight.DeleteGroupMembership
   ( -- * Creating a Request
     DeleteGroupMembership (..),
     newDeleteGroupMembership,
@@ -43,12 +43,12 @@ module Network.AWS.QuickSight.DeleteGroupMembership
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteGroupMembership' smart constructor.
 data DeleteGroupMembership = DeleteGroupMembership'

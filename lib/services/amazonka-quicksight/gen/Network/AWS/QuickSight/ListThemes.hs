@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.ListThemes
+-- Module      : Amazonka.QuickSight.ListThemes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists all the themes in the current Amazon Web Services account.
 --
 -- This operation returns paginated results.
-module Network.AWS.QuickSight.ListThemes
+module Amazonka.QuickSight.ListThemes
   ( -- * Creating a Request
     ListThemes (..),
     newListThemes,
@@ -46,12 +46,12 @@ module Network.AWS.QuickSight.ListThemes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThemes' smart constructor.
 data ListThemes = ListThemes'

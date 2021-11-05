@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.CreateAccountCustomization
+-- Module      : Amazonka.QuickSight.CreateAccountCustomization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- check if the theme is shared, view the current permissions by using the
 -- @ DescribeThemePermissions @ API operation. To share the theme, grant
 -- permissions by using the @ UpdateThemePermissions @ API operation.
-module Network.AWS.QuickSight.CreateAccountCustomization
+module Amazonka.QuickSight.CreateAccountCustomization
   ( -- * Creating a Request
     CreateAccountCustomization (..),
     newCreateAccountCustomization,
@@ -67,12 +67,12 @@ module Network.AWS.QuickSight.CreateAccountCustomization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccountCustomization' smart constructor.
 data CreateAccountCustomization = CreateAccountCustomization'

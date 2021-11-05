@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.UpdateIAMPolicyAssignment
+-- Module      : Amazonka.QuickSight.UpdateIAMPolicyAssignment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates an existing IAMpolicy assignment. This operation updates only
 -- the optional parameter or parameters that are specified in the request.
 -- This overwrites all of the users included in @Identities@.
-module Network.AWS.QuickSight.UpdateIAMPolicyAssignment
+module Amazonka.QuickSight.UpdateIAMPolicyAssignment
   ( -- * Creating a Request
     UpdateIAMPolicyAssignment (..),
     newUpdateIAMPolicyAssignment,
@@ -51,12 +51,12 @@ module Network.AWS.QuickSight.UpdateIAMPolicyAssignment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateIAMPolicyAssignment' smart constructor.
 data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'

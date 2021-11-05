@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.Types.TileLayoutStyle
+-- Module      : Amazonka.QuickSight.Types.TileLayoutStyle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QuickSight.Types.TileLayoutStyle where
+module Amazonka.QuickSight.Types.TileLayoutStyle where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types.GutterStyle
-import Network.AWS.QuickSight.Types.MarginStyle
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.GutterStyle
+import Amazonka.QuickSight.Types.MarginStyle
 
 -- | The display options for the layout of tiles on a sheet.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.DeleteUser
+-- Module      : Amazonka.QuickSight.DeleteUser
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes the Amazon QuickSight user that is associated with the identity
 -- of the Identity and Access Management (IAM) user or role that\'s making
 -- the call. The IAM user isn\'t deleted as a result of this call.
-module Network.AWS.QuickSight.DeleteUser
+module Amazonka.QuickSight.DeleteUser
   ( -- * Creating a Request
     DeleteUser (..),
     newDeleteUser,
@@ -43,12 +43,12 @@ module Network.AWS.QuickSight.DeleteUser
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'

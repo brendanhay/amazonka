@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QuickSight.Types.DataSource
+-- Module      : Amazonka.QuickSight.Types.DataSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QuickSight.Types.DataSource where
+module Amazonka.QuickSight.Types.DataSource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QuickSight.Types.DataSourceErrorInfo
-import Network.AWS.QuickSight.Types.DataSourceParameters
-import Network.AWS.QuickSight.Types.DataSourceType
-import Network.AWS.QuickSight.Types.ResourceStatus
-import Network.AWS.QuickSight.Types.SslProperties
-import Network.AWS.QuickSight.Types.VpcConnectionProperties
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.DataSourceErrorInfo
+import Amazonka.QuickSight.Types.DataSourceParameters
+import Amazonka.QuickSight.Types.DataSourceType
+import Amazonka.QuickSight.Types.ResourceStatus
+import Amazonka.QuickSight.Types.SslProperties
+import Amazonka.QuickSight.Types.VpcConnectionProperties
 
 -- | The structure of a data source.
 --

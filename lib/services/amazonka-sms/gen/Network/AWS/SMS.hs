@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SMS
+-- Module      : Amazonka.SMS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- -   <http://aws.amazon.com/server-migration-service/ AWS Server Migration Service product page>
 --
 -- -   <https://docs.aws.amazon.com/server-migration-service/latest/userguide/ AWS Server Migration Service User Guide>
-module Network.AWS.SMS
+module Amazonka.SMS
   ( -- * Service Configuration
     defaultService,
 
@@ -456,44 +456,44 @@ module Network.AWS.SMS
   )
 where
 
-import Network.AWS.SMS.CreateApp
-import Network.AWS.SMS.CreateReplicationJob
-import Network.AWS.SMS.DeleteApp
-import Network.AWS.SMS.DeleteAppLaunchConfiguration
-import Network.AWS.SMS.DeleteAppReplicationConfiguration
-import Network.AWS.SMS.DeleteAppValidationConfiguration
-import Network.AWS.SMS.DeleteReplicationJob
-import Network.AWS.SMS.DeleteServerCatalog
-import Network.AWS.SMS.DisassociateConnector
-import Network.AWS.SMS.GenerateChangeSet
-import Network.AWS.SMS.GenerateTemplate
-import Network.AWS.SMS.GetApp
-import Network.AWS.SMS.GetAppLaunchConfiguration
-import Network.AWS.SMS.GetAppReplicationConfiguration
-import Network.AWS.SMS.GetAppValidationConfiguration
-import Network.AWS.SMS.GetAppValidationOutput
-import Network.AWS.SMS.GetConnectors
-import Network.AWS.SMS.GetReplicationJobs
-import Network.AWS.SMS.GetReplicationRuns
-import Network.AWS.SMS.GetServers
-import Network.AWS.SMS.ImportAppCatalog
-import Network.AWS.SMS.ImportServerCatalog
-import Network.AWS.SMS.LaunchApp
-import Network.AWS.SMS.Lens
-import Network.AWS.SMS.ListApps
-import Network.AWS.SMS.NotifyAppValidationOutput
-import Network.AWS.SMS.PutAppLaunchConfiguration
-import Network.AWS.SMS.PutAppReplicationConfiguration
-import Network.AWS.SMS.PutAppValidationConfiguration
-import Network.AWS.SMS.StartAppReplication
-import Network.AWS.SMS.StartOnDemandAppReplication
-import Network.AWS.SMS.StartOnDemandReplicationRun
-import Network.AWS.SMS.StopAppReplication
-import Network.AWS.SMS.TerminateApp
-import Network.AWS.SMS.Types
-import Network.AWS.SMS.UpdateApp
-import Network.AWS.SMS.UpdateReplicationJob
-import Network.AWS.SMS.Waiters
+import Amazonka.SMS.CreateApp
+import Amazonka.SMS.CreateReplicationJob
+import Amazonka.SMS.DeleteApp
+import Amazonka.SMS.DeleteAppLaunchConfiguration
+import Amazonka.SMS.DeleteAppReplicationConfiguration
+import Amazonka.SMS.DeleteAppValidationConfiguration
+import Amazonka.SMS.DeleteReplicationJob
+import Amazonka.SMS.DeleteServerCatalog
+import Amazonka.SMS.DisassociateConnector
+import Amazonka.SMS.GenerateChangeSet
+import Amazonka.SMS.GenerateTemplate
+import Amazonka.SMS.GetApp
+import Amazonka.SMS.GetAppLaunchConfiguration
+import Amazonka.SMS.GetAppReplicationConfiguration
+import Amazonka.SMS.GetAppValidationConfiguration
+import Amazonka.SMS.GetAppValidationOutput
+import Amazonka.SMS.GetConnectors
+import Amazonka.SMS.GetReplicationJobs
+import Amazonka.SMS.GetReplicationRuns
+import Amazonka.SMS.GetServers
+import Amazonka.SMS.ImportAppCatalog
+import Amazonka.SMS.ImportServerCatalog
+import Amazonka.SMS.LaunchApp
+import Amazonka.SMS.Lens
+import Amazonka.SMS.ListApps
+import Amazonka.SMS.NotifyAppValidationOutput
+import Amazonka.SMS.PutAppLaunchConfiguration
+import Amazonka.SMS.PutAppReplicationConfiguration
+import Amazonka.SMS.PutAppValidationConfiguration
+import Amazonka.SMS.StartAppReplication
+import Amazonka.SMS.StartOnDemandAppReplication
+import Amazonka.SMS.StartOnDemandReplicationRun
+import Amazonka.SMS.StopAppReplication
+import Amazonka.SMS.TerminateApp
+import Amazonka.SMS.Types
+import Amazonka.SMS.UpdateApp
+import Amazonka.SMS.UpdateReplicationJob
+import Amazonka.SMS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

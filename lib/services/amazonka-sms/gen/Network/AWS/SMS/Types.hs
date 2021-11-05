@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.Types
+-- Module      : Amazonka.SMS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types
+module Amazonka.SMS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -347,58 +347,58 @@ module Network.AWS.SMS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SMS.Types.AppLaunchConfigurationStatus
-import Network.AWS.SMS.Types.AppLaunchStatus
-import Network.AWS.SMS.Types.AppReplicationConfigurationStatus
-import Network.AWS.SMS.Types.AppReplicationStatus
-import Network.AWS.SMS.Types.AppStatus
-import Network.AWS.SMS.Types.AppSummary
-import Network.AWS.SMS.Types.AppValidationConfiguration
-import Network.AWS.SMS.Types.AppValidationOutput
-import Network.AWS.SMS.Types.AppValidationStrategy
-import Network.AWS.SMS.Types.Connector
-import Network.AWS.SMS.Types.ConnectorCapability
-import Network.AWS.SMS.Types.ConnectorStatus
-import Network.AWS.SMS.Types.LaunchDetails
-import Network.AWS.SMS.Types.LicenseType
-import Network.AWS.SMS.Types.NotificationContext
-import Network.AWS.SMS.Types.OutputFormat
-import Network.AWS.SMS.Types.ReplicationJob
-import Network.AWS.SMS.Types.ReplicationJobState
-import Network.AWS.SMS.Types.ReplicationRun
-import Network.AWS.SMS.Types.ReplicationRunStageDetails
-import Network.AWS.SMS.Types.ReplicationRunState
-import Network.AWS.SMS.Types.ReplicationRunType
-import Network.AWS.SMS.Types.S3Location
-import Network.AWS.SMS.Types.SSMOutput
-import Network.AWS.SMS.Types.SSMValidationParameters
-import Network.AWS.SMS.Types.ScriptType
-import Network.AWS.SMS.Types.Server
-import Network.AWS.SMS.Types.ServerCatalogStatus
-import Network.AWS.SMS.Types.ServerGroup
-import Network.AWS.SMS.Types.ServerGroupLaunchConfiguration
-import Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
-import Network.AWS.SMS.Types.ServerGroupValidationConfiguration
-import Network.AWS.SMS.Types.ServerLaunchConfiguration
-import Network.AWS.SMS.Types.ServerReplicationConfiguration
-import Network.AWS.SMS.Types.ServerReplicationParameters
-import Network.AWS.SMS.Types.ServerType
-import Network.AWS.SMS.Types.ServerValidationConfiguration
-import Network.AWS.SMS.Types.ServerValidationOutput
-import Network.AWS.SMS.Types.ServerValidationStrategy
-import Network.AWS.SMS.Types.Source
-import Network.AWS.SMS.Types.Tag
-import Network.AWS.SMS.Types.UserData
-import Network.AWS.SMS.Types.UserDataValidationParameters
-import Network.AWS.SMS.Types.ValidationOutput
-import Network.AWS.SMS.Types.ValidationStatus
-import Network.AWS.SMS.Types.VmManagerType
-import Network.AWS.SMS.Types.VmServer
-import Network.AWS.SMS.Types.VmServerAddress
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SMS.Types.AppLaunchConfigurationStatus
+import Amazonka.SMS.Types.AppLaunchStatus
+import Amazonka.SMS.Types.AppReplicationConfigurationStatus
+import Amazonka.SMS.Types.AppReplicationStatus
+import Amazonka.SMS.Types.AppStatus
+import Amazonka.SMS.Types.AppSummary
+import Amazonka.SMS.Types.AppValidationConfiguration
+import Amazonka.SMS.Types.AppValidationOutput
+import Amazonka.SMS.Types.AppValidationStrategy
+import Amazonka.SMS.Types.Connector
+import Amazonka.SMS.Types.ConnectorCapability
+import Amazonka.SMS.Types.ConnectorStatus
+import Amazonka.SMS.Types.LaunchDetails
+import Amazonka.SMS.Types.LicenseType
+import Amazonka.SMS.Types.NotificationContext
+import Amazonka.SMS.Types.OutputFormat
+import Amazonka.SMS.Types.ReplicationJob
+import Amazonka.SMS.Types.ReplicationJobState
+import Amazonka.SMS.Types.ReplicationRun
+import Amazonka.SMS.Types.ReplicationRunStageDetails
+import Amazonka.SMS.Types.ReplicationRunState
+import Amazonka.SMS.Types.ReplicationRunType
+import Amazonka.SMS.Types.S3Location
+import Amazonka.SMS.Types.SSMOutput
+import Amazonka.SMS.Types.SSMValidationParameters
+import Amazonka.SMS.Types.ScriptType
+import Amazonka.SMS.Types.Server
+import Amazonka.SMS.Types.ServerCatalogStatus
+import Amazonka.SMS.Types.ServerGroup
+import Amazonka.SMS.Types.ServerGroupLaunchConfiguration
+import Amazonka.SMS.Types.ServerGroupReplicationConfiguration
+import Amazonka.SMS.Types.ServerGroupValidationConfiguration
+import Amazonka.SMS.Types.ServerLaunchConfiguration
+import Amazonka.SMS.Types.ServerReplicationConfiguration
+import Amazonka.SMS.Types.ServerReplicationParameters
+import Amazonka.SMS.Types.ServerType
+import Amazonka.SMS.Types.ServerValidationConfiguration
+import Amazonka.SMS.Types.ServerValidationOutput
+import Amazonka.SMS.Types.ServerValidationStrategy
+import Amazonka.SMS.Types.Source
+import Amazonka.SMS.Types.Tag
+import Amazonka.SMS.Types.UserData
+import Amazonka.SMS.Types.UserDataValidationParameters
+import Amazonka.SMS.Types.ValidationOutput
+import Amazonka.SMS.Types.ValidationStatus
+import Amazonka.SMS.Types.VmManagerType
+import Amazonka.SMS.Types.VmServer
+import Amazonka.SMS.Types.VmServerAddress
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-10-24@ of the Amazon Server Migration Service SDK configuration.
 defaultService :: Core.Service

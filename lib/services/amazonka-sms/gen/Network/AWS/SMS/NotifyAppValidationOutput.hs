@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.NotifyAppValidationOutput
+-- Module      : Amazonka.SMS.NotifyAppValidationOutput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Provides information to AWS SMS about whether application validation is
 -- successful.
-module Network.AWS.SMS.NotifyAppValidationOutput
+module Amazonka.SMS.NotifyAppValidationOutput
   ( -- * Creating a Request
     NotifyAppValidationOutput (..),
     newNotifyAppValidationOutput,
@@ -40,12 +40,12 @@ module Network.AWS.SMS.NotifyAppValidationOutput
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SMS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SMS.Types
 
 -- | /See:/ 'newNotifyAppValidationOutput' smart constructor.
 data NotifyAppValidationOutput = NotifyAppValidationOutput'

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.Types.AppReplicationStatus
+-- Module      : Amazonka.SMS.Types.AppReplicationStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.AppReplicationStatus
+module Amazonka.SMS.Types.AppReplicationStatus
   ( AppReplicationStatus
       ( ..,
         AppReplicationStatus_CONFIGURATION_INVALID,
@@ -40,8 +40,8 @@ module Network.AWS.SMS.Types.AppReplicationStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype AppReplicationStatus = AppReplicationStatus'
   { fromAppReplicationStatus ::

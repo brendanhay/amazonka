@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.Lens
+-- Module      : Amazonka.SMS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Lens
+module Amazonka.SMS.Lens
   ( -- * Operations
 
     -- ** DeleteAppReplicationConfiguration
@@ -439,67 +439,67 @@ module Network.AWS.SMS.Lens
   )
 where
 
-import Network.AWS.SMS.CreateApp
-import Network.AWS.SMS.CreateReplicationJob
-import Network.AWS.SMS.DeleteApp
-import Network.AWS.SMS.DeleteAppLaunchConfiguration
-import Network.AWS.SMS.DeleteAppReplicationConfiguration
-import Network.AWS.SMS.DeleteAppValidationConfiguration
-import Network.AWS.SMS.DeleteReplicationJob
-import Network.AWS.SMS.DeleteServerCatalog
-import Network.AWS.SMS.DisassociateConnector
-import Network.AWS.SMS.GenerateChangeSet
-import Network.AWS.SMS.GenerateTemplate
-import Network.AWS.SMS.GetApp
-import Network.AWS.SMS.GetAppLaunchConfiguration
-import Network.AWS.SMS.GetAppReplicationConfiguration
-import Network.AWS.SMS.GetAppValidationConfiguration
-import Network.AWS.SMS.GetAppValidationOutput
-import Network.AWS.SMS.GetConnectors
-import Network.AWS.SMS.GetReplicationJobs
-import Network.AWS.SMS.GetReplicationRuns
-import Network.AWS.SMS.GetServers
-import Network.AWS.SMS.ImportAppCatalog
-import Network.AWS.SMS.ImportServerCatalog
-import Network.AWS.SMS.LaunchApp
-import Network.AWS.SMS.ListApps
-import Network.AWS.SMS.NotifyAppValidationOutput
-import Network.AWS.SMS.PutAppLaunchConfiguration
-import Network.AWS.SMS.PutAppReplicationConfiguration
-import Network.AWS.SMS.PutAppValidationConfiguration
-import Network.AWS.SMS.StartAppReplication
-import Network.AWS.SMS.StartOnDemandAppReplication
-import Network.AWS.SMS.StartOnDemandReplicationRun
-import Network.AWS.SMS.StopAppReplication
-import Network.AWS.SMS.TerminateApp
-import Network.AWS.SMS.Types.AppSummary
-import Network.AWS.SMS.Types.AppValidationConfiguration
-import Network.AWS.SMS.Types.AppValidationOutput
-import Network.AWS.SMS.Types.Connector
-import Network.AWS.SMS.Types.LaunchDetails
-import Network.AWS.SMS.Types.NotificationContext
-import Network.AWS.SMS.Types.ReplicationJob
-import Network.AWS.SMS.Types.ReplicationRun
-import Network.AWS.SMS.Types.ReplicationRunStageDetails
-import Network.AWS.SMS.Types.S3Location
-import Network.AWS.SMS.Types.SSMOutput
-import Network.AWS.SMS.Types.SSMValidationParameters
-import Network.AWS.SMS.Types.Server
-import Network.AWS.SMS.Types.ServerGroup
-import Network.AWS.SMS.Types.ServerGroupLaunchConfiguration
-import Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
-import Network.AWS.SMS.Types.ServerGroupValidationConfiguration
-import Network.AWS.SMS.Types.ServerLaunchConfiguration
-import Network.AWS.SMS.Types.ServerReplicationConfiguration
-import Network.AWS.SMS.Types.ServerReplicationParameters
-import Network.AWS.SMS.Types.ServerValidationConfiguration
-import Network.AWS.SMS.Types.ServerValidationOutput
-import Network.AWS.SMS.Types.Source
-import Network.AWS.SMS.Types.Tag
-import Network.AWS.SMS.Types.UserData
-import Network.AWS.SMS.Types.UserDataValidationParameters
-import Network.AWS.SMS.Types.ValidationOutput
-import Network.AWS.SMS.Types.VmServer
-import Network.AWS.SMS.Types.VmServerAddress
-import Network.AWS.SMS.UpdateApp
-import Network.AWS.SMS.UpdateReplicationJob
+import Amazonka.SMS.CreateApp
+import Amazonka.SMS.CreateReplicationJob
+import Amazonka.SMS.DeleteApp
+import Amazonka.SMS.DeleteAppLaunchConfiguration
+import Amazonka.SMS.DeleteAppReplicationConfiguration
+import Amazonka.SMS.DeleteAppValidationConfiguration
+import Amazonka.SMS.DeleteReplicationJob
+import Amazonka.SMS.DeleteServerCatalog
+import Amazonka.SMS.DisassociateConnector
+import Amazonka.SMS.GenerateChangeSet
+import Amazonka.SMS.GenerateTemplate
+import Amazonka.SMS.GetApp
+import Amazonka.SMS.GetAppLaunchConfiguration
+import Amazonka.SMS.GetAppReplicationConfiguration
+import Amazonka.SMS.GetAppValidationConfiguration
+import Amazonka.SMS.GetAppValidationOutput
+import Amazonka.SMS.GetConnectors
+import Amazonka.SMS.GetReplicationJobs
+import Amazonka.SMS.GetReplicationRuns
+import Amazonka.SMS.GetServers
+import Amazonka.SMS.ImportAppCatalog
+import Amazonka.SMS.ImportServerCatalog
+import Amazonka.SMS.LaunchApp
+import Amazonka.SMS.ListApps
+import Amazonka.SMS.NotifyAppValidationOutput
+import Amazonka.SMS.PutAppLaunchConfiguration
+import Amazonka.SMS.PutAppReplicationConfiguration
+import Amazonka.SMS.PutAppValidationConfiguration
+import Amazonka.SMS.StartAppReplication
+import Amazonka.SMS.StartOnDemandAppReplication
+import Amazonka.SMS.StartOnDemandReplicationRun
+import Amazonka.SMS.StopAppReplication
+import Amazonka.SMS.TerminateApp
+import Amazonka.SMS.Types.AppSummary
+import Amazonka.SMS.Types.AppValidationConfiguration
+import Amazonka.SMS.Types.AppValidationOutput
+import Amazonka.SMS.Types.Connector
+import Amazonka.SMS.Types.LaunchDetails
+import Amazonka.SMS.Types.NotificationContext
+import Amazonka.SMS.Types.ReplicationJob
+import Amazonka.SMS.Types.ReplicationRun
+import Amazonka.SMS.Types.ReplicationRunStageDetails
+import Amazonka.SMS.Types.S3Location
+import Amazonka.SMS.Types.SSMOutput
+import Amazonka.SMS.Types.SSMValidationParameters
+import Amazonka.SMS.Types.Server
+import Amazonka.SMS.Types.ServerGroup
+import Amazonka.SMS.Types.ServerGroupLaunchConfiguration
+import Amazonka.SMS.Types.ServerGroupReplicationConfiguration
+import Amazonka.SMS.Types.ServerGroupValidationConfiguration
+import Amazonka.SMS.Types.ServerLaunchConfiguration
+import Amazonka.SMS.Types.ServerReplicationConfiguration
+import Amazonka.SMS.Types.ServerReplicationParameters
+import Amazonka.SMS.Types.ServerValidationConfiguration
+import Amazonka.SMS.Types.ServerValidationOutput
+import Amazonka.SMS.Types.Source
+import Amazonka.SMS.Types.Tag
+import Amazonka.SMS.Types.UserData
+import Amazonka.SMS.Types.UserDataValidationParameters
+import Amazonka.SMS.Types.ValidationOutput
+import Amazonka.SMS.Types.VmServer
+import Amazonka.SMS.Types.VmServerAddress
+import Amazonka.SMS.UpdateApp
+import Amazonka.SMS.UpdateReplicationJob

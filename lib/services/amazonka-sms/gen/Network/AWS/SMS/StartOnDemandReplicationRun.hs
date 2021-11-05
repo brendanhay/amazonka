@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.StartOnDemandReplicationRun
+-- Module      : Amazonka.SMS.StartOnDemandReplicationRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- There is a limit on the number of on-demand replications runs that you
 -- can request in a 24-hour period.
-module Network.AWS.SMS.StartOnDemandReplicationRun
+module Amazonka.SMS.StartOnDemandReplicationRun
   ( -- * Creating a Request
     StartOnDemandReplicationRun (..),
     newStartOnDemandReplicationRun,
@@ -45,12 +45,12 @@ module Network.AWS.SMS.StartOnDemandReplicationRun
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SMS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SMS.Types
 
 -- | /See:/ 'newStartOnDemandReplicationRun' smart constructor.
 data StartOnDemandReplicationRun = StartOnDemandReplicationRun'

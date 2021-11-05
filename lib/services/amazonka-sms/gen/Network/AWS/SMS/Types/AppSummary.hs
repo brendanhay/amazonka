@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.Types.AppSummary
+-- Module      : Amazonka.SMS.Types.AppSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.AppSummary where
+module Amazonka.SMS.Types.AppSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SMS.Types.AppLaunchConfigurationStatus
-import Network.AWS.SMS.Types.AppLaunchStatus
-import Network.AWS.SMS.Types.AppReplicationConfigurationStatus
-import Network.AWS.SMS.Types.AppReplicationStatus
-import Network.AWS.SMS.Types.AppStatus
-import Network.AWS.SMS.Types.LaunchDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SMS.Types.AppLaunchConfigurationStatus
+import Amazonka.SMS.Types.AppLaunchStatus
+import Amazonka.SMS.Types.AppReplicationConfigurationStatus
+import Amazonka.SMS.Types.AppReplicationStatus
+import Amazonka.SMS.Types.AppStatus
+import Amazonka.SMS.Types.LaunchDetails
 
 -- | Information about the application.
 --

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SMS where
 
+import Amazonka.SMS
 import qualified Data.Proxy as Proxy
-import Network.AWS.SMS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SMS.Internal

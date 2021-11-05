@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SMS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SMS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,95 +45,95 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SMS
-    Network.AWS.SMS.CreateApp
-    Network.AWS.SMS.CreateReplicationJob
-    Network.AWS.SMS.DeleteApp
-    Network.AWS.SMS.DeleteAppLaunchConfiguration
-    Network.AWS.SMS.DeleteAppReplicationConfiguration
-    Network.AWS.SMS.DeleteAppValidationConfiguration
-    Network.AWS.SMS.DeleteReplicationJob
-    Network.AWS.SMS.DeleteServerCatalog
-    Network.AWS.SMS.DisassociateConnector
-    Network.AWS.SMS.GenerateChangeSet
-    Network.AWS.SMS.GenerateTemplate
-    Network.AWS.SMS.GetApp
-    Network.AWS.SMS.GetAppLaunchConfiguration
-    Network.AWS.SMS.GetAppReplicationConfiguration
-    Network.AWS.SMS.GetAppValidationConfiguration
-    Network.AWS.SMS.GetAppValidationOutput
-    Network.AWS.SMS.GetConnectors
-    Network.AWS.SMS.GetReplicationJobs
-    Network.AWS.SMS.GetReplicationRuns
-    Network.AWS.SMS.GetServers
-    Network.AWS.SMS.ImportAppCatalog
-    Network.AWS.SMS.ImportServerCatalog
-    Network.AWS.SMS.LaunchApp
-    Network.AWS.SMS.Lens
-    Network.AWS.SMS.ListApps
-    Network.AWS.SMS.NotifyAppValidationOutput
-    Network.AWS.SMS.PutAppLaunchConfiguration
-    Network.AWS.SMS.PutAppReplicationConfiguration
-    Network.AWS.SMS.PutAppValidationConfiguration
-    Network.AWS.SMS.StartAppReplication
-    Network.AWS.SMS.StartOnDemandAppReplication
-    Network.AWS.SMS.StartOnDemandReplicationRun
-    Network.AWS.SMS.StopAppReplication
-    Network.AWS.SMS.TerminateApp
-    Network.AWS.SMS.Types
-    Network.AWS.SMS.Types.AppLaunchConfigurationStatus
-    Network.AWS.SMS.Types.AppLaunchStatus
-    Network.AWS.SMS.Types.AppReplicationConfigurationStatus
-    Network.AWS.SMS.Types.AppReplicationStatus
-    Network.AWS.SMS.Types.AppStatus
-    Network.AWS.SMS.Types.AppSummary
-    Network.AWS.SMS.Types.AppValidationConfiguration
-    Network.AWS.SMS.Types.AppValidationOutput
-    Network.AWS.SMS.Types.AppValidationStrategy
-    Network.AWS.SMS.Types.Connector
-    Network.AWS.SMS.Types.ConnectorCapability
-    Network.AWS.SMS.Types.ConnectorStatus
-    Network.AWS.SMS.Types.LaunchDetails
-    Network.AWS.SMS.Types.LicenseType
-    Network.AWS.SMS.Types.NotificationContext
-    Network.AWS.SMS.Types.OutputFormat
-    Network.AWS.SMS.Types.ReplicationJob
-    Network.AWS.SMS.Types.ReplicationJobState
-    Network.AWS.SMS.Types.ReplicationRun
-    Network.AWS.SMS.Types.ReplicationRunStageDetails
-    Network.AWS.SMS.Types.ReplicationRunState
-    Network.AWS.SMS.Types.ReplicationRunType
-    Network.AWS.SMS.Types.S3Location
-    Network.AWS.SMS.Types.ScriptType
-    Network.AWS.SMS.Types.Server
-    Network.AWS.SMS.Types.ServerCatalogStatus
-    Network.AWS.SMS.Types.ServerGroup
-    Network.AWS.SMS.Types.ServerGroupLaunchConfiguration
-    Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
-    Network.AWS.SMS.Types.ServerGroupValidationConfiguration
-    Network.AWS.SMS.Types.ServerLaunchConfiguration
-    Network.AWS.SMS.Types.ServerReplicationConfiguration
-    Network.AWS.SMS.Types.ServerReplicationParameters
-    Network.AWS.SMS.Types.ServerType
-    Network.AWS.SMS.Types.ServerValidationConfiguration
-    Network.AWS.SMS.Types.ServerValidationOutput
-    Network.AWS.SMS.Types.ServerValidationStrategy
-    Network.AWS.SMS.Types.Source
-    Network.AWS.SMS.Types.SSMOutput
-    Network.AWS.SMS.Types.SSMValidationParameters
-    Network.AWS.SMS.Types.Tag
-    Network.AWS.SMS.Types.UserData
-    Network.AWS.SMS.Types.UserDataValidationParameters
-    Network.AWS.SMS.Types.ValidationOutput
-    Network.AWS.SMS.Types.ValidationStatus
-    Network.AWS.SMS.Types.VmManagerType
-    Network.AWS.SMS.Types.VmServer
-    Network.AWS.SMS.Types.VmServerAddress
-    Network.AWS.SMS.UpdateApp
-    Network.AWS.SMS.UpdateReplicationJob
-    Network.AWS.SMS.Waiters
+    Amazonka.SMS
+    Amazonka.SMS.CreateApp
+    Amazonka.SMS.CreateReplicationJob
+    Amazonka.SMS.DeleteApp
+    Amazonka.SMS.DeleteAppLaunchConfiguration
+    Amazonka.SMS.DeleteAppReplicationConfiguration
+    Amazonka.SMS.DeleteAppValidationConfiguration
+    Amazonka.SMS.DeleteReplicationJob
+    Amazonka.SMS.DeleteServerCatalog
+    Amazonka.SMS.DisassociateConnector
+    Amazonka.SMS.GenerateChangeSet
+    Amazonka.SMS.GenerateTemplate
+    Amazonka.SMS.GetApp
+    Amazonka.SMS.GetAppLaunchConfiguration
+    Amazonka.SMS.GetAppReplicationConfiguration
+    Amazonka.SMS.GetAppValidationConfiguration
+    Amazonka.SMS.GetAppValidationOutput
+    Amazonka.SMS.GetConnectors
+    Amazonka.SMS.GetReplicationJobs
+    Amazonka.SMS.GetReplicationRuns
+    Amazonka.SMS.GetServers
+    Amazonka.SMS.ImportAppCatalog
+    Amazonka.SMS.ImportServerCatalog
+    Amazonka.SMS.LaunchApp
+    Amazonka.SMS.Lens
+    Amazonka.SMS.ListApps
+    Amazonka.SMS.NotifyAppValidationOutput
+    Amazonka.SMS.PutAppLaunchConfiguration
+    Amazonka.SMS.PutAppReplicationConfiguration
+    Amazonka.SMS.PutAppValidationConfiguration
+    Amazonka.SMS.StartAppReplication
+    Amazonka.SMS.StartOnDemandAppReplication
+    Amazonka.SMS.StartOnDemandReplicationRun
+    Amazonka.SMS.StopAppReplication
+    Amazonka.SMS.TerminateApp
+    Amazonka.SMS.Types
+    Amazonka.SMS.Types.AppLaunchConfigurationStatus
+    Amazonka.SMS.Types.AppLaunchStatus
+    Amazonka.SMS.Types.AppReplicationConfigurationStatus
+    Amazonka.SMS.Types.AppReplicationStatus
+    Amazonka.SMS.Types.AppStatus
+    Amazonka.SMS.Types.AppSummary
+    Amazonka.SMS.Types.AppValidationConfiguration
+    Amazonka.SMS.Types.AppValidationOutput
+    Amazonka.SMS.Types.AppValidationStrategy
+    Amazonka.SMS.Types.Connector
+    Amazonka.SMS.Types.ConnectorCapability
+    Amazonka.SMS.Types.ConnectorStatus
+    Amazonka.SMS.Types.LaunchDetails
+    Amazonka.SMS.Types.LicenseType
+    Amazonka.SMS.Types.NotificationContext
+    Amazonka.SMS.Types.OutputFormat
+    Amazonka.SMS.Types.ReplicationJob
+    Amazonka.SMS.Types.ReplicationJobState
+    Amazonka.SMS.Types.ReplicationRun
+    Amazonka.SMS.Types.ReplicationRunStageDetails
+    Amazonka.SMS.Types.ReplicationRunState
+    Amazonka.SMS.Types.ReplicationRunType
+    Amazonka.SMS.Types.S3Location
+    Amazonka.SMS.Types.ScriptType
+    Amazonka.SMS.Types.Server
+    Amazonka.SMS.Types.ServerCatalogStatus
+    Amazonka.SMS.Types.ServerGroup
+    Amazonka.SMS.Types.ServerGroupLaunchConfiguration
+    Amazonka.SMS.Types.ServerGroupReplicationConfiguration
+    Amazonka.SMS.Types.ServerGroupValidationConfiguration
+    Amazonka.SMS.Types.ServerLaunchConfiguration
+    Amazonka.SMS.Types.ServerReplicationConfiguration
+    Amazonka.SMS.Types.ServerReplicationParameters
+    Amazonka.SMS.Types.ServerType
+    Amazonka.SMS.Types.ServerValidationConfiguration
+    Amazonka.SMS.Types.ServerValidationOutput
+    Amazonka.SMS.Types.ServerValidationStrategy
+    Amazonka.SMS.Types.Source
+    Amazonka.SMS.Types.SSMOutput
+    Amazonka.SMS.Types.SSMValidationParameters
+    Amazonka.SMS.Types.Tag
+    Amazonka.SMS.Types.UserData
+    Amazonka.SMS.Types.UserDataValidationParameters
+    Amazonka.SMS.Types.ValidationOutput
+    Amazonka.SMS.Types.ValidationStatus
+    Amazonka.SMS.Types.VmManagerType
+    Amazonka.SMS.Types.VmServer
+    Amazonka.SMS.Types.VmServerAddress
+    Amazonka.SMS.UpdateApp
+    Amazonka.SMS.UpdateReplicationJob
+    Amazonka.SMS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

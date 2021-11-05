@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SMS.StartAppReplication
+-- Module      : Amazonka.SMS.StartAppReplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Starts replicating the specified application by creating replication
 -- jobs for each server in the application.
-module Network.AWS.SMS.StartAppReplication
+module Amazonka.SMS.StartAppReplication
   ( -- * Creating a Request
     StartAppReplication (..),
     newStartAppReplication,
@@ -39,12 +39,12 @@ module Network.AWS.SMS.StartAppReplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SMS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SMS.Types
 
 -- | /See:/ 'newStartAppReplication' smart constructor.
 data StartAppReplication = StartAppReplication'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.UpdateSchema
+-- Module      : Amazonka.CloudDirectory.UpdateSchema
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates the schema name with a new name. Only development schema names
 -- can be updated.
-module Network.AWS.CloudDirectory.UpdateSchema
+module Amazonka.CloudDirectory.UpdateSchema
   ( -- * Creating a Request
     UpdateSchema (..),
     newUpdateSchema,
@@ -41,12 +41,12 @@ module Network.AWS.CloudDirectory.UpdateSchema
   )
 where
 
-import Network.AWS.CloudDirectory.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudDirectory.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'

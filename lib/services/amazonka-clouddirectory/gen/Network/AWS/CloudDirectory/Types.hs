@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types
+-- Module      : Amazonka.CloudDirectory.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types
+module Amazonka.CloudDirectory.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -727,115 +727,115 @@ module Network.AWS.CloudDirectory.Types
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKey
-import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
-import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
-import Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
-import Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachObject
-import Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachPolicy
-import Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachToIndex
-import Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
-import Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
-import Network.AWS.CloudDirectory.Types.BatchCreateIndex
-import Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchCreateObject
-import Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDeleteObject
-import Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
-import Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachObject
-import Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachPolicy
-import Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
-import Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
-import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
-import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
-import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
-import Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
-import Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
-import Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
-import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
-import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListIndex
-import Network.AWS.CloudDirectory.Types.BatchListIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
-import Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectChildren
-import Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParents
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectPolicies
-import Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
-import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
-import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
-import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
-import Network.AWS.CloudDirectory.Types.BatchLookupPolicy
-import Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
-import Network.AWS.CloudDirectory.Types.BatchReadException
-import Network.AWS.CloudDirectory.Types.BatchReadExceptionType
-import Network.AWS.CloudDirectory.Types.BatchReadOperation
-import Network.AWS.CloudDirectory.Types.BatchReadOperationResponse
-import Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
-import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
-import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
-import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
-import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchWriteOperation
-import Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
-import Network.AWS.CloudDirectory.Types.ConsistencyLevel
-import Network.AWS.CloudDirectory.Types.Directory
-import Network.AWS.CloudDirectory.Types.DirectoryState
-import Network.AWS.CloudDirectory.Types.Facet
-import Network.AWS.CloudDirectory.Types.FacetAttribute
-import Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
-import Network.AWS.CloudDirectory.Types.FacetAttributeReference
-import Network.AWS.CloudDirectory.Types.FacetAttributeType
-import Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
-import Network.AWS.CloudDirectory.Types.FacetStyle
-import Network.AWS.CloudDirectory.Types.IndexAttachment
-import Network.AWS.CloudDirectory.Types.LinkAttributeAction
-import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
-import Network.AWS.CloudDirectory.Types.ObjectAttributeAction
-import Network.AWS.CloudDirectory.Types.ObjectAttributeRange
-import Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
-import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
-import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.CloudDirectory.Types.ObjectType
-import Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
-import Network.AWS.CloudDirectory.Types.PolicyAttachment
-import Network.AWS.CloudDirectory.Types.PolicyToPath
-import Network.AWS.CloudDirectory.Types.RangeMode
-import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
-import Network.AWS.CloudDirectory.Types.Rule
-import Network.AWS.CloudDirectory.Types.RuleType
-import Network.AWS.CloudDirectory.Types.SchemaFacet
-import Network.AWS.CloudDirectory.Types.Tag
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
-import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
-import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
-import Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
-import Network.AWS.CloudDirectory.Types.TypedLinkFacet
-import Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
-import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
-import Network.AWS.CloudDirectory.Types.UpdateActionType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudDirectory.Types.AttributeKey
+import Amazonka.CloudDirectory.Types.AttributeKeyAndValue
+import Amazonka.CloudDirectory.Types.AttributeNameAndValue
+import Amazonka.CloudDirectory.Types.BatchAddFacetToObject
+import Amazonka.CloudDirectory.Types.BatchAddFacetToObjectResponse
+import Amazonka.CloudDirectory.Types.BatchAttachObject
+import Amazonka.CloudDirectory.Types.BatchAttachObjectResponse
+import Amazonka.CloudDirectory.Types.BatchAttachPolicy
+import Amazonka.CloudDirectory.Types.BatchAttachPolicyResponse
+import Amazonka.CloudDirectory.Types.BatchAttachToIndex
+import Amazonka.CloudDirectory.Types.BatchAttachToIndexResponse
+import Amazonka.CloudDirectory.Types.BatchAttachTypedLink
+import Amazonka.CloudDirectory.Types.BatchAttachTypedLinkResponse
+import Amazonka.CloudDirectory.Types.BatchCreateIndex
+import Amazonka.CloudDirectory.Types.BatchCreateIndexResponse
+import Amazonka.CloudDirectory.Types.BatchCreateObject
+import Amazonka.CloudDirectory.Types.BatchCreateObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDeleteObject
+import Amazonka.CloudDirectory.Types.BatchDeleteObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDetachFromIndex
+import Amazonka.CloudDirectory.Types.BatchDetachFromIndexResponse
+import Amazonka.CloudDirectory.Types.BatchDetachObject
+import Amazonka.CloudDirectory.Types.BatchDetachObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDetachPolicy
+import Amazonka.CloudDirectory.Types.BatchDetachPolicyResponse
+import Amazonka.CloudDirectory.Types.BatchDetachTypedLink
+import Amazonka.CloudDirectory.Types.BatchDetachTypedLinkResponse
+import Amazonka.CloudDirectory.Types.BatchGetLinkAttributes
+import Amazonka.CloudDirectory.Types.BatchGetLinkAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchGetObjectAttributes
+import Amazonka.CloudDirectory.Types.BatchGetObjectAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchGetObjectInformation
+import Amazonka.CloudDirectory.Types.BatchGetObjectInformationResponse
+import Amazonka.CloudDirectory.Types.BatchListAttachedIndices
+import Amazonka.CloudDirectory.Types.BatchListAttachedIndicesResponse
+import Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinks
+import Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
+import Amazonka.CloudDirectory.Types.BatchListIndex
+import Amazonka.CloudDirectory.Types.BatchListIndexResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectAttributes
+import Amazonka.CloudDirectory.Types.BatchListObjectAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectChildren
+import Amazonka.CloudDirectory.Types.BatchListObjectChildrenResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectParentPaths
+import Amazonka.CloudDirectory.Types.BatchListObjectParentPathsResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectParents
+import Amazonka.CloudDirectory.Types.BatchListObjectParentsResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectPolicies
+import Amazonka.CloudDirectory.Types.BatchListObjectPoliciesResponse
+import Amazonka.CloudDirectory.Types.BatchListOutgoingTypedLinks
+import Amazonka.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
+import Amazonka.CloudDirectory.Types.BatchListPolicyAttachments
+import Amazonka.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
+import Amazonka.CloudDirectory.Types.BatchLookupPolicy
+import Amazonka.CloudDirectory.Types.BatchLookupPolicyResponse
+import Amazonka.CloudDirectory.Types.BatchReadException
+import Amazonka.CloudDirectory.Types.BatchReadExceptionType
+import Amazonka.CloudDirectory.Types.BatchReadOperation
+import Amazonka.CloudDirectory.Types.BatchReadOperationResponse
+import Amazonka.CloudDirectory.Types.BatchReadSuccessfulResponse
+import Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObject
+import Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
+import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributes
+import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributes
+import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchWriteOperation
+import Amazonka.CloudDirectory.Types.BatchWriteOperationResponse
+import Amazonka.CloudDirectory.Types.ConsistencyLevel
+import Amazonka.CloudDirectory.Types.Directory
+import Amazonka.CloudDirectory.Types.DirectoryState
+import Amazonka.CloudDirectory.Types.Facet
+import Amazonka.CloudDirectory.Types.FacetAttribute
+import Amazonka.CloudDirectory.Types.FacetAttributeDefinition
+import Amazonka.CloudDirectory.Types.FacetAttributeReference
+import Amazonka.CloudDirectory.Types.FacetAttributeType
+import Amazonka.CloudDirectory.Types.FacetAttributeUpdate
+import Amazonka.CloudDirectory.Types.FacetStyle
+import Amazonka.CloudDirectory.Types.IndexAttachment
+import Amazonka.CloudDirectory.Types.LinkAttributeAction
+import Amazonka.CloudDirectory.Types.LinkAttributeUpdate
+import Amazonka.CloudDirectory.Types.ObjectAttributeAction
+import Amazonka.CloudDirectory.Types.ObjectAttributeRange
+import Amazonka.CloudDirectory.Types.ObjectAttributeUpdate
+import Amazonka.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
+import Amazonka.CloudDirectory.Types.ObjectReference
+import Amazonka.CloudDirectory.Types.ObjectType
+import Amazonka.CloudDirectory.Types.PathToObjectIdentifiers
+import Amazonka.CloudDirectory.Types.PolicyAttachment
+import Amazonka.CloudDirectory.Types.PolicyToPath
+import Amazonka.CloudDirectory.Types.RangeMode
+import Amazonka.CloudDirectory.Types.RequiredAttributeBehavior
+import Amazonka.CloudDirectory.Types.Rule
+import Amazonka.CloudDirectory.Types.RuleType
+import Amazonka.CloudDirectory.Types.SchemaFacet
+import Amazonka.CloudDirectory.Types.Tag
+import Amazonka.CloudDirectory.Types.TypedAttributeValue
+import Amazonka.CloudDirectory.Types.TypedAttributeValueRange
+import Amazonka.CloudDirectory.Types.TypedLinkAttributeDefinition
+import Amazonka.CloudDirectory.Types.TypedLinkAttributeRange
+import Amazonka.CloudDirectory.Types.TypedLinkFacet
+import Amazonka.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
+import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
+import Amazonka.CloudDirectory.Types.UpdateActionType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-01-11@ of the Amazon CloudDirectory SDK configuration.
 defaultService :: Core.Service

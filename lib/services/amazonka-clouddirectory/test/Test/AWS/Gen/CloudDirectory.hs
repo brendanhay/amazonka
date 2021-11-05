@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudDirectory where
 
+import Amazonka.CloudDirectory
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudDirectory
 import Test.AWS.CloudDirectory.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

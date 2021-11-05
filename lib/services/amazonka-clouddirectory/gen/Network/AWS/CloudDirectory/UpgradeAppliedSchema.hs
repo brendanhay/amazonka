@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.UpgradeAppliedSchema
+-- Module      : Amazonka.CloudDirectory.UpgradeAppliedSchema
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- upgrades only one schema on a given directory per call. To upgrade
 -- multiple directories from one schema, you would need to call this API on
 -- each directory.
-module Network.AWS.CloudDirectory.UpgradeAppliedSchema
+module Amazonka.CloudDirectory.UpgradeAppliedSchema
   ( -- * Creating a Request
     UpgradeAppliedSchema (..),
     newUpgradeAppliedSchema,
@@ -48,12 +48,12 @@ module Network.AWS.CloudDirectory.UpgradeAppliedSchema
   )
 where
 
-import Network.AWS.CloudDirectory.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudDirectory.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpgradeAppliedSchema' smart constructor.
 data UpgradeAppliedSchema = UpgradeAppliedSchema'

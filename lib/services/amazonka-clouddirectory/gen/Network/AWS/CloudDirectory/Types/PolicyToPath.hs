@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.PolicyToPath
+-- Module      : Amazonka.CloudDirectory.Types.PolicyToPath
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.PolicyToPath where
+module Amazonka.CloudDirectory.Types.PolicyToPath where
 
-import Network.AWS.CloudDirectory.Types.PolicyAttachment
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.PolicyAttachment
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Used when a regular object exists in a Directory and you want to find
 -- all of the policies that are associated with that object and the parent

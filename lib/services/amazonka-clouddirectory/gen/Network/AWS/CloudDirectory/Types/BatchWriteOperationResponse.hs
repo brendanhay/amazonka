@@ -11,32 +11,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
+-- Module      : Amazonka.CloudDirectory.Types.BatchWriteOperationResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse where
+module Amazonka.CloudDirectory.Types.BatchWriteOperationResponse where
 
-import Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
-import Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
-import Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
-import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
-import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.BatchAddFacetToObjectResponse
+import Amazonka.CloudDirectory.Types.BatchAttachObjectResponse
+import Amazonka.CloudDirectory.Types.BatchAttachPolicyResponse
+import Amazonka.CloudDirectory.Types.BatchAttachToIndexResponse
+import Amazonka.CloudDirectory.Types.BatchAttachTypedLinkResponse
+import Amazonka.CloudDirectory.Types.BatchCreateIndexResponse
+import Amazonka.CloudDirectory.Types.BatchCreateObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDeleteObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDetachFromIndexResponse
+import Amazonka.CloudDirectory.Types.BatchDetachObjectResponse
+import Amazonka.CloudDirectory.Types.BatchDetachPolicyResponse
+import Amazonka.CloudDirectory.Types.BatchDetachTypedLinkResponse
+import Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
+import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchWrite@ response operation.
 --

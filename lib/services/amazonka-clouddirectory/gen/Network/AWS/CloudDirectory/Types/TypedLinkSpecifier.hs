@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+-- Module      : Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.TypedLinkSpecifier where
+module Amazonka.CloudDirectory.Types.TypedLinkSpecifier where
 
-import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
-import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.AttributeNameAndValue
+import Amazonka.CloudDirectory.Types.ObjectReference
+import Amazonka.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains all the information that is used to uniquely identify a typed
 -- link. The parameters discussed in this topic are used to uniquely

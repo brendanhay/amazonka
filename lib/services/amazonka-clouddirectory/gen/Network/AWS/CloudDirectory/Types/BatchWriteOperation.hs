@@ -11,32 +11,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.BatchWriteOperation
+-- Module      : Amazonka.CloudDirectory.Types.BatchWriteOperation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchWriteOperation where
+module Amazonka.CloudDirectory.Types.BatchWriteOperation where
 
-import Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
-import Network.AWS.CloudDirectory.Types.BatchAttachObject
-import Network.AWS.CloudDirectory.Types.BatchAttachPolicy
-import Network.AWS.CloudDirectory.Types.BatchAttachToIndex
-import Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
-import Network.AWS.CloudDirectory.Types.BatchCreateIndex
-import Network.AWS.CloudDirectory.Types.BatchCreateObject
-import Network.AWS.CloudDirectory.Types.BatchDeleteObject
-import Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
-import Network.AWS.CloudDirectory.Types.BatchDetachObject
-import Network.AWS.CloudDirectory.Types.BatchDetachPolicy
-import Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
-import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
-import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
-import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.BatchAddFacetToObject
+import Amazonka.CloudDirectory.Types.BatchAttachObject
+import Amazonka.CloudDirectory.Types.BatchAttachPolicy
+import Amazonka.CloudDirectory.Types.BatchAttachToIndex
+import Amazonka.CloudDirectory.Types.BatchAttachTypedLink
+import Amazonka.CloudDirectory.Types.BatchCreateIndex
+import Amazonka.CloudDirectory.Types.BatchCreateObject
+import Amazonka.CloudDirectory.Types.BatchDeleteObject
+import Amazonka.CloudDirectory.Types.BatchDetachFromIndex
+import Amazonka.CloudDirectory.Types.BatchDetachObject
+import Amazonka.CloudDirectory.Types.BatchDetachPolicy
+import Amazonka.CloudDirectory.Types.BatchDetachTypedLink
+import Amazonka.CloudDirectory.Types.BatchRemoveFacetFromObject
+import Amazonka.CloudDirectory.Types.BatchUpdateLinkAttributes
+import Amazonka.CloudDirectory.Types.BatchUpdateObjectAttributes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchWrite@ operation.
 --

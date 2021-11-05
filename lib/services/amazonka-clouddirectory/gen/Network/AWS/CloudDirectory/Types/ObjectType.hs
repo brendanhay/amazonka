@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.ObjectType
+-- Module      : Amazonka.CloudDirectory.Types.ObjectType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectType
+module Amazonka.CloudDirectory.Types.ObjectType
   ( ObjectType
       ( ..,
         ObjectType_INDEX,
@@ -28,8 +28,8 @@ module Network.AWS.CloudDirectory.Types.ObjectType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ObjectType = ObjectType'
   { fromObjectType ::

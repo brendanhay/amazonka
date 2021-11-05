@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.LinkAttributeAction
+-- Module      : Amazonka.CloudDirectory.Types.LinkAttributeAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.LinkAttributeAction where
+module Amazonka.CloudDirectory.Types.LinkAttributeAction where
 
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
-import Network.AWS.CloudDirectory.Types.UpdateActionType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.TypedAttributeValue
+import Amazonka.CloudDirectory.Types.UpdateActionType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The action to take on a typed link attribute value. Updates are only
 -- supported for attributes which don’t contribute to link identity.

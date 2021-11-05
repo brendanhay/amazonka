@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudDirectory
+-- Module      : Amazonka.CloudDirectory
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Directory features, see
 -- <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html Amazon Cloud Directory Developer Guide>.
-module Network.AWS.CloudDirectory
+module Amazonka.CloudDirectory
   ( -- * Service Configuration
     defaultService,
 
@@ -949,75 +949,75 @@ module Network.AWS.CloudDirectory
   )
 where
 
-import Network.AWS.CloudDirectory.AddFacetToObject
-import Network.AWS.CloudDirectory.ApplySchema
-import Network.AWS.CloudDirectory.AttachObject
-import Network.AWS.CloudDirectory.AttachPolicy
-import Network.AWS.CloudDirectory.AttachToIndex
-import Network.AWS.CloudDirectory.AttachTypedLink
-import Network.AWS.CloudDirectory.BatchRead
-import Network.AWS.CloudDirectory.BatchWrite
-import Network.AWS.CloudDirectory.CreateDirectory
-import Network.AWS.CloudDirectory.CreateFacet
-import Network.AWS.CloudDirectory.CreateIndex
-import Network.AWS.CloudDirectory.CreateObject
-import Network.AWS.CloudDirectory.CreateSchema
-import Network.AWS.CloudDirectory.CreateTypedLinkFacet
-import Network.AWS.CloudDirectory.DeleteDirectory
-import Network.AWS.CloudDirectory.DeleteFacet
-import Network.AWS.CloudDirectory.DeleteObject
-import Network.AWS.CloudDirectory.DeleteSchema
-import Network.AWS.CloudDirectory.DeleteTypedLinkFacet
-import Network.AWS.CloudDirectory.DetachFromIndex
-import Network.AWS.CloudDirectory.DetachObject
-import Network.AWS.CloudDirectory.DetachPolicy
-import Network.AWS.CloudDirectory.DetachTypedLink
-import Network.AWS.CloudDirectory.DisableDirectory
-import Network.AWS.CloudDirectory.EnableDirectory
-import Network.AWS.CloudDirectory.GetAppliedSchemaVersion
-import Network.AWS.CloudDirectory.GetDirectory
-import Network.AWS.CloudDirectory.GetFacet
-import Network.AWS.CloudDirectory.GetLinkAttributes
-import Network.AWS.CloudDirectory.GetObjectAttributes
-import Network.AWS.CloudDirectory.GetObjectInformation
-import Network.AWS.CloudDirectory.GetSchemaAsJson
-import Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
-import Network.AWS.CloudDirectory.Lens
-import Network.AWS.CloudDirectory.ListAppliedSchemaArns
-import Network.AWS.CloudDirectory.ListAttachedIndices
-import Network.AWS.CloudDirectory.ListDevelopmentSchemaArns
-import Network.AWS.CloudDirectory.ListDirectories
-import Network.AWS.CloudDirectory.ListFacetAttributes
-import Network.AWS.CloudDirectory.ListFacetNames
-import Network.AWS.CloudDirectory.ListIncomingTypedLinks
-import Network.AWS.CloudDirectory.ListIndex
-import Network.AWS.CloudDirectory.ListManagedSchemaArns
-import Network.AWS.CloudDirectory.ListObjectAttributes
-import Network.AWS.CloudDirectory.ListObjectChildren
-import Network.AWS.CloudDirectory.ListObjectParentPaths
-import Network.AWS.CloudDirectory.ListObjectParents
-import Network.AWS.CloudDirectory.ListObjectPolicies
-import Network.AWS.CloudDirectory.ListOutgoingTypedLinks
-import Network.AWS.CloudDirectory.ListPolicyAttachments
-import Network.AWS.CloudDirectory.ListPublishedSchemaArns
-import Network.AWS.CloudDirectory.ListTagsForResource
-import Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
-import Network.AWS.CloudDirectory.ListTypedLinkFacetNames
-import Network.AWS.CloudDirectory.LookupPolicy
-import Network.AWS.CloudDirectory.PublishSchema
-import Network.AWS.CloudDirectory.PutSchemaFromJson
-import Network.AWS.CloudDirectory.RemoveFacetFromObject
-import Network.AWS.CloudDirectory.TagResource
-import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.UntagResource
-import Network.AWS.CloudDirectory.UpdateFacet
-import Network.AWS.CloudDirectory.UpdateLinkAttributes
-import Network.AWS.CloudDirectory.UpdateObjectAttributes
-import Network.AWS.CloudDirectory.UpdateSchema
-import Network.AWS.CloudDirectory.UpdateTypedLinkFacet
-import Network.AWS.CloudDirectory.UpgradeAppliedSchema
-import Network.AWS.CloudDirectory.UpgradePublishedSchema
-import Network.AWS.CloudDirectory.Waiters
+import Amazonka.CloudDirectory.AddFacetToObject
+import Amazonka.CloudDirectory.ApplySchema
+import Amazonka.CloudDirectory.AttachObject
+import Amazonka.CloudDirectory.AttachPolicy
+import Amazonka.CloudDirectory.AttachToIndex
+import Amazonka.CloudDirectory.AttachTypedLink
+import Amazonka.CloudDirectory.BatchRead
+import Amazonka.CloudDirectory.BatchWrite
+import Amazonka.CloudDirectory.CreateDirectory
+import Amazonka.CloudDirectory.CreateFacet
+import Amazonka.CloudDirectory.CreateIndex
+import Amazonka.CloudDirectory.CreateObject
+import Amazonka.CloudDirectory.CreateSchema
+import Amazonka.CloudDirectory.CreateTypedLinkFacet
+import Amazonka.CloudDirectory.DeleteDirectory
+import Amazonka.CloudDirectory.DeleteFacet
+import Amazonka.CloudDirectory.DeleteObject
+import Amazonka.CloudDirectory.DeleteSchema
+import Amazonka.CloudDirectory.DeleteTypedLinkFacet
+import Amazonka.CloudDirectory.DetachFromIndex
+import Amazonka.CloudDirectory.DetachObject
+import Amazonka.CloudDirectory.DetachPolicy
+import Amazonka.CloudDirectory.DetachTypedLink
+import Amazonka.CloudDirectory.DisableDirectory
+import Amazonka.CloudDirectory.EnableDirectory
+import Amazonka.CloudDirectory.GetAppliedSchemaVersion
+import Amazonka.CloudDirectory.GetDirectory
+import Amazonka.CloudDirectory.GetFacet
+import Amazonka.CloudDirectory.GetLinkAttributes
+import Amazonka.CloudDirectory.GetObjectAttributes
+import Amazonka.CloudDirectory.GetObjectInformation
+import Amazonka.CloudDirectory.GetSchemaAsJson
+import Amazonka.CloudDirectory.GetTypedLinkFacetInformation
+import Amazonka.CloudDirectory.Lens
+import Amazonka.CloudDirectory.ListAppliedSchemaArns
+import Amazonka.CloudDirectory.ListAttachedIndices
+import Amazonka.CloudDirectory.ListDevelopmentSchemaArns
+import Amazonka.CloudDirectory.ListDirectories
+import Amazonka.CloudDirectory.ListFacetAttributes
+import Amazonka.CloudDirectory.ListFacetNames
+import Amazonka.CloudDirectory.ListIncomingTypedLinks
+import Amazonka.CloudDirectory.ListIndex
+import Amazonka.CloudDirectory.ListManagedSchemaArns
+import Amazonka.CloudDirectory.ListObjectAttributes
+import Amazonka.CloudDirectory.ListObjectChildren
+import Amazonka.CloudDirectory.ListObjectParentPaths
+import Amazonka.CloudDirectory.ListObjectParents
+import Amazonka.CloudDirectory.ListObjectPolicies
+import Amazonka.CloudDirectory.ListOutgoingTypedLinks
+import Amazonka.CloudDirectory.ListPolicyAttachments
+import Amazonka.CloudDirectory.ListPublishedSchemaArns
+import Amazonka.CloudDirectory.ListTagsForResource
+import Amazonka.CloudDirectory.ListTypedLinkFacetAttributes
+import Amazonka.CloudDirectory.ListTypedLinkFacetNames
+import Amazonka.CloudDirectory.LookupPolicy
+import Amazonka.CloudDirectory.PublishSchema
+import Amazonka.CloudDirectory.PutSchemaFromJson
+import Amazonka.CloudDirectory.RemoveFacetFromObject
+import Amazonka.CloudDirectory.TagResource
+import Amazonka.CloudDirectory.Types
+import Amazonka.CloudDirectory.UntagResource
+import Amazonka.CloudDirectory.UpdateFacet
+import Amazonka.CloudDirectory.UpdateLinkAttributes
+import Amazonka.CloudDirectory.UpdateObjectAttributes
+import Amazonka.CloudDirectory.UpdateSchema
+import Amazonka.CloudDirectory.UpdateTypedLinkFacet
+import Amazonka.CloudDirectory.UpgradeAppliedSchema
+import Amazonka.CloudDirectory.UpgradePublishedSchema
+import Amazonka.CloudDirectory.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

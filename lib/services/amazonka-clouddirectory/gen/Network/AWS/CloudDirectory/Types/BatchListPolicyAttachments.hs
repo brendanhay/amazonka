@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
+-- Module      : Amazonka.CloudDirectory.Types.BatchListPolicyAttachments
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments where
+module Amazonka.CloudDirectory.Types.BatchListPolicyAttachments where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.ObjectReference
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is
 -- attached inside a BatchRead operation. For more information, see

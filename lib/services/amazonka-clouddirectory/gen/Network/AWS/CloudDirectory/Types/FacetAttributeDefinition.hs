@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
+-- Module      : Amazonka.CloudDirectory.Types.FacetAttributeDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.FacetAttributeDefinition where
+module Amazonka.CloudDirectory.Types.FacetAttributeDefinition where
 
-import Network.AWS.CloudDirectory.Types.FacetAttributeType
-import Network.AWS.CloudDirectory.Types.Rule
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.FacetAttributeType
+import Amazonka.CloudDirectory.Types.Rule
+import Amazonka.CloudDirectory.Types.TypedAttributeValue
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A facet attribute definition. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>

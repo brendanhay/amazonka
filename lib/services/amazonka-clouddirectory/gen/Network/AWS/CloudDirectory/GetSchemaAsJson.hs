@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.GetSchemaAsJson
+-- Module      : Amazonka.CloudDirectory.GetSchemaAsJson
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves a JSON representation of the schema. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format>
 -- for more information.
-module Network.AWS.CloudDirectory.GetSchemaAsJson
+module Amazonka.CloudDirectory.GetSchemaAsJson
   ( -- * Creating a Request
     GetSchemaAsJson (..),
     newGetSchemaAsJson,
@@ -42,12 +42,12 @@ module Network.AWS.CloudDirectory.GetSchemaAsJson
   )
 where
 
-import Network.AWS.CloudDirectory.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudDirectory.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSchemaAsJson' smart constructor.
 data GetSchemaAsJson = GetSchemaAsJson'

@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.BatchReadOperation
+-- Module      : Amazonka.CloudDirectory.Types.BatchReadOperation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchReadOperation where
+module Amazonka.CloudDirectory.Types.BatchReadOperation where
 
-import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
-import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
-import Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
-import Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
-import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
-import Network.AWS.CloudDirectory.Types.BatchListIndex
-import Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
-import Network.AWS.CloudDirectory.Types.BatchListObjectChildren
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
-import Network.AWS.CloudDirectory.Types.BatchListObjectParents
-import Network.AWS.CloudDirectory.Types.BatchListObjectPolicies
-import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
-import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
-import Network.AWS.CloudDirectory.Types.BatchLookupPolicy
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.BatchGetLinkAttributes
+import Amazonka.CloudDirectory.Types.BatchGetObjectAttributes
+import Amazonka.CloudDirectory.Types.BatchGetObjectInformation
+import Amazonka.CloudDirectory.Types.BatchListAttachedIndices
+import Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinks
+import Amazonka.CloudDirectory.Types.BatchListIndex
+import Amazonka.CloudDirectory.Types.BatchListObjectAttributes
+import Amazonka.CloudDirectory.Types.BatchListObjectChildren
+import Amazonka.CloudDirectory.Types.BatchListObjectParentPaths
+import Amazonka.CloudDirectory.Types.BatchListObjectParents
+import Amazonka.CloudDirectory.Types.BatchListObjectPolicies
+import Amazonka.CloudDirectory.Types.BatchListOutgoingTypedLinks
+import Amazonka.CloudDirectory.Types.BatchListPolicyAttachments
+import Amazonka.CloudDirectory.Types.BatchLookupPolicy
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ operation.
 --

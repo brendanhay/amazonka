@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
+-- Module      : Amazonka.CloudDirectory.GetTypedLinkFacetInformation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the identity attribute order for a specific TypedLinkFacet. For
 -- more information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-module Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
+module Amazonka.CloudDirectory.GetTypedLinkFacetInformation
   ( -- * Creating a Request
     GetTypedLinkFacetInformation (..),
     newGetTypedLinkFacetInformation,
@@ -42,12 +42,12 @@ module Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
   )
 where
 
-import Network.AWS.CloudDirectory.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudDirectory.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTypedLinkFacetInformation' smart constructor.
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'

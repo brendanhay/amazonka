@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
+-- Module      : Amazonka.CloudDirectory.Types.BatchReadSuccessfulResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse where
+module Amazonka.CloudDirectory.Types.BatchReadSuccessfulResponse where
 
-import Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
-import Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
-import Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListIndexResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
-import Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
-import Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
-import Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
-import Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudDirectory.Types.BatchGetLinkAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchGetObjectAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchGetObjectInformationResponse
+import Amazonka.CloudDirectory.Types.BatchListAttachedIndicesResponse
+import Amazonka.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
+import Amazonka.CloudDirectory.Types.BatchListIndexResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectAttributesResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectChildrenResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectParentPathsResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectParentsResponse
+import Amazonka.CloudDirectory.Types.BatchListObjectPoliciesResponse
+import Amazonka.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
+import Amazonka.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
+import Amazonka.CloudDirectory.Types.BatchLookupPolicyResponse
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ success response operation.
 --

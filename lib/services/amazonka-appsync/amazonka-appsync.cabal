@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AppSync.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AppSync.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AppSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AppSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,95 +45,95 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AppSync
-    Network.AWS.AppSync.CreateApiCache
-    Network.AWS.AppSync.CreateApiKey
-    Network.AWS.AppSync.CreateDataSource
-    Network.AWS.AppSync.CreateFunction
-    Network.AWS.AppSync.CreateGraphqlApi
-    Network.AWS.AppSync.CreateResolver
-    Network.AWS.AppSync.CreateType
-    Network.AWS.AppSync.DeleteApiCache
-    Network.AWS.AppSync.DeleteApiKey
-    Network.AWS.AppSync.DeleteDataSource
-    Network.AWS.AppSync.DeleteFunction
-    Network.AWS.AppSync.DeleteGraphqlApi
-    Network.AWS.AppSync.DeleteResolver
-    Network.AWS.AppSync.DeleteType
-    Network.AWS.AppSync.FlushApiCache
-    Network.AWS.AppSync.GetApiCache
-    Network.AWS.AppSync.GetDataSource
-    Network.AWS.AppSync.GetFunction
-    Network.AWS.AppSync.GetGraphqlApi
-    Network.AWS.AppSync.GetIntrospectionSchema
-    Network.AWS.AppSync.GetResolver
-    Network.AWS.AppSync.GetSchemaCreationStatus
-    Network.AWS.AppSync.GetType
-    Network.AWS.AppSync.Lens
-    Network.AWS.AppSync.ListApiKeys
-    Network.AWS.AppSync.ListDataSources
-    Network.AWS.AppSync.ListFunctions
-    Network.AWS.AppSync.ListGraphqlApis
-    Network.AWS.AppSync.ListResolvers
-    Network.AWS.AppSync.ListResolversByFunction
-    Network.AWS.AppSync.ListTagsForResource
-    Network.AWS.AppSync.ListTypes
-    Network.AWS.AppSync.StartSchemaCreation
-    Network.AWS.AppSync.TagResource
-    Network.AWS.AppSync.Types
-    Network.AWS.AppSync.Types.AdditionalAuthenticationProvider
-    Network.AWS.AppSync.Types.ApiCache
-    Network.AWS.AppSync.Types.ApiCacheStatus
-    Network.AWS.AppSync.Types.ApiCacheType
-    Network.AWS.AppSync.Types.ApiCachingBehavior
-    Network.AWS.AppSync.Types.ApiKey
-    Network.AWS.AppSync.Types.AuthenticationType
-    Network.AWS.AppSync.Types.AuthorizationConfig
-    Network.AWS.AppSync.Types.AuthorizationType
-    Network.AWS.AppSync.Types.AwsIamConfig
-    Network.AWS.AppSync.Types.CachingConfig
-    Network.AWS.AppSync.Types.CognitoUserPoolConfig
-    Network.AWS.AppSync.Types.ConflictDetectionType
-    Network.AWS.AppSync.Types.ConflictHandlerType
-    Network.AWS.AppSync.Types.DataSource
-    Network.AWS.AppSync.Types.DataSourceType
-    Network.AWS.AppSync.Types.DefaultAction
-    Network.AWS.AppSync.Types.DeltaSyncConfig
-    Network.AWS.AppSync.Types.DynamodbDataSourceConfig
-    Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
-    Network.AWS.AppSync.Types.FieldLogLevel
-    Network.AWS.AppSync.Types.FunctionConfiguration
-    Network.AWS.AppSync.Types.GraphqlApi
-    Network.AWS.AppSync.Types.HttpDataSourceConfig
-    Network.AWS.AppSync.Types.LambdaAuthorizerConfig
-    Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
-    Network.AWS.AppSync.Types.LambdaDataSourceConfig
-    Network.AWS.AppSync.Types.LogConfig
-    Network.AWS.AppSync.Types.OpenIDConnectConfig
-    Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
-    Network.AWS.AppSync.Types.OutputType
-    Network.AWS.AppSync.Types.PipelineConfig
-    Network.AWS.AppSync.Types.RdsHttpEndpointConfig
-    Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
-    Network.AWS.AppSync.Types.RelationalDatabaseSourceType
-    Network.AWS.AppSync.Types.Resolver
-    Network.AWS.AppSync.Types.ResolverKind
-    Network.AWS.AppSync.Types.SchemaStatus
-    Network.AWS.AppSync.Types.SyncConfig
-    Network.AWS.AppSync.Types.Type
-    Network.AWS.AppSync.Types.TypeDefinitionFormat
-    Network.AWS.AppSync.Types.UserPoolConfig
-    Network.AWS.AppSync.UntagResource
-    Network.AWS.AppSync.UpdateApiCache
-    Network.AWS.AppSync.UpdateApiKey
-    Network.AWS.AppSync.UpdateDataSource
-    Network.AWS.AppSync.UpdateFunction
-    Network.AWS.AppSync.UpdateGraphqlApi
-    Network.AWS.AppSync.UpdateResolver
-    Network.AWS.AppSync.UpdateType
-    Network.AWS.AppSync.Waiters
+    Amazonka.AppSync
+    Amazonka.AppSync.CreateApiCache
+    Amazonka.AppSync.CreateApiKey
+    Amazonka.AppSync.CreateDataSource
+    Amazonka.AppSync.CreateFunction
+    Amazonka.AppSync.CreateGraphqlApi
+    Amazonka.AppSync.CreateResolver
+    Amazonka.AppSync.CreateType
+    Amazonka.AppSync.DeleteApiCache
+    Amazonka.AppSync.DeleteApiKey
+    Amazonka.AppSync.DeleteDataSource
+    Amazonka.AppSync.DeleteFunction
+    Amazonka.AppSync.DeleteGraphqlApi
+    Amazonka.AppSync.DeleteResolver
+    Amazonka.AppSync.DeleteType
+    Amazonka.AppSync.FlushApiCache
+    Amazonka.AppSync.GetApiCache
+    Amazonka.AppSync.GetDataSource
+    Amazonka.AppSync.GetFunction
+    Amazonka.AppSync.GetGraphqlApi
+    Amazonka.AppSync.GetIntrospectionSchema
+    Amazonka.AppSync.GetResolver
+    Amazonka.AppSync.GetSchemaCreationStatus
+    Amazonka.AppSync.GetType
+    Amazonka.AppSync.Lens
+    Amazonka.AppSync.ListApiKeys
+    Amazonka.AppSync.ListDataSources
+    Amazonka.AppSync.ListFunctions
+    Amazonka.AppSync.ListGraphqlApis
+    Amazonka.AppSync.ListResolvers
+    Amazonka.AppSync.ListResolversByFunction
+    Amazonka.AppSync.ListTagsForResource
+    Amazonka.AppSync.ListTypes
+    Amazonka.AppSync.StartSchemaCreation
+    Amazonka.AppSync.TagResource
+    Amazonka.AppSync.Types
+    Amazonka.AppSync.Types.AdditionalAuthenticationProvider
+    Amazonka.AppSync.Types.ApiCache
+    Amazonka.AppSync.Types.ApiCacheStatus
+    Amazonka.AppSync.Types.ApiCacheType
+    Amazonka.AppSync.Types.ApiCachingBehavior
+    Amazonka.AppSync.Types.ApiKey
+    Amazonka.AppSync.Types.AuthenticationType
+    Amazonka.AppSync.Types.AuthorizationConfig
+    Amazonka.AppSync.Types.AuthorizationType
+    Amazonka.AppSync.Types.AwsIamConfig
+    Amazonka.AppSync.Types.CachingConfig
+    Amazonka.AppSync.Types.CognitoUserPoolConfig
+    Amazonka.AppSync.Types.ConflictDetectionType
+    Amazonka.AppSync.Types.ConflictHandlerType
+    Amazonka.AppSync.Types.DataSource
+    Amazonka.AppSync.Types.DataSourceType
+    Amazonka.AppSync.Types.DefaultAction
+    Amazonka.AppSync.Types.DeltaSyncConfig
+    Amazonka.AppSync.Types.DynamodbDataSourceConfig
+    Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
+    Amazonka.AppSync.Types.FieldLogLevel
+    Amazonka.AppSync.Types.FunctionConfiguration
+    Amazonka.AppSync.Types.GraphqlApi
+    Amazonka.AppSync.Types.HttpDataSourceConfig
+    Amazonka.AppSync.Types.LambdaAuthorizerConfig
+    Amazonka.AppSync.Types.LambdaConflictHandlerConfig
+    Amazonka.AppSync.Types.LambdaDataSourceConfig
+    Amazonka.AppSync.Types.LogConfig
+    Amazonka.AppSync.Types.OpenIDConnectConfig
+    Amazonka.AppSync.Types.OpenSearchServiceDataSourceConfig
+    Amazonka.AppSync.Types.OutputType
+    Amazonka.AppSync.Types.PipelineConfig
+    Amazonka.AppSync.Types.RdsHttpEndpointConfig
+    Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
+    Amazonka.AppSync.Types.RelationalDatabaseSourceType
+    Amazonka.AppSync.Types.Resolver
+    Amazonka.AppSync.Types.ResolverKind
+    Amazonka.AppSync.Types.SchemaStatus
+    Amazonka.AppSync.Types.SyncConfig
+    Amazonka.AppSync.Types.Type
+    Amazonka.AppSync.Types.TypeDefinitionFormat
+    Amazonka.AppSync.Types.UserPoolConfig
+    Amazonka.AppSync.UntagResource
+    Amazonka.AppSync.UpdateApiCache
+    Amazonka.AppSync.UpdateApiKey
+    Amazonka.AppSync.UpdateDataSource
+    Amazonka.AppSync.UpdateFunction
+    Amazonka.AppSync.UpdateGraphqlApi
+    Amazonka.AppSync.UpdateResolver
+    Amazonka.AppSync.UpdateType
+    Amazonka.AppSync.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

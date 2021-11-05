@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppSync.Types.HttpDataSourceConfig
+-- Module      : Amazonka.AppSync.Types.HttpDataSourceConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.HttpDataSourceConfig where
+module Amazonka.AppSync.Types.HttpDataSourceConfig where
 
-import Network.AWS.AppSync.Types.AuthorizationConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppSync.Types.AuthorizationConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an HTTP data source configuration.
 --

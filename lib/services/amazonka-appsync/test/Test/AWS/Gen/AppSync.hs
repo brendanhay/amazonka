@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppSync where
 
+import Amazonka.AppSync
 import qualified Data.Proxy as Proxy
-import Network.AWS.AppSync
 import Test.AWS.AppSync.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

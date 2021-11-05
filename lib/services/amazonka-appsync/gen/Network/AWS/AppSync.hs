@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppSync
+-- Module      : Amazonka.AppSync
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- AppSync provides API actions for creating and interacting with data
 -- sources using GraphQL from your application.
-module Network.AWS.AppSync
+module Amazonka.AppSync
   ( -- * Service Configuration
     defaultService,
 
@@ -462,50 +462,50 @@ module Network.AWS.AppSync
   )
 where
 
-import Network.AWS.AppSync.CreateApiCache
-import Network.AWS.AppSync.CreateApiKey
-import Network.AWS.AppSync.CreateDataSource
-import Network.AWS.AppSync.CreateFunction
-import Network.AWS.AppSync.CreateGraphqlApi
-import Network.AWS.AppSync.CreateResolver
-import Network.AWS.AppSync.CreateType
-import Network.AWS.AppSync.DeleteApiCache
-import Network.AWS.AppSync.DeleteApiKey
-import Network.AWS.AppSync.DeleteDataSource
-import Network.AWS.AppSync.DeleteFunction
-import Network.AWS.AppSync.DeleteGraphqlApi
-import Network.AWS.AppSync.DeleteResolver
-import Network.AWS.AppSync.DeleteType
-import Network.AWS.AppSync.FlushApiCache
-import Network.AWS.AppSync.GetApiCache
-import Network.AWS.AppSync.GetDataSource
-import Network.AWS.AppSync.GetFunction
-import Network.AWS.AppSync.GetGraphqlApi
-import Network.AWS.AppSync.GetIntrospectionSchema
-import Network.AWS.AppSync.GetResolver
-import Network.AWS.AppSync.GetSchemaCreationStatus
-import Network.AWS.AppSync.GetType
-import Network.AWS.AppSync.Lens
-import Network.AWS.AppSync.ListApiKeys
-import Network.AWS.AppSync.ListDataSources
-import Network.AWS.AppSync.ListFunctions
-import Network.AWS.AppSync.ListGraphqlApis
-import Network.AWS.AppSync.ListResolvers
-import Network.AWS.AppSync.ListResolversByFunction
-import Network.AWS.AppSync.ListTagsForResource
-import Network.AWS.AppSync.ListTypes
-import Network.AWS.AppSync.StartSchemaCreation
-import Network.AWS.AppSync.TagResource
-import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.UntagResource
-import Network.AWS.AppSync.UpdateApiCache
-import Network.AWS.AppSync.UpdateApiKey
-import Network.AWS.AppSync.UpdateDataSource
-import Network.AWS.AppSync.UpdateFunction
-import Network.AWS.AppSync.UpdateGraphqlApi
-import Network.AWS.AppSync.UpdateResolver
-import Network.AWS.AppSync.UpdateType
-import Network.AWS.AppSync.Waiters
+import Amazonka.AppSync.CreateApiCache
+import Amazonka.AppSync.CreateApiKey
+import Amazonka.AppSync.CreateDataSource
+import Amazonka.AppSync.CreateFunction
+import Amazonka.AppSync.CreateGraphqlApi
+import Amazonka.AppSync.CreateResolver
+import Amazonka.AppSync.CreateType
+import Amazonka.AppSync.DeleteApiCache
+import Amazonka.AppSync.DeleteApiKey
+import Amazonka.AppSync.DeleteDataSource
+import Amazonka.AppSync.DeleteFunction
+import Amazonka.AppSync.DeleteGraphqlApi
+import Amazonka.AppSync.DeleteResolver
+import Amazonka.AppSync.DeleteType
+import Amazonka.AppSync.FlushApiCache
+import Amazonka.AppSync.GetApiCache
+import Amazonka.AppSync.GetDataSource
+import Amazonka.AppSync.GetFunction
+import Amazonka.AppSync.GetGraphqlApi
+import Amazonka.AppSync.GetIntrospectionSchema
+import Amazonka.AppSync.GetResolver
+import Amazonka.AppSync.GetSchemaCreationStatus
+import Amazonka.AppSync.GetType
+import Amazonka.AppSync.Lens
+import Amazonka.AppSync.ListApiKeys
+import Amazonka.AppSync.ListDataSources
+import Amazonka.AppSync.ListFunctions
+import Amazonka.AppSync.ListGraphqlApis
+import Amazonka.AppSync.ListResolvers
+import Amazonka.AppSync.ListResolversByFunction
+import Amazonka.AppSync.ListTagsForResource
+import Amazonka.AppSync.ListTypes
+import Amazonka.AppSync.StartSchemaCreation
+import Amazonka.AppSync.TagResource
+import Amazonka.AppSync.Types
+import Amazonka.AppSync.UntagResource
+import Amazonka.AppSync.UpdateApiCache
+import Amazonka.AppSync.UpdateApiKey
+import Amazonka.AppSync.UpdateDataSource
+import Amazonka.AppSync.UpdateFunction
+import Amazonka.AppSync.UpdateGraphqlApi
+import Amazonka.AppSync.UpdateResolver
+import Amazonka.AppSync.UpdateType
+import Amazonka.AppSync.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

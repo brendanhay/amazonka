@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppSync.Types
+-- Module      : Amazonka.AppSync.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types
+module Amazonka.AppSync.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -296,52 +296,52 @@ module Network.AWS.AppSync.Types
   )
 where
 
-import Network.AWS.AppSync.Types.AdditionalAuthenticationProvider
-import Network.AWS.AppSync.Types.ApiCache
-import Network.AWS.AppSync.Types.ApiCacheStatus
-import Network.AWS.AppSync.Types.ApiCacheType
-import Network.AWS.AppSync.Types.ApiCachingBehavior
-import Network.AWS.AppSync.Types.ApiKey
-import Network.AWS.AppSync.Types.AuthenticationType
-import Network.AWS.AppSync.Types.AuthorizationConfig
-import Network.AWS.AppSync.Types.AuthorizationType
-import Network.AWS.AppSync.Types.AwsIamConfig
-import Network.AWS.AppSync.Types.CachingConfig
-import Network.AWS.AppSync.Types.CognitoUserPoolConfig
-import Network.AWS.AppSync.Types.ConflictDetectionType
-import Network.AWS.AppSync.Types.ConflictHandlerType
-import Network.AWS.AppSync.Types.DataSource
-import Network.AWS.AppSync.Types.DataSourceType
-import Network.AWS.AppSync.Types.DefaultAction
-import Network.AWS.AppSync.Types.DeltaSyncConfig
-import Network.AWS.AppSync.Types.DynamodbDataSourceConfig
-import Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
-import Network.AWS.AppSync.Types.FieldLogLevel
-import Network.AWS.AppSync.Types.FunctionConfiguration
-import Network.AWS.AppSync.Types.GraphqlApi
-import Network.AWS.AppSync.Types.HttpDataSourceConfig
-import Network.AWS.AppSync.Types.LambdaAuthorizerConfig
-import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
-import Network.AWS.AppSync.Types.LambdaDataSourceConfig
-import Network.AWS.AppSync.Types.LogConfig
-import Network.AWS.AppSync.Types.OpenIDConnectConfig
-import Network.AWS.AppSync.Types.OpenSearchServiceDataSourceConfig
-import Network.AWS.AppSync.Types.OutputType
-import Network.AWS.AppSync.Types.PipelineConfig
-import Network.AWS.AppSync.Types.RdsHttpEndpointConfig
-import Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
-import Network.AWS.AppSync.Types.RelationalDatabaseSourceType
-import Network.AWS.AppSync.Types.Resolver
-import Network.AWS.AppSync.Types.ResolverKind
-import Network.AWS.AppSync.Types.SchemaStatus
-import Network.AWS.AppSync.Types.SyncConfig
-import Network.AWS.AppSync.Types.Type
-import Network.AWS.AppSync.Types.TypeDefinitionFormat
-import Network.AWS.AppSync.Types.UserPoolConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AppSync.Types.AdditionalAuthenticationProvider
+import Amazonka.AppSync.Types.ApiCache
+import Amazonka.AppSync.Types.ApiCacheStatus
+import Amazonka.AppSync.Types.ApiCacheType
+import Amazonka.AppSync.Types.ApiCachingBehavior
+import Amazonka.AppSync.Types.ApiKey
+import Amazonka.AppSync.Types.AuthenticationType
+import Amazonka.AppSync.Types.AuthorizationConfig
+import Amazonka.AppSync.Types.AuthorizationType
+import Amazonka.AppSync.Types.AwsIamConfig
+import Amazonka.AppSync.Types.CachingConfig
+import Amazonka.AppSync.Types.CognitoUserPoolConfig
+import Amazonka.AppSync.Types.ConflictDetectionType
+import Amazonka.AppSync.Types.ConflictHandlerType
+import Amazonka.AppSync.Types.DataSource
+import Amazonka.AppSync.Types.DataSourceType
+import Amazonka.AppSync.Types.DefaultAction
+import Amazonka.AppSync.Types.DeltaSyncConfig
+import Amazonka.AppSync.Types.DynamodbDataSourceConfig
+import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
+import Amazonka.AppSync.Types.FieldLogLevel
+import Amazonka.AppSync.Types.FunctionConfiguration
+import Amazonka.AppSync.Types.GraphqlApi
+import Amazonka.AppSync.Types.HttpDataSourceConfig
+import Amazonka.AppSync.Types.LambdaAuthorizerConfig
+import Amazonka.AppSync.Types.LambdaConflictHandlerConfig
+import Amazonka.AppSync.Types.LambdaDataSourceConfig
+import Amazonka.AppSync.Types.LogConfig
+import Amazonka.AppSync.Types.OpenIDConnectConfig
+import Amazonka.AppSync.Types.OpenSearchServiceDataSourceConfig
+import Amazonka.AppSync.Types.OutputType
+import Amazonka.AppSync.Types.PipelineConfig
+import Amazonka.AppSync.Types.RdsHttpEndpointConfig
+import Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
+import Amazonka.AppSync.Types.RelationalDatabaseSourceType
+import Amazonka.AppSync.Types.Resolver
+import Amazonka.AppSync.Types.ResolverKind
+import Amazonka.AppSync.Types.SchemaStatus
+import Amazonka.AppSync.Types.SyncConfig
+import Amazonka.AppSync.Types.Type
+import Amazonka.AppSync.Types.TypeDefinitionFormat
+import Amazonka.AppSync.Types.UserPoolConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon AppSync SDK configuration.
 defaultService :: Core.Service

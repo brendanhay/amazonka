@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppSync.Types.ApiCacheStatus
+-- Module      : Amazonka.AppSync.Types.ApiCacheStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.ApiCacheStatus
+module Amazonka.AppSync.Types.ApiCacheStatus
   ( ApiCacheStatus
       ( ..,
         ApiCacheStatus_AVAILABLE,
@@ -29,8 +29,8 @@ module Network.AWS.AppSync.Types.ApiCacheStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ApiCacheStatus = ApiCacheStatus'
   { fromApiCacheStatus ::

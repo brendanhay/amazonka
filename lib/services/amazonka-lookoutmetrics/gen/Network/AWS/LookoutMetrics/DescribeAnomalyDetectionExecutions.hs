@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
+-- Module      : Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns information about the status of the specified anomaly detection
 -- jobs.
-module Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
+module Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
   ( -- * Creating a Request
     DescribeAnomalyDetectionExecutions (..),
     newDescribeAnomalyDetectionExecutions,
@@ -44,12 +44,12 @@ module Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAnomalyDetectionExecutions' smart constructor.
 data DescribeAnomalyDetectionExecutions = DescribeAnomalyDetectionExecutions'

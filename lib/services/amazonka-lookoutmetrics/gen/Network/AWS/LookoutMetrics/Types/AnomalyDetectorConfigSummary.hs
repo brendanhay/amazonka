@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+-- Module      : Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary where
+module Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.Frequency
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.Frequency
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a detector\'s configuration.
 --

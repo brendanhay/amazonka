@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Lens
+-- Module      : Amazonka.LookoutMetrics.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Lens
+module Amazonka.LookoutMetrics.Lens
   ( -- * Operations
 
     -- ** GetFeedback
@@ -420,64 +420,64 @@ module Network.AWS.LookoutMetrics.Lens
   )
 where
 
-import Network.AWS.LookoutMetrics.ActivateAnomalyDetector
-import Network.AWS.LookoutMetrics.BackTestAnomalyDetector
-import Network.AWS.LookoutMetrics.CreateAlert
-import Network.AWS.LookoutMetrics.CreateAnomalyDetector
-import Network.AWS.LookoutMetrics.CreateMetricSet
-import Network.AWS.LookoutMetrics.DeleteAlert
-import Network.AWS.LookoutMetrics.DeleteAnomalyDetector
-import Network.AWS.LookoutMetrics.DescribeAlert
-import Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
-import Network.AWS.LookoutMetrics.DescribeAnomalyDetector
-import Network.AWS.LookoutMetrics.DescribeMetricSet
-import Network.AWS.LookoutMetrics.GetAnomalyGroup
-import Network.AWS.LookoutMetrics.GetFeedback
-import Network.AWS.LookoutMetrics.GetSampleData
-import Network.AWS.LookoutMetrics.ListAlerts
-import Network.AWS.LookoutMetrics.ListAnomalyDetectors
-import Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries
-import Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries
-import Network.AWS.LookoutMetrics.ListMetricSets
-import Network.AWS.LookoutMetrics.ListTagsForResource
-import Network.AWS.LookoutMetrics.PutFeedback
-import Network.AWS.LookoutMetrics.TagResource
-import Network.AWS.LookoutMetrics.Types.Action
-import Network.AWS.LookoutMetrics.Types.Alert
-import Network.AWS.LookoutMetrics.Types.AlertSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyGroup
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
-import Network.AWS.LookoutMetrics.Types.AppFlowConfig
-import Network.AWS.LookoutMetrics.Types.CloudWatchConfig
-import Network.AWS.LookoutMetrics.Types.ContributionMatrix
-import Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.DimensionContribution
-import Network.AWS.LookoutMetrics.Types.DimensionNameValue
-import Network.AWS.LookoutMetrics.Types.DimensionValueContribution
-import Network.AWS.LookoutMetrics.Types.ExecutionStatus
-import Network.AWS.LookoutMetrics.Types.FileFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.ItemizedMetricStats
-import Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.LambdaConfiguration
-import Network.AWS.LookoutMetrics.Types.Metric
-import Network.AWS.LookoutMetrics.Types.MetricLevelImpact
-import Network.AWS.LookoutMetrics.Types.MetricSetSummary
-import Network.AWS.LookoutMetrics.Types.MetricSource
-import Network.AWS.LookoutMetrics.Types.RDSSourceConfig
-import Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig
-import Network.AWS.LookoutMetrics.Types.S3SourceConfig
-import Network.AWS.LookoutMetrics.Types.SNSConfiguration
-import Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig
-import Network.AWS.LookoutMetrics.Types.TimeSeries
-import Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback
-import Network.AWS.LookoutMetrics.Types.TimestampColumn
-import Network.AWS.LookoutMetrics.Types.VpcConfiguration
-import Network.AWS.LookoutMetrics.UntagResource
-import Network.AWS.LookoutMetrics.UpdateAnomalyDetector
-import Network.AWS.LookoutMetrics.UpdateMetricSet
+import Amazonka.LookoutMetrics.ActivateAnomalyDetector
+import Amazonka.LookoutMetrics.BackTestAnomalyDetector
+import Amazonka.LookoutMetrics.CreateAlert
+import Amazonka.LookoutMetrics.CreateAnomalyDetector
+import Amazonka.LookoutMetrics.CreateMetricSet
+import Amazonka.LookoutMetrics.DeleteAlert
+import Amazonka.LookoutMetrics.DeleteAnomalyDetector
+import Amazonka.LookoutMetrics.DescribeAlert
+import Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
+import Amazonka.LookoutMetrics.DescribeAnomalyDetector
+import Amazonka.LookoutMetrics.DescribeMetricSet
+import Amazonka.LookoutMetrics.GetAnomalyGroup
+import Amazonka.LookoutMetrics.GetFeedback
+import Amazonka.LookoutMetrics.GetSampleData
+import Amazonka.LookoutMetrics.ListAlerts
+import Amazonka.LookoutMetrics.ListAnomalyDetectors
+import Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
+import Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
+import Amazonka.LookoutMetrics.ListMetricSets
+import Amazonka.LookoutMetrics.ListTagsForResource
+import Amazonka.LookoutMetrics.PutFeedback
+import Amazonka.LookoutMetrics.TagResource
+import Amazonka.LookoutMetrics.Types.Action
+import Amazonka.LookoutMetrics.Types.Alert
+import Amazonka.LookoutMetrics.Types.AlertSummary
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
+import Amazonka.LookoutMetrics.Types.AnomalyGroup
+import Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics
+import Amazonka.LookoutMetrics.Types.AnomalyGroupSummary
+import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
+import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
+import Amazonka.LookoutMetrics.Types.AppFlowConfig
+import Amazonka.LookoutMetrics.Types.CloudWatchConfig
+import Amazonka.LookoutMetrics.Types.ContributionMatrix
+import Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DimensionContribution
+import Amazonka.LookoutMetrics.Types.DimensionNameValue
+import Amazonka.LookoutMetrics.Types.DimensionValueContribution
+import Amazonka.LookoutMetrics.Types.ExecutionStatus
+import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
+import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
+import Amazonka.LookoutMetrics.Types.LambdaConfiguration
+import Amazonka.LookoutMetrics.Types.Metric
+import Amazonka.LookoutMetrics.Types.MetricLevelImpact
+import Amazonka.LookoutMetrics.Types.MetricSetSummary
+import Amazonka.LookoutMetrics.Types.MetricSource
+import Amazonka.LookoutMetrics.Types.RDSSourceConfig
+import Amazonka.LookoutMetrics.Types.RedshiftSourceConfig
+import Amazonka.LookoutMetrics.Types.S3SourceConfig
+import Amazonka.LookoutMetrics.Types.SNSConfiguration
+import Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig
+import Amazonka.LookoutMetrics.Types.TimeSeries
+import Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
+import Amazonka.LookoutMetrics.Types.TimestampColumn
+import Amazonka.LookoutMetrics.Types.VpcConfiguration
+import Amazonka.LookoutMetrics.UntagResource
+import Amazonka.LookoutMetrics.UpdateAnomalyDetector
+import Amazonka.LookoutMetrics.UpdateMetricSet

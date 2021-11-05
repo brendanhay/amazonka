@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LookoutMetrics
+-- Module      : Amazonka.LookoutMetrics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- This is the /Amazon Lookout for Metrics API Reference/. For an
 -- introduction to the service with tutorials for getting started, visit
 -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev Amazon Lookout for Metrics Developer Guide>.
-module Network.AWS.LookoutMetrics
+module Amazonka.LookoutMetrics
   ( -- * Service Configuration
     defaultService,
 
@@ -370,34 +370,34 @@ module Network.AWS.LookoutMetrics
   )
 where
 
-import Network.AWS.LookoutMetrics.ActivateAnomalyDetector
-import Network.AWS.LookoutMetrics.BackTestAnomalyDetector
-import Network.AWS.LookoutMetrics.CreateAlert
-import Network.AWS.LookoutMetrics.CreateAnomalyDetector
-import Network.AWS.LookoutMetrics.CreateMetricSet
-import Network.AWS.LookoutMetrics.DeleteAlert
-import Network.AWS.LookoutMetrics.DeleteAnomalyDetector
-import Network.AWS.LookoutMetrics.DescribeAlert
-import Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
-import Network.AWS.LookoutMetrics.DescribeAnomalyDetector
-import Network.AWS.LookoutMetrics.DescribeMetricSet
-import Network.AWS.LookoutMetrics.GetAnomalyGroup
-import Network.AWS.LookoutMetrics.GetFeedback
-import Network.AWS.LookoutMetrics.GetSampleData
-import Network.AWS.LookoutMetrics.Lens
-import Network.AWS.LookoutMetrics.ListAlerts
-import Network.AWS.LookoutMetrics.ListAnomalyDetectors
-import Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries
-import Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries
-import Network.AWS.LookoutMetrics.ListMetricSets
-import Network.AWS.LookoutMetrics.ListTagsForResource
-import Network.AWS.LookoutMetrics.PutFeedback
-import Network.AWS.LookoutMetrics.TagResource
-import Network.AWS.LookoutMetrics.Types
-import Network.AWS.LookoutMetrics.UntagResource
-import Network.AWS.LookoutMetrics.UpdateAnomalyDetector
-import Network.AWS.LookoutMetrics.UpdateMetricSet
-import Network.AWS.LookoutMetrics.Waiters
+import Amazonka.LookoutMetrics.ActivateAnomalyDetector
+import Amazonka.LookoutMetrics.BackTestAnomalyDetector
+import Amazonka.LookoutMetrics.CreateAlert
+import Amazonka.LookoutMetrics.CreateAnomalyDetector
+import Amazonka.LookoutMetrics.CreateMetricSet
+import Amazonka.LookoutMetrics.DeleteAlert
+import Amazonka.LookoutMetrics.DeleteAnomalyDetector
+import Amazonka.LookoutMetrics.DescribeAlert
+import Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
+import Amazonka.LookoutMetrics.DescribeAnomalyDetector
+import Amazonka.LookoutMetrics.DescribeMetricSet
+import Amazonka.LookoutMetrics.GetAnomalyGroup
+import Amazonka.LookoutMetrics.GetFeedback
+import Amazonka.LookoutMetrics.GetSampleData
+import Amazonka.LookoutMetrics.Lens
+import Amazonka.LookoutMetrics.ListAlerts
+import Amazonka.LookoutMetrics.ListAnomalyDetectors
+import Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
+import Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
+import Amazonka.LookoutMetrics.ListMetricSets
+import Amazonka.LookoutMetrics.ListTagsForResource
+import Amazonka.LookoutMetrics.PutFeedback
+import Amazonka.LookoutMetrics.TagResource
+import Amazonka.LookoutMetrics.Types
+import Amazonka.LookoutMetrics.UntagResource
+import Amazonka.LookoutMetrics.UpdateAnomalyDetector
+import Amazonka.LookoutMetrics.UpdateMetricSet
+import Amazonka.LookoutMetrics.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

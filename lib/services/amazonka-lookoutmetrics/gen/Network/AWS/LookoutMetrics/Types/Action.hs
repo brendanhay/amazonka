@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.Action
+-- Module      : Amazonka.LookoutMetrics.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.Action where
+module Amazonka.LookoutMetrics.Types.Action where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.LambdaConfiguration
-import Network.AWS.LookoutMetrics.Types.SNSConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.LambdaConfiguration
+import Amazonka.LookoutMetrics.Types.SNSConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration that specifies the action to perform when anomalies are
 -- detected.

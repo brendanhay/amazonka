@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.AnomalyGroup
+-- Module      : Amazonka.LookoutMetrics.Types.AnomalyGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.AnomalyGroup where
+module Amazonka.LookoutMetrics.Types.AnomalyGroup where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.MetricLevelImpact
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.MetricLevelImpact
+import qualified Amazonka.Prelude as Prelude
 
 -- | A group of anomalous metrics
 --

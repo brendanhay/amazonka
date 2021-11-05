@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LookoutMetrics where
 
+import Amazonka.LookoutMetrics
 import qualified Data.Proxy as Proxy
-import Network.AWS.LookoutMetrics
 import Test.AWS.Fixture
 import Test.AWS.LookoutMetrics.Internal
 import Test.AWS.Prelude

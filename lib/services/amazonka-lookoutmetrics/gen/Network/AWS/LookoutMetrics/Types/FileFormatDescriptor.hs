@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.FileFormatDescriptor
+-- Module      : Amazonka.LookoutMetrics.Types.FileFormatDescriptor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.FileFormatDescriptor where
+module Amazonka.LookoutMetrics.Types.FileFormatDescriptor where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a source file\'s formatting.
 --

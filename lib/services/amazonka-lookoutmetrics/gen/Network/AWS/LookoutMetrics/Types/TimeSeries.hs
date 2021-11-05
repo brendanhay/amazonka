@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.TimeSeries
+-- Module      : Amazonka.LookoutMetrics.Types.TimeSeries
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.TimeSeries where
+module Amazonka.LookoutMetrics.Types.TimeSeries where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.DimensionNameValue
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.DimensionNameValue
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a metric. A metric is an aggregation of the values of a
 -- measure for a dimension value, such as /availability/ in the /us-east-1/

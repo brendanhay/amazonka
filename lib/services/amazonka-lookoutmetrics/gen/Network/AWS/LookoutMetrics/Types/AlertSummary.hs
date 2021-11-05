@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types.AlertSummary
+-- Module      : Amazonka.LookoutMetrics.Types.AlertSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types.AlertSummary where
+module Amazonka.LookoutMetrics.Types.AlertSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.AlertStatus
-import Network.AWS.LookoutMetrics.Types.AlertType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.AlertStatus
+import Amazonka.LookoutMetrics.Types.AlertType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of an alert\'s configuration.
 --

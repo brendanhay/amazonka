@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutMetrics.Types
+-- Module      : Amazonka.LookoutMetrics.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutMetrics.Types
+module Amazonka.LookoutMetrics.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -324,54 +324,54 @@ module Network.AWS.LookoutMetrics.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutMetrics.Types.Action
-import Network.AWS.LookoutMetrics.Types.AggregationFunction
-import Network.AWS.LookoutMetrics.Types.Alert
-import Network.AWS.LookoutMetrics.Types.AlertStatus
-import Network.AWS.LookoutMetrics.Types.AlertSummary
-import Network.AWS.LookoutMetrics.Types.AlertType
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus
-import Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyGroup
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries
-import Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
-import Network.AWS.LookoutMetrics.Types.AppFlowConfig
-import Network.AWS.LookoutMetrics.Types.CSVFileCompression
-import Network.AWS.LookoutMetrics.Types.CloudWatchConfig
-import Network.AWS.LookoutMetrics.Types.ContributionMatrix
-import Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.DimensionContribution
-import Network.AWS.LookoutMetrics.Types.DimensionNameValue
-import Network.AWS.LookoutMetrics.Types.DimensionValueContribution
-import Network.AWS.LookoutMetrics.Types.ExecutionStatus
-import Network.AWS.LookoutMetrics.Types.FileFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.Frequency
-import Network.AWS.LookoutMetrics.Types.ItemizedMetricStats
-import Network.AWS.LookoutMetrics.Types.JsonFileCompression
-import Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor
-import Network.AWS.LookoutMetrics.Types.LambdaConfiguration
-import Network.AWS.LookoutMetrics.Types.Metric
-import Network.AWS.LookoutMetrics.Types.MetricLevelImpact
-import Network.AWS.LookoutMetrics.Types.MetricSetSummary
-import Network.AWS.LookoutMetrics.Types.MetricSource
-import Network.AWS.LookoutMetrics.Types.RDSSourceConfig
-import Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig
-import Network.AWS.LookoutMetrics.Types.S3SourceConfig
-import Network.AWS.LookoutMetrics.Types.SNSConfiguration
-import Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig
-import Network.AWS.LookoutMetrics.Types.TimeSeries
-import Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback
-import Network.AWS.LookoutMetrics.Types.TimestampColumn
-import Network.AWS.LookoutMetrics.Types.VpcConfiguration
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutMetrics.Types.Action
+import Amazonka.LookoutMetrics.Types.AggregationFunction
+import Amazonka.LookoutMetrics.Types.Alert
+import Amazonka.LookoutMetrics.Types.AlertStatus
+import Amazonka.LookoutMetrics.Types.AlertSummary
+import Amazonka.LookoutMetrics.Types.AlertType
+import Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
+import Amazonka.LookoutMetrics.Types.AnomalyGroup
+import Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics
+import Amazonka.LookoutMetrics.Types.AnomalyGroupSummary
+import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
+import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
+import Amazonka.LookoutMetrics.Types.AppFlowConfig
+import Amazonka.LookoutMetrics.Types.CSVFileCompression
+import Amazonka.LookoutMetrics.Types.CloudWatchConfig
+import Amazonka.LookoutMetrics.Types.ContributionMatrix
+import Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DimensionContribution
+import Amazonka.LookoutMetrics.Types.DimensionNameValue
+import Amazonka.LookoutMetrics.Types.DimensionValueContribution
+import Amazonka.LookoutMetrics.Types.ExecutionStatus
+import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.Frequency
+import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
+import Amazonka.LookoutMetrics.Types.JsonFileCompression
+import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
+import Amazonka.LookoutMetrics.Types.LambdaConfiguration
+import Amazonka.LookoutMetrics.Types.Metric
+import Amazonka.LookoutMetrics.Types.MetricLevelImpact
+import Amazonka.LookoutMetrics.Types.MetricSetSummary
+import Amazonka.LookoutMetrics.Types.MetricSource
+import Amazonka.LookoutMetrics.Types.RDSSourceConfig
+import Amazonka.LookoutMetrics.Types.RedshiftSourceConfig
+import Amazonka.LookoutMetrics.Types.S3SourceConfig
+import Amazonka.LookoutMetrics.Types.SNSConfiguration
+import Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig
+import Amazonka.LookoutMetrics.Types.TimeSeries
+import Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
+import Amazonka.LookoutMetrics.Types.TimestampColumn
+import Amazonka.LookoutMetrics.Types.VpcConfiguration
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Lookout for Metrics SDK configuration.
 defaultService :: Core.Service

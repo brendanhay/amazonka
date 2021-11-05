@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.RobOMaker
+-- Module      : Amazonka.RobOMaker
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- This section provides documentation for the AWS RoboMaker API
 -- operations.
-module Network.AWS.RobOMaker
+module Amazonka.RobOMaker
   ( -- * Service Configuration
     defaultService,
 
@@ -669,66 +669,66 @@ module Network.AWS.RobOMaker
   )
 where
 
-import Network.AWS.RobOMaker.BatchDeleteWorlds
-import Network.AWS.RobOMaker.BatchDescribeSimulationJob
-import Network.AWS.RobOMaker.CancelDeploymentJob
-import Network.AWS.RobOMaker.CancelSimulationJob
-import Network.AWS.RobOMaker.CancelSimulationJobBatch
-import Network.AWS.RobOMaker.CancelWorldExportJob
-import Network.AWS.RobOMaker.CancelWorldGenerationJob
-import Network.AWS.RobOMaker.CreateDeploymentJob
-import Network.AWS.RobOMaker.CreateFleet
-import Network.AWS.RobOMaker.CreateRobot
-import Network.AWS.RobOMaker.CreateRobotApplication
-import Network.AWS.RobOMaker.CreateRobotApplicationVersion
-import Network.AWS.RobOMaker.CreateSimulationApplication
-import Network.AWS.RobOMaker.CreateSimulationApplicationVersion
-import Network.AWS.RobOMaker.CreateSimulationJob
-import Network.AWS.RobOMaker.CreateWorldExportJob
-import Network.AWS.RobOMaker.CreateWorldGenerationJob
-import Network.AWS.RobOMaker.CreateWorldTemplate
-import Network.AWS.RobOMaker.DeleteFleet
-import Network.AWS.RobOMaker.DeleteRobot
-import Network.AWS.RobOMaker.DeleteRobotApplication
-import Network.AWS.RobOMaker.DeleteSimulationApplication
-import Network.AWS.RobOMaker.DeleteWorldTemplate
-import Network.AWS.RobOMaker.DeregisterRobot
-import Network.AWS.RobOMaker.DescribeDeploymentJob
-import Network.AWS.RobOMaker.DescribeFleet
-import Network.AWS.RobOMaker.DescribeRobot
-import Network.AWS.RobOMaker.DescribeRobotApplication
-import Network.AWS.RobOMaker.DescribeSimulationApplication
-import Network.AWS.RobOMaker.DescribeSimulationJob
-import Network.AWS.RobOMaker.DescribeSimulationJobBatch
-import Network.AWS.RobOMaker.DescribeWorld
-import Network.AWS.RobOMaker.DescribeWorldExportJob
-import Network.AWS.RobOMaker.DescribeWorldGenerationJob
-import Network.AWS.RobOMaker.DescribeWorldTemplate
-import Network.AWS.RobOMaker.GetWorldTemplateBody
-import Network.AWS.RobOMaker.Lens
-import Network.AWS.RobOMaker.ListDeploymentJobs
-import Network.AWS.RobOMaker.ListFleets
-import Network.AWS.RobOMaker.ListRobotApplications
-import Network.AWS.RobOMaker.ListRobots
-import Network.AWS.RobOMaker.ListSimulationApplications
-import Network.AWS.RobOMaker.ListSimulationJobBatches
-import Network.AWS.RobOMaker.ListSimulationJobs
-import Network.AWS.RobOMaker.ListTagsForResource
-import Network.AWS.RobOMaker.ListWorldExportJobs
-import Network.AWS.RobOMaker.ListWorldGenerationJobs
-import Network.AWS.RobOMaker.ListWorldTemplates
-import Network.AWS.RobOMaker.ListWorlds
-import Network.AWS.RobOMaker.RegisterRobot
-import Network.AWS.RobOMaker.RestartSimulationJob
-import Network.AWS.RobOMaker.StartSimulationJobBatch
-import Network.AWS.RobOMaker.SyncDeploymentJob
-import Network.AWS.RobOMaker.TagResource
-import Network.AWS.RobOMaker.Types
-import Network.AWS.RobOMaker.UntagResource
-import Network.AWS.RobOMaker.UpdateRobotApplication
-import Network.AWS.RobOMaker.UpdateSimulationApplication
-import Network.AWS.RobOMaker.UpdateWorldTemplate
-import Network.AWS.RobOMaker.Waiters
+import Amazonka.RobOMaker.BatchDeleteWorlds
+import Amazonka.RobOMaker.BatchDescribeSimulationJob
+import Amazonka.RobOMaker.CancelDeploymentJob
+import Amazonka.RobOMaker.CancelSimulationJob
+import Amazonka.RobOMaker.CancelSimulationJobBatch
+import Amazonka.RobOMaker.CancelWorldExportJob
+import Amazonka.RobOMaker.CancelWorldGenerationJob
+import Amazonka.RobOMaker.CreateDeploymentJob
+import Amazonka.RobOMaker.CreateFleet
+import Amazonka.RobOMaker.CreateRobot
+import Amazonka.RobOMaker.CreateRobotApplication
+import Amazonka.RobOMaker.CreateRobotApplicationVersion
+import Amazonka.RobOMaker.CreateSimulationApplication
+import Amazonka.RobOMaker.CreateSimulationApplicationVersion
+import Amazonka.RobOMaker.CreateSimulationJob
+import Amazonka.RobOMaker.CreateWorldExportJob
+import Amazonka.RobOMaker.CreateWorldGenerationJob
+import Amazonka.RobOMaker.CreateWorldTemplate
+import Amazonka.RobOMaker.DeleteFleet
+import Amazonka.RobOMaker.DeleteRobot
+import Amazonka.RobOMaker.DeleteRobotApplication
+import Amazonka.RobOMaker.DeleteSimulationApplication
+import Amazonka.RobOMaker.DeleteWorldTemplate
+import Amazonka.RobOMaker.DeregisterRobot
+import Amazonka.RobOMaker.DescribeDeploymentJob
+import Amazonka.RobOMaker.DescribeFleet
+import Amazonka.RobOMaker.DescribeRobot
+import Amazonka.RobOMaker.DescribeRobotApplication
+import Amazonka.RobOMaker.DescribeSimulationApplication
+import Amazonka.RobOMaker.DescribeSimulationJob
+import Amazonka.RobOMaker.DescribeSimulationJobBatch
+import Amazonka.RobOMaker.DescribeWorld
+import Amazonka.RobOMaker.DescribeWorldExportJob
+import Amazonka.RobOMaker.DescribeWorldGenerationJob
+import Amazonka.RobOMaker.DescribeWorldTemplate
+import Amazonka.RobOMaker.GetWorldTemplateBody
+import Amazonka.RobOMaker.Lens
+import Amazonka.RobOMaker.ListDeploymentJobs
+import Amazonka.RobOMaker.ListFleets
+import Amazonka.RobOMaker.ListRobotApplications
+import Amazonka.RobOMaker.ListRobots
+import Amazonka.RobOMaker.ListSimulationApplications
+import Amazonka.RobOMaker.ListSimulationJobBatches
+import Amazonka.RobOMaker.ListSimulationJobs
+import Amazonka.RobOMaker.ListTagsForResource
+import Amazonka.RobOMaker.ListWorldExportJobs
+import Amazonka.RobOMaker.ListWorldGenerationJobs
+import Amazonka.RobOMaker.ListWorldTemplates
+import Amazonka.RobOMaker.ListWorlds
+import Amazonka.RobOMaker.RegisterRobot
+import Amazonka.RobOMaker.RestartSimulationJob
+import Amazonka.RobOMaker.StartSimulationJobBatch
+import Amazonka.RobOMaker.SyncDeploymentJob
+import Amazonka.RobOMaker.TagResource
+import Amazonka.RobOMaker.Types
+import Amazonka.RobOMaker.UntagResource
+import Amazonka.RobOMaker.UpdateRobotApplication
+import Amazonka.RobOMaker.UpdateSimulationApplication
+import Amazonka.RobOMaker.UpdateWorldTemplate
+import Amazonka.RobOMaker.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

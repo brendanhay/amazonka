@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RobOMaker.Types.SimulationJob
+-- Module      : Amazonka.RobOMaker.Types.SimulationJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RobOMaker.Types.SimulationJob where
+module Amazonka.RobOMaker.Types.SimulationJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RobOMaker.Types.ComputeResponse
-import Network.AWS.RobOMaker.Types.DataSource
-import Network.AWS.RobOMaker.Types.FailureBehavior
-import Network.AWS.RobOMaker.Types.LoggingConfig
-import Network.AWS.RobOMaker.Types.NetworkInterface
-import Network.AWS.RobOMaker.Types.OutputLocation
-import Network.AWS.RobOMaker.Types.RobotApplicationConfig
-import Network.AWS.RobOMaker.Types.SimulationApplicationConfig
-import Network.AWS.RobOMaker.Types.SimulationJobErrorCode
-import Network.AWS.RobOMaker.Types.SimulationJobStatus
-import Network.AWS.RobOMaker.Types.VPCConfigResponse
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RobOMaker.Types.ComputeResponse
+import Amazonka.RobOMaker.Types.DataSource
+import Amazonka.RobOMaker.Types.FailureBehavior
+import Amazonka.RobOMaker.Types.LoggingConfig
+import Amazonka.RobOMaker.Types.NetworkInterface
+import Amazonka.RobOMaker.Types.OutputLocation
+import Amazonka.RobOMaker.Types.RobotApplicationConfig
+import Amazonka.RobOMaker.Types.SimulationApplicationConfig
+import Amazonka.RobOMaker.Types.SimulationJobErrorCode
+import Amazonka.RobOMaker.Types.SimulationJobStatus
+import Amazonka.RobOMaker.Types.VPCConfigResponse
 
 -- | Information about a simulation job.
 --

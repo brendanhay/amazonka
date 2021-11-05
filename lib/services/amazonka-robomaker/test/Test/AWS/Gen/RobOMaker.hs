@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.RobOMaker where
 
+import Amazonka.RobOMaker
 import qualified Data.Proxy as Proxy
-import Network.AWS.RobOMaker
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.RobOMaker.Internal

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RobOMaker.Types
+-- Module      : Amazonka.RobOMaker.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RobOMaker.Types
+module Amazonka.RobOMaker.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -526,83 +526,83 @@ module Network.AWS.RobOMaker.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RobOMaker.Types.Architecture
-import Network.AWS.RobOMaker.Types.BatchPolicy
-import Network.AWS.RobOMaker.Types.Compute
-import Network.AWS.RobOMaker.Types.ComputeResponse
-import Network.AWS.RobOMaker.Types.ComputeType
-import Network.AWS.RobOMaker.Types.DataSource
-import Network.AWS.RobOMaker.Types.DataSourceConfig
-import Network.AWS.RobOMaker.Types.DataSourceType
-import Network.AWS.RobOMaker.Types.DeploymentApplicationConfig
-import Network.AWS.RobOMaker.Types.DeploymentConfig
-import Network.AWS.RobOMaker.Types.DeploymentJob
-import Network.AWS.RobOMaker.Types.DeploymentJobErrorCode
-import Network.AWS.RobOMaker.Types.DeploymentLaunchConfig
-import Network.AWS.RobOMaker.Types.DeploymentStatus
-import Network.AWS.RobOMaker.Types.Environment
-import Network.AWS.RobOMaker.Types.ExitBehavior
-import Network.AWS.RobOMaker.Types.FailedCreateSimulationJobRequest
-import Network.AWS.RobOMaker.Types.FailureBehavior
-import Network.AWS.RobOMaker.Types.FailureSummary
-import Network.AWS.RobOMaker.Types.Filter
-import Network.AWS.RobOMaker.Types.FinishedWorldsSummary
-import Network.AWS.RobOMaker.Types.Fleet
-import Network.AWS.RobOMaker.Types.LaunchConfig
-import Network.AWS.RobOMaker.Types.LoggingConfig
-import Network.AWS.RobOMaker.Types.NetworkInterface
-import Network.AWS.RobOMaker.Types.OutputLocation
-import Network.AWS.RobOMaker.Types.PortForwardingConfig
-import Network.AWS.RobOMaker.Types.PortMapping
-import Network.AWS.RobOMaker.Types.ProgressDetail
-import Network.AWS.RobOMaker.Types.RenderingEngine
-import Network.AWS.RobOMaker.Types.RenderingEngineType
-import Network.AWS.RobOMaker.Types.Robot
-import Network.AWS.RobOMaker.Types.RobotApplicationConfig
-import Network.AWS.RobOMaker.Types.RobotApplicationSummary
-import Network.AWS.RobOMaker.Types.RobotDeployment
-import Network.AWS.RobOMaker.Types.RobotDeploymentStep
-import Network.AWS.RobOMaker.Types.RobotSoftwareSuite
-import Network.AWS.RobOMaker.Types.RobotSoftwareSuiteType
-import Network.AWS.RobOMaker.Types.RobotSoftwareSuiteVersionType
-import Network.AWS.RobOMaker.Types.RobotStatus
-import Network.AWS.RobOMaker.Types.S3KeyOutput
-import Network.AWS.RobOMaker.Types.S3Object
-import Network.AWS.RobOMaker.Types.SimulationApplicationConfig
-import Network.AWS.RobOMaker.Types.SimulationApplicationSummary
-import Network.AWS.RobOMaker.Types.SimulationJob
-import Network.AWS.RobOMaker.Types.SimulationJobBatchErrorCode
-import Network.AWS.RobOMaker.Types.SimulationJobBatchStatus
-import Network.AWS.RobOMaker.Types.SimulationJobBatchSummary
-import Network.AWS.RobOMaker.Types.SimulationJobErrorCode
-import Network.AWS.RobOMaker.Types.SimulationJobRequest
-import Network.AWS.RobOMaker.Types.SimulationJobStatus
-import Network.AWS.RobOMaker.Types.SimulationJobSummary
-import Network.AWS.RobOMaker.Types.SimulationSoftwareSuite
-import Network.AWS.RobOMaker.Types.SimulationSoftwareSuiteType
-import Network.AWS.RobOMaker.Types.Source
-import Network.AWS.RobOMaker.Types.SourceConfig
-import Network.AWS.RobOMaker.Types.TemplateLocation
-import Network.AWS.RobOMaker.Types.TemplateSummary
-import Network.AWS.RobOMaker.Types.Tool
-import Network.AWS.RobOMaker.Types.UploadBehavior
-import Network.AWS.RobOMaker.Types.UploadConfiguration
-import Network.AWS.RobOMaker.Types.VPCConfig
-import Network.AWS.RobOMaker.Types.VPCConfigResponse
-import Network.AWS.RobOMaker.Types.WorldConfig
-import Network.AWS.RobOMaker.Types.WorldCount
-import Network.AWS.RobOMaker.Types.WorldExportJobErrorCode
-import Network.AWS.RobOMaker.Types.WorldExportJobStatus
-import Network.AWS.RobOMaker.Types.WorldExportJobSummary
-import Network.AWS.RobOMaker.Types.WorldFailure
-import Network.AWS.RobOMaker.Types.WorldGenerationJobErrorCode
-import Network.AWS.RobOMaker.Types.WorldGenerationJobStatus
-import Network.AWS.RobOMaker.Types.WorldGenerationJobSummary
-import Network.AWS.RobOMaker.Types.WorldSummary
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RobOMaker.Types.Architecture
+import Amazonka.RobOMaker.Types.BatchPolicy
+import Amazonka.RobOMaker.Types.Compute
+import Amazonka.RobOMaker.Types.ComputeResponse
+import Amazonka.RobOMaker.Types.ComputeType
+import Amazonka.RobOMaker.Types.DataSource
+import Amazonka.RobOMaker.Types.DataSourceConfig
+import Amazonka.RobOMaker.Types.DataSourceType
+import Amazonka.RobOMaker.Types.DeploymentApplicationConfig
+import Amazonka.RobOMaker.Types.DeploymentConfig
+import Amazonka.RobOMaker.Types.DeploymentJob
+import Amazonka.RobOMaker.Types.DeploymentJobErrorCode
+import Amazonka.RobOMaker.Types.DeploymentLaunchConfig
+import Amazonka.RobOMaker.Types.DeploymentStatus
+import Amazonka.RobOMaker.Types.Environment
+import Amazonka.RobOMaker.Types.ExitBehavior
+import Amazonka.RobOMaker.Types.FailedCreateSimulationJobRequest
+import Amazonka.RobOMaker.Types.FailureBehavior
+import Amazonka.RobOMaker.Types.FailureSummary
+import Amazonka.RobOMaker.Types.Filter
+import Amazonka.RobOMaker.Types.FinishedWorldsSummary
+import Amazonka.RobOMaker.Types.Fleet
+import Amazonka.RobOMaker.Types.LaunchConfig
+import Amazonka.RobOMaker.Types.LoggingConfig
+import Amazonka.RobOMaker.Types.NetworkInterface
+import Amazonka.RobOMaker.Types.OutputLocation
+import Amazonka.RobOMaker.Types.PortForwardingConfig
+import Amazonka.RobOMaker.Types.PortMapping
+import Amazonka.RobOMaker.Types.ProgressDetail
+import Amazonka.RobOMaker.Types.RenderingEngine
+import Amazonka.RobOMaker.Types.RenderingEngineType
+import Amazonka.RobOMaker.Types.Robot
+import Amazonka.RobOMaker.Types.RobotApplicationConfig
+import Amazonka.RobOMaker.Types.RobotApplicationSummary
+import Amazonka.RobOMaker.Types.RobotDeployment
+import Amazonka.RobOMaker.Types.RobotDeploymentStep
+import Amazonka.RobOMaker.Types.RobotSoftwareSuite
+import Amazonka.RobOMaker.Types.RobotSoftwareSuiteType
+import Amazonka.RobOMaker.Types.RobotSoftwareSuiteVersionType
+import Amazonka.RobOMaker.Types.RobotStatus
+import Amazonka.RobOMaker.Types.S3KeyOutput
+import Amazonka.RobOMaker.Types.S3Object
+import Amazonka.RobOMaker.Types.SimulationApplicationConfig
+import Amazonka.RobOMaker.Types.SimulationApplicationSummary
+import Amazonka.RobOMaker.Types.SimulationJob
+import Amazonka.RobOMaker.Types.SimulationJobBatchErrorCode
+import Amazonka.RobOMaker.Types.SimulationJobBatchStatus
+import Amazonka.RobOMaker.Types.SimulationJobBatchSummary
+import Amazonka.RobOMaker.Types.SimulationJobErrorCode
+import Amazonka.RobOMaker.Types.SimulationJobRequest
+import Amazonka.RobOMaker.Types.SimulationJobStatus
+import Amazonka.RobOMaker.Types.SimulationJobSummary
+import Amazonka.RobOMaker.Types.SimulationSoftwareSuite
+import Amazonka.RobOMaker.Types.SimulationSoftwareSuiteType
+import Amazonka.RobOMaker.Types.Source
+import Amazonka.RobOMaker.Types.SourceConfig
+import Amazonka.RobOMaker.Types.TemplateLocation
+import Amazonka.RobOMaker.Types.TemplateSummary
+import Amazonka.RobOMaker.Types.Tool
+import Amazonka.RobOMaker.Types.UploadBehavior
+import Amazonka.RobOMaker.Types.UploadConfiguration
+import Amazonka.RobOMaker.Types.VPCConfig
+import Amazonka.RobOMaker.Types.VPCConfigResponse
+import Amazonka.RobOMaker.Types.WorldConfig
+import Amazonka.RobOMaker.Types.WorldCount
+import Amazonka.RobOMaker.Types.WorldExportJobErrorCode
+import Amazonka.RobOMaker.Types.WorldExportJobStatus
+import Amazonka.RobOMaker.Types.WorldExportJobSummary
+import Amazonka.RobOMaker.Types.WorldFailure
+import Amazonka.RobOMaker.Types.WorldGenerationJobErrorCode
+import Amazonka.RobOMaker.Types.WorldGenerationJobStatus
+import Amazonka.RobOMaker.Types.WorldGenerationJobSummary
+import Amazonka.RobOMaker.Types.WorldSummary
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-06-29@ of the Amazon RoboMaker SDK configuration.
 defaultService :: Core.Service

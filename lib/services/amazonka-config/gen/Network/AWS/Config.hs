@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Config
+-- Module      : Amazonka.Config
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- Management Console, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is Config>
 -- in the /Config Developer Guide/.
-module Network.AWS.Config
+module Amazonka.Config
   ( -- * Service Configuration
     defaultService,
 
@@ -1163,95 +1163,95 @@ module Network.AWS.Config
   )
 where
 
-import Network.AWS.Config.BatchGetAggregateResourceConfig
-import Network.AWS.Config.BatchGetResourceConfig
-import Network.AWS.Config.DeleteAggregationAuthorization
-import Network.AWS.Config.DeleteConfigRule
-import Network.AWS.Config.DeleteConfigurationAggregator
-import Network.AWS.Config.DeleteConfigurationRecorder
-import Network.AWS.Config.DeleteConformancePack
-import Network.AWS.Config.DeleteDeliveryChannel
-import Network.AWS.Config.DeleteEvaluationResults
-import Network.AWS.Config.DeleteOrganizationConfigRule
-import Network.AWS.Config.DeleteOrganizationConformancePack
-import Network.AWS.Config.DeletePendingAggregationRequest
-import Network.AWS.Config.DeleteRemediationConfiguration
-import Network.AWS.Config.DeleteRemediationExceptions
-import Network.AWS.Config.DeleteResourceConfig
-import Network.AWS.Config.DeleteRetentionConfiguration
-import Network.AWS.Config.DeleteStoredQuery
-import Network.AWS.Config.DeliverConfigSnapshot
-import Network.AWS.Config.DescribeAggregateComplianceByConfigRules
-import Network.AWS.Config.DescribeAggregateComplianceByConformancePacks
-import Network.AWS.Config.DescribeAggregationAuthorizations
-import Network.AWS.Config.DescribeComplianceByConfigRule
-import Network.AWS.Config.DescribeComplianceByResource
-import Network.AWS.Config.DescribeConfigRuleEvaluationStatus
-import Network.AWS.Config.DescribeConfigRules
-import Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
-import Network.AWS.Config.DescribeConfigurationAggregators
-import Network.AWS.Config.DescribeConfigurationRecorderStatus
-import Network.AWS.Config.DescribeConfigurationRecorders
-import Network.AWS.Config.DescribeConformancePackCompliance
-import Network.AWS.Config.DescribeConformancePackStatus
-import Network.AWS.Config.DescribeConformancePacks
-import Network.AWS.Config.DescribeDeliveryChannelStatus
-import Network.AWS.Config.DescribeDeliveryChannels
-import Network.AWS.Config.DescribeOrganizationConfigRuleStatuses
-import Network.AWS.Config.DescribeOrganizationConfigRules
-import Network.AWS.Config.DescribeOrganizationConformancePackStatuses
-import Network.AWS.Config.DescribeOrganizationConformancePacks
-import Network.AWS.Config.DescribePendingAggregationRequests
-import Network.AWS.Config.DescribeRemediationConfigurations
-import Network.AWS.Config.DescribeRemediationExceptions
-import Network.AWS.Config.DescribeRemediationExecutionStatus
-import Network.AWS.Config.DescribeRetentionConfigurations
-import Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
-import Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
-import Network.AWS.Config.GetAggregateConformancePackComplianceSummary
-import Network.AWS.Config.GetAggregateDiscoveredResourceCounts
-import Network.AWS.Config.GetAggregateResourceConfig
-import Network.AWS.Config.GetComplianceDetailsByConfigRule
-import Network.AWS.Config.GetComplianceDetailsByResource
-import Network.AWS.Config.GetComplianceSummaryByConfigRule
-import Network.AWS.Config.GetComplianceSummaryByResourceType
-import Network.AWS.Config.GetConformancePackComplianceDetails
-import Network.AWS.Config.GetConformancePackComplianceSummary
-import Network.AWS.Config.GetDiscoveredResourceCounts
-import Network.AWS.Config.GetOrganizationConfigRuleDetailedStatus
-import Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
-import Network.AWS.Config.GetResourceConfigHistory
-import Network.AWS.Config.GetStoredQuery
-import Network.AWS.Config.Lens
-import Network.AWS.Config.ListAggregateDiscoveredResources
-import Network.AWS.Config.ListDiscoveredResources
-import Network.AWS.Config.ListStoredQueries
-import Network.AWS.Config.ListTagsForResource
-import Network.AWS.Config.PutAggregationAuthorization
-import Network.AWS.Config.PutConfigRule
-import Network.AWS.Config.PutConfigurationAggregator
-import Network.AWS.Config.PutConfigurationRecorder
-import Network.AWS.Config.PutConformancePack
-import Network.AWS.Config.PutDeliveryChannel
-import Network.AWS.Config.PutEvaluations
-import Network.AWS.Config.PutExternalEvaluation
-import Network.AWS.Config.PutOrganizationConfigRule
-import Network.AWS.Config.PutOrganizationConformancePack
-import Network.AWS.Config.PutRemediationConfigurations
-import Network.AWS.Config.PutRemediationExceptions
-import Network.AWS.Config.PutResourceConfig
-import Network.AWS.Config.PutRetentionConfiguration
-import Network.AWS.Config.PutStoredQuery
-import Network.AWS.Config.SelectAggregateResourceConfig
-import Network.AWS.Config.SelectResourceConfig
-import Network.AWS.Config.StartConfigRulesEvaluation
-import Network.AWS.Config.StartConfigurationRecorder
-import Network.AWS.Config.StartRemediationExecution
-import Network.AWS.Config.StopConfigurationRecorder
-import Network.AWS.Config.TagResource
-import Network.AWS.Config.Types
-import Network.AWS.Config.UntagResource
-import Network.AWS.Config.Waiters
+import Amazonka.Config.BatchGetAggregateResourceConfig
+import Amazonka.Config.BatchGetResourceConfig
+import Amazonka.Config.DeleteAggregationAuthorization
+import Amazonka.Config.DeleteConfigRule
+import Amazonka.Config.DeleteConfigurationAggregator
+import Amazonka.Config.DeleteConfigurationRecorder
+import Amazonka.Config.DeleteConformancePack
+import Amazonka.Config.DeleteDeliveryChannel
+import Amazonka.Config.DeleteEvaluationResults
+import Amazonka.Config.DeleteOrganizationConfigRule
+import Amazonka.Config.DeleteOrganizationConformancePack
+import Amazonka.Config.DeletePendingAggregationRequest
+import Amazonka.Config.DeleteRemediationConfiguration
+import Amazonka.Config.DeleteRemediationExceptions
+import Amazonka.Config.DeleteResourceConfig
+import Amazonka.Config.DeleteRetentionConfiguration
+import Amazonka.Config.DeleteStoredQuery
+import Amazonka.Config.DeliverConfigSnapshot
+import Amazonka.Config.DescribeAggregateComplianceByConfigRules
+import Amazonka.Config.DescribeAggregateComplianceByConformancePacks
+import Amazonka.Config.DescribeAggregationAuthorizations
+import Amazonka.Config.DescribeComplianceByConfigRule
+import Amazonka.Config.DescribeComplianceByResource
+import Amazonka.Config.DescribeConfigRuleEvaluationStatus
+import Amazonka.Config.DescribeConfigRules
+import Amazonka.Config.DescribeConfigurationAggregatorSourcesStatus
+import Amazonka.Config.DescribeConfigurationAggregators
+import Amazonka.Config.DescribeConfigurationRecorderStatus
+import Amazonka.Config.DescribeConfigurationRecorders
+import Amazonka.Config.DescribeConformancePackCompliance
+import Amazonka.Config.DescribeConformancePackStatus
+import Amazonka.Config.DescribeConformancePacks
+import Amazonka.Config.DescribeDeliveryChannelStatus
+import Amazonka.Config.DescribeDeliveryChannels
+import Amazonka.Config.DescribeOrganizationConfigRuleStatuses
+import Amazonka.Config.DescribeOrganizationConfigRules
+import Amazonka.Config.DescribeOrganizationConformancePackStatuses
+import Amazonka.Config.DescribeOrganizationConformancePacks
+import Amazonka.Config.DescribePendingAggregationRequests
+import Amazonka.Config.DescribeRemediationConfigurations
+import Amazonka.Config.DescribeRemediationExceptions
+import Amazonka.Config.DescribeRemediationExecutionStatus
+import Amazonka.Config.DescribeRetentionConfigurations
+import Amazonka.Config.GetAggregateComplianceDetailsByConfigRule
+import Amazonka.Config.GetAggregateConfigRuleComplianceSummary
+import Amazonka.Config.GetAggregateConformancePackComplianceSummary
+import Amazonka.Config.GetAggregateDiscoveredResourceCounts
+import Amazonka.Config.GetAggregateResourceConfig
+import Amazonka.Config.GetComplianceDetailsByConfigRule
+import Amazonka.Config.GetComplianceDetailsByResource
+import Amazonka.Config.GetComplianceSummaryByConfigRule
+import Amazonka.Config.GetComplianceSummaryByResourceType
+import Amazonka.Config.GetConformancePackComplianceDetails
+import Amazonka.Config.GetConformancePackComplianceSummary
+import Amazonka.Config.GetDiscoveredResourceCounts
+import Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
+import Amazonka.Config.GetOrganizationConformancePackDetailedStatus
+import Amazonka.Config.GetResourceConfigHistory
+import Amazonka.Config.GetStoredQuery
+import Amazonka.Config.Lens
+import Amazonka.Config.ListAggregateDiscoveredResources
+import Amazonka.Config.ListDiscoveredResources
+import Amazonka.Config.ListStoredQueries
+import Amazonka.Config.ListTagsForResource
+import Amazonka.Config.PutAggregationAuthorization
+import Amazonka.Config.PutConfigRule
+import Amazonka.Config.PutConfigurationAggregator
+import Amazonka.Config.PutConfigurationRecorder
+import Amazonka.Config.PutConformancePack
+import Amazonka.Config.PutDeliveryChannel
+import Amazonka.Config.PutEvaluations
+import Amazonka.Config.PutExternalEvaluation
+import Amazonka.Config.PutOrganizationConfigRule
+import Amazonka.Config.PutOrganizationConformancePack
+import Amazonka.Config.PutRemediationConfigurations
+import Amazonka.Config.PutRemediationExceptions
+import Amazonka.Config.PutResourceConfig
+import Amazonka.Config.PutRetentionConfiguration
+import Amazonka.Config.PutStoredQuery
+import Amazonka.Config.SelectAggregateResourceConfig
+import Amazonka.Config.SelectResourceConfig
+import Amazonka.Config.StartConfigRulesEvaluation
+import Amazonka.Config.StartConfigurationRecorder
+import Amazonka.Config.StartRemediationExecution
+import Amazonka.Config.StopConfigurationRecorder
+import Amazonka.Config.TagResource
+import Amazonka.Config.Types
+import Amazonka.Config.UntagResource
+import Amazonka.Config.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

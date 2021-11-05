@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types
+-- Module      : Amazonka.Config.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types
+module Amazonka.Config.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -876,125 +876,125 @@ module Network.AWS.Config.Types
   )
 where
 
-import Network.AWS.Config.Types.AccountAggregationSource
-import Network.AWS.Config.Types.AggregateComplianceByConfigRule
-import Network.AWS.Config.Types.AggregateComplianceByConformancePack
-import Network.AWS.Config.Types.AggregateComplianceCount
-import Network.AWS.Config.Types.AggregateConformancePackCompliance
-import Network.AWS.Config.Types.AggregateConformancePackComplianceCount
-import Network.AWS.Config.Types.AggregateConformancePackComplianceFilters
-import Network.AWS.Config.Types.AggregateConformancePackComplianceSummary
-import Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryFilters
-import Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey
-import Network.AWS.Config.Types.AggregateEvaluationResult
-import Network.AWS.Config.Types.AggregateResourceIdentifier
-import Network.AWS.Config.Types.AggregatedSourceStatus
-import Network.AWS.Config.Types.AggregatedSourceStatusType
-import Network.AWS.Config.Types.AggregatedSourceType
-import Network.AWS.Config.Types.AggregationAuthorization
-import Network.AWS.Config.Types.BaseConfigurationItem
-import Network.AWS.Config.Types.ChronologicalOrder
-import Network.AWS.Config.Types.Compliance
-import Network.AWS.Config.Types.ComplianceByConfigRule
-import Network.AWS.Config.Types.ComplianceByResource
-import Network.AWS.Config.Types.ComplianceContributorCount
-import Network.AWS.Config.Types.ComplianceSummary
-import Network.AWS.Config.Types.ComplianceSummaryByResourceType
-import Network.AWS.Config.Types.ComplianceType
-import Network.AWS.Config.Types.ConfigExportDeliveryInfo
-import Network.AWS.Config.Types.ConfigRule
-import Network.AWS.Config.Types.ConfigRuleComplianceFilters
-import Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters
-import Network.AWS.Config.Types.ConfigRuleComplianceSummaryGroupKey
-import Network.AWS.Config.Types.ConfigRuleEvaluationStatus
-import Network.AWS.Config.Types.ConfigRuleState
-import Network.AWS.Config.Types.ConfigSnapshotDeliveryProperties
-import Network.AWS.Config.Types.ConfigStreamDeliveryInfo
-import Network.AWS.Config.Types.ConfigurationAggregator
-import Network.AWS.Config.Types.ConfigurationItem
-import Network.AWS.Config.Types.ConfigurationItemStatus
-import Network.AWS.Config.Types.ConfigurationRecorder
-import Network.AWS.Config.Types.ConfigurationRecorderStatus
-import Network.AWS.Config.Types.ConformancePackComplianceFilters
-import Network.AWS.Config.Types.ConformancePackComplianceSummary
-import Network.AWS.Config.Types.ConformancePackComplianceType
-import Network.AWS.Config.Types.ConformancePackDetail
-import Network.AWS.Config.Types.ConformancePackEvaluationFilters
-import Network.AWS.Config.Types.ConformancePackEvaluationResult
-import Network.AWS.Config.Types.ConformancePackInputParameter
-import Network.AWS.Config.Types.ConformancePackRuleCompliance
-import Network.AWS.Config.Types.ConformancePackState
-import Network.AWS.Config.Types.ConformancePackStatusDetail
-import Network.AWS.Config.Types.DeliveryChannel
-import Network.AWS.Config.Types.DeliveryChannelStatus
-import Network.AWS.Config.Types.DeliveryStatus
-import Network.AWS.Config.Types.Evaluation
-import Network.AWS.Config.Types.EvaluationResult
-import Network.AWS.Config.Types.EvaluationResultIdentifier
-import Network.AWS.Config.Types.EvaluationResultQualifier
-import Network.AWS.Config.Types.EventSource
-import Network.AWS.Config.Types.ExecutionControls
-import Network.AWS.Config.Types.ExternalEvaluation
-import Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch
-import Network.AWS.Config.Types.FailedRemediationBatch
-import Network.AWS.Config.Types.FailedRemediationExceptionBatch
-import Network.AWS.Config.Types.FieldInfo
-import Network.AWS.Config.Types.GroupedResourceCount
-import Network.AWS.Config.Types.MaximumExecutionFrequency
-import Network.AWS.Config.Types.MemberAccountRuleStatus
-import Network.AWS.Config.Types.MemberAccountStatus
-import Network.AWS.Config.Types.MessageType
-import Network.AWS.Config.Types.OrganizationAggregationSource
-import Network.AWS.Config.Types.OrganizationConfigRule
-import Network.AWS.Config.Types.OrganizationConfigRuleStatus
-import Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
-import Network.AWS.Config.Types.OrganizationConformancePack
-import Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus
-import Network.AWS.Config.Types.OrganizationConformancePackStatus
-import Network.AWS.Config.Types.OrganizationCustomRuleMetadata
-import Network.AWS.Config.Types.OrganizationManagedRuleMetadata
-import Network.AWS.Config.Types.OrganizationResourceDetailedStatus
-import Network.AWS.Config.Types.OrganizationResourceDetailedStatusFilters
-import Network.AWS.Config.Types.OrganizationResourceStatus
-import Network.AWS.Config.Types.OrganizationRuleStatus
-import Network.AWS.Config.Types.Owner
-import Network.AWS.Config.Types.PendingAggregationRequest
-import Network.AWS.Config.Types.QueryInfo
-import Network.AWS.Config.Types.RecorderStatus
-import Network.AWS.Config.Types.RecordingGroup
-import Network.AWS.Config.Types.Relationship
-import Network.AWS.Config.Types.RemediationConfiguration
-import Network.AWS.Config.Types.RemediationException
-import Network.AWS.Config.Types.RemediationExceptionResourceKey
-import Network.AWS.Config.Types.RemediationExecutionState
-import Network.AWS.Config.Types.RemediationExecutionStatus
-import Network.AWS.Config.Types.RemediationExecutionStep
-import Network.AWS.Config.Types.RemediationExecutionStepState
-import Network.AWS.Config.Types.RemediationParameterValue
-import Network.AWS.Config.Types.RemediationTargetType
-import Network.AWS.Config.Types.ResourceCount
-import Network.AWS.Config.Types.ResourceCountFilters
-import Network.AWS.Config.Types.ResourceCountGroupKey
-import Network.AWS.Config.Types.ResourceFilters
-import Network.AWS.Config.Types.ResourceIdentifier
-import Network.AWS.Config.Types.ResourceKey
-import Network.AWS.Config.Types.ResourceType
-import Network.AWS.Config.Types.ResourceValue
-import Network.AWS.Config.Types.ResourceValueType
-import Network.AWS.Config.Types.RetentionConfiguration
-import Network.AWS.Config.Types.Scope
-import Network.AWS.Config.Types.Source
-import Network.AWS.Config.Types.SourceDetail
-import Network.AWS.Config.Types.SsmControls
-import Network.AWS.Config.Types.StaticValue
-import Network.AWS.Config.Types.StatusDetailFilters
-import Network.AWS.Config.Types.StoredQuery
-import Network.AWS.Config.Types.StoredQueryMetadata
-import Network.AWS.Config.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Config.Types.AccountAggregationSource
+import Amazonka.Config.Types.AggregateComplianceByConfigRule
+import Amazonka.Config.Types.AggregateComplianceByConformancePack
+import Amazonka.Config.Types.AggregateComplianceCount
+import Amazonka.Config.Types.AggregateConformancePackCompliance
+import Amazonka.Config.Types.AggregateConformancePackComplianceCount
+import Amazonka.Config.Types.AggregateConformancePackComplianceFilters
+import Amazonka.Config.Types.AggregateConformancePackComplianceSummary
+import Amazonka.Config.Types.AggregateConformancePackComplianceSummaryFilters
+import Amazonka.Config.Types.AggregateConformancePackComplianceSummaryGroupKey
+import Amazonka.Config.Types.AggregateEvaluationResult
+import Amazonka.Config.Types.AggregateResourceIdentifier
+import Amazonka.Config.Types.AggregatedSourceStatus
+import Amazonka.Config.Types.AggregatedSourceStatusType
+import Amazonka.Config.Types.AggregatedSourceType
+import Amazonka.Config.Types.AggregationAuthorization
+import Amazonka.Config.Types.BaseConfigurationItem
+import Amazonka.Config.Types.ChronologicalOrder
+import Amazonka.Config.Types.Compliance
+import Amazonka.Config.Types.ComplianceByConfigRule
+import Amazonka.Config.Types.ComplianceByResource
+import Amazonka.Config.Types.ComplianceContributorCount
+import Amazonka.Config.Types.ComplianceSummary
+import Amazonka.Config.Types.ComplianceSummaryByResourceType
+import Amazonka.Config.Types.ComplianceType
+import Amazonka.Config.Types.ConfigExportDeliveryInfo
+import Amazonka.Config.Types.ConfigRule
+import Amazonka.Config.Types.ConfigRuleComplianceFilters
+import Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters
+import Amazonka.Config.Types.ConfigRuleComplianceSummaryGroupKey
+import Amazonka.Config.Types.ConfigRuleEvaluationStatus
+import Amazonka.Config.Types.ConfigRuleState
+import Amazonka.Config.Types.ConfigSnapshotDeliveryProperties
+import Amazonka.Config.Types.ConfigStreamDeliveryInfo
+import Amazonka.Config.Types.ConfigurationAggregator
+import Amazonka.Config.Types.ConfigurationItem
+import Amazonka.Config.Types.ConfigurationItemStatus
+import Amazonka.Config.Types.ConfigurationRecorder
+import Amazonka.Config.Types.ConfigurationRecorderStatus
+import Amazonka.Config.Types.ConformancePackComplianceFilters
+import Amazonka.Config.Types.ConformancePackComplianceSummary
+import Amazonka.Config.Types.ConformancePackComplianceType
+import Amazonka.Config.Types.ConformancePackDetail
+import Amazonka.Config.Types.ConformancePackEvaluationFilters
+import Amazonka.Config.Types.ConformancePackEvaluationResult
+import Amazonka.Config.Types.ConformancePackInputParameter
+import Amazonka.Config.Types.ConformancePackRuleCompliance
+import Amazonka.Config.Types.ConformancePackState
+import Amazonka.Config.Types.ConformancePackStatusDetail
+import Amazonka.Config.Types.DeliveryChannel
+import Amazonka.Config.Types.DeliveryChannelStatus
+import Amazonka.Config.Types.DeliveryStatus
+import Amazonka.Config.Types.Evaluation
+import Amazonka.Config.Types.EvaluationResult
+import Amazonka.Config.Types.EvaluationResultIdentifier
+import Amazonka.Config.Types.EvaluationResultQualifier
+import Amazonka.Config.Types.EventSource
+import Amazonka.Config.Types.ExecutionControls
+import Amazonka.Config.Types.ExternalEvaluation
+import Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch
+import Amazonka.Config.Types.FailedRemediationBatch
+import Amazonka.Config.Types.FailedRemediationExceptionBatch
+import Amazonka.Config.Types.FieldInfo
+import Amazonka.Config.Types.GroupedResourceCount
+import Amazonka.Config.Types.MaximumExecutionFrequency
+import Amazonka.Config.Types.MemberAccountRuleStatus
+import Amazonka.Config.Types.MemberAccountStatus
+import Amazonka.Config.Types.MessageType
+import Amazonka.Config.Types.OrganizationAggregationSource
+import Amazonka.Config.Types.OrganizationConfigRule
+import Amazonka.Config.Types.OrganizationConfigRuleStatus
+import Amazonka.Config.Types.OrganizationConfigRuleTriggerType
+import Amazonka.Config.Types.OrganizationConformancePack
+import Amazonka.Config.Types.OrganizationConformancePackDetailedStatus
+import Amazonka.Config.Types.OrganizationConformancePackStatus
+import Amazonka.Config.Types.OrganizationCustomRuleMetadata
+import Amazonka.Config.Types.OrganizationManagedRuleMetadata
+import Amazonka.Config.Types.OrganizationResourceDetailedStatus
+import Amazonka.Config.Types.OrganizationResourceDetailedStatusFilters
+import Amazonka.Config.Types.OrganizationResourceStatus
+import Amazonka.Config.Types.OrganizationRuleStatus
+import Amazonka.Config.Types.Owner
+import Amazonka.Config.Types.PendingAggregationRequest
+import Amazonka.Config.Types.QueryInfo
+import Amazonka.Config.Types.RecorderStatus
+import Amazonka.Config.Types.RecordingGroup
+import Amazonka.Config.Types.Relationship
+import Amazonka.Config.Types.RemediationConfiguration
+import Amazonka.Config.Types.RemediationException
+import Amazonka.Config.Types.RemediationExceptionResourceKey
+import Amazonka.Config.Types.RemediationExecutionState
+import Amazonka.Config.Types.RemediationExecutionStatus
+import Amazonka.Config.Types.RemediationExecutionStep
+import Amazonka.Config.Types.RemediationExecutionStepState
+import Amazonka.Config.Types.RemediationParameterValue
+import Amazonka.Config.Types.RemediationTargetType
+import Amazonka.Config.Types.ResourceCount
+import Amazonka.Config.Types.ResourceCountFilters
+import Amazonka.Config.Types.ResourceCountGroupKey
+import Amazonka.Config.Types.ResourceFilters
+import Amazonka.Config.Types.ResourceIdentifier
+import Amazonka.Config.Types.ResourceKey
+import Amazonka.Config.Types.ResourceType
+import Amazonka.Config.Types.ResourceValue
+import Amazonka.Config.Types.ResourceValueType
+import Amazonka.Config.Types.RetentionConfiguration
+import Amazonka.Config.Types.Scope
+import Amazonka.Config.Types.Source
+import Amazonka.Config.Types.SourceDetail
+import Amazonka.Config.Types.SsmControls
+import Amazonka.Config.Types.StaticValue
+import Amazonka.Config.Types.StatusDetailFilters
+import Amazonka.Config.Types.StoredQuery
+import Amazonka.Config.Types.StoredQueryMetadata
+import Amazonka.Config.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-11-12@ of the Amazon Config SDK configuration.
 defaultService :: Core.Service

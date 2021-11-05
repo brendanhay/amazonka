@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.AggregateEvaluationResult
+-- Module      : Amazonka.Config.Types.AggregateEvaluationResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.AggregateEvaluationResult where
+module Amazonka.Config.Types.AggregateEvaluationResult where
 
-import Network.AWS.Config.Types.ComplianceType
-import Network.AWS.Config.Types.EvaluationResultIdentifier
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.ComplianceType
+import Amazonka.Config.Types.EvaluationResultIdentifier
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Config evaluation for an account ID and region in an
 -- aggregator. Provides the Amazon Web Services resource that was

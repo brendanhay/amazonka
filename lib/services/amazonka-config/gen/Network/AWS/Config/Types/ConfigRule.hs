@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.ConfigRule
+-- Module      : Amazonka.Config.Types.ConfigRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConfigRule where
+module Amazonka.Config.Types.ConfigRule where
 
-import Network.AWS.Config.Types.ConfigRuleState
-import Network.AWS.Config.Types.MaximumExecutionFrequency
-import Network.AWS.Config.Types.Scope
-import Network.AWS.Config.Types.Source
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.ConfigRuleState
+import Amazonka.Config.Types.MaximumExecutionFrequency
+import Amazonka.Config.Types.Scope
+import Amazonka.Config.Types.Source
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An Config rule represents an Lambda function that you create for a
 -- custom rule or a predefined function for an Config managed rule. The

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch
+-- Module      : Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch where
+module Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch where
 
-import Network.AWS.Config.Types.RemediationExceptionResourceKey
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.RemediationExceptionResourceKey
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | List of each of the failed delete remediation exceptions with specific
 -- reasons.

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.ExternalEvaluation
+-- Module      : Amazonka.Config.Types.ExternalEvaluation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ExternalEvaluation where
+module Amazonka.Config.Types.ExternalEvaluation where
 
-import Network.AWS.Config.Types.ComplianceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.ComplianceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Identifies an Amazon Web Services resource and indicates whether it
 -- complies with the Config rule that it was evaluated against.

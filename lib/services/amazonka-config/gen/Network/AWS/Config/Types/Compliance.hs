@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.Compliance
+-- Module      : Amazonka.Config.Types.Compliance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.Compliance where
+module Amazonka.Config.Types.Compliance where
 
-import Network.AWS.Config.Types.ComplianceContributorCount
-import Network.AWS.Config.Types.ComplianceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.ComplianceContributorCount
+import Amazonka.Config.Types.ComplianceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether an Amazon Web Services resource or Config rule is
 -- compliant and provides the number of contributors that affect the

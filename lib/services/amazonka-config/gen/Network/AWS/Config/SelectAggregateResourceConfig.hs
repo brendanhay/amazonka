@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.SelectAggregateResourceConfig
+-- Module      : Amazonka.Config.SelectAggregateResourceConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- is set to 25.
 --
 -- This operation returns paginated results.
-module Network.AWS.Config.SelectAggregateResourceConfig
+module Amazonka.Config.SelectAggregateResourceConfig
   ( -- * Creating a Request
     SelectAggregateResourceConfig (..),
     newSelectAggregateResourceConfig,
@@ -66,12 +66,12 @@ module Network.AWS.Config.SelectAggregateResourceConfig
   )
 where
 
-import Network.AWS.Config.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Config.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSelectAggregateResourceConfig' smart constructor.
 data SelectAggregateResourceConfig = SelectAggregateResourceConfig'

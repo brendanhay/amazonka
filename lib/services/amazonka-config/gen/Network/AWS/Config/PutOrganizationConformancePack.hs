@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.PutOrganizationConformancePack
+-- Module      : Amazonka.Config.PutOrganizationConformancePack
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -50,7 +50,7 @@
 --
 -- You can create 50 conformance packs with 25 Config rules in each pack
 -- and 3 delegated administrator per organization.
-module Network.AWS.Config.PutOrganizationConformancePack
+module Amazonka.Config.PutOrganizationConformancePack
   ( -- * Creating a Request
     PutOrganizationConformancePack (..),
     newPutOrganizationConformancePack,
@@ -74,12 +74,12 @@ module Network.AWS.Config.PutOrganizationConformancePack
   )
 where
 
-import Network.AWS.Config.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Config.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutOrganizationConformancePack' smart constructor.
 data PutOrganizationConformancePack = PutOrganizationConformancePack'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.PutConfigurationAggregator
+-- Module      : Amazonka.Config.PutConfigurationAggregator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- To register a delegated administrator, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli Register a Delegated Administrator>
 -- in the Config developer guide.
-module Network.AWS.Config.PutConfigurationAggregator
+module Amazonka.Config.PutConfigurationAggregator
   ( -- * Creating a Request
     PutConfigurationAggregator (..),
     newPutConfigurationAggregator,
@@ -65,12 +65,12 @@ module Network.AWS.Config.PutConfigurationAggregator
   )
 where
 
-import Network.AWS.Config.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Config.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutConfigurationAggregator' smart constructor.
 data PutConfigurationAggregator = PutConfigurationAggregator'

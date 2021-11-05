@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.GetAggregateDiscoveredResourceCounts
+-- Module      : Amazonka.Config.GetAggregateDiscoveredResourceCounts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- ID 12345678910 and region us-east-1. If the input contains ACCOUNT_ID as
 -- a GroupByKey, the API returns resource counts for all source accounts
 -- that are present in your aggregator.
-module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
+module Amazonka.Config.GetAggregateDiscoveredResourceCounts
   ( -- * Creating a Request
     GetAggregateDiscoveredResourceCounts (..),
     newGetAggregateDiscoveredResourceCounts,
@@ -54,12 +54,12 @@ module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
   )
 where
 
-import Network.AWS.Config.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Config.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAggregateDiscoveredResourceCounts' smart constructor.
 data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts'

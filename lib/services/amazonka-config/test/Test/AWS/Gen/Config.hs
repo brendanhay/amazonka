@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Config where
 
+import Amazonka.Config
 import qualified Data.Proxy as Proxy
-import Network.AWS.Config
 import Test.AWS.Config.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

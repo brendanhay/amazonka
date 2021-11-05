@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.RemediationExecutionStatus
+-- Module      : Amazonka.Config.Types.RemediationExecutionStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationExecutionStatus where
+module Amazonka.Config.Types.RemediationExecutionStatus where
 
-import Network.AWS.Config.Types.RemediationExecutionState
-import Network.AWS.Config.Types.RemediationExecutionStep
-import Network.AWS.Config.Types.ResourceKey
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.RemediationExecutionState
+import Amazonka.Config.Types.RemediationExecutionStep
+import Amazonka.Config.Types.ResourceKey
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides details of the current status of the invoked remediation action
 -- for that resource.

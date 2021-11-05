@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.SourceDetail
+-- Module      : Amazonka.Config.Types.SourceDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.SourceDetail where
+module Amazonka.Config.Types.SourceDetail where
 
-import Network.AWS.Config.Types.EventSource
-import Network.AWS.Config.Types.MaximumExecutionFrequency
-import Network.AWS.Config.Types.MessageType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.EventSource
+import Amazonka.Config.Types.MaximumExecutionFrequency
+import Amazonka.Config.Types.MessageType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the source and the message types that trigger Config to
 -- evaluate your Amazon Web Services resources against a rule. It also

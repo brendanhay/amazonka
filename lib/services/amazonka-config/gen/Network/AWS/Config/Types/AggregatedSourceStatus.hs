@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Config.Types.AggregatedSourceStatus
+-- Module      : Amazonka.Config.Types.AggregatedSourceStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.AggregatedSourceStatus where
+module Amazonka.Config.Types.AggregatedSourceStatus where
 
-import Network.AWS.Config.Types.AggregatedSourceStatusType
-import Network.AWS.Config.Types.AggregatedSourceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Config.Types.AggregatedSourceStatusType
+import Amazonka.Config.Types.AggregatedSourceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The current sync status between the source and the aggregator account.
 --

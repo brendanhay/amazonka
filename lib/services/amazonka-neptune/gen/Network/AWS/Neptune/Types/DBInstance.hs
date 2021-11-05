@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.Types.DBInstance
+-- Module      : Amazonka.Neptune.Types.DBInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Neptune.Types.DBInstance where
+module Amazonka.Neptune.Types.DBInstance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types.DBInstanceStatusInfo
-import Network.AWS.Neptune.Types.DBParameterGroupStatus
-import Network.AWS.Neptune.Types.DBSecurityGroupMembership
-import Network.AWS.Neptune.Types.DBSubnetGroup
-import Network.AWS.Neptune.Types.DomainMembership
-import Network.AWS.Neptune.Types.Endpoint
-import Network.AWS.Neptune.Types.OptionGroupMembership
-import Network.AWS.Neptune.Types.PendingModifiedValues
-import Network.AWS.Neptune.Types.VpcSecurityGroupMembership
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types.DBInstanceStatusInfo
+import Amazonka.Neptune.Types.DBParameterGroupStatus
+import Amazonka.Neptune.Types.DBSecurityGroupMembership
+import Amazonka.Neptune.Types.DBSubnetGroup
+import Amazonka.Neptune.Types.DomainMembership
+import Amazonka.Neptune.Types.Endpoint
+import Amazonka.Neptune.Types.OptionGroupMembership
+import Amazonka.Neptune.Types.PendingModifiedValues
+import Amazonka.Neptune.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the details of an Amazon Neptune DB instance.
 --

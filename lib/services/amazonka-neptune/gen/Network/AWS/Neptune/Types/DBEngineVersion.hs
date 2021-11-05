@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.Types.DBEngineVersion
+-- Module      : Amazonka.Neptune.Types.DBEngineVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Neptune.Types.DBEngineVersion where
+module Amazonka.Neptune.Types.DBEngineVersion where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types.CharacterSet
-import Network.AWS.Neptune.Types.Timezone
-import Network.AWS.Neptune.Types.UpgradeTarget
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types.CharacterSet
+import Amazonka.Neptune.Types.Timezone
+import Amazonka.Neptune.Types.UpgradeTarget
+import qualified Amazonka.Prelude as Prelude
 
 -- | This data type is used as a response element in the action
 -- DescribeDBEngineVersions.

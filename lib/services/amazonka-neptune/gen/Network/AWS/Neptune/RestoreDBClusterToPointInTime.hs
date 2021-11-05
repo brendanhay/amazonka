@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.RestoreDBClusterToPointInTime
+-- Module      : Amazonka.Neptune.RestoreDBClusterToPointInTime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- restored DB cluster in @DBClusterIdentifier@. You can create DB
 -- instances only after the @RestoreDBClusterToPointInTime@ action has
 -- completed and the DB cluster is available.
-module Network.AWS.Neptune.RestoreDBClusterToPointInTime
+module Amazonka.Neptune.RestoreDBClusterToPointInTime
   ( -- * Creating a Request
     RestoreDBClusterToPointInTime (..),
     newRestoreDBClusterToPointInTime,
@@ -65,12 +65,12 @@ module Network.AWS.Neptune.RestoreDBClusterToPointInTime
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.CreateDBCluster
+-- Module      : Amazonka.Neptune.CreateDBCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- new production cluster in the console, deletion protection is enabled by
 -- default). You can only delete a DB cluster if its @DeletionProtection@
 -- field is set to @false@.
-module Network.AWS.Neptune.CreateDBCluster
+module Amazonka.Neptune.CreateDBCluster
   ( -- * Creating a Request
     CreateDBCluster (..),
     newCreateDBCluster,
@@ -73,12 +73,12 @@ module Network.AWS.Neptune.CreateDBCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'

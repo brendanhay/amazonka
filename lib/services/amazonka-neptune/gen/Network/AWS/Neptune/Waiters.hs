@@ -7,22 +7,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.Waiters
+-- Module      : Amazonka.Neptune.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Neptune.Waiters where
+module Amazonka.Neptune.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.DescribeDBInstances
-import Network.AWS.Neptune.Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.DescribeDBInstances
+import Amazonka.Neptune.Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.Neptune.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.Neptune.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBInstanceAvailable :: Core.Wait DescribeDBInstances
 newDBInstanceAvailable =
   Core.Wait
@@ -111,7 +111,7 @@ newDBInstanceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.Neptune.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.Neptune.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBInstanceDeleted :: Core.Wait DescribeDBInstances
 newDBInstanceDeleted =
   Core.Wait

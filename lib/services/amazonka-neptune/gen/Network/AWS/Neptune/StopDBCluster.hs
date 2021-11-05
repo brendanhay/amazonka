@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.StopDBCluster
+-- Module      : Amazonka.Neptune.StopDBCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- Neptune also retains the transaction logs so you can do a point-in-time
 -- restore if necessary.
-module Network.AWS.Neptune.StopDBCluster
+module Amazonka.Neptune.StopDBCluster
   ( -- * Creating a Request
     StopDBCluster (..),
     newStopDBCluster,
@@ -44,12 +44,12 @@ module Network.AWS.Neptune.StopDBCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopDBCluster' smart constructor.
 data StopDBCluster = StopDBCluster'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.ModifyDBClusterSnapshotAttribute
+-- Module      : Amazonka.Neptune.ModifyDBClusterSnapshotAttribute
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- To view which Amazon accounts have access to copy or restore a manual DB
 -- cluster snapshot, or whether a manual DB cluster snapshot public or
 -- private, use the DescribeDBClusterSnapshotAttributes API action.
-module Network.AWS.Neptune.ModifyDBClusterSnapshotAttribute
+module Amazonka.Neptune.ModifyDBClusterSnapshotAttribute
   ( -- * Creating a Request
     ModifyDBClusterSnapshotAttribute (..),
     newModifyDBClusterSnapshotAttribute,
@@ -60,12 +60,12 @@ module Network.AWS.Neptune.ModifyDBClusterSnapshotAttribute
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'

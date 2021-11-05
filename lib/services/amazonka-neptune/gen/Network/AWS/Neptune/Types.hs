@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.Types
+-- Module      : Amazonka.Neptune.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Neptune.Types
+module Amazonka.Neptune.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -551,56 +551,56 @@ module Network.AWS.Neptune.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types.ApplyMethod
-import Network.AWS.Neptune.Types.AvailabilityZone
-import Network.AWS.Neptune.Types.CharacterSet
-import Network.AWS.Neptune.Types.CloudwatchLogsExportConfiguration
-import Network.AWS.Neptune.Types.DBCluster
-import Network.AWS.Neptune.Types.DBClusterEndpoint
-import Network.AWS.Neptune.Types.DBClusterMember
-import Network.AWS.Neptune.Types.DBClusterOptionGroupStatus
-import Network.AWS.Neptune.Types.DBClusterParameterGroup
-import Network.AWS.Neptune.Types.DBClusterParameterGroupNameMessage
-import Network.AWS.Neptune.Types.DBClusterRole
-import Network.AWS.Neptune.Types.DBClusterSnapshot
-import Network.AWS.Neptune.Types.DBClusterSnapshotAttribute
-import Network.AWS.Neptune.Types.DBClusterSnapshotAttributesResult
-import Network.AWS.Neptune.Types.DBEngineVersion
-import Network.AWS.Neptune.Types.DBInstance
-import Network.AWS.Neptune.Types.DBInstanceStatusInfo
-import Network.AWS.Neptune.Types.DBParameterGroup
-import Network.AWS.Neptune.Types.DBParameterGroupNameMessage
-import Network.AWS.Neptune.Types.DBParameterGroupStatus
-import Network.AWS.Neptune.Types.DBSecurityGroupMembership
-import Network.AWS.Neptune.Types.DBSubnetGroup
-import Network.AWS.Neptune.Types.DomainMembership
-import Network.AWS.Neptune.Types.DoubleRange
-import Network.AWS.Neptune.Types.Endpoint
-import Network.AWS.Neptune.Types.EngineDefaults
-import Network.AWS.Neptune.Types.Event
-import Network.AWS.Neptune.Types.EventCategoriesMap
-import Network.AWS.Neptune.Types.EventSubscription
-import Network.AWS.Neptune.Types.Filter
-import Network.AWS.Neptune.Types.OptionGroupMembership
-import Network.AWS.Neptune.Types.OrderableDBInstanceOption
-import Network.AWS.Neptune.Types.Parameter
-import Network.AWS.Neptune.Types.PendingCloudwatchLogsExports
-import Network.AWS.Neptune.Types.PendingMaintenanceAction
-import Network.AWS.Neptune.Types.PendingModifiedValues
-import Network.AWS.Neptune.Types.Range
-import Network.AWS.Neptune.Types.ResourcePendingMaintenanceActions
-import Network.AWS.Neptune.Types.SourceType
-import Network.AWS.Neptune.Types.Subnet
-import Network.AWS.Neptune.Types.Tag
-import Network.AWS.Neptune.Types.Timezone
-import Network.AWS.Neptune.Types.UpgradeTarget
-import Network.AWS.Neptune.Types.ValidDBInstanceModificationsMessage
-import Network.AWS.Neptune.Types.ValidStorageOptions
-import Network.AWS.Neptune.Types.VpcSecurityGroupMembership
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types.ApplyMethod
+import Amazonka.Neptune.Types.AvailabilityZone
+import Amazonka.Neptune.Types.CharacterSet
+import Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration
+import Amazonka.Neptune.Types.DBCluster
+import Amazonka.Neptune.Types.DBClusterEndpoint
+import Amazonka.Neptune.Types.DBClusterMember
+import Amazonka.Neptune.Types.DBClusterOptionGroupStatus
+import Amazonka.Neptune.Types.DBClusterParameterGroup
+import Amazonka.Neptune.Types.DBClusterParameterGroupNameMessage
+import Amazonka.Neptune.Types.DBClusterRole
+import Amazonka.Neptune.Types.DBClusterSnapshot
+import Amazonka.Neptune.Types.DBClusterSnapshotAttribute
+import Amazonka.Neptune.Types.DBClusterSnapshotAttributesResult
+import Amazonka.Neptune.Types.DBEngineVersion
+import Amazonka.Neptune.Types.DBInstance
+import Amazonka.Neptune.Types.DBInstanceStatusInfo
+import Amazonka.Neptune.Types.DBParameterGroup
+import Amazonka.Neptune.Types.DBParameterGroupNameMessage
+import Amazonka.Neptune.Types.DBParameterGroupStatus
+import Amazonka.Neptune.Types.DBSecurityGroupMembership
+import Amazonka.Neptune.Types.DBSubnetGroup
+import Amazonka.Neptune.Types.DomainMembership
+import Amazonka.Neptune.Types.DoubleRange
+import Amazonka.Neptune.Types.Endpoint
+import Amazonka.Neptune.Types.EngineDefaults
+import Amazonka.Neptune.Types.Event
+import Amazonka.Neptune.Types.EventCategoriesMap
+import Amazonka.Neptune.Types.EventSubscription
+import Amazonka.Neptune.Types.Filter
+import Amazonka.Neptune.Types.OptionGroupMembership
+import Amazonka.Neptune.Types.OrderableDBInstanceOption
+import Amazonka.Neptune.Types.Parameter
+import Amazonka.Neptune.Types.PendingCloudwatchLogsExports
+import Amazonka.Neptune.Types.PendingMaintenanceAction
+import Amazonka.Neptune.Types.PendingModifiedValues
+import Amazonka.Neptune.Types.Range
+import Amazonka.Neptune.Types.ResourcePendingMaintenanceActions
+import Amazonka.Neptune.Types.SourceType
+import Amazonka.Neptune.Types.Subnet
+import Amazonka.Neptune.Types.Tag
+import Amazonka.Neptune.Types.Timezone
+import Amazonka.Neptune.Types.UpgradeTarget
+import Amazonka.Neptune.Types.ValidDBInstanceModificationsMessage
+import Amazonka.Neptune.Types.ValidStorageOptions
+import Amazonka.Neptune.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-10-31@ of the Amazon Neptune SDK configuration.
 defaultService :: Core.Service

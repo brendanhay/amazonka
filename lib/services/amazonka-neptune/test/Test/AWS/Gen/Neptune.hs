@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Neptune where
 
+import Amazonka.Neptune
 import qualified Data.Proxy as Proxy
-import Network.AWS.Neptune
 import Test.AWS.Fixture
 import Test.AWS.Neptune.Internal
 import Test.AWS.Prelude

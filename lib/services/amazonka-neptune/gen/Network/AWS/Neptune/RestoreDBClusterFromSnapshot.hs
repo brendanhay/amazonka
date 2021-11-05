@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.RestoreDBClusterFromSnapshot
+-- Module      : Amazonka.Neptune.RestoreDBClusterFromSnapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- from the source DB cluster restore point with the same configuration as
 -- the original source DB cluster, except that the new DB cluster is
 -- created with the default security group.
-module Network.AWS.Neptune.RestoreDBClusterFromSnapshot
+module Amazonka.Neptune.RestoreDBClusterFromSnapshot
   ( -- * Creating a Request
     RestoreDBClusterFromSnapshot (..),
     newRestoreDBClusterFromSnapshot,
@@ -64,12 +64,12 @@ module Network.AWS.Neptune.RestoreDBClusterFromSnapshot
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreDBClusterFromSnapshot' smart constructor.
 data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'

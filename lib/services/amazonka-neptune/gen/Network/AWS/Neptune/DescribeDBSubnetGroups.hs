@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Neptune.DescribeDBSubnetGroups
+-- Module      : Amazonka.Neptune.DescribeDBSubnetGroups
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
 -- This operation returns paginated results.
-module Network.AWS.Neptune.DescribeDBSubnetGroups
+module Amazonka.Neptune.DescribeDBSubnetGroups
   ( -- * Creating a Request
     DescribeDBSubnetGroups (..),
     newDescribeDBSubnetGroups,
@@ -50,12 +50,12 @@ module Network.AWS.Neptune.DescribeDBSubnetGroups
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Neptune.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Neptune.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBSubnetGroups' smart constructor.
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'

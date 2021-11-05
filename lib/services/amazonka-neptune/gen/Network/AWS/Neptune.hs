@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Neptune
+-- Module      : Amazonka.Neptune
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- applied immediately, on the next instance reboot, or during the
 -- maintenance window. The reference structure is as follows, and we list
 -- following some related topics from the user guide.
-module Network.AWS.Neptune
+module Amazonka.Neptune
   ( -- * Service Configuration
     defaultService,
 
@@ -806,72 +806,72 @@ module Network.AWS.Neptune
   )
 where
 
-import Network.AWS.Neptune.AddRoleToDBCluster
-import Network.AWS.Neptune.AddSourceIdentifierToSubscription
-import Network.AWS.Neptune.AddTagsToResource
-import Network.AWS.Neptune.ApplyPendingMaintenanceAction
-import Network.AWS.Neptune.CopyDBClusterParameterGroup
-import Network.AWS.Neptune.CopyDBClusterSnapshot
-import Network.AWS.Neptune.CopyDBParameterGroup
-import Network.AWS.Neptune.CreateDBCluster
-import Network.AWS.Neptune.CreateDBClusterEndpoint
-import Network.AWS.Neptune.CreateDBClusterParameterGroup
-import Network.AWS.Neptune.CreateDBClusterSnapshot
-import Network.AWS.Neptune.CreateDBInstance
-import Network.AWS.Neptune.CreateDBParameterGroup
-import Network.AWS.Neptune.CreateDBSubnetGroup
-import Network.AWS.Neptune.CreateEventSubscription
-import Network.AWS.Neptune.DeleteDBCluster
-import Network.AWS.Neptune.DeleteDBClusterEndpoint
-import Network.AWS.Neptune.DeleteDBClusterParameterGroup
-import Network.AWS.Neptune.DeleteDBClusterSnapshot
-import Network.AWS.Neptune.DeleteDBInstance
-import Network.AWS.Neptune.DeleteDBParameterGroup
-import Network.AWS.Neptune.DeleteDBSubnetGroup
-import Network.AWS.Neptune.DeleteEventSubscription
-import Network.AWS.Neptune.DescribeDBClusterEndpoints
-import Network.AWS.Neptune.DescribeDBClusterParameterGroups
-import Network.AWS.Neptune.DescribeDBClusterParameters
-import Network.AWS.Neptune.DescribeDBClusterSnapshotAttributes
-import Network.AWS.Neptune.DescribeDBClusterSnapshots
-import Network.AWS.Neptune.DescribeDBClusters
-import Network.AWS.Neptune.DescribeDBEngineVersions
-import Network.AWS.Neptune.DescribeDBInstances
-import Network.AWS.Neptune.DescribeDBParameterGroups
-import Network.AWS.Neptune.DescribeDBParameters
-import Network.AWS.Neptune.DescribeDBSubnetGroups
-import Network.AWS.Neptune.DescribeEngineDefaultClusterParameters
-import Network.AWS.Neptune.DescribeEngineDefaultParameters
-import Network.AWS.Neptune.DescribeEventCategories
-import Network.AWS.Neptune.DescribeEventSubscriptions
-import Network.AWS.Neptune.DescribeEvents
-import Network.AWS.Neptune.DescribeOrderableDBInstanceOptions
-import Network.AWS.Neptune.DescribePendingMaintenanceActions
-import Network.AWS.Neptune.DescribeValidDBInstanceModifications
-import Network.AWS.Neptune.FailoverDBCluster
-import Network.AWS.Neptune.Lens
-import Network.AWS.Neptune.ListTagsForResource
-import Network.AWS.Neptune.ModifyDBCluster
-import Network.AWS.Neptune.ModifyDBClusterEndpoint
-import Network.AWS.Neptune.ModifyDBClusterParameterGroup
-import Network.AWS.Neptune.ModifyDBClusterSnapshotAttribute
-import Network.AWS.Neptune.ModifyDBInstance
-import Network.AWS.Neptune.ModifyDBParameterGroup
-import Network.AWS.Neptune.ModifyDBSubnetGroup
-import Network.AWS.Neptune.ModifyEventSubscription
-import Network.AWS.Neptune.PromoteReadReplicaDBCluster
-import Network.AWS.Neptune.RebootDBInstance
-import Network.AWS.Neptune.RemoveRoleFromDBCluster
-import Network.AWS.Neptune.RemoveSourceIdentifierFromSubscription
-import Network.AWS.Neptune.RemoveTagsFromResource
-import Network.AWS.Neptune.ResetDBClusterParameterGroup
-import Network.AWS.Neptune.ResetDBParameterGroup
-import Network.AWS.Neptune.RestoreDBClusterFromSnapshot
-import Network.AWS.Neptune.RestoreDBClusterToPointInTime
-import Network.AWS.Neptune.StartDBCluster
-import Network.AWS.Neptune.StopDBCluster
-import Network.AWS.Neptune.Types
-import Network.AWS.Neptune.Waiters
+import Amazonka.Neptune.AddRoleToDBCluster
+import Amazonka.Neptune.AddSourceIdentifierToSubscription
+import Amazonka.Neptune.AddTagsToResource
+import Amazonka.Neptune.ApplyPendingMaintenanceAction
+import Amazonka.Neptune.CopyDBClusterParameterGroup
+import Amazonka.Neptune.CopyDBClusterSnapshot
+import Amazonka.Neptune.CopyDBParameterGroup
+import Amazonka.Neptune.CreateDBCluster
+import Amazonka.Neptune.CreateDBClusterEndpoint
+import Amazonka.Neptune.CreateDBClusterParameterGroup
+import Amazonka.Neptune.CreateDBClusterSnapshot
+import Amazonka.Neptune.CreateDBInstance
+import Amazonka.Neptune.CreateDBParameterGroup
+import Amazonka.Neptune.CreateDBSubnetGroup
+import Amazonka.Neptune.CreateEventSubscription
+import Amazonka.Neptune.DeleteDBCluster
+import Amazonka.Neptune.DeleteDBClusterEndpoint
+import Amazonka.Neptune.DeleteDBClusterParameterGroup
+import Amazonka.Neptune.DeleteDBClusterSnapshot
+import Amazonka.Neptune.DeleteDBInstance
+import Amazonka.Neptune.DeleteDBParameterGroup
+import Amazonka.Neptune.DeleteDBSubnetGroup
+import Amazonka.Neptune.DeleteEventSubscription
+import Amazonka.Neptune.DescribeDBClusterEndpoints
+import Amazonka.Neptune.DescribeDBClusterParameterGroups
+import Amazonka.Neptune.DescribeDBClusterParameters
+import Amazonka.Neptune.DescribeDBClusterSnapshotAttributes
+import Amazonka.Neptune.DescribeDBClusterSnapshots
+import Amazonka.Neptune.DescribeDBClusters
+import Amazonka.Neptune.DescribeDBEngineVersions
+import Amazonka.Neptune.DescribeDBInstances
+import Amazonka.Neptune.DescribeDBParameterGroups
+import Amazonka.Neptune.DescribeDBParameters
+import Amazonka.Neptune.DescribeDBSubnetGroups
+import Amazonka.Neptune.DescribeEngineDefaultClusterParameters
+import Amazonka.Neptune.DescribeEngineDefaultParameters
+import Amazonka.Neptune.DescribeEventCategories
+import Amazonka.Neptune.DescribeEventSubscriptions
+import Amazonka.Neptune.DescribeEvents
+import Amazonka.Neptune.DescribeOrderableDBInstanceOptions
+import Amazonka.Neptune.DescribePendingMaintenanceActions
+import Amazonka.Neptune.DescribeValidDBInstanceModifications
+import Amazonka.Neptune.FailoverDBCluster
+import Amazonka.Neptune.Lens
+import Amazonka.Neptune.ListTagsForResource
+import Amazonka.Neptune.ModifyDBCluster
+import Amazonka.Neptune.ModifyDBClusterEndpoint
+import Amazonka.Neptune.ModifyDBClusterParameterGroup
+import Amazonka.Neptune.ModifyDBClusterSnapshotAttribute
+import Amazonka.Neptune.ModifyDBInstance
+import Amazonka.Neptune.ModifyDBParameterGroup
+import Amazonka.Neptune.ModifyDBSubnetGroup
+import Amazonka.Neptune.ModifyEventSubscription
+import Amazonka.Neptune.PromoteReadReplicaDBCluster
+import Amazonka.Neptune.RebootDBInstance
+import Amazonka.Neptune.RemoveRoleFromDBCluster
+import Amazonka.Neptune.RemoveSourceIdentifierFromSubscription
+import Amazonka.Neptune.RemoveTagsFromResource
+import Amazonka.Neptune.ResetDBClusterParameterGroup
+import Amazonka.Neptune.ResetDBParameterGroup
+import Amazonka.Neptune.RestoreDBClusterFromSnapshot
+import Amazonka.Neptune.RestoreDBClusterToPointInTime
+import Amazonka.Neptune.StartDBCluster
+import Amazonka.Neptune.StopDBCluster
+import Amazonka.Neptune.Types
+import Amazonka.Neptune.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

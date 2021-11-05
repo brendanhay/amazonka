@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MemoryDb where
 
+import Amazonka.MemoryDb
 import qualified Data.Proxy as Proxy
-import Network.AWS.MemoryDb
 import Test.AWS.Fixture
 import Test.AWS.MemoryDb.Internal
 import Test.AWS.Prelude

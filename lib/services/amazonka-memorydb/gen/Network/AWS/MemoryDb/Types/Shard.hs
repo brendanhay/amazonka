@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.Types.Shard
+-- Module      : Amazonka.MemoryDb.Types.Shard
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MemoryDb.Types.Shard where
+module Amazonka.MemoryDb.Types.Shard where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MemoryDb.Types.Node
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MemoryDb.Types.Node
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a collection of nodes in a cluster. One node in the node
 -- group is the read\/write primary node. All the other nodes are read-only

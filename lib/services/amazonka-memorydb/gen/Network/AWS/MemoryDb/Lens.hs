@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.Lens
+-- Module      : Amazonka.MemoryDb.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MemoryDb.Lens
+module Amazonka.MemoryDb.Lens
   ( -- * Operations
 
     -- ** DescribeClusters
@@ -509,72 +509,72 @@ module Network.AWS.MemoryDb.Lens
   )
 where
 
-import Network.AWS.MemoryDb.BatchUpdateCluster
-import Network.AWS.MemoryDb.CopySnapshot
-import Network.AWS.MemoryDb.CreateACL
-import Network.AWS.MemoryDb.CreateCluster
-import Network.AWS.MemoryDb.CreateParameterGroup
-import Network.AWS.MemoryDb.CreateSnapshot
-import Network.AWS.MemoryDb.CreateSubnetGroup
-import Network.AWS.MemoryDb.CreateUser
-import Network.AWS.MemoryDb.DeleteACL
-import Network.AWS.MemoryDb.DeleteCluster
-import Network.AWS.MemoryDb.DeleteParameterGroup
-import Network.AWS.MemoryDb.DeleteSnapshot
-import Network.AWS.MemoryDb.DeleteSubnetGroup
-import Network.AWS.MemoryDb.DeleteUser
-import Network.AWS.MemoryDb.DescribeACLs
-import Network.AWS.MemoryDb.DescribeClusters
-import Network.AWS.MemoryDb.DescribeEngineVersions
-import Network.AWS.MemoryDb.DescribeEvents
-import Network.AWS.MemoryDb.DescribeParameterGroups
-import Network.AWS.MemoryDb.DescribeParameters
-import Network.AWS.MemoryDb.DescribeServiceUpdates
-import Network.AWS.MemoryDb.DescribeSnapshots
-import Network.AWS.MemoryDb.DescribeSubnetGroups
-import Network.AWS.MemoryDb.DescribeUsers
-import Network.AWS.MemoryDb.FailoverShard
-import Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates
-import Network.AWS.MemoryDb.ListTags
-import Network.AWS.MemoryDb.ResetParameterGroup
-import Network.AWS.MemoryDb.TagResource
-import Network.AWS.MemoryDb.Types.ACL
-import Network.AWS.MemoryDb.Types.ACLPendingChanges
-import Network.AWS.MemoryDb.Types.ACLsUpdateStatus
-import Network.AWS.MemoryDb.Types.Authentication
-import Network.AWS.MemoryDb.Types.AuthenticationMode
-import Network.AWS.MemoryDb.Types.AvailabilityZone
-import Network.AWS.MemoryDb.Types.Cluster
-import Network.AWS.MemoryDb.Types.ClusterConfiguration
-import Network.AWS.MemoryDb.Types.ClusterPendingUpdates
-import Network.AWS.MemoryDb.Types.Endpoint
-import Network.AWS.MemoryDb.Types.EngineVersionInfo
-import Network.AWS.MemoryDb.Types.Event
-import Network.AWS.MemoryDb.Types.Filter
-import Network.AWS.MemoryDb.Types.Node
-import Network.AWS.MemoryDb.Types.Parameter
-import Network.AWS.MemoryDb.Types.ParameterGroup
-import Network.AWS.MemoryDb.Types.ParameterNameValue
-import Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate
-import Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest
-import Network.AWS.MemoryDb.Types.ReshardingStatus
-import Network.AWS.MemoryDb.Types.SecurityGroupMembership
-import Network.AWS.MemoryDb.Types.ServiceUpdate
-import Network.AWS.MemoryDb.Types.ServiceUpdateRequest
-import Network.AWS.MemoryDb.Types.Shard
-import Network.AWS.MemoryDb.Types.ShardConfiguration
-import Network.AWS.MemoryDb.Types.ShardConfigurationRequest
-import Network.AWS.MemoryDb.Types.ShardDetail
-import Network.AWS.MemoryDb.Types.SlotMigration
-import Network.AWS.MemoryDb.Types.Snapshot
-import Network.AWS.MemoryDb.Types.Subnet
-import Network.AWS.MemoryDb.Types.SubnetGroup
-import Network.AWS.MemoryDb.Types.Tag
-import Network.AWS.MemoryDb.Types.UnprocessedCluster
-import Network.AWS.MemoryDb.Types.User
-import Network.AWS.MemoryDb.UntagResource
-import Network.AWS.MemoryDb.UpdateACL
-import Network.AWS.MemoryDb.UpdateCluster
-import Network.AWS.MemoryDb.UpdateParameterGroup
-import Network.AWS.MemoryDb.UpdateSubnetGroup
-import Network.AWS.MemoryDb.UpdateUser
+import Amazonka.MemoryDb.BatchUpdateCluster
+import Amazonka.MemoryDb.CopySnapshot
+import Amazonka.MemoryDb.CreateACL
+import Amazonka.MemoryDb.CreateCluster
+import Amazonka.MemoryDb.CreateParameterGroup
+import Amazonka.MemoryDb.CreateSnapshot
+import Amazonka.MemoryDb.CreateSubnetGroup
+import Amazonka.MemoryDb.CreateUser
+import Amazonka.MemoryDb.DeleteACL
+import Amazonka.MemoryDb.DeleteCluster
+import Amazonka.MemoryDb.DeleteParameterGroup
+import Amazonka.MemoryDb.DeleteSnapshot
+import Amazonka.MemoryDb.DeleteSubnetGroup
+import Amazonka.MemoryDb.DeleteUser
+import Amazonka.MemoryDb.DescribeACLs
+import Amazonka.MemoryDb.DescribeClusters
+import Amazonka.MemoryDb.DescribeEngineVersions
+import Amazonka.MemoryDb.DescribeEvents
+import Amazonka.MemoryDb.DescribeParameterGroups
+import Amazonka.MemoryDb.DescribeParameters
+import Amazonka.MemoryDb.DescribeServiceUpdates
+import Amazonka.MemoryDb.DescribeSnapshots
+import Amazonka.MemoryDb.DescribeSubnetGroups
+import Amazonka.MemoryDb.DescribeUsers
+import Amazonka.MemoryDb.FailoverShard
+import Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
+import Amazonka.MemoryDb.ListTags
+import Amazonka.MemoryDb.ResetParameterGroup
+import Amazonka.MemoryDb.TagResource
+import Amazonka.MemoryDb.Types.ACL
+import Amazonka.MemoryDb.Types.ACLPendingChanges
+import Amazonka.MemoryDb.Types.ACLsUpdateStatus
+import Amazonka.MemoryDb.Types.Authentication
+import Amazonka.MemoryDb.Types.AuthenticationMode
+import Amazonka.MemoryDb.Types.AvailabilityZone
+import Amazonka.MemoryDb.Types.Cluster
+import Amazonka.MemoryDb.Types.ClusterConfiguration
+import Amazonka.MemoryDb.Types.ClusterPendingUpdates
+import Amazonka.MemoryDb.Types.Endpoint
+import Amazonka.MemoryDb.Types.EngineVersionInfo
+import Amazonka.MemoryDb.Types.Event
+import Amazonka.MemoryDb.Types.Filter
+import Amazonka.MemoryDb.Types.Node
+import Amazonka.MemoryDb.Types.Parameter
+import Amazonka.MemoryDb.Types.ParameterGroup
+import Amazonka.MemoryDb.Types.ParameterNameValue
+import Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
+import Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
+import Amazonka.MemoryDb.Types.ReshardingStatus
+import Amazonka.MemoryDb.Types.SecurityGroupMembership
+import Amazonka.MemoryDb.Types.ServiceUpdate
+import Amazonka.MemoryDb.Types.ServiceUpdateRequest
+import Amazonka.MemoryDb.Types.Shard
+import Amazonka.MemoryDb.Types.ShardConfiguration
+import Amazonka.MemoryDb.Types.ShardConfigurationRequest
+import Amazonka.MemoryDb.Types.ShardDetail
+import Amazonka.MemoryDb.Types.SlotMigration
+import Amazonka.MemoryDb.Types.Snapshot
+import Amazonka.MemoryDb.Types.Subnet
+import Amazonka.MemoryDb.Types.SubnetGroup
+import Amazonka.MemoryDb.Types.Tag
+import Amazonka.MemoryDb.Types.UnprocessedCluster
+import Amazonka.MemoryDb.Types.User
+import Amazonka.MemoryDb.UntagResource
+import Amazonka.MemoryDb.UpdateACL
+import Amazonka.MemoryDb.UpdateCluster
+import Amazonka.MemoryDb.UpdateParameterGroup
+import Amazonka.MemoryDb.UpdateSubnetGroup
+import Amazonka.MemoryDb.UpdateUser

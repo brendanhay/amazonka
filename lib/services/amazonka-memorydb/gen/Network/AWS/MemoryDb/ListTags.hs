@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.ListTags
+-- Module      : Amazonka.MemoryDb.ListTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- where the key and value are case-sensitive. You can use tags to
 -- categorize and track your MemoryDB resources. For more information, see
 -- <https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html Tagging your MemoryDB resources>
-module Network.AWS.MemoryDb.ListTags
+module Amazonka.MemoryDb.ListTags
   ( -- * Creating a Request
     ListTags (..),
     newListTags,
@@ -42,12 +42,12 @@ module Network.AWS.MemoryDb.ListTags
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MemoryDb.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MemoryDb.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'

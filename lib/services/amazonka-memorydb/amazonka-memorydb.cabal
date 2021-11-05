@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MemoryDb.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MemoryDb.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MemoryDb" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MemoryDb" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,87 +45,87 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MemoryDb
-    Network.AWS.MemoryDb.BatchUpdateCluster
-    Network.AWS.MemoryDb.CopySnapshot
-    Network.AWS.MemoryDb.CreateACL
-    Network.AWS.MemoryDb.CreateCluster
-    Network.AWS.MemoryDb.CreateParameterGroup
-    Network.AWS.MemoryDb.CreateSnapshot
-    Network.AWS.MemoryDb.CreateSubnetGroup
-    Network.AWS.MemoryDb.CreateUser
-    Network.AWS.MemoryDb.DeleteACL
-    Network.AWS.MemoryDb.DeleteCluster
-    Network.AWS.MemoryDb.DeleteParameterGroup
-    Network.AWS.MemoryDb.DeleteSnapshot
-    Network.AWS.MemoryDb.DeleteSubnetGroup
-    Network.AWS.MemoryDb.DeleteUser
-    Network.AWS.MemoryDb.DescribeACLs
-    Network.AWS.MemoryDb.DescribeClusters
-    Network.AWS.MemoryDb.DescribeEngineVersions
-    Network.AWS.MemoryDb.DescribeEvents
-    Network.AWS.MemoryDb.DescribeParameterGroups
-    Network.AWS.MemoryDb.DescribeParameters
-    Network.AWS.MemoryDb.DescribeServiceUpdates
-    Network.AWS.MemoryDb.DescribeSnapshots
-    Network.AWS.MemoryDb.DescribeSubnetGroups
-    Network.AWS.MemoryDb.DescribeUsers
-    Network.AWS.MemoryDb.FailoverShard
-    Network.AWS.MemoryDb.Lens
-    Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates
-    Network.AWS.MemoryDb.ListTags
-    Network.AWS.MemoryDb.ResetParameterGroup
-    Network.AWS.MemoryDb.TagResource
-    Network.AWS.MemoryDb.Types
-    Network.AWS.MemoryDb.Types.ACL
-    Network.AWS.MemoryDb.Types.ACLPendingChanges
-    Network.AWS.MemoryDb.Types.ACLsUpdateStatus
-    Network.AWS.MemoryDb.Types.Authentication
-    Network.AWS.MemoryDb.Types.AuthenticationMode
-    Network.AWS.MemoryDb.Types.AuthenticationType
-    Network.AWS.MemoryDb.Types.AvailabilityZone
-    Network.AWS.MemoryDb.Types.AZStatus
-    Network.AWS.MemoryDb.Types.Cluster
-    Network.AWS.MemoryDb.Types.ClusterConfiguration
-    Network.AWS.MemoryDb.Types.ClusterPendingUpdates
-    Network.AWS.MemoryDb.Types.Endpoint
-    Network.AWS.MemoryDb.Types.EngineVersionInfo
-    Network.AWS.MemoryDb.Types.Event
-    Network.AWS.MemoryDb.Types.Filter
-    Network.AWS.MemoryDb.Types.InputAuthenticationType
-    Network.AWS.MemoryDb.Types.Node
-    Network.AWS.MemoryDb.Types.Parameter
-    Network.AWS.MemoryDb.Types.ParameterGroup
-    Network.AWS.MemoryDb.Types.ParameterNameValue
-    Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate
-    Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest
-    Network.AWS.MemoryDb.Types.ReshardingStatus
-    Network.AWS.MemoryDb.Types.SecurityGroupMembership
-    Network.AWS.MemoryDb.Types.ServiceUpdate
-    Network.AWS.MemoryDb.Types.ServiceUpdateRequest
-    Network.AWS.MemoryDb.Types.ServiceUpdateStatus
-    Network.AWS.MemoryDb.Types.ServiceUpdateType
-    Network.AWS.MemoryDb.Types.Shard
-    Network.AWS.MemoryDb.Types.ShardConfiguration
-    Network.AWS.MemoryDb.Types.ShardConfigurationRequest
-    Network.AWS.MemoryDb.Types.ShardDetail
-    Network.AWS.MemoryDb.Types.SlotMigration
-    Network.AWS.MemoryDb.Types.Snapshot
-    Network.AWS.MemoryDb.Types.SourceType
-    Network.AWS.MemoryDb.Types.Subnet
-    Network.AWS.MemoryDb.Types.SubnetGroup
-    Network.AWS.MemoryDb.Types.Tag
-    Network.AWS.MemoryDb.Types.UnprocessedCluster
-    Network.AWS.MemoryDb.Types.User
-    Network.AWS.MemoryDb.UntagResource
-    Network.AWS.MemoryDb.UpdateACL
-    Network.AWS.MemoryDb.UpdateCluster
-    Network.AWS.MemoryDb.UpdateParameterGroup
-    Network.AWS.MemoryDb.UpdateSubnetGroup
-    Network.AWS.MemoryDb.UpdateUser
-    Network.AWS.MemoryDb.Waiters
+    Amazonka.MemoryDb
+    Amazonka.MemoryDb.BatchUpdateCluster
+    Amazonka.MemoryDb.CopySnapshot
+    Amazonka.MemoryDb.CreateACL
+    Amazonka.MemoryDb.CreateCluster
+    Amazonka.MemoryDb.CreateParameterGroup
+    Amazonka.MemoryDb.CreateSnapshot
+    Amazonka.MemoryDb.CreateSubnetGroup
+    Amazonka.MemoryDb.CreateUser
+    Amazonka.MemoryDb.DeleteACL
+    Amazonka.MemoryDb.DeleteCluster
+    Amazonka.MemoryDb.DeleteParameterGroup
+    Amazonka.MemoryDb.DeleteSnapshot
+    Amazonka.MemoryDb.DeleteSubnetGroup
+    Amazonka.MemoryDb.DeleteUser
+    Amazonka.MemoryDb.DescribeACLs
+    Amazonka.MemoryDb.DescribeClusters
+    Amazonka.MemoryDb.DescribeEngineVersions
+    Amazonka.MemoryDb.DescribeEvents
+    Amazonka.MemoryDb.DescribeParameterGroups
+    Amazonka.MemoryDb.DescribeParameters
+    Amazonka.MemoryDb.DescribeServiceUpdates
+    Amazonka.MemoryDb.DescribeSnapshots
+    Amazonka.MemoryDb.DescribeSubnetGroups
+    Amazonka.MemoryDb.DescribeUsers
+    Amazonka.MemoryDb.FailoverShard
+    Amazonka.MemoryDb.Lens
+    Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
+    Amazonka.MemoryDb.ListTags
+    Amazonka.MemoryDb.ResetParameterGroup
+    Amazonka.MemoryDb.TagResource
+    Amazonka.MemoryDb.Types
+    Amazonka.MemoryDb.Types.ACL
+    Amazonka.MemoryDb.Types.ACLPendingChanges
+    Amazonka.MemoryDb.Types.ACLsUpdateStatus
+    Amazonka.MemoryDb.Types.Authentication
+    Amazonka.MemoryDb.Types.AuthenticationMode
+    Amazonka.MemoryDb.Types.AuthenticationType
+    Amazonka.MemoryDb.Types.AvailabilityZone
+    Amazonka.MemoryDb.Types.AZStatus
+    Amazonka.MemoryDb.Types.Cluster
+    Amazonka.MemoryDb.Types.ClusterConfiguration
+    Amazonka.MemoryDb.Types.ClusterPendingUpdates
+    Amazonka.MemoryDb.Types.Endpoint
+    Amazonka.MemoryDb.Types.EngineVersionInfo
+    Amazonka.MemoryDb.Types.Event
+    Amazonka.MemoryDb.Types.Filter
+    Amazonka.MemoryDb.Types.InputAuthenticationType
+    Amazonka.MemoryDb.Types.Node
+    Amazonka.MemoryDb.Types.Parameter
+    Amazonka.MemoryDb.Types.ParameterGroup
+    Amazonka.MemoryDb.Types.ParameterNameValue
+    Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
+    Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
+    Amazonka.MemoryDb.Types.ReshardingStatus
+    Amazonka.MemoryDb.Types.SecurityGroupMembership
+    Amazonka.MemoryDb.Types.ServiceUpdate
+    Amazonka.MemoryDb.Types.ServiceUpdateRequest
+    Amazonka.MemoryDb.Types.ServiceUpdateStatus
+    Amazonka.MemoryDb.Types.ServiceUpdateType
+    Amazonka.MemoryDb.Types.Shard
+    Amazonka.MemoryDb.Types.ShardConfiguration
+    Amazonka.MemoryDb.Types.ShardConfigurationRequest
+    Amazonka.MemoryDb.Types.ShardDetail
+    Amazonka.MemoryDb.Types.SlotMigration
+    Amazonka.MemoryDb.Types.Snapshot
+    Amazonka.MemoryDb.Types.SourceType
+    Amazonka.MemoryDb.Types.Subnet
+    Amazonka.MemoryDb.Types.SubnetGroup
+    Amazonka.MemoryDb.Types.Tag
+    Amazonka.MemoryDb.Types.UnprocessedCluster
+    Amazonka.MemoryDb.Types.User
+    Amazonka.MemoryDb.UntagResource
+    Amazonka.MemoryDb.UpdateACL
+    Amazonka.MemoryDb.UpdateCluster
+    Amazonka.MemoryDb.UpdateParameterGroup
+    Amazonka.MemoryDb.UpdateSubnetGroup
+    Amazonka.MemoryDb.UpdateUser
+    Amazonka.MemoryDb.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

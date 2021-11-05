@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.DeleteACL
+-- Module      : Amazonka.MemoryDb.DeleteACL
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes an Access Control List. The ACL must first be disassociated from
 -- the cluster before it can be deleted. For more information, see
 -- <https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html Authenticating users with Access Contol Lists (ACLs)>.
-module Network.AWS.MemoryDb.DeleteACL
+module Amazonka.MemoryDb.DeleteACL
   ( -- * Creating a Request
     DeleteACL (..),
     newDeleteACL,
@@ -41,12 +41,12 @@ module Network.AWS.MemoryDb.DeleteACL
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MemoryDb.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MemoryDb.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteACL' smart constructor.
 data DeleteACL = DeleteACL'

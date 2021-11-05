@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MemoryDb
+-- Module      : Amazonka.MemoryDb
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- high throughput data access. It is compatible with Redis, a popular open
 -- source data store, enabling you to leverage Redis’ flexible and friendly
 -- data structures, APIs, and commands.
-module Network.AWS.MemoryDb
+module Amazonka.MemoryDb
   ( -- * Service Configuration
     defaultService,
 
@@ -546,44 +546,44 @@ module Network.AWS.MemoryDb
   )
 where
 
-import Network.AWS.MemoryDb.BatchUpdateCluster
-import Network.AWS.MemoryDb.CopySnapshot
-import Network.AWS.MemoryDb.CreateACL
-import Network.AWS.MemoryDb.CreateCluster
-import Network.AWS.MemoryDb.CreateParameterGroup
-import Network.AWS.MemoryDb.CreateSnapshot
-import Network.AWS.MemoryDb.CreateSubnetGroup
-import Network.AWS.MemoryDb.CreateUser
-import Network.AWS.MemoryDb.DeleteACL
-import Network.AWS.MemoryDb.DeleteCluster
-import Network.AWS.MemoryDb.DeleteParameterGroup
-import Network.AWS.MemoryDb.DeleteSnapshot
-import Network.AWS.MemoryDb.DeleteSubnetGroup
-import Network.AWS.MemoryDb.DeleteUser
-import Network.AWS.MemoryDb.DescribeACLs
-import Network.AWS.MemoryDb.DescribeClusters
-import Network.AWS.MemoryDb.DescribeEngineVersions
-import Network.AWS.MemoryDb.DescribeEvents
-import Network.AWS.MemoryDb.DescribeParameterGroups
-import Network.AWS.MemoryDb.DescribeParameters
-import Network.AWS.MemoryDb.DescribeServiceUpdates
-import Network.AWS.MemoryDb.DescribeSnapshots
-import Network.AWS.MemoryDb.DescribeSubnetGroups
-import Network.AWS.MemoryDb.DescribeUsers
-import Network.AWS.MemoryDb.FailoverShard
-import Network.AWS.MemoryDb.Lens
-import Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates
-import Network.AWS.MemoryDb.ListTags
-import Network.AWS.MemoryDb.ResetParameterGroup
-import Network.AWS.MemoryDb.TagResource
-import Network.AWS.MemoryDb.Types
-import Network.AWS.MemoryDb.UntagResource
-import Network.AWS.MemoryDb.UpdateACL
-import Network.AWS.MemoryDb.UpdateCluster
-import Network.AWS.MemoryDb.UpdateParameterGroup
-import Network.AWS.MemoryDb.UpdateSubnetGroup
-import Network.AWS.MemoryDb.UpdateUser
-import Network.AWS.MemoryDb.Waiters
+import Amazonka.MemoryDb.BatchUpdateCluster
+import Amazonka.MemoryDb.CopySnapshot
+import Amazonka.MemoryDb.CreateACL
+import Amazonka.MemoryDb.CreateCluster
+import Amazonka.MemoryDb.CreateParameterGroup
+import Amazonka.MemoryDb.CreateSnapshot
+import Amazonka.MemoryDb.CreateSubnetGroup
+import Amazonka.MemoryDb.CreateUser
+import Amazonka.MemoryDb.DeleteACL
+import Amazonka.MemoryDb.DeleteCluster
+import Amazonka.MemoryDb.DeleteParameterGroup
+import Amazonka.MemoryDb.DeleteSnapshot
+import Amazonka.MemoryDb.DeleteSubnetGroup
+import Amazonka.MemoryDb.DeleteUser
+import Amazonka.MemoryDb.DescribeACLs
+import Amazonka.MemoryDb.DescribeClusters
+import Amazonka.MemoryDb.DescribeEngineVersions
+import Amazonka.MemoryDb.DescribeEvents
+import Amazonka.MemoryDb.DescribeParameterGroups
+import Amazonka.MemoryDb.DescribeParameters
+import Amazonka.MemoryDb.DescribeServiceUpdates
+import Amazonka.MemoryDb.DescribeSnapshots
+import Amazonka.MemoryDb.DescribeSubnetGroups
+import Amazonka.MemoryDb.DescribeUsers
+import Amazonka.MemoryDb.FailoverShard
+import Amazonka.MemoryDb.Lens
+import Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
+import Amazonka.MemoryDb.ListTags
+import Amazonka.MemoryDb.ResetParameterGroup
+import Amazonka.MemoryDb.TagResource
+import Amazonka.MemoryDb.Types
+import Amazonka.MemoryDb.UntagResource
+import Amazonka.MemoryDb.UpdateACL
+import Amazonka.MemoryDb.UpdateCluster
+import Amazonka.MemoryDb.UpdateParameterGroup
+import Amazonka.MemoryDb.UpdateSubnetGroup
+import Amazonka.MemoryDb.UpdateUser
+import Amazonka.MemoryDb.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.Types
+-- Module      : Amazonka.MemoryDb.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MemoryDb.Types
+module Amazonka.MemoryDb.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -361,50 +361,50 @@ module Network.AWS.MemoryDb.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MemoryDb.Types.ACL
-import Network.AWS.MemoryDb.Types.ACLPendingChanges
-import Network.AWS.MemoryDb.Types.ACLsUpdateStatus
-import Network.AWS.MemoryDb.Types.AZStatus
-import Network.AWS.MemoryDb.Types.Authentication
-import Network.AWS.MemoryDb.Types.AuthenticationMode
-import Network.AWS.MemoryDb.Types.AuthenticationType
-import Network.AWS.MemoryDb.Types.AvailabilityZone
-import Network.AWS.MemoryDb.Types.Cluster
-import Network.AWS.MemoryDb.Types.ClusterConfiguration
-import Network.AWS.MemoryDb.Types.ClusterPendingUpdates
-import Network.AWS.MemoryDb.Types.Endpoint
-import Network.AWS.MemoryDb.Types.EngineVersionInfo
-import Network.AWS.MemoryDb.Types.Event
-import Network.AWS.MemoryDb.Types.Filter
-import Network.AWS.MemoryDb.Types.InputAuthenticationType
-import Network.AWS.MemoryDb.Types.Node
-import Network.AWS.MemoryDb.Types.Parameter
-import Network.AWS.MemoryDb.Types.ParameterGroup
-import Network.AWS.MemoryDb.Types.ParameterNameValue
-import Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate
-import Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest
-import Network.AWS.MemoryDb.Types.ReshardingStatus
-import Network.AWS.MemoryDb.Types.SecurityGroupMembership
-import Network.AWS.MemoryDb.Types.ServiceUpdate
-import Network.AWS.MemoryDb.Types.ServiceUpdateRequest
-import Network.AWS.MemoryDb.Types.ServiceUpdateStatus
-import Network.AWS.MemoryDb.Types.ServiceUpdateType
-import Network.AWS.MemoryDb.Types.Shard
-import Network.AWS.MemoryDb.Types.ShardConfiguration
-import Network.AWS.MemoryDb.Types.ShardConfigurationRequest
-import Network.AWS.MemoryDb.Types.ShardDetail
-import Network.AWS.MemoryDb.Types.SlotMigration
-import Network.AWS.MemoryDb.Types.Snapshot
-import Network.AWS.MemoryDb.Types.SourceType
-import Network.AWS.MemoryDb.Types.Subnet
-import Network.AWS.MemoryDb.Types.SubnetGroup
-import Network.AWS.MemoryDb.Types.Tag
-import Network.AWS.MemoryDb.Types.UnprocessedCluster
-import Network.AWS.MemoryDb.Types.User
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MemoryDb.Types.ACL
+import Amazonka.MemoryDb.Types.ACLPendingChanges
+import Amazonka.MemoryDb.Types.ACLsUpdateStatus
+import Amazonka.MemoryDb.Types.AZStatus
+import Amazonka.MemoryDb.Types.Authentication
+import Amazonka.MemoryDb.Types.AuthenticationMode
+import Amazonka.MemoryDb.Types.AuthenticationType
+import Amazonka.MemoryDb.Types.AvailabilityZone
+import Amazonka.MemoryDb.Types.Cluster
+import Amazonka.MemoryDb.Types.ClusterConfiguration
+import Amazonka.MemoryDb.Types.ClusterPendingUpdates
+import Amazonka.MemoryDb.Types.Endpoint
+import Amazonka.MemoryDb.Types.EngineVersionInfo
+import Amazonka.MemoryDb.Types.Event
+import Amazonka.MemoryDb.Types.Filter
+import Amazonka.MemoryDb.Types.InputAuthenticationType
+import Amazonka.MemoryDb.Types.Node
+import Amazonka.MemoryDb.Types.Parameter
+import Amazonka.MemoryDb.Types.ParameterGroup
+import Amazonka.MemoryDb.Types.ParameterNameValue
+import Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
+import Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
+import Amazonka.MemoryDb.Types.ReshardingStatus
+import Amazonka.MemoryDb.Types.SecurityGroupMembership
+import Amazonka.MemoryDb.Types.ServiceUpdate
+import Amazonka.MemoryDb.Types.ServiceUpdateRequest
+import Amazonka.MemoryDb.Types.ServiceUpdateStatus
+import Amazonka.MemoryDb.Types.ServiceUpdateType
+import Amazonka.MemoryDb.Types.Shard
+import Amazonka.MemoryDb.Types.ShardConfiguration
+import Amazonka.MemoryDb.Types.ShardConfigurationRequest
+import Amazonka.MemoryDb.Types.ShardDetail
+import Amazonka.MemoryDb.Types.SlotMigration
+import Amazonka.MemoryDb.Types.Snapshot
+import Amazonka.MemoryDb.Types.SourceType
+import Amazonka.MemoryDb.Types.Subnet
+import Amazonka.MemoryDb.Types.SubnetGroup
+import Amazonka.MemoryDb.Types.Tag
+import Amazonka.MemoryDb.Types.UnprocessedCluster
+import Amazonka.MemoryDb.Types.User
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-01-01@ of the Amazon MemoryDB SDK configuration.
 defaultService :: Core.Service

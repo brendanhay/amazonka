@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MemoryDb.Types.ServiceUpdate
+-- Module      : Amazonka.MemoryDb.Types.ServiceUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MemoryDb.Types.ServiceUpdate where
+module Amazonka.MemoryDb.Types.ServiceUpdate where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MemoryDb.Types.ServiceUpdateStatus
-import Network.AWS.MemoryDb.Types.ServiceUpdateType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MemoryDb.Types.ServiceUpdateStatus
+import Amazonka.MemoryDb.Types.ServiceUpdateType
+import qualified Amazonka.Prelude as Prelude
 
 -- | An update that you can apply to your MemoryDB clusters.
 --

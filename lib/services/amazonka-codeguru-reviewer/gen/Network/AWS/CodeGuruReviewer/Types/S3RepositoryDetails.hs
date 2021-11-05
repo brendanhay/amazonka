@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails
+-- Module      : Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails where
+module Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails where
 
-import Network.AWS.CodeGuruReviewer.Types.CodeArtifacts
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeGuruReviewer.Types.CodeArtifacts
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the name of an S3 bucket and a @CodeArtifacts@ object that
 -- contains the S3 object keys for a source code .zip file and for a build

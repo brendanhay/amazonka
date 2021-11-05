@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Waiters
+-- Module      : Amazonka.CodeGuruReviewer.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Waiters where
+module Amazonka.CodeGuruReviewer.Waiters where
 
-import Network.AWS.CodeGuruReviewer.DescribeCodeReview
-import Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation
-import Network.AWS.CodeGuruReviewer.Lens
-import Network.AWS.CodeGuruReviewer.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeGuruReviewer.DescribeCodeReview
+import Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation
+import Amazonka.CodeGuruReviewer.Lens
+import Amazonka.CodeGuruReviewer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newCodeReviewCompleted :: Core.Wait DescribeCodeReview
 newCodeReviewCompleted =
   Core.Wait
@@ -52,7 +52,7 @@ newCodeReviewCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newRepositoryAssociationSucceeded :: Core.Wait DescribeRepositoryAssociation
 newRepositoryAssociationSucceeded =
   Core.Wait

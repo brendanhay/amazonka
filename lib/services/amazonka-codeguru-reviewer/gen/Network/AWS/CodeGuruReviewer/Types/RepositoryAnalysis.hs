@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis
+-- Module      : Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis where
+module Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis where
 
-import Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.SourceCodeType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.SourceCodeType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A code review type that analyzes all code under a specified branch in an
 -- associated repository. The associated repository is specified using its

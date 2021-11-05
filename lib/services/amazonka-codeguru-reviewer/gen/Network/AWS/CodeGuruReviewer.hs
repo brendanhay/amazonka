@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer
+-- Module      : Amazonka.CodeGuruReviewer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- creating an /interface VPC endpoint/. For more information, see
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html CodeGuru Reviewer and interface VPC endpoints (Amazon Web Services PrivateLink)>
 -- in the /Amazon CodeGuru Reviewer User Guide/.
-module Network.AWS.CodeGuruReviewer
+module Amazonka.CodeGuruReviewer
   ( -- * Service Configuration
     defaultService,
 
@@ -289,23 +289,23 @@ module Network.AWS.CodeGuruReviewer
   )
 where
 
-import Network.AWS.CodeGuruReviewer.AssociateRepository
-import Network.AWS.CodeGuruReviewer.CreateCodeReview
-import Network.AWS.CodeGuruReviewer.DescribeCodeReview
-import Network.AWS.CodeGuruReviewer.DescribeRecommendationFeedback
-import Network.AWS.CodeGuruReviewer.DescribeRepositoryAssociation
-import Network.AWS.CodeGuruReviewer.DisassociateRepository
-import Network.AWS.CodeGuruReviewer.Lens
-import Network.AWS.CodeGuruReviewer.ListCodeReviews
-import Network.AWS.CodeGuruReviewer.ListRecommendationFeedback
-import Network.AWS.CodeGuruReviewer.ListRecommendations
-import Network.AWS.CodeGuruReviewer.ListRepositoryAssociations
-import Network.AWS.CodeGuruReviewer.ListTagsForResource
-import Network.AWS.CodeGuruReviewer.PutRecommendationFeedback
-import Network.AWS.CodeGuruReviewer.TagResource
-import Network.AWS.CodeGuruReviewer.Types
-import Network.AWS.CodeGuruReviewer.UntagResource
-import Network.AWS.CodeGuruReviewer.Waiters
+import Amazonka.CodeGuruReviewer.AssociateRepository
+import Amazonka.CodeGuruReviewer.CreateCodeReview
+import Amazonka.CodeGuruReviewer.DescribeCodeReview
+import Amazonka.CodeGuruReviewer.DescribeRecommendationFeedback
+import Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation
+import Amazonka.CodeGuruReviewer.DisassociateRepository
+import Amazonka.CodeGuruReviewer.Lens
+import Amazonka.CodeGuruReviewer.ListCodeReviews
+import Amazonka.CodeGuruReviewer.ListRecommendationFeedback
+import Amazonka.CodeGuruReviewer.ListRecommendations
+import Amazonka.CodeGuruReviewer.ListRepositoryAssociations
+import Amazonka.CodeGuruReviewer.ListTagsForResource
+import Amazonka.CodeGuruReviewer.PutRecommendationFeedback
+import Amazonka.CodeGuruReviewer.TagResource
+import Amazonka.CodeGuruReviewer.Types
+import Amazonka.CodeGuruReviewer.UntagResource
+import Amazonka.CodeGuruReviewer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

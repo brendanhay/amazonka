@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types
+-- Module      : Amazonka.CodeGuruReviewer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types
+module Amazonka.CodeGuruReviewer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -273,46 +273,46 @@ module Network.AWS.CodeGuruReviewer.Types
   )
 where
 
-import Network.AWS.CodeGuruReviewer.Types.AnalysisType
-import Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.CodeArtifacts
-import Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository
-import Network.AWS.CodeGuruReviewer.Types.CodeReview
-import Network.AWS.CodeGuruReviewer.Types.CodeReviewSummary
-import Network.AWS.CodeGuruReviewer.Types.CodeReviewType
-import Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.EncryptionOption
-import Network.AWS.CodeGuruReviewer.Types.EventInfo
-import Network.AWS.CodeGuruReviewer.Types.JobState
-import Network.AWS.CodeGuruReviewer.Types.KMSKeyDetails
-import Network.AWS.CodeGuruReviewer.Types.Metrics
-import Network.AWS.CodeGuruReviewer.Types.MetricsSummary
-import Network.AWS.CodeGuruReviewer.Types.ProviderType
-import Network.AWS.CodeGuruReviewer.Types.Reaction
-import Network.AWS.CodeGuruReviewer.Types.RecommendationCategory
-import Network.AWS.CodeGuruReviewer.Types.RecommendationFeedback
-import Network.AWS.CodeGuruReviewer.Types.RecommendationFeedbackSummary
-import Network.AWS.CodeGuruReviewer.Types.RecommendationSummary
-import Network.AWS.CodeGuruReviewer.Types.Repository
-import Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis
-import Network.AWS.CodeGuruReviewer.Types.RepositoryAssociation
-import Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationState
-import Network.AWS.CodeGuruReviewer.Types.RepositoryAssociationSummary
-import Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.RequestMetadata
-import Network.AWS.CodeGuruReviewer.Types.RuleMetadata
-import Network.AWS.CodeGuruReviewer.Types.S3BucketRepository
-import Network.AWS.CodeGuruReviewer.Types.S3Repository
-import Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails
-import Network.AWS.CodeGuruReviewer.Types.Severity
-import Network.AWS.CodeGuruReviewer.Types.SourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.ThirdPartySourceRepository
-import Network.AWS.CodeGuruReviewer.Types.Type
-import Network.AWS.CodeGuruReviewer.Types.VendorName
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeGuruReviewer.Types.AnalysisType
+import Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.CodeArtifacts
+import Amazonka.CodeGuruReviewer.Types.CodeCommitRepository
+import Amazonka.CodeGuruReviewer.Types.CodeReview
+import Amazonka.CodeGuruReviewer.Types.CodeReviewSummary
+import Amazonka.CodeGuruReviewer.Types.CodeReviewType
+import Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.EncryptionOption
+import Amazonka.CodeGuruReviewer.Types.EventInfo
+import Amazonka.CodeGuruReviewer.Types.JobState
+import Amazonka.CodeGuruReviewer.Types.KMSKeyDetails
+import Amazonka.CodeGuruReviewer.Types.Metrics
+import Amazonka.CodeGuruReviewer.Types.MetricsSummary
+import Amazonka.CodeGuruReviewer.Types.ProviderType
+import Amazonka.CodeGuruReviewer.Types.Reaction
+import Amazonka.CodeGuruReviewer.Types.RecommendationCategory
+import Amazonka.CodeGuruReviewer.Types.RecommendationFeedback
+import Amazonka.CodeGuruReviewer.Types.RecommendationFeedbackSummary
+import Amazonka.CodeGuruReviewer.Types.RecommendationSummary
+import Amazonka.CodeGuruReviewer.Types.Repository
+import Amazonka.CodeGuruReviewer.Types.RepositoryAnalysis
+import Amazonka.CodeGuruReviewer.Types.RepositoryAssociation
+import Amazonka.CodeGuruReviewer.Types.RepositoryAssociationState
+import Amazonka.CodeGuruReviewer.Types.RepositoryAssociationSummary
+import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.RequestMetadata
+import Amazonka.CodeGuruReviewer.Types.RuleMetadata
+import Amazonka.CodeGuruReviewer.Types.S3BucketRepository
+import Amazonka.CodeGuruReviewer.Types.S3Repository
+import Amazonka.CodeGuruReviewer.Types.S3RepositoryDetails
+import Amazonka.CodeGuruReviewer.Types.Severity
+import Amazonka.CodeGuruReviewer.Types.SourceCodeType
+import Amazonka.CodeGuruReviewer.Types.ThirdPartySourceRepository
+import Amazonka.CodeGuruReviewer.Types.Type
+import Amazonka.CodeGuruReviewer.Types.VendorName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-09-19@ of the Amazon CodeGuru Reviewer SDK configuration.
 defaultService :: Core.Service

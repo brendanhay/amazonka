@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types.CodeArtifacts
+-- Module      : Amazonka.CodeGuruReviewer.Types.CodeArtifacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types.CodeArtifacts where
+module Amazonka.CodeGuruReviewer.Types.CodeArtifacts where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Code artifacts are source code artifacts and build artifacts used in a
 -- repository analysis or a pull request review.

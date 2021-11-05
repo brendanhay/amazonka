@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository
+-- Module      : Amazonka.CodeGuruReviewer.Types.CodeCommitRepository
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types.CodeCommitRepository where
+module Amazonka.CodeGuruReviewer.Types.CodeCommitRepository where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon Web Services CodeCommit repository. The
 -- CodeCommit repository must be in the same Amazon Web Services Region and

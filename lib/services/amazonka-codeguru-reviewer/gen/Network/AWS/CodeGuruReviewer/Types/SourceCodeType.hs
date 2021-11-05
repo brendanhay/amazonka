@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeGuruReviewer.Types.SourceCodeType
+-- Module      : Amazonka.CodeGuruReviewer.Types.SourceCodeType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeGuruReviewer.Types.SourceCodeType where
+module Amazonka.CodeGuruReviewer.Types.SourceCodeType where
 
-import Network.AWS.CodeGuruReviewer.Types.BranchDiffSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.CommitDiffSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
-import Network.AWS.CodeGuruReviewer.Types.RequestMetadata
-import Network.AWS.CodeGuruReviewer.Types.S3BucketRepository
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeGuruReviewer.Types.BranchDiffSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.RequestMetadata
+import Amazonka.CodeGuruReviewer.Types.S3BucketRepository
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the source code that is analyzed in a code review.
 --

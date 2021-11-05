@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeGuruReviewer where
 
+import Amazonka.CodeGuruReviewer
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeGuruReviewer
 import Test.AWS.CodeGuruReviewer.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

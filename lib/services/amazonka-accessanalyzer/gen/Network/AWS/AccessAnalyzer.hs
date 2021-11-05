@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AccessAnalyzer
+-- Module      : Amazonka.AccessAnalyzer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 --
 -- To start using IAM Access Analyzer, you first need to create an
 -- analyzer.
-module Network.AWS.AccessAnalyzer
+module Amazonka.AccessAnalyzer
   ( -- * Service Configuration
     defaultService,
 
@@ -480,37 +480,37 @@ module Network.AWS.AccessAnalyzer
   )
 where
 
-import Network.AWS.AccessAnalyzer.ApplyArchiveRule
-import Network.AWS.AccessAnalyzer.CancelPolicyGeneration
-import Network.AWS.AccessAnalyzer.CreateAccessPreview
-import Network.AWS.AccessAnalyzer.CreateAnalyzer
-import Network.AWS.AccessAnalyzer.CreateArchiveRule
-import Network.AWS.AccessAnalyzer.DeleteAnalyzer
-import Network.AWS.AccessAnalyzer.DeleteArchiveRule
-import Network.AWS.AccessAnalyzer.GetAccessPreview
-import Network.AWS.AccessAnalyzer.GetAnalyzedResource
-import Network.AWS.AccessAnalyzer.GetAnalyzer
-import Network.AWS.AccessAnalyzer.GetArchiveRule
-import Network.AWS.AccessAnalyzer.GetFinding
-import Network.AWS.AccessAnalyzer.GetGeneratedPolicy
-import Network.AWS.AccessAnalyzer.Lens
-import Network.AWS.AccessAnalyzer.ListAccessPreviewFindings
-import Network.AWS.AccessAnalyzer.ListAccessPreviews
-import Network.AWS.AccessAnalyzer.ListAnalyzedResources
-import Network.AWS.AccessAnalyzer.ListAnalyzers
-import Network.AWS.AccessAnalyzer.ListArchiveRules
-import Network.AWS.AccessAnalyzer.ListFindings
-import Network.AWS.AccessAnalyzer.ListPolicyGenerations
-import Network.AWS.AccessAnalyzer.ListTagsForResource
-import Network.AWS.AccessAnalyzer.StartPolicyGeneration
-import Network.AWS.AccessAnalyzer.StartResourceScan
-import Network.AWS.AccessAnalyzer.TagResource
-import Network.AWS.AccessAnalyzer.Types
-import Network.AWS.AccessAnalyzer.UntagResource
-import Network.AWS.AccessAnalyzer.UpdateArchiveRule
-import Network.AWS.AccessAnalyzer.UpdateFindings
-import Network.AWS.AccessAnalyzer.ValidatePolicy
-import Network.AWS.AccessAnalyzer.Waiters
+import Amazonka.AccessAnalyzer.ApplyArchiveRule
+import Amazonka.AccessAnalyzer.CancelPolicyGeneration
+import Amazonka.AccessAnalyzer.CreateAccessPreview
+import Amazonka.AccessAnalyzer.CreateAnalyzer
+import Amazonka.AccessAnalyzer.CreateArchiveRule
+import Amazonka.AccessAnalyzer.DeleteAnalyzer
+import Amazonka.AccessAnalyzer.DeleteArchiveRule
+import Amazonka.AccessAnalyzer.GetAccessPreview
+import Amazonka.AccessAnalyzer.GetAnalyzedResource
+import Amazonka.AccessAnalyzer.GetAnalyzer
+import Amazonka.AccessAnalyzer.GetArchiveRule
+import Amazonka.AccessAnalyzer.GetFinding
+import Amazonka.AccessAnalyzer.GetGeneratedPolicy
+import Amazonka.AccessAnalyzer.Lens
+import Amazonka.AccessAnalyzer.ListAccessPreviewFindings
+import Amazonka.AccessAnalyzer.ListAccessPreviews
+import Amazonka.AccessAnalyzer.ListAnalyzedResources
+import Amazonka.AccessAnalyzer.ListAnalyzers
+import Amazonka.AccessAnalyzer.ListArchiveRules
+import Amazonka.AccessAnalyzer.ListFindings
+import Amazonka.AccessAnalyzer.ListPolicyGenerations
+import Amazonka.AccessAnalyzer.ListTagsForResource
+import Amazonka.AccessAnalyzer.StartPolicyGeneration
+import Amazonka.AccessAnalyzer.StartResourceScan
+import Amazonka.AccessAnalyzer.TagResource
+import Amazonka.AccessAnalyzer.Types
+import Amazonka.AccessAnalyzer.UntagResource
+import Amazonka.AccessAnalyzer.UpdateArchiveRule
+import Amazonka.AccessAnalyzer.UpdateFindings
+import Amazonka.AccessAnalyzer.ValidatePolicy
+import Amazonka.AccessAnalyzer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

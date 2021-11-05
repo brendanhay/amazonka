@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AccessAnalyzer where
 
+import Amazonka.AccessAnalyzer
 import qualified Data.Proxy as Proxy
-import Network.AWS.AccessAnalyzer
 import Test.AWS.AccessAnalyzer.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

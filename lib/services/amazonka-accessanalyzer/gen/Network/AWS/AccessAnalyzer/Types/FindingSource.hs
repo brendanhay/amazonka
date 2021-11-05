@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AccessAnalyzer.Types.FindingSource
+-- Module      : Amazonka.AccessAnalyzer.Types.FindingSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AccessAnalyzer.Types.FindingSource where
+module Amazonka.AccessAnalyzer.Types.FindingSource where
 
-import Network.AWS.AccessAnalyzer.Types.FindingSourceDetail
-import Network.AWS.AccessAnalyzer.Types.FindingSourceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AccessAnalyzer.Types.FindingSourceDetail
+import Amazonka.AccessAnalyzer.Types.FindingSourceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the finding. This indicates how the access that generated
 -- the finding is granted. It is populated for Amazon S3 bucket findings.

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AccessAnalyzer.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AccessAnalyzer.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AccessAnalyzer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AccessAnalyzer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,106 +45,106 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AccessAnalyzer
-    Network.AWS.AccessAnalyzer.ApplyArchiveRule
-    Network.AWS.AccessAnalyzer.CancelPolicyGeneration
-    Network.AWS.AccessAnalyzer.CreateAccessPreview
-    Network.AWS.AccessAnalyzer.CreateAnalyzer
-    Network.AWS.AccessAnalyzer.CreateArchiveRule
-    Network.AWS.AccessAnalyzer.DeleteAnalyzer
-    Network.AWS.AccessAnalyzer.DeleteArchiveRule
-    Network.AWS.AccessAnalyzer.GetAccessPreview
-    Network.AWS.AccessAnalyzer.GetAnalyzedResource
-    Network.AWS.AccessAnalyzer.GetAnalyzer
-    Network.AWS.AccessAnalyzer.GetArchiveRule
-    Network.AWS.AccessAnalyzer.GetFinding
-    Network.AWS.AccessAnalyzer.GetGeneratedPolicy
-    Network.AWS.AccessAnalyzer.Lens
-    Network.AWS.AccessAnalyzer.ListAccessPreviewFindings
-    Network.AWS.AccessAnalyzer.ListAccessPreviews
-    Network.AWS.AccessAnalyzer.ListAnalyzedResources
-    Network.AWS.AccessAnalyzer.ListAnalyzers
-    Network.AWS.AccessAnalyzer.ListArchiveRules
-    Network.AWS.AccessAnalyzer.ListFindings
-    Network.AWS.AccessAnalyzer.ListPolicyGenerations
-    Network.AWS.AccessAnalyzer.ListTagsForResource
-    Network.AWS.AccessAnalyzer.StartPolicyGeneration
-    Network.AWS.AccessAnalyzer.StartResourceScan
-    Network.AWS.AccessAnalyzer.TagResource
-    Network.AWS.AccessAnalyzer.Types
-    Network.AWS.AccessAnalyzer.Types.AccessPreview
-    Network.AWS.AccessAnalyzer.Types.AccessPreviewFinding
-    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus
-    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason
-    Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
-    Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary
-    Network.AWS.AccessAnalyzer.Types.AclGrantee
-    Network.AWS.AccessAnalyzer.Types.AclPermission
-    Network.AWS.AccessAnalyzer.Types.AnalyzedResource
-    Network.AWS.AccessAnalyzer.Types.AnalyzedResourceSummary
-    Network.AWS.AccessAnalyzer.Types.AnalyzerStatus
-    Network.AWS.AccessAnalyzer.Types.AnalyzerSummary
-    Network.AWS.AccessAnalyzer.Types.ArchiveRuleSummary
-    Network.AWS.AccessAnalyzer.Types.CloudTrailDetails
-    Network.AWS.AccessAnalyzer.Types.CloudTrailProperties
-    Network.AWS.AccessAnalyzer.Types.Configuration
-    Network.AWS.AccessAnalyzer.Types.Criterion
-    Network.AWS.AccessAnalyzer.Types.Finding
-    Network.AWS.AccessAnalyzer.Types.FindingChangeType
-    Network.AWS.AccessAnalyzer.Types.FindingSource
-    Network.AWS.AccessAnalyzer.Types.FindingSourceDetail
-    Network.AWS.AccessAnalyzer.Types.FindingSourceType
-    Network.AWS.AccessAnalyzer.Types.FindingStatus
-    Network.AWS.AccessAnalyzer.Types.FindingStatusUpdate
-    Network.AWS.AccessAnalyzer.Types.FindingSummary
-    Network.AWS.AccessAnalyzer.Types.GeneratedPolicy
-    Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties
-    Network.AWS.AccessAnalyzer.Types.GeneratedPolicyResult
-    Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration
-    Network.AWS.AccessAnalyzer.Types.InlineArchiveRule
-    Network.AWS.AccessAnalyzer.Types.InternetConfiguration
-    Network.AWS.AccessAnalyzer.Types.JobDetails
-    Network.AWS.AccessAnalyzer.Types.JobError
-    Network.AWS.AccessAnalyzer.Types.JobErrorCode
-    Network.AWS.AccessAnalyzer.Types.JobStatus
-    Network.AWS.AccessAnalyzer.Types.KmsGrantConfiguration
-    Network.AWS.AccessAnalyzer.Types.KmsGrantConstraints
-    Network.AWS.AccessAnalyzer.Types.KmsGrantOperation
-    Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration
-    Network.AWS.AccessAnalyzer.Types.Locale
-    Network.AWS.AccessAnalyzer.Types.Location
-    Network.AWS.AccessAnalyzer.Types.NetworkOriginConfiguration
-    Network.AWS.AccessAnalyzer.Types.OrderBy
-    Network.AWS.AccessAnalyzer.Types.PathElement
-    Network.AWS.AccessAnalyzer.Types.PolicyGeneration
-    Network.AWS.AccessAnalyzer.Types.PolicyGenerationDetails
-    Network.AWS.AccessAnalyzer.Types.PolicyType
-    Network.AWS.AccessAnalyzer.Types.Position
-    Network.AWS.AccessAnalyzer.Types.ReasonCode
-    Network.AWS.AccessAnalyzer.Types.ResourceType
-    Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration
-    Network.AWS.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
-    Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration
-    Network.AWS.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
-    Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
-    Network.AWS.AccessAnalyzer.Types.SortCriteria
-    Network.AWS.AccessAnalyzer.Types.Span
-    Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration
-    Network.AWS.AccessAnalyzer.Types.StatusReason
-    Network.AWS.AccessAnalyzer.Types.Substring
-    Network.AWS.AccessAnalyzer.Types.Trail
-    Network.AWS.AccessAnalyzer.Types.TrailProperties
-    Network.AWS.AccessAnalyzer.Types.Type
-    Network.AWS.AccessAnalyzer.Types.ValidatePolicyFinding
-    Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType
-    Network.AWS.AccessAnalyzer.Types.VpcConfiguration
-    Network.AWS.AccessAnalyzer.UntagResource
-    Network.AWS.AccessAnalyzer.UpdateArchiveRule
-    Network.AWS.AccessAnalyzer.UpdateFindings
-    Network.AWS.AccessAnalyzer.ValidatePolicy
-    Network.AWS.AccessAnalyzer.Waiters
+    Amazonka.AccessAnalyzer
+    Amazonka.AccessAnalyzer.ApplyArchiveRule
+    Amazonka.AccessAnalyzer.CancelPolicyGeneration
+    Amazonka.AccessAnalyzer.CreateAccessPreview
+    Amazonka.AccessAnalyzer.CreateAnalyzer
+    Amazonka.AccessAnalyzer.CreateArchiveRule
+    Amazonka.AccessAnalyzer.DeleteAnalyzer
+    Amazonka.AccessAnalyzer.DeleteArchiveRule
+    Amazonka.AccessAnalyzer.GetAccessPreview
+    Amazonka.AccessAnalyzer.GetAnalyzedResource
+    Amazonka.AccessAnalyzer.GetAnalyzer
+    Amazonka.AccessAnalyzer.GetArchiveRule
+    Amazonka.AccessAnalyzer.GetFinding
+    Amazonka.AccessAnalyzer.GetGeneratedPolicy
+    Amazonka.AccessAnalyzer.Lens
+    Amazonka.AccessAnalyzer.ListAccessPreviewFindings
+    Amazonka.AccessAnalyzer.ListAccessPreviews
+    Amazonka.AccessAnalyzer.ListAnalyzedResources
+    Amazonka.AccessAnalyzer.ListAnalyzers
+    Amazonka.AccessAnalyzer.ListArchiveRules
+    Amazonka.AccessAnalyzer.ListFindings
+    Amazonka.AccessAnalyzer.ListPolicyGenerations
+    Amazonka.AccessAnalyzer.ListTagsForResource
+    Amazonka.AccessAnalyzer.StartPolicyGeneration
+    Amazonka.AccessAnalyzer.StartResourceScan
+    Amazonka.AccessAnalyzer.TagResource
+    Amazonka.AccessAnalyzer.Types
+    Amazonka.AccessAnalyzer.Types.AccessPreview
+    Amazonka.AccessAnalyzer.Types.AccessPreviewFinding
+    Amazonka.AccessAnalyzer.Types.AccessPreviewStatus
+    Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason
+    Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
+    Amazonka.AccessAnalyzer.Types.AccessPreviewSummary
+    Amazonka.AccessAnalyzer.Types.AclGrantee
+    Amazonka.AccessAnalyzer.Types.AclPermission
+    Amazonka.AccessAnalyzer.Types.AnalyzedResource
+    Amazonka.AccessAnalyzer.Types.AnalyzedResourceSummary
+    Amazonka.AccessAnalyzer.Types.AnalyzerStatus
+    Amazonka.AccessAnalyzer.Types.AnalyzerSummary
+    Amazonka.AccessAnalyzer.Types.ArchiveRuleSummary
+    Amazonka.AccessAnalyzer.Types.CloudTrailDetails
+    Amazonka.AccessAnalyzer.Types.CloudTrailProperties
+    Amazonka.AccessAnalyzer.Types.Configuration
+    Amazonka.AccessAnalyzer.Types.Criterion
+    Amazonka.AccessAnalyzer.Types.Finding
+    Amazonka.AccessAnalyzer.Types.FindingChangeType
+    Amazonka.AccessAnalyzer.Types.FindingSource
+    Amazonka.AccessAnalyzer.Types.FindingSourceDetail
+    Amazonka.AccessAnalyzer.Types.FindingSourceType
+    Amazonka.AccessAnalyzer.Types.FindingStatus
+    Amazonka.AccessAnalyzer.Types.FindingStatusUpdate
+    Amazonka.AccessAnalyzer.Types.FindingSummary
+    Amazonka.AccessAnalyzer.Types.GeneratedPolicy
+    Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties
+    Amazonka.AccessAnalyzer.Types.GeneratedPolicyResult
+    Amazonka.AccessAnalyzer.Types.IamRoleConfiguration
+    Amazonka.AccessAnalyzer.Types.InlineArchiveRule
+    Amazonka.AccessAnalyzer.Types.InternetConfiguration
+    Amazonka.AccessAnalyzer.Types.JobDetails
+    Amazonka.AccessAnalyzer.Types.JobError
+    Amazonka.AccessAnalyzer.Types.JobErrorCode
+    Amazonka.AccessAnalyzer.Types.JobStatus
+    Amazonka.AccessAnalyzer.Types.KmsGrantConfiguration
+    Amazonka.AccessAnalyzer.Types.KmsGrantConstraints
+    Amazonka.AccessAnalyzer.Types.KmsGrantOperation
+    Amazonka.AccessAnalyzer.Types.KmsKeyConfiguration
+    Amazonka.AccessAnalyzer.Types.Locale
+    Amazonka.AccessAnalyzer.Types.Location
+    Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration
+    Amazonka.AccessAnalyzer.Types.OrderBy
+    Amazonka.AccessAnalyzer.Types.PathElement
+    Amazonka.AccessAnalyzer.Types.PolicyGeneration
+    Amazonka.AccessAnalyzer.Types.PolicyGenerationDetails
+    Amazonka.AccessAnalyzer.Types.PolicyType
+    Amazonka.AccessAnalyzer.Types.Position
+    Amazonka.AccessAnalyzer.Types.ReasonCode
+    Amazonka.AccessAnalyzer.Types.ResourceType
+    Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
+    Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
+    Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
+    Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
+    Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+    Amazonka.AccessAnalyzer.Types.SortCriteria
+    Amazonka.AccessAnalyzer.Types.Span
+    Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration
+    Amazonka.AccessAnalyzer.Types.StatusReason
+    Amazonka.AccessAnalyzer.Types.Substring
+    Amazonka.AccessAnalyzer.Types.Trail
+    Amazonka.AccessAnalyzer.Types.TrailProperties
+    Amazonka.AccessAnalyzer.Types.Type
+    Amazonka.AccessAnalyzer.Types.ValidatePolicyFinding
+    Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
+    Amazonka.AccessAnalyzer.Types.VpcConfiguration
+    Amazonka.AccessAnalyzer.UntagResource
+    Amazonka.AccessAnalyzer.UpdateArchiveRule
+    Amazonka.AccessAnalyzer.UpdateFindings
+    Amazonka.AccessAnalyzer.ValidatePolicy
+    Amazonka.AccessAnalyzer.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

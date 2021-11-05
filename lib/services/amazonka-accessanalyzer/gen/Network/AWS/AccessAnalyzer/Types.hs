@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AccessAnalyzer.Types
+-- Module      : Amazonka.AccessAnalyzer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AccessAnalyzer.Types
+module Amazonka.AccessAnalyzer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -451,76 +451,76 @@ module Network.AWS.AccessAnalyzer.Types
   )
 where
 
-import Network.AWS.AccessAnalyzer.Types.AccessPreview
-import Network.AWS.AccessAnalyzer.Types.AccessPreviewFinding
-import Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus
-import Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason
-import Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
-import Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary
-import Network.AWS.AccessAnalyzer.Types.AclGrantee
-import Network.AWS.AccessAnalyzer.Types.AclPermission
-import Network.AWS.AccessAnalyzer.Types.AnalyzedResource
-import Network.AWS.AccessAnalyzer.Types.AnalyzedResourceSummary
-import Network.AWS.AccessAnalyzer.Types.AnalyzerStatus
-import Network.AWS.AccessAnalyzer.Types.AnalyzerSummary
-import Network.AWS.AccessAnalyzer.Types.ArchiveRuleSummary
-import Network.AWS.AccessAnalyzer.Types.CloudTrailDetails
-import Network.AWS.AccessAnalyzer.Types.CloudTrailProperties
-import Network.AWS.AccessAnalyzer.Types.Configuration
-import Network.AWS.AccessAnalyzer.Types.Criterion
-import Network.AWS.AccessAnalyzer.Types.Finding
-import Network.AWS.AccessAnalyzer.Types.FindingChangeType
-import Network.AWS.AccessAnalyzer.Types.FindingSource
-import Network.AWS.AccessAnalyzer.Types.FindingSourceDetail
-import Network.AWS.AccessAnalyzer.Types.FindingSourceType
-import Network.AWS.AccessAnalyzer.Types.FindingStatus
-import Network.AWS.AccessAnalyzer.Types.FindingStatusUpdate
-import Network.AWS.AccessAnalyzer.Types.FindingSummary
-import Network.AWS.AccessAnalyzer.Types.GeneratedPolicy
-import Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties
-import Network.AWS.AccessAnalyzer.Types.GeneratedPolicyResult
-import Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration
-import Network.AWS.AccessAnalyzer.Types.InlineArchiveRule
-import Network.AWS.AccessAnalyzer.Types.InternetConfiguration
-import Network.AWS.AccessAnalyzer.Types.JobDetails
-import Network.AWS.AccessAnalyzer.Types.JobError
-import Network.AWS.AccessAnalyzer.Types.JobErrorCode
-import Network.AWS.AccessAnalyzer.Types.JobStatus
-import Network.AWS.AccessAnalyzer.Types.KmsGrantConfiguration
-import Network.AWS.AccessAnalyzer.Types.KmsGrantConstraints
-import Network.AWS.AccessAnalyzer.Types.KmsGrantOperation
-import Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration
-import Network.AWS.AccessAnalyzer.Types.Locale
-import Network.AWS.AccessAnalyzer.Types.Location
-import Network.AWS.AccessAnalyzer.Types.NetworkOriginConfiguration
-import Network.AWS.AccessAnalyzer.Types.OrderBy
-import Network.AWS.AccessAnalyzer.Types.PathElement
-import Network.AWS.AccessAnalyzer.Types.PolicyGeneration
-import Network.AWS.AccessAnalyzer.Types.PolicyGenerationDetails
-import Network.AWS.AccessAnalyzer.Types.PolicyType
-import Network.AWS.AccessAnalyzer.Types.Position
-import Network.AWS.AccessAnalyzer.Types.ReasonCode
-import Network.AWS.AccessAnalyzer.Types.ResourceType
-import Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
-import Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
-import Network.AWS.AccessAnalyzer.Types.SortCriteria
-import Network.AWS.AccessAnalyzer.Types.Span
-import Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration
-import Network.AWS.AccessAnalyzer.Types.StatusReason
-import Network.AWS.AccessAnalyzer.Types.Substring
-import Network.AWS.AccessAnalyzer.Types.Trail
-import Network.AWS.AccessAnalyzer.Types.TrailProperties
-import Network.AWS.AccessAnalyzer.Types.Type
-import Network.AWS.AccessAnalyzer.Types.ValidatePolicyFinding
-import Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType
-import Network.AWS.AccessAnalyzer.Types.VpcConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AccessAnalyzer.Types.AccessPreview
+import Amazonka.AccessAnalyzer.Types.AccessPreviewFinding
+import Amazonka.AccessAnalyzer.Types.AccessPreviewStatus
+import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReason
+import Amazonka.AccessAnalyzer.Types.AccessPreviewStatusReasonCode
+import Amazonka.AccessAnalyzer.Types.AccessPreviewSummary
+import Amazonka.AccessAnalyzer.Types.AclGrantee
+import Amazonka.AccessAnalyzer.Types.AclPermission
+import Amazonka.AccessAnalyzer.Types.AnalyzedResource
+import Amazonka.AccessAnalyzer.Types.AnalyzedResourceSummary
+import Amazonka.AccessAnalyzer.Types.AnalyzerStatus
+import Amazonka.AccessAnalyzer.Types.AnalyzerSummary
+import Amazonka.AccessAnalyzer.Types.ArchiveRuleSummary
+import Amazonka.AccessAnalyzer.Types.CloudTrailDetails
+import Amazonka.AccessAnalyzer.Types.CloudTrailProperties
+import Amazonka.AccessAnalyzer.Types.Configuration
+import Amazonka.AccessAnalyzer.Types.Criterion
+import Amazonka.AccessAnalyzer.Types.Finding
+import Amazonka.AccessAnalyzer.Types.FindingChangeType
+import Amazonka.AccessAnalyzer.Types.FindingSource
+import Amazonka.AccessAnalyzer.Types.FindingSourceDetail
+import Amazonka.AccessAnalyzer.Types.FindingSourceType
+import Amazonka.AccessAnalyzer.Types.FindingStatus
+import Amazonka.AccessAnalyzer.Types.FindingStatusUpdate
+import Amazonka.AccessAnalyzer.Types.FindingSummary
+import Amazonka.AccessAnalyzer.Types.GeneratedPolicy
+import Amazonka.AccessAnalyzer.Types.GeneratedPolicyProperties
+import Amazonka.AccessAnalyzer.Types.GeneratedPolicyResult
+import Amazonka.AccessAnalyzer.Types.IamRoleConfiguration
+import Amazonka.AccessAnalyzer.Types.InlineArchiveRule
+import Amazonka.AccessAnalyzer.Types.InternetConfiguration
+import Amazonka.AccessAnalyzer.Types.JobDetails
+import Amazonka.AccessAnalyzer.Types.JobError
+import Amazonka.AccessAnalyzer.Types.JobErrorCode
+import Amazonka.AccessAnalyzer.Types.JobStatus
+import Amazonka.AccessAnalyzer.Types.KmsGrantConfiguration
+import Amazonka.AccessAnalyzer.Types.KmsGrantConstraints
+import Amazonka.AccessAnalyzer.Types.KmsGrantOperation
+import Amazonka.AccessAnalyzer.Types.KmsKeyConfiguration
+import Amazonka.AccessAnalyzer.Types.Locale
+import Amazonka.AccessAnalyzer.Types.Location
+import Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration
+import Amazonka.AccessAnalyzer.Types.OrderBy
+import Amazonka.AccessAnalyzer.Types.PathElement
+import Amazonka.AccessAnalyzer.Types.PolicyGeneration
+import Amazonka.AccessAnalyzer.Types.PolicyGenerationDetails
+import Amazonka.AccessAnalyzer.Types.PolicyType
+import Amazonka.AccessAnalyzer.Types.Position
+import Amazonka.AccessAnalyzer.Types.ReasonCode
+import Amazonka.AccessAnalyzer.Types.ResourceType
+import Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
+import Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
+import Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
+import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
+import Amazonka.AccessAnalyzer.Types.SecretsManagerSecretConfiguration
+import Amazonka.AccessAnalyzer.Types.SortCriteria
+import Amazonka.AccessAnalyzer.Types.Span
+import Amazonka.AccessAnalyzer.Types.SqsQueueConfiguration
+import Amazonka.AccessAnalyzer.Types.StatusReason
+import Amazonka.AccessAnalyzer.Types.Substring
+import Amazonka.AccessAnalyzer.Types.Trail
+import Amazonka.AccessAnalyzer.Types.TrailProperties
+import Amazonka.AccessAnalyzer.Types.Type
+import Amazonka.AccessAnalyzer.Types.ValidatePolicyFinding
+import Amazonka.AccessAnalyzer.Types.ValidatePolicyFindingType
+import Amazonka.AccessAnalyzer.Types.VpcConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-11-01@ of the Amazon Access Analyzer SDK configuration.
 defaultService :: Core.Service

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration
+-- Module      : Amazonka.AccessAnalyzer.Types.S3BucketConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration where
+module Amazonka.AccessAnalyzer.Types.S3BucketConfiguration where
 
-import Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
+import Amazonka.AccessAnalyzer.Types.S3BucketAclGrantConfiguration
+import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Proposed access control configuration for an Amazon S3 bucket. You can
 -- propose a configuration for a new Amazon S3 bucket or an existing Amazon

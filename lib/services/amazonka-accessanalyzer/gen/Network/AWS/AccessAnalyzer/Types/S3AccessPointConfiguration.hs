@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration
+-- Module      : Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AccessAnalyzer.Types.S3AccessPointConfiguration where
+module Amazonka.AccessAnalyzer.Types.S3AccessPointConfiguration where
 
-import Network.AWS.AccessAnalyzer.Types.NetworkOriginConfiguration
-import Network.AWS.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AccessAnalyzer.Types.NetworkOriginConfiguration
+import Amazonka.AccessAnalyzer.Types.S3PublicAccessBlockConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for an Amazon S3 access point or multi-region access
 -- point for the bucket. You can propose up to 10 access points or

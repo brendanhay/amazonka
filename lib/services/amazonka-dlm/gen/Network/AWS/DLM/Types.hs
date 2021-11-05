@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Types
+-- Module      : Amazonka.DLM.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Types
+module Amazonka.DLM.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -208,39 +208,39 @@ module Network.AWS.DLM.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DLM.Types.Action
-import Network.AWS.DLM.Types.CreateRule
-import Network.AWS.DLM.Types.CrossRegionCopyAction
-import Network.AWS.DLM.Types.CrossRegionCopyDeprecateRule
-import Network.AWS.DLM.Types.CrossRegionCopyRetainRule
-import Network.AWS.DLM.Types.CrossRegionCopyRule
-import Network.AWS.DLM.Types.DeprecateRule
-import Network.AWS.DLM.Types.EncryptionConfiguration
-import Network.AWS.DLM.Types.EventParameters
-import Network.AWS.DLM.Types.EventSource
-import Network.AWS.DLM.Types.EventSourceValues
-import Network.AWS.DLM.Types.EventTypeValues
-import Network.AWS.DLM.Types.FastRestoreRule
-import Network.AWS.DLM.Types.GettablePolicyStateValues
-import Network.AWS.DLM.Types.IntervalUnitValues
-import Network.AWS.DLM.Types.LifecyclePolicy
-import Network.AWS.DLM.Types.LifecyclePolicySummary
-import Network.AWS.DLM.Types.LocationValues
-import Network.AWS.DLM.Types.Parameters
-import Network.AWS.DLM.Types.PolicyDetails
-import Network.AWS.DLM.Types.PolicyTypeValues
-import Network.AWS.DLM.Types.ResourceLocationValues
-import Network.AWS.DLM.Types.ResourceTypeValues
-import Network.AWS.DLM.Types.RetainRule
-import Network.AWS.DLM.Types.RetentionIntervalUnitValues
-import Network.AWS.DLM.Types.Schedule
-import Network.AWS.DLM.Types.SettablePolicyStateValues
-import Network.AWS.DLM.Types.ShareRule
-import Network.AWS.DLM.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DLM.Types.Action
+import Amazonka.DLM.Types.CreateRule
+import Amazonka.DLM.Types.CrossRegionCopyAction
+import Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
+import Amazonka.DLM.Types.CrossRegionCopyRetainRule
+import Amazonka.DLM.Types.CrossRegionCopyRule
+import Amazonka.DLM.Types.DeprecateRule
+import Amazonka.DLM.Types.EncryptionConfiguration
+import Amazonka.DLM.Types.EventParameters
+import Amazonka.DLM.Types.EventSource
+import Amazonka.DLM.Types.EventSourceValues
+import Amazonka.DLM.Types.EventTypeValues
+import Amazonka.DLM.Types.FastRestoreRule
+import Amazonka.DLM.Types.GettablePolicyStateValues
+import Amazonka.DLM.Types.IntervalUnitValues
+import Amazonka.DLM.Types.LifecyclePolicy
+import Amazonka.DLM.Types.LifecyclePolicySummary
+import Amazonka.DLM.Types.LocationValues
+import Amazonka.DLM.Types.Parameters
+import Amazonka.DLM.Types.PolicyDetails
+import Amazonka.DLM.Types.PolicyTypeValues
+import Amazonka.DLM.Types.ResourceLocationValues
+import Amazonka.DLM.Types.ResourceTypeValues
+import Amazonka.DLM.Types.RetainRule
+import Amazonka.DLM.Types.RetentionIntervalUnitValues
+import Amazonka.DLM.Types.Schedule
+import Amazonka.DLM.Types.SettablePolicyStateValues
+import Amazonka.DLM.Types.ShareRule
+import Amazonka.DLM.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-01-12@ of the Amazon Data Lifecycle Manager SDK configuration.
 defaultService :: Core.Service

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Types.EventParameters
+-- Module      : Amazonka.DLM.Types.EventParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Types.EventParameters where
+module Amazonka.DLM.Types.EventParameters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DLM.Types.EventTypeValues
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DLM.Types.EventTypeValues
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies an event that triggers an event-based policy.
 --

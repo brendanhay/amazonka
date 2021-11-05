@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Types.ResourceTypeValues
+-- Module      : Amazonka.DLM.Types.ResourceTypeValues
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Types.ResourceTypeValues
+module Amazonka.DLM.Types.ResourceTypeValues
   ( ResourceTypeValues
       ( ..,
         ResourceTypeValues_INSTANCE,
@@ -26,8 +26,8 @@ module Network.AWS.DLM.Types.ResourceTypeValues
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ResourceTypeValues = ResourceTypeValues'
   { fromResourceTypeValues ::

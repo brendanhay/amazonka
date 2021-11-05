@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Lens
+-- Module      : Amazonka.DLM.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Lens
+module Amazonka.DLM.Lens
   ( -- * Operations
 
     -- ** DeleteLifecyclePolicy
@@ -184,30 +184,30 @@ module Network.AWS.DLM.Lens
   )
 where
 
-import Network.AWS.DLM.CreateLifecyclePolicy
-import Network.AWS.DLM.DeleteLifecyclePolicy
-import Network.AWS.DLM.GetLifecyclePolicies
-import Network.AWS.DLM.GetLifecyclePolicy
-import Network.AWS.DLM.ListTagsForResource
-import Network.AWS.DLM.TagResource
-import Network.AWS.DLM.Types.Action
-import Network.AWS.DLM.Types.CreateRule
-import Network.AWS.DLM.Types.CrossRegionCopyAction
-import Network.AWS.DLM.Types.CrossRegionCopyDeprecateRule
-import Network.AWS.DLM.Types.CrossRegionCopyRetainRule
-import Network.AWS.DLM.Types.CrossRegionCopyRule
-import Network.AWS.DLM.Types.DeprecateRule
-import Network.AWS.DLM.Types.EncryptionConfiguration
-import Network.AWS.DLM.Types.EventParameters
-import Network.AWS.DLM.Types.EventSource
-import Network.AWS.DLM.Types.FastRestoreRule
-import Network.AWS.DLM.Types.LifecyclePolicy
-import Network.AWS.DLM.Types.LifecyclePolicySummary
-import Network.AWS.DLM.Types.Parameters
-import Network.AWS.DLM.Types.PolicyDetails
-import Network.AWS.DLM.Types.RetainRule
-import Network.AWS.DLM.Types.Schedule
-import Network.AWS.DLM.Types.ShareRule
-import Network.AWS.DLM.Types.Tag
-import Network.AWS.DLM.UntagResource
-import Network.AWS.DLM.UpdateLifecyclePolicy
+import Amazonka.DLM.CreateLifecyclePolicy
+import Amazonka.DLM.DeleteLifecyclePolicy
+import Amazonka.DLM.GetLifecyclePolicies
+import Amazonka.DLM.GetLifecyclePolicy
+import Amazonka.DLM.ListTagsForResource
+import Amazonka.DLM.TagResource
+import Amazonka.DLM.Types.Action
+import Amazonka.DLM.Types.CreateRule
+import Amazonka.DLM.Types.CrossRegionCopyAction
+import Amazonka.DLM.Types.CrossRegionCopyDeprecateRule
+import Amazonka.DLM.Types.CrossRegionCopyRetainRule
+import Amazonka.DLM.Types.CrossRegionCopyRule
+import Amazonka.DLM.Types.DeprecateRule
+import Amazonka.DLM.Types.EncryptionConfiguration
+import Amazonka.DLM.Types.EventParameters
+import Amazonka.DLM.Types.EventSource
+import Amazonka.DLM.Types.FastRestoreRule
+import Amazonka.DLM.Types.LifecyclePolicy
+import Amazonka.DLM.Types.LifecyclePolicySummary
+import Amazonka.DLM.Types.Parameters
+import Amazonka.DLM.Types.PolicyDetails
+import Amazonka.DLM.Types.RetainRule
+import Amazonka.DLM.Types.Schedule
+import Amazonka.DLM.Types.ShareRule
+import Amazonka.DLM.Types.Tag
+import Amazonka.DLM.UntagResource
+import Amazonka.DLM.UpdateLifecyclePolicy

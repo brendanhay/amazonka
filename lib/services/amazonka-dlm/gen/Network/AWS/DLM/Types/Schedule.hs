@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Types.Schedule
+-- Module      : Amazonka.DLM.Types.Schedule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Types.Schedule where
+module Amazonka.DLM.Types.Schedule where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DLM.Types.CreateRule
-import Network.AWS.DLM.Types.CrossRegionCopyRule
-import Network.AWS.DLM.Types.DeprecateRule
-import Network.AWS.DLM.Types.FastRestoreRule
-import Network.AWS.DLM.Types.RetainRule
-import Network.AWS.DLM.Types.ShareRule
-import Network.AWS.DLM.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DLM.Types.CreateRule
+import Amazonka.DLM.Types.CrossRegionCopyRule
+import Amazonka.DLM.Types.DeprecateRule
+import Amazonka.DLM.Types.FastRestoreRule
+import Amazonka.DLM.Types.RetainRule
+import Amazonka.DLM.Types.ShareRule
+import Amazonka.DLM.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a backup schedule for a snapshot or AMI lifecycle policy.
 --

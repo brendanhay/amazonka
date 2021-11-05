@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DLM
+-- Module      : Amazonka.DLM
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- about using Amazon DLM with Amazon EBS, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html Automating the Amazon EBS Snapshot Lifecycle>
 -- in the /Amazon EC2 User Guide/.
-module Network.AWS.DLM
+module Amazonka.DLM
   ( -- * Service Configuration
     defaultService,
 
@@ -204,17 +204,17 @@ module Network.AWS.DLM
   )
 where
 
-import Network.AWS.DLM.CreateLifecyclePolicy
-import Network.AWS.DLM.DeleteLifecyclePolicy
-import Network.AWS.DLM.GetLifecyclePolicies
-import Network.AWS.DLM.GetLifecyclePolicy
-import Network.AWS.DLM.Lens
-import Network.AWS.DLM.ListTagsForResource
-import Network.AWS.DLM.TagResource
-import Network.AWS.DLM.Types
-import Network.AWS.DLM.UntagResource
-import Network.AWS.DLM.UpdateLifecyclePolicy
-import Network.AWS.DLM.Waiters
+import Amazonka.DLM.CreateLifecyclePolicy
+import Amazonka.DLM.DeleteLifecyclePolicy
+import Amazonka.DLM.GetLifecyclePolicies
+import Amazonka.DLM.GetLifecyclePolicy
+import Amazonka.DLM.Lens
+import Amazonka.DLM.ListTagsForResource
+import Amazonka.DLM.TagResource
+import Amazonka.DLM.Types
+import Amazonka.DLM.UntagResource
+import Amazonka.DLM.UpdateLifecyclePolicy
+import Amazonka.DLM.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

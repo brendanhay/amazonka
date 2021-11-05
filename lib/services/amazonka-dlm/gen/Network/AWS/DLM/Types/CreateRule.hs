@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DLM.Types.CreateRule
+-- Module      : Amazonka.DLM.Types.CreateRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DLM.Types.CreateRule where
+module Amazonka.DLM.Types.CreateRule where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DLM.Types.IntervalUnitValues
-import Network.AWS.DLM.Types.LocationValues
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DLM.Types.IntervalUnitValues
+import Amazonka.DLM.Types.LocationValues
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies when to create snapshots of EBS volumes.
 --

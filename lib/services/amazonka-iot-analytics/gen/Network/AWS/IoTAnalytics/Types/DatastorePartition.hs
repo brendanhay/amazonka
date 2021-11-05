@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.DatastorePartition
+-- Module      : Amazonka.IoTAnalytics.Types.DatastorePartition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastorePartition where
+module Amazonka.IoTAnalytics.Types.DatastorePartition where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.Partition
-import Network.AWS.IoTAnalytics.Types.TimestampPartition
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.Partition
+import Amazonka.IoTAnalytics.Types.TimestampPartition
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A single dimension to partition a data store. The dimension must be an
 -- @AttributePartition@ or a @TimestampPartition@.

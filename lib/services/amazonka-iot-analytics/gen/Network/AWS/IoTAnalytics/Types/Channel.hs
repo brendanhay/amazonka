@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.Channel
+-- Module      : Amazonka.IoTAnalytics.Types.Channel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.Channel where
+module Amazonka.IoTAnalytics.Types.Channel where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.ChannelStatus
-import Network.AWS.IoTAnalytics.Types.ChannelStorage
-import Network.AWS.IoTAnalytics.Types.RetentionPeriod
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.ChannelStatus
+import Amazonka.IoTAnalytics.Types.ChannelStorage
+import Amazonka.IoTAnalytics.Types.RetentionPeriod
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of data from an MQTT topic. Channels archive the raw,
 -- unprocessed messages before publishing the data to a pipeline.

@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.PipelineActivity
+-- Module      : Amazonka.IoTAnalytics.Types.PipelineActivity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.PipelineActivity where
+module Amazonka.IoTAnalytics.Types.PipelineActivity where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.AddAttributesActivity
-import Network.AWS.IoTAnalytics.Types.ChannelActivity
-import Network.AWS.IoTAnalytics.Types.DatastoreActivity
-import Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
-import Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity
-import Network.AWS.IoTAnalytics.Types.FilterActivity
-import Network.AWS.IoTAnalytics.Types.LambdaActivity
-import Network.AWS.IoTAnalytics.Types.MathActivity
-import Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
-import Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.AddAttributesActivity
+import Amazonka.IoTAnalytics.Types.ChannelActivity
+import Amazonka.IoTAnalytics.Types.DatastoreActivity
+import Amazonka.IoTAnalytics.Types.DeviceRegistryEnrichActivity
+import Amazonka.IoTAnalytics.Types.DeviceShadowEnrichActivity
+import Amazonka.IoTAnalytics.Types.FilterActivity
+import Amazonka.IoTAnalytics.Types.LambdaActivity
+import Amazonka.IoTAnalytics.Types.MathActivity
+import Amazonka.IoTAnalytics.Types.RemoveAttributesActivity
+import Amazonka.IoTAnalytics.Types.SelectAttributesActivity
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An activity that performs a transformation on a message.
 --

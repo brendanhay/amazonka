@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.Variable
+-- Module      : Amazonka.IoTAnalytics.Types.Variable
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.Variable where
+module Amazonka.IoTAnalytics.Types.Variable where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
-import Network.AWS.IoTAnalytics.Types.OutputFileUriValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.DatasetContentVersionValue
+import Amazonka.IoTAnalytics.Types.OutputFileUriValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An instance of a variable to be passed to the @containerAction@
 -- execution. Each variable must have a name and a value given by one of

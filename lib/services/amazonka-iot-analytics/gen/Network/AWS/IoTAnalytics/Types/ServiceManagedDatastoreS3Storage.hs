@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
+-- Module      : Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage where
+module Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
 -- can\'t change the choice of Amazon S3 storage after your data store is

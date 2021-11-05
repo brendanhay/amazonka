@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.PutLoggingOptions
+-- Module      : Amazonka.IoTAnalytics.PutLoggingOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- attached to the role you specified in the @roleArn@ field (for example,
 -- to correct an invalid policy), it takes up to five minutes for that
 -- change to take effect.
-module Network.AWS.IoTAnalytics.PutLoggingOptions
+module Amazonka.IoTAnalytics.PutLoggingOptions
   ( -- * Creating a Request
     PutLoggingOptions (..),
     newPutLoggingOptions,
@@ -41,12 +41,12 @@ module Network.AWS.IoTAnalytics.PutLoggingOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutLoggingOptions' smart constructor.
 data PutLoggingOptions = PutLoggingOptions'

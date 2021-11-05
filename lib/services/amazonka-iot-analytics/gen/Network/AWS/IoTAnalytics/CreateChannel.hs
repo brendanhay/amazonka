@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.CreateChannel
+-- Module      : Amazonka.IoTAnalytics.CreateChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Used to create a channel. A channel collects data from an MQTT topic and
 -- archives the raw, unprocessed messages before publishing the data to a
 -- pipeline.
-module Network.AWS.IoTAnalytics.CreateChannel
+module Amazonka.IoTAnalytics.CreateChannel
   ( -- * Creating a Request
     CreateChannel (..),
     newCreateChannel,
@@ -46,12 +46,12 @@ module Network.AWS.IoTAnalytics.CreateChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.DatastoreStorage
+-- Module      : Amazonka.IoTAnalytics.Types.DatastoreStorage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastoreStorage where
+module Amazonka.IoTAnalytics.Types.DatastoreStorage where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
-import Network.AWS.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
-import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
+import Amazonka.IoTAnalytics.Types.DatastoreIotSiteWiseMultiLayerStorage
+import Amazonka.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Where data in a data store is stored.. You can choose @serviceManagedS3@
 -- storage, @customerManagedS3@ storage, or @iotSiteWiseMultiLayerStorage@

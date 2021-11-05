@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
+-- Module      : Amazonka.IoTAnalytics.Types.SqlQueryDatasetAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction where
+module Amazonka.IoTAnalytics.Types.SqlQueryDatasetAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.QueryFilter
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.QueryFilter
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The SQL query to modify the message.
 --

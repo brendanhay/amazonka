@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.DatasetContentStatus
+-- Module      : Amazonka.IoTAnalytics.Types.DatasetContentStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetContentStatus where
+module Amazonka.IoTAnalytics.Types.DatasetContentStatus where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.DatasetContentState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.DatasetContentState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The state of the dataset contents and the reason they are in this state.
 --

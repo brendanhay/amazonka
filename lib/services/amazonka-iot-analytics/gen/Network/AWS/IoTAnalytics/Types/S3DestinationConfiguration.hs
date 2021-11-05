@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
+-- Module      : Amazonka.IoTAnalytics.Types.S3DestinationConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration where
+module Amazonka.IoTAnalytics.Types.S3DestinationConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.GlueConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.GlueConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information for delivery of dataset contents to Amazon
 -- Simple Storage Service (Amazon S3).

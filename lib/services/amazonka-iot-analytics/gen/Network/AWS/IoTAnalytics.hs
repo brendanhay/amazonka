@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTAnalytics
+-- Module      : Amazonka.IoTAnalytics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- IoT use cases so you can answer questions like which devices are about
 -- to fail or which customers are at risk of abandoning their wearable
 -- devices.
-module Network.AWS.IoTAnalytics
+module Amazonka.IoTAnalytics
   ( -- * Service Configuration
     defaultService,
 
@@ -622,43 +622,43 @@ module Network.AWS.IoTAnalytics
   )
 where
 
-import Network.AWS.IoTAnalytics.BatchPutMessage
-import Network.AWS.IoTAnalytics.CancelPipelineReprocessing
-import Network.AWS.IoTAnalytics.CreateChannel
-import Network.AWS.IoTAnalytics.CreateDataset
-import Network.AWS.IoTAnalytics.CreateDatasetContent
-import Network.AWS.IoTAnalytics.CreateDatastore
-import Network.AWS.IoTAnalytics.CreatePipeline
-import Network.AWS.IoTAnalytics.DeleteChannel
-import Network.AWS.IoTAnalytics.DeleteDataset
-import Network.AWS.IoTAnalytics.DeleteDatasetContent
-import Network.AWS.IoTAnalytics.DeleteDatastore
-import Network.AWS.IoTAnalytics.DeletePipeline
-import Network.AWS.IoTAnalytics.DescribeChannel
-import Network.AWS.IoTAnalytics.DescribeDataset
-import Network.AWS.IoTAnalytics.DescribeDatastore
-import Network.AWS.IoTAnalytics.DescribeLoggingOptions
-import Network.AWS.IoTAnalytics.DescribePipeline
-import Network.AWS.IoTAnalytics.GetDatasetContent
-import Network.AWS.IoTAnalytics.Lens
-import Network.AWS.IoTAnalytics.ListChannels
-import Network.AWS.IoTAnalytics.ListDatasetContents
-import Network.AWS.IoTAnalytics.ListDatasets
-import Network.AWS.IoTAnalytics.ListDatastores
-import Network.AWS.IoTAnalytics.ListPipelines
-import Network.AWS.IoTAnalytics.ListTagsForResource
-import Network.AWS.IoTAnalytics.PutLoggingOptions
-import Network.AWS.IoTAnalytics.RunPipelineActivity
-import Network.AWS.IoTAnalytics.SampleChannelData
-import Network.AWS.IoTAnalytics.StartPipelineReprocessing
-import Network.AWS.IoTAnalytics.TagResource
-import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.UntagResource
-import Network.AWS.IoTAnalytics.UpdateChannel
-import Network.AWS.IoTAnalytics.UpdateDataset
-import Network.AWS.IoTAnalytics.UpdateDatastore
-import Network.AWS.IoTAnalytics.UpdatePipeline
-import Network.AWS.IoTAnalytics.Waiters
+import Amazonka.IoTAnalytics.BatchPutMessage
+import Amazonka.IoTAnalytics.CancelPipelineReprocessing
+import Amazonka.IoTAnalytics.CreateChannel
+import Amazonka.IoTAnalytics.CreateDataset
+import Amazonka.IoTAnalytics.CreateDatasetContent
+import Amazonka.IoTAnalytics.CreateDatastore
+import Amazonka.IoTAnalytics.CreatePipeline
+import Amazonka.IoTAnalytics.DeleteChannel
+import Amazonka.IoTAnalytics.DeleteDataset
+import Amazonka.IoTAnalytics.DeleteDatasetContent
+import Amazonka.IoTAnalytics.DeleteDatastore
+import Amazonka.IoTAnalytics.DeletePipeline
+import Amazonka.IoTAnalytics.DescribeChannel
+import Amazonka.IoTAnalytics.DescribeDataset
+import Amazonka.IoTAnalytics.DescribeDatastore
+import Amazonka.IoTAnalytics.DescribeLoggingOptions
+import Amazonka.IoTAnalytics.DescribePipeline
+import Amazonka.IoTAnalytics.GetDatasetContent
+import Amazonka.IoTAnalytics.Lens
+import Amazonka.IoTAnalytics.ListChannels
+import Amazonka.IoTAnalytics.ListDatasetContents
+import Amazonka.IoTAnalytics.ListDatasets
+import Amazonka.IoTAnalytics.ListDatastores
+import Amazonka.IoTAnalytics.ListPipelines
+import Amazonka.IoTAnalytics.ListTagsForResource
+import Amazonka.IoTAnalytics.PutLoggingOptions
+import Amazonka.IoTAnalytics.RunPipelineActivity
+import Amazonka.IoTAnalytics.SampleChannelData
+import Amazonka.IoTAnalytics.StartPipelineReprocessing
+import Amazonka.IoTAnalytics.TagResource
+import Amazonka.IoTAnalytics.Types
+import Amazonka.IoTAnalytics.UntagResource
+import Amazonka.IoTAnalytics.UpdateChannel
+import Amazonka.IoTAnalytics.UpdateDataset
+import Amazonka.IoTAnalytics.UpdateDatastore
+import Amazonka.IoTAnalytics.UpdatePipeline
+import Amazonka.IoTAnalytics.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

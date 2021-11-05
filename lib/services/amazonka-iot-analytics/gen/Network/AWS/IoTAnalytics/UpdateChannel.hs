@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.UpdateChannel
+-- Module      : Amazonka.IoTAnalytics.UpdateChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Used to update the settings of a channel.
-module Network.AWS.IoTAnalytics.UpdateChannel
+module Amazonka.IoTAnalytics.UpdateChannel
   ( -- * Creating a Request
     UpdateChannel (..),
     newUpdateChannel,
@@ -37,12 +37,12 @@ module Network.AWS.IoTAnalytics.UpdateChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTAnalytics.Types.DatasetTrigger
+-- Module      : Amazonka.IoTAnalytics.Types.DatasetTrigger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetTrigger where
+module Amazonka.IoTAnalytics.Types.DatasetTrigger where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTAnalytics.Types.Schedule
-import Network.AWS.IoTAnalytics.Types.TriggeringDataset
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTAnalytics.Types.Schedule
+import Amazonka.IoTAnalytics.Types.TriggeringDataset
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The @DatasetTrigger@ that specifies when the dataset is automatically
 -- updated.

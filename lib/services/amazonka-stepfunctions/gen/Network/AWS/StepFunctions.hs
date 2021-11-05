@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.StepFunctions
+-- Module      : Amazonka.StepFunctions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- HTTP API. For more information about Step Functions, see the
 -- /<https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html AWS Step Functions Developer Guide>/
 -- .
-module Network.AWS.StepFunctions
+module Amazonka.StepFunctions
   ( -- * Service Configuration
     defaultService,
 
@@ -442,32 +442,32 @@ module Network.AWS.StepFunctions
   )
 where
 
-import Network.AWS.StepFunctions.CreateActivity
-import Network.AWS.StepFunctions.CreateStateMachine
-import Network.AWS.StepFunctions.DeleteActivity
-import Network.AWS.StepFunctions.DeleteStateMachine
-import Network.AWS.StepFunctions.DescribeActivity
-import Network.AWS.StepFunctions.DescribeExecution
-import Network.AWS.StepFunctions.DescribeStateMachine
-import Network.AWS.StepFunctions.DescribeStateMachineForExecution
-import Network.AWS.StepFunctions.GetActivityTask
-import Network.AWS.StepFunctions.GetExecutionHistory
-import Network.AWS.StepFunctions.Lens
-import Network.AWS.StepFunctions.ListActivities
-import Network.AWS.StepFunctions.ListExecutions
-import Network.AWS.StepFunctions.ListStateMachines
-import Network.AWS.StepFunctions.ListTagsForResource
-import Network.AWS.StepFunctions.SendTaskFailure
-import Network.AWS.StepFunctions.SendTaskHeartbeat
-import Network.AWS.StepFunctions.SendTaskSuccess
-import Network.AWS.StepFunctions.StartExecution
-import Network.AWS.StepFunctions.StartSyncExecution
-import Network.AWS.StepFunctions.StopExecution
-import Network.AWS.StepFunctions.TagResource
-import Network.AWS.StepFunctions.Types
-import Network.AWS.StepFunctions.UntagResource
-import Network.AWS.StepFunctions.UpdateStateMachine
-import Network.AWS.StepFunctions.Waiters
+import Amazonka.StepFunctions.CreateActivity
+import Amazonka.StepFunctions.CreateStateMachine
+import Amazonka.StepFunctions.DeleteActivity
+import Amazonka.StepFunctions.DeleteStateMachine
+import Amazonka.StepFunctions.DescribeActivity
+import Amazonka.StepFunctions.DescribeExecution
+import Amazonka.StepFunctions.DescribeStateMachine
+import Amazonka.StepFunctions.DescribeStateMachineForExecution
+import Amazonka.StepFunctions.GetActivityTask
+import Amazonka.StepFunctions.GetExecutionHistory
+import Amazonka.StepFunctions.Lens
+import Amazonka.StepFunctions.ListActivities
+import Amazonka.StepFunctions.ListExecutions
+import Amazonka.StepFunctions.ListStateMachines
+import Amazonka.StepFunctions.ListTagsForResource
+import Amazonka.StepFunctions.SendTaskFailure
+import Amazonka.StepFunctions.SendTaskHeartbeat
+import Amazonka.StepFunctions.SendTaskSuccess
+import Amazonka.StepFunctions.StartExecution
+import Amazonka.StepFunctions.StartSyncExecution
+import Amazonka.StepFunctions.StopExecution
+import Amazonka.StepFunctions.TagResource
+import Amazonka.StepFunctions.Types
+import Amazonka.StepFunctions.UntagResource
+import Amazonka.StepFunctions.UpdateStateMachine
+import Amazonka.StepFunctions.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

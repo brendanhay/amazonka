@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.Types
+-- Module      : Amazonka.StepFunctions.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types
+module Amazonka.StepFunctions.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -367,57 +367,57 @@ module Network.AWS.StepFunctions.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
-import Network.AWS.StepFunctions.Types.ActivityListItem
-import Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
-import Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails
-import Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
-import Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails
-import Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
-import Network.AWS.StepFunctions.Types.BillingDetails
-import Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
-import Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
-import Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
-import Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
-import Network.AWS.StepFunctions.Types.ExecutionListItem
-import Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
-import Network.AWS.StepFunctions.Types.ExecutionStatus
-import Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
-import Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
-import Network.AWS.StepFunctions.Types.HistoryEvent
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
-import Network.AWS.StepFunctions.Types.HistoryEventType
-import Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails
-import Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
-import Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
-import Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
-import Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
-import Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
-import Network.AWS.StepFunctions.Types.LogDestination
-import Network.AWS.StepFunctions.Types.LogLevel
-import Network.AWS.StepFunctions.Types.LoggingConfiguration
-import Network.AWS.StepFunctions.Types.MapIterationEventDetails
-import Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
-import Network.AWS.StepFunctions.Types.StateEnteredEventDetails
-import Network.AWS.StepFunctions.Types.StateExitedEventDetails
-import Network.AWS.StepFunctions.Types.StateMachineListItem
-import Network.AWS.StepFunctions.Types.StateMachineStatus
-import Network.AWS.StepFunctions.Types.StateMachineType
-import Network.AWS.StepFunctions.Types.SyncExecutionStatus
-import Network.AWS.StepFunctions.Types.Tag
-import Network.AWS.StepFunctions.Types.TaskFailedEventDetails
-import Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
-import Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails
-import Network.AWS.StepFunctions.Types.TaskStartedEventDetails
-import Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
-import Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
-import Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
-import Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
-import Network.AWS.StepFunctions.Types.TracingConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.StepFunctions.Types.ActivityFailedEventDetails
+import Amazonka.StepFunctions.Types.ActivityListItem
+import Amazonka.StepFunctions.Types.ActivityScheduleFailedEventDetails
+import Amazonka.StepFunctions.Types.ActivityScheduledEventDetails
+import Amazonka.StepFunctions.Types.ActivityStartedEventDetails
+import Amazonka.StepFunctions.Types.ActivitySucceededEventDetails
+import Amazonka.StepFunctions.Types.ActivityTimedOutEventDetails
+import Amazonka.StepFunctions.Types.BillingDetails
+import Amazonka.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
+import Amazonka.StepFunctions.Types.CloudWatchLogsLogGroup
+import Amazonka.StepFunctions.Types.ExecutionAbortedEventDetails
+import Amazonka.StepFunctions.Types.ExecutionFailedEventDetails
+import Amazonka.StepFunctions.Types.ExecutionListItem
+import Amazonka.StepFunctions.Types.ExecutionStartedEventDetails
+import Amazonka.StepFunctions.Types.ExecutionStatus
+import Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails
+import Amazonka.StepFunctions.Types.ExecutionTimedOutEventDetails
+import Amazonka.StepFunctions.Types.HistoryEvent
+import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
+import Amazonka.StepFunctions.Types.HistoryEventType
+import Amazonka.StepFunctions.Types.LambdaFunctionFailedEventDetails
+import Amazonka.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
+import Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails
+import Amazonka.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
+import Amazonka.StepFunctions.Types.LambdaFunctionSucceededEventDetails
+import Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
+import Amazonka.StepFunctions.Types.LogDestination
+import Amazonka.StepFunctions.Types.LogLevel
+import Amazonka.StepFunctions.Types.LoggingConfiguration
+import Amazonka.StepFunctions.Types.MapIterationEventDetails
+import Amazonka.StepFunctions.Types.MapStateStartedEventDetails
+import Amazonka.StepFunctions.Types.StateEnteredEventDetails
+import Amazonka.StepFunctions.Types.StateExitedEventDetails
+import Amazonka.StepFunctions.Types.StateMachineListItem
+import Amazonka.StepFunctions.Types.StateMachineStatus
+import Amazonka.StepFunctions.Types.StateMachineType
+import Amazonka.StepFunctions.Types.SyncExecutionStatus
+import Amazonka.StepFunctions.Types.Tag
+import Amazonka.StepFunctions.Types.TaskFailedEventDetails
+import Amazonka.StepFunctions.Types.TaskScheduledEventDetails
+import Amazonka.StepFunctions.Types.TaskStartFailedEventDetails
+import Amazonka.StepFunctions.Types.TaskStartedEventDetails
+import Amazonka.StepFunctions.Types.TaskSubmitFailedEventDetails
+import Amazonka.StepFunctions.Types.TaskSubmittedEventDetails
+import Amazonka.StepFunctions.Types.TaskSucceededEventDetails
+import Amazonka.StepFunctions.Types.TaskTimedOutEventDetails
+import Amazonka.StepFunctions.Types.TracingConfiguration
 
 -- | API version @2016-11-23@ of the Amazon Step Functions SDK configuration.
 defaultService :: Core.Service

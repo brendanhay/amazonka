@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.CreateActivity
+-- Module      : Amazonka.StepFunctions.CreateActivity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- request has different @tags@ values, Step Functions will ignore these
 -- differences and treat it as an idempotent request of the previous. In
 -- this case, @tags@ will not be updated, even if they are different.
-module Network.AWS.StepFunctions.CreateActivity
+module Amazonka.StepFunctions.CreateActivity
   ( -- * Creating a Request
     CreateActivity (..),
     newCreateActivity,
@@ -57,12 +57,12 @@ module Network.AWS.StepFunctions.CreateActivity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StepFunctions.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newCreateActivity' smart constructor.
 data CreateActivity = CreateActivity'

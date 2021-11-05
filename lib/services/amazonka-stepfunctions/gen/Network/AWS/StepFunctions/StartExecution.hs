@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.StartExecution
+-- Module      : Amazonka.StepFunctions.StartExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- return the same response as the original request. If the execution is
 -- closed or if the input is different, it will return a 400
 -- @ExecutionAlreadyExists@ error. Names can be reused after 90 days.
-module Network.AWS.StepFunctions.StartExecution
+module Amazonka.StepFunctions.StartExecution
   ( -- * Creating a Request
     StartExecution (..),
     newStartExecution,
@@ -49,12 +49,12 @@ module Network.AWS.StepFunctions.StartExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StepFunctions.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newStartExecution' smart constructor.
 data StartExecution = StartExecution'

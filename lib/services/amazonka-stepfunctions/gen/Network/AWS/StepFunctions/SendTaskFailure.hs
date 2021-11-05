@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.SendTaskFailure
+-- Module      : Amazonka.StepFunctions.SendTaskFailure
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Used by activity workers and task states using the
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token callback>
 -- pattern to report that the task identified by the @taskToken@ failed.
-module Network.AWS.StepFunctions.SendTaskFailure
+module Amazonka.StepFunctions.SendTaskFailure
   ( -- * Creating a Request
     SendTaskFailure (..),
     newSendTaskFailure,
@@ -42,12 +42,12 @@ module Network.AWS.StepFunctions.SendTaskFailure
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StepFunctions.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newSendTaskFailure' smart constructor.
 data SendTaskFailure = SendTaskFailure'

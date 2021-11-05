@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
+-- Module      : Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails where
+module Amazonka.StepFunctions.Types.ExecutionSucceededEventDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the successful termination of the execution.
 --

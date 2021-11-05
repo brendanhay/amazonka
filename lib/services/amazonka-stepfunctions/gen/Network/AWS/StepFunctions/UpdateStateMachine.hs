@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.StepFunctions.UpdateStateMachine
+-- Module      : Amazonka.StepFunctions.UpdateStateMachine
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- @definition@ and @roleArn@. Executions started immediately after calling
 -- @UpdateStateMachine@ may use the previous state machine @definition@ and
 -- @roleArn@.
-module Network.AWS.StepFunctions.UpdateStateMachine
+module Amazonka.StepFunctions.UpdateStateMachine
   ( -- * Creating a Request
     UpdateStateMachine (..),
     newUpdateStateMachine,
@@ -52,12 +52,12 @@ module Network.AWS.StepFunctions.UpdateStateMachine
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.StepFunctions.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newUpdateStateMachine' smart constructor.
 data UpdateStateMachine = UpdateStateMachine'

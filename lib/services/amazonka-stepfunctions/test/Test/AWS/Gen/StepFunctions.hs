@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.StepFunctions where
 
+import Amazonka.StepFunctions
 import qualified Data.Proxy as Proxy
-import Network.AWS.StepFunctions
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.StepFunctions.Internal

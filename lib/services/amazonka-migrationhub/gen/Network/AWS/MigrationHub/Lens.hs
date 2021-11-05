@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHub.Lens
+-- Module      : Amazonka.MigrationHub.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Lens
+module Amazonka.MigrationHub.Lens
   ( -- * Operations
 
     -- ** AssociateDiscoveredResource
@@ -178,28 +178,28 @@ module Network.AWS.MigrationHub.Lens
   )
 where
 
-import Network.AWS.MigrationHub.AssociateCreatedArtifact
-import Network.AWS.MigrationHub.AssociateDiscoveredResource
-import Network.AWS.MigrationHub.CreateProgressUpdateStream
-import Network.AWS.MigrationHub.DeleteProgressUpdateStream
-import Network.AWS.MigrationHub.DescribeApplicationState
-import Network.AWS.MigrationHub.DescribeMigrationTask
-import Network.AWS.MigrationHub.DisassociateCreatedArtifact
-import Network.AWS.MigrationHub.DisassociateDiscoveredResource
-import Network.AWS.MigrationHub.ImportMigrationTask
-import Network.AWS.MigrationHub.ListApplicationStates
-import Network.AWS.MigrationHub.ListCreatedArtifacts
-import Network.AWS.MigrationHub.ListDiscoveredResources
-import Network.AWS.MigrationHub.ListMigrationTasks
-import Network.AWS.MigrationHub.ListProgressUpdateStreams
-import Network.AWS.MigrationHub.NotifyApplicationState
-import Network.AWS.MigrationHub.NotifyMigrationTaskState
-import Network.AWS.MigrationHub.PutResourceAttributes
-import Network.AWS.MigrationHub.Types.ApplicationState
-import Network.AWS.MigrationHub.Types.CreatedArtifact
-import Network.AWS.MigrationHub.Types.DiscoveredResource
-import Network.AWS.MigrationHub.Types.MigrationTask
-import Network.AWS.MigrationHub.Types.MigrationTaskSummary
-import Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
-import Network.AWS.MigrationHub.Types.ResourceAttribute
-import Network.AWS.MigrationHub.Types.Task
+import Amazonka.MigrationHub.AssociateCreatedArtifact
+import Amazonka.MigrationHub.AssociateDiscoveredResource
+import Amazonka.MigrationHub.CreateProgressUpdateStream
+import Amazonka.MigrationHub.DeleteProgressUpdateStream
+import Amazonka.MigrationHub.DescribeApplicationState
+import Amazonka.MigrationHub.DescribeMigrationTask
+import Amazonka.MigrationHub.DisassociateCreatedArtifact
+import Amazonka.MigrationHub.DisassociateDiscoveredResource
+import Amazonka.MigrationHub.ImportMigrationTask
+import Amazonka.MigrationHub.ListApplicationStates
+import Amazonka.MigrationHub.ListCreatedArtifacts
+import Amazonka.MigrationHub.ListDiscoveredResources
+import Amazonka.MigrationHub.ListMigrationTasks
+import Amazonka.MigrationHub.ListProgressUpdateStreams
+import Amazonka.MigrationHub.NotifyApplicationState
+import Amazonka.MigrationHub.NotifyMigrationTaskState
+import Amazonka.MigrationHub.PutResourceAttributes
+import Amazonka.MigrationHub.Types.ApplicationState
+import Amazonka.MigrationHub.Types.CreatedArtifact
+import Amazonka.MigrationHub.Types.DiscoveredResource
+import Amazonka.MigrationHub.Types.MigrationTask
+import Amazonka.MigrationHub.Types.MigrationTaskSummary
+import Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary
+import Amazonka.MigrationHub.Types.ResourceAttribute
+import Amazonka.MigrationHub.Types.Task

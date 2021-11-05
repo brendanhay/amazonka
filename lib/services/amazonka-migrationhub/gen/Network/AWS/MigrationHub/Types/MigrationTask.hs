@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHub.Types.MigrationTask
+-- Module      : Amazonka.MigrationHub.Types.MigrationTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.MigrationTask where
+module Amazonka.MigrationHub.Types.MigrationTask where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types.ResourceAttribute
-import Network.AWS.MigrationHub.Types.Task
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHub.Types.ResourceAttribute
+import Amazonka.MigrationHub.Types.Task
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a migration task in a migration tool.
 --

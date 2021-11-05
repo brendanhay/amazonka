@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHub.AssociateDiscoveredResource
+-- Module      : Amazonka.MigrationHub.AssociateDiscoveredResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Associates a discovered resource ID from Application Discovery Service
 -- with a migration task.
-module Network.AWS.MigrationHub.AssociateDiscoveredResource
+module Amazonka.MigrationHub.AssociateDiscoveredResource
   ( -- * Creating a Request
     AssociateDiscoveredResource (..),
     newAssociateDiscoveredResource,
@@ -42,12 +42,12 @@ module Network.AWS.MigrationHub.AssociateDiscoveredResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHub.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateDiscoveredResource' smart constructor.
 data AssociateDiscoveredResource = AssociateDiscoveredResource'

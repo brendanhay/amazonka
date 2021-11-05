@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHub.Types.ApplicationState
+-- Module      : Amazonka.MigrationHub.Types.ApplicationState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ApplicationState where
+module Amazonka.MigrationHub.Types.ApplicationState where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types.ApplicationStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHub.Types.ApplicationStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | The state of an application discovered through Migration Hub import, the
 -- AWS Agentless Discovery Connector, or the AWS Application Discovery

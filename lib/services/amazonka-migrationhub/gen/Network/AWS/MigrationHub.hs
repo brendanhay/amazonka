@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MigrationHub
+-- Module      : Amazonka.MigrationHub
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- Remember that you must set your AWS Migration Hub home region before you
 -- call any of these APIs, or a @HomeRegionNotSetException@ error will be
 -- returned. Also, you must make the API calls while in your home region.
-module Network.AWS.MigrationHub
+module Amazonka.MigrationHub
   ( -- * Service Configuration
     defaultService,
 
@@ -208,26 +208,26 @@ module Network.AWS.MigrationHub
   )
 where
 
-import Network.AWS.MigrationHub.AssociateCreatedArtifact
-import Network.AWS.MigrationHub.AssociateDiscoveredResource
-import Network.AWS.MigrationHub.CreateProgressUpdateStream
-import Network.AWS.MigrationHub.DeleteProgressUpdateStream
-import Network.AWS.MigrationHub.DescribeApplicationState
-import Network.AWS.MigrationHub.DescribeMigrationTask
-import Network.AWS.MigrationHub.DisassociateCreatedArtifact
-import Network.AWS.MigrationHub.DisassociateDiscoveredResource
-import Network.AWS.MigrationHub.ImportMigrationTask
-import Network.AWS.MigrationHub.Lens
-import Network.AWS.MigrationHub.ListApplicationStates
-import Network.AWS.MigrationHub.ListCreatedArtifacts
-import Network.AWS.MigrationHub.ListDiscoveredResources
-import Network.AWS.MigrationHub.ListMigrationTasks
-import Network.AWS.MigrationHub.ListProgressUpdateStreams
-import Network.AWS.MigrationHub.NotifyApplicationState
-import Network.AWS.MigrationHub.NotifyMigrationTaskState
-import Network.AWS.MigrationHub.PutResourceAttributes
-import Network.AWS.MigrationHub.Types
-import Network.AWS.MigrationHub.Waiters
+import Amazonka.MigrationHub.AssociateCreatedArtifact
+import Amazonka.MigrationHub.AssociateDiscoveredResource
+import Amazonka.MigrationHub.CreateProgressUpdateStream
+import Amazonka.MigrationHub.DeleteProgressUpdateStream
+import Amazonka.MigrationHub.DescribeApplicationState
+import Amazonka.MigrationHub.DescribeMigrationTask
+import Amazonka.MigrationHub.DisassociateCreatedArtifact
+import Amazonka.MigrationHub.DisassociateDiscoveredResource
+import Amazonka.MigrationHub.ImportMigrationTask
+import Amazonka.MigrationHub.Lens
+import Amazonka.MigrationHub.ListApplicationStates
+import Amazonka.MigrationHub.ListCreatedArtifacts
+import Amazonka.MigrationHub.ListDiscoveredResources
+import Amazonka.MigrationHub.ListMigrationTasks
+import Amazonka.MigrationHub.ListProgressUpdateStreams
+import Amazonka.MigrationHub.NotifyApplicationState
+import Amazonka.MigrationHub.NotifyMigrationTaskState
+import Amazonka.MigrationHub.PutResourceAttributes
+import Amazonka.MigrationHub.Types
+import Amazonka.MigrationHub.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

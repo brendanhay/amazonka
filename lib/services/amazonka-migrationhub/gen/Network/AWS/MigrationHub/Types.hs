@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHub.Types
+-- Module      : Amazonka.MigrationHub.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types
+module Amazonka.MigrationHub.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -95,21 +95,21 @@ module Network.AWS.MigrationHub.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types.ApplicationState
-import Network.AWS.MigrationHub.Types.ApplicationStatus
-import Network.AWS.MigrationHub.Types.CreatedArtifact
-import Network.AWS.MigrationHub.Types.DiscoveredResource
-import Network.AWS.MigrationHub.Types.MigrationStatus
-import Network.AWS.MigrationHub.Types.MigrationTask
-import Network.AWS.MigrationHub.Types.MigrationTaskSummary
-import Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
-import Network.AWS.MigrationHub.Types.ResourceAttribute
-import Network.AWS.MigrationHub.Types.ResourceAttributeType
-import Network.AWS.MigrationHub.Types.Task
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHub.Types.ApplicationState
+import Amazonka.MigrationHub.Types.ApplicationStatus
+import Amazonka.MigrationHub.Types.CreatedArtifact
+import Amazonka.MigrationHub.Types.DiscoveredResource
+import Amazonka.MigrationHub.Types.MigrationStatus
+import Amazonka.MigrationHub.Types.MigrationTask
+import Amazonka.MigrationHub.Types.MigrationTaskSummary
+import Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary
+import Amazonka.MigrationHub.Types.ResourceAttribute
+import Amazonka.MigrationHub.Types.ResourceAttributeType
+import Amazonka.MigrationHub.Types.Task
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-05-31@ of the Amazon Migration Hub SDK configuration.
 defaultService :: Core.Service

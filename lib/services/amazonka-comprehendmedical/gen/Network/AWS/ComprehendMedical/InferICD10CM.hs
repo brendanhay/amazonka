@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.InferICD10CM
+-- Module      : Amazonka.ComprehendMedical.InferICD10CM
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- ICD-10-CM knowledge base from the Centers for Disease Control. Amazon
 -- Comprehend Medical only detects medical entities in English language
 -- texts.
-module Network.AWS.ComprehendMedical.InferICD10CM
+module Amazonka.ComprehendMedical.InferICD10CM
   ( -- * Creating a Request
     InferICD10CM (..),
     newInferICD10CM,
@@ -45,12 +45,12 @@ module Network.AWS.ComprehendMedical.InferICD10CM
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInferICD10CM' smart constructor.
 data InferICD10CM = InferICD10CM'

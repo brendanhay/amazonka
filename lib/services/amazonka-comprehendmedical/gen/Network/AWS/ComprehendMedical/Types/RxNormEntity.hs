@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.Types.RxNormEntity
+-- Module      : Amazonka.ComprehendMedical.Types.RxNormEntity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComprehendMedical.Types.RxNormEntity where
+module Amazonka.ComprehendMedical.Types.RxNormEntity where
 
-import Network.AWS.ComprehendMedical.Types.RxNormAttribute
-import Network.AWS.ComprehendMedical.Types.RxNormConcept
-import Network.AWS.ComprehendMedical.Types.RxNormEntityCategory
-import Network.AWS.ComprehendMedical.Types.RxNormEntityType
-import Network.AWS.ComprehendMedical.Types.RxNormTrait
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComprehendMedical.Types.RxNormAttribute
+import Amazonka.ComprehendMedical.Types.RxNormConcept
+import Amazonka.ComprehendMedical.Types.RxNormEntityCategory
+import Amazonka.ComprehendMedical.Types.RxNormEntityType
+import Amazonka.ComprehendMedical.Types.RxNormTrait
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The collection of medical entities extracted from the input text and
 -- their associated information. For each entity, the response provides the

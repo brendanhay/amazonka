@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
+-- Module      : Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets the properties associated with a medical entities detection job.
 -- Use this operation to get the status of a detection job.
-module Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
+module Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
   ( -- * Creating a Request
     DescribeEntitiesDetectionV2Job (..),
     newDescribeEntitiesDetectionV2Job,
@@ -40,12 +40,12 @@ module Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEntitiesDetectionV2Job' smart constructor.
 data DescribeEntitiesDetectionV2Job = DescribeEntitiesDetectionV2Job'

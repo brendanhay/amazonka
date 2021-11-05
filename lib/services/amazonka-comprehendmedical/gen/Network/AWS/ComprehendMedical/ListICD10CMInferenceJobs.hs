@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
+-- Module      : Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of InferICD10CM jobs that you have submitted.
-module Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
+module Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
   ( -- * Creating a Request
     ListICD10CMInferenceJobs (..),
     newListICD10CMInferenceJobs,
@@ -42,12 +42,12 @@ module Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListICD10CMInferenceJobs' smart constructor.
 data ListICD10CMInferenceJobs = ListICD10CMInferenceJobs'

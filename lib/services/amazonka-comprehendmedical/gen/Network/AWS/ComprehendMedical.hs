@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ComprehendMedical
+-- Module      : Amazonka.ComprehendMedical
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon Comprehend Medical extracts structured information from
 -- unstructured clinical text. Use these actions to gain insight in your
 -- documents.
-module Network.AWS.ComprehendMedical
+module Amazonka.ComprehendMedical
   ( -- * Service Configuration
     defaultService,
 
@@ -284,29 +284,29 @@ module Network.AWS.ComprehendMedical
   )
 where
 
-import Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
-import Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
-import Network.AWS.ComprehendMedical.DescribePHIDetectionJob
-import Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob
-import Network.AWS.ComprehendMedical.DetectEntitiesV2
-import Network.AWS.ComprehendMedical.DetectPHI
-import Network.AWS.ComprehendMedical.InferICD10CM
-import Network.AWS.ComprehendMedical.InferRxNorm
-import Network.AWS.ComprehendMedical.Lens
-import Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs
-import Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
-import Network.AWS.ComprehendMedical.ListPHIDetectionJobs
-import Network.AWS.ComprehendMedical.ListRxNormInferenceJobs
-import Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
-import Network.AWS.ComprehendMedical.StartICD10CMInferenceJob
-import Network.AWS.ComprehendMedical.StartPHIDetectionJob
-import Network.AWS.ComprehendMedical.StartRxNormInferenceJob
-import Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job
-import Network.AWS.ComprehendMedical.StopICD10CMInferenceJob
-import Network.AWS.ComprehendMedical.StopPHIDetectionJob
-import Network.AWS.ComprehendMedical.StopRxNormInferenceJob
-import Network.AWS.ComprehendMedical.Types
-import Network.AWS.ComprehendMedical.Waiters
+import Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
+import Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
+import Amazonka.ComprehendMedical.DescribePHIDetectionJob
+import Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
+import Amazonka.ComprehendMedical.DetectEntitiesV2
+import Amazonka.ComprehendMedical.DetectPHI
+import Amazonka.ComprehendMedical.InferICD10CM
+import Amazonka.ComprehendMedical.InferRxNorm
+import Amazonka.ComprehendMedical.Lens
+import Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
+import Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
+import Amazonka.ComprehendMedical.ListPHIDetectionJobs
+import Amazonka.ComprehendMedical.ListRxNormInferenceJobs
+import Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
+import Amazonka.ComprehendMedical.StartICD10CMInferenceJob
+import Amazonka.ComprehendMedical.StartPHIDetectionJob
+import Amazonka.ComprehendMedical.StartRxNormInferenceJob
+import Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
+import Amazonka.ComprehendMedical.StopICD10CMInferenceJob
+import Amazonka.ComprehendMedical.StopPHIDetectionJob
+import Amazonka.ComprehendMedical.StopRxNormInferenceJob
+import Amazonka.ComprehendMedical.Types
+import Amazonka.ComprehendMedical.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

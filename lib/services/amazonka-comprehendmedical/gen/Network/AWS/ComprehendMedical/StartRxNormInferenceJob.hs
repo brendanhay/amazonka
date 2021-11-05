@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.StartRxNormInferenceJob
+-- Module      : Amazonka.ComprehendMedical.StartRxNormInferenceJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Starts an asynchronous job to detect medication entities and link them
 -- to the RxNorm ontology. Use the @DescribeRxNormInferenceJob@ operation
 -- to track the status of a job.
-module Network.AWS.ComprehendMedical.StartRxNormInferenceJob
+module Amazonka.ComprehendMedical.StartRxNormInferenceJob
   ( -- * Creating a Request
     StartRxNormInferenceJob (..),
     newStartRxNormInferenceJob,
@@ -47,12 +47,12 @@ module Network.AWS.ComprehendMedical.StartRxNormInferenceJob
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartRxNormInferenceJob' smart constructor.
 data StartRxNormInferenceJob = StartRxNormInferenceJob'

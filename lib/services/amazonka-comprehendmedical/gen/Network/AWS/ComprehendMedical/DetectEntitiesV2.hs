@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.DetectEntitiesV2
+-- Module      : Amazonka.ComprehendMedical.DetectEntitiesV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 --
 -- The @DetectEntitiesV2@ operation returns the @Acuity@ and @Direction@
 -- entities as attributes instead of types.
-module Network.AWS.ComprehendMedical.DetectEntitiesV2
+module Amazonka.ComprehendMedical.DetectEntitiesV2
   ( -- * Creating a Request
     DetectEntitiesV2 (..),
     newDetectEntitiesV2,
@@ -54,12 +54,12 @@ module Network.AWS.ComprehendMedical.DetectEntitiesV2
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectEntitiesV2' smart constructor.
 data DetectEntitiesV2 = DetectEntitiesV2'

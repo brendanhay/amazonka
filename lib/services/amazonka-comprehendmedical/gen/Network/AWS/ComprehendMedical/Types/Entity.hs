@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.Types.Entity
+-- Module      : Amazonka.ComprehendMedical.Types.Entity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComprehendMedical.Types.Entity where
+module Amazonka.ComprehendMedical.Types.Entity where
 
-import Network.AWS.ComprehendMedical.Types.Attribute
-import Network.AWS.ComprehendMedical.Types.EntitySubType
-import Network.AWS.ComprehendMedical.Types.EntityType
-import Network.AWS.ComprehendMedical.Types.Trait
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComprehendMedical.Types.Attribute
+import Amazonka.ComprehendMedical.Types.EntitySubType
+import Amazonka.ComprehendMedical.Types.EntityType
+import Amazonka.ComprehendMedical.Types.Trait
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an extracted medical entity.
 --

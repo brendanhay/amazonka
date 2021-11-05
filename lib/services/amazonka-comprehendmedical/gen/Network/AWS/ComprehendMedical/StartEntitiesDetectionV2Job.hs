@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
+-- Module      : Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Starts an asynchronous medical entity detection job for a collection of
 -- documents. Use the @DescribeEntitiesDetectionV2Job@ operation to track
 -- the status of a job.
-module Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
+module Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
   ( -- * Creating a Request
     StartEntitiesDetectionV2Job (..),
     newStartEntitiesDetectionV2Job,
@@ -47,12 +47,12 @@ module Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartEntitiesDetectionV2Job' smart constructor.
 data StartEntitiesDetectionV2Job = StartEntitiesDetectionV2Job'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ComprehendMedical where
 
+import Amazonka.ComprehendMedical
 import qualified Data.Proxy as Proxy
-import Network.AWS.ComprehendMedical
 import Test.AWS.ComprehendMedical.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

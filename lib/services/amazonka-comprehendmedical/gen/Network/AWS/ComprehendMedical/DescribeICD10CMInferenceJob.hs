@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
+-- Module      : Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets the properties associated with an InferICD10CM job. Use this
 -- operation to get the status of an inference job.
-module Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
+module Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
   ( -- * Creating a Request
     DescribeICD10CMInferenceJob (..),
     newDescribeICD10CMInferenceJob,
@@ -40,12 +40,12 @@ module Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
   )
 where
 
-import Network.AWS.ComprehendMedical.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ComprehendMedical.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeICD10CMInferenceJob' smart constructor.
 data DescribeICD10CMInferenceJob = DescribeICD10CMInferenceJob'

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ComprehendMedical.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ComprehendMedical.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ComprehendMedical" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ComprehendMedical" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,63 +45,63 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ComprehendMedical
-    Network.AWS.ComprehendMedical.DescribeEntitiesDetectionV2Job
-    Network.AWS.ComprehendMedical.DescribeICD10CMInferenceJob
-    Network.AWS.ComprehendMedical.DescribePHIDetectionJob
-    Network.AWS.ComprehendMedical.DescribeRxNormInferenceJob
-    Network.AWS.ComprehendMedical.DetectEntitiesV2
-    Network.AWS.ComprehendMedical.DetectPHI
-    Network.AWS.ComprehendMedical.InferICD10CM
-    Network.AWS.ComprehendMedical.InferRxNorm
-    Network.AWS.ComprehendMedical.Lens
-    Network.AWS.ComprehendMedical.ListEntitiesDetectionV2Jobs
-    Network.AWS.ComprehendMedical.ListICD10CMInferenceJobs
-    Network.AWS.ComprehendMedical.ListPHIDetectionJobs
-    Network.AWS.ComprehendMedical.ListRxNormInferenceJobs
-    Network.AWS.ComprehendMedical.StartEntitiesDetectionV2Job
-    Network.AWS.ComprehendMedical.StartICD10CMInferenceJob
-    Network.AWS.ComprehendMedical.StartPHIDetectionJob
-    Network.AWS.ComprehendMedical.StartRxNormInferenceJob
-    Network.AWS.ComprehendMedical.StopEntitiesDetectionV2Job
-    Network.AWS.ComprehendMedical.StopICD10CMInferenceJob
-    Network.AWS.ComprehendMedical.StopPHIDetectionJob
-    Network.AWS.ComprehendMedical.StopRxNormInferenceJob
-    Network.AWS.ComprehendMedical.Types
-    Network.AWS.ComprehendMedical.Types.Attribute
-    Network.AWS.ComprehendMedical.Types.AttributeName
-    Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
-    Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
-    Network.AWS.ComprehendMedical.Types.Entity
-    Network.AWS.ComprehendMedical.Types.EntitySubType
-    Network.AWS.ComprehendMedical.Types.EntityType
-    Network.AWS.ComprehendMedical.Types.ICD10CMAttribute
-    Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType
-    Network.AWS.ComprehendMedical.Types.ICD10CMConcept
-    Network.AWS.ComprehendMedical.Types.ICD10CMEntity
-    Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory
-    Network.AWS.ComprehendMedical.Types.ICD10CMEntityType
-    Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType
-    Network.AWS.ComprehendMedical.Types.ICD10CMTrait
-    Network.AWS.ComprehendMedical.Types.ICD10CMTraitName
-    Network.AWS.ComprehendMedical.Types.InputDataConfig
-    Network.AWS.ComprehendMedical.Types.JobStatus
-    Network.AWS.ComprehendMedical.Types.LanguageCode
-    Network.AWS.ComprehendMedical.Types.OutputDataConfig
-    Network.AWS.ComprehendMedical.Types.RelationshipType
-    Network.AWS.ComprehendMedical.Types.RxNormAttribute
-    Network.AWS.ComprehendMedical.Types.RxNormAttributeType
-    Network.AWS.ComprehendMedical.Types.RxNormConcept
-    Network.AWS.ComprehendMedical.Types.RxNormEntity
-    Network.AWS.ComprehendMedical.Types.RxNormEntityCategory
-    Network.AWS.ComprehendMedical.Types.RxNormEntityType
-    Network.AWS.ComprehendMedical.Types.RxNormTrait
-    Network.AWS.ComprehendMedical.Types.RxNormTraitName
-    Network.AWS.ComprehendMedical.Types.Trait
-    Network.AWS.ComprehendMedical.Types.UnmappedAttribute
-    Network.AWS.ComprehendMedical.Waiters
+    Amazonka.ComprehendMedical
+    Amazonka.ComprehendMedical.DescribeEntitiesDetectionV2Job
+    Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
+    Amazonka.ComprehendMedical.DescribePHIDetectionJob
+    Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
+    Amazonka.ComprehendMedical.DetectEntitiesV2
+    Amazonka.ComprehendMedical.DetectPHI
+    Amazonka.ComprehendMedical.InferICD10CM
+    Amazonka.ComprehendMedical.InferRxNorm
+    Amazonka.ComprehendMedical.Lens
+    Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
+    Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
+    Amazonka.ComprehendMedical.ListPHIDetectionJobs
+    Amazonka.ComprehendMedical.ListRxNormInferenceJobs
+    Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
+    Amazonka.ComprehendMedical.StartICD10CMInferenceJob
+    Amazonka.ComprehendMedical.StartPHIDetectionJob
+    Amazonka.ComprehendMedical.StartRxNormInferenceJob
+    Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
+    Amazonka.ComprehendMedical.StopICD10CMInferenceJob
+    Amazonka.ComprehendMedical.StopPHIDetectionJob
+    Amazonka.ComprehendMedical.StopRxNormInferenceJob
+    Amazonka.ComprehendMedical.Types
+    Amazonka.ComprehendMedical.Types.Attribute
+    Amazonka.ComprehendMedical.Types.AttributeName
+    Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
+    Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
+    Amazonka.ComprehendMedical.Types.Entity
+    Amazonka.ComprehendMedical.Types.EntitySubType
+    Amazonka.ComprehendMedical.Types.EntityType
+    Amazonka.ComprehendMedical.Types.ICD10CMAttribute
+    Amazonka.ComprehendMedical.Types.ICD10CMAttributeType
+    Amazonka.ComprehendMedical.Types.ICD10CMConcept
+    Amazonka.ComprehendMedical.Types.ICD10CMEntity
+    Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory
+    Amazonka.ComprehendMedical.Types.ICD10CMEntityType
+    Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
+    Amazonka.ComprehendMedical.Types.ICD10CMTrait
+    Amazonka.ComprehendMedical.Types.ICD10CMTraitName
+    Amazonka.ComprehendMedical.Types.InputDataConfig
+    Amazonka.ComprehendMedical.Types.JobStatus
+    Amazonka.ComprehendMedical.Types.LanguageCode
+    Amazonka.ComprehendMedical.Types.OutputDataConfig
+    Amazonka.ComprehendMedical.Types.RelationshipType
+    Amazonka.ComprehendMedical.Types.RxNormAttribute
+    Amazonka.ComprehendMedical.Types.RxNormAttributeType
+    Amazonka.ComprehendMedical.Types.RxNormConcept
+    Amazonka.ComprehendMedical.Types.RxNormEntity
+    Amazonka.ComprehendMedical.Types.RxNormEntityCategory
+    Amazonka.ComprehendMedical.Types.RxNormEntityType
+    Amazonka.ComprehendMedical.Types.RxNormTrait
+    Amazonka.ComprehendMedical.Types.RxNormTraitName
+    Amazonka.ComprehendMedical.Types.Trait
+    Amazonka.ComprehendMedical.Types.UnmappedAttribute
+    Amazonka.ComprehendMedical.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.Types
+-- Module      : Amazonka.ComprehendMedical.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComprehendMedical.Types
+module Amazonka.ComprehendMedical.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -230,41 +230,41 @@ module Network.AWS.ComprehendMedical.Types
   )
 where
 
-import Network.AWS.ComprehendMedical.Types.Attribute
-import Network.AWS.ComprehendMedical.Types.AttributeName
-import Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
-import Network.AWS.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
-import Network.AWS.ComprehendMedical.Types.Entity
-import Network.AWS.ComprehendMedical.Types.EntitySubType
-import Network.AWS.ComprehendMedical.Types.EntityType
-import Network.AWS.ComprehendMedical.Types.ICD10CMAttribute
-import Network.AWS.ComprehendMedical.Types.ICD10CMAttributeType
-import Network.AWS.ComprehendMedical.Types.ICD10CMConcept
-import Network.AWS.ComprehendMedical.Types.ICD10CMEntity
-import Network.AWS.ComprehendMedical.Types.ICD10CMEntityCategory
-import Network.AWS.ComprehendMedical.Types.ICD10CMEntityType
-import Network.AWS.ComprehendMedical.Types.ICD10CMRelationshipType
-import Network.AWS.ComprehendMedical.Types.ICD10CMTrait
-import Network.AWS.ComprehendMedical.Types.ICD10CMTraitName
-import Network.AWS.ComprehendMedical.Types.InputDataConfig
-import Network.AWS.ComprehendMedical.Types.JobStatus
-import Network.AWS.ComprehendMedical.Types.LanguageCode
-import Network.AWS.ComprehendMedical.Types.OutputDataConfig
-import Network.AWS.ComprehendMedical.Types.RelationshipType
-import Network.AWS.ComprehendMedical.Types.RxNormAttribute
-import Network.AWS.ComprehendMedical.Types.RxNormAttributeType
-import Network.AWS.ComprehendMedical.Types.RxNormConcept
-import Network.AWS.ComprehendMedical.Types.RxNormEntity
-import Network.AWS.ComprehendMedical.Types.RxNormEntityCategory
-import Network.AWS.ComprehendMedical.Types.RxNormEntityType
-import Network.AWS.ComprehendMedical.Types.RxNormTrait
-import Network.AWS.ComprehendMedical.Types.RxNormTraitName
-import Network.AWS.ComprehendMedical.Types.Trait
-import Network.AWS.ComprehendMedical.Types.UnmappedAttribute
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ComprehendMedical.Types.Attribute
+import Amazonka.ComprehendMedical.Types.AttributeName
+import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
+import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
+import Amazonka.ComprehendMedical.Types.Entity
+import Amazonka.ComprehendMedical.Types.EntitySubType
+import Amazonka.ComprehendMedical.Types.EntityType
+import Amazonka.ComprehendMedical.Types.ICD10CMAttribute
+import Amazonka.ComprehendMedical.Types.ICD10CMAttributeType
+import Amazonka.ComprehendMedical.Types.ICD10CMConcept
+import Amazonka.ComprehendMedical.Types.ICD10CMEntity
+import Amazonka.ComprehendMedical.Types.ICD10CMEntityCategory
+import Amazonka.ComprehendMedical.Types.ICD10CMEntityType
+import Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
+import Amazonka.ComprehendMedical.Types.ICD10CMTrait
+import Amazonka.ComprehendMedical.Types.ICD10CMTraitName
+import Amazonka.ComprehendMedical.Types.InputDataConfig
+import Amazonka.ComprehendMedical.Types.JobStatus
+import Amazonka.ComprehendMedical.Types.LanguageCode
+import Amazonka.ComprehendMedical.Types.OutputDataConfig
+import Amazonka.ComprehendMedical.Types.RelationshipType
+import Amazonka.ComprehendMedical.Types.RxNormAttribute
+import Amazonka.ComprehendMedical.Types.RxNormAttributeType
+import Amazonka.ComprehendMedical.Types.RxNormConcept
+import Amazonka.ComprehendMedical.Types.RxNormEntity
+import Amazonka.ComprehendMedical.Types.RxNormEntityCategory
+import Amazonka.ComprehendMedical.Types.RxNormEntityType
+import Amazonka.ComprehendMedical.Types.RxNormTrait
+import Amazonka.ComprehendMedical.Types.RxNormTraitName
+import Amazonka.ComprehendMedical.Types.Trait
+import Amazonka.ComprehendMedical.Types.UnmappedAttribute
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-10-30@ of the Amazon Comprehend Medical SDK configuration.
 defaultService :: Core.Service

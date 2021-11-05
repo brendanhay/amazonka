@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ComprehendMedical.Types.RxNormTrait
+-- Module      : Amazonka.ComprehendMedical.Types.RxNormTrait
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ComprehendMedical.Types.RxNormTrait where
+module Amazonka.ComprehendMedical.Types.RxNormTrait where
 
-import Network.AWS.ComprehendMedical.Types.RxNormTraitName
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ComprehendMedical.Types.RxNormTraitName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The contextual information for the entity. InferRxNorm recognizes the
 -- trait @NEGATION@, which is any indication that the patient is not taking

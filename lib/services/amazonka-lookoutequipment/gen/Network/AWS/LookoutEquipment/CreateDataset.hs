@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.CreateDataset
+-- Module      : Amazonka.LookoutEquipment.CreateDataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- and what the data actually looks like. In other words, it contains the
 -- location of the data source, the data schema, and other information. A
 -- dataset also contains any tags associated with the ingested data.
-module Network.AWS.LookoutEquipment.CreateDataset
+module Amazonka.LookoutEquipment.CreateDataset
   ( -- * Creating a Request
     CreateDataset (..),
     newCreateDataset,
@@ -49,12 +49,12 @@ module Network.AWS.LookoutEquipment.CreateDataset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'

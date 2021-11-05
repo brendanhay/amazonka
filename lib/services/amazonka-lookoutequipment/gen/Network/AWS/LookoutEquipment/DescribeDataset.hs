@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.DescribeDataset
+-- Module      : Amazonka.LookoutEquipment.DescribeDataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Provides a JSON description of the data that is in each time series
 -- dataset, including names, column names, and data types.
-module Network.AWS.LookoutEquipment.DescribeDataset
+module Amazonka.LookoutEquipment.DescribeDataset
   ( -- * Creating a Request
     DescribeDataset (..),
     newDescribeDataset,
@@ -47,12 +47,12 @@ module Network.AWS.LookoutEquipment.DescribeDataset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'

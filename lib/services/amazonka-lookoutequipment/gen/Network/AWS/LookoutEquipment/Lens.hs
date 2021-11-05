@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.Lens
+-- Module      : Amazonka.LookoutEquipment.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutEquipment.Lens
+module Amazonka.LookoutEquipment.Lens
   ( -- * Operations
 
     -- ** StartInferenceScheduler
@@ -328,43 +328,43 @@ module Network.AWS.LookoutEquipment.Lens
   )
 where
 
-import Network.AWS.LookoutEquipment.CreateDataset
-import Network.AWS.LookoutEquipment.CreateInferenceScheduler
-import Network.AWS.LookoutEquipment.CreateModel
-import Network.AWS.LookoutEquipment.DeleteDataset
-import Network.AWS.LookoutEquipment.DeleteInferenceScheduler
-import Network.AWS.LookoutEquipment.DeleteModel
-import Network.AWS.LookoutEquipment.DescribeDataIngestionJob
-import Network.AWS.LookoutEquipment.DescribeDataset
-import Network.AWS.LookoutEquipment.DescribeInferenceScheduler
-import Network.AWS.LookoutEquipment.DescribeModel
-import Network.AWS.LookoutEquipment.ListDataIngestionJobs
-import Network.AWS.LookoutEquipment.ListDatasets
-import Network.AWS.LookoutEquipment.ListInferenceExecutions
-import Network.AWS.LookoutEquipment.ListInferenceSchedulers
-import Network.AWS.LookoutEquipment.ListModels
-import Network.AWS.LookoutEquipment.ListTagsForResource
-import Network.AWS.LookoutEquipment.StartDataIngestionJob
-import Network.AWS.LookoutEquipment.StartInferenceScheduler
-import Network.AWS.LookoutEquipment.StopInferenceScheduler
-import Network.AWS.LookoutEquipment.TagResource
-import Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary
-import Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration
-import Network.AWS.LookoutEquipment.Types.DatasetSchema
-import Network.AWS.LookoutEquipment.Types.DatasetSummary
-import Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary
-import Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary
-import Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration
-import Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration
-import Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.ModelSummary
-import Network.AWS.LookoutEquipment.Types.S3Object
-import Network.AWS.LookoutEquipment.Types.Tag
-import Network.AWS.LookoutEquipment.UntagResource
-import Network.AWS.LookoutEquipment.UpdateInferenceScheduler
+import Amazonka.LookoutEquipment.CreateDataset
+import Amazonka.LookoutEquipment.CreateInferenceScheduler
+import Amazonka.LookoutEquipment.CreateModel
+import Amazonka.LookoutEquipment.DeleteDataset
+import Amazonka.LookoutEquipment.DeleteInferenceScheduler
+import Amazonka.LookoutEquipment.DeleteModel
+import Amazonka.LookoutEquipment.DescribeDataIngestionJob
+import Amazonka.LookoutEquipment.DescribeDataset
+import Amazonka.LookoutEquipment.DescribeInferenceScheduler
+import Amazonka.LookoutEquipment.DescribeModel
+import Amazonka.LookoutEquipment.ListDataIngestionJobs
+import Amazonka.LookoutEquipment.ListDatasets
+import Amazonka.LookoutEquipment.ListInferenceExecutions
+import Amazonka.LookoutEquipment.ListInferenceSchedulers
+import Amazonka.LookoutEquipment.ListModels
+import Amazonka.LookoutEquipment.ListTagsForResource
+import Amazonka.LookoutEquipment.StartDataIngestionJob
+import Amazonka.LookoutEquipment.StartInferenceScheduler
+import Amazonka.LookoutEquipment.StopInferenceScheduler
+import Amazonka.LookoutEquipment.TagResource
+import Amazonka.LookoutEquipment.Types.DataIngestionJobSummary
+import Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
+import Amazonka.LookoutEquipment.Types.DatasetSchema
+import Amazonka.LookoutEquipment.Types.DatasetSummary
+import Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
+import Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary
+import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
+import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
+import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.ModelSummary
+import Amazonka.LookoutEquipment.Types.S3Object
+import Amazonka.LookoutEquipment.Types.Tag
+import Amazonka.LookoutEquipment.UntagResource
+import Amazonka.LookoutEquipment.UpdateInferenceScheduler

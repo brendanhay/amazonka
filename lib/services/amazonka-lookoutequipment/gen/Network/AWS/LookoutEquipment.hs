@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LookoutEquipment
+-- Module      : Amazonka.LookoutEquipment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon Lookout for Equipment is a machine learning service that uses
 -- advanced analytics to identify anomalies in machines from sensor data
 -- for use in predictive maintenance.
-module Network.AWS.LookoutEquipment
+module Amazonka.LookoutEquipment
   ( -- * Service Configuration
     defaultService,
 
@@ -277,31 +277,31 @@ module Network.AWS.LookoutEquipment
   )
 where
 
-import Network.AWS.LookoutEquipment.CreateDataset
-import Network.AWS.LookoutEquipment.CreateInferenceScheduler
-import Network.AWS.LookoutEquipment.CreateModel
-import Network.AWS.LookoutEquipment.DeleteDataset
-import Network.AWS.LookoutEquipment.DeleteInferenceScheduler
-import Network.AWS.LookoutEquipment.DeleteModel
-import Network.AWS.LookoutEquipment.DescribeDataIngestionJob
-import Network.AWS.LookoutEquipment.DescribeDataset
-import Network.AWS.LookoutEquipment.DescribeInferenceScheduler
-import Network.AWS.LookoutEquipment.DescribeModel
-import Network.AWS.LookoutEquipment.Lens
-import Network.AWS.LookoutEquipment.ListDataIngestionJobs
-import Network.AWS.LookoutEquipment.ListDatasets
-import Network.AWS.LookoutEquipment.ListInferenceExecutions
-import Network.AWS.LookoutEquipment.ListInferenceSchedulers
-import Network.AWS.LookoutEquipment.ListModels
-import Network.AWS.LookoutEquipment.ListTagsForResource
-import Network.AWS.LookoutEquipment.StartDataIngestionJob
-import Network.AWS.LookoutEquipment.StartInferenceScheduler
-import Network.AWS.LookoutEquipment.StopInferenceScheduler
-import Network.AWS.LookoutEquipment.TagResource
-import Network.AWS.LookoutEquipment.Types
-import Network.AWS.LookoutEquipment.UntagResource
-import Network.AWS.LookoutEquipment.UpdateInferenceScheduler
-import Network.AWS.LookoutEquipment.Waiters
+import Amazonka.LookoutEquipment.CreateDataset
+import Amazonka.LookoutEquipment.CreateInferenceScheduler
+import Amazonka.LookoutEquipment.CreateModel
+import Amazonka.LookoutEquipment.DeleteDataset
+import Amazonka.LookoutEquipment.DeleteInferenceScheduler
+import Amazonka.LookoutEquipment.DeleteModel
+import Amazonka.LookoutEquipment.DescribeDataIngestionJob
+import Amazonka.LookoutEquipment.DescribeDataset
+import Amazonka.LookoutEquipment.DescribeInferenceScheduler
+import Amazonka.LookoutEquipment.DescribeModel
+import Amazonka.LookoutEquipment.Lens
+import Amazonka.LookoutEquipment.ListDataIngestionJobs
+import Amazonka.LookoutEquipment.ListDatasets
+import Amazonka.LookoutEquipment.ListInferenceExecutions
+import Amazonka.LookoutEquipment.ListInferenceSchedulers
+import Amazonka.LookoutEquipment.ListModels
+import Amazonka.LookoutEquipment.ListTagsForResource
+import Amazonka.LookoutEquipment.StartDataIngestionJob
+import Amazonka.LookoutEquipment.StartInferenceScheduler
+import Amazonka.LookoutEquipment.StopInferenceScheduler
+import Amazonka.LookoutEquipment.TagResource
+import Amazonka.LookoutEquipment.Types
+import Amazonka.LookoutEquipment.UntagResource
+import Amazonka.LookoutEquipment.UpdateInferenceScheduler
+import Amazonka.LookoutEquipment.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary
+-- Module      : Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary where
+module Amazonka.LookoutEquipment.Types.InferenceExecutionSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus
-import Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration
-import Network.AWS.LookoutEquipment.Types.S3Object
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
+import Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration
+import Amazonka.LookoutEquipment.Types.S3Object
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the specific inference execution, including
 -- input and output data configuration, inference scheduling information,

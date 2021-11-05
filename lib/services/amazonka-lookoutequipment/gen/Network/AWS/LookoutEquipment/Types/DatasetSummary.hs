@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.Types.DatasetSummary
+-- Module      : Amazonka.LookoutEquipment.Types.DatasetSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutEquipment.Types.DatasetSummary where
+module Amazonka.LookoutEquipment.Types.DatasetSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types.DatasetStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types.DatasetStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the specific data set, including name, ARN,
 -- and status.

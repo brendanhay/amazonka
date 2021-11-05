@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration
+-- Module      : Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration where
+module Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types.TargetSamplingRate
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types.TargetSamplingRate
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration is the @TargetSamplingRate@, which is the sampling
 -- rate of the data after post processing by Amazon Lookout for Equipment.

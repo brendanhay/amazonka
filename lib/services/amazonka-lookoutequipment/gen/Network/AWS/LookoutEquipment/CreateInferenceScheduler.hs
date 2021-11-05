@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.CreateInferenceScheduler
+-- Module      : Amazonka.LookoutEquipment.CreateInferenceScheduler
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- input data, assign it a delimiter between separate entries in the data,
 -- set an offset delay if desired, and set the frequency of inferencing.
 -- You must also provide an S3 bucket location for the output data.
-module Network.AWS.LookoutEquipment.CreateInferenceScheduler
+module Amazonka.LookoutEquipment.CreateInferenceScheduler
   ( -- * Creating a Request
     CreateInferenceScheduler (..),
     newCreateInferenceScheduler,
@@ -55,12 +55,12 @@ module Network.AWS.LookoutEquipment.CreateInferenceScheduler
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInferenceScheduler' smart constructor.
 data CreateInferenceScheduler = CreateInferenceScheduler'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.DeleteDataset
+-- Module      : Amazonka.LookoutEquipment.DeleteDataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- associated data stored in S3 will be deleted. This does not affect any
 -- models that used this dataset for training and evaluation, but does
 -- prevent it from being used in the future.
-module Network.AWS.LookoutEquipment.DeleteDataset
+module Amazonka.LookoutEquipment.DeleteDataset
   ( -- * Creating a Request
     DeleteDataset (..),
     newDeleteDataset,
@@ -40,12 +40,12 @@ module Network.AWS.LookoutEquipment.DeleteDataset
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'

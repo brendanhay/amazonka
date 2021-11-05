@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LookoutEquipment.Types
+-- Module      : Amazonka.LookoutEquipment.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LookoutEquipment.Types
+module Amazonka.LookoutEquipment.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -177,35 +177,35 @@ module Network.AWS.LookoutEquipment.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary
-import Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration
-import Network.AWS.LookoutEquipment.Types.DataUploadFrequency
-import Network.AWS.LookoutEquipment.Types.DatasetSchema
-import Network.AWS.LookoutEquipment.Types.DatasetStatus
-import Network.AWS.LookoutEquipment.Types.DatasetSummary
-import Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus
-import Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary
-import Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration
-import Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus
-import Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary
-import Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration
-import Network.AWS.LookoutEquipment.Types.IngestionJobStatus
-import Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration
-import Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration
-import Network.AWS.LookoutEquipment.Types.ModelStatus
-import Network.AWS.LookoutEquipment.Types.ModelSummary
-import Network.AWS.LookoutEquipment.Types.S3Object
-import Network.AWS.LookoutEquipment.Types.Tag
-import Network.AWS.LookoutEquipment.Types.TargetSamplingRate
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LookoutEquipment.Types.DataIngestionJobSummary
+import Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
+import Amazonka.LookoutEquipment.Types.DataUploadFrequency
+import Amazonka.LookoutEquipment.Types.DatasetSchema
+import Amazonka.LookoutEquipment.Types.DatasetStatus
+import Amazonka.LookoutEquipment.Types.DatasetSummary
+import Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
+import Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
+import Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
+import Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
+import Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary
+import Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
+import Amazonka.LookoutEquipment.Types.IngestionJobStatus
+import Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
+import Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
+import Amazonka.LookoutEquipment.Types.ModelStatus
+import Amazonka.LookoutEquipment.Types.ModelSummary
+import Amazonka.LookoutEquipment.Types.S3Object
+import Amazonka.LookoutEquipment.Types.Tag
+import Amazonka.LookoutEquipment.Types.TargetSamplingRate
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-12-15@ of the Amazon Lookout for Equipment SDK configuration.
 defaultService :: Core.Service

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoSync.Types
+-- Module      : Amazonka.CognitoSync.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types
+module Amazonka.CognitoSync.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -105,21 +105,21 @@ module Network.AWS.CognitoSync.Types
   )
 where
 
-import Network.AWS.CognitoSync.Types.BulkPublishStatus
-import Network.AWS.CognitoSync.Types.CognitoStreams
-import Network.AWS.CognitoSync.Types.Dataset
-import Network.AWS.CognitoSync.Types.IdentityPoolUsage
-import Network.AWS.CognitoSync.Types.IdentityUsage
-import Network.AWS.CognitoSync.Types.Operation
-import Network.AWS.CognitoSync.Types.Platform
-import Network.AWS.CognitoSync.Types.PushSync
-import Network.AWS.CognitoSync.Types.Record
-import Network.AWS.CognitoSync.Types.RecordPatch
-import Network.AWS.CognitoSync.Types.StreamingStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CognitoSync.Types.BulkPublishStatus
+import Amazonka.CognitoSync.Types.CognitoStreams
+import Amazonka.CognitoSync.Types.Dataset
+import Amazonka.CognitoSync.Types.IdentityPoolUsage
+import Amazonka.CognitoSync.Types.IdentityUsage
+import Amazonka.CognitoSync.Types.Operation
+import Amazonka.CognitoSync.Types.Platform
+import Amazonka.CognitoSync.Types.PushSync
+import Amazonka.CognitoSync.Types.Record
+import Amazonka.CognitoSync.Types.RecordPatch
+import Amazonka.CognitoSync.Types.StreamingStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-06-30@ of the Amazon Cognito Sync SDK configuration.
 defaultService :: Core.Service

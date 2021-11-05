@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CognitoSync
+-- Module      : Amazonka.CognitoSync
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html Developer Guide for Android>
 -- and the
 -- <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html Developer Guide for iOS>.
-module Network.AWS.CognitoSync
+module Amazonka.CognitoSync
   ( -- * Service Configuration
     defaultService,
 
@@ -233,26 +233,26 @@ module Network.AWS.CognitoSync
   )
 where
 
-import Network.AWS.CognitoSync.BulkPublish
-import Network.AWS.CognitoSync.DeleteDataset
-import Network.AWS.CognitoSync.DescribeDataset
-import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-import Network.AWS.CognitoSync.DescribeIdentityUsage
-import Network.AWS.CognitoSync.GetBulkPublishDetails
-import Network.AWS.CognitoSync.GetCognitoEvents
-import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-import Network.AWS.CognitoSync.Lens
-import Network.AWS.CognitoSync.ListDatasets
-import Network.AWS.CognitoSync.ListIdentityPoolUsage
-import Network.AWS.CognitoSync.ListRecords
-import Network.AWS.CognitoSync.RegisterDevice
-import Network.AWS.CognitoSync.SetCognitoEvents
-import Network.AWS.CognitoSync.SetIdentityPoolConfiguration
-import Network.AWS.CognitoSync.SubscribeToDataset
-import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.UnsubscribeFromDataset
-import Network.AWS.CognitoSync.UpdateRecords
-import Network.AWS.CognitoSync.Waiters
+import Amazonka.CognitoSync.BulkPublish
+import Amazonka.CognitoSync.DeleteDataset
+import Amazonka.CognitoSync.DescribeDataset
+import Amazonka.CognitoSync.DescribeIdentityPoolUsage
+import Amazonka.CognitoSync.DescribeIdentityUsage
+import Amazonka.CognitoSync.GetBulkPublishDetails
+import Amazonka.CognitoSync.GetCognitoEvents
+import Amazonka.CognitoSync.GetIdentityPoolConfiguration
+import Amazonka.CognitoSync.Lens
+import Amazonka.CognitoSync.ListDatasets
+import Amazonka.CognitoSync.ListIdentityPoolUsage
+import Amazonka.CognitoSync.ListRecords
+import Amazonka.CognitoSync.RegisterDevice
+import Amazonka.CognitoSync.SetCognitoEvents
+import Amazonka.CognitoSync.SetIdentityPoolConfiguration
+import Amazonka.CognitoSync.SubscribeToDataset
+import Amazonka.CognitoSync.Types
+import Amazonka.CognitoSync.UnsubscribeFromDataset
+import Amazonka.CognitoSync.UpdateRecords
+import Amazonka.CognitoSync.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

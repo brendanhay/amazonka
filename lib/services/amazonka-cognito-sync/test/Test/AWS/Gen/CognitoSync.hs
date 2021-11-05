@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CognitoSync where
 
+import Amazonka.CognitoSync
 import qualified Data.Proxy as Proxy
-import Network.AWS.CognitoSync
 import Test.AWS.CognitoSync.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

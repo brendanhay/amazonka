@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoSync.Lens
+-- Module      : Amazonka.CognitoSync.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Lens
+module Amazonka.CognitoSync.Lens
   ( -- * Operations
 
     -- ** DescribeDataset
@@ -199,27 +199,27 @@ module Network.AWS.CognitoSync.Lens
   )
 where
 
-import Network.AWS.CognitoSync.BulkPublish
-import Network.AWS.CognitoSync.DeleteDataset
-import Network.AWS.CognitoSync.DescribeDataset
-import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-import Network.AWS.CognitoSync.DescribeIdentityUsage
-import Network.AWS.CognitoSync.GetBulkPublishDetails
-import Network.AWS.CognitoSync.GetCognitoEvents
-import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-import Network.AWS.CognitoSync.ListDatasets
-import Network.AWS.CognitoSync.ListIdentityPoolUsage
-import Network.AWS.CognitoSync.ListRecords
-import Network.AWS.CognitoSync.RegisterDevice
-import Network.AWS.CognitoSync.SetCognitoEvents
-import Network.AWS.CognitoSync.SetIdentityPoolConfiguration
-import Network.AWS.CognitoSync.SubscribeToDataset
-import Network.AWS.CognitoSync.Types.CognitoStreams
-import Network.AWS.CognitoSync.Types.Dataset
-import Network.AWS.CognitoSync.Types.IdentityPoolUsage
-import Network.AWS.CognitoSync.Types.IdentityUsage
-import Network.AWS.CognitoSync.Types.PushSync
-import Network.AWS.CognitoSync.Types.Record
-import Network.AWS.CognitoSync.Types.RecordPatch
-import Network.AWS.CognitoSync.UnsubscribeFromDataset
-import Network.AWS.CognitoSync.UpdateRecords
+import Amazonka.CognitoSync.BulkPublish
+import Amazonka.CognitoSync.DeleteDataset
+import Amazonka.CognitoSync.DescribeDataset
+import Amazonka.CognitoSync.DescribeIdentityPoolUsage
+import Amazonka.CognitoSync.DescribeIdentityUsage
+import Amazonka.CognitoSync.GetBulkPublishDetails
+import Amazonka.CognitoSync.GetCognitoEvents
+import Amazonka.CognitoSync.GetIdentityPoolConfiguration
+import Amazonka.CognitoSync.ListDatasets
+import Amazonka.CognitoSync.ListIdentityPoolUsage
+import Amazonka.CognitoSync.ListRecords
+import Amazonka.CognitoSync.RegisterDevice
+import Amazonka.CognitoSync.SetCognitoEvents
+import Amazonka.CognitoSync.SetIdentityPoolConfiguration
+import Amazonka.CognitoSync.SubscribeToDataset
+import Amazonka.CognitoSync.Types.CognitoStreams
+import Amazonka.CognitoSync.Types.Dataset
+import Amazonka.CognitoSync.Types.IdentityPoolUsage
+import Amazonka.CognitoSync.Types.IdentityUsage
+import Amazonka.CognitoSync.Types.PushSync
+import Amazonka.CognitoSync.Types.Record
+import Amazonka.CognitoSync.Types.RecordPatch
+import Amazonka.CognitoSync.UnsubscribeFromDataset
+import Amazonka.CognitoSync.UpdateRecords

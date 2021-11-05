@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
+-- Module      : Amazonka.CognitoSync.ListIdentityPoolUsage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- ListIdentityPoolUsage can only be called with developer credentials. You
 -- cannot make this API call with the temporary user credentials provided
 -- by Cognito Identity.
-module Network.AWS.CognitoSync.ListIdentityPoolUsage
+module Amazonka.CognitoSync.ListIdentityPoolUsage
   ( -- * Creating a Request
     ListIdentityPoolUsage (..),
     newListIdentityPoolUsage,
@@ -47,12 +47,12 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
   )
 where
 
-import Network.AWS.CognitoSync.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoSync.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request for usage information on an identity pool.
 --

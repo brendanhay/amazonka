@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MarketplaceEntitlement
+-- Module      : Amazonka.MarketplaceEntitlement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- __Getting Entitlement Records__
 --
 -- -   /GetEntitlements/- Gets the entitlements for a Marketplace product.
-module Network.AWS.MarketplaceEntitlement
+module Amazonka.MarketplaceEntitlement
   ( -- * Service Configuration
     defaultService,
 
@@ -68,10 +68,10 @@ module Network.AWS.MarketplaceEntitlement
   )
 where
 
-import Network.AWS.MarketplaceEntitlement.GetEntitlements
-import Network.AWS.MarketplaceEntitlement.Lens
-import Network.AWS.MarketplaceEntitlement.Types
-import Network.AWS.MarketplaceEntitlement.Waiters
+import Amazonka.MarketplaceEntitlement.GetEntitlements
+import Amazonka.MarketplaceEntitlement.Lens
+import Amazonka.MarketplaceEntitlement.Types
+import Amazonka.MarketplaceEntitlement.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

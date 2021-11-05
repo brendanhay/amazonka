@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceEntitlement where
 
+import Amazonka.MarketplaceEntitlement
 import qualified Data.Proxy as Proxy
-import Network.AWS.MarketplaceEntitlement
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceEntitlement.Internal
 import Test.AWS.Prelude

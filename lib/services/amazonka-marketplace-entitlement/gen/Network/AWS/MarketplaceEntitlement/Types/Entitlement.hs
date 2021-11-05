@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceEntitlement.Types.Entitlement
+-- Module      : Amazonka.MarketplaceEntitlement.Types.Entitlement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceEntitlement.Types.Entitlement where
+module Amazonka.MarketplaceEntitlement.Types.Entitlement where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceEntitlement.Types.EntitlementValue
+import qualified Amazonka.Prelude as Prelude
 
 -- | An entitlement represents capacity in a product owned by the customer.
 -- For example, a customer might own some number of users or seats in an

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceEntitlement.Lens
+-- Module      : Amazonka.MarketplaceEntitlement.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceEntitlement.Lens
+module Amazonka.MarketplaceEntitlement.Lens
   ( -- * Operations
 
     -- ** GetEntitlements
@@ -40,6 +40,6 @@ module Network.AWS.MarketplaceEntitlement.Lens
   )
 where
 
-import Network.AWS.MarketplaceEntitlement.GetEntitlements
-import Network.AWS.MarketplaceEntitlement.Types.Entitlement
-import Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
+import Amazonka.MarketplaceEntitlement.GetEntitlements
+import Amazonka.MarketplaceEntitlement.Types.Entitlement
+import Amazonka.MarketplaceEntitlement.Types.EntitlementValue

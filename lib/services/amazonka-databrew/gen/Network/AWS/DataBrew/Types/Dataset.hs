@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.Dataset
+-- Module      : Amazonka.DataBrew.Types.Dataset
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.Dataset where
+module Amazonka.DataBrew.Types.Dataset where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.FormatOptions
-import Network.AWS.DataBrew.Types.Input
-import Network.AWS.DataBrew.Types.InputFormat
-import Network.AWS.DataBrew.Types.PathOptions
-import Network.AWS.DataBrew.Types.Source
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.FormatOptions
+import Amazonka.DataBrew.Types.Input
+import Amazonka.DataBrew.Types.InputFormat
+import Amazonka.DataBrew.Types.PathOptions
+import Amazonka.DataBrew.Types.Source
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a dataset that can be processed by DataBrew.
 --

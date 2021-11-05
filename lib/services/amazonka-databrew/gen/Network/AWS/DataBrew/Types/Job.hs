@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.Job
+-- Module      : Amazonka.DataBrew.Types.Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.Job where
+module Amazonka.DataBrew.Types.Job where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.DataCatalogOutput
-import Network.AWS.DataBrew.Types.DatabaseOutput
-import Network.AWS.DataBrew.Types.EncryptionMode
-import Network.AWS.DataBrew.Types.JobSample
-import Network.AWS.DataBrew.Types.JobType
-import Network.AWS.DataBrew.Types.LogSubscription
-import Network.AWS.DataBrew.Types.Output
-import Network.AWS.DataBrew.Types.RecipeReference
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.DataCatalogOutput
+import Amazonka.DataBrew.Types.DatabaseOutput
+import Amazonka.DataBrew.Types.EncryptionMode
+import Amazonka.DataBrew.Types.JobSample
+import Amazonka.DataBrew.Types.JobType
+import Amazonka.DataBrew.Types.LogSubscription
+import Amazonka.DataBrew.Types.Output
+import Amazonka.DataBrew.Types.RecipeReference
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents all of the attributes of a DataBrew job.
 --

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.StatisticsConfiguration
+-- Module      : Amazonka.DataBrew.Types.StatisticsConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.StatisticsConfiguration where
+module Amazonka.DataBrew.Types.StatisticsConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.StatisticOverride
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.StatisticOverride
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of evaluations for a profile job. This configuration can
 -- be used to select evaluations and override the parameters of selected

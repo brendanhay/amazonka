@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.SampleType
+-- Module      : Amazonka.DataBrew.Types.SampleType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.SampleType
+module Amazonka.DataBrew.Types.SampleType
   ( SampleType
       ( ..,
         SampleType_FIRST_N,
@@ -27,8 +27,8 @@ module Network.AWS.DataBrew.Types.SampleType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype SampleType = SampleType'
   { fromSampleType ::

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.UpdateRecipe
+-- Module      : Amazonka.DataBrew.UpdateRecipe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Modifies the definition of the @LATEST_WORKING@ version of a DataBrew
 -- recipe.
-module Network.AWS.DataBrew.UpdateRecipe
+module Amazonka.DataBrew.UpdateRecipe
   ( -- * Creating a Request
     UpdateRecipe (..),
     newUpdateRecipe,
@@ -42,12 +42,12 @@ module Network.AWS.DataBrew.UpdateRecipe
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRecipe' smart constructor.
 data UpdateRecipe = UpdateRecipe'

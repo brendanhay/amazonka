@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.JobRun
+-- Module      : Amazonka.DataBrew.Types.JobRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.JobRun where
+module Amazonka.DataBrew.Types.JobRun where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.DataCatalogOutput
-import Network.AWS.DataBrew.Types.DatabaseOutput
-import Network.AWS.DataBrew.Types.JobRunState
-import Network.AWS.DataBrew.Types.JobSample
-import Network.AWS.DataBrew.Types.LogSubscription
-import Network.AWS.DataBrew.Types.Output
-import Network.AWS.DataBrew.Types.RecipeReference
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.DataCatalogOutput
+import Amazonka.DataBrew.Types.DatabaseOutput
+import Amazonka.DataBrew.Types.JobRunState
+import Amazonka.DataBrew.Types.JobSample
+import Amazonka.DataBrew.Types.LogSubscription
+import Amazonka.DataBrew.Types.Output
+import Amazonka.DataBrew.Types.RecipeReference
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents one run of a DataBrew job.
 --

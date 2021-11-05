@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataBrew where
 
+import Amazonka.DataBrew
 import qualified Data.Proxy as Proxy
-import Network.AWS.DataBrew
 import Test.AWS.DataBrew.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

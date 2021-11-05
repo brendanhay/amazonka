@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DataBrew
+-- Module      : Amazonka.DataBrew
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- are hard to spot and time-consuming to fix. DataBrew empowers users of
 -- all technical levels to visualize the data and perform one-click data
 -- transformations, with no coding required.
-module Network.AWS.DataBrew
+module Amazonka.DataBrew
   ( -- * Service Configuration
     defaultService,
 
@@ -486,48 +486,48 @@ module Network.AWS.DataBrew
   )
 where
 
-import Network.AWS.DataBrew.BatchDeleteRecipeVersion
-import Network.AWS.DataBrew.CreateDataset
-import Network.AWS.DataBrew.CreateProfileJob
-import Network.AWS.DataBrew.CreateProject
-import Network.AWS.DataBrew.CreateRecipe
-import Network.AWS.DataBrew.CreateRecipeJob
-import Network.AWS.DataBrew.CreateSchedule
-import Network.AWS.DataBrew.DeleteDataset
-import Network.AWS.DataBrew.DeleteJob
-import Network.AWS.DataBrew.DeleteProject
-import Network.AWS.DataBrew.DeleteRecipeVersion
-import Network.AWS.DataBrew.DeleteSchedule
-import Network.AWS.DataBrew.DescribeDataset
-import Network.AWS.DataBrew.DescribeJob
-import Network.AWS.DataBrew.DescribeJobRun
-import Network.AWS.DataBrew.DescribeProject
-import Network.AWS.DataBrew.DescribeRecipe
-import Network.AWS.DataBrew.DescribeSchedule
-import Network.AWS.DataBrew.Lens
-import Network.AWS.DataBrew.ListDatasets
-import Network.AWS.DataBrew.ListJobRuns
-import Network.AWS.DataBrew.ListJobs
-import Network.AWS.DataBrew.ListProjects
-import Network.AWS.DataBrew.ListRecipeVersions
-import Network.AWS.DataBrew.ListRecipes
-import Network.AWS.DataBrew.ListSchedules
-import Network.AWS.DataBrew.ListTagsForResource
-import Network.AWS.DataBrew.PublishRecipe
-import Network.AWS.DataBrew.SendProjectSessionAction
-import Network.AWS.DataBrew.StartJobRun
-import Network.AWS.DataBrew.StartProjectSession
-import Network.AWS.DataBrew.StopJobRun
-import Network.AWS.DataBrew.TagResource
-import Network.AWS.DataBrew.Types
-import Network.AWS.DataBrew.UntagResource
-import Network.AWS.DataBrew.UpdateDataset
-import Network.AWS.DataBrew.UpdateProfileJob
-import Network.AWS.DataBrew.UpdateProject
-import Network.AWS.DataBrew.UpdateRecipe
-import Network.AWS.DataBrew.UpdateRecipeJob
-import Network.AWS.DataBrew.UpdateSchedule
-import Network.AWS.DataBrew.Waiters
+import Amazonka.DataBrew.BatchDeleteRecipeVersion
+import Amazonka.DataBrew.CreateDataset
+import Amazonka.DataBrew.CreateProfileJob
+import Amazonka.DataBrew.CreateProject
+import Amazonka.DataBrew.CreateRecipe
+import Amazonka.DataBrew.CreateRecipeJob
+import Amazonka.DataBrew.CreateSchedule
+import Amazonka.DataBrew.DeleteDataset
+import Amazonka.DataBrew.DeleteJob
+import Amazonka.DataBrew.DeleteProject
+import Amazonka.DataBrew.DeleteRecipeVersion
+import Amazonka.DataBrew.DeleteSchedule
+import Amazonka.DataBrew.DescribeDataset
+import Amazonka.DataBrew.DescribeJob
+import Amazonka.DataBrew.DescribeJobRun
+import Amazonka.DataBrew.DescribeProject
+import Amazonka.DataBrew.DescribeRecipe
+import Amazonka.DataBrew.DescribeSchedule
+import Amazonka.DataBrew.Lens
+import Amazonka.DataBrew.ListDatasets
+import Amazonka.DataBrew.ListJobRuns
+import Amazonka.DataBrew.ListJobs
+import Amazonka.DataBrew.ListProjects
+import Amazonka.DataBrew.ListRecipeVersions
+import Amazonka.DataBrew.ListRecipes
+import Amazonka.DataBrew.ListSchedules
+import Amazonka.DataBrew.ListTagsForResource
+import Amazonka.DataBrew.PublishRecipe
+import Amazonka.DataBrew.SendProjectSessionAction
+import Amazonka.DataBrew.StartJobRun
+import Amazonka.DataBrew.StartProjectSession
+import Amazonka.DataBrew.StopJobRun
+import Amazonka.DataBrew.TagResource
+import Amazonka.DataBrew.Types
+import Amazonka.DataBrew.UntagResource
+import Amazonka.DataBrew.UpdateDataset
+import Amazonka.DataBrew.UpdateProfileJob
+import Amazonka.DataBrew.UpdateProject
+import Amazonka.DataBrew.UpdateRecipe
+import Amazonka.DataBrew.UpdateRecipeJob
+import Amazonka.DataBrew.UpdateSchedule
+import Amazonka.DataBrew.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

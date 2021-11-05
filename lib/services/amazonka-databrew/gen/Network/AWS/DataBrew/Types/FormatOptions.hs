@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.FormatOptions
+-- Module      : Amazonka.DataBrew.Types.FormatOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.FormatOptions where
+module Amazonka.DataBrew.Types.FormatOptions where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.CsvOptions
-import Network.AWS.DataBrew.Types.ExcelOptions
-import Network.AWS.DataBrew.Types.JsonOptions
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.CsvOptions
+import Amazonka.DataBrew.Types.ExcelOptions
+import Amazonka.DataBrew.Types.JsonOptions
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a set of options that define the structure of either
 -- comma-separated value (CSV), Excel, or JSON input.

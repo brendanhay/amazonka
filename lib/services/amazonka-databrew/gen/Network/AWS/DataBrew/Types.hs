@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types
+-- Module      : Amazonka.DataBrew.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types
+module Amazonka.DataBrew.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -404,64 +404,64 @@ module Network.AWS.DataBrew.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.ColumnSelector
-import Network.AWS.DataBrew.Types.ColumnStatisticsConfiguration
-import Network.AWS.DataBrew.Types.CompressionFormat
-import Network.AWS.DataBrew.Types.ConditionExpression
-import Network.AWS.DataBrew.Types.CsvOptions
-import Network.AWS.DataBrew.Types.CsvOutputOptions
-import Network.AWS.DataBrew.Types.DataCatalogInputDefinition
-import Network.AWS.DataBrew.Types.DataCatalogOutput
-import Network.AWS.DataBrew.Types.DatabaseInputDefinition
-import Network.AWS.DataBrew.Types.DatabaseOutput
-import Network.AWS.DataBrew.Types.DatabaseOutputMode
-import Network.AWS.DataBrew.Types.DatabaseTableOutputOptions
-import Network.AWS.DataBrew.Types.Dataset
-import Network.AWS.DataBrew.Types.DatasetParameter
-import Network.AWS.DataBrew.Types.DatetimeOptions
-import Network.AWS.DataBrew.Types.EncryptionMode
-import Network.AWS.DataBrew.Types.ExcelOptions
-import Network.AWS.DataBrew.Types.FilesLimit
-import Network.AWS.DataBrew.Types.FilterExpression
-import Network.AWS.DataBrew.Types.FormatOptions
-import Network.AWS.DataBrew.Types.Input
-import Network.AWS.DataBrew.Types.InputFormat
-import Network.AWS.DataBrew.Types.Job
-import Network.AWS.DataBrew.Types.JobRun
-import Network.AWS.DataBrew.Types.JobRunState
-import Network.AWS.DataBrew.Types.JobSample
-import Network.AWS.DataBrew.Types.JobType
-import Network.AWS.DataBrew.Types.JsonOptions
-import Network.AWS.DataBrew.Types.LogSubscription
-import Network.AWS.DataBrew.Types.Order
-import Network.AWS.DataBrew.Types.OrderedBy
-import Network.AWS.DataBrew.Types.Output
-import Network.AWS.DataBrew.Types.OutputFormat
-import Network.AWS.DataBrew.Types.OutputFormatOptions
-import Network.AWS.DataBrew.Types.ParameterType
-import Network.AWS.DataBrew.Types.PathOptions
-import Network.AWS.DataBrew.Types.ProfileConfiguration
-import Network.AWS.DataBrew.Types.Project
-import Network.AWS.DataBrew.Types.Recipe
-import Network.AWS.DataBrew.Types.RecipeAction
-import Network.AWS.DataBrew.Types.RecipeReference
-import Network.AWS.DataBrew.Types.RecipeStep
-import Network.AWS.DataBrew.Types.RecipeVersionErrorDetail
-import Network.AWS.DataBrew.Types.S3Location
-import Network.AWS.DataBrew.Types.S3TableOutputOptions
-import Network.AWS.DataBrew.Types.Sample
-import Network.AWS.DataBrew.Types.SampleMode
-import Network.AWS.DataBrew.Types.SampleType
-import Network.AWS.DataBrew.Types.Schedule
-import Network.AWS.DataBrew.Types.SessionStatus
-import Network.AWS.DataBrew.Types.Source
-import Network.AWS.DataBrew.Types.StatisticOverride
-import Network.AWS.DataBrew.Types.StatisticsConfiguration
-import Network.AWS.DataBrew.Types.ViewFrame
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.ColumnSelector
+import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
+import Amazonka.DataBrew.Types.CompressionFormat
+import Amazonka.DataBrew.Types.ConditionExpression
+import Amazonka.DataBrew.Types.CsvOptions
+import Amazonka.DataBrew.Types.CsvOutputOptions
+import Amazonka.DataBrew.Types.DataCatalogInputDefinition
+import Amazonka.DataBrew.Types.DataCatalogOutput
+import Amazonka.DataBrew.Types.DatabaseInputDefinition
+import Amazonka.DataBrew.Types.DatabaseOutput
+import Amazonka.DataBrew.Types.DatabaseOutputMode
+import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
+import Amazonka.DataBrew.Types.Dataset
+import Amazonka.DataBrew.Types.DatasetParameter
+import Amazonka.DataBrew.Types.DatetimeOptions
+import Amazonka.DataBrew.Types.EncryptionMode
+import Amazonka.DataBrew.Types.ExcelOptions
+import Amazonka.DataBrew.Types.FilesLimit
+import Amazonka.DataBrew.Types.FilterExpression
+import Amazonka.DataBrew.Types.FormatOptions
+import Amazonka.DataBrew.Types.Input
+import Amazonka.DataBrew.Types.InputFormat
+import Amazonka.DataBrew.Types.Job
+import Amazonka.DataBrew.Types.JobRun
+import Amazonka.DataBrew.Types.JobRunState
+import Amazonka.DataBrew.Types.JobSample
+import Amazonka.DataBrew.Types.JobType
+import Amazonka.DataBrew.Types.JsonOptions
+import Amazonka.DataBrew.Types.LogSubscription
+import Amazonka.DataBrew.Types.Order
+import Amazonka.DataBrew.Types.OrderedBy
+import Amazonka.DataBrew.Types.Output
+import Amazonka.DataBrew.Types.OutputFormat
+import Amazonka.DataBrew.Types.OutputFormatOptions
+import Amazonka.DataBrew.Types.ParameterType
+import Amazonka.DataBrew.Types.PathOptions
+import Amazonka.DataBrew.Types.ProfileConfiguration
+import Amazonka.DataBrew.Types.Project
+import Amazonka.DataBrew.Types.Recipe
+import Amazonka.DataBrew.Types.RecipeAction
+import Amazonka.DataBrew.Types.RecipeReference
+import Amazonka.DataBrew.Types.RecipeStep
+import Amazonka.DataBrew.Types.RecipeVersionErrorDetail
+import Amazonka.DataBrew.Types.S3Location
+import Amazonka.DataBrew.Types.S3TableOutputOptions
+import Amazonka.DataBrew.Types.Sample
+import Amazonka.DataBrew.Types.SampleMode
+import Amazonka.DataBrew.Types.SampleType
+import Amazonka.DataBrew.Types.Schedule
+import Amazonka.DataBrew.Types.SessionStatus
+import Amazonka.DataBrew.Types.Source
+import Amazonka.DataBrew.Types.StatisticOverride
+import Amazonka.DataBrew.Types.StatisticsConfiguration
+import Amazonka.DataBrew.Types.ViewFrame
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Glue DataBrew SDK configuration.
 defaultService :: Core.Service

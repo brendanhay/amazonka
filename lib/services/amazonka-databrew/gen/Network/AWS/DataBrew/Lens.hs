@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Lens
+-- Module      : Amazonka.DataBrew.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Lens
+module Amazonka.DataBrew.Lens
   ( -- * Operations
 
     -- ** ListProjects
@@ -661,81 +661,81 @@ module Network.AWS.DataBrew.Lens
   )
 where
 
-import Network.AWS.DataBrew.BatchDeleteRecipeVersion
-import Network.AWS.DataBrew.CreateDataset
-import Network.AWS.DataBrew.CreateProfileJob
-import Network.AWS.DataBrew.CreateProject
-import Network.AWS.DataBrew.CreateRecipe
-import Network.AWS.DataBrew.CreateRecipeJob
-import Network.AWS.DataBrew.CreateSchedule
-import Network.AWS.DataBrew.DeleteDataset
-import Network.AWS.DataBrew.DeleteJob
-import Network.AWS.DataBrew.DeleteProject
-import Network.AWS.DataBrew.DeleteRecipeVersion
-import Network.AWS.DataBrew.DeleteSchedule
-import Network.AWS.DataBrew.DescribeDataset
-import Network.AWS.DataBrew.DescribeJob
-import Network.AWS.DataBrew.DescribeJobRun
-import Network.AWS.DataBrew.DescribeProject
-import Network.AWS.DataBrew.DescribeRecipe
-import Network.AWS.DataBrew.DescribeSchedule
-import Network.AWS.DataBrew.ListDatasets
-import Network.AWS.DataBrew.ListJobRuns
-import Network.AWS.DataBrew.ListJobs
-import Network.AWS.DataBrew.ListProjects
-import Network.AWS.DataBrew.ListRecipeVersions
-import Network.AWS.DataBrew.ListRecipes
-import Network.AWS.DataBrew.ListSchedules
-import Network.AWS.DataBrew.ListTagsForResource
-import Network.AWS.DataBrew.PublishRecipe
-import Network.AWS.DataBrew.SendProjectSessionAction
-import Network.AWS.DataBrew.StartJobRun
-import Network.AWS.DataBrew.StartProjectSession
-import Network.AWS.DataBrew.StopJobRun
-import Network.AWS.DataBrew.TagResource
-import Network.AWS.DataBrew.Types.ColumnSelector
-import Network.AWS.DataBrew.Types.ColumnStatisticsConfiguration
-import Network.AWS.DataBrew.Types.ConditionExpression
-import Network.AWS.DataBrew.Types.CsvOptions
-import Network.AWS.DataBrew.Types.CsvOutputOptions
-import Network.AWS.DataBrew.Types.DataCatalogInputDefinition
-import Network.AWS.DataBrew.Types.DataCatalogOutput
-import Network.AWS.DataBrew.Types.DatabaseInputDefinition
-import Network.AWS.DataBrew.Types.DatabaseOutput
-import Network.AWS.DataBrew.Types.DatabaseTableOutputOptions
-import Network.AWS.DataBrew.Types.Dataset
-import Network.AWS.DataBrew.Types.DatasetParameter
-import Network.AWS.DataBrew.Types.DatetimeOptions
-import Network.AWS.DataBrew.Types.ExcelOptions
-import Network.AWS.DataBrew.Types.FilesLimit
-import Network.AWS.DataBrew.Types.FilterExpression
-import Network.AWS.DataBrew.Types.FormatOptions
-import Network.AWS.DataBrew.Types.Input
-import Network.AWS.DataBrew.Types.Job
-import Network.AWS.DataBrew.Types.JobRun
-import Network.AWS.DataBrew.Types.JobSample
-import Network.AWS.DataBrew.Types.JsonOptions
-import Network.AWS.DataBrew.Types.Output
-import Network.AWS.DataBrew.Types.OutputFormatOptions
-import Network.AWS.DataBrew.Types.PathOptions
-import Network.AWS.DataBrew.Types.ProfileConfiguration
-import Network.AWS.DataBrew.Types.Project
-import Network.AWS.DataBrew.Types.Recipe
-import Network.AWS.DataBrew.Types.RecipeAction
-import Network.AWS.DataBrew.Types.RecipeReference
-import Network.AWS.DataBrew.Types.RecipeStep
-import Network.AWS.DataBrew.Types.RecipeVersionErrorDetail
-import Network.AWS.DataBrew.Types.S3Location
-import Network.AWS.DataBrew.Types.S3TableOutputOptions
-import Network.AWS.DataBrew.Types.Sample
-import Network.AWS.DataBrew.Types.Schedule
-import Network.AWS.DataBrew.Types.StatisticOverride
-import Network.AWS.DataBrew.Types.StatisticsConfiguration
-import Network.AWS.DataBrew.Types.ViewFrame
-import Network.AWS.DataBrew.UntagResource
-import Network.AWS.DataBrew.UpdateDataset
-import Network.AWS.DataBrew.UpdateProfileJob
-import Network.AWS.DataBrew.UpdateProject
-import Network.AWS.DataBrew.UpdateRecipe
-import Network.AWS.DataBrew.UpdateRecipeJob
-import Network.AWS.DataBrew.UpdateSchedule
+import Amazonka.DataBrew.BatchDeleteRecipeVersion
+import Amazonka.DataBrew.CreateDataset
+import Amazonka.DataBrew.CreateProfileJob
+import Amazonka.DataBrew.CreateProject
+import Amazonka.DataBrew.CreateRecipe
+import Amazonka.DataBrew.CreateRecipeJob
+import Amazonka.DataBrew.CreateSchedule
+import Amazonka.DataBrew.DeleteDataset
+import Amazonka.DataBrew.DeleteJob
+import Amazonka.DataBrew.DeleteProject
+import Amazonka.DataBrew.DeleteRecipeVersion
+import Amazonka.DataBrew.DeleteSchedule
+import Amazonka.DataBrew.DescribeDataset
+import Amazonka.DataBrew.DescribeJob
+import Amazonka.DataBrew.DescribeJobRun
+import Amazonka.DataBrew.DescribeProject
+import Amazonka.DataBrew.DescribeRecipe
+import Amazonka.DataBrew.DescribeSchedule
+import Amazonka.DataBrew.ListDatasets
+import Amazonka.DataBrew.ListJobRuns
+import Amazonka.DataBrew.ListJobs
+import Amazonka.DataBrew.ListProjects
+import Amazonka.DataBrew.ListRecipeVersions
+import Amazonka.DataBrew.ListRecipes
+import Amazonka.DataBrew.ListSchedules
+import Amazonka.DataBrew.ListTagsForResource
+import Amazonka.DataBrew.PublishRecipe
+import Amazonka.DataBrew.SendProjectSessionAction
+import Amazonka.DataBrew.StartJobRun
+import Amazonka.DataBrew.StartProjectSession
+import Amazonka.DataBrew.StopJobRun
+import Amazonka.DataBrew.TagResource
+import Amazonka.DataBrew.Types.ColumnSelector
+import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
+import Amazonka.DataBrew.Types.ConditionExpression
+import Amazonka.DataBrew.Types.CsvOptions
+import Amazonka.DataBrew.Types.CsvOutputOptions
+import Amazonka.DataBrew.Types.DataCatalogInputDefinition
+import Amazonka.DataBrew.Types.DataCatalogOutput
+import Amazonka.DataBrew.Types.DatabaseInputDefinition
+import Amazonka.DataBrew.Types.DatabaseOutput
+import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
+import Amazonka.DataBrew.Types.Dataset
+import Amazonka.DataBrew.Types.DatasetParameter
+import Amazonka.DataBrew.Types.DatetimeOptions
+import Amazonka.DataBrew.Types.ExcelOptions
+import Amazonka.DataBrew.Types.FilesLimit
+import Amazonka.DataBrew.Types.FilterExpression
+import Amazonka.DataBrew.Types.FormatOptions
+import Amazonka.DataBrew.Types.Input
+import Amazonka.DataBrew.Types.Job
+import Amazonka.DataBrew.Types.JobRun
+import Amazonka.DataBrew.Types.JobSample
+import Amazonka.DataBrew.Types.JsonOptions
+import Amazonka.DataBrew.Types.Output
+import Amazonka.DataBrew.Types.OutputFormatOptions
+import Amazonka.DataBrew.Types.PathOptions
+import Amazonka.DataBrew.Types.ProfileConfiguration
+import Amazonka.DataBrew.Types.Project
+import Amazonka.DataBrew.Types.Recipe
+import Amazonka.DataBrew.Types.RecipeAction
+import Amazonka.DataBrew.Types.RecipeReference
+import Amazonka.DataBrew.Types.RecipeStep
+import Amazonka.DataBrew.Types.RecipeVersionErrorDetail
+import Amazonka.DataBrew.Types.S3Location
+import Amazonka.DataBrew.Types.S3TableOutputOptions
+import Amazonka.DataBrew.Types.Sample
+import Amazonka.DataBrew.Types.Schedule
+import Amazonka.DataBrew.Types.StatisticOverride
+import Amazonka.DataBrew.Types.StatisticsConfiguration
+import Amazonka.DataBrew.Types.ViewFrame
+import Amazonka.DataBrew.UntagResource
+import Amazonka.DataBrew.UpdateDataset
+import Amazonka.DataBrew.UpdateProfileJob
+import Amazonka.DataBrew.UpdateProject
+import Amazonka.DataBrew.UpdateRecipe
+import Amazonka.DataBrew.UpdateRecipeJob
+import Amazonka.DataBrew.UpdateSchedule

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataBrew.Types.Input
+-- Module      : Amazonka.DataBrew.Types.Input
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataBrew.Types.Input where
+module Amazonka.DataBrew.Types.Input where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataBrew.Types.DataCatalogInputDefinition
-import Network.AWS.DataBrew.Types.DatabaseInputDefinition
-import Network.AWS.DataBrew.Types.S3Location
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataBrew.Types.DataCatalogInputDefinition
+import Amazonka.DataBrew.Types.DatabaseInputDefinition
+import Amazonka.DataBrew.Types.S3Location
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information on how DataBrew can find data, in either the Glue
 -- Data Catalog or Amazon S3.

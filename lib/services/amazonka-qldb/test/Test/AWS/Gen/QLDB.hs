@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QLDB where
 
+import Amazonka.QLDB
 import qualified Data.Proxy as Proxy
-import Network.AWS.QLDB
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.QLDB.Internal

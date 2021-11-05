@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.DescribeJournalKinesisStream
+-- Module      : Amazonka.QLDB.DescribeJournalKinesisStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration Expiration for terminal streams>
 -- in the /Amazon QLDB Developer Guide/.
-module Network.AWS.QLDB.DescribeJournalKinesisStream
+module Amazonka.QLDB.DescribeJournalKinesisStream
   ( -- * Creating a Request
     DescribeJournalKinesisStream (..),
     newDescribeJournalKinesisStream,
@@ -48,12 +48,12 @@ module Network.AWS.QLDB.DescribeJournalKinesisStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeJournalKinesisStream' smart constructor.
 data DescribeJournalKinesisStream = DescribeJournalKinesisStream'

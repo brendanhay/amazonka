@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.StreamJournalToKinesis
+-- Module      : Amazonka.QLDB.StreamJournalToKinesis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- captures every document revision that is committed to the ledger\'s
 -- journal and delivers the data to a specified Amazon Kinesis Data Streams
 -- resource.
-module Network.AWS.QLDB.StreamJournalToKinesis
+module Amazonka.QLDB.StreamJournalToKinesis
   ( -- * Creating a Request
     StreamJournalToKinesis (..),
     newStreamJournalToKinesis,
@@ -48,12 +48,12 @@ module Network.AWS.QLDB.StreamJournalToKinesis
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStreamJournalToKinesis' smart constructor.
 data StreamJournalToKinesis = StreamJournalToKinesis'

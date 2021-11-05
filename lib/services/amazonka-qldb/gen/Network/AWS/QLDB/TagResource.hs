@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.TagResource
+-- Module      : Amazonka.QLDB.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- A resource can have up to 50 tags. If you try to create more than 50
 -- tags for a resource, your request fails and returns an error.
-module Network.AWS.QLDB.TagResource
+module Amazonka.QLDB.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -42,12 +42,12 @@ module Network.AWS.QLDB.TagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

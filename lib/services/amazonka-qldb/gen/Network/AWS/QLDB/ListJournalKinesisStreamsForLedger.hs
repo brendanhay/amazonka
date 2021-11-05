@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
+-- Module      : Amazonka.QLDB.ListJournalKinesisStreamsForLedger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- This action returns a maximum of @MaxResults@ items. It is paginated so
 -- that you can retrieve all the items by calling
 -- @ListJournalKinesisStreamsForLedger@ multiple times.
-module Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
+module Amazonka.QLDB.ListJournalKinesisStreamsForLedger
   ( -- * Creating a Request
     ListJournalKinesisStreamsForLedger (..),
     newListJournalKinesisStreamsForLedger,
@@ -53,12 +53,12 @@ module Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJournalKinesisStreamsForLedger' smart constructor.
 data ListJournalKinesisStreamsForLedger = ListJournalKinesisStreamsForLedger'

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.Lens
+-- Module      : Amazonka.QLDB.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDB.Lens
+module Amazonka.QLDB.Lens
   ( -- * Operations
 
     -- ** UpdateLedger
@@ -222,31 +222,31 @@ module Network.AWS.QLDB.Lens
   )
 where
 
-import Network.AWS.QLDB.CancelJournalKinesisStream
-import Network.AWS.QLDB.CreateLedger
-import Network.AWS.QLDB.DeleteLedger
-import Network.AWS.QLDB.DescribeJournalKinesisStream
-import Network.AWS.QLDB.DescribeJournalS3Export
-import Network.AWS.QLDB.DescribeLedger
-import Network.AWS.QLDB.ExportJournalToS3
-import Network.AWS.QLDB.GetBlock
-import Network.AWS.QLDB.GetDigest
-import Network.AWS.QLDB.GetRevision
-import Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
-import Network.AWS.QLDB.ListJournalS3Exports
-import Network.AWS.QLDB.ListJournalS3ExportsForLedger
-import Network.AWS.QLDB.ListLedgers
-import Network.AWS.QLDB.ListTagsForResource
-import Network.AWS.QLDB.StreamJournalToKinesis
-import Network.AWS.QLDB.TagResource
-import Network.AWS.QLDB.Types.JournalKinesisStreamDescription
-import Network.AWS.QLDB.Types.JournalS3ExportDescription
-import Network.AWS.QLDB.Types.KinesisConfiguration
-import Network.AWS.QLDB.Types.LedgerEncryptionDescription
-import Network.AWS.QLDB.Types.LedgerSummary
-import Network.AWS.QLDB.Types.S3EncryptionConfiguration
-import Network.AWS.QLDB.Types.S3ExportConfiguration
-import Network.AWS.QLDB.Types.ValueHolder
-import Network.AWS.QLDB.UntagResource
-import Network.AWS.QLDB.UpdateLedger
-import Network.AWS.QLDB.UpdateLedgerPermissionsMode
+import Amazonka.QLDB.CancelJournalKinesisStream
+import Amazonka.QLDB.CreateLedger
+import Amazonka.QLDB.DeleteLedger
+import Amazonka.QLDB.DescribeJournalKinesisStream
+import Amazonka.QLDB.DescribeJournalS3Export
+import Amazonka.QLDB.DescribeLedger
+import Amazonka.QLDB.ExportJournalToS3
+import Amazonka.QLDB.GetBlock
+import Amazonka.QLDB.GetDigest
+import Amazonka.QLDB.GetRevision
+import Amazonka.QLDB.ListJournalKinesisStreamsForLedger
+import Amazonka.QLDB.ListJournalS3Exports
+import Amazonka.QLDB.ListJournalS3ExportsForLedger
+import Amazonka.QLDB.ListLedgers
+import Amazonka.QLDB.ListTagsForResource
+import Amazonka.QLDB.StreamJournalToKinesis
+import Amazonka.QLDB.TagResource
+import Amazonka.QLDB.Types.JournalKinesisStreamDescription
+import Amazonka.QLDB.Types.JournalS3ExportDescription
+import Amazonka.QLDB.Types.KinesisConfiguration
+import Amazonka.QLDB.Types.LedgerEncryptionDescription
+import Amazonka.QLDB.Types.LedgerSummary
+import Amazonka.QLDB.Types.S3EncryptionConfiguration
+import Amazonka.QLDB.Types.S3ExportConfiguration
+import Amazonka.QLDB.Types.ValueHolder
+import Amazonka.QLDB.UntagResource
+import Amazonka.QLDB.UpdateLedger
+import Amazonka.QLDB.UpdateLedgerPermissionsMode

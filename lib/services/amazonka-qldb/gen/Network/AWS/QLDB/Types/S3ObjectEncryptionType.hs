@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.Types.S3ObjectEncryptionType
+-- Module      : Amazonka.QLDB.Types.S3ObjectEncryptionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDB.Types.S3ObjectEncryptionType
+module Amazonka.QLDB.Types.S3ObjectEncryptionType
   ( S3ObjectEncryptionType
       ( ..,
         S3ObjectEncryptionType_NO_ENCRYPTION,
@@ -27,8 +27,8 @@ module Network.AWS.QLDB.Types.S3ObjectEncryptionType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype S3ObjectEncryptionType = S3ObjectEncryptionType'
   { fromS3ObjectEncryptionType ::

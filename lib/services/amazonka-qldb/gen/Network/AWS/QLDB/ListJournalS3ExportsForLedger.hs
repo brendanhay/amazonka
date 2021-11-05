@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.ListJournalS3ExportsForLedger
+-- Module      : Amazonka.QLDB.ListJournalS3ExportsForLedger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export job expiration>
 -- in the /Amazon QLDB Developer Guide/.
-module Network.AWS.QLDB.ListJournalS3ExportsForLedger
+module Amazonka.QLDB.ListJournalS3ExportsForLedger
   ( -- * Creating a Request
     ListJournalS3ExportsForLedger (..),
     newListJournalS3ExportsForLedger,
@@ -52,12 +52,12 @@ module Network.AWS.QLDB.ListJournalS3ExportsForLedger
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJournalS3ExportsForLedger' smart constructor.
 data ListJournalS3ExportsForLedger = ListJournalS3ExportsForLedger'

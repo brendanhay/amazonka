@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.Types
+-- Module      : Amazonka.QLDB.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDB.Types
+module Amazonka.QLDB.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -112,25 +112,25 @@ module Network.AWS.QLDB.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types.EncryptionStatus
-import Network.AWS.QLDB.Types.ErrorCause
-import Network.AWS.QLDB.Types.ExportStatus
-import Network.AWS.QLDB.Types.JournalKinesisStreamDescription
-import Network.AWS.QLDB.Types.JournalS3ExportDescription
-import Network.AWS.QLDB.Types.KinesisConfiguration
-import Network.AWS.QLDB.Types.LedgerEncryptionDescription
-import Network.AWS.QLDB.Types.LedgerState
-import Network.AWS.QLDB.Types.LedgerSummary
-import Network.AWS.QLDB.Types.PermissionsMode
-import Network.AWS.QLDB.Types.S3EncryptionConfiguration
-import Network.AWS.QLDB.Types.S3ExportConfiguration
-import Network.AWS.QLDB.Types.S3ObjectEncryptionType
-import Network.AWS.QLDB.Types.StreamStatus
-import Network.AWS.QLDB.Types.ValueHolder
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types.EncryptionStatus
+import Amazonka.QLDB.Types.ErrorCause
+import Amazonka.QLDB.Types.ExportStatus
+import Amazonka.QLDB.Types.JournalKinesisStreamDescription
+import Amazonka.QLDB.Types.JournalS3ExportDescription
+import Amazonka.QLDB.Types.KinesisConfiguration
+import Amazonka.QLDB.Types.LedgerEncryptionDescription
+import Amazonka.QLDB.Types.LedgerState
+import Amazonka.QLDB.Types.LedgerSummary
+import Amazonka.QLDB.Types.PermissionsMode
+import Amazonka.QLDB.Types.S3EncryptionConfiguration
+import Amazonka.QLDB.Types.S3ExportConfiguration
+import Amazonka.QLDB.Types.S3ObjectEncryptionType
+import Amazonka.QLDB.Types.StreamStatus
+import Amazonka.QLDB.Types.ValueHolder
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-01-02@ of the Amazon QLDB SDK configuration.
 defaultService :: Core.Service

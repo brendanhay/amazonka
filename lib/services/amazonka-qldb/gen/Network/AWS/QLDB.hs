@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.QLDB
+-- Module      : Amazonka.QLDB
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2019-01-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The control plane for Amazon QLDB
-module Network.AWS.QLDB
+module Amazonka.QLDB
   ( -- * Service Configuration
     defaultService,
 
@@ -220,29 +220,29 @@ module Network.AWS.QLDB
   )
 where
 
-import Network.AWS.QLDB.CancelJournalKinesisStream
-import Network.AWS.QLDB.CreateLedger
-import Network.AWS.QLDB.DeleteLedger
-import Network.AWS.QLDB.DescribeJournalKinesisStream
-import Network.AWS.QLDB.DescribeJournalS3Export
-import Network.AWS.QLDB.DescribeLedger
-import Network.AWS.QLDB.ExportJournalToS3
-import Network.AWS.QLDB.GetBlock
-import Network.AWS.QLDB.GetDigest
-import Network.AWS.QLDB.GetRevision
-import Network.AWS.QLDB.Lens
-import Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
-import Network.AWS.QLDB.ListJournalS3Exports
-import Network.AWS.QLDB.ListJournalS3ExportsForLedger
-import Network.AWS.QLDB.ListLedgers
-import Network.AWS.QLDB.ListTagsForResource
-import Network.AWS.QLDB.StreamJournalToKinesis
-import Network.AWS.QLDB.TagResource
-import Network.AWS.QLDB.Types
-import Network.AWS.QLDB.UntagResource
-import Network.AWS.QLDB.UpdateLedger
-import Network.AWS.QLDB.UpdateLedgerPermissionsMode
-import Network.AWS.QLDB.Waiters
+import Amazonka.QLDB.CancelJournalKinesisStream
+import Amazonka.QLDB.CreateLedger
+import Amazonka.QLDB.DeleteLedger
+import Amazonka.QLDB.DescribeJournalKinesisStream
+import Amazonka.QLDB.DescribeJournalS3Export
+import Amazonka.QLDB.DescribeLedger
+import Amazonka.QLDB.ExportJournalToS3
+import Amazonka.QLDB.GetBlock
+import Amazonka.QLDB.GetDigest
+import Amazonka.QLDB.GetRevision
+import Amazonka.QLDB.Lens
+import Amazonka.QLDB.ListJournalKinesisStreamsForLedger
+import Amazonka.QLDB.ListJournalS3Exports
+import Amazonka.QLDB.ListJournalS3ExportsForLedger
+import Amazonka.QLDB.ListLedgers
+import Amazonka.QLDB.ListTagsForResource
+import Amazonka.QLDB.StreamJournalToKinesis
+import Amazonka.QLDB.TagResource
+import Amazonka.QLDB.Types
+import Amazonka.QLDB.UntagResource
+import Amazonka.QLDB.UpdateLedger
+import Amazonka.QLDB.UpdateLedgerPermissionsMode
+import Amazonka.QLDB.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

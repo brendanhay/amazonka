@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.GetDigest
+-- Module      : Amazonka.QLDB.GetDigest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns the digest of a ledger at the latest committed block in the
 -- journal. The response includes a 256-bit hash value and a block address.
-module Network.AWS.QLDB.GetDigest
+module Amazonka.QLDB.GetDigest
   ( -- * Creating a Request
     GetDigest (..),
     newGetDigest,
@@ -41,12 +41,12 @@ module Network.AWS.QLDB.GetDigest
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDB.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDB.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDigest' smart constructor.
 data GetDigest = GetDigest'

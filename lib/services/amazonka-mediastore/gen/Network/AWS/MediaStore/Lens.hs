@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.Lens
+-- Module      : Amazonka.MediaStore.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStore.Lens
+module Amazonka.MediaStore.Lens
   ( -- * Operations
 
     -- ** StopAccessLogging
@@ -146,29 +146,29 @@ module Network.AWS.MediaStore.Lens
   )
 where
 
-import Network.AWS.MediaStore.CreateContainer
-import Network.AWS.MediaStore.DeleteContainer
-import Network.AWS.MediaStore.DeleteContainerPolicy
-import Network.AWS.MediaStore.DeleteCorsPolicy
-import Network.AWS.MediaStore.DeleteLifecyclePolicy
-import Network.AWS.MediaStore.DeleteMetricPolicy
-import Network.AWS.MediaStore.DescribeContainer
-import Network.AWS.MediaStore.GetContainerPolicy
-import Network.AWS.MediaStore.GetCorsPolicy
-import Network.AWS.MediaStore.GetLifecyclePolicy
-import Network.AWS.MediaStore.GetMetricPolicy
-import Network.AWS.MediaStore.ListContainers
-import Network.AWS.MediaStore.ListTagsForResource
-import Network.AWS.MediaStore.PutContainerPolicy
-import Network.AWS.MediaStore.PutCorsPolicy
-import Network.AWS.MediaStore.PutLifecyclePolicy
-import Network.AWS.MediaStore.PutMetricPolicy
-import Network.AWS.MediaStore.StartAccessLogging
-import Network.AWS.MediaStore.StopAccessLogging
-import Network.AWS.MediaStore.TagResource
-import Network.AWS.MediaStore.Types.Container
-import Network.AWS.MediaStore.Types.CorsRule
-import Network.AWS.MediaStore.Types.MetricPolicy
-import Network.AWS.MediaStore.Types.MetricPolicyRule
-import Network.AWS.MediaStore.Types.Tag
-import Network.AWS.MediaStore.UntagResource
+import Amazonka.MediaStore.CreateContainer
+import Amazonka.MediaStore.DeleteContainer
+import Amazonka.MediaStore.DeleteContainerPolicy
+import Amazonka.MediaStore.DeleteCorsPolicy
+import Amazonka.MediaStore.DeleteLifecyclePolicy
+import Amazonka.MediaStore.DeleteMetricPolicy
+import Amazonka.MediaStore.DescribeContainer
+import Amazonka.MediaStore.GetContainerPolicy
+import Amazonka.MediaStore.GetCorsPolicy
+import Amazonka.MediaStore.GetLifecyclePolicy
+import Amazonka.MediaStore.GetMetricPolicy
+import Amazonka.MediaStore.ListContainers
+import Amazonka.MediaStore.ListTagsForResource
+import Amazonka.MediaStore.PutContainerPolicy
+import Amazonka.MediaStore.PutCorsPolicy
+import Amazonka.MediaStore.PutLifecyclePolicy
+import Amazonka.MediaStore.PutMetricPolicy
+import Amazonka.MediaStore.StartAccessLogging
+import Amazonka.MediaStore.StopAccessLogging
+import Amazonka.MediaStore.TagResource
+import Amazonka.MediaStore.Types.Container
+import Amazonka.MediaStore.Types.CorsRule
+import Amazonka.MediaStore.Types.MetricPolicy
+import Amazonka.MediaStore.Types.MetricPolicyRule
+import Amazonka.MediaStore.Types.Tag
+import Amazonka.MediaStore.UntagResource

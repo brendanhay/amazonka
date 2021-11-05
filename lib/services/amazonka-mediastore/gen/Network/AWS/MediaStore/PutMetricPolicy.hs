@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.PutMetricPolicy
+-- Module      : Amazonka.MediaStore.PutMetricPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- The metric policy that you want to add to the container. A metric policy
 -- allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It
 -- takes up to 20 minutes for the new policy to take effect.
-module Network.AWS.MediaStore.PutMetricPolicy
+module Amazonka.MediaStore.PutMetricPolicy
   ( -- * Creating a Request
     PutMetricPolicy (..),
     newPutMetricPolicy,
@@ -41,12 +41,12 @@ module Network.AWS.MediaStore.PutMetricPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetricPolicy' smart constructor.
 data PutMetricPolicy = PutMetricPolicy'

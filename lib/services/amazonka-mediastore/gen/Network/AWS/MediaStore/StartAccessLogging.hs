@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.StartAccessLogging
+-- Module      : Amazonka.MediaStore.StartAccessLogging
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Starts access logging on the specified container. When you enable access
 -- logging on a container, MediaStore delivers access logs for objects
 -- stored in that container to Amazon CloudWatch Logs.
-module Network.AWS.MediaStore.StartAccessLogging
+module Amazonka.MediaStore.StartAccessLogging
   ( -- * Creating a Request
     StartAccessLogging (..),
     newStartAccessLogging,
@@ -40,12 +40,12 @@ module Network.AWS.MediaStore.StartAccessLogging
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartAccessLogging' smart constructor.
 data StartAccessLogging = StartAccessLogging'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.PutContainerPolicy
+-- Module      : Amazonka.MediaStore.PutContainerPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- For this release of the REST API, you can create only one policy for a
 -- container. If you enter @PutContainerPolicy@ twice, the second command
 -- modifies the existing policy.
-module Network.AWS.MediaStore.PutContainerPolicy
+module Amazonka.MediaStore.PutContainerPolicy
   ( -- * Creating a Request
     PutContainerPolicy (..),
     newPutContainerPolicy,
@@ -46,12 +46,12 @@ module Network.AWS.MediaStore.PutContainerPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'

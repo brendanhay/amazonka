@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.Types.MetricPolicy
+-- Module      : Amazonka.MediaStore.Types.MetricPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStore.Types.MetricPolicy where
+module Amazonka.MediaStore.Types.MetricPolicy where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types.ContainerLevelMetrics
-import Network.AWS.MediaStore.Types.MetricPolicyRule
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types.ContainerLevelMetrics
+import Amazonka.MediaStore.Types.MetricPolicyRule
+import qualified Amazonka.Prelude as Prelude
 
 -- | The metric policy that is associated with the container. A metric policy
 -- allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.GetContainerPolicy
+-- Module      : Amazonka.MediaStore.GetContainerPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves the access policy for the specified container. For information
 -- about the data that is included in an access policy, see the
 -- <https://aws.amazon.com/documentation/iam/ AWS Identity and Access Management User Guide>.
-module Network.AWS.MediaStore.GetContainerPolicy
+module Amazonka.MediaStore.GetContainerPolicy
   ( -- * Creating a Request
     GetContainerPolicy (..),
     newGetContainerPolicy,
@@ -41,12 +41,12 @@ module Network.AWS.MediaStore.GetContainerPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetContainerPolicy' smart constructor.
 data GetContainerPolicy = GetContainerPolicy'

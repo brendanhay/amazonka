@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaStore
+-- Module      : Amazonka.MediaStore
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- An AWS Elemental MediaStore container is a namespace that holds folders
 -- and objects. You use a container endpoint to create, read, and delete
 -- objects.
-module Network.AWS.MediaStore
+module Amazonka.MediaStore
   ( -- * Service Configuration
     defaultService,
 
@@ -204,30 +204,30 @@ module Network.AWS.MediaStore
   )
 where
 
-import Network.AWS.MediaStore.CreateContainer
-import Network.AWS.MediaStore.DeleteContainer
-import Network.AWS.MediaStore.DeleteContainerPolicy
-import Network.AWS.MediaStore.DeleteCorsPolicy
-import Network.AWS.MediaStore.DeleteLifecyclePolicy
-import Network.AWS.MediaStore.DeleteMetricPolicy
-import Network.AWS.MediaStore.DescribeContainer
-import Network.AWS.MediaStore.GetContainerPolicy
-import Network.AWS.MediaStore.GetCorsPolicy
-import Network.AWS.MediaStore.GetLifecyclePolicy
-import Network.AWS.MediaStore.GetMetricPolicy
-import Network.AWS.MediaStore.Lens
-import Network.AWS.MediaStore.ListContainers
-import Network.AWS.MediaStore.ListTagsForResource
-import Network.AWS.MediaStore.PutContainerPolicy
-import Network.AWS.MediaStore.PutCorsPolicy
-import Network.AWS.MediaStore.PutLifecyclePolicy
-import Network.AWS.MediaStore.PutMetricPolicy
-import Network.AWS.MediaStore.StartAccessLogging
-import Network.AWS.MediaStore.StopAccessLogging
-import Network.AWS.MediaStore.TagResource
-import Network.AWS.MediaStore.Types
-import Network.AWS.MediaStore.UntagResource
-import Network.AWS.MediaStore.Waiters
+import Amazonka.MediaStore.CreateContainer
+import Amazonka.MediaStore.DeleteContainer
+import Amazonka.MediaStore.DeleteContainerPolicy
+import Amazonka.MediaStore.DeleteCorsPolicy
+import Amazonka.MediaStore.DeleteLifecyclePolicy
+import Amazonka.MediaStore.DeleteMetricPolicy
+import Amazonka.MediaStore.DescribeContainer
+import Amazonka.MediaStore.GetContainerPolicy
+import Amazonka.MediaStore.GetCorsPolicy
+import Amazonka.MediaStore.GetLifecyclePolicy
+import Amazonka.MediaStore.GetMetricPolicy
+import Amazonka.MediaStore.Lens
+import Amazonka.MediaStore.ListContainers
+import Amazonka.MediaStore.ListTagsForResource
+import Amazonka.MediaStore.PutContainerPolicy
+import Amazonka.MediaStore.PutCorsPolicy
+import Amazonka.MediaStore.PutLifecyclePolicy
+import Amazonka.MediaStore.PutMetricPolicy
+import Amazonka.MediaStore.StartAccessLogging
+import Amazonka.MediaStore.StopAccessLogging
+import Amazonka.MediaStore.TagResource
+import Amazonka.MediaStore.Types
+import Amazonka.MediaStore.UntagResource
+import Amazonka.MediaStore.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

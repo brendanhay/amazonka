@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.DescribeContainer
+-- Module      : Amazonka.MediaStore.DescribeContainer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- @DescribeContainer@ request returns a single @Container@ object based on
 -- @ContainerName@. To return all @Container@ objects that are associated
 -- with a specified AWS account, use ListContainers.
-module Network.AWS.MediaStore.DescribeContainer
+module Amazonka.MediaStore.DescribeContainer
   ( -- * Creating a Request
     DescribeContainer (..),
     newDescribeContainer,
@@ -45,12 +45,12 @@ module Network.AWS.MediaStore.DescribeContainer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStore.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeContainer' smart constructor.
 data DescribeContainer = DescribeContainer'

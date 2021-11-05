@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.ApproveAssignment
+-- Module      : Amazonka.MechanicalTurk.ApproveAssignment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- rejection. This only works on rejected assignments that were submitted
 -- within the previous 30 days and only if the assignment\'s related HIT
 -- has not been deleted.
-module Network.AWS.MechanicalTurk.ApproveAssignment
+module Amazonka.MechanicalTurk.ApproveAssignment
   ( -- * Creating a Request
     ApproveAssignment (..),
     newApproveAssignment,
@@ -61,12 +61,12 @@ module Network.AWS.MechanicalTurk.ApproveAssignment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newApproveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'

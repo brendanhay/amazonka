@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MechanicalTurk where
 
+import Amazonka.MechanicalTurk
 import qualified Data.Proxy as Proxy
-import Network.AWS.MechanicalTurk
 import Test.AWS.Fixture
 import Test.AWS.MechanicalTurk.Internal
 import Test.AWS.Prelude

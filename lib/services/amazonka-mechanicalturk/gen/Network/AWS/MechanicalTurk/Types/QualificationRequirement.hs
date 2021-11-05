@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.Types.QualificationRequirement
+-- Module      : Amazonka.MechanicalTurk.Types.QualificationRequirement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.QualificationRequirement where
+module Amazonka.MechanicalTurk.Types.QualificationRequirement where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.Comparator
-import Network.AWS.MechanicalTurk.Types.HITAccessActions
-import Network.AWS.MechanicalTurk.Types.Locale
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types.Comparator
+import Amazonka.MechanicalTurk.Types.HITAccessActions
+import Amazonka.MechanicalTurk.Types.Locale
+import qualified Amazonka.Prelude as Prelude
 
 -- | The QualificationRequirement data structure describes a Qualification
 -- that a Worker must have before the Worker is allowed to accept a HIT. A

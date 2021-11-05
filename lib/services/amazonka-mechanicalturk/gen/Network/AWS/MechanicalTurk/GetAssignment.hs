@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.GetAssignment
+-- Module      : Amazonka.MechanicalTurk.GetAssignment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- The @GetAssignment@ operation retrieves the details of the specified
 -- Assignment.
-module Network.AWS.MechanicalTurk.GetAssignment
+module Amazonka.MechanicalTurk.GetAssignment
   ( -- * Creating a Request
     GetAssignment (..),
     newGetAssignment,
@@ -41,12 +41,12 @@ module Network.AWS.MechanicalTurk.GetAssignment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssignment' smart constructor.
 data GetAssignment = GetAssignment'

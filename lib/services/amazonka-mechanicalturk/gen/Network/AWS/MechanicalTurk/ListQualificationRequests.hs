@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.ListQualificationRequests
+-- Module      : Amazonka.MechanicalTurk.ListQualificationRequests
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- and accepts them using the AcceptQualification operation.
 --
 -- This operation returns paginated results.
-module Network.AWS.MechanicalTurk.ListQualificationRequests
+module Amazonka.MechanicalTurk.ListQualificationRequests
   ( -- * Creating a Request
     ListQualificationRequests (..),
     newListQualificationRequests,
@@ -48,12 +48,12 @@ module Network.AWS.MechanicalTurk.ListQualificationRequests
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'

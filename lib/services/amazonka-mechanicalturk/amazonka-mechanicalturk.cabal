@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MechanicalTurk.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MechanicalTurk.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MechanicalTurk" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MechanicalTurk" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,82 +45,82 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MechanicalTurk
-    Network.AWS.MechanicalTurk.AcceptQualificationRequest
-    Network.AWS.MechanicalTurk.ApproveAssignment
-    Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
-    Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
-    Network.AWS.MechanicalTurk.CreateHIT
-    Network.AWS.MechanicalTurk.CreateHITType
-    Network.AWS.MechanicalTurk.CreateHITWithHITType
-    Network.AWS.MechanicalTurk.CreateQualificationType
-    Network.AWS.MechanicalTurk.CreateWorkerBlock
-    Network.AWS.MechanicalTurk.DeleteHIT
-    Network.AWS.MechanicalTurk.DeleteQualificationType
-    Network.AWS.MechanicalTurk.DeleteWorkerBlock
-    Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
-    Network.AWS.MechanicalTurk.GetAccountBalance
-    Network.AWS.MechanicalTurk.GetAssignment
-    Network.AWS.MechanicalTurk.GetFileUploadURL
-    Network.AWS.MechanicalTurk.GetHIT
-    Network.AWS.MechanicalTurk.GetQualificationScore
-    Network.AWS.MechanicalTurk.GetQualificationType
-    Network.AWS.MechanicalTurk.Lens
-    Network.AWS.MechanicalTurk.ListAssignmentsForHIT
-    Network.AWS.MechanicalTurk.ListBonusPayments
-    Network.AWS.MechanicalTurk.ListHITs
-    Network.AWS.MechanicalTurk.ListHITsForQualificationType
-    Network.AWS.MechanicalTurk.ListQualificationRequests
-    Network.AWS.MechanicalTurk.ListQualificationTypes
-    Network.AWS.MechanicalTurk.ListReviewableHITs
-    Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-    Network.AWS.MechanicalTurk.ListWorkerBlocks
-    Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
-    Network.AWS.MechanicalTurk.NotifyWorkers
-    Network.AWS.MechanicalTurk.RejectAssignment
-    Network.AWS.MechanicalTurk.RejectQualificationRequest
-    Network.AWS.MechanicalTurk.SendBonus
-    Network.AWS.MechanicalTurk.SendTestEventNotification
-    Network.AWS.MechanicalTurk.Types
-    Network.AWS.MechanicalTurk.Types.Assignment
-    Network.AWS.MechanicalTurk.Types.AssignmentStatus
-    Network.AWS.MechanicalTurk.Types.BonusPayment
-    Network.AWS.MechanicalTurk.Types.Comparator
-    Network.AWS.MechanicalTurk.Types.EventType
-    Network.AWS.MechanicalTurk.Types.HIT
-    Network.AWS.MechanicalTurk.Types.HITAccessActions
-    Network.AWS.MechanicalTurk.Types.HITLayoutParameter
-    Network.AWS.MechanicalTurk.Types.HITReviewStatus
-    Network.AWS.MechanicalTurk.Types.HITStatus
-    Network.AWS.MechanicalTurk.Types.Locale
-    Network.AWS.MechanicalTurk.Types.NotificationSpecification
-    Network.AWS.MechanicalTurk.Types.NotificationTransport
-    Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
-    Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus
-    Network.AWS.MechanicalTurk.Types.ParameterMapEntry
-    Network.AWS.MechanicalTurk.Types.PolicyParameter
-    Network.AWS.MechanicalTurk.Types.Qualification
-    Network.AWS.MechanicalTurk.Types.QualificationRequest
-    Network.AWS.MechanicalTurk.Types.QualificationRequirement
-    Network.AWS.MechanicalTurk.Types.QualificationStatus
-    Network.AWS.MechanicalTurk.Types.QualificationType
-    Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
-    Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
-    Network.AWS.MechanicalTurk.Types.ReviewActionDetail
-    Network.AWS.MechanicalTurk.Types.ReviewActionStatus
-    Network.AWS.MechanicalTurk.Types.ReviewPolicy
-    Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
-    Network.AWS.MechanicalTurk.Types.ReviewReport
-    Network.AWS.MechanicalTurk.Types.ReviewResultDetail
-    Network.AWS.MechanicalTurk.Types.WorkerBlock
-    Network.AWS.MechanicalTurk.UpdateExpirationForHIT
-    Network.AWS.MechanicalTurk.UpdateHITReviewStatus
-    Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
-    Network.AWS.MechanicalTurk.UpdateNotificationSettings
-    Network.AWS.MechanicalTurk.UpdateQualificationType
-    Network.AWS.MechanicalTurk.Waiters
+    Amazonka.MechanicalTurk
+    Amazonka.MechanicalTurk.AcceptQualificationRequest
+    Amazonka.MechanicalTurk.ApproveAssignment
+    Amazonka.MechanicalTurk.AssociateQualificationWithWorker
+    Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT
+    Amazonka.MechanicalTurk.CreateHIT
+    Amazonka.MechanicalTurk.CreateHITType
+    Amazonka.MechanicalTurk.CreateHITWithHITType
+    Amazonka.MechanicalTurk.CreateQualificationType
+    Amazonka.MechanicalTurk.CreateWorkerBlock
+    Amazonka.MechanicalTurk.DeleteHIT
+    Amazonka.MechanicalTurk.DeleteQualificationType
+    Amazonka.MechanicalTurk.DeleteWorkerBlock
+    Amazonka.MechanicalTurk.DisassociateQualificationFromWorker
+    Amazonka.MechanicalTurk.GetAccountBalance
+    Amazonka.MechanicalTurk.GetAssignment
+    Amazonka.MechanicalTurk.GetFileUploadURL
+    Amazonka.MechanicalTurk.GetHIT
+    Amazonka.MechanicalTurk.GetQualificationScore
+    Amazonka.MechanicalTurk.GetQualificationType
+    Amazonka.MechanicalTurk.Lens
+    Amazonka.MechanicalTurk.ListAssignmentsForHIT
+    Amazonka.MechanicalTurk.ListBonusPayments
+    Amazonka.MechanicalTurk.ListHITs
+    Amazonka.MechanicalTurk.ListHITsForQualificationType
+    Amazonka.MechanicalTurk.ListQualificationRequests
+    Amazonka.MechanicalTurk.ListQualificationTypes
+    Amazonka.MechanicalTurk.ListReviewableHITs
+    Amazonka.MechanicalTurk.ListReviewPolicyResultsForHIT
+    Amazonka.MechanicalTurk.ListWorkerBlocks
+    Amazonka.MechanicalTurk.ListWorkersWithQualificationType
+    Amazonka.MechanicalTurk.NotifyWorkers
+    Amazonka.MechanicalTurk.RejectAssignment
+    Amazonka.MechanicalTurk.RejectQualificationRequest
+    Amazonka.MechanicalTurk.SendBonus
+    Amazonka.MechanicalTurk.SendTestEventNotification
+    Amazonka.MechanicalTurk.Types
+    Amazonka.MechanicalTurk.Types.Assignment
+    Amazonka.MechanicalTurk.Types.AssignmentStatus
+    Amazonka.MechanicalTurk.Types.BonusPayment
+    Amazonka.MechanicalTurk.Types.Comparator
+    Amazonka.MechanicalTurk.Types.EventType
+    Amazonka.MechanicalTurk.Types.HIT
+    Amazonka.MechanicalTurk.Types.HITAccessActions
+    Amazonka.MechanicalTurk.Types.HITLayoutParameter
+    Amazonka.MechanicalTurk.Types.HITReviewStatus
+    Amazonka.MechanicalTurk.Types.HITStatus
+    Amazonka.MechanicalTurk.Types.Locale
+    Amazonka.MechanicalTurk.Types.NotificationSpecification
+    Amazonka.MechanicalTurk.Types.NotificationTransport
+    Amazonka.MechanicalTurk.Types.NotifyWorkersFailureCode
+    Amazonka.MechanicalTurk.Types.NotifyWorkersFailureStatus
+    Amazonka.MechanicalTurk.Types.ParameterMapEntry
+    Amazonka.MechanicalTurk.Types.PolicyParameter
+    Amazonka.MechanicalTurk.Types.Qualification
+    Amazonka.MechanicalTurk.Types.QualificationRequest
+    Amazonka.MechanicalTurk.Types.QualificationRequirement
+    Amazonka.MechanicalTurk.Types.QualificationStatus
+    Amazonka.MechanicalTurk.Types.QualificationType
+    Amazonka.MechanicalTurk.Types.QualificationTypeStatus
+    Amazonka.MechanicalTurk.Types.ReviewableHITStatus
+    Amazonka.MechanicalTurk.Types.ReviewActionDetail
+    Amazonka.MechanicalTurk.Types.ReviewActionStatus
+    Amazonka.MechanicalTurk.Types.ReviewPolicy
+    Amazonka.MechanicalTurk.Types.ReviewPolicyLevel
+    Amazonka.MechanicalTurk.Types.ReviewReport
+    Amazonka.MechanicalTurk.Types.ReviewResultDetail
+    Amazonka.MechanicalTurk.Types.WorkerBlock
+    Amazonka.MechanicalTurk.UpdateExpirationForHIT
+    Amazonka.MechanicalTurk.UpdateHITReviewStatus
+    Amazonka.MechanicalTurk.UpdateHITTypeOfHIT
+    Amazonka.MechanicalTurk.UpdateNotificationSettings
+    Amazonka.MechanicalTurk.UpdateQualificationType
+    Amazonka.MechanicalTurk.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.Types.ReviewActionDetail
+-- Module      : Amazonka.MechanicalTurk.Types.ReviewActionDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewActionDetail where
+module Amazonka.MechanicalTurk.Types.ReviewActionDetail where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.ReviewActionStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types.ReviewActionStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | Both the AssignmentReviewReport and the HITReviewReport elements
 -- contains the ReviewActionDetail data structure. This structure is

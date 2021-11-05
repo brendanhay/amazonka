@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.GetQualificationScore
+-- Module      : Amazonka.MechanicalTurk.GetQualificationScore
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 --
 -- Only the owner of a Qualification type can query the value of a
 -- Worker\'s Qualification of that type.
-module Network.AWS.MechanicalTurk.GetQualificationScore
+module Amazonka.MechanicalTurk.GetQualificationScore
   ( -- * Creating a Request
     GetQualificationScore (..),
     newGetQualificationScore,
@@ -48,12 +48,12 @@ module Network.AWS.MechanicalTurk.GetQualificationScore
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'

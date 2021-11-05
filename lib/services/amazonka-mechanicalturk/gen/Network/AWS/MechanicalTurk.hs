@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MechanicalTurk
+-- Module      : Amazonka.MechanicalTurk
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-01-17@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Mechanical Turk API Reference
-module Network.AWS.MechanicalTurk
+module Amazonka.MechanicalTurk
   ( -- * Service Configuration
     defaultService,
 
@@ -380,48 +380,48 @@ module Network.AWS.MechanicalTurk
   )
 where
 
-import Network.AWS.MechanicalTurk.AcceptQualificationRequest
-import Network.AWS.MechanicalTurk.ApproveAssignment
-import Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
-import Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
-import Network.AWS.MechanicalTurk.CreateHIT
-import Network.AWS.MechanicalTurk.CreateHITType
-import Network.AWS.MechanicalTurk.CreateHITWithHITType
-import Network.AWS.MechanicalTurk.CreateQualificationType
-import Network.AWS.MechanicalTurk.CreateWorkerBlock
-import Network.AWS.MechanicalTurk.DeleteHIT
-import Network.AWS.MechanicalTurk.DeleteQualificationType
-import Network.AWS.MechanicalTurk.DeleteWorkerBlock
-import Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
-import Network.AWS.MechanicalTurk.GetAccountBalance
-import Network.AWS.MechanicalTurk.GetAssignment
-import Network.AWS.MechanicalTurk.GetFileUploadURL
-import Network.AWS.MechanicalTurk.GetHIT
-import Network.AWS.MechanicalTurk.GetQualificationScore
-import Network.AWS.MechanicalTurk.GetQualificationType
-import Network.AWS.MechanicalTurk.Lens
-import Network.AWS.MechanicalTurk.ListAssignmentsForHIT
-import Network.AWS.MechanicalTurk.ListBonusPayments
-import Network.AWS.MechanicalTurk.ListHITs
-import Network.AWS.MechanicalTurk.ListHITsForQualificationType
-import Network.AWS.MechanicalTurk.ListQualificationRequests
-import Network.AWS.MechanicalTurk.ListQualificationTypes
-import Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-import Network.AWS.MechanicalTurk.ListReviewableHITs
-import Network.AWS.MechanicalTurk.ListWorkerBlocks
-import Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
-import Network.AWS.MechanicalTurk.NotifyWorkers
-import Network.AWS.MechanicalTurk.RejectAssignment
-import Network.AWS.MechanicalTurk.RejectQualificationRequest
-import Network.AWS.MechanicalTurk.SendBonus
-import Network.AWS.MechanicalTurk.SendTestEventNotification
-import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.UpdateExpirationForHIT
-import Network.AWS.MechanicalTurk.UpdateHITReviewStatus
-import Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
-import Network.AWS.MechanicalTurk.UpdateNotificationSettings
-import Network.AWS.MechanicalTurk.UpdateQualificationType
-import Network.AWS.MechanicalTurk.Waiters
+import Amazonka.MechanicalTurk.AcceptQualificationRequest
+import Amazonka.MechanicalTurk.ApproveAssignment
+import Amazonka.MechanicalTurk.AssociateQualificationWithWorker
+import Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT
+import Amazonka.MechanicalTurk.CreateHIT
+import Amazonka.MechanicalTurk.CreateHITType
+import Amazonka.MechanicalTurk.CreateHITWithHITType
+import Amazonka.MechanicalTurk.CreateQualificationType
+import Amazonka.MechanicalTurk.CreateWorkerBlock
+import Amazonka.MechanicalTurk.DeleteHIT
+import Amazonka.MechanicalTurk.DeleteQualificationType
+import Amazonka.MechanicalTurk.DeleteWorkerBlock
+import Amazonka.MechanicalTurk.DisassociateQualificationFromWorker
+import Amazonka.MechanicalTurk.GetAccountBalance
+import Amazonka.MechanicalTurk.GetAssignment
+import Amazonka.MechanicalTurk.GetFileUploadURL
+import Amazonka.MechanicalTurk.GetHIT
+import Amazonka.MechanicalTurk.GetQualificationScore
+import Amazonka.MechanicalTurk.GetQualificationType
+import Amazonka.MechanicalTurk.Lens
+import Amazonka.MechanicalTurk.ListAssignmentsForHIT
+import Amazonka.MechanicalTurk.ListBonusPayments
+import Amazonka.MechanicalTurk.ListHITs
+import Amazonka.MechanicalTurk.ListHITsForQualificationType
+import Amazonka.MechanicalTurk.ListQualificationRequests
+import Amazonka.MechanicalTurk.ListQualificationTypes
+import Amazonka.MechanicalTurk.ListReviewPolicyResultsForHIT
+import Amazonka.MechanicalTurk.ListReviewableHITs
+import Amazonka.MechanicalTurk.ListWorkerBlocks
+import Amazonka.MechanicalTurk.ListWorkersWithQualificationType
+import Amazonka.MechanicalTurk.NotifyWorkers
+import Amazonka.MechanicalTurk.RejectAssignment
+import Amazonka.MechanicalTurk.RejectQualificationRequest
+import Amazonka.MechanicalTurk.SendBonus
+import Amazonka.MechanicalTurk.SendTestEventNotification
+import Amazonka.MechanicalTurk.Types
+import Amazonka.MechanicalTurk.UpdateExpirationForHIT
+import Amazonka.MechanicalTurk.UpdateHITReviewStatus
+import Amazonka.MechanicalTurk.UpdateHITTypeOfHIT
+import Amazonka.MechanicalTurk.UpdateNotificationSettings
+import Amazonka.MechanicalTurk.UpdateQualificationType
+import Amazonka.MechanicalTurk.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.AcceptQualificationRequest
+-- Module      : Amazonka.MechanicalTurk.AcceptQualificationRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 --
 -- A successful request for the @AcceptQualificationRequest@ operation
 -- returns with no errors and an empty body.
-module Network.AWS.MechanicalTurk.AcceptQualificationRequest
+module Amazonka.MechanicalTurk.AcceptQualificationRequest
   ( -- * Creating a Request
     AcceptQualificationRequest (..),
     newAcceptQualificationRequest,
@@ -46,12 +46,12 @@ module Network.AWS.MechanicalTurk.AcceptQualificationRequest
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAcceptQualificationRequest' smart constructor.
 data AcceptQualificationRequest = AcceptQualificationRequest'

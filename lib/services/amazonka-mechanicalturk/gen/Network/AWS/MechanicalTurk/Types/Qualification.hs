@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.Types.Qualification
+-- Module      : Amazonka.MechanicalTurk.Types.Qualification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.Qualification where
+module Amazonka.MechanicalTurk.Types.Qualification where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.Locale
-import Network.AWS.MechanicalTurk.Types.QualificationStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types.Locale
+import Amazonka.MechanicalTurk.Types.QualificationStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Qualification data structure represents a Qualification assigned to
 -- a user, including the Qualification type and the value (score).

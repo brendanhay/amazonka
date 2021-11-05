@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.GetFileUploadURL
+-- Module      : Amazonka.MechanicalTurk.GetFileUploadURL
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- @FileUploadAnswer@ element to be used for the QuestionForm data
 -- structure. Instead, we recommend that Requesters who want to create HITs
 -- asking Workers to upload files to use Amazon S3.
-module Network.AWS.MechanicalTurk.GetFileUploadURL
+module Amazonka.MechanicalTurk.GetFileUploadURL
   ( -- * Creating a Request
     GetFileUploadURL (..),
     newGetFileUploadURL,
@@ -50,12 +50,12 @@ module Network.AWS.MechanicalTurk.GetFileUploadURL
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFileUploadURL' smart constructor.
 data GetFileUploadURL = GetFileUploadURL'

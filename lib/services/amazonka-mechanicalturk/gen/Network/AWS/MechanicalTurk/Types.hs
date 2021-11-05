@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.Types
+-- Module      : Amazonka.MechanicalTurk.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types
+module Amazonka.MechanicalTurk.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -238,41 +238,41 @@ module Network.AWS.MechanicalTurk.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.Assignment
-import Network.AWS.MechanicalTurk.Types.AssignmentStatus
-import Network.AWS.MechanicalTurk.Types.BonusPayment
-import Network.AWS.MechanicalTurk.Types.Comparator
-import Network.AWS.MechanicalTurk.Types.EventType
-import Network.AWS.MechanicalTurk.Types.HIT
-import Network.AWS.MechanicalTurk.Types.HITAccessActions
-import Network.AWS.MechanicalTurk.Types.HITLayoutParameter
-import Network.AWS.MechanicalTurk.Types.HITReviewStatus
-import Network.AWS.MechanicalTurk.Types.HITStatus
-import Network.AWS.MechanicalTurk.Types.Locale
-import Network.AWS.MechanicalTurk.Types.NotificationSpecification
-import Network.AWS.MechanicalTurk.Types.NotificationTransport
-import Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
-import Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus
-import Network.AWS.MechanicalTurk.Types.ParameterMapEntry
-import Network.AWS.MechanicalTurk.Types.PolicyParameter
-import Network.AWS.MechanicalTurk.Types.Qualification
-import Network.AWS.MechanicalTurk.Types.QualificationRequest
-import Network.AWS.MechanicalTurk.Types.QualificationRequirement
-import Network.AWS.MechanicalTurk.Types.QualificationStatus
-import Network.AWS.MechanicalTurk.Types.QualificationType
-import Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
-import Network.AWS.MechanicalTurk.Types.ReviewActionDetail
-import Network.AWS.MechanicalTurk.Types.ReviewActionStatus
-import Network.AWS.MechanicalTurk.Types.ReviewPolicy
-import Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
-import Network.AWS.MechanicalTurk.Types.ReviewReport
-import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
-import Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
-import Network.AWS.MechanicalTurk.Types.WorkerBlock
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types.Assignment
+import Amazonka.MechanicalTurk.Types.AssignmentStatus
+import Amazonka.MechanicalTurk.Types.BonusPayment
+import Amazonka.MechanicalTurk.Types.Comparator
+import Amazonka.MechanicalTurk.Types.EventType
+import Amazonka.MechanicalTurk.Types.HIT
+import Amazonka.MechanicalTurk.Types.HITAccessActions
+import Amazonka.MechanicalTurk.Types.HITLayoutParameter
+import Amazonka.MechanicalTurk.Types.HITReviewStatus
+import Amazonka.MechanicalTurk.Types.HITStatus
+import Amazonka.MechanicalTurk.Types.Locale
+import Amazonka.MechanicalTurk.Types.NotificationSpecification
+import Amazonka.MechanicalTurk.Types.NotificationTransport
+import Amazonka.MechanicalTurk.Types.NotifyWorkersFailureCode
+import Amazonka.MechanicalTurk.Types.NotifyWorkersFailureStatus
+import Amazonka.MechanicalTurk.Types.ParameterMapEntry
+import Amazonka.MechanicalTurk.Types.PolicyParameter
+import Amazonka.MechanicalTurk.Types.Qualification
+import Amazonka.MechanicalTurk.Types.QualificationRequest
+import Amazonka.MechanicalTurk.Types.QualificationRequirement
+import Amazonka.MechanicalTurk.Types.QualificationStatus
+import Amazonka.MechanicalTurk.Types.QualificationType
+import Amazonka.MechanicalTurk.Types.QualificationTypeStatus
+import Amazonka.MechanicalTurk.Types.ReviewActionDetail
+import Amazonka.MechanicalTurk.Types.ReviewActionStatus
+import Amazonka.MechanicalTurk.Types.ReviewPolicy
+import Amazonka.MechanicalTurk.Types.ReviewPolicyLevel
+import Amazonka.MechanicalTurk.Types.ReviewReport
+import Amazonka.MechanicalTurk.Types.ReviewResultDetail
+import Amazonka.MechanicalTurk.Types.ReviewableHITStatus
+import Amazonka.MechanicalTurk.Types.WorkerBlock
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-01-17@ of the Amazon Mechanical Turk SDK configuration.
 defaultService :: Core.Service

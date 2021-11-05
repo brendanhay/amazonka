@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MechanicalTurk.NotifyWorkers
+-- Module      : Amazonka.MechanicalTurk.NotifyWorkers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- send the same message with a single call to the NotifyWorkers operation.
 -- The NotifyWorkers operation will send a notification email to a Worker
 -- only if you have previously approved or rejected work from the Worker.
-module Network.AWS.MechanicalTurk.NotifyWorkers
+module Amazonka.MechanicalTurk.NotifyWorkers
   ( -- * Creating a Request
     NotifyWorkers (..),
     newNotifyWorkers,
@@ -45,12 +45,12 @@ module Network.AWS.MechanicalTurk.NotifyWorkers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MechanicalTurk.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newNotifyWorkers' smart constructor.
 data NotifyWorkers = NotifyWorkers'

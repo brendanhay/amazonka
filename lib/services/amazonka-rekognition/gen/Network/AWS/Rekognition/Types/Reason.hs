@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.Reason
+-- Module      : Amazonka.Rekognition.Types.Reason
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Reason
+module Amazonka.Rekognition.Types.Reason
   ( Reason
       ( ..,
         Reason_EXCEEDS_MAX_FACES,
@@ -31,8 +31,8 @@ module Network.AWS.Rekognition.Types.Reason
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Reason = Reason' {fromReason :: Core.Text}
   deriving stock

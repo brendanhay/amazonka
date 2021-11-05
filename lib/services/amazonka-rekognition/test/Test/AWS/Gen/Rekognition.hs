@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Rekognition where
 
+import Amazonka.Rekognition
 import qualified Data.Proxy as Proxy
-import Network.AWS.Rekognition
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Rekognition.Internal

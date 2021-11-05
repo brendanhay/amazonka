@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.CelebrityDetail
+-- Module      : Amazonka.Rekognition.Types.CelebrityDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.CelebrityDetail where
+module Amazonka.Rekognition.Types.CelebrityDetail where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.FaceDetail
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.BoundingBox
+import Amazonka.Rekognition.Types.FaceDetail
 
 -- | Information about a recognized celebrity.
 --

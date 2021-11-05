@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.ComparedFace
+-- Module      : Amazonka.Rekognition.Types.ComparedFace
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ComparedFace where
+module Amazonka.Rekognition.Types.ComparedFace where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.Emotion
-import Network.AWS.Rekognition.Types.ImageQuality
-import Network.AWS.Rekognition.Types.Landmark
-import Network.AWS.Rekognition.Types.Pose
-import Network.AWS.Rekognition.Types.Smile
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.BoundingBox
+import Amazonka.Rekognition.Types.Emotion
+import Amazonka.Rekognition.Types.ImageQuality
+import Amazonka.Rekognition.Types.Landmark
+import Amazonka.Rekognition.Types.Pose
+import Amazonka.Rekognition.Types.Smile
 
 -- | Provides face metadata for target image faces that are analyzed by
 -- @CompareFaces@ and @RecognizeCelebrities@.

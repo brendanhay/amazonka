@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.TestingData
+-- Module      : Amazonka.Rekognition.Types.TestingData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TestingData where
+module Amazonka.Rekognition.Types.TestingData where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.Asset
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.Asset
 
 -- | The dataset used for testing. Optionally, if @AutoCreate@ is set, Amazon
 -- Rekognition Custom Labels creates a testing dataset using an 80\/20

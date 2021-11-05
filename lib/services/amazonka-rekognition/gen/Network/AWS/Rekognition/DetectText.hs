@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.DetectText
+-- Module      : Amazonka.Rekognition.DetectText
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -55,7 +55,7 @@
 --
 -- For more information, see DetectText in the Amazon Rekognition Developer
 -- Guide.
-module Network.AWS.Rekognition.DetectText
+module Amazonka.Rekognition.DetectText
   ( -- * Creating a Request
     DetectText (..),
     newDetectText,
@@ -75,12 +75,12 @@ module Network.AWS.Rekognition.DetectText
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectText' smart constructor.
 data DetectText = DetectText'

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
+-- Module      : Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart where
+module Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.BodyPart
-import Network.AWS.Rekognition.Types.EquipmentDetection
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.BodyPart
+import Amazonka.Rekognition.Types.EquipmentDetection
 
 -- | Information about a body part detected by DetectProtectiveEquipment that
 -- contains PPE. An array of @ProtectiveEquipmentBodyPart@ objects is

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.TestingDataResult
+-- Module      : Amazonka.Rekognition.Types.TestingDataResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TestingDataResult where
+module Amazonka.Rekognition.Types.TestingDataResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.TestingData
-import Network.AWS.Rekognition.Types.ValidationData
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.TestingData
+import Amazonka.Rekognition.Types.ValidationData
 
 -- | Sagemaker Groundtruth format manifest files for the input, output and
 -- validation datasets that are used and created during testing.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.StartTextDetection
+-- Module      : Amazonka.Rekognition.StartTextDetection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- status value published to the Amazon SNS topic is @SUCCEEDED@. if so,
 -- call GetTextDetection and pass the job identifier (@JobId@) from the
 -- initial call to @StartTextDetection@.
-module Network.AWS.Rekognition.StartTextDetection
+module Amazonka.Rekognition.StartTextDetection
   ( -- * Creating a Request
     StartTextDetection (..),
     newStartTextDetection,
@@ -56,12 +56,12 @@ module Network.AWS.Rekognition.StartTextDetection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartTextDetection' smart constructor.
 data StartTextDetection = StartTextDetection'

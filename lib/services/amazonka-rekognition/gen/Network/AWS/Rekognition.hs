@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Rekognition
+-- Module      : Amazonka.Rekognition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2016-06-27@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- This is the Amazon Rekognition API reference.
-module Network.AWS.Rekognition
+module Amazonka.Rekognition
   ( -- * Service Configuration
     defaultService,
 
@@ -818,60 +818,60 @@ module Network.AWS.Rekognition
   )
 where
 
-import Network.AWS.Rekognition.CompareFaces
-import Network.AWS.Rekognition.CreateCollection
-import Network.AWS.Rekognition.CreateProject
-import Network.AWS.Rekognition.CreateProjectVersion
-import Network.AWS.Rekognition.CreateStreamProcessor
-import Network.AWS.Rekognition.DeleteCollection
-import Network.AWS.Rekognition.DeleteFaces
-import Network.AWS.Rekognition.DeleteProject
-import Network.AWS.Rekognition.DeleteProjectVersion
-import Network.AWS.Rekognition.DeleteStreamProcessor
-import Network.AWS.Rekognition.DescribeCollection
-import Network.AWS.Rekognition.DescribeProjectVersions
-import Network.AWS.Rekognition.DescribeProjects
-import Network.AWS.Rekognition.DescribeStreamProcessor
-import Network.AWS.Rekognition.DetectCustomLabels
-import Network.AWS.Rekognition.DetectFaces
-import Network.AWS.Rekognition.DetectLabels
-import Network.AWS.Rekognition.DetectModerationLabels
-import Network.AWS.Rekognition.DetectProtectiveEquipment
-import Network.AWS.Rekognition.DetectText
-import Network.AWS.Rekognition.GetCelebrityInfo
-import Network.AWS.Rekognition.GetCelebrityRecognition
-import Network.AWS.Rekognition.GetContentModeration
-import Network.AWS.Rekognition.GetFaceDetection
-import Network.AWS.Rekognition.GetFaceSearch
-import Network.AWS.Rekognition.GetLabelDetection
-import Network.AWS.Rekognition.GetPersonTracking
-import Network.AWS.Rekognition.GetSegmentDetection
-import Network.AWS.Rekognition.GetTextDetection
-import Network.AWS.Rekognition.IndexFaces
-import Network.AWS.Rekognition.Lens
-import Network.AWS.Rekognition.ListCollections
-import Network.AWS.Rekognition.ListFaces
-import Network.AWS.Rekognition.ListStreamProcessors
-import Network.AWS.Rekognition.ListTagsForResource
-import Network.AWS.Rekognition.RecognizeCelebrities
-import Network.AWS.Rekognition.SearchFaces
-import Network.AWS.Rekognition.SearchFacesByImage
-import Network.AWS.Rekognition.StartCelebrityRecognition
-import Network.AWS.Rekognition.StartContentModeration
-import Network.AWS.Rekognition.StartFaceDetection
-import Network.AWS.Rekognition.StartFaceSearch
-import Network.AWS.Rekognition.StartLabelDetection
-import Network.AWS.Rekognition.StartPersonTracking
-import Network.AWS.Rekognition.StartProjectVersion
-import Network.AWS.Rekognition.StartSegmentDetection
-import Network.AWS.Rekognition.StartStreamProcessor
-import Network.AWS.Rekognition.StartTextDetection
-import Network.AWS.Rekognition.StopProjectVersion
-import Network.AWS.Rekognition.StopStreamProcessor
-import Network.AWS.Rekognition.TagResource
-import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.UntagResource
-import Network.AWS.Rekognition.Waiters
+import Amazonka.Rekognition.CompareFaces
+import Amazonka.Rekognition.CreateCollection
+import Amazonka.Rekognition.CreateProject
+import Amazonka.Rekognition.CreateProjectVersion
+import Amazonka.Rekognition.CreateStreamProcessor
+import Amazonka.Rekognition.DeleteCollection
+import Amazonka.Rekognition.DeleteFaces
+import Amazonka.Rekognition.DeleteProject
+import Amazonka.Rekognition.DeleteProjectVersion
+import Amazonka.Rekognition.DeleteStreamProcessor
+import Amazonka.Rekognition.DescribeCollection
+import Amazonka.Rekognition.DescribeProjectVersions
+import Amazonka.Rekognition.DescribeProjects
+import Amazonka.Rekognition.DescribeStreamProcessor
+import Amazonka.Rekognition.DetectCustomLabels
+import Amazonka.Rekognition.DetectFaces
+import Amazonka.Rekognition.DetectLabels
+import Amazonka.Rekognition.DetectModerationLabels
+import Amazonka.Rekognition.DetectProtectiveEquipment
+import Amazonka.Rekognition.DetectText
+import Amazonka.Rekognition.GetCelebrityInfo
+import Amazonka.Rekognition.GetCelebrityRecognition
+import Amazonka.Rekognition.GetContentModeration
+import Amazonka.Rekognition.GetFaceDetection
+import Amazonka.Rekognition.GetFaceSearch
+import Amazonka.Rekognition.GetLabelDetection
+import Amazonka.Rekognition.GetPersonTracking
+import Amazonka.Rekognition.GetSegmentDetection
+import Amazonka.Rekognition.GetTextDetection
+import Amazonka.Rekognition.IndexFaces
+import Amazonka.Rekognition.Lens
+import Amazonka.Rekognition.ListCollections
+import Amazonka.Rekognition.ListFaces
+import Amazonka.Rekognition.ListStreamProcessors
+import Amazonka.Rekognition.ListTagsForResource
+import Amazonka.Rekognition.RecognizeCelebrities
+import Amazonka.Rekognition.SearchFaces
+import Amazonka.Rekognition.SearchFacesByImage
+import Amazonka.Rekognition.StartCelebrityRecognition
+import Amazonka.Rekognition.StartContentModeration
+import Amazonka.Rekognition.StartFaceDetection
+import Amazonka.Rekognition.StartFaceSearch
+import Amazonka.Rekognition.StartLabelDetection
+import Amazonka.Rekognition.StartPersonTracking
+import Amazonka.Rekognition.StartProjectVersion
+import Amazonka.Rekognition.StartSegmentDetection
+import Amazonka.Rekognition.StartStreamProcessor
+import Amazonka.Rekognition.StartTextDetection
+import Amazonka.Rekognition.StopProjectVersion
+import Amazonka.Rekognition.StopStreamProcessor
+import Amazonka.Rekognition.TagResource
+import Amazonka.Rekognition.Types
+import Amazonka.Rekognition.UntagResource
+import Amazonka.Rekognition.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

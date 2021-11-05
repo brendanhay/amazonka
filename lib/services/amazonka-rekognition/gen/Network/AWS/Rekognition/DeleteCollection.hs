@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.DeleteCollection
+-- Module      : Amazonka.Rekognition.DeleteCollection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- This operation requires permissions to perform the
 -- @rekognition:DeleteCollection@ action.
-module Network.AWS.Rekognition.DeleteCollection
+module Amazonka.Rekognition.DeleteCollection
   ( -- * Creating a Request
     DeleteCollection (..),
     newDeleteCollection,
@@ -44,12 +44,12 @@ module Network.AWS.Rekognition.DeleteCollection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCollection' smart constructor.
 data DeleteCollection = DeleteCollection'

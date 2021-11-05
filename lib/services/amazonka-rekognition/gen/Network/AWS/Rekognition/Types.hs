@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types
+-- Module      : Amazonka.Rekognition.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types
+module Amazonka.Rekognition.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -703,122 +703,122 @@ module Network.AWS.Rekognition.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.AgeRange
-import Network.AWS.Rekognition.Types.Asset
-import Network.AWS.Rekognition.Types.Attribute
-import Network.AWS.Rekognition.Types.AudioMetadata
-import Network.AWS.Rekognition.Types.Beard
-import Network.AWS.Rekognition.Types.BlackFrame
-import Network.AWS.Rekognition.Types.BodyPart
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.Celebrity
-import Network.AWS.Rekognition.Types.CelebrityDetail
-import Network.AWS.Rekognition.Types.CelebrityRecognition
-import Network.AWS.Rekognition.Types.CelebrityRecognitionSortBy
-import Network.AWS.Rekognition.Types.CompareFacesMatch
-import Network.AWS.Rekognition.Types.ComparedFace
-import Network.AWS.Rekognition.Types.ComparedSourceImageFace
-import Network.AWS.Rekognition.Types.ContentClassifier
-import Network.AWS.Rekognition.Types.ContentModerationDetection
-import Network.AWS.Rekognition.Types.ContentModerationSortBy
-import Network.AWS.Rekognition.Types.CoversBodyPart
-import Network.AWS.Rekognition.Types.CustomLabel
-import Network.AWS.Rekognition.Types.DetectTextFilters
-import Network.AWS.Rekognition.Types.DetectionFilter
-import Network.AWS.Rekognition.Types.Emotion
-import Network.AWS.Rekognition.Types.EmotionName
-import Network.AWS.Rekognition.Types.EquipmentDetection
-import Network.AWS.Rekognition.Types.EvaluationResult
-import Network.AWS.Rekognition.Types.EyeOpen
-import Network.AWS.Rekognition.Types.Eyeglasses
-import Network.AWS.Rekognition.Types.Face
-import Network.AWS.Rekognition.Types.FaceAttributes
-import Network.AWS.Rekognition.Types.FaceDetail
-import Network.AWS.Rekognition.Types.FaceDetection
-import Network.AWS.Rekognition.Types.FaceMatch
-import Network.AWS.Rekognition.Types.FaceRecord
-import Network.AWS.Rekognition.Types.FaceSearchSettings
-import Network.AWS.Rekognition.Types.FaceSearchSortBy
-import Network.AWS.Rekognition.Types.Gender
-import Network.AWS.Rekognition.Types.GenderType
-import Network.AWS.Rekognition.Types.Geometry
-import Network.AWS.Rekognition.Types.GroundTruthManifest
-import Network.AWS.Rekognition.Types.HumanLoopActivationOutput
-import Network.AWS.Rekognition.Types.HumanLoopConfig
-import Network.AWS.Rekognition.Types.HumanLoopDataAttributes
-import Network.AWS.Rekognition.Types.Image
-import Network.AWS.Rekognition.Types.ImageQuality
-import Network.AWS.Rekognition.Types.Instance
-import Network.AWS.Rekognition.Types.KinesisDataStream
-import Network.AWS.Rekognition.Types.KinesisVideoStream
-import Network.AWS.Rekognition.Types.KnownGender
-import Network.AWS.Rekognition.Types.KnownGenderType
-import Network.AWS.Rekognition.Types.Label
-import Network.AWS.Rekognition.Types.LabelDetection
-import Network.AWS.Rekognition.Types.LabelDetectionSortBy
-import Network.AWS.Rekognition.Types.Landmark
-import Network.AWS.Rekognition.Types.LandmarkType
-import Network.AWS.Rekognition.Types.ModerationLabel
-import Network.AWS.Rekognition.Types.MouthOpen
-import Network.AWS.Rekognition.Types.Mustache
-import Network.AWS.Rekognition.Types.NotificationChannel
-import Network.AWS.Rekognition.Types.OrientationCorrection
-import Network.AWS.Rekognition.Types.OutputConfig
-import Network.AWS.Rekognition.Types.Parent
-import Network.AWS.Rekognition.Types.PersonDetail
-import Network.AWS.Rekognition.Types.PersonDetection
-import Network.AWS.Rekognition.Types.PersonMatch
-import Network.AWS.Rekognition.Types.PersonTrackingSortBy
-import Network.AWS.Rekognition.Types.Point
-import Network.AWS.Rekognition.Types.Pose
-import Network.AWS.Rekognition.Types.ProjectDescription
-import Network.AWS.Rekognition.Types.ProjectStatus
-import Network.AWS.Rekognition.Types.ProjectVersionDescription
-import Network.AWS.Rekognition.Types.ProjectVersionStatus
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentPerson
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
-import Network.AWS.Rekognition.Types.QualityFilter
-import Network.AWS.Rekognition.Types.Reason
-import Network.AWS.Rekognition.Types.RegionOfInterest
-import Network.AWS.Rekognition.Types.S3Object
-import Network.AWS.Rekognition.Types.SegmentDetection
-import Network.AWS.Rekognition.Types.SegmentType
-import Network.AWS.Rekognition.Types.SegmentTypeInfo
-import Network.AWS.Rekognition.Types.ShotSegment
-import Network.AWS.Rekognition.Types.Smile
-import Network.AWS.Rekognition.Types.StartSegmentDetectionFilters
-import Network.AWS.Rekognition.Types.StartShotDetectionFilter
-import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
-import Network.AWS.Rekognition.Types.StartTextDetectionFilters
-import Network.AWS.Rekognition.Types.StreamProcessor
-import Network.AWS.Rekognition.Types.StreamProcessorInput
-import Network.AWS.Rekognition.Types.StreamProcessorOutput
-import Network.AWS.Rekognition.Types.StreamProcessorSettings
-import Network.AWS.Rekognition.Types.StreamProcessorStatus
-import Network.AWS.Rekognition.Types.Summary
-import Network.AWS.Rekognition.Types.Sunglasses
-import Network.AWS.Rekognition.Types.TechnicalCueSegment
-import Network.AWS.Rekognition.Types.TechnicalCueType
-import Network.AWS.Rekognition.Types.TestingData
-import Network.AWS.Rekognition.Types.TestingDataResult
-import Network.AWS.Rekognition.Types.TextDetection
-import Network.AWS.Rekognition.Types.TextDetectionResult
-import Network.AWS.Rekognition.Types.TextTypes
-import Network.AWS.Rekognition.Types.TrainingData
-import Network.AWS.Rekognition.Types.TrainingDataResult
-import Network.AWS.Rekognition.Types.UnindexedFace
-import Network.AWS.Rekognition.Types.ValidationData
-import Network.AWS.Rekognition.Types.Video
-import Network.AWS.Rekognition.Types.VideoColorRange
-import Network.AWS.Rekognition.Types.VideoJobStatus
-import Network.AWS.Rekognition.Types.VideoMetadata
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.AgeRange
+import Amazonka.Rekognition.Types.Asset
+import Amazonka.Rekognition.Types.Attribute
+import Amazonka.Rekognition.Types.AudioMetadata
+import Amazonka.Rekognition.Types.Beard
+import Amazonka.Rekognition.Types.BlackFrame
+import Amazonka.Rekognition.Types.BodyPart
+import Amazonka.Rekognition.Types.BoundingBox
+import Amazonka.Rekognition.Types.Celebrity
+import Amazonka.Rekognition.Types.CelebrityDetail
+import Amazonka.Rekognition.Types.CelebrityRecognition
+import Amazonka.Rekognition.Types.CelebrityRecognitionSortBy
+import Amazonka.Rekognition.Types.CompareFacesMatch
+import Amazonka.Rekognition.Types.ComparedFace
+import Amazonka.Rekognition.Types.ComparedSourceImageFace
+import Amazonka.Rekognition.Types.ContentClassifier
+import Amazonka.Rekognition.Types.ContentModerationDetection
+import Amazonka.Rekognition.Types.ContentModerationSortBy
+import Amazonka.Rekognition.Types.CoversBodyPart
+import Amazonka.Rekognition.Types.CustomLabel
+import Amazonka.Rekognition.Types.DetectTextFilters
+import Amazonka.Rekognition.Types.DetectionFilter
+import Amazonka.Rekognition.Types.Emotion
+import Amazonka.Rekognition.Types.EmotionName
+import Amazonka.Rekognition.Types.EquipmentDetection
+import Amazonka.Rekognition.Types.EvaluationResult
+import Amazonka.Rekognition.Types.EyeOpen
+import Amazonka.Rekognition.Types.Eyeglasses
+import Amazonka.Rekognition.Types.Face
+import Amazonka.Rekognition.Types.FaceAttributes
+import Amazonka.Rekognition.Types.FaceDetail
+import Amazonka.Rekognition.Types.FaceDetection
+import Amazonka.Rekognition.Types.FaceMatch
+import Amazonka.Rekognition.Types.FaceRecord
+import Amazonka.Rekognition.Types.FaceSearchSettings
+import Amazonka.Rekognition.Types.FaceSearchSortBy
+import Amazonka.Rekognition.Types.Gender
+import Amazonka.Rekognition.Types.GenderType
+import Amazonka.Rekognition.Types.Geometry
+import Amazonka.Rekognition.Types.GroundTruthManifest
+import Amazonka.Rekognition.Types.HumanLoopActivationOutput
+import Amazonka.Rekognition.Types.HumanLoopConfig
+import Amazonka.Rekognition.Types.HumanLoopDataAttributes
+import Amazonka.Rekognition.Types.Image
+import Amazonka.Rekognition.Types.ImageQuality
+import Amazonka.Rekognition.Types.Instance
+import Amazonka.Rekognition.Types.KinesisDataStream
+import Amazonka.Rekognition.Types.KinesisVideoStream
+import Amazonka.Rekognition.Types.KnownGender
+import Amazonka.Rekognition.Types.KnownGenderType
+import Amazonka.Rekognition.Types.Label
+import Amazonka.Rekognition.Types.LabelDetection
+import Amazonka.Rekognition.Types.LabelDetectionSortBy
+import Amazonka.Rekognition.Types.Landmark
+import Amazonka.Rekognition.Types.LandmarkType
+import Amazonka.Rekognition.Types.ModerationLabel
+import Amazonka.Rekognition.Types.MouthOpen
+import Amazonka.Rekognition.Types.Mustache
+import Amazonka.Rekognition.Types.NotificationChannel
+import Amazonka.Rekognition.Types.OrientationCorrection
+import Amazonka.Rekognition.Types.OutputConfig
+import Amazonka.Rekognition.Types.Parent
+import Amazonka.Rekognition.Types.PersonDetail
+import Amazonka.Rekognition.Types.PersonDetection
+import Amazonka.Rekognition.Types.PersonMatch
+import Amazonka.Rekognition.Types.PersonTrackingSortBy
+import Amazonka.Rekognition.Types.Point
+import Amazonka.Rekognition.Types.Pose
+import Amazonka.Rekognition.Types.ProjectDescription
+import Amazonka.Rekognition.Types.ProjectStatus
+import Amazonka.Rekognition.Types.ProjectVersionDescription
+import Amazonka.Rekognition.Types.ProjectVersionStatus
+import Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart
+import Amazonka.Rekognition.Types.ProtectiveEquipmentPerson
+import Amazonka.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes
+import Amazonka.Rekognition.Types.ProtectiveEquipmentSummary
+import Amazonka.Rekognition.Types.ProtectiveEquipmentType
+import Amazonka.Rekognition.Types.QualityFilter
+import Amazonka.Rekognition.Types.Reason
+import Amazonka.Rekognition.Types.RegionOfInterest
+import Amazonka.Rekognition.Types.S3Object
+import Amazonka.Rekognition.Types.SegmentDetection
+import Amazonka.Rekognition.Types.SegmentType
+import Amazonka.Rekognition.Types.SegmentTypeInfo
+import Amazonka.Rekognition.Types.ShotSegment
+import Amazonka.Rekognition.Types.Smile
+import Amazonka.Rekognition.Types.StartSegmentDetectionFilters
+import Amazonka.Rekognition.Types.StartShotDetectionFilter
+import Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
+import Amazonka.Rekognition.Types.StartTextDetectionFilters
+import Amazonka.Rekognition.Types.StreamProcessor
+import Amazonka.Rekognition.Types.StreamProcessorInput
+import Amazonka.Rekognition.Types.StreamProcessorOutput
+import Amazonka.Rekognition.Types.StreamProcessorSettings
+import Amazonka.Rekognition.Types.StreamProcessorStatus
+import Amazonka.Rekognition.Types.Summary
+import Amazonka.Rekognition.Types.Sunglasses
+import Amazonka.Rekognition.Types.TechnicalCueSegment
+import Amazonka.Rekognition.Types.TechnicalCueType
+import Amazonka.Rekognition.Types.TestingData
+import Amazonka.Rekognition.Types.TestingDataResult
+import Amazonka.Rekognition.Types.TextDetection
+import Amazonka.Rekognition.Types.TextDetectionResult
+import Amazonka.Rekognition.Types.TextTypes
+import Amazonka.Rekognition.Types.TrainingData
+import Amazonka.Rekognition.Types.TrainingDataResult
+import Amazonka.Rekognition.Types.UnindexedFace
+import Amazonka.Rekognition.Types.ValidationData
+import Amazonka.Rekognition.Types.Video
+import Amazonka.Rekognition.Types.VideoColorRange
+import Amazonka.Rekognition.Types.VideoJobStatus
+import Amazonka.Rekognition.Types.VideoMetadata
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-06-27@ of the Amazon Rekognition SDK configuration.
 defaultService :: Core.Service

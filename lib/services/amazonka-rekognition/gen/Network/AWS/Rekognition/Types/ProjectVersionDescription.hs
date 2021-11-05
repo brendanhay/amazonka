@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Rekognition.Types.ProjectVersionDescription
+-- Module      : Amazonka.Rekognition.Types.ProjectVersionDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProjectVersionDescription where
+module Amazonka.Rekognition.Types.ProjectVersionDescription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Rekognition.Types.EvaluationResult
-import Network.AWS.Rekognition.Types.GroundTruthManifest
-import Network.AWS.Rekognition.Types.OutputConfig
-import Network.AWS.Rekognition.Types.ProjectVersionStatus
-import Network.AWS.Rekognition.Types.TestingDataResult
-import Network.AWS.Rekognition.Types.TrainingDataResult
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Rekognition.Types.EvaluationResult
+import Amazonka.Rekognition.Types.GroundTruthManifest
+import Amazonka.Rekognition.Types.OutputConfig
+import Amazonka.Rekognition.Types.ProjectVersionStatus
+import Amazonka.Rekognition.Types.TestingDataResult
+import Amazonka.Rekognition.Types.TrainingDataResult
 
 -- | The description of a version of a model.
 --

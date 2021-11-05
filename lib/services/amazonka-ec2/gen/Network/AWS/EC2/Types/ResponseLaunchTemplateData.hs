@@ -11,36 +11,36 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.ResponseLaunchTemplateData
+-- Module      : Amazonka.EC2.Types.ResponseLaunchTemplateData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ResponseLaunchTemplateData where
+module Amazonka.EC2.Types.ResponseLaunchTemplateData where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.CreditSpecification
-import Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMapping
-import Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationResponse
-import Network.AWS.EC2.Types.LaunchTemplateCpuOptions
-import Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
-import Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions
-import Network.AWS.EC2.Types.LaunchTemplateHibernationOptions
-import Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecification
-import Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptions
-import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptions
-import Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
-import Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
-import Network.AWS.EC2.Types.LaunchTemplatePlacement
-import Network.AWS.EC2.Types.LaunchTemplateTagSpecification
-import Network.AWS.EC2.Types.LaunchTemplatesMonitoring
-import Network.AWS.EC2.Types.ShutdownBehavior
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.CreditSpecification
+import Amazonka.EC2.Types.ElasticGpuSpecificationResponse
+import Amazonka.EC2.Types.InstanceType
+import Amazonka.EC2.Types.LaunchTemplateBlockDeviceMapping
+import Amazonka.EC2.Types.LaunchTemplateCapacityReservationSpecificationResponse
+import Amazonka.EC2.Types.LaunchTemplateCpuOptions
+import Amazonka.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
+import Amazonka.EC2.Types.LaunchTemplateEnclaveOptions
+import Amazonka.EC2.Types.LaunchTemplateHibernationOptions
+import Amazonka.EC2.Types.LaunchTemplateIamInstanceProfileSpecification
+import Amazonka.EC2.Types.LaunchTemplateInstanceMarketOptions
+import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptions
+import Amazonka.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
+import Amazonka.EC2.Types.LaunchTemplateLicenseConfiguration
+import Amazonka.EC2.Types.LaunchTemplatePlacement
+import Amazonka.EC2.Types.LaunchTemplateTagSpecification
+import Amazonka.EC2.Types.LaunchTemplatesMonitoring
+import Amazonka.EC2.Types.ShutdownBehavior
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The information for a launch template.
 --

@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.PathComponent
+-- Module      : Amazonka.EC2.Types.PathComponent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PathComponent where
+module Amazonka.EC2.Types.PathComponent where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.AnalysisAclRule
-import Network.AWS.EC2.Types.AnalysisComponent
-import Network.AWS.EC2.Types.AnalysisPacketHeader
-import Network.AWS.EC2.Types.AnalysisRouteTableRoute
-import Network.AWS.EC2.Types.AnalysisSecurityGroupRule
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AnalysisAclRule
+import Amazonka.EC2.Types.AnalysisComponent
+import Amazonka.EC2.Types.AnalysisPacketHeader
+import Amazonka.EC2.Types.AnalysisRouteTableRoute
+import Amazonka.EC2.Types.AnalysisSecurityGroupRule
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a path component.
 --

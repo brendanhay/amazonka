@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.SpotFleetRequestConfigData
+-- Module      : Amazonka.EC2.Types.SpotFleetRequestConfigData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotFleetRequestConfigData where
+module Amazonka.EC2.Types.SpotFleetRequestConfigData where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.AllocationStrategy
-import Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
-import Network.AWS.EC2.Types.FleetType
-import Network.AWS.EC2.Types.InstanceInterruptionBehavior
-import Network.AWS.EC2.Types.LaunchTemplateConfig
-import Network.AWS.EC2.Types.LoadBalancersConfig
-import Network.AWS.EC2.Types.OnDemandAllocationStrategy
-import Network.AWS.EC2.Types.SpotFleetLaunchSpecification
-import Network.AWS.EC2.Types.SpotMaintenanceStrategies
-import Network.AWS.EC2.Types.TagSpecification
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AllocationStrategy
+import Amazonka.EC2.Types.ExcessCapacityTerminationPolicy
+import Amazonka.EC2.Types.FleetType
+import Amazonka.EC2.Types.InstanceInterruptionBehavior
+import Amazonka.EC2.Types.LaunchTemplateConfig
+import Amazonka.EC2.Types.LoadBalancersConfig
+import Amazonka.EC2.Types.OnDemandAllocationStrategy
+import Amazonka.EC2.Types.SpotFleetLaunchSpecification
+import Amazonka.EC2.Types.SpotMaintenanceStrategies
+import Amazonka.EC2.Types.TagSpecification
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of a Spot Fleet request.
 --

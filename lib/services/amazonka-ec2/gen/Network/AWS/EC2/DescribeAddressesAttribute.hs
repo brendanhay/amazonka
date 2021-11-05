@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DescribeAddressesAttribute
+-- Module      : Amazonka.EC2.DescribeAddressesAttribute
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS Using reverse DNS for email applications>.
 --
 -- This operation returns paginated results.
-module Network.AWS.EC2.DescribeAddressesAttribute
+module Amazonka.EC2.DescribeAddressesAttribute
   ( -- * Creating a Request
     DescribeAddressesAttribute (..),
     newDescribeAddressesAttribute,
@@ -48,12 +48,12 @@ module Network.AWS.EC2.DescribeAddressesAttribute
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAddressesAttribute' smart constructor.
 data DescribeAddressesAttribute = DescribeAddressesAttribute'

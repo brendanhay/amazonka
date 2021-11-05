@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DisassociateSubnetCidrBlock
+-- Module      : Amazonka.EC2.DisassociateSubnetCidrBlock
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- disassociate an IPv6 CIDR block only. You must detach or delete all
 -- gateways and resources that are associated with the CIDR block before
 -- you can disassociate it.
-module Network.AWS.EC2.DisassociateSubnetCidrBlock
+module Amazonka.EC2.DisassociateSubnetCidrBlock
   ( -- * Creating a Request
     DisassociateSubnetCidrBlock (..),
     newDisassociateSubnetCidrBlock,
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DisassociateSubnetCidrBlock
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateSubnetCidrBlock' smart constructor.
 data DisassociateSubnetCidrBlock = DisassociateSubnetCidrBlock'

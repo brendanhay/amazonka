@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.CreateTransitGatewayConnect
+-- Module      : Amazonka.EC2.CreateTransitGatewayConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --
 -- A Connect attachment uses an existing VPC or Amazon Web Services Direct
 -- Connect attachment as the underlying transport mechanism.
-module Network.AWS.EC2.CreateTransitGatewayConnect
+module Amazonka.EC2.CreateTransitGatewayConnect
   ( -- * Creating a Request
     CreateTransitGatewayConnect (..),
     newCreateTransitGatewayConnect,
@@ -48,12 +48,12 @@ module Network.AWS.EC2.CreateTransitGatewayConnect
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayConnect' smart constructor.
 data CreateTransitGatewayConnect = CreateTransitGatewayConnect'

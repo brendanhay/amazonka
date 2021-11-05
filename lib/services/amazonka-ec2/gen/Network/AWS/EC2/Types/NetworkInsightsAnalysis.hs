@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.NetworkInsightsAnalysis
+-- Module      : Amazonka.EC2.Types.NetworkInsightsAnalysis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInsightsAnalysis where
+module Amazonka.EC2.Types.NetworkInsightsAnalysis where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.AlternatePathHint
-import Network.AWS.EC2.Types.AnalysisStatus
-import Network.AWS.EC2.Types.Explanation
-import Network.AWS.EC2.Types.PathComponent
-import Network.AWS.EC2.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AlternatePathHint
+import Amazonka.EC2.Types.AnalysisStatus
+import Amazonka.EC2.Types.Explanation
+import Amazonka.EC2.Types.PathComponent
+import Amazonka.EC2.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a network insights analysis.
 --

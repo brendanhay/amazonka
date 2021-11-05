@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.RestoreAddressToClassic
+-- Module      : Amazonka.EC2.RestoreAddressToClassic
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- platform back to the EC2-Classic platform. You cannot move an Elastic IP
 -- address that was originally allocated for use in EC2-VPC. The Elastic IP
 -- address must not be associated with an instance or network interface.
-module Network.AWS.EC2.RestoreAddressToClassic
+module Amazonka.EC2.RestoreAddressToClassic
   ( -- * Creating a Request
     RestoreAddressToClassic (..),
     newRestoreAddressToClassic,
@@ -44,12 +44,12 @@ module Network.AWS.EC2.RestoreAddressToClassic
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'

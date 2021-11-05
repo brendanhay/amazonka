@@ -11,44 +11,44 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.Instance
+-- Module      : Amazonka.EC2.Types.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Instance where
+module Amazonka.EC2.Types.Instance where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.ArchitectureValues
-import Network.AWS.EC2.Types.BootModeValues
-import Network.AWS.EC2.Types.CapacityReservationSpecificationResponse
-import Network.AWS.EC2.Types.CpuOptions
-import Network.AWS.EC2.Types.DeviceType
-import Network.AWS.EC2.Types.ElasticGpuAssociation
-import Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation
-import Network.AWS.EC2.Types.EnclaveOptions
-import Network.AWS.EC2.Types.GroupIdentifier
-import Network.AWS.EC2.Types.HibernationOptions
-import Network.AWS.EC2.Types.HypervisorType
-import Network.AWS.EC2.Types.IamInstanceProfile
-import Network.AWS.EC2.Types.InstanceBlockDeviceMapping
-import Network.AWS.EC2.Types.InstanceLifecycleType
-import Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
-import Network.AWS.EC2.Types.InstanceNetworkInterface
-import Network.AWS.EC2.Types.InstanceState
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LicenseConfiguration
-import Network.AWS.EC2.Types.Monitoring
-import Network.AWS.EC2.Types.Placement
-import Network.AWS.EC2.Types.PlatformValues
-import Network.AWS.EC2.Types.ProductCode
-import Network.AWS.EC2.Types.StateReason
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.VirtualizationType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.ArchitectureValues
+import Amazonka.EC2.Types.BootModeValues
+import Amazonka.EC2.Types.CapacityReservationSpecificationResponse
+import Amazonka.EC2.Types.CpuOptions
+import Amazonka.EC2.Types.DeviceType
+import Amazonka.EC2.Types.ElasticGpuAssociation
+import Amazonka.EC2.Types.ElasticInferenceAcceleratorAssociation
+import Amazonka.EC2.Types.EnclaveOptions
+import Amazonka.EC2.Types.GroupIdentifier
+import Amazonka.EC2.Types.HibernationOptions
+import Amazonka.EC2.Types.HypervisorType
+import Amazonka.EC2.Types.IamInstanceProfile
+import Amazonka.EC2.Types.InstanceBlockDeviceMapping
+import Amazonka.EC2.Types.InstanceLifecycleType
+import Amazonka.EC2.Types.InstanceMetadataOptionsResponse
+import Amazonka.EC2.Types.InstanceNetworkInterface
+import Amazonka.EC2.Types.InstanceState
+import Amazonka.EC2.Types.InstanceType
+import Amazonka.EC2.Types.LicenseConfiguration
+import Amazonka.EC2.Types.Monitoring
+import Amazonka.EC2.Types.Placement
+import Amazonka.EC2.Types.PlatformValues
+import Amazonka.EC2.Types.ProductCode
+import Amazonka.EC2.Types.StateReason
+import Amazonka.EC2.Types.Tag
+import Amazonka.EC2.Types.VirtualizationType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance.
 --

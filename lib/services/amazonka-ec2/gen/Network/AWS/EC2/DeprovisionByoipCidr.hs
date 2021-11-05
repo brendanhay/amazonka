@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DeprovisionByoipCidr
+-- Module      : Amazonka.EC2.DeprovisionByoipCidr
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- Before you can release an address range, you must stop advertising it
 -- using WithdrawByoipCidr and you must not have any IP addresses allocated
 -- from its address range.
-module Network.AWS.EC2.DeprovisionByoipCidr
+module Amazonka.EC2.DeprovisionByoipCidr
   ( -- * Creating a Request
     DeprovisionByoipCidr (..),
     newDeprovisionByoipCidr,
@@ -46,12 +46,12 @@ module Network.AWS.EC2.DeprovisionByoipCidr
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeprovisionByoipCidr' smart constructor.
 data DeprovisionByoipCidr = DeprovisionByoipCidr'

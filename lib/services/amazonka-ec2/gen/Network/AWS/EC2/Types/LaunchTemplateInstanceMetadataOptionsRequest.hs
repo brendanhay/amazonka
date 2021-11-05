@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
+-- Module      : Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest where
+module Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.LaunchTemplateHttpTokensState
-import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
-import Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.LaunchTemplateHttpTokensState
+import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
+import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data>

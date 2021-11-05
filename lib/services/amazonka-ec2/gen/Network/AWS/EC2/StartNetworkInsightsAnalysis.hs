@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.StartNetworkInsightsAnalysis
+-- Module      : Amazonka.EC2.StartNetworkInsightsAnalysis
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Starts analyzing the specified path. If the path is reachable, the
 -- operation returns the shortest feasible path.
-module Network.AWS.EC2.StartNetworkInsightsAnalysis
+module Amazonka.EC2.StartNetworkInsightsAnalysis
   ( -- * Creating a Request
     StartNetworkInsightsAnalysis (..),
     newStartNetworkInsightsAnalysis,
@@ -44,12 +44,12 @@ module Network.AWS.EC2.StartNetworkInsightsAnalysis
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartNetworkInsightsAnalysis' smart constructor.
 data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DeleteTransitGatewayConnect
+-- Module      : Amazonka.EC2.DeleteTransitGatewayConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes the specified Connect attachment. You must first delete any
 -- Connect peers for the attachment.
-module Network.AWS.EC2.DeleteTransitGatewayConnect
+module Amazonka.EC2.DeleteTransitGatewayConnect
   ( -- * Creating a Request
     DeleteTransitGatewayConnect (..),
     newDeleteTransitGatewayConnect,
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DeleteTransitGatewayConnect
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTransitGatewayConnect' smart constructor.
 data DeleteTransitGatewayConnect = DeleteTransitGatewayConnect'

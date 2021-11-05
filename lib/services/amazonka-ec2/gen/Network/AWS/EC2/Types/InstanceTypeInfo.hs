@@ -11,34 +11,34 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.InstanceTypeInfo
+-- Module      : Amazonka.EC2.Types.InstanceTypeInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceTypeInfo where
+module Amazonka.EC2.Types.InstanceTypeInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.BootModeType
-import Network.AWS.EC2.Types.EbsInfo
-import Network.AWS.EC2.Types.FpgaInfo
-import Network.AWS.EC2.Types.GpuInfo
-import Network.AWS.EC2.Types.InferenceAcceleratorInfo
-import Network.AWS.EC2.Types.InstanceStorageInfo
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.InstanceTypeHypervisor
-import Network.AWS.EC2.Types.MemoryInfo
-import Network.AWS.EC2.Types.NetworkInfo
-import Network.AWS.EC2.Types.PlacementGroupInfo
-import Network.AWS.EC2.Types.ProcessorInfo
-import Network.AWS.EC2.Types.RootDeviceType
-import Network.AWS.EC2.Types.UsageClassType
-import Network.AWS.EC2.Types.VCpuInfo
-import Network.AWS.EC2.Types.VirtualizationType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.BootModeType
+import Amazonka.EC2.Types.EbsInfo
+import Amazonka.EC2.Types.FpgaInfo
+import Amazonka.EC2.Types.GpuInfo
+import Amazonka.EC2.Types.InferenceAcceleratorInfo
+import Amazonka.EC2.Types.InstanceStorageInfo
+import Amazonka.EC2.Types.InstanceType
+import Amazonka.EC2.Types.InstanceTypeHypervisor
+import Amazonka.EC2.Types.MemoryInfo
+import Amazonka.EC2.Types.NetworkInfo
+import Amazonka.EC2.Types.PlacementGroupInfo
+import Amazonka.EC2.Types.ProcessorInfo
+import Amazonka.EC2.Types.RootDeviceType
+import Amazonka.EC2.Types.UsageClassType
+import Amazonka.EC2.Types.VCpuInfo
+import Amazonka.EC2.Types.VirtualizationType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the instance type.
 --

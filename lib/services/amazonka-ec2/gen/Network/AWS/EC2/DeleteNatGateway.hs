@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DeleteNatGateway
+-- Module      : Amazonka.EC2.DeleteNatGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- disassociates its Elastic IP address, but does not release the address
 -- from your account. Deleting a NAT gateway does not delete any NAT
 -- gateway routes in your route tables.
-module Network.AWS.EC2.DeleteNatGateway
+module Amazonka.EC2.DeleteNatGateway
   ( -- * Creating a Request
     DeleteNatGateway (..),
     newDeleteNatGateway,
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DeleteNatGateway
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteNatGateway' smart constructor.
 data DeleteNatGateway = DeleteNatGateway'

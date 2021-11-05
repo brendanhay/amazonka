@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.TransitGatewayRequestOptions
+-- Module      : Amazonka.EC2.Types.TransitGatewayRequestOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayRequestOptions where
+module Amazonka.EC2.Types.TransitGatewayRequestOptions where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
-import Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
-import Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
-import Network.AWS.EC2.Types.DnsSupportValue
-import Network.AWS.EC2.Types.MulticastSupportValue
-import Network.AWS.EC2.Types.VpnEcmpSupportValue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AutoAcceptSharedAttachmentsValue
+import Amazonka.EC2.Types.DefaultRouteTableAssociationValue
+import Amazonka.EC2.Types.DefaultRouteTablePropagationValue
+import Amazonka.EC2.Types.DnsSupportValue
+import Amazonka.EC2.Types.MulticastSupportValue
+import Amazonka.EC2.Types.VpnEcmpSupportValue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the options for a transit gateway.
 --

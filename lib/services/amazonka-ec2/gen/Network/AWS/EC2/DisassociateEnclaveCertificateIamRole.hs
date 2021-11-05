@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
+-- Module      : Amazonka.EC2.DisassociateEnclaveCertificateIamRole
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- private key from the Amazon S3 bucket. It also revokes the IAM role\'s
 -- permission to use the KMS key used to encrypt the private key. This
 -- effectively revokes the role\'s permission to use the certificate.
-module Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
+module Amazonka.EC2.DisassociateEnclaveCertificateIamRole
   ( -- * Creating a Request
     DisassociateEnclaveCertificateIamRole (..),
     newDisassociateEnclaveCertificateIamRole,
@@ -46,12 +46,12 @@ module Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateEnclaveCertificateIamRole' smart constructor.
 data DisassociateEnclaveCertificateIamRole = DisassociateEnclaveCertificateIamRole'

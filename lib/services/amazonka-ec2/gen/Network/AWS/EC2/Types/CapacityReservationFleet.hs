@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.CapacityReservationFleet
+-- Module      : Amazonka.EC2.Types.CapacityReservationFleet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationFleet where
+module Amazonka.EC2.Types.CapacityReservationFleet where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.CapacityReservationFleetState
-import Network.AWS.EC2.Types.FleetCapacityReservation
-import Network.AWS.EC2.Types.FleetCapacityReservationTenancy
-import Network.AWS.EC2.Types.FleetInstanceMatchCriteria
-import Network.AWS.EC2.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.CapacityReservationFleetState
+import Amazonka.EC2.Types.FleetCapacityReservation
+import Amazonka.EC2.Types.FleetCapacityReservationTenancy
+import Amazonka.EC2.Types.FleetInstanceMatchCriteria
+import Amazonka.EC2.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a Capacity Reservation Fleet.
 --

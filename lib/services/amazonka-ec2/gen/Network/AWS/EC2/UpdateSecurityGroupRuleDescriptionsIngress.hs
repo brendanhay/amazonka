@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
+-- Module      : Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- can replace an existing description, or add a description to a rule that
 -- did not have one previously. You can remove a description for a security
 -- group rule by omitting the description parameter in the request.
-module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
+module Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress
   ( -- * Creating a Request
     UpdateSecurityGroupRuleDescriptionsIngress (..),
     newUpdateSecurityGroupRuleDescriptionsIngress,
@@ -46,12 +46,12 @@ module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsIngress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescriptionsIngress'

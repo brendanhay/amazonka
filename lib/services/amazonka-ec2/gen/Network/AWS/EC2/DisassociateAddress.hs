@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DisassociateAddress
+-- Module      : Amazonka.EC2.DisassociateAddress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 --
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn\'t return an error.
-module Network.AWS.EC2.DisassociateAddress
+module Amazonka.EC2.DisassociateAddress
   ( -- * Creating a Request
     DisassociateAddress (..),
     newDisassociateAddress,
@@ -46,12 +46,12 @@ module Network.AWS.EC2.DisassociateAddress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'

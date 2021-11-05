@@ -3,18 +3,18 @@
 {-# LANGUAGE RecordWildCards    #-}
 
 -- |
--- Module      : Network.AWS.EC2.Internal
+-- Module      : Amazonka.EC2.Internal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.EC2.Internal where
+module Amazonka.EC2.Internal where
 
-import Network.AWS.Lens
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Lens
+import Amazonka.Core
+import Amazonka.Prelude
 
 -- | Custom 'Tag' type which has an optional value component.
 --

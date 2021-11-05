@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.ClientVpnAuthentication
+-- Module      : Amazonka.EC2.Types.ClientVpnAuthentication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVpnAuthentication where
+module Amazonka.EC2.Types.ClientVpnAuthentication where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.CertificateAuthentication
-import Network.AWS.EC2.Types.ClientVpnAuthenticationType
-import Network.AWS.EC2.Types.DirectoryServiceAuthentication
-import Network.AWS.EC2.Types.FederatedAuthentication
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.CertificateAuthentication
+import Amazonka.EC2.Types.ClientVpnAuthenticationType
+import Amazonka.EC2.Types.DirectoryServiceAuthentication
+import Amazonka.EC2.Types.FederatedAuthentication
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the authentication methods used by a Client VPN endpoint. For
 -- more information, see

@@ -7,40 +7,40 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Waiters
+-- Module      : Amazonka.EC2.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Waiters where
+module Amazonka.EC2.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.DescribeBundleTasks
-import Network.AWS.EC2.DescribeConversionTasks
-import Network.AWS.EC2.DescribeCustomerGateways
-import Network.AWS.EC2.DescribeExportTasks
-import Network.AWS.EC2.DescribeImages
-import Network.AWS.EC2.DescribeInstanceStatus
-import Network.AWS.EC2.DescribeInstances
-import Network.AWS.EC2.DescribeKeyPairs
-import Network.AWS.EC2.DescribeNatGateways
-import Network.AWS.EC2.DescribeNetworkInterfaces
-import Network.AWS.EC2.DescribeSecurityGroups
-import Network.AWS.EC2.DescribeSnapshots
-import Network.AWS.EC2.DescribeSpotInstanceRequests
-import Network.AWS.EC2.DescribeSubnets
-import Network.AWS.EC2.DescribeVolumes
-import Network.AWS.EC2.DescribeVpcPeeringConnections
-import Network.AWS.EC2.DescribeVpcs
-import Network.AWS.EC2.DescribeVpnConnections
-import Network.AWS.EC2.GetPasswordData
-import Network.AWS.EC2.Lens
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.DescribeBundleTasks
+import Amazonka.EC2.DescribeConversionTasks
+import Amazonka.EC2.DescribeCustomerGateways
+import Amazonka.EC2.DescribeExportTasks
+import Amazonka.EC2.DescribeImages
+import Amazonka.EC2.DescribeInstanceStatus
+import Amazonka.EC2.DescribeInstances
+import Amazonka.EC2.DescribeKeyPairs
+import Amazonka.EC2.DescribeNatGateways
+import Amazonka.EC2.DescribeNetworkInterfaces
+import Amazonka.EC2.DescribeSecurityGroups
+import Amazonka.EC2.DescribeSnapshots
+import Amazonka.EC2.DescribeSpotInstanceRequests
+import Amazonka.EC2.DescribeSubnets
+import Amazonka.EC2.DescribeVolumes
+import Amazonka.EC2.DescribeVpcPeeringConnections
+import Amazonka.EC2.DescribeVpcs
+import Amazonka.EC2.DescribeVpnConnections
+import Amazonka.EC2.GetPasswordData
+import Amazonka.EC2.Lens
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
   Core.Wait
@@ -102,7 +102,7 @@ newInstanceTerminated =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVolumeInUse :: Core.Wait DescribeVolumes
 newVolumeInUse =
   Core.Wait
@@ -137,7 +137,7 @@ newVolumeInUse =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newImageExists :: Core.Wait DescribeImages
 newImageExists =
   Core.Wait
@@ -161,7 +161,7 @@ newImageExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newNatGatewayAvailable :: Core.Wait DescribeNatGateways
 newNatGatewayAvailable =
   Core.Wait
@@ -227,7 +227,7 @@ newNatGatewayAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeSubnets' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newSubnetAvailable :: Core.Wait DescribeSubnets
 newSubnetAvailable =
   Core.Wait
@@ -250,7 +250,7 @@ newSubnetAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeNetworkInterfaces' every 20 seconds until a successful state is reached. An error is returned after 10 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeNetworkInterfaces' every 20 seconds until a successful state is reached. An error is returned after 10 failed checks.
 newNetworkInterfaceAvailable :: Core.Wait DescribeNetworkInterfaces
 newNetworkInterfaceAvailable =
   Core.Wait
@@ -278,7 +278,7 @@ newNetworkInterfaceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
 newKeyPairExists :: Core.Wait DescribeKeyPairs
 newKeyPairExists =
   Core.Wait
@@ -304,7 +304,7 @@ newKeyPairExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newSystemStatusOk :: Core.Wait DescribeInstanceStatus
 newSystemStatusOk =
   Core.Wait
@@ -329,7 +329,7 @@ newSystemStatusOk =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeCustomerGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCustomerGatewayAvailable :: Core.Wait DescribeCustomerGateways
 newCustomerGatewayAvailable =
   Core.Wait
@@ -377,7 +377,7 @@ newCustomerGatewayAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newConversionTaskCompleted :: Core.Wait DescribeConversionTasks
 newConversionTaskCompleted =
   Core.Wait
@@ -428,7 +428,7 @@ newConversionTaskCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceStopped :: Core.Wait DescribeInstances
 newInstanceStopped =
   Core.Wait
@@ -490,7 +490,7 @@ newInstanceStopped =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newConversionTaskDeleted :: Core.Wait DescribeConversionTasks
 newConversionTaskDeleted =
   Core.Wait
@@ -514,7 +514,7 @@ newConversionTaskDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newPasswordDataAvailable :: Core.Wait GetPasswordData
 newPasswordDataAvailable =
   Core.Wait
@@ -531,7 +531,7 @@ newPasswordDataAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceRunning :: Core.Wait DescribeInstances
 newInstanceRunning =
   Core.Wait
@@ -613,7 +613,7 @@ newInstanceRunning =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
 newSecurityGroupExists :: Core.Wait DescribeSecurityGroups
 newSecurityGroupExists =
   Core.Wait
@@ -638,7 +638,7 @@ newSecurityGroupExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeSpotInstanceRequests' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newSpotInstanceRequestFulfilled :: Core.Wait DescribeSpotInstanceRequests
 newSpotInstanceRequestFulfilled =
   Core.Wait
@@ -743,7 +743,7 @@ newSpotInstanceRequestFulfilled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpcs' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpcs' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpcAvailable :: Core.Wait DescribeVpcs
 newVpcAvailable =
   Core.Wait
@@ -764,7 +764,7 @@ newVpcAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newExportTaskCompleted :: Core.Wait DescribeExportTasks
 newExportTaskCompleted =
   Core.Wait
@@ -787,7 +787,7 @@ newExportTaskCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpcPeeringConnectionDeleted :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionDeleted =
   Core.Wait
@@ -817,7 +817,7 @@ newVpcPeeringConnectionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpnConnectionAvailable :: Core.Wait DescribeVpnConnections
 newVpnConnectionAvailable =
   Core.Wait
@@ -865,7 +865,7 @@ newVpnConnectionAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newExportTaskCancelled :: Core.Wait DescribeExportTasks
 newExportTaskCancelled =
   Core.Wait
@@ -888,7 +888,7 @@ newExportTaskCancelled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVolumeDeleted :: Core.Wait DescribeVolumes
 newVolumeDeleted =
   Core.Wait
@@ -914,7 +914,7 @@ newVolumeDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpcs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpcs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newVpcExists :: Core.Wait DescribeVpcs
 newVpcExists =
   Core.Wait
@@ -929,7 +929,7 @@ newVpcExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newBundleTaskComplete :: Core.Wait DescribeBundleTasks
 newBundleTaskComplete =
   Core.Wait
@@ -964,7 +964,7 @@ newBundleTaskComplete =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpnConnectionDeleted :: Core.Wait DescribeVpnConnections
 newVpnConnectionDeleted =
   Core.Wait
@@ -999,7 +999,7 @@ newVpnConnectionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newConversionTaskCancelled :: Core.Wait DescribeConversionTasks
 newConversionTaskCancelled =
   Core.Wait
@@ -1024,7 +1024,7 @@ newConversionTaskCancelled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newImageAvailable :: Core.Wait DescribeImages
 newImageAvailable =
   Core.Wait
@@ -1055,7 +1055,7 @@ newImageAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVpcPeeringConnectionExists :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionExists =
   Core.Wait
@@ -1071,7 +1071,7 @@ newVpcPeeringConnectionExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newSnapshotCompleted :: Core.Wait DescribeSnapshots
 newSnapshotCompleted =
   Core.Wait
@@ -1106,7 +1106,7 @@ newSnapshotCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceExists :: Core.Wait DescribeInstances
 newInstanceExists =
   Core.Wait
@@ -1121,7 +1121,7 @@ newInstanceExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceStatusOk :: Core.Wait DescribeInstanceStatus
 newInstanceStatusOk =
   Core.Wait
@@ -1149,7 +1149,7 @@ newInstanceStatusOk =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newVolumeAvailable :: Core.Wait DescribeVolumes
 newVolumeAvailable =
   Core.Wait

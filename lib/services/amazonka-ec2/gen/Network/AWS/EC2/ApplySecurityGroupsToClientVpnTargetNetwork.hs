@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
+-- Module      : Amazonka.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Applies a security group to the association between the target network
 -- and the Client VPN endpoint. This action replaces the existing security
 -- groups with the specified security groups.
-module Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
+module Amazonka.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
   ( -- * Creating a Request
     ApplySecurityGroupsToClientVpnTargetNetwork (..),
     newApplySecurityGroupsToClientVpnTargetNetwork,
@@ -44,12 +44,12 @@ module Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newApplySecurityGroupsToClientVpnTargetNetwork' smart constructor.
 data ApplySecurityGroupsToClientVpnTargetNetwork = ApplySecurityGroupsToClientVpnTargetNetwork'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.ModifyVolume
+-- Module      : Amazonka.EC2.ModifyVolume
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -52,7 +52,7 @@
 -- If you reach the maximum volume modification rate per volume limit, you
 -- must wait at least six hours before applying further modifications to
 -- the affected EBS volume.
-module Network.AWS.EC2.ModifyVolume
+module Amazonka.EC2.ModifyVolume
   ( -- * Creating a Request
     ModifyVolume (..),
     newModifyVolume,
@@ -76,12 +76,12 @@ module Network.AWS.EC2.ModifyVolume
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVolume' smart constructor.
 data ModifyVolume = ModifyVolume'

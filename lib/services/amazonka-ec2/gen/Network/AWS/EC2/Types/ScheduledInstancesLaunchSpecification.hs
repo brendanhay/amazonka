@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.ScheduledInstancesLaunchSpecification
+-- Module      : Amazonka.EC2.Types.ScheduledInstancesLaunchSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstancesLaunchSpecification where
+module Amazonka.EC2.Types.ScheduledInstancesLaunchSpecification where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.ScheduledInstancesBlockDeviceMapping
-import Network.AWS.EC2.Types.ScheduledInstancesIamInstanceProfile
-import Network.AWS.EC2.Types.ScheduledInstancesMonitoring
-import Network.AWS.EC2.Types.ScheduledInstancesNetworkInterface
-import Network.AWS.EC2.Types.ScheduledInstancesPlacement
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.ScheduledInstancesBlockDeviceMapping
+import Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile
+import Amazonka.EC2.Types.ScheduledInstancesMonitoring
+import Amazonka.EC2.Types.ScheduledInstancesNetworkInterface
+import Amazonka.EC2.Types.ScheduledInstancesPlacement
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the launch specification for a Scheduled Instance.
 --

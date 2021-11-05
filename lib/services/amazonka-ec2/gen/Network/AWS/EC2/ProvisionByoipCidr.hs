@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.ProvisionByoipCidr
+-- Module      : Amazonka.EC2.ProvisionByoipCidr
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- Elastic IP address from your IPv4 address pool, use AllocateAddress with
 -- either the specific address from the address pool or the ID of the
 -- address pool.
-module Network.AWS.EC2.ProvisionByoipCidr
+module Amazonka.EC2.ProvisionByoipCidr
   ( -- * Creating a Request
     ProvisionByoipCidr (..),
     newProvisionByoipCidr,
@@ -64,12 +64,12 @@ module Network.AWS.EC2.ProvisionByoipCidr
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newProvisionByoipCidr' smart constructor.
 data ProvisionByoipCidr = ProvisionByoipCidr'

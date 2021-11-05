@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DescribeBundleTasks
+-- Module      : Amazonka.EC2.DescribeBundleTasks
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- bundle task is no longer in the list, you can still register an AMI from
 -- it. Just use @RegisterImage@ with the Amazon S3 bucket name and image
 -- manifest name you provided to the bundle task.
-module Network.AWS.EC2.DescribeBundleTasks
+module Amazonka.EC2.DescribeBundleTasks
   ( -- * Creating a Request
     DescribeBundleTasks (..),
     newDescribeBundleTasks,
@@ -46,12 +46,12 @@ module Network.AWS.EC2.DescribeBundleTasks
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'

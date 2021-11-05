@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DetachInternetGateway
+-- Module      : Amazonka.EC2.DetachInternetGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Detaches an internet gateway from a VPC, disabling connectivity between
 -- the internet and the VPC. The VPC must not contain any running instances
 -- with Elastic IP addresses or public IPv4 addresses.
-module Network.AWS.EC2.DetachInternetGateway
+module Amazonka.EC2.DetachInternetGateway
   ( -- * Creating a Request
     DetachInternetGateway (..),
     newDetachInternetGateway,
@@ -39,12 +39,12 @@ module Network.AWS.EC2.DetachInternetGateway
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'

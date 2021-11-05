@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.DeleteVpcPeeringConnection
+-- Module      : Amazonka.EC2.DeleteVpcPeeringConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- if it\'s in the @active@ state. The owner of the requester VPC can
 -- delete a VPC peering connection in the @pending-acceptance@ state. You
 -- cannot delete a VPC peering connection that\'s in the @failed@ state.
-module Network.AWS.EC2.DeleteVpcPeeringConnection
+module Amazonka.EC2.DeleteVpcPeeringConnection
   ( -- * Creating a Request
     DeleteVpcPeeringConnection (..),
     newDeleteVpcPeeringConnection,
@@ -44,12 +44,12 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVpcPeeringConnection' smart constructor.
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'

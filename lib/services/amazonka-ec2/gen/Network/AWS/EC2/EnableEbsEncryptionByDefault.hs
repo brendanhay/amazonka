@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.EnableEbsEncryptionByDefault
+-- Module      : Amazonka.EC2.EnableEbsEncryptionByDefault
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- instances using instance types that do not support encryption. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
-module Network.AWS.EC2.EnableEbsEncryptionByDefault
+module Amazonka.EC2.EnableEbsEncryptionByDefault
   ( -- * Creating a Request
     EnableEbsEncryptionByDefault (..),
     newEnableEbsEncryptionByDefault,
@@ -58,12 +58,12 @@ module Network.AWS.EC2.EnableEbsEncryptionByDefault
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableEbsEncryptionByDefault' smart constructor.
 data EnableEbsEncryptionByDefault = EnableEbsEncryptionByDefault'

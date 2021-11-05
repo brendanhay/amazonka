@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.CancelExportTask
+-- Module      : Amazonka.EC2.CancelExportTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk
 -- image, the command fails and returns an error.
-module Network.AWS.EC2.CancelExportTask
+module Amazonka.EC2.CancelExportTask
   ( -- * Creating a Request
     CancelExportTask (..),
     newCancelExportTask,
@@ -38,12 +38,12 @@ module Network.AWS.EC2.CancelExportTask
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelExportTask' smart constructor.
 data CancelExportTask = CancelExportTask'

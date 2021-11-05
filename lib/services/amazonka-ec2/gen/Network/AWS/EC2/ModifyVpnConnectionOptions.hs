@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.ModifyVpnConnectionOptions
+-- Module      : Amazonka.EC2.ModifyVpnConnectionOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- addresses on the Amazon Web Services side do not change, and the tunnel
 -- options do not change. Your VPN connection will be temporarily
 -- unavailable for a brief period while the VPN connection is updated.
-module Network.AWS.EC2.ModifyVpnConnectionOptions
+module Amazonka.EC2.ModifyVpnConnectionOptions
   ( -- * Creating a Request
     ModifyVpnConnectionOptions (..),
     newModifyVpnConnectionOptions,
@@ -49,12 +49,12 @@ module Network.AWS.EC2.ModifyVpnConnectionOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVpnConnectionOptions' smart constructor.
 data ModifyVpnConnectionOptions = ModifyVpnConnectionOptions'

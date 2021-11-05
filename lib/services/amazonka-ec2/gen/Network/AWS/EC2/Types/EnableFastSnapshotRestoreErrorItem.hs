@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem
+-- Module      : Amazonka.EC2.Types.EnableFastSnapshotRestoreErrorItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem where
+module Amazonka.EC2.Types.EnableFastSnapshotRestoreErrorItem where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the errors that occurred when enabling fast
 -- snapshot restores.

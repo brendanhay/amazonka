@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.PurchaseHostReservation
+-- Module      : Amazonka.EC2.PurchaseHostReservation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- Dedicated Host. You must have active Dedicated Hosts in your account
 -- before you purchase a reservation. This action results in the specified
 -- reservation being purchased and charged to your account.
-module Network.AWS.EC2.PurchaseHostReservation
+module Amazonka.EC2.PurchaseHostReservation
   ( -- * Creating a Request
     PurchaseHostReservation (..),
     newPurchaseHostReservation,
@@ -51,12 +51,12 @@ module Network.AWS.EC2.PurchaseHostReservation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPurchaseHostReservation' smart constructor.
 data PurchaseHostReservation = PurchaseHostReservation'

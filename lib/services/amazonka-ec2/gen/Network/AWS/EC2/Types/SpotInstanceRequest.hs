@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.SpotInstanceRequest
+-- Module      : Amazonka.EC2.Types.SpotInstanceRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotInstanceRequest where
+module Amazonka.EC2.Types.SpotInstanceRequest where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import Network.AWS.EC2.Types.InstanceInterruptionBehavior
-import Network.AWS.EC2.Types.LaunchSpecification
-import Network.AWS.EC2.Types.RIProductDescription
-import Network.AWS.EC2.Types.SpotInstanceState
-import Network.AWS.EC2.Types.SpotInstanceStateFault
-import Network.AWS.EC2.Types.SpotInstanceStatus
-import Network.AWS.EC2.Types.SpotInstanceType
-import Network.AWS.EC2.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.InstanceInterruptionBehavior
+import Amazonka.EC2.Types.LaunchSpecification
+import Amazonka.EC2.Types.RIProductDescription
+import Amazonka.EC2.Types.SpotInstanceState
+import Amazonka.EC2.Types.SpotInstanceStateFault
+import Amazonka.EC2.Types.SpotInstanceStatus
+import Amazonka.EC2.Types.SpotInstanceType
+import Amazonka.EC2.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a Spot Instance request.
 --

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2.Types.CurrencyCodeValues
+-- Module      : Amazonka.EC2.Types.CurrencyCodeValues
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CurrencyCodeValues
+module Amazonka.EC2.Types.CurrencyCodeValues
   ( CurrencyCodeValues
       ( ..,
         CurrencyCodeValues_USD
@@ -25,9 +25,9 @@ module Network.AWS.EC2.Types.CurrencyCodeValues
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EC2.Internal
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EC2.Internal
+import qualified Amazonka.Prelude as Prelude
 
 newtype CurrencyCodeValues = CurrencyCodeValues'
   { fromCurrencyCodeValues ::

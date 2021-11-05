@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
+-- Module      : Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary where
+module Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
-import Network.AWS.Transcribe.Types.OutputLocationType
-import Network.AWS.Transcribe.Types.Specialty
-import Network.AWS.Transcribe.Types.TranscriptionJobStatus
-import Network.AWS.Transcribe.Types.Type
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.MedicalContentIdentificationType
+import Amazonka.Transcribe.Types.OutputLocationType
+import Amazonka.Transcribe.Types.Specialty
+import Amazonka.Transcribe.Types.TranscriptionJobStatus
+import Amazonka.Transcribe.Types.Type
 
 -- | Provides summary information about a transcription job.
 --

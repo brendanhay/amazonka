@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.InterruptionFilter
+-- Module      : Amazonka.Transcribe.Types.InterruptionFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.InterruptionFilter where
+module Amazonka.Transcribe.Types.InterruptionFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.AbsoluteTimeRange
-import Network.AWS.Transcribe.Types.ParticipantRole
-import Network.AWS.Transcribe.Types.RelativeTimeRange
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.AbsoluteTimeRange
+import Amazonka.Transcribe.Types.ParticipantRole
+import Amazonka.Transcribe.Types.RelativeTimeRange
 
 -- | An object that enables you to configure your category to be applied to
 -- call analytics jobs where either the customer or agent was interrupted.

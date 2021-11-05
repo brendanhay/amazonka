@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.MedicalTranscriptionJob
+-- Module      : Amazonka.Transcribe.Types.MedicalTranscriptionJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.MedicalTranscriptionJob where
+module Amazonka.Transcribe.Types.MedicalTranscriptionJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.Media
-import Network.AWS.Transcribe.Types.MediaFormat
-import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
-import Network.AWS.Transcribe.Types.MedicalTranscript
-import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
-import Network.AWS.Transcribe.Types.Specialty
-import Network.AWS.Transcribe.Types.Tag
-import Network.AWS.Transcribe.Types.TranscriptionJobStatus
-import Network.AWS.Transcribe.Types.Type
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.Media
+import Amazonka.Transcribe.Types.MediaFormat
+import Amazonka.Transcribe.Types.MedicalContentIdentificationType
+import Amazonka.Transcribe.Types.MedicalTranscript
+import Amazonka.Transcribe.Types.MedicalTranscriptionSetting
+import Amazonka.Transcribe.Types.Specialty
+import Amazonka.Transcribe.Types.Tag
+import Amazonka.Transcribe.Types.TranscriptionJobStatus
+import Amazonka.Transcribe.Types.Type
 
 -- | The data structure that contains the information for a medical
 -- transcription job.

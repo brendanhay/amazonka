@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.SentimentFilter
+-- Module      : Amazonka.Transcribe.Types.SentimentFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.SentimentFilter where
+module Amazonka.Transcribe.Types.SentimentFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.AbsoluteTimeRange
-import Network.AWS.Transcribe.Types.ParticipantRole
-import Network.AWS.Transcribe.Types.RelativeTimeRange
-import Network.AWS.Transcribe.Types.SentimentValue
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.AbsoluteTimeRange
+import Amazonka.Transcribe.Types.ParticipantRole
+import Amazonka.Transcribe.Types.RelativeTimeRange
+import Amazonka.Transcribe.Types.SentimentValue
 
 -- | An object that enables you to specify a particular customer or agent
 -- sentiment. If at least 50 percent of the conversation turns (the

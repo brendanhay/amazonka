@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Lens
+-- Module      : Amazonka.Transcribe.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Lens
+module Amazonka.Transcribe.Lens
   ( -- * Operations
 
     -- ** ListLanguageModels
@@ -563,73 +563,73 @@ module Network.AWS.Transcribe.Lens
   )
 where
 
-import Network.AWS.Transcribe.CreateCallAnalyticsCategory
-import Network.AWS.Transcribe.CreateLanguageModel
-import Network.AWS.Transcribe.CreateMedicalVocabulary
-import Network.AWS.Transcribe.CreateVocabulary
-import Network.AWS.Transcribe.CreateVocabularyFilter
-import Network.AWS.Transcribe.DeleteCallAnalyticsCategory
-import Network.AWS.Transcribe.DeleteCallAnalyticsJob
-import Network.AWS.Transcribe.DeleteLanguageModel
-import Network.AWS.Transcribe.DeleteMedicalTranscriptionJob
-import Network.AWS.Transcribe.DeleteMedicalVocabulary
-import Network.AWS.Transcribe.DeleteTranscriptionJob
-import Network.AWS.Transcribe.DeleteVocabulary
-import Network.AWS.Transcribe.DeleteVocabularyFilter
-import Network.AWS.Transcribe.DescribeLanguageModel
-import Network.AWS.Transcribe.GetCallAnalyticsCategory
-import Network.AWS.Transcribe.GetCallAnalyticsJob
-import Network.AWS.Transcribe.GetMedicalTranscriptionJob
-import Network.AWS.Transcribe.GetMedicalVocabulary
-import Network.AWS.Transcribe.GetTranscriptionJob
-import Network.AWS.Transcribe.GetVocabulary
-import Network.AWS.Transcribe.GetVocabularyFilter
-import Network.AWS.Transcribe.ListCallAnalyticsCategories
-import Network.AWS.Transcribe.ListCallAnalyticsJobs
-import Network.AWS.Transcribe.ListLanguageModels
-import Network.AWS.Transcribe.ListMedicalTranscriptionJobs
-import Network.AWS.Transcribe.ListMedicalVocabularies
-import Network.AWS.Transcribe.ListTagsForResource
-import Network.AWS.Transcribe.ListTranscriptionJobs
-import Network.AWS.Transcribe.ListVocabularies
-import Network.AWS.Transcribe.ListVocabularyFilters
-import Network.AWS.Transcribe.StartCallAnalyticsJob
-import Network.AWS.Transcribe.StartMedicalTranscriptionJob
-import Network.AWS.Transcribe.StartTranscriptionJob
-import Network.AWS.Transcribe.TagResource
-import Network.AWS.Transcribe.Types.AbsoluteTimeRange
-import Network.AWS.Transcribe.Types.CallAnalyticsJob
-import Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
-import Network.AWS.Transcribe.Types.CallAnalyticsJobSummary
-import Network.AWS.Transcribe.Types.CategoryProperties
-import Network.AWS.Transcribe.Types.ChannelDefinition
-import Network.AWS.Transcribe.Types.ContentRedaction
-import Network.AWS.Transcribe.Types.InputDataConfig
-import Network.AWS.Transcribe.Types.InterruptionFilter
-import Network.AWS.Transcribe.Types.JobExecutionSettings
-import Network.AWS.Transcribe.Types.LanguageModel
-import Network.AWS.Transcribe.Types.Media
-import Network.AWS.Transcribe.Types.MedicalTranscript
-import Network.AWS.Transcribe.Types.MedicalTranscriptionJob
-import Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
-import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
-import Network.AWS.Transcribe.Types.ModelSettings
-import Network.AWS.Transcribe.Types.NonTalkTimeFilter
-import Network.AWS.Transcribe.Types.RelativeTimeRange
-import Network.AWS.Transcribe.Types.Rule
-import Network.AWS.Transcribe.Types.SentimentFilter
-import Network.AWS.Transcribe.Types.Settings
-import Network.AWS.Transcribe.Types.Subtitles
-import Network.AWS.Transcribe.Types.SubtitlesOutput
-import Network.AWS.Transcribe.Types.Tag
-import Network.AWS.Transcribe.Types.Transcript
-import Network.AWS.Transcribe.Types.TranscriptFilter
-import Network.AWS.Transcribe.Types.TranscriptionJob
-import Network.AWS.Transcribe.Types.TranscriptionJobSummary
-import Network.AWS.Transcribe.Types.VocabularyFilterInfo
-import Network.AWS.Transcribe.Types.VocabularyInfo
-import Network.AWS.Transcribe.UntagResource
-import Network.AWS.Transcribe.UpdateCallAnalyticsCategory
-import Network.AWS.Transcribe.UpdateMedicalVocabulary
-import Network.AWS.Transcribe.UpdateVocabulary
-import Network.AWS.Transcribe.UpdateVocabularyFilter
+import Amazonka.Transcribe.CreateCallAnalyticsCategory
+import Amazonka.Transcribe.CreateLanguageModel
+import Amazonka.Transcribe.CreateMedicalVocabulary
+import Amazonka.Transcribe.CreateVocabulary
+import Amazonka.Transcribe.CreateVocabularyFilter
+import Amazonka.Transcribe.DeleteCallAnalyticsCategory
+import Amazonka.Transcribe.DeleteCallAnalyticsJob
+import Amazonka.Transcribe.DeleteLanguageModel
+import Amazonka.Transcribe.DeleteMedicalTranscriptionJob
+import Amazonka.Transcribe.DeleteMedicalVocabulary
+import Amazonka.Transcribe.DeleteTranscriptionJob
+import Amazonka.Transcribe.DeleteVocabulary
+import Amazonka.Transcribe.DeleteVocabularyFilter
+import Amazonka.Transcribe.DescribeLanguageModel
+import Amazonka.Transcribe.GetCallAnalyticsCategory
+import Amazonka.Transcribe.GetCallAnalyticsJob
+import Amazonka.Transcribe.GetMedicalTranscriptionJob
+import Amazonka.Transcribe.GetMedicalVocabulary
+import Amazonka.Transcribe.GetTranscriptionJob
+import Amazonka.Transcribe.GetVocabulary
+import Amazonka.Transcribe.GetVocabularyFilter
+import Amazonka.Transcribe.ListCallAnalyticsCategories
+import Amazonka.Transcribe.ListCallAnalyticsJobs
+import Amazonka.Transcribe.ListLanguageModels
+import Amazonka.Transcribe.ListMedicalTranscriptionJobs
+import Amazonka.Transcribe.ListMedicalVocabularies
+import Amazonka.Transcribe.ListTagsForResource
+import Amazonka.Transcribe.ListTranscriptionJobs
+import Amazonka.Transcribe.ListVocabularies
+import Amazonka.Transcribe.ListVocabularyFilters
+import Amazonka.Transcribe.StartCallAnalyticsJob
+import Amazonka.Transcribe.StartMedicalTranscriptionJob
+import Amazonka.Transcribe.StartTranscriptionJob
+import Amazonka.Transcribe.TagResource
+import Amazonka.Transcribe.Types.AbsoluteTimeRange
+import Amazonka.Transcribe.Types.CallAnalyticsJob
+import Amazonka.Transcribe.Types.CallAnalyticsJobSettings
+import Amazonka.Transcribe.Types.CallAnalyticsJobSummary
+import Amazonka.Transcribe.Types.CategoryProperties
+import Amazonka.Transcribe.Types.ChannelDefinition
+import Amazonka.Transcribe.Types.ContentRedaction
+import Amazonka.Transcribe.Types.InputDataConfig
+import Amazonka.Transcribe.Types.InterruptionFilter
+import Amazonka.Transcribe.Types.JobExecutionSettings
+import Amazonka.Transcribe.Types.LanguageModel
+import Amazonka.Transcribe.Types.Media
+import Amazonka.Transcribe.Types.MedicalTranscript
+import Amazonka.Transcribe.Types.MedicalTranscriptionJob
+import Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary
+import Amazonka.Transcribe.Types.MedicalTranscriptionSetting
+import Amazonka.Transcribe.Types.ModelSettings
+import Amazonka.Transcribe.Types.NonTalkTimeFilter
+import Amazonka.Transcribe.Types.RelativeTimeRange
+import Amazonka.Transcribe.Types.Rule
+import Amazonka.Transcribe.Types.SentimentFilter
+import Amazonka.Transcribe.Types.Settings
+import Amazonka.Transcribe.Types.Subtitles
+import Amazonka.Transcribe.Types.SubtitlesOutput
+import Amazonka.Transcribe.Types.Tag
+import Amazonka.Transcribe.Types.Transcript
+import Amazonka.Transcribe.Types.TranscriptFilter
+import Amazonka.Transcribe.Types.TranscriptionJob
+import Amazonka.Transcribe.Types.TranscriptionJobSummary
+import Amazonka.Transcribe.Types.VocabularyFilterInfo
+import Amazonka.Transcribe.Types.VocabularyInfo
+import Amazonka.Transcribe.UntagResource
+import Amazonka.Transcribe.UpdateCallAnalyticsCategory
+import Amazonka.Transcribe.UpdateMedicalVocabulary
+import Amazonka.Transcribe.UpdateVocabulary
+import Amazonka.Transcribe.UpdateVocabularyFilter

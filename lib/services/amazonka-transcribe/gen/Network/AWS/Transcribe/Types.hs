@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types
+-- Module      : Amazonka.Transcribe.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types
+module Amazonka.Transcribe.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -379,60 +379,60 @@ module Network.AWS.Transcribe.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Transcribe.Types.AbsoluteTimeRange
-import Network.AWS.Transcribe.Types.BaseModelName
-import Network.AWS.Transcribe.Types.CLMLanguageCode
-import Network.AWS.Transcribe.Types.CallAnalyticsJob
-import Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
-import Network.AWS.Transcribe.Types.CallAnalyticsJobStatus
-import Network.AWS.Transcribe.Types.CallAnalyticsJobSummary
-import Network.AWS.Transcribe.Types.CategoryProperties
-import Network.AWS.Transcribe.Types.ChannelDefinition
-import Network.AWS.Transcribe.Types.ContentRedaction
-import Network.AWS.Transcribe.Types.InputDataConfig
-import Network.AWS.Transcribe.Types.InterruptionFilter
-import Network.AWS.Transcribe.Types.JobExecutionSettings
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.LanguageModel
-import Network.AWS.Transcribe.Types.Media
-import Network.AWS.Transcribe.Types.MediaFormat
-import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
-import Network.AWS.Transcribe.Types.MedicalTranscript
-import Network.AWS.Transcribe.Types.MedicalTranscriptionJob
-import Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
-import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
-import Network.AWS.Transcribe.Types.ModelSettings
-import Network.AWS.Transcribe.Types.ModelStatus
-import Network.AWS.Transcribe.Types.NonTalkTimeFilter
-import Network.AWS.Transcribe.Types.OutputLocationType
-import Network.AWS.Transcribe.Types.ParticipantRole
-import Network.AWS.Transcribe.Types.RedactionOutput
-import Network.AWS.Transcribe.Types.RedactionType
-import Network.AWS.Transcribe.Types.RelativeTimeRange
-import Network.AWS.Transcribe.Types.Rule
-import Network.AWS.Transcribe.Types.SentimentFilter
-import Network.AWS.Transcribe.Types.SentimentValue
-import Network.AWS.Transcribe.Types.Settings
-import Network.AWS.Transcribe.Types.Specialty
-import Network.AWS.Transcribe.Types.SubtitleFormat
-import Network.AWS.Transcribe.Types.Subtitles
-import Network.AWS.Transcribe.Types.SubtitlesOutput
-import Network.AWS.Transcribe.Types.Tag
-import Network.AWS.Transcribe.Types.Transcript
-import Network.AWS.Transcribe.Types.TranscriptFilter
-import Network.AWS.Transcribe.Types.TranscriptFilterType
-import Network.AWS.Transcribe.Types.TranscriptionJob
-import Network.AWS.Transcribe.Types.TranscriptionJobStatus
-import Network.AWS.Transcribe.Types.TranscriptionJobSummary
-import Network.AWS.Transcribe.Types.Type
-import Network.AWS.Transcribe.Types.VocabularyFilterInfo
-import Network.AWS.Transcribe.Types.VocabularyFilterMethod
-import Network.AWS.Transcribe.Types.VocabularyInfo
-import Network.AWS.Transcribe.Types.VocabularyState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Transcribe.Types.AbsoluteTimeRange
+import Amazonka.Transcribe.Types.BaseModelName
+import Amazonka.Transcribe.Types.CLMLanguageCode
+import Amazonka.Transcribe.Types.CallAnalyticsJob
+import Amazonka.Transcribe.Types.CallAnalyticsJobSettings
+import Amazonka.Transcribe.Types.CallAnalyticsJobStatus
+import Amazonka.Transcribe.Types.CallAnalyticsJobSummary
+import Amazonka.Transcribe.Types.CategoryProperties
+import Amazonka.Transcribe.Types.ChannelDefinition
+import Amazonka.Transcribe.Types.ContentRedaction
+import Amazonka.Transcribe.Types.InputDataConfig
+import Amazonka.Transcribe.Types.InterruptionFilter
+import Amazonka.Transcribe.Types.JobExecutionSettings
+import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.LanguageModel
+import Amazonka.Transcribe.Types.Media
+import Amazonka.Transcribe.Types.MediaFormat
+import Amazonka.Transcribe.Types.MedicalContentIdentificationType
+import Amazonka.Transcribe.Types.MedicalTranscript
+import Amazonka.Transcribe.Types.MedicalTranscriptionJob
+import Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary
+import Amazonka.Transcribe.Types.MedicalTranscriptionSetting
+import Amazonka.Transcribe.Types.ModelSettings
+import Amazonka.Transcribe.Types.ModelStatus
+import Amazonka.Transcribe.Types.NonTalkTimeFilter
+import Amazonka.Transcribe.Types.OutputLocationType
+import Amazonka.Transcribe.Types.ParticipantRole
+import Amazonka.Transcribe.Types.RedactionOutput
+import Amazonka.Transcribe.Types.RedactionType
+import Amazonka.Transcribe.Types.RelativeTimeRange
+import Amazonka.Transcribe.Types.Rule
+import Amazonka.Transcribe.Types.SentimentFilter
+import Amazonka.Transcribe.Types.SentimentValue
+import Amazonka.Transcribe.Types.Settings
+import Amazonka.Transcribe.Types.Specialty
+import Amazonka.Transcribe.Types.SubtitleFormat
+import Amazonka.Transcribe.Types.Subtitles
+import Amazonka.Transcribe.Types.SubtitlesOutput
+import Amazonka.Transcribe.Types.Tag
+import Amazonka.Transcribe.Types.Transcript
+import Amazonka.Transcribe.Types.TranscriptFilter
+import Amazonka.Transcribe.Types.TranscriptFilterType
+import Amazonka.Transcribe.Types.TranscriptionJob
+import Amazonka.Transcribe.Types.TranscriptionJobStatus
+import Amazonka.Transcribe.Types.TranscriptionJobSummary
+import Amazonka.Transcribe.Types.Type
+import Amazonka.Transcribe.Types.VocabularyFilterInfo
+import Amazonka.Transcribe.Types.VocabularyFilterMethod
+import Amazonka.Transcribe.Types.VocabularyInfo
+import Amazonka.Transcribe.Types.VocabularyState
 
 -- | API version @2017-10-26@ of the Amazon Transcribe Service SDK configuration.
 defaultService :: Core.Service

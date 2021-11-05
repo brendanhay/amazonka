@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.LanguageModel
+-- Module      : Amazonka.Transcribe.Types.LanguageModel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.LanguageModel where
+module Amazonka.Transcribe.Types.LanguageModel where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.BaseModelName
-import Network.AWS.Transcribe.Types.CLMLanguageCode
-import Network.AWS.Transcribe.Types.InputDataConfig
-import Network.AWS.Transcribe.Types.ModelStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.BaseModelName
+import Amazonka.Transcribe.Types.CLMLanguageCode
+import Amazonka.Transcribe.Types.InputDataConfig
+import Amazonka.Transcribe.Types.ModelStatus
 
 -- | The structure used to describe a custom language model.
 --

@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.TranscriptionJob
+-- Module      : Amazonka.Transcribe.Types.TranscriptionJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.TranscriptionJob where
+module Amazonka.Transcribe.Types.TranscriptionJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.ContentRedaction
-import Network.AWS.Transcribe.Types.JobExecutionSettings
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.Media
-import Network.AWS.Transcribe.Types.MediaFormat
-import Network.AWS.Transcribe.Types.ModelSettings
-import Network.AWS.Transcribe.Types.Settings
-import Network.AWS.Transcribe.Types.SubtitlesOutput
-import Network.AWS.Transcribe.Types.Tag
-import Network.AWS.Transcribe.Types.Transcript
-import Network.AWS.Transcribe.Types.TranscriptionJobStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.ContentRedaction
+import Amazonka.Transcribe.Types.JobExecutionSettings
+import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.Media
+import Amazonka.Transcribe.Types.MediaFormat
+import Amazonka.Transcribe.Types.ModelSettings
+import Amazonka.Transcribe.Types.Settings
+import Amazonka.Transcribe.Types.SubtitlesOutput
+import Amazonka.Transcribe.Types.Tag
+import Amazonka.Transcribe.Types.Transcript
+import Amazonka.Transcribe.Types.TranscriptionJobStatus
 
 -- | Describes an asynchronous transcription job that was created with the
 -- @StartTranscriptionJob@ operation.

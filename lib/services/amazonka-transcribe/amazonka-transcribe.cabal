@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Transcribe.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Transcribe.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Transcribe" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Transcribe" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,101 +45,101 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Transcribe
-    Network.AWS.Transcribe.CreateCallAnalyticsCategory
-    Network.AWS.Transcribe.CreateLanguageModel
-    Network.AWS.Transcribe.CreateMedicalVocabulary
-    Network.AWS.Transcribe.CreateVocabulary
-    Network.AWS.Transcribe.CreateVocabularyFilter
-    Network.AWS.Transcribe.DeleteCallAnalyticsCategory
-    Network.AWS.Transcribe.DeleteCallAnalyticsJob
-    Network.AWS.Transcribe.DeleteLanguageModel
-    Network.AWS.Transcribe.DeleteMedicalTranscriptionJob
-    Network.AWS.Transcribe.DeleteMedicalVocabulary
-    Network.AWS.Transcribe.DeleteTranscriptionJob
-    Network.AWS.Transcribe.DeleteVocabulary
-    Network.AWS.Transcribe.DeleteVocabularyFilter
-    Network.AWS.Transcribe.DescribeLanguageModel
-    Network.AWS.Transcribe.GetCallAnalyticsCategory
-    Network.AWS.Transcribe.GetCallAnalyticsJob
-    Network.AWS.Transcribe.GetMedicalTranscriptionJob
-    Network.AWS.Transcribe.GetMedicalVocabulary
-    Network.AWS.Transcribe.GetTranscriptionJob
-    Network.AWS.Transcribe.GetVocabulary
-    Network.AWS.Transcribe.GetVocabularyFilter
-    Network.AWS.Transcribe.Lens
-    Network.AWS.Transcribe.ListCallAnalyticsCategories
-    Network.AWS.Transcribe.ListCallAnalyticsJobs
-    Network.AWS.Transcribe.ListLanguageModels
-    Network.AWS.Transcribe.ListMedicalTranscriptionJobs
-    Network.AWS.Transcribe.ListMedicalVocabularies
-    Network.AWS.Transcribe.ListTagsForResource
-    Network.AWS.Transcribe.ListTranscriptionJobs
-    Network.AWS.Transcribe.ListVocabularies
-    Network.AWS.Transcribe.ListVocabularyFilters
-    Network.AWS.Transcribe.StartCallAnalyticsJob
-    Network.AWS.Transcribe.StartMedicalTranscriptionJob
-    Network.AWS.Transcribe.StartTranscriptionJob
-    Network.AWS.Transcribe.TagResource
-    Network.AWS.Transcribe.Types
-    Network.AWS.Transcribe.Types.AbsoluteTimeRange
-    Network.AWS.Transcribe.Types.BaseModelName
-    Network.AWS.Transcribe.Types.CallAnalyticsJob
-    Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
-    Network.AWS.Transcribe.Types.CallAnalyticsJobStatus
-    Network.AWS.Transcribe.Types.CallAnalyticsJobSummary
-    Network.AWS.Transcribe.Types.CategoryProperties
-    Network.AWS.Transcribe.Types.ChannelDefinition
-    Network.AWS.Transcribe.Types.CLMLanguageCode
-    Network.AWS.Transcribe.Types.ContentRedaction
-    Network.AWS.Transcribe.Types.InputDataConfig
-    Network.AWS.Transcribe.Types.InterruptionFilter
-    Network.AWS.Transcribe.Types.JobExecutionSettings
-    Network.AWS.Transcribe.Types.LanguageCode
-    Network.AWS.Transcribe.Types.LanguageModel
-    Network.AWS.Transcribe.Types.Media
-    Network.AWS.Transcribe.Types.MediaFormat
-    Network.AWS.Transcribe.Types.MedicalContentIdentificationType
-    Network.AWS.Transcribe.Types.MedicalTranscript
-    Network.AWS.Transcribe.Types.MedicalTranscriptionJob
-    Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
-    Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
-    Network.AWS.Transcribe.Types.ModelSettings
-    Network.AWS.Transcribe.Types.ModelStatus
-    Network.AWS.Transcribe.Types.NonTalkTimeFilter
-    Network.AWS.Transcribe.Types.OutputLocationType
-    Network.AWS.Transcribe.Types.ParticipantRole
-    Network.AWS.Transcribe.Types.RedactionOutput
-    Network.AWS.Transcribe.Types.RedactionType
-    Network.AWS.Transcribe.Types.RelativeTimeRange
-    Network.AWS.Transcribe.Types.Rule
-    Network.AWS.Transcribe.Types.SentimentFilter
-    Network.AWS.Transcribe.Types.SentimentValue
-    Network.AWS.Transcribe.Types.Settings
-    Network.AWS.Transcribe.Types.Specialty
-    Network.AWS.Transcribe.Types.SubtitleFormat
-    Network.AWS.Transcribe.Types.Subtitles
-    Network.AWS.Transcribe.Types.SubtitlesOutput
-    Network.AWS.Transcribe.Types.Tag
-    Network.AWS.Transcribe.Types.Transcript
-    Network.AWS.Transcribe.Types.TranscriptFilter
-    Network.AWS.Transcribe.Types.TranscriptFilterType
-    Network.AWS.Transcribe.Types.TranscriptionJob
-    Network.AWS.Transcribe.Types.TranscriptionJobStatus
-    Network.AWS.Transcribe.Types.TranscriptionJobSummary
-    Network.AWS.Transcribe.Types.Type
-    Network.AWS.Transcribe.Types.VocabularyFilterInfo
-    Network.AWS.Transcribe.Types.VocabularyFilterMethod
-    Network.AWS.Transcribe.Types.VocabularyInfo
-    Network.AWS.Transcribe.Types.VocabularyState
-    Network.AWS.Transcribe.UntagResource
-    Network.AWS.Transcribe.UpdateCallAnalyticsCategory
-    Network.AWS.Transcribe.UpdateMedicalVocabulary
-    Network.AWS.Transcribe.UpdateVocabulary
-    Network.AWS.Transcribe.UpdateVocabularyFilter
-    Network.AWS.Transcribe.Waiters
+    Amazonka.Transcribe
+    Amazonka.Transcribe.CreateCallAnalyticsCategory
+    Amazonka.Transcribe.CreateLanguageModel
+    Amazonka.Transcribe.CreateMedicalVocabulary
+    Amazonka.Transcribe.CreateVocabulary
+    Amazonka.Transcribe.CreateVocabularyFilter
+    Amazonka.Transcribe.DeleteCallAnalyticsCategory
+    Amazonka.Transcribe.DeleteCallAnalyticsJob
+    Amazonka.Transcribe.DeleteLanguageModel
+    Amazonka.Transcribe.DeleteMedicalTranscriptionJob
+    Amazonka.Transcribe.DeleteMedicalVocabulary
+    Amazonka.Transcribe.DeleteTranscriptionJob
+    Amazonka.Transcribe.DeleteVocabulary
+    Amazonka.Transcribe.DeleteVocabularyFilter
+    Amazonka.Transcribe.DescribeLanguageModel
+    Amazonka.Transcribe.GetCallAnalyticsCategory
+    Amazonka.Transcribe.GetCallAnalyticsJob
+    Amazonka.Transcribe.GetMedicalTranscriptionJob
+    Amazonka.Transcribe.GetMedicalVocabulary
+    Amazonka.Transcribe.GetTranscriptionJob
+    Amazonka.Transcribe.GetVocabulary
+    Amazonka.Transcribe.GetVocabularyFilter
+    Amazonka.Transcribe.Lens
+    Amazonka.Transcribe.ListCallAnalyticsCategories
+    Amazonka.Transcribe.ListCallAnalyticsJobs
+    Amazonka.Transcribe.ListLanguageModels
+    Amazonka.Transcribe.ListMedicalTranscriptionJobs
+    Amazonka.Transcribe.ListMedicalVocabularies
+    Amazonka.Transcribe.ListTagsForResource
+    Amazonka.Transcribe.ListTranscriptionJobs
+    Amazonka.Transcribe.ListVocabularies
+    Amazonka.Transcribe.ListVocabularyFilters
+    Amazonka.Transcribe.StartCallAnalyticsJob
+    Amazonka.Transcribe.StartMedicalTranscriptionJob
+    Amazonka.Transcribe.StartTranscriptionJob
+    Amazonka.Transcribe.TagResource
+    Amazonka.Transcribe.Types
+    Amazonka.Transcribe.Types.AbsoluteTimeRange
+    Amazonka.Transcribe.Types.BaseModelName
+    Amazonka.Transcribe.Types.CallAnalyticsJob
+    Amazonka.Transcribe.Types.CallAnalyticsJobSettings
+    Amazonka.Transcribe.Types.CallAnalyticsJobStatus
+    Amazonka.Transcribe.Types.CallAnalyticsJobSummary
+    Amazonka.Transcribe.Types.CategoryProperties
+    Amazonka.Transcribe.Types.ChannelDefinition
+    Amazonka.Transcribe.Types.CLMLanguageCode
+    Amazonka.Transcribe.Types.ContentRedaction
+    Amazonka.Transcribe.Types.InputDataConfig
+    Amazonka.Transcribe.Types.InterruptionFilter
+    Amazonka.Transcribe.Types.JobExecutionSettings
+    Amazonka.Transcribe.Types.LanguageCode
+    Amazonka.Transcribe.Types.LanguageModel
+    Amazonka.Transcribe.Types.Media
+    Amazonka.Transcribe.Types.MediaFormat
+    Amazonka.Transcribe.Types.MedicalContentIdentificationType
+    Amazonka.Transcribe.Types.MedicalTranscript
+    Amazonka.Transcribe.Types.MedicalTranscriptionJob
+    Amazonka.Transcribe.Types.MedicalTranscriptionJobSummary
+    Amazonka.Transcribe.Types.MedicalTranscriptionSetting
+    Amazonka.Transcribe.Types.ModelSettings
+    Amazonka.Transcribe.Types.ModelStatus
+    Amazonka.Transcribe.Types.NonTalkTimeFilter
+    Amazonka.Transcribe.Types.OutputLocationType
+    Amazonka.Transcribe.Types.ParticipantRole
+    Amazonka.Transcribe.Types.RedactionOutput
+    Amazonka.Transcribe.Types.RedactionType
+    Amazonka.Transcribe.Types.RelativeTimeRange
+    Amazonka.Transcribe.Types.Rule
+    Amazonka.Transcribe.Types.SentimentFilter
+    Amazonka.Transcribe.Types.SentimentValue
+    Amazonka.Transcribe.Types.Settings
+    Amazonka.Transcribe.Types.Specialty
+    Amazonka.Transcribe.Types.SubtitleFormat
+    Amazonka.Transcribe.Types.Subtitles
+    Amazonka.Transcribe.Types.SubtitlesOutput
+    Amazonka.Transcribe.Types.Tag
+    Amazonka.Transcribe.Types.Transcript
+    Amazonka.Transcribe.Types.TranscriptFilter
+    Amazonka.Transcribe.Types.TranscriptFilterType
+    Amazonka.Transcribe.Types.TranscriptionJob
+    Amazonka.Transcribe.Types.TranscriptionJobStatus
+    Amazonka.Transcribe.Types.TranscriptionJobSummary
+    Amazonka.Transcribe.Types.Type
+    Amazonka.Transcribe.Types.VocabularyFilterInfo
+    Amazonka.Transcribe.Types.VocabularyFilterMethod
+    Amazonka.Transcribe.Types.VocabularyInfo
+    Amazonka.Transcribe.Types.VocabularyState
+    Amazonka.Transcribe.UntagResource
+    Amazonka.Transcribe.UpdateCallAnalyticsCategory
+    Amazonka.Transcribe.UpdateMedicalVocabulary
+    Amazonka.Transcribe.UpdateVocabulary
+    Amazonka.Transcribe.UpdateVocabularyFilter
+    Amazonka.Transcribe.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

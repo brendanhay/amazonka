@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
+-- Module      : Amazonka.Transcribe.Types.CallAnalyticsJobSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.CallAnalyticsJobSettings where
+module Amazonka.Transcribe.Types.CallAnalyticsJobSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transcribe.Types.ContentRedaction
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.VocabularyFilterMethod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transcribe.Types.ContentRedaction
+import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.VocabularyFilterMethod
 
 -- | Provides optional settings for the @CallAnalyticsJob@ operation.
 --

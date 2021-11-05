@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SavingsPlans.Types.SavingsPlanOffering
+-- Module      : Amazonka.SavingsPlans.Types.SavingsPlanOffering
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SavingsPlans.Types.SavingsPlanOffering where
+module Amazonka.SavingsPlans.Types.SavingsPlanOffering where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SavingsPlans.Types.CurrencyCode
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption
-import Network.AWS.SavingsPlans.Types.SavingsPlanProductType
-import Network.AWS.SavingsPlans.Types.SavingsPlanType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SavingsPlans.Types.CurrencyCode
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
+import Amazonka.SavingsPlans.Types.SavingsPlanProductType
+import Amazonka.SavingsPlans.Types.SavingsPlanType
 
 -- | Information about a Savings Plan offering.
 --

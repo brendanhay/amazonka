@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SavingsPlans.Types
+-- Module      : Amazonka.SavingsPlans.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SavingsPlans.Types
+module Amazonka.SavingsPlans.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -176,35 +176,35 @@ module Network.AWS.SavingsPlans.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SavingsPlans.Types.CurrencyCode
-import Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering
-import Network.AWS.SavingsPlans.Types.SavingsPlan
-import Network.AWS.SavingsPlans.Types.SavingsPlanFilter
-import Network.AWS.SavingsPlans.Types.SavingsPlanOffering
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption
-import Network.AWS.SavingsPlans.Types.SavingsPlanProductType
-import Network.AWS.SavingsPlans.Types.SavingsPlanRate
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit
-import Network.AWS.SavingsPlans.Types.SavingsPlanState
-import Network.AWS.SavingsPlans.Types.SavingsPlanType
-import Network.AWS.SavingsPlans.Types.SavingsPlansFilterName
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SavingsPlans.Types.CurrencyCode
+import Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering
+import Amazonka.SavingsPlans.Types.SavingsPlan
+import Amazonka.SavingsPlans.Types.SavingsPlanFilter
+import Amazonka.SavingsPlans.Types.SavingsPlanOffering
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
+import Amazonka.SavingsPlans.Types.SavingsPlanProductType
+import Amazonka.SavingsPlans.Types.SavingsPlanRate
+import Amazonka.SavingsPlans.Types.SavingsPlanRateFilter
+import Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute
+import Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName
+import Amazonka.SavingsPlans.Types.SavingsPlanRateProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey
+import Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode
+import Amazonka.SavingsPlans.Types.SavingsPlanRateUnit
+import Amazonka.SavingsPlans.Types.SavingsPlanState
+import Amazonka.SavingsPlans.Types.SavingsPlanType
+import Amazonka.SavingsPlans.Types.SavingsPlansFilterName
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-06-28@ of the Amazon Savings Plans SDK configuration.
 defaultService :: Core.Service

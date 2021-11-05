@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SavingsPlans.Lens
+-- Module      : Amazonka.SavingsPlans.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SavingsPlans.Lens
+module Amazonka.SavingsPlans.Lens
   ( -- * Operations
 
     -- ** ListTagsForResource
@@ -190,24 +190,24 @@ module Network.AWS.SavingsPlans.Lens
   )
 where
 
-import Network.AWS.SavingsPlans.CreateSavingsPlan
-import Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan
-import Network.AWS.SavingsPlans.DescribeSavingsPlanRates
-import Network.AWS.SavingsPlans.DescribeSavingsPlans
-import Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates
-import Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings
-import Network.AWS.SavingsPlans.ListTagsForResource
-import Network.AWS.SavingsPlans.TagResource
-import Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering
-import Network.AWS.SavingsPlans.Types.SavingsPlan
-import Network.AWS.SavingsPlans.Types.SavingsPlanFilter
-import Network.AWS.SavingsPlans.Types.SavingsPlanOffering
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
-import Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty
-import Network.AWS.SavingsPlans.Types.SavingsPlanRate
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter
-import Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty
-import Network.AWS.SavingsPlans.UntagResource
+import Amazonka.SavingsPlans.CreateSavingsPlan
+import Amazonka.SavingsPlans.DeleteQueuedSavingsPlan
+import Amazonka.SavingsPlans.DescribeSavingsPlanRates
+import Amazonka.SavingsPlans.DescribeSavingsPlans
+import Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates
+import Amazonka.SavingsPlans.DescribeSavingsPlansOfferings
+import Amazonka.SavingsPlans.ListTagsForResource
+import Amazonka.SavingsPlans.TagResource
+import Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering
+import Amazonka.SavingsPlans.Types.SavingsPlan
+import Amazonka.SavingsPlans.Types.SavingsPlanFilter
+import Amazonka.SavingsPlans.Types.SavingsPlanOffering
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
+import Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty
+import Amazonka.SavingsPlans.Types.SavingsPlanRate
+import Amazonka.SavingsPlans.Types.SavingsPlanRateFilter
+import Amazonka.SavingsPlans.Types.SavingsPlanRateProperty
+import Amazonka.SavingsPlans.UntagResource

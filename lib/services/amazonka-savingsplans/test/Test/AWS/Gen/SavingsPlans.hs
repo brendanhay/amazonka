@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SavingsPlans where
 
+import Amazonka.SavingsPlans
 import qualified Data.Proxy as Proxy
-import Network.AWS.SavingsPlans
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SavingsPlans.Internal

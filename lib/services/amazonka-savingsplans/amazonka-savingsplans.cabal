@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SavingsPlans.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SavingsPlans.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SavingsPlans" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SavingsPlans" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,46 +45,46 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SavingsPlans
-    Network.AWS.SavingsPlans.CreateSavingsPlan
-    Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan
-    Network.AWS.SavingsPlans.DescribeSavingsPlanRates
-    Network.AWS.SavingsPlans.DescribeSavingsPlans
-    Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates
-    Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings
-    Network.AWS.SavingsPlans.Lens
-    Network.AWS.SavingsPlans.ListTagsForResource
-    Network.AWS.SavingsPlans.TagResource
-    Network.AWS.SavingsPlans.Types
-    Network.AWS.SavingsPlans.Types.CurrencyCode
-    Network.AWS.SavingsPlans.Types.ParentSavingsPlanOffering
-    Network.AWS.SavingsPlans.Types.SavingsPlan
-    Network.AWS.SavingsPlans.Types.SavingsPlanFilter
-    Network.AWS.SavingsPlans.Types.SavingsPlanOffering
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingFilterElement
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingProperty
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRate
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
-    Network.AWS.SavingsPlans.Types.SavingsPlanOfferingRateProperty
-    Network.AWS.SavingsPlans.Types.SavingsPlanPaymentOption
-    Network.AWS.SavingsPlans.Types.SavingsPlanProductType
-    Network.AWS.SavingsPlans.Types.SavingsPlanRate
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateFilter
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterAttribute
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateFilterName
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateProperty
-    Network.AWS.SavingsPlans.Types.SavingsPlanRatePropertyKey
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateServiceCode
-    Network.AWS.SavingsPlans.Types.SavingsPlanRateUnit
-    Network.AWS.SavingsPlans.Types.SavingsPlansFilterName
-    Network.AWS.SavingsPlans.Types.SavingsPlanState
-    Network.AWS.SavingsPlans.Types.SavingsPlanType
-    Network.AWS.SavingsPlans.UntagResource
-    Network.AWS.SavingsPlans.Waiters
+    Amazonka.SavingsPlans
+    Amazonka.SavingsPlans.CreateSavingsPlan
+    Amazonka.SavingsPlans.DeleteQueuedSavingsPlan
+    Amazonka.SavingsPlans.DescribeSavingsPlanRates
+    Amazonka.SavingsPlans.DescribeSavingsPlans
+    Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates
+    Amazonka.SavingsPlans.DescribeSavingsPlansOfferings
+    Amazonka.SavingsPlans.Lens
+    Amazonka.SavingsPlans.ListTagsForResource
+    Amazonka.SavingsPlans.TagResource
+    Amazonka.SavingsPlans.Types
+    Amazonka.SavingsPlans.Types.CurrencyCode
+    Amazonka.SavingsPlans.Types.ParentSavingsPlanOffering
+    Amazonka.SavingsPlans.Types.SavingsPlan
+    Amazonka.SavingsPlans.Types.SavingsPlanFilter
+    Amazonka.SavingsPlans.Types.SavingsPlanOffering
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterElement
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingProperty
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingPropertyKey
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingRate
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateFilterElement
+    Amazonka.SavingsPlans.Types.SavingsPlanOfferingRateProperty
+    Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption
+    Amazonka.SavingsPlans.Types.SavingsPlanProductType
+    Amazonka.SavingsPlans.Types.SavingsPlanRate
+    Amazonka.SavingsPlans.Types.SavingsPlanRateFilter
+    Amazonka.SavingsPlans.Types.SavingsPlanRateFilterAttribute
+    Amazonka.SavingsPlans.Types.SavingsPlanRateFilterName
+    Amazonka.SavingsPlans.Types.SavingsPlanRateProperty
+    Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey
+    Amazonka.SavingsPlans.Types.SavingsPlanRateServiceCode
+    Amazonka.SavingsPlans.Types.SavingsPlanRateUnit
+    Amazonka.SavingsPlans.Types.SavingsPlansFilterName
+    Amazonka.SavingsPlans.Types.SavingsPlanState
+    Amazonka.SavingsPlans.Types.SavingsPlanType
+    Amazonka.SavingsPlans.UntagResource
+    Amazonka.SavingsPlans.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

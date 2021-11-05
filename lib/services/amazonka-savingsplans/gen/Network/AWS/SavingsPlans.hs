@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SavingsPlans
+-- Module      : Amazonka.SavingsPlans
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- amount of usage, in USD per hour, for a term of 1 or 3 years, and
 -- receive a lower price for that usage. For more information, see the
 -- <https://docs.aws.amazon.com/savingsplans/latest/userguide/ AWS Savings Plans User Guide>.
-module Network.AWS.SavingsPlans
+module Amazonka.SavingsPlans
   ( -- * Service Configuration
     defaultService,
 
@@ -186,18 +186,18 @@ module Network.AWS.SavingsPlans
   )
 where
 
-import Network.AWS.SavingsPlans.CreateSavingsPlan
-import Network.AWS.SavingsPlans.DeleteQueuedSavingsPlan
-import Network.AWS.SavingsPlans.DescribeSavingsPlanRates
-import Network.AWS.SavingsPlans.DescribeSavingsPlans
-import Network.AWS.SavingsPlans.DescribeSavingsPlansOfferingRates
-import Network.AWS.SavingsPlans.DescribeSavingsPlansOfferings
-import Network.AWS.SavingsPlans.Lens
-import Network.AWS.SavingsPlans.ListTagsForResource
-import Network.AWS.SavingsPlans.TagResource
-import Network.AWS.SavingsPlans.Types
-import Network.AWS.SavingsPlans.UntagResource
-import Network.AWS.SavingsPlans.Waiters
+import Amazonka.SavingsPlans.CreateSavingsPlan
+import Amazonka.SavingsPlans.DeleteQueuedSavingsPlan
+import Amazonka.SavingsPlans.DescribeSavingsPlanRates
+import Amazonka.SavingsPlans.DescribeSavingsPlans
+import Amazonka.SavingsPlans.DescribeSavingsPlansOfferingRates
+import Amazonka.SavingsPlans.DescribeSavingsPlansOfferings
+import Amazonka.SavingsPlans.Lens
+import Amazonka.SavingsPlans.ListTagsForResource
+import Amazonka.SavingsPlans.TagResource
+import Amazonka.SavingsPlans.Types
+import Amazonka.SavingsPlans.UntagResource
+import Amazonka.SavingsPlans.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

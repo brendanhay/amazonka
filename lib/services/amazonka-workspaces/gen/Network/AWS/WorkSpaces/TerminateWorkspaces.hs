@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.TerminateWorkspaces
+-- Module      : Amazonka.WorkSpaces.TerminateWorkspaces
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html Delete the Directory for Your WorkSpaces>.
 -- If you delete your Simple AD or AD Connector directory, you can always
 -- create a new one when you want to start using WorkSpaces again.
-module Network.AWS.WorkSpaces.TerminateWorkspaces
+module Amazonka.WorkSpaces.TerminateWorkspaces
   ( -- * Creating a Request
     TerminateWorkspaces (..),
     newTerminateWorkspaces,
@@ -67,12 +67,12 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkSpaces.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newTerminateWorkspaces' smart constructor.
 data TerminateWorkspaces = TerminateWorkspaces'

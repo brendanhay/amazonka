@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.StopWorkspaces
+-- Module      : Amazonka.WorkSpaces.StopWorkspaces
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- You cannot stop a WorkSpace unless it has a running mode of @AutoStop@
 -- and a state of @AVAILABLE@, @IMPAIRED@, @UNHEALTHY@, or @ERROR@.
-module Network.AWS.WorkSpaces.StopWorkspaces
+module Amazonka.WorkSpaces.StopWorkspaces
   ( -- * Creating a Request
     StopWorkspaces (..),
     newStopWorkspaces,
@@ -42,12 +42,12 @@ module Network.AWS.WorkSpaces.StopWorkspaces
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkSpaces.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newStopWorkspaces' smart constructor.
 data StopWorkspaces = StopWorkspaces'

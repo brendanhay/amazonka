@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+-- Module      : Amazonka.WorkSpaces.ModifyWorkspaceProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Modifies the specified WorkSpace properties. For important information
 -- about how to modify the size of the root and user volumes, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace>.
-module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
+module Amazonka.WorkSpaces.ModifyWorkspaceProperties
   ( -- * Creating a Request
     ModifyWorkspaceProperties (..),
     newModifyWorkspaceProperties,
@@ -41,12 +41,12 @@ module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkSpaces.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newModifyWorkspaceProperties' smart constructor.
 data ModifyWorkspaceProperties = ModifyWorkspaceProperties'

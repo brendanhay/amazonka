@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.Types.WorkspaceImage
+-- Module      : Amazonka.WorkSpaces.Types.WorkspaceImage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceImage where
+module Amazonka.WorkSpaces.Types.WorkspaceImage where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WorkSpaces.Types.OperatingSystem
-import Network.AWS.WorkSpaces.Types.UpdateResult
-import Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
-import Network.AWS.WorkSpaces.Types.WorkspaceImageState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkSpaces.Types.OperatingSystem
+import Amazonka.WorkSpaces.Types.UpdateResult
+import Amazonka.WorkSpaces.Types.WorkspaceImageRequiredTenancy
+import Amazonka.WorkSpaces.Types.WorkspaceImageState
 
 -- | Describes a WorkSpace image.
 --

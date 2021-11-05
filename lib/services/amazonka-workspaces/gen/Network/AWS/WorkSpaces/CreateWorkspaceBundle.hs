@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.CreateWorkspaceBundle
+-- Module      : Amazonka.WorkSpaces.CreateWorkspaceBundle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates the specified WorkSpace bundle. For more information about
 -- creating WorkSpace bundles, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html Create a Custom WorkSpaces Image and Bundle>.
-module Network.AWS.WorkSpaces.CreateWorkspaceBundle
+module Amazonka.WorkSpaces.CreateWorkspaceBundle
   ( -- * Creating a Request
     CreateWorkspaceBundle (..),
     newCreateWorkspaceBundle,
@@ -47,12 +47,12 @@ module Network.AWS.WorkSpaces.CreateWorkspaceBundle
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkSpaces.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newCreateWorkspaceBundle' smart constructor.
 data CreateWorkspaceBundle = CreateWorkspaceBundle'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.Types
+-- Module      : Amazonka.WorkSpaces.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types
+module Amazonka.WorkSpaces.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -386,68 +386,68 @@ module Network.AWS.WorkSpaces.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WorkSpaces.Types.AccessPropertyValue
-import Network.AWS.WorkSpaces.Types.AccountModification
-import Network.AWS.WorkSpaces.Types.Application
-import Network.AWS.WorkSpaces.Types.AssociationStatus
-import Network.AWS.WorkSpaces.Types.ClientProperties
-import Network.AWS.WorkSpaces.Types.ClientPropertiesResult
-import Network.AWS.WorkSpaces.Types.Compute
-import Network.AWS.WorkSpaces.Types.ComputeType
-import Network.AWS.WorkSpaces.Types.ConnectionAlias
-import Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation
-import Network.AWS.WorkSpaces.Types.ConnectionAliasPermission
-import Network.AWS.WorkSpaces.Types.ConnectionAliasState
-import Network.AWS.WorkSpaces.Types.ConnectionState
-import Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
-import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportEnum
-import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
-import Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties
-import Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest
-import Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest
-import Network.AWS.WorkSpaces.Types.ImagePermission
-import Network.AWS.WorkSpaces.Types.ImageType
-import Network.AWS.WorkSpaces.Types.IpRuleItem
-import Network.AWS.WorkSpaces.Types.ModificationResourceEnum
-import Network.AWS.WorkSpaces.Types.ModificationState
-import Network.AWS.WorkSpaces.Types.ModificationStateEnum
-import Network.AWS.WorkSpaces.Types.OperatingSystem
-import Network.AWS.WorkSpaces.Types.OperatingSystemType
-import Network.AWS.WorkSpaces.Types.RebootRequest
-import Network.AWS.WorkSpaces.Types.RebuildRequest
-import Network.AWS.WorkSpaces.Types.ReconnectEnum
-import Network.AWS.WorkSpaces.Types.RootStorage
-import Network.AWS.WorkSpaces.Types.RunningMode
-import Network.AWS.WorkSpaces.Types.SelfservicePermissions
-import Network.AWS.WorkSpaces.Types.Snapshot
-import Network.AWS.WorkSpaces.Types.StartRequest
-import Network.AWS.WorkSpaces.Types.StopRequest
-import Network.AWS.WorkSpaces.Types.Tag
-import Network.AWS.WorkSpaces.Types.TargetWorkspaceState
-import Network.AWS.WorkSpaces.Types.Tenancy
-import Network.AWS.WorkSpaces.Types.TerminateRequest
-import Network.AWS.WorkSpaces.Types.UpdateResult
-import Network.AWS.WorkSpaces.Types.UserStorage
-import Network.AWS.WorkSpaces.Types.Workspace
-import Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties
-import Network.AWS.WorkSpaces.Types.WorkspaceBundle
-import Network.AWS.WorkSpaces.Types.WorkspaceConnectionStatus
-import Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties
-import Network.AWS.WorkSpaces.Types.WorkspaceDirectory
-import Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState
-import Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
-import Network.AWS.WorkSpaces.Types.WorkspaceImage
-import Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess
-import Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
-import Network.AWS.WorkSpaces.Types.WorkspaceImageState
-import Network.AWS.WorkSpaces.Types.WorkspaceProperties
-import Network.AWS.WorkSpaces.Types.WorkspaceRequest
-import Network.AWS.WorkSpaces.Types.WorkspaceState
-import Network.AWS.WorkSpaces.Types.WorkspacesIpGroup
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WorkSpaces.Types.AccessPropertyValue
+import Amazonka.WorkSpaces.Types.AccountModification
+import Amazonka.WorkSpaces.Types.Application
+import Amazonka.WorkSpaces.Types.AssociationStatus
+import Amazonka.WorkSpaces.Types.ClientProperties
+import Amazonka.WorkSpaces.Types.ClientPropertiesResult
+import Amazonka.WorkSpaces.Types.Compute
+import Amazonka.WorkSpaces.Types.ComputeType
+import Amazonka.WorkSpaces.Types.ConnectionAlias
+import Amazonka.WorkSpaces.Types.ConnectionAliasAssociation
+import Amazonka.WorkSpaces.Types.ConnectionAliasPermission
+import Amazonka.WorkSpaces.Types.ConnectionAliasState
+import Amazonka.WorkSpaces.Types.ConnectionState
+import Amazonka.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
+import Amazonka.WorkSpaces.Types.DedicatedTenancySupportEnum
+import Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+import Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
+import Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
+import Amazonka.WorkSpaces.Types.ImagePermission
+import Amazonka.WorkSpaces.Types.ImageType
+import Amazonka.WorkSpaces.Types.IpRuleItem
+import Amazonka.WorkSpaces.Types.ModificationResourceEnum
+import Amazonka.WorkSpaces.Types.ModificationState
+import Amazonka.WorkSpaces.Types.ModificationStateEnum
+import Amazonka.WorkSpaces.Types.OperatingSystem
+import Amazonka.WorkSpaces.Types.OperatingSystemType
+import Amazonka.WorkSpaces.Types.RebootRequest
+import Amazonka.WorkSpaces.Types.RebuildRequest
+import Amazonka.WorkSpaces.Types.ReconnectEnum
+import Amazonka.WorkSpaces.Types.RootStorage
+import Amazonka.WorkSpaces.Types.RunningMode
+import Amazonka.WorkSpaces.Types.SelfservicePermissions
+import Amazonka.WorkSpaces.Types.Snapshot
+import Amazonka.WorkSpaces.Types.StartRequest
+import Amazonka.WorkSpaces.Types.StopRequest
+import Amazonka.WorkSpaces.Types.Tag
+import Amazonka.WorkSpaces.Types.TargetWorkspaceState
+import Amazonka.WorkSpaces.Types.Tenancy
+import Amazonka.WorkSpaces.Types.TerminateRequest
+import Amazonka.WorkSpaces.Types.UpdateResult
+import Amazonka.WorkSpaces.Types.UserStorage
+import Amazonka.WorkSpaces.Types.Workspace
+import Amazonka.WorkSpaces.Types.WorkspaceAccessProperties
+import Amazonka.WorkSpaces.Types.WorkspaceBundle
+import Amazonka.WorkSpaces.Types.WorkspaceConnectionStatus
+import Amazonka.WorkSpaces.Types.WorkspaceCreationProperties
+import Amazonka.WorkSpaces.Types.WorkspaceDirectory
+import Amazonka.WorkSpaces.Types.WorkspaceDirectoryState
+import Amazonka.WorkSpaces.Types.WorkspaceDirectoryType
+import Amazonka.WorkSpaces.Types.WorkspaceImage
+import Amazonka.WorkSpaces.Types.WorkspaceImageIngestionProcess
+import Amazonka.WorkSpaces.Types.WorkspaceImageRequiredTenancy
+import Amazonka.WorkSpaces.Types.WorkspaceImageState
+import Amazonka.WorkSpaces.Types.WorkspaceProperties
+import Amazonka.WorkSpaces.Types.WorkspaceRequest
+import Amazonka.WorkSpaces.Types.WorkspaceState
+import Amazonka.WorkSpaces.Types.WorkspacesIpGroup
 
 -- | API version @2015-04-08@ of the Amazon WorkSpaces SDK configuration.
 defaultService :: Core.Service

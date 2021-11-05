@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.UpdateWorkspaceBundle
+-- Module      : Amazonka.WorkSpaces.UpdateWorkspaceBundle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- bundle that they\'re based on. To update existing WorkSpaces that are
 -- based on a bundle that you\'ve updated, you must either rebuild the
 -- WorkSpaces or delete and recreate them.
-module Network.AWS.WorkSpaces.UpdateWorkspaceBundle
+module Amazonka.WorkSpaces.UpdateWorkspaceBundle
   ( -- * Creating a Request
     UpdateWorkspaceBundle (..),
     newUpdateWorkspaceBundle,
@@ -46,12 +46,12 @@ module Network.AWS.WorkSpaces.UpdateWorkspaceBundle
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkSpaces.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newUpdateWorkspaceBundle' smart constructor.
 data UpdateWorkspaceBundle = UpdateWorkspaceBundle'

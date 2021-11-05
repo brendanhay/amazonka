@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WorkSpaces
+-- Module      : Amazonka.WorkSpaces
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 --
 -- Amazon WorkSpaces enables you to provision virtual, cloud-based
 -- Microsoft Windows and Amazon Linux desktops for your users.
-module Network.AWS.WorkSpaces
+module Amazonka.WorkSpaces
   ( -- * Service Configuration
     defaultService,
 
@@ -607,63 +607,63 @@ module Network.AWS.WorkSpaces
   )
 where
 
-import Network.AWS.WorkSpaces.AssociateConnectionAlias
-import Network.AWS.WorkSpaces.AssociateIpGroups
-import Network.AWS.WorkSpaces.AuthorizeIpRules
-import Network.AWS.WorkSpaces.CopyWorkspaceImage
-import Network.AWS.WorkSpaces.CreateConnectionAlias
-import Network.AWS.WorkSpaces.CreateIpGroup
-import Network.AWS.WorkSpaces.CreateTags
-import Network.AWS.WorkSpaces.CreateUpdatedWorkspaceImage
-import Network.AWS.WorkSpaces.CreateWorkspaceBundle
-import Network.AWS.WorkSpaces.CreateWorkspaces
-import Network.AWS.WorkSpaces.DeleteConnectionAlias
-import Network.AWS.WorkSpaces.DeleteIpGroup
-import Network.AWS.WorkSpaces.DeleteTags
-import Network.AWS.WorkSpaces.DeleteWorkspaceBundle
-import Network.AWS.WorkSpaces.DeleteWorkspaceImage
-import Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
-import Network.AWS.WorkSpaces.DescribeAccount
-import Network.AWS.WorkSpaces.DescribeAccountModifications
-import Network.AWS.WorkSpaces.DescribeClientProperties
-import Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
-import Network.AWS.WorkSpaces.DescribeConnectionAliases
-import Network.AWS.WorkSpaces.DescribeIpGroups
-import Network.AWS.WorkSpaces.DescribeTags
-import Network.AWS.WorkSpaces.DescribeWorkspaceBundles
-import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
-import Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
-import Network.AWS.WorkSpaces.DescribeWorkspaceImages
-import Network.AWS.WorkSpaces.DescribeWorkspaceSnapshots
-import Network.AWS.WorkSpaces.DescribeWorkspaces
-import Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
-import Network.AWS.WorkSpaces.DisassociateConnectionAlias
-import Network.AWS.WorkSpaces.DisassociateIpGroups
-import Network.AWS.WorkSpaces.ImportWorkspaceImage
-import Network.AWS.WorkSpaces.Lens
-import Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
-import Network.AWS.WorkSpaces.MigrateWorkspace
-import Network.AWS.WorkSpaces.ModifyAccount
-import Network.AWS.WorkSpaces.ModifyClientProperties
-import Network.AWS.WorkSpaces.ModifySelfservicePermissions
-import Network.AWS.WorkSpaces.ModifyWorkspaceAccessProperties
-import Network.AWS.WorkSpaces.ModifyWorkspaceCreationProperties
-import Network.AWS.WorkSpaces.ModifyWorkspaceProperties
-import Network.AWS.WorkSpaces.ModifyWorkspaceState
-import Network.AWS.WorkSpaces.RebootWorkspaces
-import Network.AWS.WorkSpaces.RebuildWorkspaces
-import Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
-import Network.AWS.WorkSpaces.RestoreWorkspace
-import Network.AWS.WorkSpaces.RevokeIpRules
-import Network.AWS.WorkSpaces.StartWorkspaces
-import Network.AWS.WorkSpaces.StopWorkspaces
-import Network.AWS.WorkSpaces.TerminateWorkspaces
-import Network.AWS.WorkSpaces.Types
-import Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
-import Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
-import Network.AWS.WorkSpaces.UpdateWorkspaceBundle
-import Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
-import Network.AWS.WorkSpaces.Waiters
+import Amazonka.WorkSpaces.AssociateConnectionAlias
+import Amazonka.WorkSpaces.AssociateIpGroups
+import Amazonka.WorkSpaces.AuthorizeIpRules
+import Amazonka.WorkSpaces.CopyWorkspaceImage
+import Amazonka.WorkSpaces.CreateConnectionAlias
+import Amazonka.WorkSpaces.CreateIpGroup
+import Amazonka.WorkSpaces.CreateTags
+import Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
+import Amazonka.WorkSpaces.CreateWorkspaceBundle
+import Amazonka.WorkSpaces.CreateWorkspaces
+import Amazonka.WorkSpaces.DeleteConnectionAlias
+import Amazonka.WorkSpaces.DeleteIpGroup
+import Amazonka.WorkSpaces.DeleteTags
+import Amazonka.WorkSpaces.DeleteWorkspaceBundle
+import Amazonka.WorkSpaces.DeleteWorkspaceImage
+import Amazonka.WorkSpaces.DeregisterWorkspaceDirectory
+import Amazonka.WorkSpaces.DescribeAccount
+import Amazonka.WorkSpaces.DescribeAccountModifications
+import Amazonka.WorkSpaces.DescribeClientProperties
+import Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
+import Amazonka.WorkSpaces.DescribeConnectionAliases
+import Amazonka.WorkSpaces.DescribeIpGroups
+import Amazonka.WorkSpaces.DescribeTags
+import Amazonka.WorkSpaces.DescribeWorkspaceBundles
+import Amazonka.WorkSpaces.DescribeWorkspaceDirectories
+import Amazonka.WorkSpaces.DescribeWorkspaceImagePermissions
+import Amazonka.WorkSpaces.DescribeWorkspaceImages
+import Amazonka.WorkSpaces.DescribeWorkspaceSnapshots
+import Amazonka.WorkSpaces.DescribeWorkspaces
+import Amazonka.WorkSpaces.DescribeWorkspacesConnectionStatus
+import Amazonka.WorkSpaces.DisassociateConnectionAlias
+import Amazonka.WorkSpaces.DisassociateIpGroups
+import Amazonka.WorkSpaces.ImportWorkspaceImage
+import Amazonka.WorkSpaces.Lens
+import Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
+import Amazonka.WorkSpaces.MigrateWorkspace
+import Amazonka.WorkSpaces.ModifyAccount
+import Amazonka.WorkSpaces.ModifyClientProperties
+import Amazonka.WorkSpaces.ModifySelfservicePermissions
+import Amazonka.WorkSpaces.ModifyWorkspaceAccessProperties
+import Amazonka.WorkSpaces.ModifyWorkspaceCreationProperties
+import Amazonka.WorkSpaces.ModifyWorkspaceProperties
+import Amazonka.WorkSpaces.ModifyWorkspaceState
+import Amazonka.WorkSpaces.RebootWorkspaces
+import Amazonka.WorkSpaces.RebuildWorkspaces
+import Amazonka.WorkSpaces.RegisterWorkspaceDirectory
+import Amazonka.WorkSpaces.RestoreWorkspace
+import Amazonka.WorkSpaces.RevokeIpRules
+import Amazonka.WorkSpaces.StartWorkspaces
+import Amazonka.WorkSpaces.StopWorkspaces
+import Amazonka.WorkSpaces.TerminateWorkspaces
+import Amazonka.WorkSpaces.Types
+import Amazonka.WorkSpaces.UpdateConnectionAliasPermission
+import Amazonka.WorkSpaces.UpdateRulesOfIpGroup
+import Amazonka.WorkSpaces.UpdateWorkspaceBundle
+import Amazonka.WorkSpaces.UpdateWorkspaceImagePermission
+import Amazonka.WorkSpaces.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

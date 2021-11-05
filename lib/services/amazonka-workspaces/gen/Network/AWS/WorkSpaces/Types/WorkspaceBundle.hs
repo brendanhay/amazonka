@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkSpaces.Types.WorkspaceBundle
+-- Module      : Amazonka.WorkSpaces.Types.WorkspaceBundle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceBundle where
+module Amazonka.WorkSpaces.Types.WorkspaceBundle where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WorkSpaces.Types.ComputeType
-import Network.AWS.WorkSpaces.Types.RootStorage
-import Network.AWS.WorkSpaces.Types.UserStorage
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkSpaces.Types.ComputeType
+import Amazonka.WorkSpaces.Types.RootStorage
+import Amazonka.WorkSpaces.Types.UserStorage
 
 -- | Describes a WorkSpace bundle.
 --

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.Types.DestinationConfiguration
+-- Module      : Amazonka.IVS.Types.DestinationConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IVS.Types.DestinationConfiguration where
+module Amazonka.IVS.Types.DestinationConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types.S3DestinationConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types.S3DestinationConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that describes a location where recorded videos will be
 -- stored. Each member represents a type of destination configuration. For

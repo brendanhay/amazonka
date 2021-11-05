@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.Types.RecordingConfigurationSummary
+-- Module      : Amazonka.IVS.Types.RecordingConfigurationSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IVS.Types.RecordingConfigurationSummary where
+module Amazonka.IVS.Types.RecordingConfigurationSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types.DestinationConfiguration
-import Network.AWS.IVS.Types.RecordingConfigurationState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types.DestinationConfiguration
+import Amazonka.IVS.Types.RecordingConfigurationState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a RecordingConfiguration.
 --

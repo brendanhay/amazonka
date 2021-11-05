@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.GetStream
+-- Module      : Amazonka.IVS.GetStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the active (live) stream on a specified channel.
-module Network.AWS.IVS.GetStream
+module Amazonka.IVS.GetStream
   ( -- * Creating a Request
     GetStream (..),
     newGetStream,
@@ -39,12 +39,12 @@ module Network.AWS.IVS.GetStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStream' smart constructor.
 data GetStream = GetStream'

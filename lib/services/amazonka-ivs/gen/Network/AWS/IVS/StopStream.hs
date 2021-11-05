@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.StopStream
+-- Module      : Amazonka.IVS.StopStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- Many streaming client-software libraries automatically reconnect a
 -- dropped RTMPS session, so to stop the stream permanently, you may want
 -- to first revoke the @streamKey@ attached to the channel.
-module Network.AWS.IVS.StopStream
+module Amazonka.IVS.StopStream
   ( -- * Creating a Request
     StopStream (..),
     newStopStream,
@@ -44,12 +44,12 @@ module Network.AWS.IVS.StopStream
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopStream' smart constructor.
 data StopStream = StopStream'

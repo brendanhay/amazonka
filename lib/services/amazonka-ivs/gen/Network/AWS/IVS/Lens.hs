@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.Lens
+-- Module      : Amazonka.IVS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IVS.Lens
+module Amazonka.IVS.Lens
   ( -- * Operations
 
     -- ** PutMetadata
@@ -251,42 +251,42 @@ module Network.AWS.IVS.Lens
   )
 where
 
-import Network.AWS.IVS.BatchGetChannel
-import Network.AWS.IVS.BatchGetStreamKey
-import Network.AWS.IVS.CreateChannel
-import Network.AWS.IVS.CreateRecordingConfiguration
-import Network.AWS.IVS.CreateStreamKey
-import Network.AWS.IVS.DeleteChannel
-import Network.AWS.IVS.DeletePlaybackKeyPair
-import Network.AWS.IVS.DeleteRecordingConfiguration
-import Network.AWS.IVS.DeleteStreamKey
-import Network.AWS.IVS.GetChannel
-import Network.AWS.IVS.GetPlaybackKeyPair
-import Network.AWS.IVS.GetRecordingConfiguration
-import Network.AWS.IVS.GetStream
-import Network.AWS.IVS.GetStreamKey
-import Network.AWS.IVS.ImportPlaybackKeyPair
-import Network.AWS.IVS.ListChannels
-import Network.AWS.IVS.ListPlaybackKeyPairs
-import Network.AWS.IVS.ListRecordingConfigurations
-import Network.AWS.IVS.ListStreamKeys
-import Network.AWS.IVS.ListStreams
-import Network.AWS.IVS.ListTagsForResource
-import Network.AWS.IVS.PutMetadata
-import Network.AWS.IVS.StopStream
-import Network.AWS.IVS.TagResource
-import Network.AWS.IVS.Types.BatchError
-import Network.AWS.IVS.Types.Channel
-import Network.AWS.IVS.Types.ChannelSummary
-import Network.AWS.IVS.Types.DestinationConfiguration
-import Network.AWS.IVS.Types.PlaybackKeyPair
-import Network.AWS.IVS.Types.PlaybackKeyPairSummary
-import Network.AWS.IVS.Types.RecordingConfiguration
-import Network.AWS.IVS.Types.RecordingConfigurationSummary
-import Network.AWS.IVS.Types.S3DestinationConfiguration
-import Network.AWS.IVS.Types.Stream
-import Network.AWS.IVS.Types.StreamKey
-import Network.AWS.IVS.Types.StreamKeySummary
-import Network.AWS.IVS.Types.StreamSummary
-import Network.AWS.IVS.UntagResource
-import Network.AWS.IVS.UpdateChannel
+import Amazonka.IVS.BatchGetChannel
+import Amazonka.IVS.BatchGetStreamKey
+import Amazonka.IVS.CreateChannel
+import Amazonka.IVS.CreateRecordingConfiguration
+import Amazonka.IVS.CreateStreamKey
+import Amazonka.IVS.DeleteChannel
+import Amazonka.IVS.DeletePlaybackKeyPair
+import Amazonka.IVS.DeleteRecordingConfiguration
+import Amazonka.IVS.DeleteStreamKey
+import Amazonka.IVS.GetChannel
+import Amazonka.IVS.GetPlaybackKeyPair
+import Amazonka.IVS.GetRecordingConfiguration
+import Amazonka.IVS.GetStream
+import Amazonka.IVS.GetStreamKey
+import Amazonka.IVS.ImportPlaybackKeyPair
+import Amazonka.IVS.ListChannels
+import Amazonka.IVS.ListPlaybackKeyPairs
+import Amazonka.IVS.ListRecordingConfigurations
+import Amazonka.IVS.ListStreamKeys
+import Amazonka.IVS.ListStreams
+import Amazonka.IVS.ListTagsForResource
+import Amazonka.IVS.PutMetadata
+import Amazonka.IVS.StopStream
+import Amazonka.IVS.TagResource
+import Amazonka.IVS.Types.BatchError
+import Amazonka.IVS.Types.Channel
+import Amazonka.IVS.Types.ChannelSummary
+import Amazonka.IVS.Types.DestinationConfiguration
+import Amazonka.IVS.Types.PlaybackKeyPair
+import Amazonka.IVS.Types.PlaybackKeyPairSummary
+import Amazonka.IVS.Types.RecordingConfiguration
+import Amazonka.IVS.Types.RecordingConfigurationSummary
+import Amazonka.IVS.Types.S3DestinationConfiguration
+import Amazonka.IVS.Types.Stream
+import Amazonka.IVS.Types.StreamKey
+import Amazonka.IVS.Types.StreamKeySummary
+import Amazonka.IVS.Types.StreamSummary
+import Amazonka.IVS.UntagResource
+import Amazonka.IVS.UpdateChannel

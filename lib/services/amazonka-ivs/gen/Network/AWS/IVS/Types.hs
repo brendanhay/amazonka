@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.Types
+-- Module      : Amazonka.IVS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IVS.Types
+module Amazonka.IVS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -152,28 +152,28 @@ module Network.AWS.IVS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types.BatchError
-import Network.AWS.IVS.Types.Channel
-import Network.AWS.IVS.Types.ChannelLatencyMode
-import Network.AWS.IVS.Types.ChannelSummary
-import Network.AWS.IVS.Types.ChannelType
-import Network.AWS.IVS.Types.DestinationConfiguration
-import Network.AWS.IVS.Types.PlaybackKeyPair
-import Network.AWS.IVS.Types.PlaybackKeyPairSummary
-import Network.AWS.IVS.Types.RecordingConfiguration
-import Network.AWS.IVS.Types.RecordingConfigurationState
-import Network.AWS.IVS.Types.RecordingConfigurationSummary
-import Network.AWS.IVS.Types.S3DestinationConfiguration
-import Network.AWS.IVS.Types.Stream
-import Network.AWS.IVS.Types.StreamHealth
-import Network.AWS.IVS.Types.StreamKey
-import Network.AWS.IVS.Types.StreamKeySummary
-import Network.AWS.IVS.Types.StreamState
-import Network.AWS.IVS.Types.StreamSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types.BatchError
+import Amazonka.IVS.Types.Channel
+import Amazonka.IVS.Types.ChannelLatencyMode
+import Amazonka.IVS.Types.ChannelSummary
+import Amazonka.IVS.Types.ChannelType
+import Amazonka.IVS.Types.DestinationConfiguration
+import Amazonka.IVS.Types.PlaybackKeyPair
+import Amazonka.IVS.Types.PlaybackKeyPairSummary
+import Amazonka.IVS.Types.RecordingConfiguration
+import Amazonka.IVS.Types.RecordingConfigurationState
+import Amazonka.IVS.Types.RecordingConfigurationSummary
+import Amazonka.IVS.Types.S3DestinationConfiguration
+import Amazonka.IVS.Types.Stream
+import Amazonka.IVS.Types.StreamHealth
+import Amazonka.IVS.Types.StreamKey
+import Amazonka.IVS.Types.StreamKeySummary
+import Amazonka.IVS.Types.StreamState
+import Amazonka.IVS.Types.StreamSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-07-14@ of the Amazon Interactive Video Service SDK configuration.
 defaultService :: Core.Service

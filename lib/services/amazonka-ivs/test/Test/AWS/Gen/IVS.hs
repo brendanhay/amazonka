@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IVS where
 
+import Amazonka.IVS
 import qualified Data.Proxy as Proxy
-import Network.AWS.IVS
 import Test.AWS.Fixture
 import Test.AWS.IVS.Internal
 import Test.AWS.Prelude

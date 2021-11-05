@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IVS.PutMetadata
+-- Module      : Amazonka.IVS.PutMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- per second per account are allowed. Also see
 -- <https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html Embedding Metadata within a Video Stream>
 -- in the /Amazon IVS User Guide/.
-module Network.AWS.IVS.PutMetadata
+module Amazonka.IVS.PutMetadata
   ( -- * Creating a Request
     PutMetadata (..),
     newPutMetadata,
@@ -42,12 +42,12 @@ module Network.AWS.IVS.PutMetadata
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IVS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetadata' smart constructor.
 data PutMetadata = PutMetadata'

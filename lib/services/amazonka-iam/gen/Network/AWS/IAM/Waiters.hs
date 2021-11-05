@@ -7,25 +7,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Waiters
+-- Module      : Amazonka.IAM.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Waiters where
+module Amazonka.IAM.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.GetInstanceProfile
-import Network.AWS.IAM.GetPolicy
-import Network.AWS.IAM.GetRole
-import Network.AWS.IAM.GetUser
-import Network.AWS.IAM.Lens
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.GetInstanceProfile
+import Amazonka.IAM.GetPolicy
+import Amazonka.IAM.GetRole
+import Amazonka.IAM.GetUser
+import Amazonka.IAM.Lens
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newInstanceProfileExists :: Core.Wait GetInstanceProfile
 newInstanceProfileExists =
   Core.Wait
@@ -38,7 +38,7 @@ newInstanceProfileExists =
         ]
     }
 
--- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newUserExists :: Core.Wait GetUser
 newUserExists =
   Core.Wait
@@ -51,7 +51,7 @@ newUserExists =
         ]
     }
 
--- | Polls 'Network.AWS.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newRoleExists :: Core.Wait GetRole
 newRoleExists =
   Core.Wait
@@ -64,7 +64,7 @@ newRoleExists =
         ]
     }
 
--- | Polls 'Network.AWS.IAM.GetPolicy' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.IAM.GetPolicy' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newPolicyExists :: Core.Wait GetPolicy
 newPolicyExists =
   Core.Wait

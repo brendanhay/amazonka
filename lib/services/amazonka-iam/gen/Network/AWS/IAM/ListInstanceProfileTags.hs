@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.ListInstanceProfileTags
+-- Module      : Amazonka.IAM.ListInstanceProfileTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-module Network.AWS.IAM.ListInstanceProfileTags
+module Amazonka.IAM.ListInstanceProfileTags
   ( -- * Creating a Request
     ListInstanceProfileTags (..),
     newListInstanceProfileTags,
@@ -47,12 +47,12 @@ module Network.AWS.IAM.ListInstanceProfileTags
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstanceProfileTags' smart constructor.
 data ListInstanceProfileTags = ListInstanceProfileTags'

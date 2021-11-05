@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Types.UserDetail
+-- Module      : Amazonka.IAM.Types.UserDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.UserDetail where
+module Amazonka.IAM.Types.UserDetail where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types.AttachedPermissionsBoundary
-import Network.AWS.IAM.Types.AttachedPolicy
-import Network.AWS.IAM.Types.PolicyDetail
-import Network.AWS.IAM.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types.AttachedPermissionsBoundary
+import Amazonka.IAM.Types.AttachedPolicy
+import Amazonka.IAM.Types.PolicyDetail
+import Amazonka.IAM.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IAM user, including all the user\'s
 -- policies and all the IAM groups the user is in.

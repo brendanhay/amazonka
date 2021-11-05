@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.CreateServiceSpecificCredential
+-- Module      : Amazonka.IAM.CreateServiceSpecificCredential
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- For more information about service-specific credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html Using IAM with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys>
 -- in the /IAM User Guide/.
-module Network.AWS.IAM.CreateServiceSpecificCredential
+module Amazonka.IAM.CreateServiceSpecificCredential
   ( -- * Creating a Request
     CreateServiceSpecificCredential (..),
     newCreateServiceSpecificCredential,
@@ -56,12 +56,12 @@ module Network.AWS.IAM.CreateServiceSpecificCredential
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceSpecificCredential' smart constructor.
 data CreateServiceSpecificCredential = CreateServiceSpecificCredential'

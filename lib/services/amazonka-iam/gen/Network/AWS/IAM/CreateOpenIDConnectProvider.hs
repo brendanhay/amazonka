@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.CreateOpenIDConnectProvider
+-- Module      : Amazonka.IAM.CreateOpenIDConnectProvider
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -61,7 +61,7 @@
 -- The trust for the OIDC provider is derived from the IAM provider that
 -- this operation creates. Therefore, it is best to limit access to the
 -- CreateOpenIDConnectProvider operation to highly privileged users.
-module Network.AWS.IAM.CreateOpenIDConnectProvider
+module Amazonka.IAM.CreateOpenIDConnectProvider
   ( -- * Creating a Request
     CreateOpenIDConnectProvider (..),
     newCreateOpenIDConnectProvider,
@@ -83,12 +83,12 @@ module Network.AWS.IAM.CreateOpenIDConnectProvider
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateOpenIDConnectProvider' smart constructor.
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'

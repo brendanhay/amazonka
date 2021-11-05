@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Types.PolicyUsageType
+-- Module      : Amazonka.IAM.Types.PolicyUsageType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.PolicyUsageType
+module Amazonka.IAM.Types.PolicyUsageType
   ( PolicyUsageType
       ( ..,
         PolicyUsageType_PermissionsBoundary,
@@ -26,8 +26,8 @@ module Network.AWS.IAM.Types.PolicyUsageType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The policy usage type that indicates whether the policy is used as a
 -- permissions policy or as the permissions boundary for an entity.

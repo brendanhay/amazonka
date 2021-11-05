@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Types
+-- Module      : Amazonka.IAM.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types
+module Amazonka.IAM.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -566,83 +566,83 @@ module Network.AWS.IAM.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
-import Network.AWS.IAM.Types.AccessDetail
-import Network.AWS.IAM.Types.AccessKeyInfo
-import Network.AWS.IAM.Types.AccessKeyLastUsed
-import Network.AWS.IAM.Types.AccessKeyMetadata
-import Network.AWS.IAM.Types.AssignmentStatusType
-import Network.AWS.IAM.Types.AttachedPermissionsBoundary
-import Network.AWS.IAM.Types.AttachedPolicy
-import Network.AWS.IAM.Types.ContextEntry
-import Network.AWS.IAM.Types.ContextKeyTypeEnum
-import Network.AWS.IAM.Types.DeletionTaskFailureReasonType
-import Network.AWS.IAM.Types.DeletionTaskStatusType
-import Network.AWS.IAM.Types.EncodingType
-import Network.AWS.IAM.Types.EntityDetails
-import Network.AWS.IAM.Types.EntityInfo
-import Network.AWS.IAM.Types.EntityType
-import Network.AWS.IAM.Types.ErrorDetails
-import Network.AWS.IAM.Types.EvaluationResult
-import Network.AWS.IAM.Types.GetContextKeysForPolicyResponse
-import Network.AWS.IAM.Types.GlobalEndpointTokenVersion
-import Network.AWS.IAM.Types.Group
-import Network.AWS.IAM.Types.GroupDetail
-import Network.AWS.IAM.Types.InstanceProfile
-import Network.AWS.IAM.Types.JobStatusType
-import Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry
-import Network.AWS.IAM.Types.LoginProfile
-import Network.AWS.IAM.Types.MFADevice
-import Network.AWS.IAM.Types.ManagedPolicyDetail
-import Network.AWS.IAM.Types.OpenIDConnectProviderListEntry
-import Network.AWS.IAM.Types.OrganizationsDecisionDetail
-import Network.AWS.IAM.Types.PasswordPolicy
-import Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType
-import Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail
-import Network.AWS.IAM.Types.Policy
-import Network.AWS.IAM.Types.PolicyDetail
-import Network.AWS.IAM.Types.PolicyEvaluationDecisionType
-import Network.AWS.IAM.Types.PolicyGrantingServiceAccess
-import Network.AWS.IAM.Types.PolicyGroup
-import Network.AWS.IAM.Types.PolicyOwnerEntityType
-import Network.AWS.IAM.Types.PolicyRole
-import Network.AWS.IAM.Types.PolicyScopeType
-import Network.AWS.IAM.Types.PolicySourceType
-import Network.AWS.IAM.Types.PolicyType
-import Network.AWS.IAM.Types.PolicyUsageType
-import Network.AWS.IAM.Types.PolicyUser
-import Network.AWS.IAM.Types.PolicyVersion
-import Network.AWS.IAM.Types.Position
-import Network.AWS.IAM.Types.ReportFormatType
-import Network.AWS.IAM.Types.ReportStateType
-import Network.AWS.IAM.Types.ResourceSpecificResult
-import Network.AWS.IAM.Types.Role
-import Network.AWS.IAM.Types.RoleDetail
-import Network.AWS.IAM.Types.RoleLastUsed
-import Network.AWS.IAM.Types.RoleUsageType
-import Network.AWS.IAM.Types.SAMLProviderListEntry
-import Network.AWS.IAM.Types.SSHPublicKey
-import Network.AWS.IAM.Types.SSHPublicKeyMetadata
-import Network.AWS.IAM.Types.ServerCertificate
-import Network.AWS.IAM.Types.ServerCertificateMetadata
-import Network.AWS.IAM.Types.ServiceLastAccessed
-import Network.AWS.IAM.Types.ServiceSpecificCredential
-import Network.AWS.IAM.Types.ServiceSpecificCredentialMetadata
-import Network.AWS.IAM.Types.SigningCertificate
-import Network.AWS.IAM.Types.SimulatePolicyResponse
-import Network.AWS.IAM.Types.SortKeyType
-import Network.AWS.IAM.Types.Statement
-import Network.AWS.IAM.Types.StatusType
-import Network.AWS.IAM.Types.SummaryKeyType
-import Network.AWS.IAM.Types.Tag
-import Network.AWS.IAM.Types.TrackedActionLastAccessed
-import Network.AWS.IAM.Types.User
-import Network.AWS.IAM.Types.UserDetail
-import Network.AWS.IAM.Types.VirtualMFADevice
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types.AccessAdvisorUsageGranularityType
+import Amazonka.IAM.Types.AccessDetail
+import Amazonka.IAM.Types.AccessKeyInfo
+import Amazonka.IAM.Types.AccessKeyLastUsed
+import Amazonka.IAM.Types.AccessKeyMetadata
+import Amazonka.IAM.Types.AssignmentStatusType
+import Amazonka.IAM.Types.AttachedPermissionsBoundary
+import Amazonka.IAM.Types.AttachedPolicy
+import Amazonka.IAM.Types.ContextEntry
+import Amazonka.IAM.Types.ContextKeyTypeEnum
+import Amazonka.IAM.Types.DeletionTaskFailureReasonType
+import Amazonka.IAM.Types.DeletionTaskStatusType
+import Amazonka.IAM.Types.EncodingType
+import Amazonka.IAM.Types.EntityDetails
+import Amazonka.IAM.Types.EntityInfo
+import Amazonka.IAM.Types.EntityType
+import Amazonka.IAM.Types.ErrorDetails
+import Amazonka.IAM.Types.EvaluationResult
+import Amazonka.IAM.Types.GetContextKeysForPolicyResponse
+import Amazonka.IAM.Types.GlobalEndpointTokenVersion
+import Amazonka.IAM.Types.Group
+import Amazonka.IAM.Types.GroupDetail
+import Amazonka.IAM.Types.InstanceProfile
+import Amazonka.IAM.Types.JobStatusType
+import Amazonka.IAM.Types.ListPoliciesGrantingServiceAccessEntry
+import Amazonka.IAM.Types.LoginProfile
+import Amazonka.IAM.Types.MFADevice
+import Amazonka.IAM.Types.ManagedPolicyDetail
+import Amazonka.IAM.Types.OpenIDConnectProviderListEntry
+import Amazonka.IAM.Types.OrganizationsDecisionDetail
+import Amazonka.IAM.Types.PasswordPolicy
+import Amazonka.IAM.Types.PermissionsBoundaryAttachmentType
+import Amazonka.IAM.Types.PermissionsBoundaryDecisionDetail
+import Amazonka.IAM.Types.Policy
+import Amazonka.IAM.Types.PolicyDetail
+import Amazonka.IAM.Types.PolicyEvaluationDecisionType
+import Amazonka.IAM.Types.PolicyGrantingServiceAccess
+import Amazonka.IAM.Types.PolicyGroup
+import Amazonka.IAM.Types.PolicyOwnerEntityType
+import Amazonka.IAM.Types.PolicyRole
+import Amazonka.IAM.Types.PolicyScopeType
+import Amazonka.IAM.Types.PolicySourceType
+import Amazonka.IAM.Types.PolicyType
+import Amazonka.IAM.Types.PolicyUsageType
+import Amazonka.IAM.Types.PolicyUser
+import Amazonka.IAM.Types.PolicyVersion
+import Amazonka.IAM.Types.Position
+import Amazonka.IAM.Types.ReportFormatType
+import Amazonka.IAM.Types.ReportStateType
+import Amazonka.IAM.Types.ResourceSpecificResult
+import Amazonka.IAM.Types.Role
+import Amazonka.IAM.Types.RoleDetail
+import Amazonka.IAM.Types.RoleLastUsed
+import Amazonka.IAM.Types.RoleUsageType
+import Amazonka.IAM.Types.SAMLProviderListEntry
+import Amazonka.IAM.Types.SSHPublicKey
+import Amazonka.IAM.Types.SSHPublicKeyMetadata
+import Amazonka.IAM.Types.ServerCertificate
+import Amazonka.IAM.Types.ServerCertificateMetadata
+import Amazonka.IAM.Types.ServiceLastAccessed
+import Amazonka.IAM.Types.ServiceSpecificCredential
+import Amazonka.IAM.Types.ServiceSpecificCredentialMetadata
+import Amazonka.IAM.Types.SigningCertificate
+import Amazonka.IAM.Types.SimulatePolicyResponse
+import Amazonka.IAM.Types.SortKeyType
+import Amazonka.IAM.Types.Statement
+import Amazonka.IAM.Types.StatusType
+import Amazonka.IAM.Types.SummaryKeyType
+import Amazonka.IAM.Types.Tag
+import Amazonka.IAM.Types.TrackedActionLastAccessed
+import Amazonka.IAM.Types.User
+import Amazonka.IAM.Types.UserDetail
+import Amazonka.IAM.Types.VirtualMFADevice
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-05-08@ of the Amazon Identity and Access Management SDK configuration.
 defaultService :: Core.Service

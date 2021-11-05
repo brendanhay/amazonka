@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.DeleteServerCertificate
+-- Module      : Amazonka.IAM.DeleteServerCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners>
 -- in the /Elastic Load Balancing API Reference/.
-module Network.AWS.IAM.DeleteServerCertificate
+module Amazonka.IAM.DeleteServerCertificate
   ( -- * Creating a Request
     DeleteServerCertificate (..),
     newDeleteServerCertificate,
@@ -52,12 +52,12 @@ module Network.AWS.IAM.DeleteServerCertificate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteServerCertificate' smart constructor.
 data DeleteServerCertificate = DeleteServerCertificate'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.GetContextKeysForPrincipalPolicy
+-- Module      : Amazonka.IAM.GetContextKeysForPrincipalPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- Context keys can be evaluated by testing against a value in an IAM
 -- policy. Use GetContextKeysForPrincipalPolicy to understand what key
 -- names and values you must supply when you call SimulatePrincipalPolicy.
-module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
+module Amazonka.IAM.GetContextKeysForPrincipalPolicy
   ( -- * Creating a Request
     GetContextKeysForPrincipalPolicy (..),
     newGetContextKeysForPrincipalPolicy,
@@ -58,12 +58,12 @@ module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetContextKeysForPrincipalPolicy' smart constructor.
 data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'

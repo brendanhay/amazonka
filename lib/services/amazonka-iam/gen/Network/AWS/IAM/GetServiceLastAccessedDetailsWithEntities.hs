@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
+-- Module      : Amazonka.IAM.GetServiceLastAccessedDetailsWithEntities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -43,7 +43,7 @@
 --
 -- By default, the list of associated entities is sorted by date, with the
 -- most recent access listed first.
-module Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
+module Amazonka.IAM.GetServiceLastAccessedDetailsWithEntities
   ( -- * Creating a Request
     GetServiceLastAccessedDetailsWithEntities (..),
     newGetServiceLastAccessedDetailsWithEntities,
@@ -70,12 +70,12 @@ module Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetServiceLastAccessedDetailsWithEntities' smart constructor.
 data GetServiceLastAccessedDetailsWithEntities = GetServiceLastAccessedDetailsWithEntities'

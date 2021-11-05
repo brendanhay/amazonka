@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Types.ContextEntry
+-- Module      : Amazonka.IAM.Types.ContextEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.ContextEntry where
+module Amazonka.IAM.Types.ContextEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types.ContextKeyTypeEnum
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types.ContextKeyTypeEnum
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a condition context key. It includes the name
 -- of the key and specifies the value (or values, if the context key

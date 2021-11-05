@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.CreateServiceLinkedRole
+-- Module      : Amazonka.IAM.CreateServiceLinkedRole
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 --
 -- To attach a policy to this service-linked role, you must make the
 -- request using the Amazon Web Services service that depends on this role.
-module Network.AWS.IAM.CreateServiceLinkedRole
+module Amazonka.IAM.CreateServiceLinkedRole
   ( -- * Creating a Request
     CreateServiceLinkedRole (..),
     newCreateServiceLinkedRole,
@@ -52,12 +52,12 @@ module Network.AWS.IAM.CreateServiceLinkedRole
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceLinkedRole' smart constructor.
 data CreateServiceLinkedRole = CreateServiceLinkedRole'

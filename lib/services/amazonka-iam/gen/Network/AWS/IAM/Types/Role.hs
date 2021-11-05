@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.Types.Role
+-- Module      : Amazonka.IAM.Types.Role
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.Role where
+module Amazonka.IAM.Types.Role where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types.AttachedPermissionsBoundary
-import Network.AWS.IAM.Types.RoleLastUsed
-import Network.AWS.IAM.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types.AttachedPermissionsBoundary
+import Amazonka.IAM.Types.RoleLastUsed
+import Amazonka.IAM.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an IAM role. This structure is returned as a
 -- response element in several API operations that interact with roles.

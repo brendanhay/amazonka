@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.GetLoginProfile
+-- Module      : Amazonka.IAM.GetLoginProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- user with programmatic access does not have a login profile unless you
 -- create a password for the user to access the Amazon Web Services
 -- Management Console.
-module Network.AWS.IAM.GetLoginProfile
+module Amazonka.IAM.GetLoginProfile
   ( -- * Creating a Request
     GetLoginProfile (..),
     newGetLoginProfile,
@@ -52,12 +52,12 @@ module Network.AWS.IAM.GetLoginProfile
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLoginProfile' smart constructor.
 data GetLoginProfile = GetLoginProfile'

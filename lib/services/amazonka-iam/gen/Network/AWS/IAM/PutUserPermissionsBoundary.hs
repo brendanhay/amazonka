@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.PutUserPermissionsBoundary
+-- Module      : Amazonka.IAM.PutUserPermissionsBoundary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- learn how the effective permissions for a user are evaluated, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html IAM JSON policy evaluation logic>
 -- in the IAM User Guide.
-module Network.AWS.IAM.PutUserPermissionsBoundary
+module Amazonka.IAM.PutUserPermissionsBoundary
   ( -- * Creating a Request
     PutUserPermissionsBoundary (..),
     newPutUserPermissionsBoundary,
@@ -47,12 +47,12 @@ module Network.AWS.IAM.PutUserPermissionsBoundary
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IAM.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IAM.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutUserPermissionsBoundary' smart constructor.
 data PutUserPermissionsBoundary = PutUserPermissionsBoundary'

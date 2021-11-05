@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.STS where
 
+import Amazonka.STS
 import qualified Data.Proxy as Proxy
-import Network.AWS.STS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.STS.Internal

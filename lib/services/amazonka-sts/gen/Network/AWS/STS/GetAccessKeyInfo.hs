@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.STS.GetAccessKeyInfo
+-- Module      : Amazonka.STS.GetAccessKeyInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -47,7 +47,7 @@
 -- might be active, inactive, or deleted. Active keys might not have
 -- permissions to perform an operation. Providing a deleted access key
 -- might return an error that the key doesn\'t exist.
-module Network.AWS.STS.GetAccessKeyInfo
+module Amazonka.STS.GetAccessKeyInfo
   ( -- * Creating a Request
     GetAccessKeyInfo (..),
     newGetAccessKeyInfo,
@@ -65,12 +65,12 @@ module Network.AWS.STS.GetAccessKeyInfo
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.STS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.STS.Types
 
 -- | /See:/ 'newGetAccessKeyInfo' smart constructor.
 data GetAccessKeyInfo = GetAccessKeyInfo'

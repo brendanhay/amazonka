@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.STS.Lens
+-- Module      : Amazonka.STS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.STS.Lens
+module Amazonka.STS.Lens
   ( -- * Operations
 
     -- ** GetCallerIdentity
@@ -120,15 +120,15 @@ module Network.AWS.STS.Lens
   )
 where
 
-import Network.AWS.STS.AssumeRole
-import Network.AWS.STS.AssumeRoleWithSAML
-import Network.AWS.STS.AssumeRoleWithWebIdentity
-import Network.AWS.STS.DecodeAuthorizationMessage
-import Network.AWS.STS.GetAccessKeyInfo
-import Network.AWS.STS.GetCallerIdentity
-import Network.AWS.STS.GetFederationToken
-import Network.AWS.STS.GetSessionToken
-import Network.AWS.STS.Types.AssumedRoleUser
-import Network.AWS.STS.Types.FederatedUser
-import Network.AWS.STS.Types.PolicyDescriptorType
-import Network.AWS.STS.Types.Tag
+import Amazonka.STS.AssumeRole
+import Amazonka.STS.AssumeRoleWithSAML
+import Amazonka.STS.AssumeRoleWithWebIdentity
+import Amazonka.STS.DecodeAuthorizationMessage
+import Amazonka.STS.GetAccessKeyInfo
+import Amazonka.STS.GetCallerIdentity
+import Amazonka.STS.GetFederationToken
+import Amazonka.STS.GetSessionToken
+import Amazonka.STS.Types.AssumedRoleUser
+import Amazonka.STS.Types.FederatedUser
+import Amazonka.STS.Types.PolicyDescriptorType
+import Amazonka.STS.Types.Tag

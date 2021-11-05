@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.STS
+-- Module      : Amazonka.STS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 -- provides descriptions of the STS API. For more information about using
 -- this service, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials>.
-module Network.AWS.STS
+module Amazonka.STS
   ( -- * Service Configuration
     defaultService,
 
@@ -124,17 +124,17 @@ module Network.AWS.STS
   )
 where
 
-import Network.AWS.STS.AssumeRole
-import Network.AWS.STS.AssumeRoleWithSAML
-import Network.AWS.STS.AssumeRoleWithWebIdentity
-import Network.AWS.STS.DecodeAuthorizationMessage
-import Network.AWS.STS.GetAccessKeyInfo
-import Network.AWS.STS.GetCallerIdentity
-import Network.AWS.STS.GetFederationToken
-import Network.AWS.STS.GetSessionToken
-import Network.AWS.STS.Lens
-import Network.AWS.STS.Types
-import Network.AWS.STS.Waiters
+import Amazonka.STS.AssumeRole
+import Amazonka.STS.AssumeRoleWithSAML
+import Amazonka.STS.AssumeRoleWithWebIdentity
+import Amazonka.STS.DecodeAuthorizationMessage
+import Amazonka.STS.GetAccessKeyInfo
+import Amazonka.STS.GetCallerIdentity
+import Amazonka.STS.GetFederationToken
+import Amazonka.STS.GetSessionToken
+import Amazonka.STS.Lens
+import Amazonka.STS.Types
+import Amazonka.STS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

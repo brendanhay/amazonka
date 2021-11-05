@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.STS.AssumeRole
+-- Module      : Amazonka.STS.AssumeRole
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -120,7 +120,7 @@
 -- @TokenCode@ parameters. The @SerialNumber@ value identifies the user\'s
 -- hardware or virtual MFA device. The @TokenCode@ is the time-based
 -- one-time password (TOTP) that the MFA device produces.
-module Network.AWS.STS.AssumeRole
+module Amazonka.STS.AssumeRole
   ( -- * Creating a Request
     AssumeRole (..),
     newAssumeRole,
@@ -151,12 +151,12 @@ module Network.AWS.STS.AssumeRole
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.STS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.STS.Types
 
 -- | /See:/ 'newAssumeRole' smart constructor.
 data AssumeRole = AssumeRole'

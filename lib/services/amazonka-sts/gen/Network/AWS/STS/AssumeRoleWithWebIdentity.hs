@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
+-- Module      : Amazonka.STS.AssumeRoleWithWebIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -178,7 +178,7 @@
 --     This article discusses web identity federation and shows an example
 --     of how to use web identity federation to get access to content in
 --     Amazon S3.
-module Network.AWS.STS.AssumeRoleWithWebIdentity
+module Amazonka.STS.AssumeRoleWithWebIdentity
   ( -- * Creating a Request
     AssumeRoleWithWebIdentity (..),
     newAssumeRoleWithWebIdentity,
@@ -208,12 +208,12 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.STS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.STS.Types
 
 -- | /See:/ 'newAssumeRoleWithWebIdentity' smart constructor.
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'

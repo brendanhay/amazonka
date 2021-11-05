@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MacieV2 where
 
+import Amazonka.MacieV2
 import qualified Data.Proxy as Proxy
-import Network.AWS.MacieV2
 import Test.AWS.Fixture
 import Test.AWS.MacieV2.Internal
 import Test.AWS.Prelude

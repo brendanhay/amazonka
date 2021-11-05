@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.JobComparator
+-- Module      : Amazonka.MacieV2.Types.JobComparator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.JobComparator
+module Amazonka.MacieV2.Types.JobComparator
   ( JobComparator
       ( ..,
         JobComparator_CONTAINS,
@@ -32,8 +32,8 @@ module Network.AWS.MacieV2.Types.JobComparator
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The operator to use in a condition. Valid values are:
 newtype JobComparator = JobComparator'

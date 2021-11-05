@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.SearchResourcesTagCriterion
+-- Module      : Amazonka.MacieV2.Types.SearchResourcesTagCriterion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.SearchResourcesTagCriterion where
+module Amazonka.MacieV2.Types.SearchResourcesTagCriterion where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.SearchResourcesComparator
-import Network.AWS.MacieV2.Types.SearchResourcesTagCriterionPair
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.SearchResourcesComparator
+import Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag-based filter condition that determines which Amazon Web
 -- Services resources are included or excluded from the query results.

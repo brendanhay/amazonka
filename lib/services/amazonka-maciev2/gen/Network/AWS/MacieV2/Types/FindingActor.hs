@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.FindingActor
+-- Module      : Amazonka.MacieV2.Types.FindingActor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.FindingActor where
+module Amazonka.MacieV2.Types.FindingActor where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.DomainDetails
-import Network.AWS.MacieV2.Types.IpAddressDetails
-import Network.AWS.MacieV2.Types.UserIdentity
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.DomainDetails
+import Amazonka.MacieV2.Types.IpAddressDetails
+import Amazonka.MacieV2.Types.UserIdentity
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an entity that performed an action that
 -- produced a policy finding for a resource.

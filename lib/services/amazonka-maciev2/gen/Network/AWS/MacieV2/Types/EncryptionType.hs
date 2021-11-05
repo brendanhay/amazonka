@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.EncryptionType
+-- Module      : Amazonka.MacieV2.Types.EncryptionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.EncryptionType
+module Amazonka.MacieV2.Types.EncryptionType
   ( EncryptionType
       ( ..,
         EncryptionType_AES256,
@@ -28,8 +28,8 @@ module Network.AWS.MacieV2.Types.EncryptionType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type of server-side encryption that\'s used to encrypt an S3 object
 -- or objects in an S3 bucket. Valid values are:

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.JobScheduleFrequency
+-- Module      : Amazonka.MacieV2.Types.JobScheduleFrequency
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.JobScheduleFrequency where
+module Amazonka.MacieV2.Types.JobScheduleFrequency where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.DailySchedule
-import Network.AWS.MacieV2.Types.MonthlySchedule
-import Network.AWS.MacieV2.Types.WeeklySchedule
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.DailySchedule
+import Amazonka.MacieV2.Types.MonthlySchedule
+import Amazonka.MacieV2.Types.WeeklySchedule
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the recurrence pattern for running a classification job.
 --

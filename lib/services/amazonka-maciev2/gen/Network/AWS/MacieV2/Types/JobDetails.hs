@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.JobDetails
+-- Module      : Amazonka.MacieV2.Types.JobDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.JobDetails where
+module Amazonka.MacieV2.Types.JobDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.IsDefinedInJob
-import Network.AWS.MacieV2.Types.IsMonitoredByJob
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.IsDefinedInJob
+import Amazonka.MacieV2.Types.IsMonitoredByJob
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether any one-time or recurring classification jobs are
 -- configured to analyze data in an S3 bucket, and, if so, the details of

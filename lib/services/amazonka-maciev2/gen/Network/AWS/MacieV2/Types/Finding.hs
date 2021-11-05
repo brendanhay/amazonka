@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.Finding
+-- Module      : Amazonka.MacieV2.Types.Finding
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.Finding where
+module Amazonka.MacieV2.Types.Finding where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.ClassificationDetails
-import Network.AWS.MacieV2.Types.FindingCategory
-import Network.AWS.MacieV2.Types.FindingType
-import Network.AWS.MacieV2.Types.PolicyDetails
-import Network.AWS.MacieV2.Types.ResourcesAffected
-import Network.AWS.MacieV2.Types.Severity
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.ClassificationDetails
+import Amazonka.MacieV2.Types.FindingCategory
+import Amazonka.MacieV2.Types.FindingType
+import Amazonka.MacieV2.Types.PolicyDetails
+import Amazonka.MacieV2.Types.ResourcesAffected
+import Amazonka.MacieV2.Types.Severity
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of a finding.
 --

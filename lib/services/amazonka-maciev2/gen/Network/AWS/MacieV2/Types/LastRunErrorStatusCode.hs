@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.LastRunErrorStatusCode
+-- Module      : Amazonka.MacieV2.Types.LastRunErrorStatusCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.LastRunErrorStatusCode
+module Amazonka.MacieV2.Types.LastRunErrorStatusCode
   ( LastRunErrorStatusCode
       ( ..,
         LastRunErrorStatusCode_ERROR,
@@ -26,8 +26,8 @@ module Network.AWS.MacieV2.Types.LastRunErrorStatusCode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether any account- or bucket-level access errors occurred
 -- during the run of a one-time classification job or the most recent run

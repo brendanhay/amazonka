@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.SearchResourcesTagCriterionPair
+-- Module      : Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.SearchResourcesTagCriterionPair where
+module Amazonka.MacieV2.Types.SearchResourcesTagCriterionPair where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a tag key, a tag value, or a tag key and value (as a pair) to
 -- use in a tag-based filter condition for a query. Tag keys and values are

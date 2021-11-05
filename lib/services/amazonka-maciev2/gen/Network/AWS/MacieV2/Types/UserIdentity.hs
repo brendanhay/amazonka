@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.UserIdentity
+-- Module      : Amazonka.MacieV2.Types.UserIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.UserIdentity where
+module Amazonka.MacieV2.Types.UserIdentity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.AssumedRole
-import Network.AWS.MacieV2.Types.AwsAccount
-import Network.AWS.MacieV2.Types.AwsService
-import Network.AWS.MacieV2.Types.FederatedUser
-import Network.AWS.MacieV2.Types.IamUser
-import Network.AWS.MacieV2.Types.UserIdentityRoot
-import Network.AWS.MacieV2.Types.UserIdentityType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.AssumedRole
+import Amazonka.MacieV2.Types.AwsAccount
+import Amazonka.MacieV2.Types.AwsService
+import Amazonka.MacieV2.Types.FederatedUser
+import Amazonka.MacieV2.Types.IamUser
+import Amazonka.MacieV2.Types.UserIdentityRoot
+import Amazonka.MacieV2.Types.UserIdentityType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the type and other characteristics of an
 -- entity that performed an action on an affected resource.

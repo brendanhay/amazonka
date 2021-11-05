@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.S3Object
+-- Module      : Amazonka.MacieV2.Types.S3Object
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.S3Object where
+module Amazonka.MacieV2.Types.S3Object where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.KeyValuePair
-import Network.AWS.MacieV2.Types.ServerSideEncryption
-import Network.AWS.MacieV2.Types.StorageClass
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.KeyValuePair
+import Amazonka.MacieV2.Types.ServerSideEncryption
+import Amazonka.MacieV2.Types.StorageClass
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the S3 object that a finding applies to.
 --

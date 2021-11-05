@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.Occurrences
+-- Module      : Amazonka.MacieV2.Types.Occurrences
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.Occurrences where
+module Amazonka.MacieV2.Types.Occurrences where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.Cell
-import Network.AWS.MacieV2.Types.Page
-import Network.AWS.MacieV2.Types.Range
-import Network.AWS.MacieV2.Types.Record
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.Cell
+import Amazonka.MacieV2.Types.Page
+import Amazonka.MacieV2.Types.Range
+import Amazonka.MacieV2.Types.Record
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the location of 1-15 occurrences of sensitive data that was
 -- detected by a managed data identifier or a custom data identifier and

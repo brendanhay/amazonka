@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MacieV2.Types.UsageTotal
+-- Module      : Amazonka.MacieV2.Types.UsageTotal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MacieV2.Types.UsageTotal where
+module Amazonka.MacieV2.Types.UsageTotal where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MacieV2.Types.Currency
-import Network.AWS.MacieV2.Types.UsageType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types.Currency
+import Amazonka.MacieV2.Types.UsageType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides aggregated data for an Amazon Macie usage metric. The value for
 -- the metric reports estimated usage data for an account for the preceding

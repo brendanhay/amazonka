@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MacieV2
+-- Module      : Amazonka.MacieV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- for you. If Macie detects sensitive data or potential data access
 -- issues, it generates detailed findings for you to review and act upon as
 -- necessary.
-module Network.AWS.MacieV2
+module Amazonka.MacieV2
   ( -- * Service Configuration
     defaultService,
 
@@ -999,66 +999,66 @@ module Network.AWS.MacieV2
   )
 where
 
-import Network.AWS.MacieV2.AcceptInvitation
-import Network.AWS.MacieV2.BatchGetCustomDataIdentifiers
-import Network.AWS.MacieV2.CreateClassificationJob
-import Network.AWS.MacieV2.CreateCustomDataIdentifier
-import Network.AWS.MacieV2.CreateFindingsFilter
-import Network.AWS.MacieV2.CreateInvitations
-import Network.AWS.MacieV2.CreateMember
-import Network.AWS.MacieV2.CreateSampleFindings
-import Network.AWS.MacieV2.DeclineInvitations
-import Network.AWS.MacieV2.DeleteCustomDataIdentifier
-import Network.AWS.MacieV2.DeleteFindingsFilter
-import Network.AWS.MacieV2.DeleteInvitations
-import Network.AWS.MacieV2.DeleteMember
-import Network.AWS.MacieV2.DescribeBuckets
-import Network.AWS.MacieV2.DescribeClassificationJob
-import Network.AWS.MacieV2.DescribeOrganizationConfiguration
-import Network.AWS.MacieV2.DisableMacie
-import Network.AWS.MacieV2.DisableOrganizationAdminAccount
-import Network.AWS.MacieV2.DisassociateFromAdministratorAccount
-import Network.AWS.MacieV2.DisassociateFromMasterAccount
-import Network.AWS.MacieV2.DisassociateMember
-import Network.AWS.MacieV2.EnableMacie
-import Network.AWS.MacieV2.EnableOrganizationAdminAccount
-import Network.AWS.MacieV2.GetAdministratorAccount
-import Network.AWS.MacieV2.GetBucketStatistics
-import Network.AWS.MacieV2.GetClassificationExportConfiguration
-import Network.AWS.MacieV2.GetCustomDataIdentifier
-import Network.AWS.MacieV2.GetFindingStatistics
-import Network.AWS.MacieV2.GetFindings
-import Network.AWS.MacieV2.GetFindingsFilter
-import Network.AWS.MacieV2.GetFindingsPublicationConfiguration
-import Network.AWS.MacieV2.GetInvitationsCount
-import Network.AWS.MacieV2.GetMacieSession
-import Network.AWS.MacieV2.GetMasterAccount
-import Network.AWS.MacieV2.GetMember
-import Network.AWS.MacieV2.GetUsageStatistics
-import Network.AWS.MacieV2.GetUsageTotals
-import Network.AWS.MacieV2.Lens
-import Network.AWS.MacieV2.ListClassificationJobs
-import Network.AWS.MacieV2.ListCustomDataIdentifiers
-import Network.AWS.MacieV2.ListFindings
-import Network.AWS.MacieV2.ListFindingsFilters
-import Network.AWS.MacieV2.ListInvitations
-import Network.AWS.MacieV2.ListManagedDataIdentifiers
-import Network.AWS.MacieV2.ListMembers
-import Network.AWS.MacieV2.ListOrganizationAdminAccounts
-import Network.AWS.MacieV2.ListTagsForResource
-import Network.AWS.MacieV2.PutClassificationExportConfiguration
-import Network.AWS.MacieV2.PutFindingsPublicationConfiguration
-import Network.AWS.MacieV2.SearchResources
-import Network.AWS.MacieV2.TagResource
-import Network.AWS.MacieV2.TestCustomDataIdentifier
-import Network.AWS.MacieV2.Types
-import Network.AWS.MacieV2.UntagResource
-import Network.AWS.MacieV2.UpdateClassificationJob
-import Network.AWS.MacieV2.UpdateFindingsFilter
-import Network.AWS.MacieV2.UpdateMacieSession
-import Network.AWS.MacieV2.UpdateMemberSession
-import Network.AWS.MacieV2.UpdateOrganizationConfiguration
-import Network.AWS.MacieV2.Waiters
+import Amazonka.MacieV2.AcceptInvitation
+import Amazonka.MacieV2.BatchGetCustomDataIdentifiers
+import Amazonka.MacieV2.CreateClassificationJob
+import Amazonka.MacieV2.CreateCustomDataIdentifier
+import Amazonka.MacieV2.CreateFindingsFilter
+import Amazonka.MacieV2.CreateInvitations
+import Amazonka.MacieV2.CreateMember
+import Amazonka.MacieV2.CreateSampleFindings
+import Amazonka.MacieV2.DeclineInvitations
+import Amazonka.MacieV2.DeleteCustomDataIdentifier
+import Amazonka.MacieV2.DeleteFindingsFilter
+import Amazonka.MacieV2.DeleteInvitations
+import Amazonka.MacieV2.DeleteMember
+import Amazonka.MacieV2.DescribeBuckets
+import Amazonka.MacieV2.DescribeClassificationJob
+import Amazonka.MacieV2.DescribeOrganizationConfiguration
+import Amazonka.MacieV2.DisableMacie
+import Amazonka.MacieV2.DisableOrganizationAdminAccount
+import Amazonka.MacieV2.DisassociateFromAdministratorAccount
+import Amazonka.MacieV2.DisassociateFromMasterAccount
+import Amazonka.MacieV2.DisassociateMember
+import Amazonka.MacieV2.EnableMacie
+import Amazonka.MacieV2.EnableOrganizationAdminAccount
+import Amazonka.MacieV2.GetAdministratorAccount
+import Amazonka.MacieV2.GetBucketStatistics
+import Amazonka.MacieV2.GetClassificationExportConfiguration
+import Amazonka.MacieV2.GetCustomDataIdentifier
+import Amazonka.MacieV2.GetFindingStatistics
+import Amazonka.MacieV2.GetFindings
+import Amazonka.MacieV2.GetFindingsFilter
+import Amazonka.MacieV2.GetFindingsPublicationConfiguration
+import Amazonka.MacieV2.GetInvitationsCount
+import Amazonka.MacieV2.GetMacieSession
+import Amazonka.MacieV2.GetMasterAccount
+import Amazonka.MacieV2.GetMember
+import Amazonka.MacieV2.GetUsageStatistics
+import Amazonka.MacieV2.GetUsageTotals
+import Amazonka.MacieV2.Lens
+import Amazonka.MacieV2.ListClassificationJobs
+import Amazonka.MacieV2.ListCustomDataIdentifiers
+import Amazonka.MacieV2.ListFindings
+import Amazonka.MacieV2.ListFindingsFilters
+import Amazonka.MacieV2.ListInvitations
+import Amazonka.MacieV2.ListManagedDataIdentifiers
+import Amazonka.MacieV2.ListMembers
+import Amazonka.MacieV2.ListOrganizationAdminAccounts
+import Amazonka.MacieV2.ListTagsForResource
+import Amazonka.MacieV2.PutClassificationExportConfiguration
+import Amazonka.MacieV2.PutFindingsPublicationConfiguration
+import Amazonka.MacieV2.SearchResources
+import Amazonka.MacieV2.TagResource
+import Amazonka.MacieV2.TestCustomDataIdentifier
+import Amazonka.MacieV2.Types
+import Amazonka.MacieV2.UntagResource
+import Amazonka.MacieV2.UpdateClassificationJob
+import Amazonka.MacieV2.UpdateFindingsFilter
+import Amazonka.MacieV2.UpdateMacieSession
+import Amazonka.MacieV2.UpdateMemberSession
+import Amazonka.MacieV2.UpdateOrganizationConfiguration
+import Amazonka.MacieV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

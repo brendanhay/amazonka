@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Detective where
 
+import Amazonka.Detective
 import qualified Data.Proxy as Proxy
-import Network.AWS.Detective
 import Test.AWS.Detective.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

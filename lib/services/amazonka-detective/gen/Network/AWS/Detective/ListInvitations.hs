@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Detective.ListInvitations
+-- Module      : Amazonka.Detective.ListInvitations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- The results do not include behavior graphs for which the member account
 -- declined the invitation. The results also do not include behavior graphs
 -- that the member account resigned from or was removed from.
-module Network.AWS.Detective.ListInvitations
+module Amazonka.Detective.ListInvitations
   ( -- * Creating a Request
     ListInvitations (..),
     newListInvitations,
@@ -50,12 +50,12 @@ module Network.AWS.Detective.ListInvitations
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Detective.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Detective.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInvitations' smart constructor.
 data ListInvitations = ListInvitations'

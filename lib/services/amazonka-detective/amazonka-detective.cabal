@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Detective.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Detective.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Detective" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Detective" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,33 +45,33 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Detective
-    Network.AWS.Detective.AcceptInvitation
-    Network.AWS.Detective.CreateGraph
-    Network.AWS.Detective.CreateMembers
-    Network.AWS.Detective.DeleteGraph
-    Network.AWS.Detective.DeleteMembers
-    Network.AWS.Detective.DisassociateMembership
-    Network.AWS.Detective.GetMembers
-    Network.AWS.Detective.Lens
-    Network.AWS.Detective.ListGraphs
-    Network.AWS.Detective.ListInvitations
-    Network.AWS.Detective.ListMembers
-    Network.AWS.Detective.ListTagsForResource
-    Network.AWS.Detective.RejectInvitation
-    Network.AWS.Detective.StartMonitoringMember
-    Network.AWS.Detective.TagResource
-    Network.AWS.Detective.Types
-    Network.AWS.Detective.Types.Account
-    Network.AWS.Detective.Types.Graph
-    Network.AWS.Detective.Types.MemberDetail
-    Network.AWS.Detective.Types.MemberDisabledReason
-    Network.AWS.Detective.Types.MemberStatus
-    Network.AWS.Detective.Types.UnprocessedAccount
-    Network.AWS.Detective.UntagResource
-    Network.AWS.Detective.Waiters
+    Amazonka.Detective
+    Amazonka.Detective.AcceptInvitation
+    Amazonka.Detective.CreateGraph
+    Amazonka.Detective.CreateMembers
+    Amazonka.Detective.DeleteGraph
+    Amazonka.Detective.DeleteMembers
+    Amazonka.Detective.DisassociateMembership
+    Amazonka.Detective.GetMembers
+    Amazonka.Detective.Lens
+    Amazonka.Detective.ListGraphs
+    Amazonka.Detective.ListInvitations
+    Amazonka.Detective.ListMembers
+    Amazonka.Detective.ListTagsForResource
+    Amazonka.Detective.RejectInvitation
+    Amazonka.Detective.StartMonitoringMember
+    Amazonka.Detective.TagResource
+    Amazonka.Detective.Types
+    Amazonka.Detective.Types.Account
+    Amazonka.Detective.Types.Graph
+    Amazonka.Detective.Types.MemberDetail
+    Amazonka.Detective.Types.MemberDisabledReason
+    Amazonka.Detective.Types.MemberStatus
+    Amazonka.Detective.Types.UnprocessedAccount
+    Amazonka.Detective.UntagResource
+    Amazonka.Detective.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

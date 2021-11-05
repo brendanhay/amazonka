@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Detective.Lens
+-- Module      : Amazonka.Detective.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Detective.Lens
+module Amazonka.Detective.Lens
   ( -- * Operations
 
     -- ** StartMonitoringMember
@@ -126,22 +126,22 @@ module Network.AWS.Detective.Lens
   )
 where
 
-import Network.AWS.Detective.AcceptInvitation
-import Network.AWS.Detective.CreateGraph
-import Network.AWS.Detective.CreateMembers
-import Network.AWS.Detective.DeleteGraph
-import Network.AWS.Detective.DeleteMembers
-import Network.AWS.Detective.DisassociateMembership
-import Network.AWS.Detective.GetMembers
-import Network.AWS.Detective.ListGraphs
-import Network.AWS.Detective.ListInvitations
-import Network.AWS.Detective.ListMembers
-import Network.AWS.Detective.ListTagsForResource
-import Network.AWS.Detective.RejectInvitation
-import Network.AWS.Detective.StartMonitoringMember
-import Network.AWS.Detective.TagResource
-import Network.AWS.Detective.Types.Account
-import Network.AWS.Detective.Types.Graph
-import Network.AWS.Detective.Types.MemberDetail
-import Network.AWS.Detective.Types.UnprocessedAccount
-import Network.AWS.Detective.UntagResource
+import Amazonka.Detective.AcceptInvitation
+import Amazonka.Detective.CreateGraph
+import Amazonka.Detective.CreateMembers
+import Amazonka.Detective.DeleteGraph
+import Amazonka.Detective.DeleteMembers
+import Amazonka.Detective.DisassociateMembership
+import Amazonka.Detective.GetMembers
+import Amazonka.Detective.ListGraphs
+import Amazonka.Detective.ListInvitations
+import Amazonka.Detective.ListMembers
+import Amazonka.Detective.ListTagsForResource
+import Amazonka.Detective.RejectInvitation
+import Amazonka.Detective.StartMonitoringMember
+import Amazonka.Detective.TagResource
+import Amazonka.Detective.Types.Account
+import Amazonka.Detective.Types.Graph
+import Amazonka.Detective.Types.MemberDetail
+import Amazonka.Detective.Types.UnprocessedAccount
+import Amazonka.Detective.UntagResource

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Detective
+-- Module      : Amazonka.Detective
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 -- account.\" An administrator account is used to centrally manage multiple
 -- accounts. In the case of Detective, the administrator account manages
 -- the accounts in their behavior graph.
-module Network.AWS.Detective
+module Amazonka.Detective
   ( -- * Service Configuration
     defaultService,
 
@@ -200,24 +200,24 @@ module Network.AWS.Detective
   )
 where
 
-import Network.AWS.Detective.AcceptInvitation
-import Network.AWS.Detective.CreateGraph
-import Network.AWS.Detective.CreateMembers
-import Network.AWS.Detective.DeleteGraph
-import Network.AWS.Detective.DeleteMembers
-import Network.AWS.Detective.DisassociateMembership
-import Network.AWS.Detective.GetMembers
-import Network.AWS.Detective.Lens
-import Network.AWS.Detective.ListGraphs
-import Network.AWS.Detective.ListInvitations
-import Network.AWS.Detective.ListMembers
-import Network.AWS.Detective.ListTagsForResource
-import Network.AWS.Detective.RejectInvitation
-import Network.AWS.Detective.StartMonitoringMember
-import Network.AWS.Detective.TagResource
-import Network.AWS.Detective.Types
-import Network.AWS.Detective.UntagResource
-import Network.AWS.Detective.Waiters
+import Amazonka.Detective.AcceptInvitation
+import Amazonka.Detective.CreateGraph
+import Amazonka.Detective.CreateMembers
+import Amazonka.Detective.DeleteGraph
+import Amazonka.Detective.DeleteMembers
+import Amazonka.Detective.DisassociateMembership
+import Amazonka.Detective.GetMembers
+import Amazonka.Detective.Lens
+import Amazonka.Detective.ListGraphs
+import Amazonka.Detective.ListInvitations
+import Amazonka.Detective.ListMembers
+import Amazonka.Detective.ListTagsForResource
+import Amazonka.Detective.RejectInvitation
+import Amazonka.Detective.StartMonitoringMember
+import Amazonka.Detective.TagResource
+import Amazonka.Detective.Types
+import Amazonka.Detective.UntagResource
+import Amazonka.Detective.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

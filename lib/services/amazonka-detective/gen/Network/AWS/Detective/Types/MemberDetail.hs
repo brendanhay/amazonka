@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Detective.Types.MemberDetail
+-- Module      : Amazonka.Detective.Types.MemberDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Detective.Types.MemberDetail where
+module Amazonka.Detective.Types.MemberDetail where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Detective.Types.MemberDisabledReason
-import Network.AWS.Detective.Types.MemberStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Detective.Types.MemberDisabledReason
+import Amazonka.Detective.Types.MemberStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a member account that was invited to contribute to a
 -- behavior graph.

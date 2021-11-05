@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Detective.GetMembers
+-- Module      : Amazonka.Detective.GetMembers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns the membership details for specified member accounts for a
 -- behavior graph.
-module Network.AWS.Detective.GetMembers
+module Amazonka.Detective.GetMembers
   ( -- * Creating a Request
     GetMembers (..),
     newGetMembers,
@@ -42,12 +42,12 @@ module Network.AWS.Detective.GetMembers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Detective.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Detective.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMembers' smart constructor.
 data GetMembers = GetMembers'

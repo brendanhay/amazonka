@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus
+-- Module      : Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus where
+module Amazonka.OpenSearch.Types.AutoTuneOptionsStatus where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types.AutoTuneOptions
-import Network.AWS.OpenSearch.Types.AutoTuneStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types.AutoTuneOptions
+import Amazonka.OpenSearch.Types.AutoTuneStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Auto-Tune status for the domain.
 --

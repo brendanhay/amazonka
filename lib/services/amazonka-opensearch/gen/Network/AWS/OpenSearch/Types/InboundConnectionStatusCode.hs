@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types.InboundConnectionStatusCode
+-- Module      : Amazonka.OpenSearch.Types.InboundConnectionStatusCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types.InboundConnectionStatusCode
+module Amazonka.OpenSearch.Types.InboundConnectionStatusCode
   ( InboundConnectionStatusCode
       ( ..,
         InboundConnectionStatusCode_ACTIVE,
@@ -32,8 +32,8 @@ module Network.AWS.OpenSearch.Types.InboundConnectionStatusCode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype InboundConnectionStatusCode = InboundConnectionStatusCode'
   { fromInboundConnectionStatusCode ::

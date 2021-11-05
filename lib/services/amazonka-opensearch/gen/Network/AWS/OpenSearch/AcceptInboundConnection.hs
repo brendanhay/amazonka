@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.AcceptInboundConnection
+-- Module      : Amazonka.OpenSearch.AcceptInboundConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Allows the remote domain owner to accept an inbound cross-cluster
 -- connection request.
-module Network.AWS.OpenSearch.AcceptInboundConnection
+module Amazonka.OpenSearch.AcceptInboundConnection
   ( -- * Creating a Request
     AcceptInboundConnection (..),
     newAcceptInboundConnection,
@@ -40,12 +40,12 @@ module Network.AWS.OpenSearch.AcceptInboundConnection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @ AcceptInboundConnection @
 -- operation.

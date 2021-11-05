@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.CreatePackage
+-- Module      : Amazonka.OpenSearch.CreatePackage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a package for use with Amazon OpenSearch Service domains.
-module Network.AWS.OpenSearch.CreatePackage
+module Amazonka.OpenSearch.CreatePackage
   ( -- * Creating a Request
     CreatePackage (..),
     newCreatePackage,
@@ -42,12 +42,12 @@ module Network.AWS.OpenSearch.CreatePackage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for request parameters to the @ CreatePackage @ operation.
 --

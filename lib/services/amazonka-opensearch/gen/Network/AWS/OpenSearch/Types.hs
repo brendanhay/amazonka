@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types
+-- Module      : Amazonka.OpenSearch.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types
+module Amazonka.OpenSearch.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -665,107 +665,107 @@ module Network.AWS.OpenSearch.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types.AWSDomainInformation
-import Network.AWS.OpenSearch.Types.AccessPoliciesStatus
-import Network.AWS.OpenSearch.Types.AdditionalLimit
-import Network.AWS.OpenSearch.Types.AdvancedOptionsStatus
-import Network.AWS.OpenSearch.Types.AdvancedSecurityOptions
-import Network.AWS.OpenSearch.Types.AdvancedSecurityOptionsInput
-import Network.AWS.OpenSearch.Types.AdvancedSecurityOptionsStatus
-import Network.AWS.OpenSearch.Types.AutoTune
-import Network.AWS.OpenSearch.Types.AutoTuneDesiredState
-import Network.AWS.OpenSearch.Types.AutoTuneDetails
-import Network.AWS.OpenSearch.Types.AutoTuneMaintenanceSchedule
-import Network.AWS.OpenSearch.Types.AutoTuneOptions
-import Network.AWS.OpenSearch.Types.AutoTuneOptionsInput
-import Network.AWS.OpenSearch.Types.AutoTuneOptionsOutput
-import Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus
-import Network.AWS.OpenSearch.Types.AutoTuneState
-import Network.AWS.OpenSearch.Types.AutoTuneStatus
-import Network.AWS.OpenSearch.Types.AutoTuneType
-import Network.AWS.OpenSearch.Types.ClusterConfig
-import Network.AWS.OpenSearch.Types.ClusterConfigStatus
-import Network.AWS.OpenSearch.Types.CognitoOptions
-import Network.AWS.OpenSearch.Types.CognitoOptionsStatus
-import Network.AWS.OpenSearch.Types.ColdStorageOptions
-import Network.AWS.OpenSearch.Types.CompatibleVersionsMap
-import Network.AWS.OpenSearch.Types.DeploymentStatus
-import Network.AWS.OpenSearch.Types.DescribePackagesFilter
-import Network.AWS.OpenSearch.Types.DescribePackagesFilterName
-import Network.AWS.OpenSearch.Types.DomainConfig
-import Network.AWS.OpenSearch.Types.DomainEndpointOptions
-import Network.AWS.OpenSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.OpenSearch.Types.DomainInfo
-import Network.AWS.OpenSearch.Types.DomainInformationContainer
-import Network.AWS.OpenSearch.Types.DomainPackageDetails
-import Network.AWS.OpenSearch.Types.DomainPackageStatus
-import Network.AWS.OpenSearch.Types.DomainStatus
-import Network.AWS.OpenSearch.Types.Duration
-import Network.AWS.OpenSearch.Types.EBSOptions
-import Network.AWS.OpenSearch.Types.EBSOptionsStatus
-import Network.AWS.OpenSearch.Types.EncryptionAtRestOptions
-import Network.AWS.OpenSearch.Types.EncryptionAtRestOptionsStatus
-import Network.AWS.OpenSearch.Types.EngineType
-import Network.AWS.OpenSearch.Types.ErrorDetails
-import Network.AWS.OpenSearch.Types.Filter
-import Network.AWS.OpenSearch.Types.InboundConnection
-import Network.AWS.OpenSearch.Types.InboundConnectionStatus
-import Network.AWS.OpenSearch.Types.InboundConnectionStatusCode
-import Network.AWS.OpenSearch.Types.InstanceCountLimits
-import Network.AWS.OpenSearch.Types.InstanceLimits
-import Network.AWS.OpenSearch.Types.InstanceTypeDetails
-import Network.AWS.OpenSearch.Types.Limits
-import Network.AWS.OpenSearch.Types.LogPublishingOption
-import Network.AWS.OpenSearch.Types.LogPublishingOptionsStatus
-import Network.AWS.OpenSearch.Types.LogType
-import Network.AWS.OpenSearch.Types.MasterUserOptions
-import Network.AWS.OpenSearch.Types.NodeToNodeEncryptionOptions
-import Network.AWS.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
-import Network.AWS.OpenSearch.Types.OpenSearchPartitionInstanceType
-import Network.AWS.OpenSearch.Types.OpenSearchWarmPartitionInstanceType
-import Network.AWS.OpenSearch.Types.OptionState
-import Network.AWS.OpenSearch.Types.OptionStatus
-import Network.AWS.OpenSearch.Types.OutboundConnection
-import Network.AWS.OpenSearch.Types.OutboundConnectionStatus
-import Network.AWS.OpenSearch.Types.OutboundConnectionStatusCode
-import Network.AWS.OpenSearch.Types.PackageDetails
-import Network.AWS.OpenSearch.Types.PackageSource
-import Network.AWS.OpenSearch.Types.PackageStatus
-import Network.AWS.OpenSearch.Types.PackageType
-import Network.AWS.OpenSearch.Types.PackageVersionHistory
-import Network.AWS.OpenSearch.Types.RecurringCharge
-import Network.AWS.OpenSearch.Types.ReservedInstance
-import Network.AWS.OpenSearch.Types.ReservedInstanceOffering
-import Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption
-import Network.AWS.OpenSearch.Types.RollbackOnDisable
-import Network.AWS.OpenSearch.Types.SAMLIdp
-import Network.AWS.OpenSearch.Types.SAMLOptionsInput
-import Network.AWS.OpenSearch.Types.SAMLOptionsOutput
-import Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType
-import Network.AWS.OpenSearch.Types.ScheduledAutoTuneDetails
-import Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType
-import Network.AWS.OpenSearch.Types.ServiceSoftwareOptions
-import Network.AWS.OpenSearch.Types.SnapshotOptions
-import Network.AWS.OpenSearch.Types.SnapshotOptionsStatus
-import Network.AWS.OpenSearch.Types.StorageType
-import Network.AWS.OpenSearch.Types.StorageTypeLimit
-import Network.AWS.OpenSearch.Types.TLSSecurityPolicy
-import Network.AWS.OpenSearch.Types.Tag
-import Network.AWS.OpenSearch.Types.TimeUnit
-import Network.AWS.OpenSearch.Types.UpgradeHistory
-import Network.AWS.OpenSearch.Types.UpgradeStatus
-import Network.AWS.OpenSearch.Types.UpgradeStep
-import Network.AWS.OpenSearch.Types.UpgradeStepItem
-import Network.AWS.OpenSearch.Types.VPCDerivedInfo
-import Network.AWS.OpenSearch.Types.VPCDerivedInfoStatus
-import Network.AWS.OpenSearch.Types.VPCOptions
-import Network.AWS.OpenSearch.Types.VersionStatus
-import Network.AWS.OpenSearch.Types.VolumeType
-import Network.AWS.OpenSearch.Types.ZoneAwarenessConfig
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types.AWSDomainInformation
+import Amazonka.OpenSearch.Types.AccessPoliciesStatus
+import Amazonka.OpenSearch.Types.AdditionalLimit
+import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
+import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
+import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsInput
+import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.OpenSearch.Types.AutoTune
+import Amazonka.OpenSearch.Types.AutoTuneDesiredState
+import Amazonka.OpenSearch.Types.AutoTuneDetails
+import Amazonka.OpenSearch.Types.AutoTuneMaintenanceSchedule
+import Amazonka.OpenSearch.Types.AutoTuneOptions
+import Amazonka.OpenSearch.Types.AutoTuneOptionsInput
+import Amazonka.OpenSearch.Types.AutoTuneOptionsOutput
+import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
+import Amazonka.OpenSearch.Types.AutoTuneState
+import Amazonka.OpenSearch.Types.AutoTuneStatus
+import Amazonka.OpenSearch.Types.AutoTuneType
+import Amazonka.OpenSearch.Types.ClusterConfig
+import Amazonka.OpenSearch.Types.ClusterConfigStatus
+import Amazonka.OpenSearch.Types.CognitoOptions
+import Amazonka.OpenSearch.Types.CognitoOptionsStatus
+import Amazonka.OpenSearch.Types.ColdStorageOptions
+import Amazonka.OpenSearch.Types.CompatibleVersionsMap
+import Amazonka.OpenSearch.Types.DeploymentStatus
+import Amazonka.OpenSearch.Types.DescribePackagesFilter
+import Amazonka.OpenSearch.Types.DescribePackagesFilterName
+import Amazonka.OpenSearch.Types.DomainConfig
+import Amazonka.OpenSearch.Types.DomainEndpointOptions
+import Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.OpenSearch.Types.DomainInfo
+import Amazonka.OpenSearch.Types.DomainInformationContainer
+import Amazonka.OpenSearch.Types.DomainPackageDetails
+import Amazonka.OpenSearch.Types.DomainPackageStatus
+import Amazonka.OpenSearch.Types.DomainStatus
+import Amazonka.OpenSearch.Types.Duration
+import Amazonka.OpenSearch.Types.EBSOptions
+import Amazonka.OpenSearch.Types.EBSOptionsStatus
+import Amazonka.OpenSearch.Types.EncryptionAtRestOptions
+import Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus
+import Amazonka.OpenSearch.Types.EngineType
+import Amazonka.OpenSearch.Types.ErrorDetails
+import Amazonka.OpenSearch.Types.Filter
+import Amazonka.OpenSearch.Types.InboundConnection
+import Amazonka.OpenSearch.Types.InboundConnectionStatus
+import Amazonka.OpenSearch.Types.InboundConnectionStatusCode
+import Amazonka.OpenSearch.Types.InstanceCountLimits
+import Amazonka.OpenSearch.Types.InstanceLimits
+import Amazonka.OpenSearch.Types.InstanceTypeDetails
+import Amazonka.OpenSearch.Types.Limits
+import Amazonka.OpenSearch.Types.LogPublishingOption
+import Amazonka.OpenSearch.Types.LogPublishingOptionsStatus
+import Amazonka.OpenSearch.Types.LogType
+import Amazonka.OpenSearch.Types.MasterUserOptions
+import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions
+import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
+import Amazonka.OpenSearch.Types.OpenSearchWarmPartitionInstanceType
+import Amazonka.OpenSearch.Types.OptionState
+import Amazonka.OpenSearch.Types.OptionStatus
+import Amazonka.OpenSearch.Types.OutboundConnection
+import Amazonka.OpenSearch.Types.OutboundConnectionStatus
+import Amazonka.OpenSearch.Types.OutboundConnectionStatusCode
+import Amazonka.OpenSearch.Types.PackageDetails
+import Amazonka.OpenSearch.Types.PackageSource
+import Amazonka.OpenSearch.Types.PackageStatus
+import Amazonka.OpenSearch.Types.PackageType
+import Amazonka.OpenSearch.Types.PackageVersionHistory
+import Amazonka.OpenSearch.Types.RecurringCharge
+import Amazonka.OpenSearch.Types.ReservedInstance
+import Amazonka.OpenSearch.Types.ReservedInstanceOffering
+import Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
+import Amazonka.OpenSearch.Types.RollbackOnDisable
+import Amazonka.OpenSearch.Types.SAMLIdp
+import Amazonka.OpenSearch.Types.SAMLOptionsInput
+import Amazonka.OpenSearch.Types.SAMLOptionsOutput
+import Amazonka.OpenSearch.Types.ScheduledAutoTuneActionType
+import Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails
+import Amazonka.OpenSearch.Types.ScheduledAutoTuneSeverityType
+import Amazonka.OpenSearch.Types.ServiceSoftwareOptions
+import Amazonka.OpenSearch.Types.SnapshotOptions
+import Amazonka.OpenSearch.Types.SnapshotOptionsStatus
+import Amazonka.OpenSearch.Types.StorageType
+import Amazonka.OpenSearch.Types.StorageTypeLimit
+import Amazonka.OpenSearch.Types.TLSSecurityPolicy
+import Amazonka.OpenSearch.Types.Tag
+import Amazonka.OpenSearch.Types.TimeUnit
+import Amazonka.OpenSearch.Types.UpgradeHistory
+import Amazonka.OpenSearch.Types.UpgradeStatus
+import Amazonka.OpenSearch.Types.UpgradeStep
+import Amazonka.OpenSearch.Types.UpgradeStepItem
+import Amazonka.OpenSearch.Types.VPCDerivedInfo
+import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
+import Amazonka.OpenSearch.Types.VPCOptions
+import Amazonka.OpenSearch.Types.VersionStatus
+import Amazonka.OpenSearch.Types.VolumeType
+import Amazonka.OpenSearch.Types.ZoneAwarenessConfig
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-01-01@ of the Amazon OpenSearch Service SDK configuration.
 defaultService :: Core.Service

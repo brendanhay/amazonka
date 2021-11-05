@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.DescribeInstanceTypeLimits
+-- Module      : Amazonka.OpenSearch.DescribeInstanceTypeLimits
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Describe the limits for a given instance type and OpenSearch or
 -- Elasticsearch version. When modifying an existing domain, specify the
 -- @ DomainName @ to see which limits you can modify.
-module Network.AWS.OpenSearch.DescribeInstanceTypeLimits
+module Amazonka.OpenSearch.DescribeInstanceTypeLimits
   ( -- * Creating a Request
     DescribeInstanceTypeLimits (..),
     newDescribeInstanceTypeLimits,
@@ -43,12 +43,12 @@ module Network.AWS.OpenSearch.DescribeInstanceTypeLimits
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @ DescribeInstanceTypeLimits @
 -- operation.

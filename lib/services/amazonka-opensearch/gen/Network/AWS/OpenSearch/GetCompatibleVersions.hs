@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.GetCompatibleVersions
+-- Module      : Amazonka.OpenSearch.GetCompatibleVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- OpenSearch\/Elasticsearch. You can optionally pass a @ DomainName @ to
 -- get all upgrade-compatible versions of OpenSearch\/Elasticsearch for
 -- that specific domain.
-module Network.AWS.OpenSearch.GetCompatibleVersions
+module Amazonka.OpenSearch.GetCompatibleVersions
   ( -- * Creating a Request
     GetCompatibleVersions (..),
     newGetCompatibleVersions,
@@ -42,12 +42,12 @@ module Network.AWS.OpenSearch.GetCompatibleVersions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the request parameters to @ GetCompatibleVersions @
 -- operation.

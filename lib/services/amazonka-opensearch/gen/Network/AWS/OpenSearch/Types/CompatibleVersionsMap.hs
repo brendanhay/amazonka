@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types.CompatibleVersionsMap
+-- Module      : Amazonka.OpenSearch.Types.CompatibleVersionsMap
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types.CompatibleVersionsMap where
+module Amazonka.OpenSearch.Types.CompatibleVersionsMap where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A map from an @ EngineVersion @ to a list of compatible
 -- @ EngineVersion @ s to which the domain can be upgraded.

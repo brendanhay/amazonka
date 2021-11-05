@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.OpenSearch
+-- Module      : Amazonka.OpenSearch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- es./region/.amazonaws.com. For example, es.us-east-1.amazonaws.com. For
 -- a current list of supported regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions Regions and Endpoints>.
-module Network.AWS.OpenSearch
+module Amazonka.OpenSearch
   ( -- * Service Configuration
     defaultService,
 
@@ -673,48 +673,48 @@ module Network.AWS.OpenSearch
   )
 where
 
-import Network.AWS.OpenSearch.AcceptInboundConnection
-import Network.AWS.OpenSearch.AddTags
-import Network.AWS.OpenSearch.AssociatePackage
-import Network.AWS.OpenSearch.CancelServiceSoftwareUpdate
-import Network.AWS.OpenSearch.CreateDomain
-import Network.AWS.OpenSearch.CreateOutboundConnection
-import Network.AWS.OpenSearch.CreatePackage
-import Network.AWS.OpenSearch.DeleteDomain
-import Network.AWS.OpenSearch.DeleteInboundConnection
-import Network.AWS.OpenSearch.DeleteOutboundConnection
-import Network.AWS.OpenSearch.DeletePackage
-import Network.AWS.OpenSearch.DescribeDomain
-import Network.AWS.OpenSearch.DescribeDomainAutoTunes
-import Network.AWS.OpenSearch.DescribeDomainConfig
-import Network.AWS.OpenSearch.DescribeDomains
-import Network.AWS.OpenSearch.DescribeInboundConnections
-import Network.AWS.OpenSearch.DescribeInstanceTypeLimits
-import Network.AWS.OpenSearch.DescribeOutboundConnections
-import Network.AWS.OpenSearch.DescribePackages
-import Network.AWS.OpenSearch.DescribeReservedInstanceOfferings
-import Network.AWS.OpenSearch.DescribeReservedInstances
-import Network.AWS.OpenSearch.DissociatePackage
-import Network.AWS.OpenSearch.GetCompatibleVersions
-import Network.AWS.OpenSearch.GetPackageVersionHistory
-import Network.AWS.OpenSearch.GetUpgradeHistory
-import Network.AWS.OpenSearch.GetUpgradeStatus
-import Network.AWS.OpenSearch.Lens
-import Network.AWS.OpenSearch.ListDomainNames
-import Network.AWS.OpenSearch.ListDomainsForPackage
-import Network.AWS.OpenSearch.ListInstanceTypeDetails
-import Network.AWS.OpenSearch.ListPackagesForDomain
-import Network.AWS.OpenSearch.ListTags
-import Network.AWS.OpenSearch.ListVersions
-import Network.AWS.OpenSearch.PurchaseReservedInstanceOffering
-import Network.AWS.OpenSearch.RejectInboundConnection
-import Network.AWS.OpenSearch.RemoveTags
-import Network.AWS.OpenSearch.StartServiceSoftwareUpdate
-import Network.AWS.OpenSearch.Types
-import Network.AWS.OpenSearch.UpdateDomainConfig
-import Network.AWS.OpenSearch.UpdatePackage
-import Network.AWS.OpenSearch.UpgradeDomain
-import Network.AWS.OpenSearch.Waiters
+import Amazonka.OpenSearch.AcceptInboundConnection
+import Amazonka.OpenSearch.AddTags
+import Amazonka.OpenSearch.AssociatePackage
+import Amazonka.OpenSearch.CancelServiceSoftwareUpdate
+import Amazonka.OpenSearch.CreateDomain
+import Amazonka.OpenSearch.CreateOutboundConnection
+import Amazonka.OpenSearch.CreatePackage
+import Amazonka.OpenSearch.DeleteDomain
+import Amazonka.OpenSearch.DeleteInboundConnection
+import Amazonka.OpenSearch.DeleteOutboundConnection
+import Amazonka.OpenSearch.DeletePackage
+import Amazonka.OpenSearch.DescribeDomain
+import Amazonka.OpenSearch.DescribeDomainAutoTunes
+import Amazonka.OpenSearch.DescribeDomainConfig
+import Amazonka.OpenSearch.DescribeDomains
+import Amazonka.OpenSearch.DescribeInboundConnections
+import Amazonka.OpenSearch.DescribeInstanceTypeLimits
+import Amazonka.OpenSearch.DescribeOutboundConnections
+import Amazonka.OpenSearch.DescribePackages
+import Amazonka.OpenSearch.DescribeReservedInstanceOfferings
+import Amazonka.OpenSearch.DescribeReservedInstances
+import Amazonka.OpenSearch.DissociatePackage
+import Amazonka.OpenSearch.GetCompatibleVersions
+import Amazonka.OpenSearch.GetPackageVersionHistory
+import Amazonka.OpenSearch.GetUpgradeHistory
+import Amazonka.OpenSearch.GetUpgradeStatus
+import Amazonka.OpenSearch.Lens
+import Amazonka.OpenSearch.ListDomainNames
+import Amazonka.OpenSearch.ListDomainsForPackage
+import Amazonka.OpenSearch.ListInstanceTypeDetails
+import Amazonka.OpenSearch.ListPackagesForDomain
+import Amazonka.OpenSearch.ListTags
+import Amazonka.OpenSearch.ListVersions
+import Amazonka.OpenSearch.PurchaseReservedInstanceOffering
+import Amazonka.OpenSearch.RejectInboundConnection
+import Amazonka.OpenSearch.RemoveTags
+import Amazonka.OpenSearch.StartServiceSoftwareUpdate
+import Amazonka.OpenSearch.Types
+import Amazonka.OpenSearch.UpdateDomainConfig
+import Amazonka.OpenSearch.UpdatePackage
+import Amazonka.OpenSearch.UpgradeDomain
+import Amazonka.OpenSearch.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

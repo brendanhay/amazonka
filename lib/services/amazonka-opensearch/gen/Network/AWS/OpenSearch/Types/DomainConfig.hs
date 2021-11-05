@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types.DomainConfig
+-- Module      : Amazonka.OpenSearch.Types.DomainConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types.DomainConfig where
+module Amazonka.OpenSearch.Types.DomainConfig where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types.AccessPoliciesStatus
-import Network.AWS.OpenSearch.Types.AdvancedOptionsStatus
-import Network.AWS.OpenSearch.Types.AdvancedSecurityOptionsStatus
-import Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus
-import Network.AWS.OpenSearch.Types.ClusterConfigStatus
-import Network.AWS.OpenSearch.Types.CognitoOptionsStatus
-import Network.AWS.OpenSearch.Types.DomainEndpointOptionsStatus
-import Network.AWS.OpenSearch.Types.EBSOptionsStatus
-import Network.AWS.OpenSearch.Types.EncryptionAtRestOptionsStatus
-import Network.AWS.OpenSearch.Types.LogPublishingOptionsStatus
-import Network.AWS.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
-import Network.AWS.OpenSearch.Types.SnapshotOptionsStatus
-import Network.AWS.OpenSearch.Types.VPCDerivedInfoStatus
-import Network.AWS.OpenSearch.Types.VersionStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types.AccessPoliciesStatus
+import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
+import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
+import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
+import Amazonka.OpenSearch.Types.ClusterConfigStatus
+import Amazonka.OpenSearch.Types.CognitoOptionsStatus
+import Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus
+import Amazonka.OpenSearch.Types.EBSOptionsStatus
+import Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus
+import Amazonka.OpenSearch.Types.LogPublishingOptionsStatus
+import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.OpenSearch.Types.SnapshotOptionsStatus
+import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
+import Amazonka.OpenSearch.Types.VersionStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of a domain.
 --

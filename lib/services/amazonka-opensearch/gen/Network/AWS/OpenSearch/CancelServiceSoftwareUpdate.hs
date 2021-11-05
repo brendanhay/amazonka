@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.CancelServiceSoftwareUpdate
+-- Module      : Amazonka.OpenSearch.CancelServiceSoftwareUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- Service domain. You can only perform this operation before the
 -- @AutomatedUpdateDate@ and when the @UpdateStatus@ is in the
 -- @PENDING_UPDATE@ state.
-module Network.AWS.OpenSearch.CancelServiceSoftwareUpdate
+module Amazonka.OpenSearch.CancelServiceSoftwareUpdate
   ( -- * Creating a Request
     CancelServiceSoftwareUpdate (..),
     newCancelServiceSoftwareUpdate,
@@ -42,12 +42,12 @@ module Network.AWS.OpenSearch.CancelServiceSoftwareUpdate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpenSearch.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpenSearch.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the @ CancelServiceSoftwareUpdate @
 -- operation. Specifies the name of the domain that you wish to cancel a

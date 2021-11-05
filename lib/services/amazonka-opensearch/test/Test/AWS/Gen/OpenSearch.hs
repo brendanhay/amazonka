@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.OpenSearch where
 
+import Amazonka.OpenSearch
 import qualified Data.Proxy as Proxy
-import Network.AWS.OpenSearch
 import Test.AWS.Fixture
 import Test.AWS.OpenSearch.Internal
 import Test.AWS.Prelude

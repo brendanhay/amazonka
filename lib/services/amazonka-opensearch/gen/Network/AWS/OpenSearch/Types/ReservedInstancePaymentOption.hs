@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption
+-- Module      : Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption
+module Amazonka.OpenSearch.Types.ReservedInstancePaymentOption
   ( ReservedInstancePaymentOption
       ( ..,
         ReservedInstancePaymentOption_ALL_UPFRONT,
@@ -27,8 +27,8 @@ module Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ReservedInstancePaymentOption = ReservedInstancePaymentOption'
   { fromReservedInstancePaymentOption ::

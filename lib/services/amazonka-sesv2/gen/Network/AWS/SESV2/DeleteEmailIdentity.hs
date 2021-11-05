@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.DeleteEmailIdentity
+-- Module      : Amazonka.SESV2.DeleteEmailIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes an email identity. An identity can be either an email address or
 -- a domain name.
-module Network.AWS.SESV2.DeleteEmailIdentity
+module Amazonka.SESV2.DeleteEmailIdentity
   ( -- * Creating a Request
     DeleteEmailIdentity (..),
     newDeleteEmailIdentity,
@@ -39,12 +39,12 @@ module Network.AWS.SESV2.DeleteEmailIdentity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to delete an existing email identity. When you delete an
 -- identity, you lose the ability to send email from that identity. You can

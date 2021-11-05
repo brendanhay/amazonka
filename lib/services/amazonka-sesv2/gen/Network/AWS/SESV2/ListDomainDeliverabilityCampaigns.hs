@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.ListDomainDeliverabilityCampaigns
+-- Module      : Amazonka.SESV2.ListDomainDeliverabilityCampaigns
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- domain to send email during a specified time range. This data is
 -- available for a domain only if you enabled the Deliverability dashboard
 -- for the domain.
-module Network.AWS.SESV2.ListDomainDeliverabilityCampaigns
+module Amazonka.SESV2.ListDomainDeliverabilityCampaigns
   ( -- * Creating a Request
     ListDomainDeliverabilityCampaigns (..),
     newListDomainDeliverabilityCampaigns,
@@ -47,12 +47,12 @@ module Network.AWS.SESV2.ListDomainDeliverabilityCampaigns
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | Retrieve deliverability data for all the campaigns that used a specific
 -- domain to send email during a specified time range. This data is

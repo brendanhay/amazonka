@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.CreateDedicatedIpPool
+-- Module      : Amazonka.SESV2.CreateDedicatedIpPool
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Services account. You can associate a pool with a configuration set.
 -- When you send an email that uses that configuration set, the message is
 -- sent from one of the addresses in the associated pool.
-module Network.AWS.SESV2.CreateDedicatedIpPool
+module Amazonka.SESV2.CreateDedicatedIpPool
   ( -- * Creating a Request
     CreateDedicatedIpPool (..),
     newCreateDedicatedIpPool,
@@ -43,12 +43,12 @@ module Network.AWS.SESV2.CreateDedicatedIpPool
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to create a new dedicated IP pool.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.Types
+-- Module      : Amazonka.SESV2.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SESV2.Types
+module Amazonka.SESV2.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -551,98 +551,98 @@ module Network.AWS.SESV2.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SESV2.Types.AccountDetails
-import Network.AWS.SESV2.Types.BehaviorOnMxFailure
-import Network.AWS.SESV2.Types.BlacklistEntry
-import Network.AWS.SESV2.Types.Body
-import Network.AWS.SESV2.Types.BulkEmailContent
-import Network.AWS.SESV2.Types.BulkEmailEntry
-import Network.AWS.SESV2.Types.BulkEmailEntryResult
-import Network.AWS.SESV2.Types.BulkEmailStatus
-import Network.AWS.SESV2.Types.CloudWatchDestination
-import Network.AWS.SESV2.Types.CloudWatchDimensionConfiguration
-import Network.AWS.SESV2.Types.Contact
-import Network.AWS.SESV2.Types.ContactLanguage
-import Network.AWS.SESV2.Types.ContactList
-import Network.AWS.SESV2.Types.ContactListDestination
-import Network.AWS.SESV2.Types.ContactListImportAction
-import Network.AWS.SESV2.Types.Content
-import Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata
-import Network.AWS.SESV2.Types.DailyVolume
-import Network.AWS.SESV2.Types.DataFormat
-import Network.AWS.SESV2.Types.DedicatedIp
-import Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus
-import Network.AWS.SESV2.Types.DeliverabilityTestReport
-import Network.AWS.SESV2.Types.DeliverabilityTestStatus
-import Network.AWS.SESV2.Types.DeliveryOptions
-import Network.AWS.SESV2.Types.Destination
-import Network.AWS.SESV2.Types.DimensionValueSource
-import Network.AWS.SESV2.Types.DkimAttributes
-import Network.AWS.SESV2.Types.DkimSigningAttributes
-import Network.AWS.SESV2.Types.DkimSigningAttributesOrigin
-import Network.AWS.SESV2.Types.DkimSigningKeyLength
-import Network.AWS.SESV2.Types.DkimStatus
-import Network.AWS.SESV2.Types.DomainDeliverabilityCampaign
-import Network.AWS.SESV2.Types.DomainDeliverabilityTrackingOption
-import Network.AWS.SESV2.Types.DomainIspPlacement
-import Network.AWS.SESV2.Types.EmailContent
-import Network.AWS.SESV2.Types.EmailTemplateContent
-import Network.AWS.SESV2.Types.EmailTemplateMetadata
-import Network.AWS.SESV2.Types.EventDestination
-import Network.AWS.SESV2.Types.EventDestinationDefinition
-import Network.AWS.SESV2.Types.EventType
-import Network.AWS.SESV2.Types.FailureInfo
-import Network.AWS.SESV2.Types.IdentityInfo
-import Network.AWS.SESV2.Types.IdentityType
-import Network.AWS.SESV2.Types.ImportDataSource
-import Network.AWS.SESV2.Types.ImportDestination
-import Network.AWS.SESV2.Types.ImportDestinationType
-import Network.AWS.SESV2.Types.ImportJobSummary
-import Network.AWS.SESV2.Types.InboxPlacementTrackingOption
-import Network.AWS.SESV2.Types.IspPlacement
-import Network.AWS.SESV2.Types.JobStatus
-import Network.AWS.SESV2.Types.KinesisFirehoseDestination
-import Network.AWS.SESV2.Types.ListContactsFilter
-import Network.AWS.SESV2.Types.ListManagementOptions
-import Network.AWS.SESV2.Types.MailFromAttributes
-import Network.AWS.SESV2.Types.MailFromDomainStatus
-import Network.AWS.SESV2.Types.MailType
-import Network.AWS.SESV2.Types.Message
-import Network.AWS.SESV2.Types.MessageTag
-import Network.AWS.SESV2.Types.OverallVolume
-import Network.AWS.SESV2.Types.PinpointDestination
-import Network.AWS.SESV2.Types.PlacementStatistics
-import Network.AWS.SESV2.Types.RawMessage
-import Network.AWS.SESV2.Types.ReplacementEmailContent
-import Network.AWS.SESV2.Types.ReplacementTemplate
-import Network.AWS.SESV2.Types.ReputationOptions
-import Network.AWS.SESV2.Types.ReviewDetails
-import Network.AWS.SESV2.Types.ReviewStatus
-import Network.AWS.SESV2.Types.SendQuota
-import Network.AWS.SESV2.Types.SendingOptions
-import Network.AWS.SESV2.Types.SnsDestination
-import Network.AWS.SESV2.Types.SubscriptionStatus
-import Network.AWS.SESV2.Types.SuppressedDestination
-import Network.AWS.SESV2.Types.SuppressedDestinationAttributes
-import Network.AWS.SESV2.Types.SuppressedDestinationSummary
-import Network.AWS.SESV2.Types.SuppressionAttributes
-import Network.AWS.SESV2.Types.SuppressionListDestination
-import Network.AWS.SESV2.Types.SuppressionListImportAction
-import Network.AWS.SESV2.Types.SuppressionListReason
-import Network.AWS.SESV2.Types.SuppressionOptions
-import Network.AWS.SESV2.Types.Tag
-import Network.AWS.SESV2.Types.Template
-import Network.AWS.SESV2.Types.TlsPolicy
-import Network.AWS.SESV2.Types.Topic
-import Network.AWS.SESV2.Types.TopicFilter
-import Network.AWS.SESV2.Types.TopicPreference
-import Network.AWS.SESV2.Types.TrackingOptions
-import Network.AWS.SESV2.Types.VolumeStatistics
-import Network.AWS.SESV2.Types.WarmupStatus
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SESV2.Types.AccountDetails
+import Amazonka.SESV2.Types.BehaviorOnMxFailure
+import Amazonka.SESV2.Types.BlacklistEntry
+import Amazonka.SESV2.Types.Body
+import Amazonka.SESV2.Types.BulkEmailContent
+import Amazonka.SESV2.Types.BulkEmailEntry
+import Amazonka.SESV2.Types.BulkEmailEntryResult
+import Amazonka.SESV2.Types.BulkEmailStatus
+import Amazonka.SESV2.Types.CloudWatchDestination
+import Amazonka.SESV2.Types.CloudWatchDimensionConfiguration
+import Amazonka.SESV2.Types.Contact
+import Amazonka.SESV2.Types.ContactLanguage
+import Amazonka.SESV2.Types.ContactList
+import Amazonka.SESV2.Types.ContactListDestination
+import Amazonka.SESV2.Types.ContactListImportAction
+import Amazonka.SESV2.Types.Content
+import Amazonka.SESV2.Types.CustomVerificationEmailTemplateMetadata
+import Amazonka.SESV2.Types.DailyVolume
+import Amazonka.SESV2.Types.DataFormat
+import Amazonka.SESV2.Types.DedicatedIp
+import Amazonka.SESV2.Types.DeliverabilityDashboardAccountStatus
+import Amazonka.SESV2.Types.DeliverabilityTestReport
+import Amazonka.SESV2.Types.DeliverabilityTestStatus
+import Amazonka.SESV2.Types.DeliveryOptions
+import Amazonka.SESV2.Types.Destination
+import Amazonka.SESV2.Types.DimensionValueSource
+import Amazonka.SESV2.Types.DkimAttributes
+import Amazonka.SESV2.Types.DkimSigningAttributes
+import Amazonka.SESV2.Types.DkimSigningAttributesOrigin
+import Amazonka.SESV2.Types.DkimSigningKeyLength
+import Amazonka.SESV2.Types.DkimStatus
+import Amazonka.SESV2.Types.DomainDeliverabilityCampaign
+import Amazonka.SESV2.Types.DomainDeliverabilityTrackingOption
+import Amazonka.SESV2.Types.DomainIspPlacement
+import Amazonka.SESV2.Types.EmailContent
+import Amazonka.SESV2.Types.EmailTemplateContent
+import Amazonka.SESV2.Types.EmailTemplateMetadata
+import Amazonka.SESV2.Types.EventDestination
+import Amazonka.SESV2.Types.EventDestinationDefinition
+import Amazonka.SESV2.Types.EventType
+import Amazonka.SESV2.Types.FailureInfo
+import Amazonka.SESV2.Types.IdentityInfo
+import Amazonka.SESV2.Types.IdentityType
+import Amazonka.SESV2.Types.ImportDataSource
+import Amazonka.SESV2.Types.ImportDestination
+import Amazonka.SESV2.Types.ImportDestinationType
+import Amazonka.SESV2.Types.ImportJobSummary
+import Amazonka.SESV2.Types.InboxPlacementTrackingOption
+import Amazonka.SESV2.Types.IspPlacement
+import Amazonka.SESV2.Types.JobStatus
+import Amazonka.SESV2.Types.KinesisFirehoseDestination
+import Amazonka.SESV2.Types.ListContactsFilter
+import Amazonka.SESV2.Types.ListManagementOptions
+import Amazonka.SESV2.Types.MailFromAttributes
+import Amazonka.SESV2.Types.MailFromDomainStatus
+import Amazonka.SESV2.Types.MailType
+import Amazonka.SESV2.Types.Message
+import Amazonka.SESV2.Types.MessageTag
+import Amazonka.SESV2.Types.OverallVolume
+import Amazonka.SESV2.Types.PinpointDestination
+import Amazonka.SESV2.Types.PlacementStatistics
+import Amazonka.SESV2.Types.RawMessage
+import Amazonka.SESV2.Types.ReplacementEmailContent
+import Amazonka.SESV2.Types.ReplacementTemplate
+import Amazonka.SESV2.Types.ReputationOptions
+import Amazonka.SESV2.Types.ReviewDetails
+import Amazonka.SESV2.Types.ReviewStatus
+import Amazonka.SESV2.Types.SendQuota
+import Amazonka.SESV2.Types.SendingOptions
+import Amazonka.SESV2.Types.SnsDestination
+import Amazonka.SESV2.Types.SubscriptionStatus
+import Amazonka.SESV2.Types.SuppressedDestination
+import Amazonka.SESV2.Types.SuppressedDestinationAttributes
+import Amazonka.SESV2.Types.SuppressedDestinationSummary
+import Amazonka.SESV2.Types.SuppressionAttributes
+import Amazonka.SESV2.Types.SuppressionListDestination
+import Amazonka.SESV2.Types.SuppressionListImportAction
+import Amazonka.SESV2.Types.SuppressionListReason
+import Amazonka.SESV2.Types.SuppressionOptions
+import Amazonka.SESV2.Types.Tag
+import Amazonka.SESV2.Types.Template
+import Amazonka.SESV2.Types.TlsPolicy
+import Amazonka.SESV2.Types.Topic
+import Amazonka.SESV2.Types.TopicFilter
+import Amazonka.SESV2.Types.TopicPreference
+import Amazonka.SESV2.Types.TrackingOptions
+import Amazonka.SESV2.Types.VolumeStatistics
+import Amazonka.SESV2.Types.WarmupStatus
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-09-27@ of the Amazon Simple Email Service SDK configuration.
 defaultService :: Core.Service

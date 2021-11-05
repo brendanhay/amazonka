@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SESV2
+-- Module      : Amazonka.SESV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/ Amazon Simple Email Service Developer Guide>.
 -- The /Amazon SES Developer Guide/ provides information and code samples
 -- that demonstrate how to use Amazon SES API v2 features programmatically.
-module Network.AWS.SESV2
+module Amazonka.SESV2
   ( -- * Service Configuration
     defaultService,
 
@@ -889,90 +889,90 @@ module Network.AWS.SESV2
   )
 where
 
-import Network.AWS.SESV2.CreateConfigurationSet
-import Network.AWS.SESV2.CreateConfigurationSetEventDestination
-import Network.AWS.SESV2.CreateContact
-import Network.AWS.SESV2.CreateContactList
-import Network.AWS.SESV2.CreateCustomVerificationEmailTemplate
-import Network.AWS.SESV2.CreateDedicatedIpPool
-import Network.AWS.SESV2.CreateDeliverabilityTestReport
-import Network.AWS.SESV2.CreateEmailIdentity
-import Network.AWS.SESV2.CreateEmailIdentityPolicy
-import Network.AWS.SESV2.CreateEmailTemplate
-import Network.AWS.SESV2.CreateImportJob
-import Network.AWS.SESV2.DeleteConfigurationSet
-import Network.AWS.SESV2.DeleteConfigurationSetEventDestination
-import Network.AWS.SESV2.DeleteContact
-import Network.AWS.SESV2.DeleteContactList
-import Network.AWS.SESV2.DeleteCustomVerificationEmailTemplate
-import Network.AWS.SESV2.DeleteDedicatedIpPool
-import Network.AWS.SESV2.DeleteEmailIdentity
-import Network.AWS.SESV2.DeleteEmailIdentityPolicy
-import Network.AWS.SESV2.DeleteEmailTemplate
-import Network.AWS.SESV2.DeleteSuppressedDestination
-import Network.AWS.SESV2.GetAccount
-import Network.AWS.SESV2.GetBlacklistReports
-import Network.AWS.SESV2.GetConfigurationSet
-import Network.AWS.SESV2.GetConfigurationSetEventDestinations
-import Network.AWS.SESV2.GetContact
-import Network.AWS.SESV2.GetContactList
-import Network.AWS.SESV2.GetCustomVerificationEmailTemplate
-import Network.AWS.SESV2.GetDedicatedIp
-import Network.AWS.SESV2.GetDedicatedIps
-import Network.AWS.SESV2.GetDeliverabilityDashboardOptions
-import Network.AWS.SESV2.GetDeliverabilityTestReport
-import Network.AWS.SESV2.GetDomainDeliverabilityCampaign
-import Network.AWS.SESV2.GetDomainStatisticsReport
-import Network.AWS.SESV2.GetEmailIdentity
-import Network.AWS.SESV2.GetEmailIdentityPolicies
-import Network.AWS.SESV2.GetEmailTemplate
-import Network.AWS.SESV2.GetImportJob
-import Network.AWS.SESV2.GetSuppressedDestination
-import Network.AWS.SESV2.Lens
-import Network.AWS.SESV2.ListConfigurationSets
-import Network.AWS.SESV2.ListContactLists
-import Network.AWS.SESV2.ListContacts
-import Network.AWS.SESV2.ListCustomVerificationEmailTemplates
-import Network.AWS.SESV2.ListDedicatedIpPools
-import Network.AWS.SESV2.ListDeliverabilityTestReports
-import Network.AWS.SESV2.ListDomainDeliverabilityCampaigns
-import Network.AWS.SESV2.ListEmailIdentities
-import Network.AWS.SESV2.ListEmailTemplates
-import Network.AWS.SESV2.ListImportJobs
-import Network.AWS.SESV2.ListSuppressedDestinations
-import Network.AWS.SESV2.ListTagsForResource
-import Network.AWS.SESV2.PutAccountDedicatedIpWarmupAttributes
-import Network.AWS.SESV2.PutAccountDetails
-import Network.AWS.SESV2.PutAccountSendingAttributes
-import Network.AWS.SESV2.PutAccountSuppressionAttributes
-import Network.AWS.SESV2.PutConfigurationSetDeliveryOptions
-import Network.AWS.SESV2.PutConfigurationSetReputationOptions
-import Network.AWS.SESV2.PutConfigurationSetSendingOptions
-import Network.AWS.SESV2.PutConfigurationSetSuppressionOptions
-import Network.AWS.SESV2.PutConfigurationSetTrackingOptions
-import Network.AWS.SESV2.PutDedicatedIpInPool
-import Network.AWS.SESV2.PutDedicatedIpWarmupAttributes
-import Network.AWS.SESV2.PutDeliverabilityDashboardOption
-import Network.AWS.SESV2.PutEmailIdentityConfigurationSetAttributes
-import Network.AWS.SESV2.PutEmailIdentityDkimAttributes
-import Network.AWS.SESV2.PutEmailIdentityDkimSigningAttributes
-import Network.AWS.SESV2.PutEmailIdentityFeedbackAttributes
-import Network.AWS.SESV2.PutEmailIdentityMailFromAttributes
-import Network.AWS.SESV2.PutSuppressedDestination
-import Network.AWS.SESV2.SendBulkEmail
-import Network.AWS.SESV2.SendCustomVerificationEmail
-import Network.AWS.SESV2.SendEmail
-import Network.AWS.SESV2.TagResource
-import Network.AWS.SESV2.TestRenderEmailTemplate
-import Network.AWS.SESV2.Types
-import Network.AWS.SESV2.UntagResource
-import Network.AWS.SESV2.UpdateConfigurationSetEventDestination
-import Network.AWS.SESV2.UpdateContact
-import Network.AWS.SESV2.UpdateContactList
-import Network.AWS.SESV2.UpdateCustomVerificationEmailTemplate
-import Network.AWS.SESV2.UpdateEmailIdentityPolicy
-import Network.AWS.SESV2.UpdateEmailTemplate
-import Network.AWS.SESV2.Waiters
+import Amazonka.SESV2.CreateConfigurationSet
+import Amazonka.SESV2.CreateConfigurationSetEventDestination
+import Amazonka.SESV2.CreateContact
+import Amazonka.SESV2.CreateContactList
+import Amazonka.SESV2.CreateCustomVerificationEmailTemplate
+import Amazonka.SESV2.CreateDedicatedIpPool
+import Amazonka.SESV2.CreateDeliverabilityTestReport
+import Amazonka.SESV2.CreateEmailIdentity
+import Amazonka.SESV2.CreateEmailIdentityPolicy
+import Amazonka.SESV2.CreateEmailTemplate
+import Amazonka.SESV2.CreateImportJob
+import Amazonka.SESV2.DeleteConfigurationSet
+import Amazonka.SESV2.DeleteConfigurationSetEventDestination
+import Amazonka.SESV2.DeleteContact
+import Amazonka.SESV2.DeleteContactList
+import Amazonka.SESV2.DeleteCustomVerificationEmailTemplate
+import Amazonka.SESV2.DeleteDedicatedIpPool
+import Amazonka.SESV2.DeleteEmailIdentity
+import Amazonka.SESV2.DeleteEmailIdentityPolicy
+import Amazonka.SESV2.DeleteEmailTemplate
+import Amazonka.SESV2.DeleteSuppressedDestination
+import Amazonka.SESV2.GetAccount
+import Amazonka.SESV2.GetBlacklistReports
+import Amazonka.SESV2.GetConfigurationSet
+import Amazonka.SESV2.GetConfigurationSetEventDestinations
+import Amazonka.SESV2.GetContact
+import Amazonka.SESV2.GetContactList
+import Amazonka.SESV2.GetCustomVerificationEmailTemplate
+import Amazonka.SESV2.GetDedicatedIp
+import Amazonka.SESV2.GetDedicatedIps
+import Amazonka.SESV2.GetDeliverabilityDashboardOptions
+import Amazonka.SESV2.GetDeliverabilityTestReport
+import Amazonka.SESV2.GetDomainDeliverabilityCampaign
+import Amazonka.SESV2.GetDomainStatisticsReport
+import Amazonka.SESV2.GetEmailIdentity
+import Amazonka.SESV2.GetEmailIdentityPolicies
+import Amazonka.SESV2.GetEmailTemplate
+import Amazonka.SESV2.GetImportJob
+import Amazonka.SESV2.GetSuppressedDestination
+import Amazonka.SESV2.Lens
+import Amazonka.SESV2.ListConfigurationSets
+import Amazonka.SESV2.ListContactLists
+import Amazonka.SESV2.ListContacts
+import Amazonka.SESV2.ListCustomVerificationEmailTemplates
+import Amazonka.SESV2.ListDedicatedIpPools
+import Amazonka.SESV2.ListDeliverabilityTestReports
+import Amazonka.SESV2.ListDomainDeliverabilityCampaigns
+import Amazonka.SESV2.ListEmailIdentities
+import Amazonka.SESV2.ListEmailTemplates
+import Amazonka.SESV2.ListImportJobs
+import Amazonka.SESV2.ListSuppressedDestinations
+import Amazonka.SESV2.ListTagsForResource
+import Amazonka.SESV2.PutAccountDedicatedIpWarmupAttributes
+import Amazonka.SESV2.PutAccountDetails
+import Amazonka.SESV2.PutAccountSendingAttributes
+import Amazonka.SESV2.PutAccountSuppressionAttributes
+import Amazonka.SESV2.PutConfigurationSetDeliveryOptions
+import Amazonka.SESV2.PutConfigurationSetReputationOptions
+import Amazonka.SESV2.PutConfigurationSetSendingOptions
+import Amazonka.SESV2.PutConfigurationSetSuppressionOptions
+import Amazonka.SESV2.PutConfigurationSetTrackingOptions
+import Amazonka.SESV2.PutDedicatedIpInPool
+import Amazonka.SESV2.PutDedicatedIpWarmupAttributes
+import Amazonka.SESV2.PutDeliverabilityDashboardOption
+import Amazonka.SESV2.PutEmailIdentityConfigurationSetAttributes
+import Amazonka.SESV2.PutEmailIdentityDkimAttributes
+import Amazonka.SESV2.PutEmailIdentityDkimSigningAttributes
+import Amazonka.SESV2.PutEmailIdentityFeedbackAttributes
+import Amazonka.SESV2.PutEmailIdentityMailFromAttributes
+import Amazonka.SESV2.PutSuppressedDestination
+import Amazonka.SESV2.SendBulkEmail
+import Amazonka.SESV2.SendCustomVerificationEmail
+import Amazonka.SESV2.SendEmail
+import Amazonka.SESV2.TagResource
+import Amazonka.SESV2.TestRenderEmailTemplate
+import Amazonka.SESV2.Types
+import Amazonka.SESV2.UntagResource
+import Amazonka.SESV2.UpdateConfigurationSetEventDestination
+import Amazonka.SESV2.UpdateContact
+import Amazonka.SESV2.UpdateContactList
+import Amazonka.SESV2.UpdateCustomVerificationEmailTemplate
+import Amazonka.SESV2.UpdateEmailIdentityPolicy
+import Amazonka.SESV2.UpdateEmailTemplate
+import Amazonka.SESV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

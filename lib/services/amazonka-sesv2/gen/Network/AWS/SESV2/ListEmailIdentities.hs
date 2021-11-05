@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.ListEmailIdentities
+-- Module      : Amazonka.SESV2.ListEmailIdentities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- address or a domain. This operation returns identities that are verified
 -- as well as those that aren\'t. This operation returns identities that
 -- are associated with Amazon SES and Amazon Pinpoint.
-module Network.AWS.SESV2.ListEmailIdentities
+module Amazonka.SESV2.ListEmailIdentities
   ( -- * Creating a Request
     ListEmailIdentities (..),
     newListEmailIdentities,
@@ -45,12 +45,12 @@ module Network.AWS.SESV2.ListEmailIdentities
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to list all of the email identities associated with your
 -- Amazon Web Services account. This list includes identities that you\'ve

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.GetDomainDeliverabilityCampaign
+-- Module      : Amazonka.SESV2.GetDomainDeliverabilityCampaign
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieve all the deliverability data for a specific campaign. This data
 -- is available for a campaign only if the campaign sent email by using a
 -- domain that the Deliverability dashboard is enabled for.
-module Network.AWS.SESV2.GetDomainDeliverabilityCampaign
+module Amazonka.SESV2.GetDomainDeliverabilityCampaign
   ( -- * Creating a Request
     GetDomainDeliverabilityCampaign (..),
     newGetDomainDeliverabilityCampaign,
@@ -41,12 +41,12 @@ module Network.AWS.SESV2.GetDomainDeliverabilityCampaign
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | Retrieve all the deliverability data for a specific campaign. This data
 -- is available for a campaign only if the campaign sent email by using a

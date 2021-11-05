@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.Types.EventDestinationDefinition
+-- Module      : Amazonka.SESV2.Types.EventDestinationDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SESV2.Types.EventDestinationDefinition where
+module Amazonka.SESV2.Types.EventDestinationDefinition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SESV2.Types.CloudWatchDestination
-import Network.AWS.SESV2.Types.EventType
-import Network.AWS.SESV2.Types.KinesisFirehoseDestination
-import Network.AWS.SESV2.Types.PinpointDestination
-import Network.AWS.SESV2.Types.SnsDestination
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SESV2.Types.CloudWatchDestination
+import Amazonka.SESV2.Types.EventType
+import Amazonka.SESV2.Types.KinesisFirehoseDestination
+import Amazonka.SESV2.Types.PinpointDestination
+import Amazonka.SESV2.Types.SnsDestination
 
 -- | An object that defines the event destination. Specifically, it defines
 -- which services receive events from emails sent using the configuration

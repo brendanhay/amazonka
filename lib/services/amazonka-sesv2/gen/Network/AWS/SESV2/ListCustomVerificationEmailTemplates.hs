@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.ListCustomVerificationEmailTemplates
+-- Module      : Amazonka.SESV2.ListCustomVerificationEmailTemplates
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- in the /Amazon SES Developer Guide/.
 --
 -- You can execute this operation no more than once per second.
-module Network.AWS.SESV2.ListCustomVerificationEmailTemplates
+module Amazonka.SESV2.ListCustomVerificationEmailTemplates
   ( -- * Creating a Request
     ListCustomVerificationEmailTemplates (..),
     newListCustomVerificationEmailTemplates,
@@ -48,12 +48,12 @@ module Network.AWS.SESV2.ListCustomVerificationEmailTemplates
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | Represents a request to list the existing custom verification email
 -- templates for your account.

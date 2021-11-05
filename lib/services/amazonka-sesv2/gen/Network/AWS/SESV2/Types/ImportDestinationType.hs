@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.Types.ImportDestinationType
+-- Module      : Amazonka.SESV2.Types.ImportDestinationType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SESV2.Types.ImportDestinationType
+module Amazonka.SESV2.Types.ImportDestinationType
   ( ImportDestinationType
       ( ..,
         ImportDestinationType_CONTACT_LIST,
@@ -26,8 +26,8 @@ module Network.AWS.SESV2.Types.ImportDestinationType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The destination of the import job, which can be used to list import jobs
 -- that have a certain @ImportDestinationType@.

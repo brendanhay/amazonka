@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.PutEmailIdentityMailFromAttributes
+-- Module      : Amazonka.SESV2.PutEmailIdentityMailFromAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Used to enable or disable the custom Mail-From domain configuration for
 -- an email identity.
-module Network.AWS.SESV2.PutEmailIdentityMailFromAttributes
+module Amazonka.SESV2.PutEmailIdentityMailFromAttributes
   ( -- * Creating a Request
     PutEmailIdentityMailFromAttributes (..),
     newPutEmailIdentityMailFromAttributes,
@@ -41,12 +41,12 @@ module Network.AWS.SESV2.PutEmailIdentityMailFromAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to configure the custom MAIL FROM domain for a verified
 -- identity.

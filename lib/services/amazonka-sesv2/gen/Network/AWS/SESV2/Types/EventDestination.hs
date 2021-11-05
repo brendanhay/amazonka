@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.Types.EventDestination
+-- Module      : Amazonka.SESV2.Types.EventDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SESV2.Types.EventDestination where
+module Amazonka.SESV2.Types.EventDestination where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SESV2.Types.CloudWatchDestination
-import Network.AWS.SESV2.Types.EventType
-import Network.AWS.SESV2.Types.KinesisFirehoseDestination
-import Network.AWS.SESV2.Types.PinpointDestination
-import Network.AWS.SESV2.Types.SnsDestination
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SESV2.Types.CloudWatchDestination
+import Amazonka.SESV2.Types.EventType
+import Amazonka.SESV2.Types.KinesisFirehoseDestination
+import Amazonka.SESV2.Types.PinpointDestination
+import Amazonka.SESV2.Types.SnsDestination
 
 -- | In the Amazon SES API v2, /events/ include message sends, deliveries,
 -- opens, clicks, bounces, complaints and delivery delays. /Event

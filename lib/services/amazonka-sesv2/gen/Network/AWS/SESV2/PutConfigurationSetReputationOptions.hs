@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.PutConfigurationSetReputationOptions
+-- Module      : Amazonka.SESV2.PutConfigurationSetReputationOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Enable or disable collection of reputation metrics for emails that you
 -- send using a particular configuration set in a specific Amazon Web
 -- Services Region.
-module Network.AWS.SESV2.PutConfigurationSetReputationOptions
+module Amazonka.SESV2.PutConfigurationSetReputationOptions
   ( -- * Creating a Request
     PutConfigurationSetReputationOptions (..),
     newPutConfigurationSetReputationOptions,
@@ -41,12 +41,12 @@ module Network.AWS.SESV2.PutConfigurationSetReputationOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to enable or disable tracking of reputation metrics for a
 -- configuration set.

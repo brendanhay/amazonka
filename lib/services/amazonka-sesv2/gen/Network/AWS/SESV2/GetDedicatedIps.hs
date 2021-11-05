@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.GetDedicatedIps
+-- Module      : Amazonka.SESV2.GetDedicatedIps
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- List the dedicated IP addresses that are associated with your Amazon Web
 -- Services account.
-module Network.AWS.SESV2.GetDedicatedIps
+module Amazonka.SESV2.GetDedicatedIps
   ( -- * Creating a Request
     GetDedicatedIps (..),
     newGetDedicatedIps,
@@ -43,12 +43,12 @@ module Network.AWS.SESV2.GetDedicatedIps
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to obtain more information about dedicated IP pools.
 --

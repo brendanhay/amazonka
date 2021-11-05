@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SESV2 where
 
+import Amazonka.SESV2
 import qualified Data.Proxy as Proxy
-import Network.AWS.SESV2
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SESV2.Internal

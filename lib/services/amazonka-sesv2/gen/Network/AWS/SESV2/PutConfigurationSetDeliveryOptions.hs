@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.PutConfigurationSetDeliveryOptions
+-- Module      : Amazonka.SESV2.PutConfigurationSetDeliveryOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Associate a configuration set with a dedicated IP pool. You can use
 -- dedicated IP pools to create groups of dedicated IP addresses for
 -- sending specific types of email.
-module Network.AWS.SESV2.PutConfigurationSetDeliveryOptions
+module Amazonka.SESV2.PutConfigurationSetDeliveryOptions
   ( -- * Creating a Request
     PutConfigurationSetDeliveryOptions (..),
     newPutConfigurationSetDeliveryOptions,
@@ -42,12 +42,12 @@ module Network.AWS.SESV2.PutConfigurationSetDeliveryOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to associate a configuration set with a dedicated IP pool.
 --

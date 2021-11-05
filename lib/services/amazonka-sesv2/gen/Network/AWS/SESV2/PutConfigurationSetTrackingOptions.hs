@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESV2.PutConfigurationSetTrackingOptions
+-- Module      : Amazonka.SESV2.PutConfigurationSetTrackingOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Specify a custom domain to use for open and click tracking elements in
 -- email that you send.
-module Network.AWS.SESV2.PutConfigurationSetTrackingOptions
+module Amazonka.SESV2.PutConfigurationSetTrackingOptions
   ( -- * Creating a Request
     PutConfigurationSetTrackingOptions (..),
     newPutConfigurationSetTrackingOptions,
@@ -40,12 +40,12 @@ module Network.AWS.SESV2.PutConfigurationSetTrackingOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SESV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SESV2.Types
 
 -- | A request to add a custom domain for tracking open and click events to a
 -- configuration set.

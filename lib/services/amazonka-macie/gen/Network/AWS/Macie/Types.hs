@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Macie.Types
+-- Module      : Amazonka.Macie.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Macie.Types
+module Amazonka.Macie.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -74,19 +74,19 @@ module Network.AWS.Macie.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Macie.Types.ClassificationType
-import Network.AWS.Macie.Types.ClassificationTypeUpdate
-import Network.AWS.Macie.Types.FailedS3Resource
-import Network.AWS.Macie.Types.MemberAccount
-import Network.AWS.Macie.Types.S3ContinuousClassificationType
-import Network.AWS.Macie.Types.S3OneTimeClassificationType
-import Network.AWS.Macie.Types.S3Resource
-import Network.AWS.Macie.Types.S3ResourceClassification
-import Network.AWS.Macie.Types.S3ResourceClassificationUpdate
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Macie.Types.ClassificationType
+import Amazonka.Macie.Types.ClassificationTypeUpdate
+import Amazonka.Macie.Types.FailedS3Resource
+import Amazonka.Macie.Types.MemberAccount
+import Amazonka.Macie.Types.S3ContinuousClassificationType
+import Amazonka.Macie.Types.S3OneTimeClassificationType
+import Amazonka.Macie.Types.S3Resource
+import Amazonka.Macie.Types.S3ResourceClassification
+import Amazonka.Macie.Types.S3ResourceClassificationUpdate
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-12-19@ of the Amazon Macie SDK configuration.
 defaultService :: Core.Service

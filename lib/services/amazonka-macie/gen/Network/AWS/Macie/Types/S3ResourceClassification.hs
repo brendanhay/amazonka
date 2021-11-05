@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Macie.Types.S3ResourceClassification
+-- Module      : Amazonka.Macie.Types.S3ResourceClassification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Macie.Types.S3ResourceClassification where
+module Amazonka.Macie.Types.S3ResourceClassification where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Macie.Types.ClassificationType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Macie.Types.ClassificationType
+import qualified Amazonka.Prelude as Prelude
 
 -- | The S3 resources that you want to associate with Amazon Macie Classic
 -- for monitoring and data classification. This data type is used as a

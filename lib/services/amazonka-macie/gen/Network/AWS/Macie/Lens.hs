@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Macie.Lens
+-- Module      : Amazonka.Macie.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Macie.Lens
+module Amazonka.Macie.Lens
   ( -- * Operations
 
     -- ** AssociateS3Resources
@@ -87,17 +87,17 @@ module Network.AWS.Macie.Lens
   )
 where
 
-import Network.AWS.Macie.AssociateMemberAccount
-import Network.AWS.Macie.AssociateS3Resources
-import Network.AWS.Macie.DisassociateMemberAccount
-import Network.AWS.Macie.DisassociateS3Resources
-import Network.AWS.Macie.ListMemberAccounts
-import Network.AWS.Macie.ListS3Resources
-import Network.AWS.Macie.Types.ClassificationType
-import Network.AWS.Macie.Types.ClassificationTypeUpdate
-import Network.AWS.Macie.Types.FailedS3Resource
-import Network.AWS.Macie.Types.MemberAccount
-import Network.AWS.Macie.Types.S3Resource
-import Network.AWS.Macie.Types.S3ResourceClassification
-import Network.AWS.Macie.Types.S3ResourceClassificationUpdate
-import Network.AWS.Macie.UpdateS3Resources
+import Amazonka.Macie.AssociateMemberAccount
+import Amazonka.Macie.AssociateS3Resources
+import Amazonka.Macie.DisassociateMemberAccount
+import Amazonka.Macie.DisassociateS3Resources
+import Amazonka.Macie.ListMemberAccounts
+import Amazonka.Macie.ListS3Resources
+import Amazonka.Macie.Types.ClassificationType
+import Amazonka.Macie.Types.ClassificationTypeUpdate
+import Amazonka.Macie.Types.FailedS3Resource
+import Amazonka.Macie.Types.MemberAccount
+import Amazonka.Macie.Types.S3Resource
+import Amazonka.Macie.Types.S3ResourceClassification
+import Amazonka.Macie.Types.S3ResourceClassificationUpdate
+import Amazonka.Macie.UpdateS3Resources

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Macie
+-- Module      : Amazonka.Macie
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- dashboards and alerts that give visibility into how this data is being
 -- accessed or moved. For more information, see the
 -- <https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html Amazon Macie Classic User Guide>.
-module Network.AWS.Macie
+module Amazonka.Macie
   ( -- * Service Configuration
     defaultService,
 
@@ -125,16 +125,16 @@ module Network.AWS.Macie
   )
 where
 
-import Network.AWS.Macie.AssociateMemberAccount
-import Network.AWS.Macie.AssociateS3Resources
-import Network.AWS.Macie.DisassociateMemberAccount
-import Network.AWS.Macie.DisassociateS3Resources
-import Network.AWS.Macie.Lens
-import Network.AWS.Macie.ListMemberAccounts
-import Network.AWS.Macie.ListS3Resources
-import Network.AWS.Macie.Types
-import Network.AWS.Macie.UpdateS3Resources
-import Network.AWS.Macie.Waiters
+import Amazonka.Macie.AssociateMemberAccount
+import Amazonka.Macie.AssociateS3Resources
+import Amazonka.Macie.DisassociateMemberAccount
+import Amazonka.Macie.DisassociateS3Resources
+import Amazonka.Macie.Lens
+import Amazonka.Macie.ListMemberAccounts
+import Amazonka.Macie.ListS3Resources
+import Amazonka.Macie.Types
+import Amazonka.Macie.UpdateS3Resources
+import Amazonka.Macie.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

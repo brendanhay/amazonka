@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Macie.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Macie.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Macie" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Macie" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,28 +45,28 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Macie
-    Network.AWS.Macie.AssociateMemberAccount
-    Network.AWS.Macie.AssociateS3Resources
-    Network.AWS.Macie.DisassociateMemberAccount
-    Network.AWS.Macie.DisassociateS3Resources
-    Network.AWS.Macie.Lens
-    Network.AWS.Macie.ListMemberAccounts
-    Network.AWS.Macie.ListS3Resources
-    Network.AWS.Macie.Types
-    Network.AWS.Macie.Types.ClassificationType
-    Network.AWS.Macie.Types.ClassificationTypeUpdate
-    Network.AWS.Macie.Types.FailedS3Resource
-    Network.AWS.Macie.Types.MemberAccount
-    Network.AWS.Macie.Types.S3ContinuousClassificationType
-    Network.AWS.Macie.Types.S3OneTimeClassificationType
-    Network.AWS.Macie.Types.S3Resource
-    Network.AWS.Macie.Types.S3ResourceClassification
-    Network.AWS.Macie.Types.S3ResourceClassificationUpdate
-    Network.AWS.Macie.UpdateS3Resources
-    Network.AWS.Macie.Waiters
+    Amazonka.Macie
+    Amazonka.Macie.AssociateMemberAccount
+    Amazonka.Macie.AssociateS3Resources
+    Amazonka.Macie.DisassociateMemberAccount
+    Amazonka.Macie.DisassociateS3Resources
+    Amazonka.Macie.Lens
+    Amazonka.Macie.ListMemberAccounts
+    Amazonka.Macie.ListS3Resources
+    Amazonka.Macie.Types
+    Amazonka.Macie.Types.ClassificationType
+    Amazonka.Macie.Types.ClassificationTypeUpdate
+    Amazonka.Macie.Types.FailedS3Resource
+    Amazonka.Macie.Types.MemberAccount
+    Amazonka.Macie.Types.S3ContinuousClassificationType
+    Amazonka.Macie.Types.S3OneTimeClassificationType
+    Amazonka.Macie.Types.S3Resource
+    Amazonka.Macie.Types.S3ResourceClassification
+    Amazonka.Macie.Types.S3ResourceClassificationUpdate
+    Amazonka.Macie.UpdateS3Resources
+    Amazonka.Macie.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

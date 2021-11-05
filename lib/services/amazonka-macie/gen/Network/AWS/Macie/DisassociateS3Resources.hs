@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Macie.DisassociateS3Resources
+-- Module      : Amazonka.Macie.DisassociateS3Resources
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- administrator account. If memberAccountId is specified, the action
 -- removes specified S3 resources from Macie Classic for the specified
 -- member account.
-module Network.AWS.Macie.DisassociateS3Resources
+module Amazonka.Macie.DisassociateS3Resources
   ( -- * Creating a Request
     DisassociateS3Resources (..),
     newDisassociateS3Resources,
@@ -45,12 +45,12 @@ module Network.AWS.Macie.DisassociateS3Resources
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Macie.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Macie.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateS3Resources' smart constructor.
 data DisassociateS3Resources = DisassociateS3Resources'

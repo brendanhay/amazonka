@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53Resolver where
 
+import Amazonka.Route53Resolver
 import qualified Data.Proxy as Proxy
-import Network.AWS.Route53Resolver
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Route53Resolver.Internal

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Resolver.GetResolverQueryLogConfig
+-- Module      : Amazonka.Route53Resolver.GetResolverQueryLogConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Gets information about a specified Resolver query logging configuration,
 -- such as the number of VPCs that the configuration is logging queries for
 -- and the location that logs are sent to.
-module Network.AWS.Route53Resolver.GetResolverQueryLogConfig
+module Amazonka.Route53Resolver.GetResolverQueryLogConfig
   ( -- * Creating a Request
     GetResolverQueryLogConfig (..),
     newGetResolverQueryLogConfig,
@@ -41,12 +41,12 @@ module Network.AWS.Route53Resolver.GetResolverQueryLogConfig
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53Resolver.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newGetResolverQueryLogConfig' smart constructor.
 data GetResolverQueryLogConfig = GetResolverQueryLogConfig'

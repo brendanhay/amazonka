@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Resolver.Types
+-- Module      : Amazonka.Route53Resolver.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Resolver.Types
+module Amazonka.Route53Resolver.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -320,53 +320,53 @@ module Network.AWS.Route53Resolver.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53Resolver.Types.Action
-import Network.AWS.Route53Resolver.Types.BlockOverrideDnsType
-import Network.AWS.Route53Resolver.Types.BlockResponse
-import Network.AWS.Route53Resolver.Types.Filter
-import Network.AWS.Route53Resolver.Types.FirewallConfig
-import Network.AWS.Route53Resolver.Types.FirewallDomainImportOperation
-import Network.AWS.Route53Resolver.Types.FirewallDomainList
-import Network.AWS.Route53Resolver.Types.FirewallDomainListMetadata
-import Network.AWS.Route53Resolver.Types.FirewallDomainListStatus
-import Network.AWS.Route53Resolver.Types.FirewallDomainUpdateOperation
-import Network.AWS.Route53Resolver.Types.FirewallFailOpenStatus
-import Network.AWS.Route53Resolver.Types.FirewallRule
-import Network.AWS.Route53Resolver.Types.FirewallRuleGroup
-import Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociation
-import Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus
-import Network.AWS.Route53Resolver.Types.FirewallRuleGroupMetadata
-import Network.AWS.Route53Resolver.Types.FirewallRuleGroupStatus
-import Network.AWS.Route53Resolver.Types.IpAddressRequest
-import Network.AWS.Route53Resolver.Types.IpAddressResponse
-import Network.AWS.Route53Resolver.Types.IpAddressStatus
-import Network.AWS.Route53Resolver.Types.IpAddressUpdate
-import Network.AWS.Route53Resolver.Types.MutationProtectionStatus
-import Network.AWS.Route53Resolver.Types.ResolverDNSSECValidationStatus
-import Network.AWS.Route53Resolver.Types.ResolverDnssecConfig
-import Network.AWS.Route53Resolver.Types.ResolverEndpoint
-import Network.AWS.Route53Resolver.Types.ResolverEndpointDirection
-import Network.AWS.Route53Resolver.Types.ResolverEndpointStatus
-import Network.AWS.Route53Resolver.Types.ResolverQueryLogConfig
-import Network.AWS.Route53Resolver.Types.ResolverQueryLogConfigAssociation
-import Network.AWS.Route53Resolver.Types.ResolverQueryLogConfigAssociationError
-import Network.AWS.Route53Resolver.Types.ResolverQueryLogConfigAssociationStatus
-import Network.AWS.Route53Resolver.Types.ResolverQueryLogConfigStatus
-import Network.AWS.Route53Resolver.Types.ResolverRule
-import Network.AWS.Route53Resolver.Types.ResolverRuleAssociation
-import Network.AWS.Route53Resolver.Types.ResolverRuleAssociationStatus
-import Network.AWS.Route53Resolver.Types.ResolverRuleConfig
-import Network.AWS.Route53Resolver.Types.ResolverRuleStatus
-import Network.AWS.Route53Resolver.Types.RuleTypeOption
-import Network.AWS.Route53Resolver.Types.ShareStatus
-import Network.AWS.Route53Resolver.Types.SortOrder
-import Network.AWS.Route53Resolver.Types.Tag
-import Network.AWS.Route53Resolver.Types.TargetAddress
-import Network.AWS.Route53Resolver.Types.Validation
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53Resolver.Types.Action
+import Amazonka.Route53Resolver.Types.BlockOverrideDnsType
+import Amazonka.Route53Resolver.Types.BlockResponse
+import Amazonka.Route53Resolver.Types.Filter
+import Amazonka.Route53Resolver.Types.FirewallConfig
+import Amazonka.Route53Resolver.Types.FirewallDomainImportOperation
+import Amazonka.Route53Resolver.Types.FirewallDomainList
+import Amazonka.Route53Resolver.Types.FirewallDomainListMetadata
+import Amazonka.Route53Resolver.Types.FirewallDomainListStatus
+import Amazonka.Route53Resolver.Types.FirewallDomainUpdateOperation
+import Amazonka.Route53Resolver.Types.FirewallFailOpenStatus
+import Amazonka.Route53Resolver.Types.FirewallRule
+import Amazonka.Route53Resolver.Types.FirewallRuleGroup
+import Amazonka.Route53Resolver.Types.FirewallRuleGroupAssociation
+import Amazonka.Route53Resolver.Types.FirewallRuleGroupAssociationStatus
+import Amazonka.Route53Resolver.Types.FirewallRuleGroupMetadata
+import Amazonka.Route53Resolver.Types.FirewallRuleGroupStatus
+import Amazonka.Route53Resolver.Types.IpAddressRequest
+import Amazonka.Route53Resolver.Types.IpAddressResponse
+import Amazonka.Route53Resolver.Types.IpAddressStatus
+import Amazonka.Route53Resolver.Types.IpAddressUpdate
+import Amazonka.Route53Resolver.Types.MutationProtectionStatus
+import Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
+import Amazonka.Route53Resolver.Types.ResolverDnssecConfig
+import Amazonka.Route53Resolver.Types.ResolverEndpoint
+import Amazonka.Route53Resolver.Types.ResolverEndpointDirection
+import Amazonka.Route53Resolver.Types.ResolverEndpointStatus
+import Amazonka.Route53Resolver.Types.ResolverQueryLogConfig
+import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation
+import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationError
+import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationStatus
+import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigStatus
+import Amazonka.Route53Resolver.Types.ResolverRule
+import Amazonka.Route53Resolver.Types.ResolverRuleAssociation
+import Amazonka.Route53Resolver.Types.ResolverRuleAssociationStatus
+import Amazonka.Route53Resolver.Types.ResolverRuleConfig
+import Amazonka.Route53Resolver.Types.ResolverRuleStatus
+import Amazonka.Route53Resolver.Types.RuleTypeOption
+import Amazonka.Route53Resolver.Types.ShareStatus
+import Amazonka.Route53Resolver.Types.SortOrder
+import Amazonka.Route53Resolver.Types.Tag
+import Amazonka.Route53Resolver.Types.TargetAddress
+import Amazonka.Route53Resolver.Types.Validation
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-04-01@ of the Amazon Route 53 Resolver SDK configuration.
 defaultService :: Core.Service

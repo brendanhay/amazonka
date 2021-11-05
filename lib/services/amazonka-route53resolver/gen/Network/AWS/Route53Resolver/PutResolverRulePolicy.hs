@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53Resolver.PutResolverRulePolicy
+-- Module      : Amazonka.Route53Resolver.PutResolverRulePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- another account, the account that you want to share the rule with, and
 -- the operations that you want the account to be able to perform on the
 -- rule.
-module Network.AWS.Route53Resolver.PutResolverRulePolicy
+module Amazonka.Route53Resolver.PutResolverRulePolicy
   ( -- * Creating a Request
     PutResolverRulePolicy (..),
     newPutResolverRulePolicy,
@@ -43,12 +43,12 @@ module Network.AWS.Route53Resolver.PutResolverRulePolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53Resolver.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newPutResolverRulePolicy' smart constructor.
 data PutResolverRulePolicy = PutResolverRulePolicy'

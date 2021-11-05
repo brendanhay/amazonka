@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53Resolver
+-- Module      : Amazonka.Route53Resolver
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -50,7 +50,7 @@
 -- VPCs, you can choose whether to forward queries from your VPCs to your
 -- network (outbound queries), from your network to your VPCs (inbound
 -- queries), or both.
-module Network.AWS.Route53Resolver
+module Amazonka.Route53Resolver
   ( -- * Service Configuration
     defaultService,
 
@@ -624,69 +624,69 @@ module Network.AWS.Route53Resolver
   )
 where
 
-import Network.AWS.Route53Resolver.AssociateFirewallRuleGroup
-import Network.AWS.Route53Resolver.AssociateResolverEndpointIpAddress
-import Network.AWS.Route53Resolver.AssociateResolverQueryLogConfig
-import Network.AWS.Route53Resolver.AssociateResolverRule
-import Network.AWS.Route53Resolver.CreateFirewallDomainList
-import Network.AWS.Route53Resolver.CreateFirewallRule
-import Network.AWS.Route53Resolver.CreateFirewallRuleGroup
-import Network.AWS.Route53Resolver.CreateResolverEndpoint
-import Network.AWS.Route53Resolver.CreateResolverQueryLogConfig
-import Network.AWS.Route53Resolver.CreateResolverRule
-import Network.AWS.Route53Resolver.DeleteFirewallDomainList
-import Network.AWS.Route53Resolver.DeleteFirewallRule
-import Network.AWS.Route53Resolver.DeleteFirewallRuleGroup
-import Network.AWS.Route53Resolver.DeleteResolverEndpoint
-import Network.AWS.Route53Resolver.DeleteResolverQueryLogConfig
-import Network.AWS.Route53Resolver.DeleteResolverRule
-import Network.AWS.Route53Resolver.DisassociateFirewallRuleGroup
-import Network.AWS.Route53Resolver.DisassociateResolverEndpointIpAddress
-import Network.AWS.Route53Resolver.DisassociateResolverQueryLogConfig
-import Network.AWS.Route53Resolver.DisassociateResolverRule
-import Network.AWS.Route53Resolver.GetFirewallConfig
-import Network.AWS.Route53Resolver.GetFirewallDomainList
-import Network.AWS.Route53Resolver.GetFirewallRuleGroup
-import Network.AWS.Route53Resolver.GetFirewallRuleGroupAssociation
-import Network.AWS.Route53Resolver.GetFirewallRuleGroupPolicy
-import Network.AWS.Route53Resolver.GetResolverDnssecConfig
-import Network.AWS.Route53Resolver.GetResolverEndpoint
-import Network.AWS.Route53Resolver.GetResolverQueryLogConfig
-import Network.AWS.Route53Resolver.GetResolverQueryLogConfigAssociation
-import Network.AWS.Route53Resolver.GetResolverQueryLogConfigPolicy
-import Network.AWS.Route53Resolver.GetResolverRule
-import Network.AWS.Route53Resolver.GetResolverRuleAssociation
-import Network.AWS.Route53Resolver.GetResolverRulePolicy
-import Network.AWS.Route53Resolver.ImportFirewallDomains
-import Network.AWS.Route53Resolver.Lens
-import Network.AWS.Route53Resolver.ListFirewallConfigs
-import Network.AWS.Route53Resolver.ListFirewallDomainLists
-import Network.AWS.Route53Resolver.ListFirewallDomains
-import Network.AWS.Route53Resolver.ListFirewallRuleGroupAssociations
-import Network.AWS.Route53Resolver.ListFirewallRuleGroups
-import Network.AWS.Route53Resolver.ListFirewallRules
-import Network.AWS.Route53Resolver.ListResolverDnssecConfigs
-import Network.AWS.Route53Resolver.ListResolverEndpointIpAddresses
-import Network.AWS.Route53Resolver.ListResolverEndpoints
-import Network.AWS.Route53Resolver.ListResolverQueryLogConfigAssociations
-import Network.AWS.Route53Resolver.ListResolverQueryLogConfigs
-import Network.AWS.Route53Resolver.ListResolverRuleAssociations
-import Network.AWS.Route53Resolver.ListResolverRules
-import Network.AWS.Route53Resolver.ListTagsForResource
-import Network.AWS.Route53Resolver.PutFirewallRuleGroupPolicy
-import Network.AWS.Route53Resolver.PutResolverQueryLogConfigPolicy
-import Network.AWS.Route53Resolver.PutResolverRulePolicy
-import Network.AWS.Route53Resolver.TagResource
-import Network.AWS.Route53Resolver.Types
-import Network.AWS.Route53Resolver.UntagResource
-import Network.AWS.Route53Resolver.UpdateFirewallConfig
-import Network.AWS.Route53Resolver.UpdateFirewallDomains
-import Network.AWS.Route53Resolver.UpdateFirewallRule
-import Network.AWS.Route53Resolver.UpdateFirewallRuleGroupAssociation
-import Network.AWS.Route53Resolver.UpdateResolverDnssecConfig
-import Network.AWS.Route53Resolver.UpdateResolverEndpoint
-import Network.AWS.Route53Resolver.UpdateResolverRule
-import Network.AWS.Route53Resolver.Waiters
+import Amazonka.Route53Resolver.AssociateFirewallRuleGroup
+import Amazonka.Route53Resolver.AssociateResolverEndpointIpAddress
+import Amazonka.Route53Resolver.AssociateResolverQueryLogConfig
+import Amazonka.Route53Resolver.AssociateResolverRule
+import Amazonka.Route53Resolver.CreateFirewallDomainList
+import Amazonka.Route53Resolver.CreateFirewallRule
+import Amazonka.Route53Resolver.CreateFirewallRuleGroup
+import Amazonka.Route53Resolver.CreateResolverEndpoint
+import Amazonka.Route53Resolver.CreateResolverQueryLogConfig
+import Amazonka.Route53Resolver.CreateResolverRule
+import Amazonka.Route53Resolver.DeleteFirewallDomainList
+import Amazonka.Route53Resolver.DeleteFirewallRule
+import Amazonka.Route53Resolver.DeleteFirewallRuleGroup
+import Amazonka.Route53Resolver.DeleteResolverEndpoint
+import Amazonka.Route53Resolver.DeleteResolverQueryLogConfig
+import Amazonka.Route53Resolver.DeleteResolverRule
+import Amazonka.Route53Resolver.DisassociateFirewallRuleGroup
+import Amazonka.Route53Resolver.DisassociateResolverEndpointIpAddress
+import Amazonka.Route53Resolver.DisassociateResolverQueryLogConfig
+import Amazonka.Route53Resolver.DisassociateResolverRule
+import Amazonka.Route53Resolver.GetFirewallConfig
+import Amazonka.Route53Resolver.GetFirewallDomainList
+import Amazonka.Route53Resolver.GetFirewallRuleGroup
+import Amazonka.Route53Resolver.GetFirewallRuleGroupAssociation
+import Amazonka.Route53Resolver.GetFirewallRuleGroupPolicy
+import Amazonka.Route53Resolver.GetResolverDnssecConfig
+import Amazonka.Route53Resolver.GetResolverEndpoint
+import Amazonka.Route53Resolver.GetResolverQueryLogConfig
+import Amazonka.Route53Resolver.GetResolverQueryLogConfigAssociation
+import Amazonka.Route53Resolver.GetResolverQueryLogConfigPolicy
+import Amazonka.Route53Resolver.GetResolverRule
+import Amazonka.Route53Resolver.GetResolverRuleAssociation
+import Amazonka.Route53Resolver.GetResolverRulePolicy
+import Amazonka.Route53Resolver.ImportFirewallDomains
+import Amazonka.Route53Resolver.Lens
+import Amazonka.Route53Resolver.ListFirewallConfigs
+import Amazonka.Route53Resolver.ListFirewallDomainLists
+import Amazonka.Route53Resolver.ListFirewallDomains
+import Amazonka.Route53Resolver.ListFirewallRuleGroupAssociations
+import Amazonka.Route53Resolver.ListFirewallRuleGroups
+import Amazonka.Route53Resolver.ListFirewallRules
+import Amazonka.Route53Resolver.ListResolverDnssecConfigs
+import Amazonka.Route53Resolver.ListResolverEndpointIpAddresses
+import Amazonka.Route53Resolver.ListResolverEndpoints
+import Amazonka.Route53Resolver.ListResolverQueryLogConfigAssociations
+import Amazonka.Route53Resolver.ListResolverQueryLogConfigs
+import Amazonka.Route53Resolver.ListResolverRuleAssociations
+import Amazonka.Route53Resolver.ListResolverRules
+import Amazonka.Route53Resolver.ListTagsForResource
+import Amazonka.Route53Resolver.PutFirewallRuleGroupPolicy
+import Amazonka.Route53Resolver.PutResolverQueryLogConfigPolicy
+import Amazonka.Route53Resolver.PutResolverRulePolicy
+import Amazonka.Route53Resolver.TagResource
+import Amazonka.Route53Resolver.Types
+import Amazonka.Route53Resolver.UntagResource
+import Amazonka.Route53Resolver.UpdateFirewallConfig
+import Amazonka.Route53Resolver.UpdateFirewallDomains
+import Amazonka.Route53Resolver.UpdateFirewallRule
+import Amazonka.Route53Resolver.UpdateFirewallRuleGroupAssociation
+import Amazonka.Route53Resolver.UpdateResolverDnssecConfig
+import Amazonka.Route53Resolver.UpdateResolverEndpoint
+import Amazonka.Route53Resolver.UpdateResolverRule
+import Amazonka.Route53Resolver.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

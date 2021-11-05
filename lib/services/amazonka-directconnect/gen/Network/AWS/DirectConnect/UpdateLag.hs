@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.UpdateLag
+-- Module      : Amazonka.DirectConnect.UpdateLag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- If you adjust the threshold value for the minimum number of operational
 -- connections, ensure that the new value does not cause the LAG to fall
 -- below the threshold and become non-operational.
-module Network.AWS.DirectConnect.UpdateLag
+module Amazonka.DirectConnect.UpdateLag
   ( -- * Creating a Request
     UpdateLag (..),
     newUpdateLag,
@@ -79,12 +79,12 @@ module Network.AWS.DirectConnect.UpdateLag
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLag' smart constructor.
 data UpdateLag = UpdateLag'

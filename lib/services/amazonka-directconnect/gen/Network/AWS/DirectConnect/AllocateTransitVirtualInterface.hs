@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.AllocateTransitVirtualInterface
+-- Module      : Amazonka.DirectConnect.AllocateTransitVirtualInterface
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- the owner using ConfirmTransitVirtualInterface. Until this step has been
 -- completed, the transit virtual interface is in the @requested@ state and
 -- is not available to handle traffic.
-module Network.AWS.DirectConnect.AllocateTransitVirtualInterface
+module Amazonka.DirectConnect.AllocateTransitVirtualInterface
   ( -- * Creating a Request
     AllocateTransitVirtualInterface (..),
     newAllocateTransitVirtualInterface,
@@ -51,12 +51,12 @@ module Network.AWS.DirectConnect.AllocateTransitVirtualInterface
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAllocateTransitVirtualInterface' smart constructor.
 data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'

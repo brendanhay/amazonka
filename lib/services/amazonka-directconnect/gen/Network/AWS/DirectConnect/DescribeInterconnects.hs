@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.DescribeInterconnects
+-- Module      : Amazonka.DirectConnect.DescribeInterconnects
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Lists the interconnects owned by the Amazon Web Services account or only
 -- the specified interconnect.
-module Network.AWS.DirectConnect.DescribeInterconnects
+module Amazonka.DirectConnect.DescribeInterconnects
   ( -- * Creating a Request
     DescribeInterconnects (..),
     newDescribeInterconnects,
@@ -40,12 +40,12 @@ module Network.AWS.DirectConnect.DescribeInterconnects
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInterconnects' smart constructor.
 data DescribeInterconnects = DescribeInterconnects'

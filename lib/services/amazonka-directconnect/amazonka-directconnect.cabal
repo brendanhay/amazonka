@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DirectConnect.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DirectConnect.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DirectConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DirectConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,114 +45,114 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DirectConnect
-    Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
-    Network.AWS.DirectConnect.AllocateHostedConnection
-    Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
-    Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-    Network.AWS.DirectConnect.AllocateTransitVirtualInterface
-    Network.AWS.DirectConnect.AssociateConnectionWithLag
-    Network.AWS.DirectConnect.AssociateHostedConnection
-    Network.AWS.DirectConnect.AssociateMacSecKey
-    Network.AWS.DirectConnect.AssociateVirtualInterface
-    Network.AWS.DirectConnect.ConfirmConnection
-    Network.AWS.DirectConnect.ConfirmCustomerAgreement
-    Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-    Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
-    Network.AWS.DirectConnect.ConfirmTransitVirtualInterface
-    Network.AWS.DirectConnect.CreateBGPPeer
-    Network.AWS.DirectConnect.CreateConnection
-    Network.AWS.DirectConnect.CreateDirectConnectGateway
-    Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
-    Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociationProposal
-    Network.AWS.DirectConnect.CreateInterconnect
-    Network.AWS.DirectConnect.CreateLag
-    Network.AWS.DirectConnect.CreatePrivateVirtualInterface
-    Network.AWS.DirectConnect.CreatePublicVirtualInterface
-    Network.AWS.DirectConnect.CreateTransitVirtualInterface
-    Network.AWS.DirectConnect.DeleteBGPPeer
-    Network.AWS.DirectConnect.DeleteConnection
-    Network.AWS.DirectConnect.DeleteDirectConnectGateway
-    Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
-    Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociationProposal
-    Network.AWS.DirectConnect.DeleteInterconnect
-    Network.AWS.DirectConnect.DeleteLag
-    Network.AWS.DirectConnect.DeleteVirtualInterface
-    Network.AWS.DirectConnect.DescribeConnections
-    Network.AWS.DirectConnect.DescribeCustomerMetadata
-    Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
-    Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
-    Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
-    Network.AWS.DirectConnect.DescribeDirectConnectGateways
-    Network.AWS.DirectConnect.DescribeHostedConnections
-    Network.AWS.DirectConnect.DescribeInterconnects
-    Network.AWS.DirectConnect.DescribeLags
-    Network.AWS.DirectConnect.DescribeLoa
-    Network.AWS.DirectConnect.DescribeLocations
-    Network.AWS.DirectConnect.DescribeRouterConfiguration
-    Network.AWS.DirectConnect.DescribeTags
-    Network.AWS.DirectConnect.DescribeVirtualGateways
-    Network.AWS.DirectConnect.DescribeVirtualInterfaces
-    Network.AWS.DirectConnect.DisassociateConnectionFromLag
-    Network.AWS.DirectConnect.DisassociateMacSecKey
-    Network.AWS.DirectConnect.Lens
-    Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
-    Network.AWS.DirectConnect.StartBgpFailoverTest
-    Network.AWS.DirectConnect.StopBgpFailoverTest
-    Network.AWS.DirectConnect.TagResource
-    Network.AWS.DirectConnect.Types
-    Network.AWS.DirectConnect.Types.AddressFamily
-    Network.AWS.DirectConnect.Types.AssociatedGateway
-    Network.AWS.DirectConnect.Types.BGPPeer
-    Network.AWS.DirectConnect.Types.BGPPeerState
-    Network.AWS.DirectConnect.Types.BGPStatus
-    Network.AWS.DirectConnect.Types.Connection
-    Network.AWS.DirectConnect.Types.Connections
-    Network.AWS.DirectConnect.Types.ConnectionState
-    Network.AWS.DirectConnect.Types.CustomerAgreement
-    Network.AWS.DirectConnect.Types.DirectConnectGateway
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
-    Network.AWS.DirectConnect.Types.DirectConnectGatewayState
-    Network.AWS.DirectConnect.Types.GatewayType
-    Network.AWS.DirectConnect.Types.HasLogicalRedundancy
-    Network.AWS.DirectConnect.Types.Interconnect
-    Network.AWS.DirectConnect.Types.InterconnectState
-    Network.AWS.DirectConnect.Types.Lag
-    Network.AWS.DirectConnect.Types.LagState
-    Network.AWS.DirectConnect.Types.LoaContentType
-    Network.AWS.DirectConnect.Types.Location
-    Network.AWS.DirectConnect.Types.MacSecKey
-    Network.AWS.DirectConnect.Types.NewBGPPeer
-    Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
-    Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
-    Network.AWS.DirectConnect.Types.NewPublicVirtualInterface
-    Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
-    Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
-    Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
-    Network.AWS.DirectConnect.Types.NniPartnerType
-    Network.AWS.DirectConnect.Types.ResourceTag
-    Network.AWS.DirectConnect.Types.RouteFilterPrefix
-    Network.AWS.DirectConnect.Types.RouterType
-    Network.AWS.DirectConnect.Types.Tag
-    Network.AWS.DirectConnect.Types.VirtualGateway
-    Network.AWS.DirectConnect.Types.VirtualInterface
-    Network.AWS.DirectConnect.Types.VirtualInterfaceState
-    Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
-    Network.AWS.DirectConnect.UntagResource
-    Network.AWS.DirectConnect.UpdateConnection
-    Network.AWS.DirectConnect.UpdateDirectConnectGateway
-    Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
-    Network.AWS.DirectConnect.UpdateLag
-    Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
-    Network.AWS.DirectConnect.Waiters
+    Amazonka.DirectConnect
+    Amazonka.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
+    Amazonka.DirectConnect.AllocateHostedConnection
+    Amazonka.DirectConnect.AllocatePrivateVirtualInterface
+    Amazonka.DirectConnect.AllocatePublicVirtualInterface
+    Amazonka.DirectConnect.AllocateTransitVirtualInterface
+    Amazonka.DirectConnect.AssociateConnectionWithLag
+    Amazonka.DirectConnect.AssociateHostedConnection
+    Amazonka.DirectConnect.AssociateMacSecKey
+    Amazonka.DirectConnect.AssociateVirtualInterface
+    Amazonka.DirectConnect.ConfirmConnection
+    Amazonka.DirectConnect.ConfirmCustomerAgreement
+    Amazonka.DirectConnect.ConfirmPrivateVirtualInterface
+    Amazonka.DirectConnect.ConfirmPublicVirtualInterface
+    Amazonka.DirectConnect.ConfirmTransitVirtualInterface
+    Amazonka.DirectConnect.CreateBGPPeer
+    Amazonka.DirectConnect.CreateConnection
+    Amazonka.DirectConnect.CreateDirectConnectGateway
+    Amazonka.DirectConnect.CreateDirectConnectGatewayAssociation
+    Amazonka.DirectConnect.CreateDirectConnectGatewayAssociationProposal
+    Amazonka.DirectConnect.CreateInterconnect
+    Amazonka.DirectConnect.CreateLag
+    Amazonka.DirectConnect.CreatePrivateVirtualInterface
+    Amazonka.DirectConnect.CreatePublicVirtualInterface
+    Amazonka.DirectConnect.CreateTransitVirtualInterface
+    Amazonka.DirectConnect.DeleteBGPPeer
+    Amazonka.DirectConnect.DeleteConnection
+    Amazonka.DirectConnect.DeleteDirectConnectGateway
+    Amazonka.DirectConnect.DeleteDirectConnectGatewayAssociation
+    Amazonka.DirectConnect.DeleteDirectConnectGatewayAssociationProposal
+    Amazonka.DirectConnect.DeleteInterconnect
+    Amazonka.DirectConnect.DeleteLag
+    Amazonka.DirectConnect.DeleteVirtualInterface
+    Amazonka.DirectConnect.DescribeConnections
+    Amazonka.DirectConnect.DescribeCustomerMetadata
+    Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
+    Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociations
+    Amazonka.DirectConnect.DescribeDirectConnectGatewayAttachments
+    Amazonka.DirectConnect.DescribeDirectConnectGateways
+    Amazonka.DirectConnect.DescribeHostedConnections
+    Amazonka.DirectConnect.DescribeInterconnects
+    Amazonka.DirectConnect.DescribeLags
+    Amazonka.DirectConnect.DescribeLoa
+    Amazonka.DirectConnect.DescribeLocations
+    Amazonka.DirectConnect.DescribeRouterConfiguration
+    Amazonka.DirectConnect.DescribeTags
+    Amazonka.DirectConnect.DescribeVirtualGateways
+    Amazonka.DirectConnect.DescribeVirtualInterfaces
+    Amazonka.DirectConnect.DisassociateConnectionFromLag
+    Amazonka.DirectConnect.DisassociateMacSecKey
+    Amazonka.DirectConnect.Lens
+    Amazonka.DirectConnect.ListVirtualInterfaceTestHistory
+    Amazonka.DirectConnect.StartBgpFailoverTest
+    Amazonka.DirectConnect.StopBgpFailoverTest
+    Amazonka.DirectConnect.TagResource
+    Amazonka.DirectConnect.Types
+    Amazonka.DirectConnect.Types.AddressFamily
+    Amazonka.DirectConnect.Types.AssociatedGateway
+    Amazonka.DirectConnect.Types.BGPPeer
+    Amazonka.DirectConnect.Types.BGPPeerState
+    Amazonka.DirectConnect.Types.BGPStatus
+    Amazonka.DirectConnect.Types.Connection
+    Amazonka.DirectConnect.Types.Connections
+    Amazonka.DirectConnect.Types.ConnectionState
+    Amazonka.DirectConnect.Types.CustomerAgreement
+    Amazonka.DirectConnect.Types.DirectConnectGateway
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAttachment
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentState
+    Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentType
+    Amazonka.DirectConnect.Types.DirectConnectGatewayState
+    Amazonka.DirectConnect.Types.GatewayType
+    Amazonka.DirectConnect.Types.HasLogicalRedundancy
+    Amazonka.DirectConnect.Types.Interconnect
+    Amazonka.DirectConnect.Types.InterconnectState
+    Amazonka.DirectConnect.Types.Lag
+    Amazonka.DirectConnect.Types.LagState
+    Amazonka.DirectConnect.Types.LoaContentType
+    Amazonka.DirectConnect.Types.Location
+    Amazonka.DirectConnect.Types.MacSecKey
+    Amazonka.DirectConnect.Types.NewBGPPeer
+    Amazonka.DirectConnect.Types.NewPrivateVirtualInterface
+    Amazonka.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
+    Amazonka.DirectConnect.Types.NewPublicVirtualInterface
+    Amazonka.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
+    Amazonka.DirectConnect.Types.NewTransitVirtualInterface
+    Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
+    Amazonka.DirectConnect.Types.NniPartnerType
+    Amazonka.DirectConnect.Types.ResourceTag
+    Amazonka.DirectConnect.Types.RouteFilterPrefix
+    Amazonka.DirectConnect.Types.RouterType
+    Amazonka.DirectConnect.Types.Tag
+    Amazonka.DirectConnect.Types.VirtualGateway
+    Amazonka.DirectConnect.Types.VirtualInterface
+    Amazonka.DirectConnect.Types.VirtualInterfaceState
+    Amazonka.DirectConnect.Types.VirtualInterfaceTestHistory
+    Amazonka.DirectConnect.UntagResource
+    Amazonka.DirectConnect.UpdateConnection
+    Amazonka.DirectConnect.UpdateDirectConnectGateway
+    Amazonka.DirectConnect.UpdateDirectConnectGatewayAssociation
+    Amazonka.DirectConnect.UpdateLag
+    Amazonka.DirectConnect.UpdateVirtualInterfaceAttributes
+    Amazonka.DirectConnect.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

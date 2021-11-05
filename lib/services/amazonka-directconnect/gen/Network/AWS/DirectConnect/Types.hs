@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.Types
+-- Module      : Amazonka.DirectConnect.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types
+module Amazonka.DirectConnect.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -403,53 +403,53 @@ module Network.AWS.DirectConnect.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types.AddressFamily
-import Network.AWS.DirectConnect.Types.AssociatedGateway
-import Network.AWS.DirectConnect.Types.BGPPeer
-import Network.AWS.DirectConnect.Types.BGPPeerState
-import Network.AWS.DirectConnect.Types.BGPStatus
-import Network.AWS.DirectConnect.Types.Connection
-import Network.AWS.DirectConnect.Types.ConnectionState
-import Network.AWS.DirectConnect.Types.Connections
-import Network.AWS.DirectConnect.Types.CustomerAgreement
-import Network.AWS.DirectConnect.Types.DirectConnectGateway
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayState
-import Network.AWS.DirectConnect.Types.GatewayType
-import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
-import Network.AWS.DirectConnect.Types.Interconnect
-import Network.AWS.DirectConnect.Types.InterconnectState
-import Network.AWS.DirectConnect.Types.Lag
-import Network.AWS.DirectConnect.Types.LagState
-import Network.AWS.DirectConnect.Types.LoaContentType
-import Network.AWS.DirectConnect.Types.Location
-import Network.AWS.DirectConnect.Types.MacSecKey
-import Network.AWS.DirectConnect.Types.NewBGPPeer
-import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
-import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
-import Network.AWS.DirectConnect.Types.NewPublicVirtualInterface
-import Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
-import Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
-import Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
-import Network.AWS.DirectConnect.Types.NniPartnerType
-import Network.AWS.DirectConnect.Types.ResourceTag
-import Network.AWS.DirectConnect.Types.RouteFilterPrefix
-import Network.AWS.DirectConnect.Types.RouterType
-import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.DirectConnect.Types.VirtualGateway
-import Network.AWS.DirectConnect.Types.VirtualInterface
-import Network.AWS.DirectConnect.Types.VirtualInterfaceState
-import Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types.AddressFamily
+import Amazonka.DirectConnect.Types.AssociatedGateway
+import Amazonka.DirectConnect.Types.BGPPeer
+import Amazonka.DirectConnect.Types.BGPPeerState
+import Amazonka.DirectConnect.Types.BGPStatus
+import Amazonka.DirectConnect.Types.Connection
+import Amazonka.DirectConnect.Types.ConnectionState
+import Amazonka.DirectConnect.Types.Connections
+import Amazonka.DirectConnect.Types.CustomerAgreement
+import Amazonka.DirectConnect.Types.DirectConnectGateway
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachment
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentState
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAttachmentType
+import Amazonka.DirectConnect.Types.DirectConnectGatewayState
+import Amazonka.DirectConnect.Types.GatewayType
+import Amazonka.DirectConnect.Types.HasLogicalRedundancy
+import Amazonka.DirectConnect.Types.Interconnect
+import Amazonka.DirectConnect.Types.InterconnectState
+import Amazonka.DirectConnect.Types.Lag
+import Amazonka.DirectConnect.Types.LagState
+import Amazonka.DirectConnect.Types.LoaContentType
+import Amazonka.DirectConnect.Types.Location
+import Amazonka.DirectConnect.Types.MacSecKey
+import Amazonka.DirectConnect.Types.NewBGPPeer
+import Amazonka.DirectConnect.Types.NewPrivateVirtualInterface
+import Amazonka.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
+import Amazonka.DirectConnect.Types.NewPublicVirtualInterface
+import Amazonka.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
+import Amazonka.DirectConnect.Types.NewTransitVirtualInterface
+import Amazonka.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
+import Amazonka.DirectConnect.Types.NniPartnerType
+import Amazonka.DirectConnect.Types.ResourceTag
+import Amazonka.DirectConnect.Types.RouteFilterPrefix
+import Amazonka.DirectConnect.Types.RouterType
+import Amazonka.DirectConnect.Types.Tag
+import Amazonka.DirectConnect.Types.VirtualGateway
+import Amazonka.DirectConnect.Types.VirtualInterface
+import Amazonka.DirectConnect.Types.VirtualInterfaceState
+import Amazonka.DirectConnect.Types.VirtualInterfaceTestHistory
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-10-25@ of the Amazon Direct Connect SDK configuration.
 defaultService :: Core.Service

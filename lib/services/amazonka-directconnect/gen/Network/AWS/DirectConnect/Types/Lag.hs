@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.Types.Lag
+-- Module      : Amazonka.DirectConnect.Types.Lag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.Lag where
+module Amazonka.DirectConnect.Types.Lag where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types.Connection
-import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
-import Network.AWS.DirectConnect.Types.LagState
-import Network.AWS.DirectConnect.Types.MacSecKey
-import Network.AWS.DirectConnect.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types.Connection
+import Amazonka.DirectConnect.Types.HasLogicalRedundancy
+import Amazonka.DirectConnect.Types.LagState
+import Amazonka.DirectConnect.Types.MacSecKey
+import Amazonka.DirectConnect.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a link aggregation group (LAG).
 --

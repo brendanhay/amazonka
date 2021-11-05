@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.DescribeHostedConnections
+-- Module      : Amazonka.DirectConnect.DescribeHostedConnections
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- interconnect or link aggregation group (LAG).
 --
 -- Intended for use by Direct Connect Partners only.
-module Network.AWS.DirectConnect.DescribeHostedConnections
+module Amazonka.DirectConnect.DescribeHostedConnections
   ( -- * Creating a Request
     DescribeHostedConnections (..),
     newDescribeHostedConnections,
@@ -41,12 +41,12 @@ module Network.AWS.DirectConnect.DescribeHostedConnections
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeHostedConnections' smart constructor.
 data DescribeHostedConnections = DescribeHostedConnections'

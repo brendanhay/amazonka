@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.Types.VirtualInterface
+-- Module      : Amazonka.DirectConnect.Types.VirtualInterface
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.VirtualInterface where
+module Amazonka.DirectConnect.Types.VirtualInterface where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types.AddressFamily
-import Network.AWS.DirectConnect.Types.BGPPeer
-import Network.AWS.DirectConnect.Types.RouteFilterPrefix
-import Network.AWS.DirectConnect.Types.Tag
-import Network.AWS.DirectConnect.Types.VirtualInterfaceState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types.AddressFamily
+import Amazonka.DirectConnect.Types.BGPPeer
+import Amazonka.DirectConnect.Types.RouteFilterPrefix
+import Amazonka.DirectConnect.Types.Tag
+import Amazonka.DirectConnect.Types.VirtualInterfaceState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a virtual interface.
 --

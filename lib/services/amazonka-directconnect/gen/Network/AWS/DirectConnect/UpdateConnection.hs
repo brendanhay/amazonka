@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.UpdateConnection
+-- Module      : Amazonka.DirectConnect.UpdateConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- -   The connection name
 --
 -- -   The connection\'s MAC Security (MACsec) encryption mode.
-module Network.AWS.DirectConnect.UpdateConnection
+module Amazonka.DirectConnect.UpdateConnection
   ( -- * Creating a Request
     UpdateConnection (..),
     newUpdateConnection,
@@ -67,12 +67,12 @@ module Network.AWS.DirectConnect.UpdateConnection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'

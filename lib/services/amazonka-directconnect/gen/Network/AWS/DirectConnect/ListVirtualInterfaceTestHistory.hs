@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
+-- Module      : Amazonka.DirectConnect.ListVirtualInterfaceTestHistory
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the virtual interface failover test history.
-module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
+module Amazonka.DirectConnect.ListVirtualInterfaceTestHistory
   ( -- * Creating a Request
     ListVirtualInterfaceTestHistory (..),
     newListVirtualInterfaceTestHistory,
@@ -45,12 +45,12 @@ module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVirtualInterfaceTestHistory' smart constructor.
 data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'

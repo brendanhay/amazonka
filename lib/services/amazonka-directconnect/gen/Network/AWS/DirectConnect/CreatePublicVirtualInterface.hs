@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
+-- Module      : Amazonka.DirectConnect.CreatePublicVirtualInterface
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- When creating an IPv6 public virtual interface (@addressFamily@ is
 -- @ipv6@), leave the @customer@ and @amazon@ address fields blank to use
 -- auto-assigned IPv6 space. Custom IPv6 addresses are not supported.
-module Network.AWS.DirectConnect.CreatePublicVirtualInterface
+module Amazonka.DirectConnect.CreatePublicVirtualInterface
   ( -- * Creating a Request
     CreatePublicVirtualInterface (..),
     newCreatePublicVirtualInterface,
@@ -70,12 +70,12 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'

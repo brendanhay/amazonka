@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DirectConnect
+-- Module      : Amazonka.DirectConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- except the China (Beijing) and (China) Ningxia Regions. Amazon Web
 -- Services resources in the China Regions can only be accessed through
 -- locations associated with those Regions.
-module Network.AWS.DirectConnect
+module Amazonka.DirectConnect
   ( -- * Service Configuration
     defaultService,
 
@@ -560,68 +560,68 @@ module Network.AWS.DirectConnect
   )
 where
 
-import Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
-import Network.AWS.DirectConnect.AllocateHostedConnection
-import Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
-import Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-import Network.AWS.DirectConnect.AllocateTransitVirtualInterface
-import Network.AWS.DirectConnect.AssociateConnectionWithLag
-import Network.AWS.DirectConnect.AssociateHostedConnection
-import Network.AWS.DirectConnect.AssociateMacSecKey
-import Network.AWS.DirectConnect.AssociateVirtualInterface
-import Network.AWS.DirectConnect.ConfirmConnection
-import Network.AWS.DirectConnect.ConfirmCustomerAgreement
-import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
-import Network.AWS.DirectConnect.ConfirmTransitVirtualInterface
-import Network.AWS.DirectConnect.CreateBGPPeer
-import Network.AWS.DirectConnect.CreateConnection
-import Network.AWS.DirectConnect.CreateDirectConnectGateway
-import Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
-import Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociationProposal
-import Network.AWS.DirectConnect.CreateInterconnect
-import Network.AWS.DirectConnect.CreateLag
-import Network.AWS.DirectConnect.CreatePrivateVirtualInterface
-import Network.AWS.DirectConnect.CreatePublicVirtualInterface
-import Network.AWS.DirectConnect.CreateTransitVirtualInterface
-import Network.AWS.DirectConnect.DeleteBGPPeer
-import Network.AWS.DirectConnect.DeleteConnection
-import Network.AWS.DirectConnect.DeleteDirectConnectGateway
-import Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
-import Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociationProposal
-import Network.AWS.DirectConnect.DeleteInterconnect
-import Network.AWS.DirectConnect.DeleteLag
-import Network.AWS.DirectConnect.DeleteVirtualInterface
-import Network.AWS.DirectConnect.DescribeConnections
-import Network.AWS.DirectConnect.DescribeCustomerMetadata
-import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
-import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
-import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
-import Network.AWS.DirectConnect.DescribeDirectConnectGateways
-import Network.AWS.DirectConnect.DescribeHostedConnections
-import Network.AWS.DirectConnect.DescribeInterconnects
-import Network.AWS.DirectConnect.DescribeLags
-import Network.AWS.DirectConnect.DescribeLoa
-import Network.AWS.DirectConnect.DescribeLocations
-import Network.AWS.DirectConnect.DescribeRouterConfiguration
-import Network.AWS.DirectConnect.DescribeTags
-import Network.AWS.DirectConnect.DescribeVirtualGateways
-import Network.AWS.DirectConnect.DescribeVirtualInterfaces
-import Network.AWS.DirectConnect.DisassociateConnectionFromLag
-import Network.AWS.DirectConnect.DisassociateMacSecKey
-import Network.AWS.DirectConnect.Lens
-import Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
-import Network.AWS.DirectConnect.StartBgpFailoverTest
-import Network.AWS.DirectConnect.StopBgpFailoverTest
-import Network.AWS.DirectConnect.TagResource
-import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.UntagResource
-import Network.AWS.DirectConnect.UpdateConnection
-import Network.AWS.DirectConnect.UpdateDirectConnectGateway
-import Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
-import Network.AWS.DirectConnect.UpdateLag
-import Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
-import Network.AWS.DirectConnect.Waiters
+import Amazonka.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
+import Amazonka.DirectConnect.AllocateHostedConnection
+import Amazonka.DirectConnect.AllocatePrivateVirtualInterface
+import Amazonka.DirectConnect.AllocatePublicVirtualInterface
+import Amazonka.DirectConnect.AllocateTransitVirtualInterface
+import Amazonka.DirectConnect.AssociateConnectionWithLag
+import Amazonka.DirectConnect.AssociateHostedConnection
+import Amazonka.DirectConnect.AssociateMacSecKey
+import Amazonka.DirectConnect.AssociateVirtualInterface
+import Amazonka.DirectConnect.ConfirmConnection
+import Amazonka.DirectConnect.ConfirmCustomerAgreement
+import Amazonka.DirectConnect.ConfirmPrivateVirtualInterface
+import Amazonka.DirectConnect.ConfirmPublicVirtualInterface
+import Amazonka.DirectConnect.ConfirmTransitVirtualInterface
+import Amazonka.DirectConnect.CreateBGPPeer
+import Amazonka.DirectConnect.CreateConnection
+import Amazonka.DirectConnect.CreateDirectConnectGateway
+import Amazonka.DirectConnect.CreateDirectConnectGatewayAssociation
+import Amazonka.DirectConnect.CreateDirectConnectGatewayAssociationProposal
+import Amazonka.DirectConnect.CreateInterconnect
+import Amazonka.DirectConnect.CreateLag
+import Amazonka.DirectConnect.CreatePrivateVirtualInterface
+import Amazonka.DirectConnect.CreatePublicVirtualInterface
+import Amazonka.DirectConnect.CreateTransitVirtualInterface
+import Amazonka.DirectConnect.DeleteBGPPeer
+import Amazonka.DirectConnect.DeleteConnection
+import Amazonka.DirectConnect.DeleteDirectConnectGateway
+import Amazonka.DirectConnect.DeleteDirectConnectGatewayAssociation
+import Amazonka.DirectConnect.DeleteDirectConnectGatewayAssociationProposal
+import Amazonka.DirectConnect.DeleteInterconnect
+import Amazonka.DirectConnect.DeleteLag
+import Amazonka.DirectConnect.DeleteVirtualInterface
+import Amazonka.DirectConnect.DescribeConnections
+import Amazonka.DirectConnect.DescribeCustomerMetadata
+import Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
+import Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociations
+import Amazonka.DirectConnect.DescribeDirectConnectGatewayAttachments
+import Amazonka.DirectConnect.DescribeDirectConnectGateways
+import Amazonka.DirectConnect.DescribeHostedConnections
+import Amazonka.DirectConnect.DescribeInterconnects
+import Amazonka.DirectConnect.DescribeLags
+import Amazonka.DirectConnect.DescribeLoa
+import Amazonka.DirectConnect.DescribeLocations
+import Amazonka.DirectConnect.DescribeRouterConfiguration
+import Amazonka.DirectConnect.DescribeTags
+import Amazonka.DirectConnect.DescribeVirtualGateways
+import Amazonka.DirectConnect.DescribeVirtualInterfaces
+import Amazonka.DirectConnect.DisassociateConnectionFromLag
+import Amazonka.DirectConnect.DisassociateMacSecKey
+import Amazonka.DirectConnect.Lens
+import Amazonka.DirectConnect.ListVirtualInterfaceTestHistory
+import Amazonka.DirectConnect.StartBgpFailoverTest
+import Amazonka.DirectConnect.StopBgpFailoverTest
+import Amazonka.DirectConnect.TagResource
+import Amazonka.DirectConnect.Types
+import Amazonka.DirectConnect.UntagResource
+import Amazonka.DirectConnect.UpdateConnection
+import Amazonka.DirectConnect.UpdateDirectConnectGateway
+import Amazonka.DirectConnect.UpdateDirectConnectGatewayAssociation
+import Amazonka.DirectConnect.UpdateLag
+import Amazonka.DirectConnect.UpdateVirtualInterfaceAttributes
+import Amazonka.DirectConnect.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.CreateConnection
+-- Module      : Amazonka.DirectConnect.CreateConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- connection is allocated on the same Direct Connect endpoint that hosts
 -- the specified LAG. If there are no available ports on the endpoint, the
 -- request fails and no connection is created.
-module Network.AWS.DirectConnect.CreateConnection
+module Amazonka.DirectConnect.CreateConnection
   ( -- * Creating a Request
     CreateConnection (..),
     newCreateConnection,
@@ -78,12 +78,12 @@ module Network.AWS.DirectConnect.CreateConnection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'

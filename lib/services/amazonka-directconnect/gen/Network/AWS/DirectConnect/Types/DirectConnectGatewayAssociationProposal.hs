@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
+-- Module      : Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal where
+module Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposal where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types.AssociatedGateway
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
-import Network.AWS.DirectConnect.Types.RouteFilterPrefix
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types.AssociatedGateway
+import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
+import Amazonka.DirectConnect.Types.RouteFilterPrefix
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the proposal request to attach a virtual private
 -- gateway to a Direct Connect gateway.

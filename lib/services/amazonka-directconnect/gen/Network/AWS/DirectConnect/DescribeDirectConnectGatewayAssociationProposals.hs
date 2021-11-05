@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
+-- Module      : Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Describes one or more association proposals for connection between a
 -- virtual private gateway or transit gateway and a Direct Connect gateway.
-module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
+module Amazonka.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
   ( -- * Creating a Request
     DescribeDirectConnectGatewayAssociationProposals (..),
     newDescribeDirectConnectGatewayAssociationProposals,
@@ -45,12 +45,12 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposal
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAssociationProposals' smart constructor.
 data DescribeDirectConnectGatewayAssociationProposals = DescribeDirectConnectGatewayAssociationProposals'

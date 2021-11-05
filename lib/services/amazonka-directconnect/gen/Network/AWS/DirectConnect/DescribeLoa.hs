@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DirectConnect.DescribeLoa
+-- Module      : Amazonka.DirectConnect.DescribeLoa
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at Direct Connect Locations>
 -- in the /Direct Connect User Guide/.
-module Network.AWS.DirectConnect.DescribeLoa
+module Amazonka.DirectConnect.DescribeLoa
   ( -- * Creating a Request
     DescribeLoa (..),
     newDescribeLoa,
@@ -50,12 +50,12 @@ module Network.AWS.DirectConnect.DescribeLoa
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DirectConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DirectConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WAFRegional.Types
+-- Module      : Amazonka.WAFRegional.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types
+module Amazonka.WAFRegional.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -450,80 +450,80 @@ module Network.AWS.WAFRegional.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WAFRegional.Types.ActivatedRule
-import Network.AWS.WAFRegional.Types.ByteMatchSet
-import Network.AWS.WAFRegional.Types.ByteMatchSetSummary
-import Network.AWS.WAFRegional.Types.ByteMatchSetUpdate
-import Network.AWS.WAFRegional.Types.ByteMatchTuple
-import Network.AWS.WAFRegional.Types.ChangeAction
-import Network.AWS.WAFRegional.Types.ChangeTokenStatus
-import Network.AWS.WAFRegional.Types.ComparisonOperator
-import Network.AWS.WAFRegional.Types.ExcludedRule
-import Network.AWS.WAFRegional.Types.FieldToMatch
-import Network.AWS.WAFRegional.Types.GeoMatchConstraint
-import Network.AWS.WAFRegional.Types.GeoMatchConstraintType
-import Network.AWS.WAFRegional.Types.GeoMatchConstraintValue
-import Network.AWS.WAFRegional.Types.GeoMatchSet
-import Network.AWS.WAFRegional.Types.GeoMatchSetSummary
-import Network.AWS.WAFRegional.Types.GeoMatchSetUpdate
-import Network.AWS.WAFRegional.Types.HTTPHeader
-import Network.AWS.WAFRegional.Types.HTTPRequest
-import Network.AWS.WAFRegional.Types.IPSet
-import Network.AWS.WAFRegional.Types.IPSetDescriptor
-import Network.AWS.WAFRegional.Types.IPSetDescriptorType
-import Network.AWS.WAFRegional.Types.IPSetSummary
-import Network.AWS.WAFRegional.Types.IPSetUpdate
-import Network.AWS.WAFRegional.Types.LoggingConfiguration
-import Network.AWS.WAFRegional.Types.MatchFieldType
-import Network.AWS.WAFRegional.Types.PositionalConstraint
-import Network.AWS.WAFRegional.Types.Predicate
-import Network.AWS.WAFRegional.Types.PredicateType
-import Network.AWS.WAFRegional.Types.RateBasedRule
-import Network.AWS.WAFRegional.Types.RateKey
-import Network.AWS.WAFRegional.Types.RegexMatchSet
-import Network.AWS.WAFRegional.Types.RegexMatchSetSummary
-import Network.AWS.WAFRegional.Types.RegexMatchSetUpdate
-import Network.AWS.WAFRegional.Types.RegexMatchTuple
-import Network.AWS.WAFRegional.Types.RegexPatternSet
-import Network.AWS.WAFRegional.Types.RegexPatternSetSummary
-import Network.AWS.WAFRegional.Types.RegexPatternSetUpdate
-import Network.AWS.WAFRegional.Types.ResourceType
-import Network.AWS.WAFRegional.Types.Rule
-import Network.AWS.WAFRegional.Types.RuleGroup
-import Network.AWS.WAFRegional.Types.RuleGroupSummary
-import Network.AWS.WAFRegional.Types.RuleGroupUpdate
-import Network.AWS.WAFRegional.Types.RuleSummary
-import Network.AWS.WAFRegional.Types.RuleUpdate
-import Network.AWS.WAFRegional.Types.SampledHTTPRequest
-import Network.AWS.WAFRegional.Types.SizeConstraint
-import Network.AWS.WAFRegional.Types.SizeConstraintSet
-import Network.AWS.WAFRegional.Types.SizeConstraintSetSummary
-import Network.AWS.WAFRegional.Types.SizeConstraintSetUpdate
-import Network.AWS.WAFRegional.Types.SqlInjectionMatchSet
-import Network.AWS.WAFRegional.Types.SqlInjectionMatchSetSummary
-import Network.AWS.WAFRegional.Types.SqlInjectionMatchSetUpdate
-import Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple
-import Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary
-import Network.AWS.WAFRegional.Types.Tag
-import Network.AWS.WAFRegional.Types.TagInfoForResource
-import Network.AWS.WAFRegional.Types.TextTransformation
-import Network.AWS.WAFRegional.Types.TimeWindow
-import Network.AWS.WAFRegional.Types.WafAction
-import Network.AWS.WAFRegional.Types.WafActionType
-import Network.AWS.WAFRegional.Types.WafOverrideAction
-import Network.AWS.WAFRegional.Types.WafOverrideActionType
-import Network.AWS.WAFRegional.Types.WafRuleType
-import Network.AWS.WAFRegional.Types.WebACL
-import Network.AWS.WAFRegional.Types.WebACLSummary
-import Network.AWS.WAFRegional.Types.WebACLUpdate
-import Network.AWS.WAFRegional.Types.XssMatchSet
-import Network.AWS.WAFRegional.Types.XssMatchSetSummary
-import Network.AWS.WAFRegional.Types.XssMatchSetUpdate
-import Network.AWS.WAFRegional.Types.XssMatchTuple
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WAFRegional.Types.ActivatedRule
+import Amazonka.WAFRegional.Types.ByteMatchSet
+import Amazonka.WAFRegional.Types.ByteMatchSetSummary
+import Amazonka.WAFRegional.Types.ByteMatchSetUpdate
+import Amazonka.WAFRegional.Types.ByteMatchTuple
+import Amazonka.WAFRegional.Types.ChangeAction
+import Amazonka.WAFRegional.Types.ChangeTokenStatus
+import Amazonka.WAFRegional.Types.ComparisonOperator
+import Amazonka.WAFRegional.Types.ExcludedRule
+import Amazonka.WAFRegional.Types.FieldToMatch
+import Amazonka.WAFRegional.Types.GeoMatchConstraint
+import Amazonka.WAFRegional.Types.GeoMatchConstraintType
+import Amazonka.WAFRegional.Types.GeoMatchConstraintValue
+import Amazonka.WAFRegional.Types.GeoMatchSet
+import Amazonka.WAFRegional.Types.GeoMatchSetSummary
+import Amazonka.WAFRegional.Types.GeoMatchSetUpdate
+import Amazonka.WAFRegional.Types.HTTPHeader
+import Amazonka.WAFRegional.Types.HTTPRequest
+import Amazonka.WAFRegional.Types.IPSet
+import Amazonka.WAFRegional.Types.IPSetDescriptor
+import Amazonka.WAFRegional.Types.IPSetDescriptorType
+import Amazonka.WAFRegional.Types.IPSetSummary
+import Amazonka.WAFRegional.Types.IPSetUpdate
+import Amazonka.WAFRegional.Types.LoggingConfiguration
+import Amazonka.WAFRegional.Types.MatchFieldType
+import Amazonka.WAFRegional.Types.PositionalConstraint
+import Amazonka.WAFRegional.Types.Predicate
+import Amazonka.WAFRegional.Types.PredicateType
+import Amazonka.WAFRegional.Types.RateBasedRule
+import Amazonka.WAFRegional.Types.RateKey
+import Amazonka.WAFRegional.Types.RegexMatchSet
+import Amazonka.WAFRegional.Types.RegexMatchSetSummary
+import Amazonka.WAFRegional.Types.RegexMatchSetUpdate
+import Amazonka.WAFRegional.Types.RegexMatchTuple
+import Amazonka.WAFRegional.Types.RegexPatternSet
+import Amazonka.WAFRegional.Types.RegexPatternSetSummary
+import Amazonka.WAFRegional.Types.RegexPatternSetUpdate
+import Amazonka.WAFRegional.Types.ResourceType
+import Amazonka.WAFRegional.Types.Rule
+import Amazonka.WAFRegional.Types.RuleGroup
+import Amazonka.WAFRegional.Types.RuleGroupSummary
+import Amazonka.WAFRegional.Types.RuleGroupUpdate
+import Amazonka.WAFRegional.Types.RuleSummary
+import Amazonka.WAFRegional.Types.RuleUpdate
+import Amazonka.WAFRegional.Types.SampledHTTPRequest
+import Amazonka.WAFRegional.Types.SizeConstraint
+import Amazonka.WAFRegional.Types.SizeConstraintSet
+import Amazonka.WAFRegional.Types.SizeConstraintSetSummary
+import Amazonka.WAFRegional.Types.SizeConstraintSetUpdate
+import Amazonka.WAFRegional.Types.SqlInjectionMatchSet
+import Amazonka.WAFRegional.Types.SqlInjectionMatchSetSummary
+import Amazonka.WAFRegional.Types.SqlInjectionMatchSetUpdate
+import Amazonka.WAFRegional.Types.SqlInjectionMatchTuple
+import Amazonka.WAFRegional.Types.SubscribedRuleGroupSummary
+import Amazonka.WAFRegional.Types.Tag
+import Amazonka.WAFRegional.Types.TagInfoForResource
+import Amazonka.WAFRegional.Types.TextTransformation
+import Amazonka.WAFRegional.Types.TimeWindow
+import Amazonka.WAFRegional.Types.WafAction
+import Amazonka.WAFRegional.Types.WafActionType
+import Amazonka.WAFRegional.Types.WafOverrideAction
+import Amazonka.WAFRegional.Types.WafOverrideActionType
+import Amazonka.WAFRegional.Types.WafRuleType
+import Amazonka.WAFRegional.Types.WebACL
+import Amazonka.WAFRegional.Types.WebACLSummary
+import Amazonka.WAFRegional.Types.WebACLUpdate
+import Amazonka.WAFRegional.Types.XssMatchSet
+import Amazonka.WAFRegional.Types.XssMatchSetSummary
+import Amazonka.WAFRegional.Types.XssMatchSetUpdate
+import Amazonka.WAFRegional.Types.XssMatchTuple
 
 -- | API version @2016-11-28@ of the Amazon WAF Regional SDK configuration.
 defaultService :: Core.Service

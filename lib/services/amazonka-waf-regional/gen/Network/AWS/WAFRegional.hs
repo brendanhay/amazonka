@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WAFRegional
+-- Module      : Amazonka.WAFRegional
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- the AWS WAF Classic API, see the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
 -- in the developer guide.
-module Network.AWS.WAFRegional
+module Amazonka.WAFRegional
   ( -- * Service Configuration
     defaultService,
 
@@ -863,90 +863,90 @@ module Network.AWS.WAFRegional
   )
 where
 
-import Network.AWS.WAFRegional.AssociateWebACL
-import Network.AWS.WAFRegional.CreateByteMatchSet
-import Network.AWS.WAFRegional.CreateGeoMatchSet
-import Network.AWS.WAFRegional.CreateIPSet
-import Network.AWS.WAFRegional.CreateRateBasedRule
-import Network.AWS.WAFRegional.CreateRegexMatchSet
-import Network.AWS.WAFRegional.CreateRegexPatternSet
-import Network.AWS.WAFRegional.CreateRule
-import Network.AWS.WAFRegional.CreateRuleGroup
-import Network.AWS.WAFRegional.CreateSizeConstraintSet
-import Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
-import Network.AWS.WAFRegional.CreateWebACL
-import Network.AWS.WAFRegional.CreateWebACLMigrationStack
-import Network.AWS.WAFRegional.CreateXssMatchSet
-import Network.AWS.WAFRegional.DeleteByteMatchSet
-import Network.AWS.WAFRegional.DeleteGeoMatchSet
-import Network.AWS.WAFRegional.DeleteIPSet
-import Network.AWS.WAFRegional.DeleteLoggingConfiguration
-import Network.AWS.WAFRegional.DeletePermissionPolicy
-import Network.AWS.WAFRegional.DeleteRateBasedRule
-import Network.AWS.WAFRegional.DeleteRegexMatchSet
-import Network.AWS.WAFRegional.DeleteRegexPatternSet
-import Network.AWS.WAFRegional.DeleteRule
-import Network.AWS.WAFRegional.DeleteRuleGroup
-import Network.AWS.WAFRegional.DeleteSizeConstraintSet
-import Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
-import Network.AWS.WAFRegional.DeleteWebACL
-import Network.AWS.WAFRegional.DeleteXssMatchSet
-import Network.AWS.WAFRegional.DisassociateWebACL
-import Network.AWS.WAFRegional.GetByteMatchSet
-import Network.AWS.WAFRegional.GetChangeToken
-import Network.AWS.WAFRegional.GetChangeTokenStatus
-import Network.AWS.WAFRegional.GetGeoMatchSet
-import Network.AWS.WAFRegional.GetIPSet
-import Network.AWS.WAFRegional.GetLoggingConfiguration
-import Network.AWS.WAFRegional.GetPermissionPolicy
-import Network.AWS.WAFRegional.GetRateBasedRule
-import Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
-import Network.AWS.WAFRegional.GetRegexMatchSet
-import Network.AWS.WAFRegional.GetRegexPatternSet
-import Network.AWS.WAFRegional.GetRule
-import Network.AWS.WAFRegional.GetRuleGroup
-import Network.AWS.WAFRegional.GetSampledRequests
-import Network.AWS.WAFRegional.GetSizeConstraintSet
-import Network.AWS.WAFRegional.GetSqlInjectionMatchSet
-import Network.AWS.WAFRegional.GetWebACL
-import Network.AWS.WAFRegional.GetWebACLForResource
-import Network.AWS.WAFRegional.GetXssMatchSet
-import Network.AWS.WAFRegional.Lens
-import Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
-import Network.AWS.WAFRegional.ListByteMatchSets
-import Network.AWS.WAFRegional.ListGeoMatchSets
-import Network.AWS.WAFRegional.ListIPSets
-import Network.AWS.WAFRegional.ListLoggingConfigurations
-import Network.AWS.WAFRegional.ListRateBasedRules
-import Network.AWS.WAFRegional.ListRegexMatchSets
-import Network.AWS.WAFRegional.ListRegexPatternSets
-import Network.AWS.WAFRegional.ListResourcesForWebACL
-import Network.AWS.WAFRegional.ListRuleGroups
-import Network.AWS.WAFRegional.ListRules
-import Network.AWS.WAFRegional.ListSizeConstraintSets
-import Network.AWS.WAFRegional.ListSqlInjectionMatchSets
-import Network.AWS.WAFRegional.ListSubscribedRuleGroups
-import Network.AWS.WAFRegional.ListTagsForResource
-import Network.AWS.WAFRegional.ListWebACLs
-import Network.AWS.WAFRegional.ListXssMatchSets
-import Network.AWS.WAFRegional.PutLoggingConfiguration
-import Network.AWS.WAFRegional.PutPermissionPolicy
-import Network.AWS.WAFRegional.TagResource
-import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.UntagResource
-import Network.AWS.WAFRegional.UpdateByteMatchSet
-import Network.AWS.WAFRegional.UpdateGeoMatchSet
-import Network.AWS.WAFRegional.UpdateIPSet
-import Network.AWS.WAFRegional.UpdateRateBasedRule
-import Network.AWS.WAFRegional.UpdateRegexMatchSet
-import Network.AWS.WAFRegional.UpdateRegexPatternSet
-import Network.AWS.WAFRegional.UpdateRule
-import Network.AWS.WAFRegional.UpdateRuleGroup
-import Network.AWS.WAFRegional.UpdateSizeConstraintSet
-import Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
-import Network.AWS.WAFRegional.UpdateWebACL
-import Network.AWS.WAFRegional.UpdateXssMatchSet
-import Network.AWS.WAFRegional.Waiters
+import Amazonka.WAFRegional.AssociateWebACL
+import Amazonka.WAFRegional.CreateByteMatchSet
+import Amazonka.WAFRegional.CreateGeoMatchSet
+import Amazonka.WAFRegional.CreateIPSet
+import Amazonka.WAFRegional.CreateRateBasedRule
+import Amazonka.WAFRegional.CreateRegexMatchSet
+import Amazonka.WAFRegional.CreateRegexPatternSet
+import Amazonka.WAFRegional.CreateRule
+import Amazonka.WAFRegional.CreateRuleGroup
+import Amazonka.WAFRegional.CreateSizeConstraintSet
+import Amazonka.WAFRegional.CreateSqlInjectionMatchSet
+import Amazonka.WAFRegional.CreateWebACL
+import Amazonka.WAFRegional.CreateWebACLMigrationStack
+import Amazonka.WAFRegional.CreateXssMatchSet
+import Amazonka.WAFRegional.DeleteByteMatchSet
+import Amazonka.WAFRegional.DeleteGeoMatchSet
+import Amazonka.WAFRegional.DeleteIPSet
+import Amazonka.WAFRegional.DeleteLoggingConfiguration
+import Amazonka.WAFRegional.DeletePermissionPolicy
+import Amazonka.WAFRegional.DeleteRateBasedRule
+import Amazonka.WAFRegional.DeleteRegexMatchSet
+import Amazonka.WAFRegional.DeleteRegexPatternSet
+import Amazonka.WAFRegional.DeleteRule
+import Amazonka.WAFRegional.DeleteRuleGroup
+import Amazonka.WAFRegional.DeleteSizeConstraintSet
+import Amazonka.WAFRegional.DeleteSqlInjectionMatchSet
+import Amazonka.WAFRegional.DeleteWebACL
+import Amazonka.WAFRegional.DeleteXssMatchSet
+import Amazonka.WAFRegional.DisassociateWebACL
+import Amazonka.WAFRegional.GetByteMatchSet
+import Amazonka.WAFRegional.GetChangeToken
+import Amazonka.WAFRegional.GetChangeTokenStatus
+import Amazonka.WAFRegional.GetGeoMatchSet
+import Amazonka.WAFRegional.GetIPSet
+import Amazonka.WAFRegional.GetLoggingConfiguration
+import Amazonka.WAFRegional.GetPermissionPolicy
+import Amazonka.WAFRegional.GetRateBasedRule
+import Amazonka.WAFRegional.GetRateBasedRuleManagedKeys
+import Amazonka.WAFRegional.GetRegexMatchSet
+import Amazonka.WAFRegional.GetRegexPatternSet
+import Amazonka.WAFRegional.GetRule
+import Amazonka.WAFRegional.GetRuleGroup
+import Amazonka.WAFRegional.GetSampledRequests
+import Amazonka.WAFRegional.GetSizeConstraintSet
+import Amazonka.WAFRegional.GetSqlInjectionMatchSet
+import Amazonka.WAFRegional.GetWebACL
+import Amazonka.WAFRegional.GetWebACLForResource
+import Amazonka.WAFRegional.GetXssMatchSet
+import Amazonka.WAFRegional.Lens
+import Amazonka.WAFRegional.ListActivatedRulesInRuleGroup
+import Amazonka.WAFRegional.ListByteMatchSets
+import Amazonka.WAFRegional.ListGeoMatchSets
+import Amazonka.WAFRegional.ListIPSets
+import Amazonka.WAFRegional.ListLoggingConfigurations
+import Amazonka.WAFRegional.ListRateBasedRules
+import Amazonka.WAFRegional.ListRegexMatchSets
+import Amazonka.WAFRegional.ListRegexPatternSets
+import Amazonka.WAFRegional.ListResourcesForWebACL
+import Amazonka.WAFRegional.ListRuleGroups
+import Amazonka.WAFRegional.ListRules
+import Amazonka.WAFRegional.ListSizeConstraintSets
+import Amazonka.WAFRegional.ListSqlInjectionMatchSets
+import Amazonka.WAFRegional.ListSubscribedRuleGroups
+import Amazonka.WAFRegional.ListTagsForResource
+import Amazonka.WAFRegional.ListWebACLs
+import Amazonka.WAFRegional.ListXssMatchSets
+import Amazonka.WAFRegional.PutLoggingConfiguration
+import Amazonka.WAFRegional.PutPermissionPolicy
+import Amazonka.WAFRegional.TagResource
+import Amazonka.WAFRegional.Types
+import Amazonka.WAFRegional.UntagResource
+import Amazonka.WAFRegional.UpdateByteMatchSet
+import Amazonka.WAFRegional.UpdateGeoMatchSet
+import Amazonka.WAFRegional.UpdateIPSet
+import Amazonka.WAFRegional.UpdateRateBasedRule
+import Amazonka.WAFRegional.UpdateRegexMatchSet
+import Amazonka.WAFRegional.UpdateRegexPatternSet
+import Amazonka.WAFRegional.UpdateRule
+import Amazonka.WAFRegional.UpdateRuleGroup
+import Amazonka.WAFRegional.UpdateSizeConstraintSet
+import Amazonka.WAFRegional.UpdateSqlInjectionMatchSet
+import Amazonka.WAFRegional.UpdateWebACL
+import Amazonka.WAFRegional.UpdateXssMatchSet
+import Amazonka.WAFRegional.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

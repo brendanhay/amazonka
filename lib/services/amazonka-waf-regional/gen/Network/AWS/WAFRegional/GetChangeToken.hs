@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WAFRegional.GetChangeToken
+-- Module      : Amazonka.WAFRegional.GetChangeToken
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- status of the change token changes to @PENDING@, which indicates that
 -- AWS WAF is propagating the change to all AWS WAF servers. Use
 -- @GetChangeTokenStatus@ to determine the status of your change token.
-module Network.AWS.WAFRegional.GetChangeToken
+module Amazonka.WAFRegional.GetChangeToken
   ( -- * Creating a Request
     GetChangeToken (..),
     newGetChangeToken,
@@ -59,12 +59,12 @@ module Network.AWS.WAFRegional.GetChangeToken
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WAFRegional.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WAFRegional.Types
 
 -- | /See:/ 'newGetChangeToken' smart constructor.
 data GetChangeToken = GetChangeToken'

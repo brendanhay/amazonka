@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ServiceQuotas
+-- Module      : Amazonka.ServiceQuotas
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- number of resources that you can create in your AWS account. For more
 -- information, see the
 -- <https://docs.aws.amazon.com/servicequotas/latest/userguide/ Service Quotas User Guide>.
-module Network.AWS.ServiceQuotas
+module Amazonka.ServiceQuotas
   ( -- * Service Configuration
     defaultService,
 
@@ -242,28 +242,28 @@ module Network.AWS.ServiceQuotas
   )
 where
 
-import Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
-import Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota
-import Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange
-import Network.AWS.ServiceQuotas.GetServiceQuota
-import Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
-import Network.AWS.ServiceQuotas.Lens
-import Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas
-import Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
-import Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
-import Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
-import Network.AWS.ServiceQuotas.ListServiceQuotas
-import Network.AWS.ServiceQuotas.ListServices
-import Network.AWS.ServiceQuotas.ListTagsForResource
-import Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
-import Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease
-import Network.AWS.ServiceQuotas.TagResource
-import Network.AWS.ServiceQuotas.Types
-import Network.AWS.ServiceQuotas.UntagResource
-import Network.AWS.ServiceQuotas.Waiters
+import Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate
+import Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+import Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate
+import Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota
+import Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate
+import Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange
+import Amazonka.ServiceQuotas.GetServiceQuota
+import Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
+import Amazonka.ServiceQuotas.Lens
+import Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas
+import Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
+import Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
+import Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
+import Amazonka.ServiceQuotas.ListServiceQuotas
+import Amazonka.ServiceQuotas.ListServices
+import Amazonka.ServiceQuotas.ListTagsForResource
+import Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
+import Amazonka.ServiceQuotas.RequestServiceQuotaIncrease
+import Amazonka.ServiceQuotas.TagResource
+import Amazonka.ServiceQuotas.Types
+import Amazonka.ServiceQuotas.UntagResource
+import Amazonka.ServiceQuotas.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

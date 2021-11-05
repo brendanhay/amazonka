@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+-- Module      : Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes the quota increase request for the specified quota from your
 -- quota request template.
-module Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+module Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
   ( -- * Creating a Request
     DeleteServiceQuotaIncreaseRequestFromTemplate (..),
     newDeleteServiceQuotaIncreaseRequestFromTemplate,
@@ -41,12 +41,12 @@ module Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.ServiceQuotas.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.ServiceQuotas.Types
 
 -- | /See:/ 'newDeleteServiceQuotaIncreaseRequestFromTemplate' smart constructor.
 data DeleteServiceQuotaIncreaseRequestFromTemplate = DeleteServiceQuotaIncreaseRequestFromTemplate'

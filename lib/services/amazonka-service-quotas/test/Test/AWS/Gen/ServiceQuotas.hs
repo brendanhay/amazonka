@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ServiceQuotas where
 
+import Amazonka.ServiceQuotas
 import qualified Data.Proxy as Proxy
-import Network.AWS.ServiceQuotas
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.ServiceQuotas.Internal

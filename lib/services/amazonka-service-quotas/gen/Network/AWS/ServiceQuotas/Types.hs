@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceQuotas.Types
+-- Module      : Amazonka.ServiceQuotas.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceQuotas.Types
+module Amazonka.ServiceQuotas.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -127,22 +127,22 @@ module Network.AWS.ServiceQuotas.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ServiceQuotas.Types.ErrorCode
-import Network.AWS.ServiceQuotas.Types.ErrorReason
-import Network.AWS.ServiceQuotas.Types.MetricInfo
-import Network.AWS.ServiceQuotas.Types.PeriodUnit
-import Network.AWS.ServiceQuotas.Types.QuotaPeriod
-import Network.AWS.ServiceQuotas.Types.RequestStatus
-import Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange
-import Network.AWS.ServiceQuotas.Types.ServiceInfo
-import Network.AWS.ServiceQuotas.Types.ServiceQuota
-import Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
-import Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
-import Network.AWS.ServiceQuotas.Types.Tag
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ServiceQuotas.Types.ErrorCode
+import Amazonka.ServiceQuotas.Types.ErrorReason
+import Amazonka.ServiceQuotas.Types.MetricInfo
+import Amazonka.ServiceQuotas.Types.PeriodUnit
+import Amazonka.ServiceQuotas.Types.QuotaPeriod
+import Amazonka.ServiceQuotas.Types.RequestStatus
+import Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange
+import Amazonka.ServiceQuotas.Types.ServiceInfo
+import Amazonka.ServiceQuotas.Types.ServiceQuota
+import Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
+import Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
+import Amazonka.ServiceQuotas.Types.Tag
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-06-24@ of the Amazon Quotas SDK configuration.
 defaultService :: Core.Service

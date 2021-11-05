@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ServiceQuotas.Lens
+-- Module      : Amazonka.ServiceQuotas.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceQuotas.Lens
+module Amazonka.ServiceQuotas.Lens
   ( -- * Operations
 
     -- ** ListServices
@@ -201,30 +201,30 @@ module Network.AWS.ServiceQuotas.Lens
   )
 where
 
-import Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
-import Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota
-import Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate
-import Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange
-import Network.AWS.ServiceQuotas.GetServiceQuota
-import Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
-import Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas
-import Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
-import Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
-import Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
-import Network.AWS.ServiceQuotas.ListServiceQuotas
-import Network.AWS.ServiceQuotas.ListServices
-import Network.AWS.ServiceQuotas.ListTagsForResource
-import Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
-import Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease
-import Network.AWS.ServiceQuotas.TagResource
-import Network.AWS.ServiceQuotas.Types.ErrorReason
-import Network.AWS.ServiceQuotas.Types.MetricInfo
-import Network.AWS.ServiceQuotas.Types.QuotaPeriod
-import Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange
-import Network.AWS.ServiceQuotas.Types.ServiceInfo
-import Network.AWS.ServiceQuotas.Types.ServiceQuota
-import Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
-import Network.AWS.ServiceQuotas.Types.Tag
-import Network.AWS.ServiceQuotas.UntagResource
+import Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate
+import Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+import Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate
+import Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota
+import Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate
+import Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange
+import Amazonka.ServiceQuotas.GetServiceQuota
+import Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
+import Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas
+import Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
+import Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
+import Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
+import Amazonka.ServiceQuotas.ListServiceQuotas
+import Amazonka.ServiceQuotas.ListServices
+import Amazonka.ServiceQuotas.ListTagsForResource
+import Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
+import Amazonka.ServiceQuotas.RequestServiceQuotaIncrease
+import Amazonka.ServiceQuotas.TagResource
+import Amazonka.ServiceQuotas.Types.ErrorReason
+import Amazonka.ServiceQuotas.Types.MetricInfo
+import Amazonka.ServiceQuotas.Types.QuotaPeriod
+import Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange
+import Amazonka.ServiceQuotas.Types.ServiceInfo
+import Amazonka.ServiceQuotas.Types.ServiceQuota
+import Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
+import Amazonka.ServiceQuotas.Types.Tag
+import Amazonka.ServiceQuotas.UntagResource

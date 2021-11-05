@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WAF.TagResource
+-- Module      : Amazonka.WAF.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- manage or view tags through the AWS WAF Classic console. You can use
 -- this action to tag the AWS resources that you manage through AWS WAF
 -- Classic: web ACLs, rule groups, and rules.
-module Network.AWS.WAF.TagResource
+module Amazonka.WAF.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -58,12 +58,12 @@ module Network.AWS.WAF.TagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WAF.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WAF.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

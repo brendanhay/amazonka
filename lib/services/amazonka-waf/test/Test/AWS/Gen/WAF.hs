@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WAF where
 
+import Amazonka.WAF
 import qualified Data.Proxy as Proxy
-import Network.AWS.WAF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.WAF.Internal

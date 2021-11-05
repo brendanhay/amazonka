@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.GetPipelineExecution
+-- Module      : Amazonka.CodePipeline.GetPipelineExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns information about an execution of a pipeline, including details
 -- about artifacts, the pipeline execution ID, and the name, version, and
 -- status of the pipeline.
-module Network.AWS.CodePipeline.GetPipelineExecution
+module Amazonka.CodePipeline.GetPipelineExecution
   ( -- * Creating a Request
     GetPipelineExecution (..),
     newGetPipelineExecution,
@@ -42,12 +42,12 @@ module Network.AWS.CodePipeline.GetPipelineExecution
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of a @GetPipelineExecution@ action.
 --

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodePipeline
+-- Module      : Amazonka.CodePipeline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -151,7 +151,7 @@
 --
 -- -   PutThirdPartyJobSuccessResult, which provides details of a job
 --     success.
-module Network.AWS.CodePipeline
+module Amazonka.CodePipeline
   ( -- * Service Configuration
     defaultService,
 
@@ -839,48 +839,48 @@ module Network.AWS.CodePipeline
   )
 where
 
-import Network.AWS.CodePipeline.AcknowledgeJob
-import Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
-import Network.AWS.CodePipeline.CreateCustomActionType
-import Network.AWS.CodePipeline.CreatePipeline
-import Network.AWS.CodePipeline.DeleteCustomActionType
-import Network.AWS.CodePipeline.DeletePipeline
-import Network.AWS.CodePipeline.DeleteWebhook
-import Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
-import Network.AWS.CodePipeline.DisableStageTransition
-import Network.AWS.CodePipeline.EnableStageTransition
-import Network.AWS.CodePipeline.GetActionType
-import Network.AWS.CodePipeline.GetJobDetails
-import Network.AWS.CodePipeline.GetPipeline
-import Network.AWS.CodePipeline.GetPipelineExecution
-import Network.AWS.CodePipeline.GetPipelineState
-import Network.AWS.CodePipeline.GetThirdPartyJobDetails
-import Network.AWS.CodePipeline.Lens
-import Network.AWS.CodePipeline.ListActionExecutions
-import Network.AWS.CodePipeline.ListActionTypes
-import Network.AWS.CodePipeline.ListPipelineExecutions
-import Network.AWS.CodePipeline.ListPipelines
-import Network.AWS.CodePipeline.ListTagsForResource
-import Network.AWS.CodePipeline.ListWebhooks
-import Network.AWS.CodePipeline.PollForJobs
-import Network.AWS.CodePipeline.PollForThirdPartyJobs
-import Network.AWS.CodePipeline.PutActionRevision
-import Network.AWS.CodePipeline.PutApprovalResult
-import Network.AWS.CodePipeline.PutJobFailureResult
-import Network.AWS.CodePipeline.PutJobSuccessResult
-import Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
-import Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
-import Network.AWS.CodePipeline.PutWebhook
-import Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
-import Network.AWS.CodePipeline.RetryStageExecution
-import Network.AWS.CodePipeline.StartPipelineExecution
-import Network.AWS.CodePipeline.StopPipelineExecution
-import Network.AWS.CodePipeline.TagResource
-import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.UntagResource
-import Network.AWS.CodePipeline.UpdateActionType
-import Network.AWS.CodePipeline.UpdatePipeline
-import Network.AWS.CodePipeline.Waiters
+import Amazonka.CodePipeline.AcknowledgeJob
+import Amazonka.CodePipeline.AcknowledgeThirdPartyJob
+import Amazonka.CodePipeline.CreateCustomActionType
+import Amazonka.CodePipeline.CreatePipeline
+import Amazonka.CodePipeline.DeleteCustomActionType
+import Amazonka.CodePipeline.DeletePipeline
+import Amazonka.CodePipeline.DeleteWebhook
+import Amazonka.CodePipeline.DeregisterWebhookWithThirdParty
+import Amazonka.CodePipeline.DisableStageTransition
+import Amazonka.CodePipeline.EnableStageTransition
+import Amazonka.CodePipeline.GetActionType
+import Amazonka.CodePipeline.GetJobDetails
+import Amazonka.CodePipeline.GetPipeline
+import Amazonka.CodePipeline.GetPipelineExecution
+import Amazonka.CodePipeline.GetPipelineState
+import Amazonka.CodePipeline.GetThirdPartyJobDetails
+import Amazonka.CodePipeline.Lens
+import Amazonka.CodePipeline.ListActionExecutions
+import Amazonka.CodePipeline.ListActionTypes
+import Amazonka.CodePipeline.ListPipelineExecutions
+import Amazonka.CodePipeline.ListPipelines
+import Amazonka.CodePipeline.ListTagsForResource
+import Amazonka.CodePipeline.ListWebhooks
+import Amazonka.CodePipeline.PollForJobs
+import Amazonka.CodePipeline.PollForThirdPartyJobs
+import Amazonka.CodePipeline.PutActionRevision
+import Amazonka.CodePipeline.PutApprovalResult
+import Amazonka.CodePipeline.PutJobFailureResult
+import Amazonka.CodePipeline.PutJobSuccessResult
+import Amazonka.CodePipeline.PutThirdPartyJobFailureResult
+import Amazonka.CodePipeline.PutThirdPartyJobSuccessResult
+import Amazonka.CodePipeline.PutWebhook
+import Amazonka.CodePipeline.RegisterWebhookWithThirdParty
+import Amazonka.CodePipeline.RetryStageExecution
+import Amazonka.CodePipeline.StartPipelineExecution
+import Amazonka.CodePipeline.StopPipelineExecution
+import Amazonka.CodePipeline.TagResource
+import Amazonka.CodePipeline.Types
+import Amazonka.CodePipeline.UntagResource
+import Amazonka.CodePipeline.UpdateActionType
+import Amazonka.CodePipeline.UpdatePipeline
+import Amazonka.CodePipeline.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

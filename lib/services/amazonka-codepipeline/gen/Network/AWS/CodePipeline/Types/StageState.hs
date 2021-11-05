@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types.StageState
+-- Module      : Amazonka.CodePipeline.Types.StageState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.StageState where
+module Amazonka.CodePipeline.Types.StageState where
 
-import Network.AWS.CodePipeline.Types.ActionState
-import Network.AWS.CodePipeline.Types.StageExecution
-import Network.AWS.CodePipeline.Types.TransitionState
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodePipeline.Types.ActionState
+import Amazonka.CodePipeline.Types.StageExecution
+import Amazonka.CodePipeline.Types.TransitionState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the state of the stage.
 --

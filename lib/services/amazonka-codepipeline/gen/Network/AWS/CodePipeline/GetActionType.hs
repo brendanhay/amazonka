@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.GetActionType
+-- Module      : Amazonka.CodePipeline.GetActionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- provider, where the action is to be used by customers of the external
 -- provider. The action can be created with any supported integration
 -- model.
-module Network.AWS.CodePipeline.GetActionType
+module Amazonka.CodePipeline.GetActionType
   ( -- * Creating a Request
     GetActionType (..),
     newGetActionType,
@@ -45,12 +45,12 @@ module Network.AWS.CodePipeline.GetActionType
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetActionType' smart constructor.
 data GetActionType = GetActionType'

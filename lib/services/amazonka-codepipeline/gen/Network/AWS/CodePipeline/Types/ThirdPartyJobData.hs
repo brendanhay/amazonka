@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types.ThirdPartyJobData
+-- Module      : Amazonka.CodePipeline.Types.ThirdPartyJobData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ThirdPartyJobData where
+module Amazonka.CodePipeline.Types.ThirdPartyJobData where
 
-import Network.AWS.CodePipeline.Types.AWSSessionCredentials
-import Network.AWS.CodePipeline.Types.ActionConfiguration
-import Network.AWS.CodePipeline.Types.ActionTypeId
-import Network.AWS.CodePipeline.Types.Artifact
-import Network.AWS.CodePipeline.Types.EncryptionKey
-import Network.AWS.CodePipeline.Types.PipelineContext
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodePipeline.Types.AWSSessionCredentials
+import Amazonka.CodePipeline.Types.ActionConfiguration
+import Amazonka.CodePipeline.Types.ActionTypeId
+import Amazonka.CodePipeline.Types.Artifact
+import Amazonka.CodePipeline.Types.EncryptionKey
+import Amazonka.CodePipeline.Types.PipelineContext
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the job data for a partner action.
 --

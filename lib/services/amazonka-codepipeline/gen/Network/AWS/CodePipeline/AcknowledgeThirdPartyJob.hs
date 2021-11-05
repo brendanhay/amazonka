@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
+-- Module      : Amazonka.CodePipeline.AcknowledgeThirdPartyJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Confirms a job worker has received the specified job. Used for partner
 -- actions only.
-module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
+module Amazonka.CodePipeline.AcknowledgeThirdPartyJob
   ( -- * Creating a Request
     AcknowledgeThirdPartyJob (..),
     newAcknowledgeThirdPartyJob,
@@ -42,12 +42,12 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the input of an AcknowledgeThirdPartyJob action.
 --

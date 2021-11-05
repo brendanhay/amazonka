@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types.EncryptionKey
+-- Module      : Amazonka.CodePipeline.Types.EncryptionKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.EncryptionKey where
+module Amazonka.CodePipeline.Types.EncryptionKey where
 
-import Network.AWS.CodePipeline.Types.EncryptionKeyType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodePipeline.Types.EncryptionKeyType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the
 -- artifact store, such as an AWS Key Management Service (AWS KMS) key.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.UpdateActionType
+-- Module      : Amazonka.CodePipeline.UpdateActionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- model, where the action type is to be used by customers of the action
 -- type provider. Use a JSON file with the action definition and
 -- @UpdateActionType@ to provide the full structure.
-module Network.AWS.CodePipeline.UpdateActionType
+module Amazonka.CodePipeline.UpdateActionType
   ( -- * Creating a Request
     UpdateActionType (..),
     newUpdateActionType,
@@ -38,12 +38,12 @@ module Network.AWS.CodePipeline.UpdateActionType
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateActionType' smart constructor.
 data UpdateActionType = UpdateActionType'

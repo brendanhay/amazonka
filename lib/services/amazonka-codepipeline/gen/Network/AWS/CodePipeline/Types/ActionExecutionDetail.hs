@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types.ActionExecutionDetail
+-- Module      : Amazonka.CodePipeline.Types.ActionExecutionDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionExecutionDetail where
+module Amazonka.CodePipeline.Types.ActionExecutionDetail where
 
-import Network.AWS.CodePipeline.Types.ActionExecutionInput
-import Network.AWS.CodePipeline.Types.ActionExecutionOutput
-import Network.AWS.CodePipeline.Types.ActionExecutionStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodePipeline.Types.ActionExecutionInput
+import Amazonka.CodePipeline.Types.ActionExecutionOutput
+import Amazonka.CodePipeline.Types.ActionExecutionStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about an execution of an action, including the
 -- action execution ID, and the name, version, and timing of the action.

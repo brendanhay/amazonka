@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types
+-- Module      : Amazonka.CodePipeline.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types
+module Amazonka.CodePipeline.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -636,96 +636,96 @@ module Network.AWS.CodePipeline.Types
   )
 where
 
-import Network.AWS.CodePipeline.Types.AWSSessionCredentials
-import Network.AWS.CodePipeline.Types.ActionCategory
-import Network.AWS.CodePipeline.Types.ActionConfiguration
-import Network.AWS.CodePipeline.Types.ActionConfigurationProperty
-import Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
-import Network.AWS.CodePipeline.Types.ActionContext
-import Network.AWS.CodePipeline.Types.ActionDeclaration
-import Network.AWS.CodePipeline.Types.ActionExecution
-import Network.AWS.CodePipeline.Types.ActionExecutionDetail
-import Network.AWS.CodePipeline.Types.ActionExecutionFilter
-import Network.AWS.CodePipeline.Types.ActionExecutionInput
-import Network.AWS.CodePipeline.Types.ActionExecutionOutput
-import Network.AWS.CodePipeline.Types.ActionExecutionResult
-import Network.AWS.CodePipeline.Types.ActionExecutionStatus
-import Network.AWS.CodePipeline.Types.ActionOwner
-import Network.AWS.CodePipeline.Types.ActionRevision
-import Network.AWS.CodePipeline.Types.ActionState
-import Network.AWS.CodePipeline.Types.ActionType
-import Network.AWS.CodePipeline.Types.ActionTypeArtifactDetails
-import Network.AWS.CodePipeline.Types.ActionTypeDeclaration
-import Network.AWS.CodePipeline.Types.ActionTypeExecutor
-import Network.AWS.CodePipeline.Types.ActionTypeId
-import Network.AWS.CodePipeline.Types.ActionTypeIdentifier
-import Network.AWS.CodePipeline.Types.ActionTypePermissions
-import Network.AWS.CodePipeline.Types.ActionTypeProperty
-import Network.AWS.CodePipeline.Types.ActionTypeSettings
-import Network.AWS.CodePipeline.Types.ActionTypeUrls
-import Network.AWS.CodePipeline.Types.ApprovalResult
-import Network.AWS.CodePipeline.Types.ApprovalStatus
-import Network.AWS.CodePipeline.Types.Artifact
-import Network.AWS.CodePipeline.Types.ArtifactDetail
-import Network.AWS.CodePipeline.Types.ArtifactDetails
-import Network.AWS.CodePipeline.Types.ArtifactLocation
-import Network.AWS.CodePipeline.Types.ArtifactLocationType
-import Network.AWS.CodePipeline.Types.ArtifactRevision
-import Network.AWS.CodePipeline.Types.ArtifactStore
-import Network.AWS.CodePipeline.Types.ArtifactStoreType
-import Network.AWS.CodePipeline.Types.BlockerDeclaration
-import Network.AWS.CodePipeline.Types.BlockerType
-import Network.AWS.CodePipeline.Types.CurrentRevision
-import Network.AWS.CodePipeline.Types.EncryptionKey
-import Network.AWS.CodePipeline.Types.EncryptionKeyType
-import Network.AWS.CodePipeline.Types.ErrorDetails
-import Network.AWS.CodePipeline.Types.ExecutionDetails
-import Network.AWS.CodePipeline.Types.ExecutionTrigger
-import Network.AWS.CodePipeline.Types.ExecutorConfiguration
-import Network.AWS.CodePipeline.Types.ExecutorType
-import Network.AWS.CodePipeline.Types.FailureDetails
-import Network.AWS.CodePipeline.Types.FailureType
-import Network.AWS.CodePipeline.Types.InputArtifact
-import Network.AWS.CodePipeline.Types.Job
-import Network.AWS.CodePipeline.Types.JobData
-import Network.AWS.CodePipeline.Types.JobDetails
-import Network.AWS.CodePipeline.Types.JobStatus
-import Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration
-import Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration
-import Network.AWS.CodePipeline.Types.ListWebhookItem
-import Network.AWS.CodePipeline.Types.OutputArtifact
-import Network.AWS.CodePipeline.Types.PipelineContext
-import Network.AWS.CodePipeline.Types.PipelineDeclaration
-import Network.AWS.CodePipeline.Types.PipelineExecution
-import Network.AWS.CodePipeline.Types.PipelineExecutionStatus
-import Network.AWS.CodePipeline.Types.PipelineExecutionSummary
-import Network.AWS.CodePipeline.Types.PipelineMetadata
-import Network.AWS.CodePipeline.Types.PipelineSummary
-import Network.AWS.CodePipeline.Types.S3ArtifactLocation
-import Network.AWS.CodePipeline.Types.S3Location
-import Network.AWS.CodePipeline.Types.SourceRevision
-import Network.AWS.CodePipeline.Types.StageContext
-import Network.AWS.CodePipeline.Types.StageDeclaration
-import Network.AWS.CodePipeline.Types.StageExecution
-import Network.AWS.CodePipeline.Types.StageExecutionStatus
-import Network.AWS.CodePipeline.Types.StageRetryMode
-import Network.AWS.CodePipeline.Types.StageState
-import Network.AWS.CodePipeline.Types.StageTransitionType
-import Network.AWS.CodePipeline.Types.StopExecutionTrigger
-import Network.AWS.CodePipeline.Types.Tag
-import Network.AWS.CodePipeline.Types.ThirdPartyJob
-import Network.AWS.CodePipeline.Types.ThirdPartyJobData
-import Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
-import Network.AWS.CodePipeline.Types.TransitionState
-import Network.AWS.CodePipeline.Types.TriggerType
-import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
-import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
-import Network.AWS.CodePipeline.Types.WebhookDefinition
-import Network.AWS.CodePipeline.Types.WebhookFilterRule
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodePipeline.Types.AWSSessionCredentials
+import Amazonka.CodePipeline.Types.ActionCategory
+import Amazonka.CodePipeline.Types.ActionConfiguration
+import Amazonka.CodePipeline.Types.ActionConfigurationProperty
+import Amazonka.CodePipeline.Types.ActionConfigurationPropertyType
+import Amazonka.CodePipeline.Types.ActionContext
+import Amazonka.CodePipeline.Types.ActionDeclaration
+import Amazonka.CodePipeline.Types.ActionExecution
+import Amazonka.CodePipeline.Types.ActionExecutionDetail
+import Amazonka.CodePipeline.Types.ActionExecutionFilter
+import Amazonka.CodePipeline.Types.ActionExecutionInput
+import Amazonka.CodePipeline.Types.ActionExecutionOutput
+import Amazonka.CodePipeline.Types.ActionExecutionResult
+import Amazonka.CodePipeline.Types.ActionExecutionStatus
+import Amazonka.CodePipeline.Types.ActionOwner
+import Amazonka.CodePipeline.Types.ActionRevision
+import Amazonka.CodePipeline.Types.ActionState
+import Amazonka.CodePipeline.Types.ActionType
+import Amazonka.CodePipeline.Types.ActionTypeArtifactDetails
+import Amazonka.CodePipeline.Types.ActionTypeDeclaration
+import Amazonka.CodePipeline.Types.ActionTypeExecutor
+import Amazonka.CodePipeline.Types.ActionTypeId
+import Amazonka.CodePipeline.Types.ActionTypeIdentifier
+import Amazonka.CodePipeline.Types.ActionTypePermissions
+import Amazonka.CodePipeline.Types.ActionTypeProperty
+import Amazonka.CodePipeline.Types.ActionTypeSettings
+import Amazonka.CodePipeline.Types.ActionTypeUrls
+import Amazonka.CodePipeline.Types.ApprovalResult
+import Amazonka.CodePipeline.Types.ApprovalStatus
+import Amazonka.CodePipeline.Types.Artifact
+import Amazonka.CodePipeline.Types.ArtifactDetail
+import Amazonka.CodePipeline.Types.ArtifactDetails
+import Amazonka.CodePipeline.Types.ArtifactLocation
+import Amazonka.CodePipeline.Types.ArtifactLocationType
+import Amazonka.CodePipeline.Types.ArtifactRevision
+import Amazonka.CodePipeline.Types.ArtifactStore
+import Amazonka.CodePipeline.Types.ArtifactStoreType
+import Amazonka.CodePipeline.Types.BlockerDeclaration
+import Amazonka.CodePipeline.Types.BlockerType
+import Amazonka.CodePipeline.Types.CurrentRevision
+import Amazonka.CodePipeline.Types.EncryptionKey
+import Amazonka.CodePipeline.Types.EncryptionKeyType
+import Amazonka.CodePipeline.Types.ErrorDetails
+import Amazonka.CodePipeline.Types.ExecutionDetails
+import Amazonka.CodePipeline.Types.ExecutionTrigger
+import Amazonka.CodePipeline.Types.ExecutorConfiguration
+import Amazonka.CodePipeline.Types.ExecutorType
+import Amazonka.CodePipeline.Types.FailureDetails
+import Amazonka.CodePipeline.Types.FailureType
+import Amazonka.CodePipeline.Types.InputArtifact
+import Amazonka.CodePipeline.Types.Job
+import Amazonka.CodePipeline.Types.JobData
+import Amazonka.CodePipeline.Types.JobDetails
+import Amazonka.CodePipeline.Types.JobStatus
+import Amazonka.CodePipeline.Types.JobWorkerExecutorConfiguration
+import Amazonka.CodePipeline.Types.LambdaExecutorConfiguration
+import Amazonka.CodePipeline.Types.ListWebhookItem
+import Amazonka.CodePipeline.Types.OutputArtifact
+import Amazonka.CodePipeline.Types.PipelineContext
+import Amazonka.CodePipeline.Types.PipelineDeclaration
+import Amazonka.CodePipeline.Types.PipelineExecution
+import Amazonka.CodePipeline.Types.PipelineExecutionStatus
+import Amazonka.CodePipeline.Types.PipelineExecutionSummary
+import Amazonka.CodePipeline.Types.PipelineMetadata
+import Amazonka.CodePipeline.Types.PipelineSummary
+import Amazonka.CodePipeline.Types.S3ArtifactLocation
+import Amazonka.CodePipeline.Types.S3Location
+import Amazonka.CodePipeline.Types.SourceRevision
+import Amazonka.CodePipeline.Types.StageContext
+import Amazonka.CodePipeline.Types.StageDeclaration
+import Amazonka.CodePipeline.Types.StageExecution
+import Amazonka.CodePipeline.Types.StageExecutionStatus
+import Amazonka.CodePipeline.Types.StageRetryMode
+import Amazonka.CodePipeline.Types.StageState
+import Amazonka.CodePipeline.Types.StageTransitionType
+import Amazonka.CodePipeline.Types.StopExecutionTrigger
+import Amazonka.CodePipeline.Types.Tag
+import Amazonka.CodePipeline.Types.ThirdPartyJob
+import Amazonka.CodePipeline.Types.ThirdPartyJobData
+import Amazonka.CodePipeline.Types.ThirdPartyJobDetails
+import Amazonka.CodePipeline.Types.TransitionState
+import Amazonka.CodePipeline.Types.TriggerType
+import Amazonka.CodePipeline.Types.WebhookAuthConfiguration
+import Amazonka.CodePipeline.Types.WebhookAuthenticationType
+import Amazonka.CodePipeline.Types.WebhookDefinition
+import Amazonka.CodePipeline.Types.WebhookFilterRule
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-07-09@ of the Amazon CodePipeline SDK configuration.
 defaultService :: Core.Service

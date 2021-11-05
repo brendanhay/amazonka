@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.StopPipelineExecution
+-- Module      : Amazonka.CodePipeline.StopPipelineExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- completing or abandoning in-progress actions, the pipeline execution is
 -- in a @Stopping@ state. After all in-progress actions are completed or
 -- abandoned, the pipeline execution is in a @Stopped@ state.
-module Network.AWS.CodePipeline.StopPipelineExecution
+module Amazonka.CodePipeline.StopPipelineExecution
   ( -- * Creating a Request
     StopPipelineExecution (..),
     newStopPipelineExecution,
@@ -47,12 +47,12 @@ module Network.AWS.CodePipeline.StopPipelineExecution
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopPipelineExecution' smart constructor.
 data StopPipelineExecution = StopPipelineExecution'

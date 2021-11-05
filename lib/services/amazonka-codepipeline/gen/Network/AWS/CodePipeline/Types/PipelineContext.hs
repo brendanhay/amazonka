@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.Types.PipelineContext
+-- Module      : Amazonka.CodePipeline.Types.PipelineContext
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.PipelineContext where
+module Amazonka.CodePipeline.Types.PipelineContext where
 
-import Network.AWS.CodePipeline.Types.ActionContext
-import Network.AWS.CodePipeline.Types.StageContext
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodePipeline.Types.ActionContext
+import Amazonka.CodePipeline.Types.StageContext
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a pipeline to a job worker.
 --

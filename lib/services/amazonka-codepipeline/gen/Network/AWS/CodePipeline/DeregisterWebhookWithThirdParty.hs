@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
+-- Module      : Amazonka.CodePipeline.DeregisterWebhookWithThirdParty
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Removes the connection between the webhook that was created by
 -- CodePipeline and the external tool with events to be detected. Currently
 -- supported only for webhooks that target an action type of GitHub.
-module Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
+module Amazonka.CodePipeline.DeregisterWebhookWithThirdParty
   ( -- * Creating a Request
     DeregisterWebhookWithThirdParty (..),
     newDeregisterWebhookWithThirdParty,
@@ -40,12 +40,12 @@ module Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
   )
 where
 
-import Network.AWS.CodePipeline.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodePipeline.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterWebhookWithThirdParty' smart constructor.
 data DeregisterWebhookWithThirdParty = DeregisterWebhookWithThirdParty'

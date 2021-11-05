@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Polly
+-- Module      : Amazonka.Polly
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- high-quality speech from plain text and Speech Synthesis Markup Language
 -- (SSML), along with managing pronunciations lexicons that enable you to
 -- get the best results for your application domain.
-module Network.AWS.Polly
+module Amazonka.Polly
   ( -- * Service Configuration
     defaultService,
 
@@ -196,18 +196,18 @@ module Network.AWS.Polly
   )
 where
 
-import Network.AWS.Polly.DeleteLexicon
-import Network.AWS.Polly.DescribeVoices
-import Network.AWS.Polly.GetLexicon
-import Network.AWS.Polly.GetSpeechSynthesisTask
-import Network.AWS.Polly.Lens
-import Network.AWS.Polly.ListLexicons
-import Network.AWS.Polly.ListSpeechSynthesisTasks
-import Network.AWS.Polly.PutLexicon
-import Network.AWS.Polly.StartSpeechSynthesisTask
-import Network.AWS.Polly.SynthesizeSpeech
-import Network.AWS.Polly.Types
-import Network.AWS.Polly.Waiters
+import Amazonka.Polly.DeleteLexicon
+import Amazonka.Polly.DescribeVoices
+import Amazonka.Polly.GetLexicon
+import Amazonka.Polly.GetSpeechSynthesisTask
+import Amazonka.Polly.Lens
+import Amazonka.Polly.ListLexicons
+import Amazonka.Polly.ListSpeechSynthesisTasks
+import Amazonka.Polly.PutLexicon
+import Amazonka.Polly.StartSpeechSynthesisTask
+import Amazonka.Polly.SynthesizeSpeech
+import Amazonka.Polly.Types
+import Amazonka.Polly.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Polly where
 
+import Amazonka.Polly
 import qualified Data.Proxy as Proxy
-import Network.AWS.Polly
 import Test.AWS.Fixture
 import Test.AWS.Polly.Internal
 import Test.AWS.Prelude

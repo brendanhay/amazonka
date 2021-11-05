@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Polly.Types.LexiconAttributes
+-- Module      : Amazonka.Polly.Types.LexiconAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.LexiconAttributes where
+module Amazonka.Polly.Types.LexiconAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types.LanguageCode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Polly.Types.LanguageCode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata describing the lexicon such as the number of lexemes,
 -- language code, and so on. For more information, see

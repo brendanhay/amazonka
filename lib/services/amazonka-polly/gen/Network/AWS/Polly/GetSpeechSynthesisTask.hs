@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Polly.GetSpeechSynthesisTask
+-- Module      : Amazonka.Polly.GetSpeechSynthesisTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- This object contains information about the given speech synthesis task,
 -- including the status of the task, and a link to the S3 bucket containing
 -- the output of the task.
-module Network.AWS.Polly.GetSpeechSynthesisTask
+module Amazonka.Polly.GetSpeechSynthesisTask
   ( -- * Creating a Request
     GetSpeechSynthesisTask (..),
     newGetSpeechSynthesisTask,
@@ -42,12 +42,12 @@ module Network.AWS.Polly.GetSpeechSynthesisTask
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Polly.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSpeechSynthesisTask' smart constructor.
 data GetSpeechSynthesisTask = GetSpeechSynthesisTask'

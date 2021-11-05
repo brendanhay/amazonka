@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Polly.Lens
+-- Module      : Amazonka.Polly.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Lens
+module Amazonka.Polly.Lens
   ( -- * Operations
 
     -- ** GetLexicon
@@ -134,17 +134,17 @@ module Network.AWS.Polly.Lens
   )
 where
 
-import Network.AWS.Polly.DeleteLexicon
-import Network.AWS.Polly.DescribeVoices
-import Network.AWS.Polly.GetLexicon
-import Network.AWS.Polly.GetSpeechSynthesisTask
-import Network.AWS.Polly.ListLexicons
-import Network.AWS.Polly.ListSpeechSynthesisTasks
-import Network.AWS.Polly.PutLexicon
-import Network.AWS.Polly.StartSpeechSynthesisTask
-import Network.AWS.Polly.SynthesizeSpeech
-import Network.AWS.Polly.Types.Lexicon
-import Network.AWS.Polly.Types.LexiconAttributes
-import Network.AWS.Polly.Types.LexiconDescription
-import Network.AWS.Polly.Types.SynthesisTask
-import Network.AWS.Polly.Types.Voice
+import Amazonka.Polly.DeleteLexicon
+import Amazonka.Polly.DescribeVoices
+import Amazonka.Polly.GetLexicon
+import Amazonka.Polly.GetSpeechSynthesisTask
+import Amazonka.Polly.ListLexicons
+import Amazonka.Polly.ListSpeechSynthesisTasks
+import Amazonka.Polly.PutLexicon
+import Amazonka.Polly.StartSpeechSynthesisTask
+import Amazonka.Polly.SynthesizeSpeech
+import Amazonka.Polly.Types.Lexicon
+import Amazonka.Polly.Types.LexiconAttributes
+import Amazonka.Polly.Types.LexiconDescription
+import Amazonka.Polly.Types.SynthesisTask
+import Amazonka.Polly.Types.Voice

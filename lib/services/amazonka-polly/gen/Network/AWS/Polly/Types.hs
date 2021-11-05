@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Polly.Types
+-- Module      : Amazonka.Polly.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types
+module Amazonka.Polly.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -117,23 +117,23 @@ module Network.AWS.Polly.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types.Engine
-import Network.AWS.Polly.Types.Gender
-import Network.AWS.Polly.Types.LanguageCode
-import Network.AWS.Polly.Types.Lexicon
-import Network.AWS.Polly.Types.LexiconAttributes
-import Network.AWS.Polly.Types.LexiconDescription
-import Network.AWS.Polly.Types.OutputFormat
-import Network.AWS.Polly.Types.SpeechMarkType
-import Network.AWS.Polly.Types.SynthesisTask
-import Network.AWS.Polly.Types.TaskStatus
-import Network.AWS.Polly.Types.TextType
-import Network.AWS.Polly.Types.Voice
-import Network.AWS.Polly.Types.VoiceId
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Polly.Types.Engine
+import Amazonka.Polly.Types.Gender
+import Amazonka.Polly.Types.LanguageCode
+import Amazonka.Polly.Types.Lexicon
+import Amazonka.Polly.Types.LexiconAttributes
+import Amazonka.Polly.Types.LexiconDescription
+import Amazonka.Polly.Types.OutputFormat
+import Amazonka.Polly.Types.SpeechMarkType
+import Amazonka.Polly.Types.SynthesisTask
+import Amazonka.Polly.Types.TaskStatus
+import Amazonka.Polly.Types.TextType
+import Amazonka.Polly.Types.Voice
+import Amazonka.Polly.Types.VoiceId
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-06-10@ of the Amazon Polly SDK configuration.
 defaultService :: Core.Service

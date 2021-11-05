@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.ListApplications
+-- Module      : Amazonka.ApplicationInsights.ListApplications
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the IDs of the applications that you are monitoring.
-module Network.AWS.ApplicationInsights.ListApplications
+module Amazonka.ApplicationInsights.ListApplications
   ( -- * Creating a Request
     ListApplications (..),
     newListApplications,
@@ -41,12 +41,12 @@ module Network.AWS.ApplicationInsights.ListApplications
   )
 where
 
-import Network.AWS.ApplicationInsights.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationInsights.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'

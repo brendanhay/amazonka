@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.DeleteComponent
+-- Module      : Amazonka.ApplicationInsights.DeleteComponent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Ungroups a custom component. When you ungroup custom components, all
 -- applicable monitors that are set up for the component are removed and
 -- the instances revert to their standalone status.
-module Network.AWS.ApplicationInsights.DeleteComponent
+module Amazonka.ApplicationInsights.DeleteComponent
   ( -- * Creating a Request
     DeleteComponent (..),
     newDeleteComponent,
@@ -41,12 +41,12 @@ module Network.AWS.ApplicationInsights.DeleteComponent
   )
 where
 
-import Network.AWS.ApplicationInsights.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationInsights.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteComponent' smart constructor.
 data DeleteComponent = DeleteComponent'

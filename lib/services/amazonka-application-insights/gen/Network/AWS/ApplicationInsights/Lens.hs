@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.Lens
+-- Module      : Amazonka.ApplicationInsights.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationInsights.Lens
+module Amazonka.ApplicationInsights.Lens
   ( -- * Operations
 
     -- ** DescribeApplication
@@ -309,38 +309,38 @@ module Network.AWS.ApplicationInsights.Lens
   )
 where
 
-import Network.AWS.ApplicationInsights.CreateApplication
-import Network.AWS.ApplicationInsights.CreateComponent
-import Network.AWS.ApplicationInsights.CreateLogPattern
-import Network.AWS.ApplicationInsights.DeleteApplication
-import Network.AWS.ApplicationInsights.DeleteComponent
-import Network.AWS.ApplicationInsights.DeleteLogPattern
-import Network.AWS.ApplicationInsights.DescribeApplication
-import Network.AWS.ApplicationInsights.DescribeComponent
-import Network.AWS.ApplicationInsights.DescribeComponentConfiguration
-import Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation
-import Network.AWS.ApplicationInsights.DescribeLogPattern
-import Network.AWS.ApplicationInsights.DescribeObservation
-import Network.AWS.ApplicationInsights.DescribeProblem
-import Network.AWS.ApplicationInsights.DescribeProblemObservations
-import Network.AWS.ApplicationInsights.ListApplications
-import Network.AWS.ApplicationInsights.ListComponents
-import Network.AWS.ApplicationInsights.ListConfigurationHistory
-import Network.AWS.ApplicationInsights.ListLogPatternSets
-import Network.AWS.ApplicationInsights.ListLogPatterns
-import Network.AWS.ApplicationInsights.ListProblems
-import Network.AWS.ApplicationInsights.ListTagsForResource
-import Network.AWS.ApplicationInsights.TagResource
-import Network.AWS.ApplicationInsights.Types.ApplicationComponent
-import Network.AWS.ApplicationInsights.Types.ApplicationInfo
-import Network.AWS.ApplicationInsights.Types.ConfigurationEvent
-import Network.AWS.ApplicationInsights.Types.LogPattern
-import Network.AWS.ApplicationInsights.Types.Observation
-import Network.AWS.ApplicationInsights.Types.Problem
-import Network.AWS.ApplicationInsights.Types.RelatedObservations
-import Network.AWS.ApplicationInsights.Types.Tag
-import Network.AWS.ApplicationInsights.UntagResource
-import Network.AWS.ApplicationInsights.UpdateApplication
-import Network.AWS.ApplicationInsights.UpdateComponent
-import Network.AWS.ApplicationInsights.UpdateComponentConfiguration
-import Network.AWS.ApplicationInsights.UpdateLogPattern
+import Amazonka.ApplicationInsights.CreateApplication
+import Amazonka.ApplicationInsights.CreateComponent
+import Amazonka.ApplicationInsights.CreateLogPattern
+import Amazonka.ApplicationInsights.DeleteApplication
+import Amazonka.ApplicationInsights.DeleteComponent
+import Amazonka.ApplicationInsights.DeleteLogPattern
+import Amazonka.ApplicationInsights.DescribeApplication
+import Amazonka.ApplicationInsights.DescribeComponent
+import Amazonka.ApplicationInsights.DescribeComponentConfiguration
+import Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation
+import Amazonka.ApplicationInsights.DescribeLogPattern
+import Amazonka.ApplicationInsights.DescribeObservation
+import Amazonka.ApplicationInsights.DescribeProblem
+import Amazonka.ApplicationInsights.DescribeProblemObservations
+import Amazonka.ApplicationInsights.ListApplications
+import Amazonka.ApplicationInsights.ListComponents
+import Amazonka.ApplicationInsights.ListConfigurationHistory
+import Amazonka.ApplicationInsights.ListLogPatternSets
+import Amazonka.ApplicationInsights.ListLogPatterns
+import Amazonka.ApplicationInsights.ListProblems
+import Amazonka.ApplicationInsights.ListTagsForResource
+import Amazonka.ApplicationInsights.TagResource
+import Amazonka.ApplicationInsights.Types.ApplicationComponent
+import Amazonka.ApplicationInsights.Types.ApplicationInfo
+import Amazonka.ApplicationInsights.Types.ConfigurationEvent
+import Amazonka.ApplicationInsights.Types.LogPattern
+import Amazonka.ApplicationInsights.Types.Observation
+import Amazonka.ApplicationInsights.Types.Problem
+import Amazonka.ApplicationInsights.Types.RelatedObservations
+import Amazonka.ApplicationInsights.Types.Tag
+import Amazonka.ApplicationInsights.UntagResource
+import Amazonka.ApplicationInsights.UpdateApplication
+import Amazonka.ApplicationInsights.UpdateComponent
+import Amazonka.ApplicationInsights.UpdateComponentConfiguration
+import Amazonka.ApplicationInsights.UpdateLogPattern

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.UpdateComponentConfiguration
+-- Module      : Amazonka.ApplicationInsights.UpdateComponentConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- configuration input parameter is an escaped JSON of the configuration
 -- and should match the schema of what is returned by
 -- @DescribeComponentConfigurationRecommendation@.
-module Network.AWS.ApplicationInsights.UpdateComponentConfiguration
+module Amazonka.ApplicationInsights.UpdateComponentConfiguration
   ( -- * Creating a Request
     UpdateComponentConfiguration (..),
     newUpdateComponentConfiguration,
@@ -45,12 +45,12 @@ module Network.AWS.ApplicationInsights.UpdateComponentConfiguration
   )
 where
 
-import Network.AWS.ApplicationInsights.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationInsights.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateComponentConfiguration' smart constructor.
 data UpdateComponentConfiguration = UpdateComponentConfiguration'

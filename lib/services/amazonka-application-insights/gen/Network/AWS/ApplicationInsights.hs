@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ApplicationInsights
+-- Module      : Amazonka.ApplicationInsights
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- your Application Load Balancer (ALB), Application Insights informs you
 -- that a memory pressure problem with your SQL Server database is
 -- occurring. It bases this analysis on impactful metrics and log errors.
-module Network.AWS.ApplicationInsights
+module Amazonka.ApplicationInsights
   ( -- * Service Configuration
     defaultService,
 
@@ -292,36 +292,36 @@ module Network.AWS.ApplicationInsights
   )
 where
 
-import Network.AWS.ApplicationInsights.CreateApplication
-import Network.AWS.ApplicationInsights.CreateComponent
-import Network.AWS.ApplicationInsights.CreateLogPattern
-import Network.AWS.ApplicationInsights.DeleteApplication
-import Network.AWS.ApplicationInsights.DeleteComponent
-import Network.AWS.ApplicationInsights.DeleteLogPattern
-import Network.AWS.ApplicationInsights.DescribeApplication
-import Network.AWS.ApplicationInsights.DescribeComponent
-import Network.AWS.ApplicationInsights.DescribeComponentConfiguration
-import Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation
-import Network.AWS.ApplicationInsights.DescribeLogPattern
-import Network.AWS.ApplicationInsights.DescribeObservation
-import Network.AWS.ApplicationInsights.DescribeProblem
-import Network.AWS.ApplicationInsights.DescribeProblemObservations
-import Network.AWS.ApplicationInsights.Lens
-import Network.AWS.ApplicationInsights.ListApplications
-import Network.AWS.ApplicationInsights.ListComponents
-import Network.AWS.ApplicationInsights.ListConfigurationHistory
-import Network.AWS.ApplicationInsights.ListLogPatternSets
-import Network.AWS.ApplicationInsights.ListLogPatterns
-import Network.AWS.ApplicationInsights.ListProblems
-import Network.AWS.ApplicationInsights.ListTagsForResource
-import Network.AWS.ApplicationInsights.TagResource
-import Network.AWS.ApplicationInsights.Types
-import Network.AWS.ApplicationInsights.UntagResource
-import Network.AWS.ApplicationInsights.UpdateApplication
-import Network.AWS.ApplicationInsights.UpdateComponent
-import Network.AWS.ApplicationInsights.UpdateComponentConfiguration
-import Network.AWS.ApplicationInsights.UpdateLogPattern
-import Network.AWS.ApplicationInsights.Waiters
+import Amazonka.ApplicationInsights.CreateApplication
+import Amazonka.ApplicationInsights.CreateComponent
+import Amazonka.ApplicationInsights.CreateLogPattern
+import Amazonka.ApplicationInsights.DeleteApplication
+import Amazonka.ApplicationInsights.DeleteComponent
+import Amazonka.ApplicationInsights.DeleteLogPattern
+import Amazonka.ApplicationInsights.DescribeApplication
+import Amazonka.ApplicationInsights.DescribeComponent
+import Amazonka.ApplicationInsights.DescribeComponentConfiguration
+import Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation
+import Amazonka.ApplicationInsights.DescribeLogPattern
+import Amazonka.ApplicationInsights.DescribeObservation
+import Amazonka.ApplicationInsights.DescribeProblem
+import Amazonka.ApplicationInsights.DescribeProblemObservations
+import Amazonka.ApplicationInsights.Lens
+import Amazonka.ApplicationInsights.ListApplications
+import Amazonka.ApplicationInsights.ListComponents
+import Amazonka.ApplicationInsights.ListConfigurationHistory
+import Amazonka.ApplicationInsights.ListLogPatternSets
+import Amazonka.ApplicationInsights.ListLogPatterns
+import Amazonka.ApplicationInsights.ListProblems
+import Amazonka.ApplicationInsights.ListTagsForResource
+import Amazonka.ApplicationInsights.TagResource
+import Amazonka.ApplicationInsights.Types
+import Amazonka.ApplicationInsights.UntagResource
+import Amazonka.ApplicationInsights.UpdateApplication
+import Amazonka.ApplicationInsights.UpdateComponent
+import Amazonka.ApplicationInsights.UpdateComponentConfiguration
+import Amazonka.ApplicationInsights.UpdateLogPattern
+import Amazonka.ApplicationInsights.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

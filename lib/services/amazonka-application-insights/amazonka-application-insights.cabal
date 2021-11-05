@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ApplicationInsights.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ApplicationInsights.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ApplicationInsights" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ApplicationInsights" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,57 +45,57 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ApplicationInsights
-    Network.AWS.ApplicationInsights.CreateApplication
-    Network.AWS.ApplicationInsights.CreateComponent
-    Network.AWS.ApplicationInsights.CreateLogPattern
-    Network.AWS.ApplicationInsights.DeleteApplication
-    Network.AWS.ApplicationInsights.DeleteComponent
-    Network.AWS.ApplicationInsights.DeleteLogPattern
-    Network.AWS.ApplicationInsights.DescribeApplication
-    Network.AWS.ApplicationInsights.DescribeComponent
-    Network.AWS.ApplicationInsights.DescribeComponentConfiguration
-    Network.AWS.ApplicationInsights.DescribeComponentConfigurationRecommendation
-    Network.AWS.ApplicationInsights.DescribeLogPattern
-    Network.AWS.ApplicationInsights.DescribeObservation
-    Network.AWS.ApplicationInsights.DescribeProblem
-    Network.AWS.ApplicationInsights.DescribeProblemObservations
-    Network.AWS.ApplicationInsights.Lens
-    Network.AWS.ApplicationInsights.ListApplications
-    Network.AWS.ApplicationInsights.ListComponents
-    Network.AWS.ApplicationInsights.ListConfigurationHistory
-    Network.AWS.ApplicationInsights.ListLogPatterns
-    Network.AWS.ApplicationInsights.ListLogPatternSets
-    Network.AWS.ApplicationInsights.ListProblems
-    Network.AWS.ApplicationInsights.ListTagsForResource
-    Network.AWS.ApplicationInsights.TagResource
-    Network.AWS.ApplicationInsights.Types
-    Network.AWS.ApplicationInsights.Types.ApplicationComponent
-    Network.AWS.ApplicationInsights.Types.ApplicationInfo
-    Network.AWS.ApplicationInsights.Types.CloudWatchEventSource
-    Network.AWS.ApplicationInsights.Types.ConfigurationEvent
-    Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType
-    Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus
-    Network.AWS.ApplicationInsights.Types.FeedbackKey
-    Network.AWS.ApplicationInsights.Types.FeedbackValue
-    Network.AWS.ApplicationInsights.Types.LogFilter
-    Network.AWS.ApplicationInsights.Types.LogPattern
-    Network.AWS.ApplicationInsights.Types.Observation
-    Network.AWS.ApplicationInsights.Types.OsType
-    Network.AWS.ApplicationInsights.Types.Problem
-    Network.AWS.ApplicationInsights.Types.RelatedObservations
-    Network.AWS.ApplicationInsights.Types.SeverityLevel
-    Network.AWS.ApplicationInsights.Types.Status
-    Network.AWS.ApplicationInsights.Types.Tag
-    Network.AWS.ApplicationInsights.Types.Tier
-    Network.AWS.ApplicationInsights.UntagResource
-    Network.AWS.ApplicationInsights.UpdateApplication
-    Network.AWS.ApplicationInsights.UpdateComponent
-    Network.AWS.ApplicationInsights.UpdateComponentConfiguration
-    Network.AWS.ApplicationInsights.UpdateLogPattern
-    Network.AWS.ApplicationInsights.Waiters
+    Amazonka.ApplicationInsights
+    Amazonka.ApplicationInsights.CreateApplication
+    Amazonka.ApplicationInsights.CreateComponent
+    Amazonka.ApplicationInsights.CreateLogPattern
+    Amazonka.ApplicationInsights.DeleteApplication
+    Amazonka.ApplicationInsights.DeleteComponent
+    Amazonka.ApplicationInsights.DeleteLogPattern
+    Amazonka.ApplicationInsights.DescribeApplication
+    Amazonka.ApplicationInsights.DescribeComponent
+    Amazonka.ApplicationInsights.DescribeComponentConfiguration
+    Amazonka.ApplicationInsights.DescribeComponentConfigurationRecommendation
+    Amazonka.ApplicationInsights.DescribeLogPattern
+    Amazonka.ApplicationInsights.DescribeObservation
+    Amazonka.ApplicationInsights.DescribeProblem
+    Amazonka.ApplicationInsights.DescribeProblemObservations
+    Amazonka.ApplicationInsights.Lens
+    Amazonka.ApplicationInsights.ListApplications
+    Amazonka.ApplicationInsights.ListComponents
+    Amazonka.ApplicationInsights.ListConfigurationHistory
+    Amazonka.ApplicationInsights.ListLogPatterns
+    Amazonka.ApplicationInsights.ListLogPatternSets
+    Amazonka.ApplicationInsights.ListProblems
+    Amazonka.ApplicationInsights.ListTagsForResource
+    Amazonka.ApplicationInsights.TagResource
+    Amazonka.ApplicationInsights.Types
+    Amazonka.ApplicationInsights.Types.ApplicationComponent
+    Amazonka.ApplicationInsights.Types.ApplicationInfo
+    Amazonka.ApplicationInsights.Types.CloudWatchEventSource
+    Amazonka.ApplicationInsights.Types.ConfigurationEvent
+    Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
+    Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
+    Amazonka.ApplicationInsights.Types.FeedbackKey
+    Amazonka.ApplicationInsights.Types.FeedbackValue
+    Amazonka.ApplicationInsights.Types.LogFilter
+    Amazonka.ApplicationInsights.Types.LogPattern
+    Amazonka.ApplicationInsights.Types.Observation
+    Amazonka.ApplicationInsights.Types.OsType
+    Amazonka.ApplicationInsights.Types.Problem
+    Amazonka.ApplicationInsights.Types.RelatedObservations
+    Amazonka.ApplicationInsights.Types.SeverityLevel
+    Amazonka.ApplicationInsights.Types.Status
+    Amazonka.ApplicationInsights.Types.Tag
+    Amazonka.ApplicationInsights.Types.Tier
+    Amazonka.ApplicationInsights.UntagResource
+    Amazonka.ApplicationInsights.UpdateApplication
+    Amazonka.ApplicationInsights.UpdateComponent
+    Amazonka.ApplicationInsights.UpdateComponentConfiguration
+    Amazonka.ApplicationInsights.UpdateLogPattern
+    Amazonka.ApplicationInsights.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

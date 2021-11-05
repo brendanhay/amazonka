@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.CreateComponent
+-- Module      : Amazonka.ApplicationInsights.CreateComponent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a custom component by grouping similar standalone instances to
 -- monitor.
-module Network.AWS.ApplicationInsights.CreateComponent
+module Amazonka.ApplicationInsights.CreateComponent
   ( -- * Creating a Request
     CreateComponent (..),
     newCreateComponent,
@@ -41,12 +41,12 @@ module Network.AWS.ApplicationInsights.CreateComponent
   )
 where
 
-import Network.AWS.ApplicationInsights.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationInsights.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateComponent' smart constructor.
 data CreateComponent = CreateComponent'

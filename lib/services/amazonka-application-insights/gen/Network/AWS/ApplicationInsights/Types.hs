@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.Types
+-- Module      : Amazonka.ApplicationInsights.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationInsights.Types
+module Amazonka.ApplicationInsights.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -171,28 +171,28 @@ module Network.AWS.ApplicationInsights.Types
   )
 where
 
-import Network.AWS.ApplicationInsights.Types.ApplicationComponent
-import Network.AWS.ApplicationInsights.Types.ApplicationInfo
-import Network.AWS.ApplicationInsights.Types.CloudWatchEventSource
-import Network.AWS.ApplicationInsights.Types.ConfigurationEvent
-import Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType
-import Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus
-import Network.AWS.ApplicationInsights.Types.FeedbackKey
-import Network.AWS.ApplicationInsights.Types.FeedbackValue
-import Network.AWS.ApplicationInsights.Types.LogFilter
-import Network.AWS.ApplicationInsights.Types.LogPattern
-import Network.AWS.ApplicationInsights.Types.Observation
-import Network.AWS.ApplicationInsights.Types.OsType
-import Network.AWS.ApplicationInsights.Types.Problem
-import Network.AWS.ApplicationInsights.Types.RelatedObservations
-import Network.AWS.ApplicationInsights.Types.SeverityLevel
-import Network.AWS.ApplicationInsights.Types.Status
-import Network.AWS.ApplicationInsights.Types.Tag
-import Network.AWS.ApplicationInsights.Types.Tier
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ApplicationInsights.Types.ApplicationComponent
+import Amazonka.ApplicationInsights.Types.ApplicationInfo
+import Amazonka.ApplicationInsights.Types.CloudWatchEventSource
+import Amazonka.ApplicationInsights.Types.ConfigurationEvent
+import Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
+import Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
+import Amazonka.ApplicationInsights.Types.FeedbackKey
+import Amazonka.ApplicationInsights.Types.FeedbackValue
+import Amazonka.ApplicationInsights.Types.LogFilter
+import Amazonka.ApplicationInsights.Types.LogPattern
+import Amazonka.ApplicationInsights.Types.Observation
+import Amazonka.ApplicationInsights.Types.OsType
+import Amazonka.ApplicationInsights.Types.Problem
+import Amazonka.ApplicationInsights.Types.RelatedObservations
+import Amazonka.ApplicationInsights.Types.SeverityLevel
+import Amazonka.ApplicationInsights.Types.Status
+import Amazonka.ApplicationInsights.Types.Tag
+import Amazonka.ApplicationInsights.Types.Tier
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-25@ of the Amazon CloudWatch Application Insights SDK configuration.
 defaultService :: Core.Service

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationInsights.Types.ConfigurationEvent
+-- Module      : Amazonka.ApplicationInsights.Types.ConfigurationEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationInsights.Types.ConfigurationEvent where
+module Amazonka.ApplicationInsights.Types.ConfigurationEvent where
 
-import Network.AWS.ApplicationInsights.Types.ConfigurationEventResourceType
-import Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
+import Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The event information.
 --

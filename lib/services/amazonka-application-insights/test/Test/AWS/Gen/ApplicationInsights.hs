@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApplicationInsights where
 
+import Amazonka.ApplicationInsights
 import qualified Data.Proxy as Proxy
-import Network.AWS.ApplicationInsights
 import Test.AWS.ApplicationInsights.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

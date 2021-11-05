@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.ProjectArtifacts
+-- Module      : Amazonka.CodeBuild.Types.ProjectArtifacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectArtifacts where
+module Amazonka.CodeBuild.Types.ProjectArtifacts where
 
-import Network.AWS.CodeBuild.Types.ArtifactNamespace
-import Network.AWS.CodeBuild.Types.ArtifactPackaging
-import Network.AWS.CodeBuild.Types.ArtifactsType
-import Network.AWS.CodeBuild.Types.BucketOwnerAccess
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.ArtifactNamespace
+import Amazonka.CodeBuild.Types.ArtifactPackaging
+import Amazonka.CodeBuild.Types.ArtifactsType
+import Amazonka.CodeBuild.Types.BucketOwnerAccess
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build output artifacts for the build project.
 --

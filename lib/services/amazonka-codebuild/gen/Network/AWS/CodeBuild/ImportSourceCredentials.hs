@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.ImportSourceCredentials
+-- Module      : Amazonka.CodeBuild.ImportSourceCredentials
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Imports the source repository credentials for an CodeBuild project that
 -- has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket
 -- repository.
-module Network.AWS.CodeBuild.ImportSourceCredentials
+module Amazonka.CodeBuild.ImportSourceCredentials
   ( -- * Creating a Request
     ImportSourceCredentials (..),
     newImportSourceCredentials,
@@ -45,12 +45,12 @@ module Network.AWS.CodeBuild.ImportSourceCredentials
   )
 where
 
-import Network.AWS.CodeBuild.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeBuild.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportSourceCredentials' smart constructor.
 data ImportSourceCredentials = ImportSourceCredentials'

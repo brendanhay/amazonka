@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.ProjectSource
+-- Module      : Amazonka.CodeBuild.Types.ProjectSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectSource where
+module Amazonka.CodeBuild.Types.ProjectSource where
 
-import Network.AWS.CodeBuild.Types.BuildStatusConfig
-import Network.AWS.CodeBuild.Types.GitSubmodulesConfig
-import Network.AWS.CodeBuild.Types.SourceAuth
-import Network.AWS.CodeBuild.Types.SourceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.BuildStatusConfig
+import Amazonka.CodeBuild.Types.GitSubmodulesConfig
+import Amazonka.CodeBuild.Types.SourceAuth
+import Amazonka.CodeBuild.Types.SourceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build input source code for the build project.
 --

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.ReportGroup
+-- Module      : Amazonka.CodeBuild.Types.ReportGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ReportGroup where
+module Amazonka.CodeBuild.Types.ReportGroup where
 
-import Network.AWS.CodeBuild.Types.ReportExportConfig
-import Network.AWS.CodeBuild.Types.ReportGroupStatusType
-import Network.AWS.CodeBuild.Types.ReportType
-import Network.AWS.CodeBuild.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.ReportExportConfig
+import Amazonka.CodeBuild.Types.ReportGroupStatusType
+import Amazonka.CodeBuild.Types.ReportType
+import Amazonka.CodeBuild.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A series of reports. Each report contains information about the results
 -- from running a series of test cases. You specify the test cases for a

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.PutResourcePolicy
+-- Module      : Amazonka.CodeBuild.PutResourcePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Stores a resource policy for the ARN of a @Project@ or @ReportGroup@
 -- object.
-module Network.AWS.CodeBuild.PutResourcePolicy
+module Amazonka.CodeBuild.PutResourcePolicy
   ( -- * Creating a Request
     PutResourcePolicy (..),
     newPutResourcePolicy,
@@ -41,12 +41,12 @@ module Network.AWS.CodeBuild.PutResourcePolicy
   )
 where
 
-import Network.AWS.CodeBuild.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeBuild.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'

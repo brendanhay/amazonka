@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeBuild
+-- Module      : Amazonka.CodeBuild
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- scales automatically to meet peak build requests. You pay only for the
 -- build time you consume. For more information about CodeBuild, see the
 -- /<https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html CodeBuild User Guide>./
-module Network.AWS.CodeBuild
+module Amazonka.CodeBuild
   ( -- * Service Configuration
     defaultService,
 
@@ -651,54 +651,54 @@ module Network.AWS.CodeBuild
   )
 where
 
-import Network.AWS.CodeBuild.BatchDeleteBuilds
-import Network.AWS.CodeBuild.BatchGetBuildBatches
-import Network.AWS.CodeBuild.BatchGetBuilds
-import Network.AWS.CodeBuild.BatchGetProjects
-import Network.AWS.CodeBuild.BatchGetReportGroups
-import Network.AWS.CodeBuild.BatchGetReports
-import Network.AWS.CodeBuild.CreateProject
-import Network.AWS.CodeBuild.CreateReportGroup
-import Network.AWS.CodeBuild.CreateWebhook
-import Network.AWS.CodeBuild.DeleteBuildBatch
-import Network.AWS.CodeBuild.DeleteProject
-import Network.AWS.CodeBuild.DeleteReport
-import Network.AWS.CodeBuild.DeleteReportGroup
-import Network.AWS.CodeBuild.DeleteResourcePolicy
-import Network.AWS.CodeBuild.DeleteSourceCredentials
-import Network.AWS.CodeBuild.DeleteWebhook
-import Network.AWS.CodeBuild.DescribeCodeCoverages
-import Network.AWS.CodeBuild.DescribeTestCases
-import Network.AWS.CodeBuild.GetReportGroupTrend
-import Network.AWS.CodeBuild.GetResourcePolicy
-import Network.AWS.CodeBuild.ImportSourceCredentials
-import Network.AWS.CodeBuild.InvalidateProjectCache
-import Network.AWS.CodeBuild.Lens
-import Network.AWS.CodeBuild.ListBuildBatches
-import Network.AWS.CodeBuild.ListBuildBatchesForProject
-import Network.AWS.CodeBuild.ListBuilds
-import Network.AWS.CodeBuild.ListBuildsForProject
-import Network.AWS.CodeBuild.ListCuratedEnvironmentImages
-import Network.AWS.CodeBuild.ListProjects
-import Network.AWS.CodeBuild.ListReportGroups
-import Network.AWS.CodeBuild.ListReports
-import Network.AWS.CodeBuild.ListReportsForReportGroup
-import Network.AWS.CodeBuild.ListSharedProjects
-import Network.AWS.CodeBuild.ListSharedReportGroups
-import Network.AWS.CodeBuild.ListSourceCredentials
-import Network.AWS.CodeBuild.PutResourcePolicy
-import Network.AWS.CodeBuild.RetryBuild
-import Network.AWS.CodeBuild.RetryBuildBatch
-import Network.AWS.CodeBuild.StartBuild
-import Network.AWS.CodeBuild.StartBuildBatch
-import Network.AWS.CodeBuild.StopBuild
-import Network.AWS.CodeBuild.StopBuildBatch
-import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.UpdateProject
-import Network.AWS.CodeBuild.UpdateProjectVisibility
-import Network.AWS.CodeBuild.UpdateReportGroup
-import Network.AWS.CodeBuild.UpdateWebhook
-import Network.AWS.CodeBuild.Waiters
+import Amazonka.CodeBuild.BatchDeleteBuilds
+import Amazonka.CodeBuild.BatchGetBuildBatches
+import Amazonka.CodeBuild.BatchGetBuilds
+import Amazonka.CodeBuild.BatchGetProjects
+import Amazonka.CodeBuild.BatchGetReportGroups
+import Amazonka.CodeBuild.BatchGetReports
+import Amazonka.CodeBuild.CreateProject
+import Amazonka.CodeBuild.CreateReportGroup
+import Amazonka.CodeBuild.CreateWebhook
+import Amazonka.CodeBuild.DeleteBuildBatch
+import Amazonka.CodeBuild.DeleteProject
+import Amazonka.CodeBuild.DeleteReport
+import Amazonka.CodeBuild.DeleteReportGroup
+import Amazonka.CodeBuild.DeleteResourcePolicy
+import Amazonka.CodeBuild.DeleteSourceCredentials
+import Amazonka.CodeBuild.DeleteWebhook
+import Amazonka.CodeBuild.DescribeCodeCoverages
+import Amazonka.CodeBuild.DescribeTestCases
+import Amazonka.CodeBuild.GetReportGroupTrend
+import Amazonka.CodeBuild.GetResourcePolicy
+import Amazonka.CodeBuild.ImportSourceCredentials
+import Amazonka.CodeBuild.InvalidateProjectCache
+import Amazonka.CodeBuild.Lens
+import Amazonka.CodeBuild.ListBuildBatches
+import Amazonka.CodeBuild.ListBuildBatchesForProject
+import Amazonka.CodeBuild.ListBuilds
+import Amazonka.CodeBuild.ListBuildsForProject
+import Amazonka.CodeBuild.ListCuratedEnvironmentImages
+import Amazonka.CodeBuild.ListProjects
+import Amazonka.CodeBuild.ListReportGroups
+import Amazonka.CodeBuild.ListReports
+import Amazonka.CodeBuild.ListReportsForReportGroup
+import Amazonka.CodeBuild.ListSharedProjects
+import Amazonka.CodeBuild.ListSharedReportGroups
+import Amazonka.CodeBuild.ListSourceCredentials
+import Amazonka.CodeBuild.PutResourcePolicy
+import Amazonka.CodeBuild.RetryBuild
+import Amazonka.CodeBuild.RetryBuildBatch
+import Amazonka.CodeBuild.StartBuild
+import Amazonka.CodeBuild.StartBuildBatch
+import Amazonka.CodeBuild.StopBuild
+import Amazonka.CodeBuild.StopBuildBatch
+import Amazonka.CodeBuild.Types
+import Amazonka.CodeBuild.UpdateProject
+import Amazonka.CodeBuild.UpdateProjectVisibility
+import Amazonka.CodeBuild.UpdateReportGroup
+import Amazonka.CodeBuild.UpdateWebhook
+import Amazonka.CodeBuild.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

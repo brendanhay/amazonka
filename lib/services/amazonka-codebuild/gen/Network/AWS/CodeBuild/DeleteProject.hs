@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.DeleteProject
+-- Module      : Amazonka.CodeBuild.DeleteProject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes a build project. When you delete a project, its builds are not
 -- deleted.
-module Network.AWS.CodeBuild.DeleteProject
+module Amazonka.CodeBuild.DeleteProject
   ( -- * Creating a Request
     DeleteProject (..),
     newDeleteProject,
@@ -39,12 +39,12 @@ module Network.AWS.CodeBuild.DeleteProject
   )
 where
 
-import Network.AWS.CodeBuild.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeBuild.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteProject' smart constructor.
 data DeleteProject = DeleteProject'

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.ProjectEnvironment
+-- Module      : Amazonka.CodeBuild.Types.ProjectEnvironment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectEnvironment where
+module Amazonka.CodeBuild.Types.ProjectEnvironment where
 
-import Network.AWS.CodeBuild.Types.ComputeType
-import Network.AWS.CodeBuild.Types.EnvironmentType
-import Network.AWS.CodeBuild.Types.EnvironmentVariable
-import Network.AWS.CodeBuild.Types.ImagePullCredentialsType
-import Network.AWS.CodeBuild.Types.RegistryCredential
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.ComputeType
+import Amazonka.CodeBuild.Types.EnvironmentType
+import Amazonka.CodeBuild.Types.EnvironmentVariable
+import Amazonka.CodeBuild.Types.ImagePullCredentialsType
+import Amazonka.CodeBuild.Types.RegistryCredential
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build environment of the build project.
 --

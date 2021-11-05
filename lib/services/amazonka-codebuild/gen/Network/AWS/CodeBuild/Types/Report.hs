@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.Report
+-- Module      : Amazonka.CodeBuild.Types.Report
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.Report where
+module Amazonka.CodeBuild.Types.Report where
 
-import Network.AWS.CodeBuild.Types.CodeCoverageReportSummary
-import Network.AWS.CodeBuild.Types.ReportExportConfig
-import Network.AWS.CodeBuild.Types.ReportStatusType
-import Network.AWS.CodeBuild.Types.ReportType
-import Network.AWS.CodeBuild.Types.TestReportSummary
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.CodeCoverageReportSummary
+import Amazonka.CodeBuild.Types.ReportExportConfig
+import Amazonka.CodeBuild.Types.ReportStatusType
+import Amazonka.CodeBuild.Types.ReportType
+import Amazonka.CodeBuild.Types.TestReportSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the results from running a series of test cases during
 -- the run of a build project. The test cases are specified in the

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.S3LogsConfig
+-- Module      : Amazonka.CodeBuild.Types.S3LogsConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.S3LogsConfig where
+module Amazonka.CodeBuild.Types.S3LogsConfig where
 
-import Network.AWS.CodeBuild.Types.BucketOwnerAccess
-import Network.AWS.CodeBuild.Types.LogsConfigStatusType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.BucketOwnerAccess
+import Amazonka.CodeBuild.Types.LogsConfigStatusType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about S3 logs for a build project.
 --

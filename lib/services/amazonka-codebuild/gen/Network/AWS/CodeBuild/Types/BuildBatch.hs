@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types.BuildBatch
+-- Module      : Amazonka.CodeBuild.Types.BuildBatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BuildBatch where
+module Amazonka.CodeBuild.Types.BuildBatch where
 
-import Network.AWS.CodeBuild.Types.BuildArtifacts
-import Network.AWS.CodeBuild.Types.BuildBatchPhase
-import Network.AWS.CodeBuild.Types.BuildGroup
-import Network.AWS.CodeBuild.Types.LogsConfig
-import Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig
-import Network.AWS.CodeBuild.Types.ProjectCache
-import Network.AWS.CodeBuild.Types.ProjectEnvironment
-import Network.AWS.CodeBuild.Types.ProjectFileSystemLocation
-import Network.AWS.CodeBuild.Types.ProjectSource
-import Network.AWS.CodeBuild.Types.ProjectSourceVersion
-import Network.AWS.CodeBuild.Types.StatusType
-import Network.AWS.CodeBuild.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeBuild.Types.BuildArtifacts
+import Amazonka.CodeBuild.Types.BuildBatchPhase
+import Amazonka.CodeBuild.Types.BuildGroup
+import Amazonka.CodeBuild.Types.LogsConfig
+import Amazonka.CodeBuild.Types.ProjectBuildBatchConfig
+import Amazonka.CodeBuild.Types.ProjectCache
+import Amazonka.CodeBuild.Types.ProjectEnvironment
+import Amazonka.CodeBuild.Types.ProjectFileSystemLocation
+import Amazonka.CodeBuild.Types.ProjectSource
+import Amazonka.CodeBuild.Types.ProjectSourceVersion
+import Amazonka.CodeBuild.Types.StatusType
+import Amazonka.CodeBuild.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a batch build.
 --

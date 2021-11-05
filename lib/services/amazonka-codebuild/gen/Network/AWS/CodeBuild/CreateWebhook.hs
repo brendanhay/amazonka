@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.CreateWebhook
+-- Module      : Amazonka.CodeBuild.CreateWebhook
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- recommend that you disable webhooks in CodeBuild. In the CodeBuild
 -- console, clear the Webhook box. For more information, see step 5 in
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console Change a Build Project\'s Settings>.
-module Network.AWS.CodeBuild.CreateWebhook
+module Amazonka.CodeBuild.CreateWebhook
   ( -- * Creating a Request
     CreateWebhook (..),
     newCreateWebhook,
@@ -54,12 +54,12 @@ module Network.AWS.CodeBuild.CreateWebhook
   )
 where
 
-import Network.AWS.CodeBuild.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeBuild.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWebhook' smart constructor.
 data CreateWebhook = CreateWebhook'

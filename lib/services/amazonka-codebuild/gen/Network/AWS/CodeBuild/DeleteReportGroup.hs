@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.DeleteReportGroup
+-- Module      : Amazonka.CodeBuild.DeleteReportGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes a report group. Before you delete a report group, you must
 -- delete its reports.
-module Network.AWS.CodeBuild.DeleteReportGroup
+module Amazonka.CodeBuild.DeleteReportGroup
   ( -- * Creating a Request
     DeleteReportGroup (..),
     newDeleteReportGroup,
@@ -40,12 +40,12 @@ module Network.AWS.CodeBuild.DeleteReportGroup
   )
 where
 
-import Network.AWS.CodeBuild.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeBuild.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteReportGroup' smart constructor.
 data DeleteReportGroup = DeleteReportGroup'

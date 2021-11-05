@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeBuild.Types
+-- Module      : Amazonka.CodeBuild.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types
+module Amazonka.CodeBuild.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -646,101 +646,101 @@ module Network.AWS.CodeBuild.Types
   )
 where
 
-import Network.AWS.CodeBuild.Types.ArtifactNamespace
-import Network.AWS.CodeBuild.Types.ArtifactPackaging
-import Network.AWS.CodeBuild.Types.ArtifactsType
-import Network.AWS.CodeBuild.Types.AuthType
-import Network.AWS.CodeBuild.Types.BatchReportModeType
-import Network.AWS.CodeBuild.Types.BatchRestrictions
-import Network.AWS.CodeBuild.Types.BucketOwnerAccess
-import Network.AWS.CodeBuild.Types.Build
-import Network.AWS.CodeBuild.Types.BuildArtifacts
-import Network.AWS.CodeBuild.Types.BuildBatch
-import Network.AWS.CodeBuild.Types.BuildBatchFilter
-import Network.AWS.CodeBuild.Types.BuildBatchPhase
-import Network.AWS.CodeBuild.Types.BuildBatchPhaseType
-import Network.AWS.CodeBuild.Types.BuildGroup
-import Network.AWS.CodeBuild.Types.BuildNotDeleted
-import Network.AWS.CodeBuild.Types.BuildPhase
-import Network.AWS.CodeBuild.Types.BuildPhaseType
-import Network.AWS.CodeBuild.Types.BuildStatusConfig
-import Network.AWS.CodeBuild.Types.BuildSummary
-import Network.AWS.CodeBuild.Types.CacheMode
-import Network.AWS.CodeBuild.Types.CacheType
-import Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
-import Network.AWS.CodeBuild.Types.CodeCoverage
-import Network.AWS.CodeBuild.Types.CodeCoverageReportSummary
-import Network.AWS.CodeBuild.Types.ComputeType
-import Network.AWS.CodeBuild.Types.CredentialProviderType
-import Network.AWS.CodeBuild.Types.DebugSession
-import Network.AWS.CodeBuild.Types.EnvironmentImage
-import Network.AWS.CodeBuild.Types.EnvironmentLanguage
-import Network.AWS.CodeBuild.Types.EnvironmentPlatform
-import Network.AWS.CodeBuild.Types.EnvironmentType
-import Network.AWS.CodeBuild.Types.EnvironmentVariable
-import Network.AWS.CodeBuild.Types.EnvironmentVariableType
-import Network.AWS.CodeBuild.Types.ExportedEnvironmentVariable
-import Network.AWS.CodeBuild.Types.FileSystemType
-import Network.AWS.CodeBuild.Types.GitSubmodulesConfig
-import Network.AWS.CodeBuild.Types.ImagePullCredentialsType
-import Network.AWS.CodeBuild.Types.LanguageType
-import Network.AWS.CodeBuild.Types.LogsConfig
-import Network.AWS.CodeBuild.Types.LogsConfigStatusType
-import Network.AWS.CodeBuild.Types.LogsLocation
-import Network.AWS.CodeBuild.Types.NetworkInterface
-import Network.AWS.CodeBuild.Types.PhaseContext
-import Network.AWS.CodeBuild.Types.PlatformType
-import Network.AWS.CodeBuild.Types.Project
-import Network.AWS.CodeBuild.Types.ProjectArtifacts
-import Network.AWS.CodeBuild.Types.ProjectBadge
-import Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig
-import Network.AWS.CodeBuild.Types.ProjectCache
-import Network.AWS.CodeBuild.Types.ProjectEnvironment
-import Network.AWS.CodeBuild.Types.ProjectFileSystemLocation
-import Network.AWS.CodeBuild.Types.ProjectSortByType
-import Network.AWS.CodeBuild.Types.ProjectSource
-import Network.AWS.CodeBuild.Types.ProjectSourceVersion
-import Network.AWS.CodeBuild.Types.ProjectVisibilityType
-import Network.AWS.CodeBuild.Types.RegistryCredential
-import Network.AWS.CodeBuild.Types.Report
-import Network.AWS.CodeBuild.Types.ReportCodeCoverageSortByType
-import Network.AWS.CodeBuild.Types.ReportExportConfig
-import Network.AWS.CodeBuild.Types.ReportExportConfigType
-import Network.AWS.CodeBuild.Types.ReportFilter
-import Network.AWS.CodeBuild.Types.ReportGroup
-import Network.AWS.CodeBuild.Types.ReportGroupSortByType
-import Network.AWS.CodeBuild.Types.ReportGroupStatusType
-import Network.AWS.CodeBuild.Types.ReportGroupTrendFieldType
-import Network.AWS.CodeBuild.Types.ReportGroupTrendStats
-import Network.AWS.CodeBuild.Types.ReportPackagingType
-import Network.AWS.CodeBuild.Types.ReportStatusType
-import Network.AWS.CodeBuild.Types.ReportType
-import Network.AWS.CodeBuild.Types.ReportWithRawData
-import Network.AWS.CodeBuild.Types.ResolvedArtifact
-import Network.AWS.CodeBuild.Types.RetryBuildBatchType
-import Network.AWS.CodeBuild.Types.S3LogsConfig
-import Network.AWS.CodeBuild.Types.S3ReportExportConfig
-import Network.AWS.CodeBuild.Types.ServerType
-import Network.AWS.CodeBuild.Types.SharedResourceSortByType
-import Network.AWS.CodeBuild.Types.SortOrderType
-import Network.AWS.CodeBuild.Types.SourceAuth
-import Network.AWS.CodeBuild.Types.SourceAuthType
-import Network.AWS.CodeBuild.Types.SourceCredentialsInfo
-import Network.AWS.CodeBuild.Types.SourceType
-import Network.AWS.CodeBuild.Types.StatusType
-import Network.AWS.CodeBuild.Types.Tag
-import Network.AWS.CodeBuild.Types.TestCase
-import Network.AWS.CodeBuild.Types.TestCaseFilter
-import Network.AWS.CodeBuild.Types.TestReportSummary
-import Network.AWS.CodeBuild.Types.VpcConfig
-import Network.AWS.CodeBuild.Types.Webhook
-import Network.AWS.CodeBuild.Types.WebhookBuildType
-import Network.AWS.CodeBuild.Types.WebhookFilter
-import Network.AWS.CodeBuild.Types.WebhookFilterType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeBuild.Types.ArtifactNamespace
+import Amazonka.CodeBuild.Types.ArtifactPackaging
+import Amazonka.CodeBuild.Types.ArtifactsType
+import Amazonka.CodeBuild.Types.AuthType
+import Amazonka.CodeBuild.Types.BatchReportModeType
+import Amazonka.CodeBuild.Types.BatchRestrictions
+import Amazonka.CodeBuild.Types.BucketOwnerAccess
+import Amazonka.CodeBuild.Types.Build
+import Amazonka.CodeBuild.Types.BuildArtifacts
+import Amazonka.CodeBuild.Types.BuildBatch
+import Amazonka.CodeBuild.Types.BuildBatchFilter
+import Amazonka.CodeBuild.Types.BuildBatchPhase
+import Amazonka.CodeBuild.Types.BuildBatchPhaseType
+import Amazonka.CodeBuild.Types.BuildGroup
+import Amazonka.CodeBuild.Types.BuildNotDeleted
+import Amazonka.CodeBuild.Types.BuildPhase
+import Amazonka.CodeBuild.Types.BuildPhaseType
+import Amazonka.CodeBuild.Types.BuildStatusConfig
+import Amazonka.CodeBuild.Types.BuildSummary
+import Amazonka.CodeBuild.Types.CacheMode
+import Amazonka.CodeBuild.Types.CacheType
+import Amazonka.CodeBuild.Types.CloudWatchLogsConfig
+import Amazonka.CodeBuild.Types.CodeCoverage
+import Amazonka.CodeBuild.Types.CodeCoverageReportSummary
+import Amazonka.CodeBuild.Types.ComputeType
+import Amazonka.CodeBuild.Types.CredentialProviderType
+import Amazonka.CodeBuild.Types.DebugSession
+import Amazonka.CodeBuild.Types.EnvironmentImage
+import Amazonka.CodeBuild.Types.EnvironmentLanguage
+import Amazonka.CodeBuild.Types.EnvironmentPlatform
+import Amazonka.CodeBuild.Types.EnvironmentType
+import Amazonka.CodeBuild.Types.EnvironmentVariable
+import Amazonka.CodeBuild.Types.EnvironmentVariableType
+import Amazonka.CodeBuild.Types.ExportedEnvironmentVariable
+import Amazonka.CodeBuild.Types.FileSystemType
+import Amazonka.CodeBuild.Types.GitSubmodulesConfig
+import Amazonka.CodeBuild.Types.ImagePullCredentialsType
+import Amazonka.CodeBuild.Types.LanguageType
+import Amazonka.CodeBuild.Types.LogsConfig
+import Amazonka.CodeBuild.Types.LogsConfigStatusType
+import Amazonka.CodeBuild.Types.LogsLocation
+import Amazonka.CodeBuild.Types.NetworkInterface
+import Amazonka.CodeBuild.Types.PhaseContext
+import Amazonka.CodeBuild.Types.PlatformType
+import Amazonka.CodeBuild.Types.Project
+import Amazonka.CodeBuild.Types.ProjectArtifacts
+import Amazonka.CodeBuild.Types.ProjectBadge
+import Amazonka.CodeBuild.Types.ProjectBuildBatchConfig
+import Amazonka.CodeBuild.Types.ProjectCache
+import Amazonka.CodeBuild.Types.ProjectEnvironment
+import Amazonka.CodeBuild.Types.ProjectFileSystemLocation
+import Amazonka.CodeBuild.Types.ProjectSortByType
+import Amazonka.CodeBuild.Types.ProjectSource
+import Amazonka.CodeBuild.Types.ProjectSourceVersion
+import Amazonka.CodeBuild.Types.ProjectVisibilityType
+import Amazonka.CodeBuild.Types.RegistryCredential
+import Amazonka.CodeBuild.Types.Report
+import Amazonka.CodeBuild.Types.ReportCodeCoverageSortByType
+import Amazonka.CodeBuild.Types.ReportExportConfig
+import Amazonka.CodeBuild.Types.ReportExportConfigType
+import Amazonka.CodeBuild.Types.ReportFilter
+import Amazonka.CodeBuild.Types.ReportGroup
+import Amazonka.CodeBuild.Types.ReportGroupSortByType
+import Amazonka.CodeBuild.Types.ReportGroupStatusType
+import Amazonka.CodeBuild.Types.ReportGroupTrendFieldType
+import Amazonka.CodeBuild.Types.ReportGroupTrendStats
+import Amazonka.CodeBuild.Types.ReportPackagingType
+import Amazonka.CodeBuild.Types.ReportStatusType
+import Amazonka.CodeBuild.Types.ReportType
+import Amazonka.CodeBuild.Types.ReportWithRawData
+import Amazonka.CodeBuild.Types.ResolvedArtifact
+import Amazonka.CodeBuild.Types.RetryBuildBatchType
+import Amazonka.CodeBuild.Types.S3LogsConfig
+import Amazonka.CodeBuild.Types.S3ReportExportConfig
+import Amazonka.CodeBuild.Types.ServerType
+import Amazonka.CodeBuild.Types.SharedResourceSortByType
+import Amazonka.CodeBuild.Types.SortOrderType
+import Amazonka.CodeBuild.Types.SourceAuth
+import Amazonka.CodeBuild.Types.SourceAuthType
+import Amazonka.CodeBuild.Types.SourceCredentialsInfo
+import Amazonka.CodeBuild.Types.SourceType
+import Amazonka.CodeBuild.Types.StatusType
+import Amazonka.CodeBuild.Types.Tag
+import Amazonka.CodeBuild.Types.TestCase
+import Amazonka.CodeBuild.Types.TestCaseFilter
+import Amazonka.CodeBuild.Types.TestReportSummary
+import Amazonka.CodeBuild.Types.VpcConfig
+import Amazonka.CodeBuild.Types.Webhook
+import Amazonka.CodeBuild.Types.WebhookBuildType
+import Amazonka.CodeBuild.Types.WebhookFilter
+import Amazonka.CodeBuild.Types.WebhookFilterType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-10-06@ of the Amazon CodeBuild SDK configuration.
 defaultService :: Core.Service

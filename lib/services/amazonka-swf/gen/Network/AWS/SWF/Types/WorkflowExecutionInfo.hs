@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SWF.Types.WorkflowExecutionInfo
+-- Module      : Amazonka.SWF.Types.WorkflowExecutionInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionInfo where
+module Amazonka.SWF.Types.WorkflowExecutionInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SWF.Types.CloseStatus
-import Network.AWS.SWF.Types.ExecutionStatus
-import Network.AWS.SWF.Types.WorkflowExecution
-import Network.AWS.SWF.Types.WorkflowType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SWF.Types.CloseStatus
+import Amazonka.SWF.Types.ExecutionStatus
+import Amazonka.SWF.Types.WorkflowExecution
+import Amazonka.SWF.Types.WorkflowType
 
 -- | Contains information about a workflow execution.
 --

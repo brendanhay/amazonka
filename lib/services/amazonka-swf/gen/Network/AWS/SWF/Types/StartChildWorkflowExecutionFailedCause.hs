@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause
+-- Module      : Amazonka.SWF.Types.StartChildWorkflowExecutionFailedCause
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause
+module Amazonka.SWF.Types.StartChildWorkflowExecutionFailedCause
   ( StartChildWorkflowExecutionFailedCause
       ( ..,
         StartChildWorkflowExecutionFailedCause_CHILD_CREATION_RATE_EXCEEDED,
@@ -35,8 +35,8 @@ module Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype StartChildWorkflowExecutionFailedCause = StartChildWorkflowExecutionFailedCause'
   { fromStartChildWorkflowExecutionFailedCause ::

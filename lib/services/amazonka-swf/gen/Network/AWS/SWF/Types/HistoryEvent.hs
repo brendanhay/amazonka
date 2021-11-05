@@ -11,72 +11,72 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SWF.Types.HistoryEvent
+-- Module      : Amazonka.SWF.Types.HistoryEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.HistoryEvent where
+module Amazonka.SWF.Types.HistoryEvent where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskCanceledEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskScheduledEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskStartedEventAttributes
-import Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes
-import Network.AWS.SWF.Types.CancelTimerFailedEventAttributes
-import Network.AWS.SWF.Types.CancelWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionCompletedEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionTerminatedEventAttributes
-import Network.AWS.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes
-import Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes
-import Network.AWS.SWF.Types.DecisionTaskScheduledEventAttributes
-import Network.AWS.SWF.Types.DecisionTaskStartedEventAttributes
-import Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes
-import Network.AWS.SWF.Types.EventType
-import Network.AWS.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes
-import Network.AWS.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes
-import Network.AWS.SWF.Types.FailWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes
-import Network.AWS.SWF.Types.LambdaFunctionFailedEventAttributes
-import Network.AWS.SWF.Types.LambdaFunctionScheduledEventAttributes
-import Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes
-import Network.AWS.SWF.Types.LambdaFunctionTimedOutEventAttributes
-import Network.AWS.SWF.Types.MarkerRecordedEventAttributes
-import Network.AWS.SWF.Types.RecordMarkerFailedEventAttributes
-import Network.AWS.SWF.Types.RequestCancelActivityTaskFailedEventAttributes
-import Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-import Network.AWS.SWF.Types.ScheduleActivityTaskFailedEventAttributes
-import Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedEventAttributes
-import Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes
-import Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.StartChildWorkflowExecutionInitiatedEventAttributes
-import Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes
-import Network.AWS.SWF.Types.StartTimerFailedEventAttributes
-import Network.AWS.SWF.Types.TimerCanceledEventAttributes
-import Network.AWS.SWF.Types.TimerFiredEventAttributes
-import Network.AWS.SWF.Types.TimerStartedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionCompletedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionFailedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionSignaledEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionStartedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionTerminatedEventAttributes
-import Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SWF.Types.ActivityTaskCancelRequestedEventAttributes
+import Amazonka.SWF.Types.ActivityTaskCanceledEventAttributes
+import Amazonka.SWF.Types.ActivityTaskCompletedEventAttributes
+import Amazonka.SWF.Types.ActivityTaskFailedEventAttributes
+import Amazonka.SWF.Types.ActivityTaskScheduledEventAttributes
+import Amazonka.SWF.Types.ActivityTaskStartedEventAttributes
+import Amazonka.SWF.Types.ActivityTaskTimedOutEventAttributes
+import Amazonka.SWF.Types.CancelTimerFailedEventAttributes
+import Amazonka.SWF.Types.CancelWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionCompletedEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionStartedEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionTerminatedEventAttributes
+import Amazonka.SWF.Types.ChildWorkflowExecutionTimedOutEventAttributes
+import Amazonka.SWF.Types.CompleteWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.DecisionTaskCompletedEventAttributes
+import Amazonka.SWF.Types.DecisionTaskScheduledEventAttributes
+import Amazonka.SWF.Types.DecisionTaskStartedEventAttributes
+import Amazonka.SWF.Types.DecisionTaskTimedOutEventAttributes
+import Amazonka.SWF.Types.EventType
+import Amazonka.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes
+import Amazonka.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes
+import Amazonka.SWF.Types.FailWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.LambdaFunctionCompletedEventAttributes
+import Amazonka.SWF.Types.LambdaFunctionFailedEventAttributes
+import Amazonka.SWF.Types.LambdaFunctionScheduledEventAttributes
+import Amazonka.SWF.Types.LambdaFunctionStartedEventAttributes
+import Amazonka.SWF.Types.LambdaFunctionTimedOutEventAttributes
+import Amazonka.SWF.Types.MarkerRecordedEventAttributes
+import Amazonka.SWF.Types.RecordMarkerFailedEventAttributes
+import Amazonka.SWF.Types.RequestCancelActivityTaskFailedEventAttributes
+import Amazonka.SWF.Types.RequestCancelExternalWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+import Amazonka.SWF.Types.ScheduleActivityTaskFailedEventAttributes
+import Amazonka.SWF.Types.ScheduleLambdaFunctionFailedEventAttributes
+import Amazonka.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes
+import Amazonka.SWF.Types.StartChildWorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.StartChildWorkflowExecutionInitiatedEventAttributes
+import Amazonka.SWF.Types.StartLambdaFunctionFailedEventAttributes
+import Amazonka.SWF.Types.StartTimerFailedEventAttributes
+import Amazonka.SWF.Types.TimerCanceledEventAttributes
+import Amazonka.SWF.Types.TimerFiredEventAttributes
+import Amazonka.SWF.Types.TimerStartedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionCancelRequestedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionCanceledEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionCompletedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionFailedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionSignaledEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionStartedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionTerminatedEventAttributes
+import Amazonka.SWF.Types.WorkflowExecutionTimedOutEventAttributes
 
 -- | Event within a workflow execution. A history event can be one of these
 -- types:

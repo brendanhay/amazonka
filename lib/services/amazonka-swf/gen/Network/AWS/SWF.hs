@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SWF
+-- Module      : Amazonka.SWF
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- the Amazon SWF programming model, see the
 -- /<https://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>/
 -- .
-module Network.AWS.SWF
+module Amazonka.SWF
   ( -- * Service Configuration
     defaultService,
 
@@ -740,46 +740,46 @@ module Network.AWS.SWF
   )
 where
 
-import Network.AWS.SWF.CountClosedWorkflowExecutions
-import Network.AWS.SWF.CountOpenWorkflowExecutions
-import Network.AWS.SWF.CountPendingActivityTasks
-import Network.AWS.SWF.CountPendingDecisionTasks
-import Network.AWS.SWF.DeprecateActivityType
-import Network.AWS.SWF.DeprecateDomain
-import Network.AWS.SWF.DeprecateWorkflowType
-import Network.AWS.SWF.DescribeActivityType
-import Network.AWS.SWF.DescribeDomain
-import Network.AWS.SWF.DescribeWorkflowExecution
-import Network.AWS.SWF.DescribeWorkflowType
-import Network.AWS.SWF.GetWorkflowExecutionHistory
-import Network.AWS.SWF.Lens
-import Network.AWS.SWF.ListActivityTypes
-import Network.AWS.SWF.ListClosedWorkflowExecutions
-import Network.AWS.SWF.ListDomains
-import Network.AWS.SWF.ListOpenWorkflowExecutions
-import Network.AWS.SWF.ListTagsForResource
-import Network.AWS.SWF.ListWorkflowTypes
-import Network.AWS.SWF.PollForActivityTask
-import Network.AWS.SWF.PollForDecisionTask
-import Network.AWS.SWF.RecordActivityTaskHeartbeat
-import Network.AWS.SWF.RegisterActivityType
-import Network.AWS.SWF.RegisterDomain
-import Network.AWS.SWF.RegisterWorkflowType
-import Network.AWS.SWF.RequestCancelWorkflowExecution
-import Network.AWS.SWF.RespondActivityTaskCanceled
-import Network.AWS.SWF.RespondActivityTaskCompleted
-import Network.AWS.SWF.RespondActivityTaskFailed
-import Network.AWS.SWF.RespondDecisionTaskCompleted
-import Network.AWS.SWF.SignalWorkflowExecution
-import Network.AWS.SWF.StartWorkflowExecution
-import Network.AWS.SWF.TagResource
-import Network.AWS.SWF.TerminateWorkflowExecution
-import Network.AWS.SWF.Types
-import Network.AWS.SWF.UndeprecateActivityType
-import Network.AWS.SWF.UndeprecateDomain
-import Network.AWS.SWF.UndeprecateWorkflowType
-import Network.AWS.SWF.UntagResource
-import Network.AWS.SWF.Waiters
+import Amazonka.SWF.CountClosedWorkflowExecutions
+import Amazonka.SWF.CountOpenWorkflowExecutions
+import Amazonka.SWF.CountPendingActivityTasks
+import Amazonka.SWF.CountPendingDecisionTasks
+import Amazonka.SWF.DeprecateActivityType
+import Amazonka.SWF.DeprecateDomain
+import Amazonka.SWF.DeprecateWorkflowType
+import Amazonka.SWF.DescribeActivityType
+import Amazonka.SWF.DescribeDomain
+import Amazonka.SWF.DescribeWorkflowExecution
+import Amazonka.SWF.DescribeWorkflowType
+import Amazonka.SWF.GetWorkflowExecutionHistory
+import Amazonka.SWF.Lens
+import Amazonka.SWF.ListActivityTypes
+import Amazonka.SWF.ListClosedWorkflowExecutions
+import Amazonka.SWF.ListDomains
+import Amazonka.SWF.ListOpenWorkflowExecutions
+import Amazonka.SWF.ListTagsForResource
+import Amazonka.SWF.ListWorkflowTypes
+import Amazonka.SWF.PollForActivityTask
+import Amazonka.SWF.PollForDecisionTask
+import Amazonka.SWF.RecordActivityTaskHeartbeat
+import Amazonka.SWF.RegisterActivityType
+import Amazonka.SWF.RegisterDomain
+import Amazonka.SWF.RegisterWorkflowType
+import Amazonka.SWF.RequestCancelWorkflowExecution
+import Amazonka.SWF.RespondActivityTaskCanceled
+import Amazonka.SWF.RespondActivityTaskCompleted
+import Amazonka.SWF.RespondActivityTaskFailed
+import Amazonka.SWF.RespondDecisionTaskCompleted
+import Amazonka.SWF.SignalWorkflowExecution
+import Amazonka.SWF.StartWorkflowExecution
+import Amazonka.SWF.TagResource
+import Amazonka.SWF.TerminateWorkflowExecution
+import Amazonka.SWF.Types
+import Amazonka.SWF.UndeprecateActivityType
+import Amazonka.SWF.UndeprecateDomain
+import Amazonka.SWF.UndeprecateWorkflowType
+import Amazonka.SWF.UntagResource
+import Amazonka.SWF.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SWF where
 
+import Amazonka.SWF
 import qualified Data.Proxy as Proxy
-import Network.AWS.SWF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SWF.Internal

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SWF.Types.WorkflowExecutionStartedEventAttributes
+-- Module      : Amazonka.SWF.Types.WorkflowExecutionStartedEventAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionStartedEventAttributes where
+module Amazonka.SWF.Types.WorkflowExecutionStartedEventAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SWF.Types.ChildPolicy
-import Network.AWS.SWF.Types.TaskList
-import Network.AWS.SWF.Types.WorkflowExecution
-import Network.AWS.SWF.Types.WorkflowType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SWF.Types.ChildPolicy
+import Amazonka.SWF.Types.TaskList
+import Amazonka.SWF.Types.WorkflowExecution
+import Amazonka.SWF.Types.WorkflowType
 
 -- | Provides details of @WorkflowExecutionStarted@ event.
 --

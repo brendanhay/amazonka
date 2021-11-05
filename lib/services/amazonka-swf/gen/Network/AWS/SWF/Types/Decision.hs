@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SWF.Types.Decision
+-- Module      : Amazonka.SWF.Types.Decision
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.Decision where
+module Amazonka.SWF.Types.Decision where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SWF.Types.CancelTimerDecisionAttributes
-import Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.CompleteWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.DecisionType
-import Network.AWS.SWF.Types.FailWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.RecordMarkerDecisionAttributes
-import Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes
-import Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.ScheduleActivityTaskDecisionAttributes
-import Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes
-import Network.AWS.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.StartChildWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.StartTimerDecisionAttributes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SWF.Types.CancelTimerDecisionAttributes
+import Amazonka.SWF.Types.CancelWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.CompleteWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.ContinueAsNewWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.DecisionType
+import Amazonka.SWF.Types.FailWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.RecordMarkerDecisionAttributes
+import Amazonka.SWF.Types.RequestCancelActivityTaskDecisionAttributes
+import Amazonka.SWF.Types.RequestCancelExternalWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.ScheduleActivityTaskDecisionAttributes
+import Amazonka.SWF.Types.ScheduleLambdaFunctionDecisionAttributes
+import Amazonka.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.StartChildWorkflowExecutionDecisionAttributes
+import Amazonka.SWF.Types.StartTimerDecisionAttributes
 
 -- | Specifies a decision made by the decider. A decision can be one of these
 -- types:

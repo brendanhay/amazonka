@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+-- Module      : Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig where
+module Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig where
 
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the Amazon Cognito user pool configuration for the
 -- authorization resource to be configured for your Amplify project on an

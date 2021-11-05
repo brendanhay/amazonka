@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.Types
+-- Module      : Amazonka.AmplifyBackend.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AmplifyBackend.Types
+module Amazonka.AmplifyBackend.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -263,50 +263,50 @@ module Network.AWS.AmplifyBackend.Types
   )
 where
 
-import Network.AWS.AmplifyBackend.Types.AdditionalConstraintsElement
-import Network.AWS.AmplifyBackend.Types.AuthResources
-import Network.AWS.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
-import Network.AWS.AmplifyBackend.Types.BackendAPIAuthType
-import Network.AWS.AmplifyBackend.Types.BackendAPIConflictResolution
-import Network.AWS.AmplifyBackend.Types.BackendAPIResourceConfig
-import Network.AWS.AmplifyBackend.Types.BackendAuthAppleProviderConfig
-import Network.AWS.AmplifyBackend.Types.BackendAuthSocialProviderConfig
-import Network.AWS.AmplifyBackend.Types.BackendJobRespObj
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthMFAConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthResourceConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
-import Network.AWS.AmplifyBackend.Types.DeliveryMethod
-import Network.AWS.AmplifyBackend.Types.EmailSettings
-import Network.AWS.AmplifyBackend.Types.LoginAuthConfigReqObj
-import Network.AWS.AmplifyBackend.Types.MFAMode
-import Network.AWS.AmplifyBackend.Types.MfaTypesElement
-import Network.AWS.AmplifyBackend.Types.Mode
-import Network.AWS.AmplifyBackend.Types.OAuthGrantType
-import Network.AWS.AmplifyBackend.Types.OAuthScopesElement
-import Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement
-import Network.AWS.AmplifyBackend.Types.ResolutionStrategy
-import Network.AWS.AmplifyBackend.Types.ResourceConfig
-import Network.AWS.AmplifyBackend.Types.Service
-import Network.AWS.AmplifyBackend.Types.Settings
-import Network.AWS.AmplifyBackend.Types.SignInMethod
-import Network.AWS.AmplifyBackend.Types.SmsSettings
-import Network.AWS.AmplifyBackend.Types.SocialProviderSettings
-import Network.AWS.AmplifyBackend.Types.Status
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
+import Amazonka.AmplifyBackend.Types.AuthResources
+import Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
+import Amazonka.AmplifyBackend.Types.BackendAPIAuthType
+import Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution
+import Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig
+import Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
+import Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
+import Amazonka.AmplifyBackend.Types.BackendJobRespObj
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthMFAConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthResourceConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
+import Amazonka.AmplifyBackend.Types.DeliveryMethod
+import Amazonka.AmplifyBackend.Types.EmailSettings
+import Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj
+import Amazonka.AmplifyBackend.Types.MFAMode
+import Amazonka.AmplifyBackend.Types.MfaTypesElement
+import Amazonka.AmplifyBackend.Types.Mode
+import Amazonka.AmplifyBackend.Types.OAuthGrantType
+import Amazonka.AmplifyBackend.Types.OAuthScopesElement
+import Amazonka.AmplifyBackend.Types.RequiredSignUpAttributesElement
+import Amazonka.AmplifyBackend.Types.ResolutionStrategy
+import Amazonka.AmplifyBackend.Types.ResourceConfig
+import Amazonka.AmplifyBackend.Types.Service
+import Amazonka.AmplifyBackend.Types.Settings
+import Amazonka.AmplifyBackend.Types.SignInMethod
+import Amazonka.AmplifyBackend.Types.SmsSettings
+import Amazonka.AmplifyBackend.Types.SocialProviderSettings
+import Amazonka.AmplifyBackend.Types.Status
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-11@ of the Amazon AmplifyBackend SDK configuration.
 defaultService :: Core.Service

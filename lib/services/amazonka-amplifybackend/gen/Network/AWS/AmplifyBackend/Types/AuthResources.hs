@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.Types.AuthResources
+-- Module      : Amazonka.AmplifyBackend.Types.AuthResources
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AmplifyBackend.Types.AuthResources
+module Amazonka.AmplifyBackend.Types.AuthResources
   ( AuthResources
       ( ..,
         AuthResources_IDENTITY_POOL_AND_USER_POOL,
@@ -26,8 +26,8 @@ module Network.AWS.AmplifyBackend.Types.AuthResources
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype AuthResources = AuthResources'
   { fromAuthResources ::

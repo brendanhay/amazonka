@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.Lens
+-- Module      : Amazonka.AmplifyBackend.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AmplifyBackend.Lens
+module Amazonka.AmplifyBackend.Lens
   ( -- * Operations
 
     -- ** CloneBackend
@@ -446,55 +446,55 @@ module Network.AWS.AmplifyBackend.Lens
   )
 where
 
-import Network.AWS.AmplifyBackend.CloneBackend
-import Network.AWS.AmplifyBackend.CreateBackend
-import Network.AWS.AmplifyBackend.CreateBackendAPI
-import Network.AWS.AmplifyBackend.CreateBackendAuth
-import Network.AWS.AmplifyBackend.CreateBackendConfig
-import Network.AWS.AmplifyBackend.CreateToken
-import Network.AWS.AmplifyBackend.DeleteBackend
-import Network.AWS.AmplifyBackend.DeleteBackendAPI
-import Network.AWS.AmplifyBackend.DeleteBackendAuth
-import Network.AWS.AmplifyBackend.DeleteToken
-import Network.AWS.AmplifyBackend.GenerateBackendAPIModels
-import Network.AWS.AmplifyBackend.GetBackend
-import Network.AWS.AmplifyBackend.GetBackendAPI
-import Network.AWS.AmplifyBackend.GetBackendAPIModels
-import Network.AWS.AmplifyBackend.GetBackendAuth
-import Network.AWS.AmplifyBackend.GetBackendJob
-import Network.AWS.AmplifyBackend.GetToken
-import Network.AWS.AmplifyBackend.ImportBackendAuth
-import Network.AWS.AmplifyBackend.ListBackendJobs
-import Network.AWS.AmplifyBackend.RemoveAllBackends
-import Network.AWS.AmplifyBackend.RemoveBackendConfig
-import Network.AWS.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
-import Network.AWS.AmplifyBackend.Types.BackendAPIAuthType
-import Network.AWS.AmplifyBackend.Types.BackendAPIConflictResolution
-import Network.AWS.AmplifyBackend.Types.BackendAPIResourceConfig
-import Network.AWS.AmplifyBackend.Types.BackendAuthAppleProviderConfig
-import Network.AWS.AmplifyBackend.Types.BackendAuthSocialProviderConfig
-import Network.AWS.AmplifyBackend.Types.BackendJobRespObj
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthMFAConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthResourceConfig
-import Network.AWS.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
-import Network.AWS.AmplifyBackend.Types.EmailSettings
-import Network.AWS.AmplifyBackend.Types.LoginAuthConfigReqObj
-import Network.AWS.AmplifyBackend.Types.ResourceConfig
-import Network.AWS.AmplifyBackend.Types.Settings
-import Network.AWS.AmplifyBackend.Types.SmsSettings
-import Network.AWS.AmplifyBackend.Types.SocialProviderSettings
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
-import Network.AWS.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
-import Network.AWS.AmplifyBackend.UpdateBackendAPI
-import Network.AWS.AmplifyBackend.UpdateBackendAuth
-import Network.AWS.AmplifyBackend.UpdateBackendConfig
-import Network.AWS.AmplifyBackend.UpdateBackendJob
+import Amazonka.AmplifyBackend.CloneBackend
+import Amazonka.AmplifyBackend.CreateBackend
+import Amazonka.AmplifyBackend.CreateBackendAPI
+import Amazonka.AmplifyBackend.CreateBackendAuth
+import Amazonka.AmplifyBackend.CreateBackendConfig
+import Amazonka.AmplifyBackend.CreateToken
+import Amazonka.AmplifyBackend.DeleteBackend
+import Amazonka.AmplifyBackend.DeleteBackendAPI
+import Amazonka.AmplifyBackend.DeleteBackendAuth
+import Amazonka.AmplifyBackend.DeleteToken
+import Amazonka.AmplifyBackend.GenerateBackendAPIModels
+import Amazonka.AmplifyBackend.GetBackend
+import Amazonka.AmplifyBackend.GetBackendAPI
+import Amazonka.AmplifyBackend.GetBackendAPIModels
+import Amazonka.AmplifyBackend.GetBackendAuth
+import Amazonka.AmplifyBackend.GetBackendJob
+import Amazonka.AmplifyBackend.GetToken
+import Amazonka.AmplifyBackend.ImportBackendAuth
+import Amazonka.AmplifyBackend.ListBackendJobs
+import Amazonka.AmplifyBackend.RemoveAllBackends
+import Amazonka.AmplifyBackend.RemoveBackendConfig
+import Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
+import Amazonka.AmplifyBackend.Types.BackendAPIAuthType
+import Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution
+import Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig
+import Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
+import Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
+import Amazonka.AmplifyBackend.Types.BackendJobRespObj
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthMFAConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthResourceConfig
+import Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
+import Amazonka.AmplifyBackend.Types.EmailSettings
+import Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj
+import Amazonka.AmplifyBackend.Types.ResourceConfig
+import Amazonka.AmplifyBackend.Types.Settings
+import Amazonka.AmplifyBackend.Types.SmsSettings
+import Amazonka.AmplifyBackend.Types.SocialProviderSettings
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
+import Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+import Amazonka.AmplifyBackend.UpdateBackendAPI
+import Amazonka.AmplifyBackend.UpdateBackendAuth
+import Amazonka.AmplifyBackend.UpdateBackendConfig
+import Amazonka.AmplifyBackend.UpdateBackendJob

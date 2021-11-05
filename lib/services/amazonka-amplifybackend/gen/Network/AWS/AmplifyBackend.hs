@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AmplifyBackend
+-- Module      : Amazonka.AmplifyBackend
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2020-08-11@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS Amplify Admin API
-module Network.AWS.AmplifyBackend
+module Amazonka.AmplifyBackend
   ( -- * Service Configuration
     defaultService,
 
@@ -338,34 +338,34 @@ module Network.AWS.AmplifyBackend
   )
 where
 
-import Network.AWS.AmplifyBackend.CloneBackend
-import Network.AWS.AmplifyBackend.CreateBackend
-import Network.AWS.AmplifyBackend.CreateBackendAPI
-import Network.AWS.AmplifyBackend.CreateBackendAuth
-import Network.AWS.AmplifyBackend.CreateBackendConfig
-import Network.AWS.AmplifyBackend.CreateToken
-import Network.AWS.AmplifyBackend.DeleteBackend
-import Network.AWS.AmplifyBackend.DeleteBackendAPI
-import Network.AWS.AmplifyBackend.DeleteBackendAuth
-import Network.AWS.AmplifyBackend.DeleteToken
-import Network.AWS.AmplifyBackend.GenerateBackendAPIModels
-import Network.AWS.AmplifyBackend.GetBackend
-import Network.AWS.AmplifyBackend.GetBackendAPI
-import Network.AWS.AmplifyBackend.GetBackendAPIModels
-import Network.AWS.AmplifyBackend.GetBackendAuth
-import Network.AWS.AmplifyBackend.GetBackendJob
-import Network.AWS.AmplifyBackend.GetToken
-import Network.AWS.AmplifyBackend.ImportBackendAuth
-import Network.AWS.AmplifyBackend.Lens
-import Network.AWS.AmplifyBackend.ListBackendJobs
-import Network.AWS.AmplifyBackend.RemoveAllBackends
-import Network.AWS.AmplifyBackend.RemoveBackendConfig
-import Network.AWS.AmplifyBackend.Types
-import Network.AWS.AmplifyBackend.UpdateBackendAPI
-import Network.AWS.AmplifyBackend.UpdateBackendAuth
-import Network.AWS.AmplifyBackend.UpdateBackendConfig
-import Network.AWS.AmplifyBackend.UpdateBackendJob
-import Network.AWS.AmplifyBackend.Waiters
+import Amazonka.AmplifyBackend.CloneBackend
+import Amazonka.AmplifyBackend.CreateBackend
+import Amazonka.AmplifyBackend.CreateBackendAPI
+import Amazonka.AmplifyBackend.CreateBackendAuth
+import Amazonka.AmplifyBackend.CreateBackendConfig
+import Amazonka.AmplifyBackend.CreateToken
+import Amazonka.AmplifyBackend.DeleteBackend
+import Amazonka.AmplifyBackend.DeleteBackendAPI
+import Amazonka.AmplifyBackend.DeleteBackendAuth
+import Amazonka.AmplifyBackend.DeleteToken
+import Amazonka.AmplifyBackend.GenerateBackendAPIModels
+import Amazonka.AmplifyBackend.GetBackend
+import Amazonka.AmplifyBackend.GetBackendAPI
+import Amazonka.AmplifyBackend.GetBackendAPIModels
+import Amazonka.AmplifyBackend.GetBackendAuth
+import Amazonka.AmplifyBackend.GetBackendJob
+import Amazonka.AmplifyBackend.GetToken
+import Amazonka.AmplifyBackend.ImportBackendAuth
+import Amazonka.AmplifyBackend.Lens
+import Amazonka.AmplifyBackend.ListBackendJobs
+import Amazonka.AmplifyBackend.RemoveAllBackends
+import Amazonka.AmplifyBackend.RemoveBackendConfig
+import Amazonka.AmplifyBackend.Types
+import Amazonka.AmplifyBackend.UpdateBackendAPI
+import Amazonka.AmplifyBackend.UpdateBackendAuth
+import Amazonka.AmplifyBackend.UpdateBackendConfig
+import Amazonka.AmplifyBackend.UpdateBackendJob
+import Amazonka.AmplifyBackend.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

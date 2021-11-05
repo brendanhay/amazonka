@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.CreateBackendAuth
+-- Module      : Amazonka.AmplifyBackend.CreateBackendAuth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new backend authentication resource.
-module Network.AWS.AmplifyBackend.CreateBackendAuth
+module Amazonka.AmplifyBackend.CreateBackendAuth
   ( -- * Creating a Request
     CreateBackendAuth (..),
     newCreateBackendAuth,
@@ -47,12 +47,12 @@ module Network.AWS.AmplifyBackend.CreateBackendAuth
   )
 where
 
-import Network.AWS.AmplifyBackend.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AmplifyBackend.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request body for CreateBackendAuth.
 --

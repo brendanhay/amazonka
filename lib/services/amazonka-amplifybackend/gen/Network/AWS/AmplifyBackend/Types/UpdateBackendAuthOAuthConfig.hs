@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
+-- Module      : Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig where
+module Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig where
 
-import Network.AWS.AmplifyBackend.Types.OAuthGrantType
-import Network.AWS.AmplifyBackend.Types.OAuthScopesElement
-import Network.AWS.AmplifyBackend.Types.SocialProviderSettings
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AmplifyBackend.Types.OAuthGrantType
+import Amazonka.AmplifyBackend.Types.OAuthScopesElement
+import Amazonka.AmplifyBackend.Types.SocialProviderSettings
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth configurations for authenticating users into your Amplify app.
 --

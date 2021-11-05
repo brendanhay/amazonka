@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.DescribeTaskDefinition
+-- Module      : Amazonka.ECS.DescribeTaskDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- You can only describe @INACTIVE@ task definitions while an active task
 -- or service references them.
-module Network.AWS.ECS.DescribeTaskDefinition
+module Amazonka.ECS.DescribeTaskDefinition
   ( -- * Creating a Request
     DescribeTaskDefinition (..),
     newDescribeTaskDefinition,
@@ -46,12 +46,12 @@ module Network.AWS.ECS.DescribeTaskDefinition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTaskDefinition' smart constructor.
 data DescribeTaskDefinition = DescribeTaskDefinition'

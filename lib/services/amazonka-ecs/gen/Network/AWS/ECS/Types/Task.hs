@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.Task
+-- Module      : Amazonka.ECS.Types.Task
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Task where
+module Amazonka.ECS.Types.Task where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.Attachment
-import Network.AWS.ECS.Types.Attribute
-import Network.AWS.ECS.Types.Connectivity
-import Network.AWS.ECS.Types.Container
-import Network.AWS.ECS.Types.EphemeralStorage
-import Network.AWS.ECS.Types.HealthStatus
-import Network.AWS.ECS.Types.InferenceAccelerator
-import Network.AWS.ECS.Types.LaunchType
-import Network.AWS.ECS.Types.Tag
-import Network.AWS.ECS.Types.TaskOverride
-import Network.AWS.ECS.Types.TaskStopCode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.Attachment
+import Amazonka.ECS.Types.Attribute
+import Amazonka.ECS.Types.Connectivity
+import Amazonka.ECS.Types.Container
+import Amazonka.ECS.Types.EphemeralStorage
+import Amazonka.ECS.Types.HealthStatus
+import Amazonka.ECS.Types.InferenceAccelerator
+import Amazonka.ECS.Types.LaunchType
+import Amazonka.ECS.Types.Tag
+import Amazonka.ECS.Types.TaskOverride
+import Amazonka.ECS.Types.TaskStopCode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a task in a cluster.
 --

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.ResourceRequirement
+-- Module      : Amazonka.ECS.Types.ResourceRequirement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ResourceRequirement where
+module Amazonka.ECS.Types.ResourceRequirement where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.ResourceType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.ResourceType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
 -- supported resource types are GPUs and Elastic Inference accelerators.

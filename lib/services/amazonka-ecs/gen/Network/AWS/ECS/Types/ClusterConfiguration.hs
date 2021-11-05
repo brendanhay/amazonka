@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.ClusterConfiguration
+-- Module      : Amazonka.ECS.Types.ClusterConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ClusterConfiguration where
+module Amazonka.ECS.Types.ClusterConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.ExecuteCommandConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.ExecuteCommandConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The execute command configuration for the cluster.
 --

@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.TaskDefinition
+-- Module      : Amazonka.ECS.Types.TaskDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinition where
+module Amazonka.ECS.Types.TaskDefinition where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.Attribute
-import Network.AWS.ECS.Types.Compatibility
-import Network.AWS.ECS.Types.ContainerDefinition
-import Network.AWS.ECS.Types.EphemeralStorage
-import Network.AWS.ECS.Types.InferenceAccelerator
-import Network.AWS.ECS.Types.IpcMode
-import Network.AWS.ECS.Types.NetworkMode
-import Network.AWS.ECS.Types.PidMode
-import Network.AWS.ECS.Types.ProxyConfiguration
-import Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint
-import Network.AWS.ECS.Types.TaskDefinitionStatus
-import Network.AWS.ECS.Types.Volume
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.Attribute
+import Amazonka.ECS.Types.Compatibility
+import Amazonka.ECS.Types.ContainerDefinition
+import Amazonka.ECS.Types.EphemeralStorage
+import Amazonka.ECS.Types.InferenceAccelerator
+import Amazonka.ECS.Types.IpcMode
+import Amazonka.ECS.Types.NetworkMode
+import Amazonka.ECS.Types.PidMode
+import Amazonka.ECS.Types.ProxyConfiguration
+import Amazonka.ECS.Types.TaskDefinitionPlacementConstraint
+import Amazonka.ECS.Types.TaskDefinitionStatus
+import Amazonka.ECS.Types.Volume
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a task definition which describes the container and
 -- volume definitions of an Amazon Elastic Container Service task. You can

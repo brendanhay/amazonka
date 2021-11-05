@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.LinuxParameters
+-- Module      : Amazonka.ECS.Types.LinuxParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.LinuxParameters where
+module Amazonka.ECS.Types.LinuxParameters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.Device
-import Network.AWS.ECS.Types.KernelCapabilities
-import Network.AWS.ECS.Types.Tmpfs
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.Device
+import Amazonka.ECS.Types.KernelCapabilities
+import Amazonka.ECS.Types.Tmpfs
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Linux-specific options that are applied to the container, such as Linux
 -- KernelCapabilities.

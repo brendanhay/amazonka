@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ECS
+-- Module      : Amazonka.ECS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- availability requirements. Amazon ECS eliminates the need for you to
 -- operate your own cluster management and configuration management systems
 -- or worry about scaling your management infrastructure.
-module Network.AWS.ECS
+module Amazonka.ECS
   ( -- * Service Configuration
     defaultService,
 
@@ -908,61 +908,61 @@ module Network.AWS.ECS
   )
 where
 
-import Network.AWS.ECS.CreateCapacityProvider
-import Network.AWS.ECS.CreateCluster
-import Network.AWS.ECS.CreateService
-import Network.AWS.ECS.CreateTaskSet
-import Network.AWS.ECS.DeleteAccountSetting
-import Network.AWS.ECS.DeleteAttributes
-import Network.AWS.ECS.DeleteCapacityProvider
-import Network.AWS.ECS.DeleteCluster
-import Network.AWS.ECS.DeleteService
-import Network.AWS.ECS.DeleteTaskSet
-import Network.AWS.ECS.DeregisterContainerInstance
-import Network.AWS.ECS.DeregisterTaskDefinition
-import Network.AWS.ECS.DescribeCapacityProviders
-import Network.AWS.ECS.DescribeClusters
-import Network.AWS.ECS.DescribeContainerInstances
-import Network.AWS.ECS.DescribeServices
-import Network.AWS.ECS.DescribeTaskDefinition
-import Network.AWS.ECS.DescribeTaskSets
-import Network.AWS.ECS.DescribeTasks
-import Network.AWS.ECS.DiscoverPollEndpoint
-import Network.AWS.ECS.ExecuteCommand
-import Network.AWS.ECS.Lens
-import Network.AWS.ECS.ListAccountSettings
-import Network.AWS.ECS.ListAttributes
-import Network.AWS.ECS.ListClusters
-import Network.AWS.ECS.ListContainerInstances
-import Network.AWS.ECS.ListServices
-import Network.AWS.ECS.ListTagsForResource
-import Network.AWS.ECS.ListTaskDefinitionFamilies
-import Network.AWS.ECS.ListTaskDefinitions
-import Network.AWS.ECS.ListTasks
-import Network.AWS.ECS.PutAccountSetting
-import Network.AWS.ECS.PutAccountSettingDefault
-import Network.AWS.ECS.PutAttributes
-import Network.AWS.ECS.PutClusterCapacityProviders
-import Network.AWS.ECS.RegisterContainerInstance
-import Network.AWS.ECS.RegisterTaskDefinition
-import Network.AWS.ECS.RunTask
-import Network.AWS.ECS.StartTask
-import Network.AWS.ECS.StopTask
-import Network.AWS.ECS.SubmitAttachmentStateChanges
-import Network.AWS.ECS.SubmitContainerStateChange
-import Network.AWS.ECS.SubmitTaskStateChange
-import Network.AWS.ECS.TagResource
-import Network.AWS.ECS.Types
-import Network.AWS.ECS.UntagResource
-import Network.AWS.ECS.UpdateCapacityProvider
-import Network.AWS.ECS.UpdateCluster
-import Network.AWS.ECS.UpdateClusterSettings
-import Network.AWS.ECS.UpdateContainerAgent
-import Network.AWS.ECS.UpdateContainerInstancesState
-import Network.AWS.ECS.UpdateService
-import Network.AWS.ECS.UpdateServicePrimaryTaskSet
-import Network.AWS.ECS.UpdateTaskSet
-import Network.AWS.ECS.Waiters
+import Amazonka.ECS.CreateCapacityProvider
+import Amazonka.ECS.CreateCluster
+import Amazonka.ECS.CreateService
+import Amazonka.ECS.CreateTaskSet
+import Amazonka.ECS.DeleteAccountSetting
+import Amazonka.ECS.DeleteAttributes
+import Amazonka.ECS.DeleteCapacityProvider
+import Amazonka.ECS.DeleteCluster
+import Amazonka.ECS.DeleteService
+import Amazonka.ECS.DeleteTaskSet
+import Amazonka.ECS.DeregisterContainerInstance
+import Amazonka.ECS.DeregisterTaskDefinition
+import Amazonka.ECS.DescribeCapacityProviders
+import Amazonka.ECS.DescribeClusters
+import Amazonka.ECS.DescribeContainerInstances
+import Amazonka.ECS.DescribeServices
+import Amazonka.ECS.DescribeTaskDefinition
+import Amazonka.ECS.DescribeTaskSets
+import Amazonka.ECS.DescribeTasks
+import Amazonka.ECS.DiscoverPollEndpoint
+import Amazonka.ECS.ExecuteCommand
+import Amazonka.ECS.Lens
+import Amazonka.ECS.ListAccountSettings
+import Amazonka.ECS.ListAttributes
+import Amazonka.ECS.ListClusters
+import Amazonka.ECS.ListContainerInstances
+import Amazonka.ECS.ListServices
+import Amazonka.ECS.ListTagsForResource
+import Amazonka.ECS.ListTaskDefinitionFamilies
+import Amazonka.ECS.ListTaskDefinitions
+import Amazonka.ECS.ListTasks
+import Amazonka.ECS.PutAccountSetting
+import Amazonka.ECS.PutAccountSettingDefault
+import Amazonka.ECS.PutAttributes
+import Amazonka.ECS.PutClusterCapacityProviders
+import Amazonka.ECS.RegisterContainerInstance
+import Amazonka.ECS.RegisterTaskDefinition
+import Amazonka.ECS.RunTask
+import Amazonka.ECS.StartTask
+import Amazonka.ECS.StopTask
+import Amazonka.ECS.SubmitAttachmentStateChanges
+import Amazonka.ECS.SubmitContainerStateChange
+import Amazonka.ECS.SubmitTaskStateChange
+import Amazonka.ECS.TagResource
+import Amazonka.ECS.Types
+import Amazonka.ECS.UntagResource
+import Amazonka.ECS.UpdateCapacityProvider
+import Amazonka.ECS.UpdateCluster
+import Amazonka.ECS.UpdateClusterSettings
+import Amazonka.ECS.UpdateContainerAgent
+import Amazonka.ECS.UpdateContainerInstancesState
+import Amazonka.ECS.UpdateService
+import Amazonka.ECS.UpdateServicePrimaryTaskSet
+import Amazonka.ECS.UpdateTaskSet
+import Amazonka.ECS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

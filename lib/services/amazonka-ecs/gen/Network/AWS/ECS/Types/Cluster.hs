@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.Cluster
+-- Module      : Amazonka.ECS.Types.Cluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Cluster where
+module Amazonka.ECS.Types.Cluster where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.Attachment
-import Network.AWS.ECS.Types.CapacityProviderStrategyItem
-import Network.AWS.ECS.Types.ClusterConfiguration
-import Network.AWS.ECS.Types.ClusterSetting
-import Network.AWS.ECS.Types.KeyValuePair
-import Network.AWS.ECS.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.Attachment
+import Amazonka.ECS.Types.CapacityProviderStrategyItem
+import Amazonka.ECS.Types.ClusterConfiguration
+import Amazonka.ECS.Types.ClusterSetting
+import Amazonka.ECS.Types.KeyValuePair
+import Amazonka.ECS.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A regional grouping of one or more container instances on which you can
 -- run task requests. Each account receives a default cluster the first

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.CapacityProvider
+-- Module      : Amazonka.ECS.Types.CapacityProvider
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.CapacityProvider where
+module Amazonka.ECS.Types.CapacityProvider where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.AutoScalingGroupProvider
-import Network.AWS.ECS.Types.CapacityProviderStatus
-import Network.AWS.ECS.Types.CapacityProviderUpdateStatus
-import Network.AWS.ECS.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.AutoScalingGroupProvider
+import Amazonka.ECS.Types.CapacityProviderStatus
+import Amazonka.ECS.Types.CapacityProviderUpdateStatus
+import Amazonka.ECS.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a capacity provider.
 --

@@ -11,33 +11,33 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.ContainerDefinition
+-- Module      : Amazonka.ECS.Types.ContainerDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ContainerDefinition where
+module Amazonka.ECS.Types.ContainerDefinition where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.ContainerDependency
-import Network.AWS.ECS.Types.EnvironmentFile
-import Network.AWS.ECS.Types.FirelensConfiguration
-import Network.AWS.ECS.Types.HealthCheck
-import Network.AWS.ECS.Types.HostEntry
-import Network.AWS.ECS.Types.KeyValuePair
-import Network.AWS.ECS.Types.LinuxParameters
-import Network.AWS.ECS.Types.LogConfiguration
-import Network.AWS.ECS.Types.MountPoint
-import Network.AWS.ECS.Types.PortMapping
-import Network.AWS.ECS.Types.RepositoryCredentials
-import Network.AWS.ECS.Types.ResourceRequirement
-import Network.AWS.ECS.Types.Secret
-import Network.AWS.ECS.Types.SystemControl
-import Network.AWS.ECS.Types.Ulimit
-import Network.AWS.ECS.Types.VolumeFrom
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.ContainerDependency
+import Amazonka.ECS.Types.EnvironmentFile
+import Amazonka.ECS.Types.FirelensConfiguration
+import Amazonka.ECS.Types.HealthCheck
+import Amazonka.ECS.Types.HostEntry
+import Amazonka.ECS.Types.KeyValuePair
+import Amazonka.ECS.Types.LinuxParameters
+import Amazonka.ECS.Types.LogConfiguration
+import Amazonka.ECS.Types.MountPoint
+import Amazonka.ECS.Types.PortMapping
+import Amazonka.ECS.Types.RepositoryCredentials
+import Amazonka.ECS.Types.ResourceRequirement
+import Amazonka.ECS.Types.Secret
+import Amazonka.ECS.Types.SystemControl
+import Amazonka.ECS.Types.Ulimit
+import Amazonka.ECS.Types.VolumeFrom
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Container definitions are used in task definitions to describe the
 -- different containers that are launched as part of a task.

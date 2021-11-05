@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.DeleteAccountSetting
+-- Module      : Amazonka.ECS.DeleteAccountSetting
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Disables an account setting for a specified IAM user, IAM role, or the
 -- root user for an account.
-module Network.AWS.ECS.DeleteAccountSetting
+module Amazonka.ECS.DeleteAccountSetting
   ( -- * Creating a Request
     DeleteAccountSetting (..),
     newDeleteAccountSetting,
@@ -41,12 +41,12 @@ module Network.AWS.ECS.DeleteAccountSetting
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAccountSetting' smart constructor.
 data DeleteAccountSetting = DeleteAccountSetting'

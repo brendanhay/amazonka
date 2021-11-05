@@ -11,32 +11,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.ContainerService
+-- Module      : Amazonka.ECS.Types.ContainerService
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ContainerService where
+module Amazonka.ECS.Types.ContainerService where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.CapacityProviderStrategyItem
-import Network.AWS.ECS.Types.Deployment
-import Network.AWS.ECS.Types.DeploymentConfiguration
-import Network.AWS.ECS.Types.DeploymentController
-import Network.AWS.ECS.Types.LaunchType
-import Network.AWS.ECS.Types.LoadBalancer
-import Network.AWS.ECS.Types.NetworkConfiguration
-import Network.AWS.ECS.Types.PlacementConstraint
-import Network.AWS.ECS.Types.PlacementStrategy
-import Network.AWS.ECS.Types.PropagateTags
-import Network.AWS.ECS.Types.SchedulingStrategy
-import Network.AWS.ECS.Types.ServiceEvent
-import Network.AWS.ECS.Types.ServiceRegistry
-import Network.AWS.ECS.Types.Tag
-import Network.AWS.ECS.Types.TaskSet
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.CapacityProviderStrategyItem
+import Amazonka.ECS.Types.Deployment
+import Amazonka.ECS.Types.DeploymentConfiguration
+import Amazonka.ECS.Types.DeploymentController
+import Amazonka.ECS.Types.LaunchType
+import Amazonka.ECS.Types.LoadBalancer
+import Amazonka.ECS.Types.NetworkConfiguration
+import Amazonka.ECS.Types.PlacementConstraint
+import Amazonka.ECS.Types.PlacementStrategy
+import Amazonka.ECS.Types.PropagateTags
+import Amazonka.ECS.Types.SchedulingStrategy
+import Amazonka.ECS.Types.ServiceEvent
+import Amazonka.ECS.Types.ServiceRegistry
+import Amazonka.ECS.Types.Tag
+import Amazonka.ECS.Types.TaskSet
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details on a service within a cluster
 --

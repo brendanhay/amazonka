@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.TaskSet
+-- Module      : Amazonka.ECS.Types.TaskSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskSet where
+module Amazonka.ECS.Types.TaskSet where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.CapacityProviderStrategyItem
-import Network.AWS.ECS.Types.LaunchType
-import Network.AWS.ECS.Types.LoadBalancer
-import Network.AWS.ECS.Types.NetworkConfiguration
-import Network.AWS.ECS.Types.Scale
-import Network.AWS.ECS.Types.ServiceRegistry
-import Network.AWS.ECS.Types.StabilityStatus
-import Network.AWS.ECS.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.CapacityProviderStrategyItem
+import Amazonka.ECS.Types.LaunchType
+import Amazonka.ECS.Types.LoadBalancer
+import Amazonka.ECS.Types.NetworkConfiguration
+import Amazonka.ECS.Types.Scale
+import Amazonka.ECS.Types.ServiceRegistry
+import Amazonka.ECS.Types.StabilityStatus
+import Amazonka.ECS.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a set of Amazon ECS tasks in either an CodeDeploy or
 -- an @EXTERNAL@ deployment. An Amazon ECS task set includes details such

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.UpdateContainerInstancesState
+-- Module      : Amazonka.ECS.UpdateContainerInstancesState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -74,7 +74,7 @@
 -- When a container instance has been drained, you can set a container
 -- instance to @ACTIVE@ status and once it has reached that status the
 -- Amazon ECS scheduler can begin scheduling tasks on the instance again.
-module Network.AWS.ECS.UpdateContainerInstancesState
+module Amazonka.ECS.UpdateContainerInstancesState
   ( -- * Creating a Request
     UpdateContainerInstancesState (..),
     newUpdateContainerInstancesState,
@@ -95,12 +95,12 @@ module Network.AWS.ECS.UpdateContainerInstancesState
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'

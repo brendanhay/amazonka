@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.DockerVolumeConfiguration
+-- Module      : Amazonka.ECS.Types.DockerVolumeConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.DockerVolumeConfiguration where
+module Amazonka.ECS.Types.DockerVolumeConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.Scope
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.Scope
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This parameter is specified when you are using Docker volumes. Docker
 -- volumes are only supported when you are using the EC2 launch type.

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.Volume
+-- Module      : Amazonka.ECS.Types.Volume
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Volume where
+module Amazonka.ECS.Types.Volume where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.DockerVolumeConfiguration
-import Network.AWS.ECS.Types.EFSVolumeConfiguration
-import Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
-import Network.AWS.ECS.Types.HostVolumeProperties
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.DockerVolumeConfiguration
+import Amazonka.ECS.Types.EFSVolumeConfiguration
+import Amazonka.ECS.Types.FSxWindowsFileServerVolumeConfiguration
+import Amazonka.ECS.Types.HostVolumeProperties
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A data volume used in a task definition. For tasks that use the Amazon
 -- Elastic File System (Amazon EFS), specify an @efsVolumeConfiguration@.

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.Deployment
+-- Module      : Amazonka.ECS.Types.Deployment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Deployment where
+module Amazonka.ECS.Types.Deployment where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.CapacityProviderStrategyItem
-import Network.AWS.ECS.Types.DeploymentRolloutState
-import Network.AWS.ECS.Types.LaunchType
-import Network.AWS.ECS.Types.NetworkConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.CapacityProviderStrategyItem
+import Amazonka.ECS.Types.DeploymentRolloutState
+import Amazonka.ECS.Types.LaunchType
+import Amazonka.ECS.Types.NetworkConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Amazon ECS service deployment. This is used only when
 -- a service uses the @ECS@ deployment controller type.

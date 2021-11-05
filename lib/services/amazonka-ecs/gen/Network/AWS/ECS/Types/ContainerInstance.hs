@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECS.Types.ContainerInstance
+-- Module      : Amazonka.ECS.Types.ContainerInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ContainerInstance where
+module Amazonka.ECS.Types.ContainerInstance where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECS.Types.AgentUpdateStatus
-import Network.AWS.ECS.Types.Attachment
-import Network.AWS.ECS.Types.Attribute
-import Network.AWS.ECS.Types.Resource
-import Network.AWS.ECS.Types.Tag
-import Network.AWS.ECS.Types.VersionInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECS.Types.AgentUpdateStatus
+import Amazonka.ECS.Types.Attachment
+import Amazonka.ECS.Types.Attribute
+import Amazonka.ECS.Types.Resource
+import Amazonka.ECS.Types.Tag
+import Amazonka.ECS.Types.VersionInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An EC2 instance that is running the Amazon ECS agent and has been
 -- registered with a cluster.

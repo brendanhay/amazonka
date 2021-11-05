@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.GetConfiguration
+-- Module      : Amazonka.AppConfig.GetConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- @GetConfiguration@. This value must be saved on your client. Subsequent
 -- calls to @GetConfiguration@ must pass this value by using the
 -- @ClientConfigurationVersion@ parameter.
-module Network.AWS.AppConfig.GetConfiguration
+module Amazonka.AppConfig.GetConfiguration
   ( -- * Creating a Request
     GetConfiguration (..),
     newGetConfiguration,
@@ -57,12 +57,12 @@ module Network.AWS.AppConfig.GetConfiguration
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConfiguration' smart constructor.
 data GetConfiguration = GetConfiguration'

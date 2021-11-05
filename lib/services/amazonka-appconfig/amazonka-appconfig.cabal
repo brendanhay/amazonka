@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AppConfig.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AppConfig.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AppConfig" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AppConfig" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,64 +45,64 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AppConfig
-    Network.AWS.AppConfig.CreateApplication
-    Network.AWS.AppConfig.CreateConfigurationProfile
-    Network.AWS.AppConfig.CreateDeploymentStrategy
-    Network.AWS.AppConfig.CreateEnvironment
-    Network.AWS.AppConfig.CreateHostedConfigurationVersion
-    Network.AWS.AppConfig.DeleteApplication
-    Network.AWS.AppConfig.DeleteConfigurationProfile
-    Network.AWS.AppConfig.DeleteDeploymentStrategy
-    Network.AWS.AppConfig.DeleteEnvironment
-    Network.AWS.AppConfig.DeleteHostedConfigurationVersion
-    Network.AWS.AppConfig.GetApplication
-    Network.AWS.AppConfig.GetConfiguration
-    Network.AWS.AppConfig.GetConfigurationProfile
-    Network.AWS.AppConfig.GetDeployment
-    Network.AWS.AppConfig.GetDeploymentStrategy
-    Network.AWS.AppConfig.GetEnvironment
-    Network.AWS.AppConfig.GetHostedConfigurationVersion
-    Network.AWS.AppConfig.Lens
-    Network.AWS.AppConfig.ListApplications
-    Network.AWS.AppConfig.ListConfigurationProfiles
-    Network.AWS.AppConfig.ListDeployments
-    Network.AWS.AppConfig.ListDeploymentStrategies
-    Network.AWS.AppConfig.ListEnvironments
-    Network.AWS.AppConfig.ListHostedConfigurationVersions
-    Network.AWS.AppConfig.ListTagsForResource
-    Network.AWS.AppConfig.StartDeployment
-    Network.AWS.AppConfig.StopDeployment
-    Network.AWS.AppConfig.TagResource
-    Network.AWS.AppConfig.Types
-    Network.AWS.AppConfig.Types.Application
-    Network.AWS.AppConfig.Types.ConfigurationProfile
-    Network.AWS.AppConfig.Types.ConfigurationProfileSummary
-    Network.AWS.AppConfig.Types.Deployment
-    Network.AWS.AppConfig.Types.DeploymentEvent
-    Network.AWS.AppConfig.Types.DeploymentEventType
-    Network.AWS.AppConfig.Types.DeploymentState
-    Network.AWS.AppConfig.Types.DeploymentStrategy
-    Network.AWS.AppConfig.Types.DeploymentSummary
-    Network.AWS.AppConfig.Types.Environment
-    Network.AWS.AppConfig.Types.EnvironmentState
-    Network.AWS.AppConfig.Types.GrowthType
-    Network.AWS.AppConfig.Types.HostedConfigurationVersion
-    Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary
-    Network.AWS.AppConfig.Types.Monitor
-    Network.AWS.AppConfig.Types.ReplicateTo
-    Network.AWS.AppConfig.Types.TriggeredBy
-    Network.AWS.AppConfig.Types.Validator
-    Network.AWS.AppConfig.Types.ValidatorType
-    Network.AWS.AppConfig.UntagResource
-    Network.AWS.AppConfig.UpdateApplication
-    Network.AWS.AppConfig.UpdateConfigurationProfile
-    Network.AWS.AppConfig.UpdateDeploymentStrategy
-    Network.AWS.AppConfig.UpdateEnvironment
-    Network.AWS.AppConfig.ValidateConfiguration
-    Network.AWS.AppConfig.Waiters
+    Amazonka.AppConfig
+    Amazonka.AppConfig.CreateApplication
+    Amazonka.AppConfig.CreateConfigurationProfile
+    Amazonka.AppConfig.CreateDeploymentStrategy
+    Amazonka.AppConfig.CreateEnvironment
+    Amazonka.AppConfig.CreateHostedConfigurationVersion
+    Amazonka.AppConfig.DeleteApplication
+    Amazonka.AppConfig.DeleteConfigurationProfile
+    Amazonka.AppConfig.DeleteDeploymentStrategy
+    Amazonka.AppConfig.DeleteEnvironment
+    Amazonka.AppConfig.DeleteHostedConfigurationVersion
+    Amazonka.AppConfig.GetApplication
+    Amazonka.AppConfig.GetConfiguration
+    Amazonka.AppConfig.GetConfigurationProfile
+    Amazonka.AppConfig.GetDeployment
+    Amazonka.AppConfig.GetDeploymentStrategy
+    Amazonka.AppConfig.GetEnvironment
+    Amazonka.AppConfig.GetHostedConfigurationVersion
+    Amazonka.AppConfig.Lens
+    Amazonka.AppConfig.ListApplications
+    Amazonka.AppConfig.ListConfigurationProfiles
+    Amazonka.AppConfig.ListDeployments
+    Amazonka.AppConfig.ListDeploymentStrategies
+    Amazonka.AppConfig.ListEnvironments
+    Amazonka.AppConfig.ListHostedConfigurationVersions
+    Amazonka.AppConfig.ListTagsForResource
+    Amazonka.AppConfig.StartDeployment
+    Amazonka.AppConfig.StopDeployment
+    Amazonka.AppConfig.TagResource
+    Amazonka.AppConfig.Types
+    Amazonka.AppConfig.Types.Application
+    Amazonka.AppConfig.Types.ConfigurationProfile
+    Amazonka.AppConfig.Types.ConfigurationProfileSummary
+    Amazonka.AppConfig.Types.Deployment
+    Amazonka.AppConfig.Types.DeploymentEvent
+    Amazonka.AppConfig.Types.DeploymentEventType
+    Amazonka.AppConfig.Types.DeploymentState
+    Amazonka.AppConfig.Types.DeploymentStrategy
+    Amazonka.AppConfig.Types.DeploymentSummary
+    Amazonka.AppConfig.Types.Environment
+    Amazonka.AppConfig.Types.EnvironmentState
+    Amazonka.AppConfig.Types.GrowthType
+    Amazonka.AppConfig.Types.HostedConfigurationVersion
+    Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
+    Amazonka.AppConfig.Types.Monitor
+    Amazonka.AppConfig.Types.ReplicateTo
+    Amazonka.AppConfig.Types.TriggeredBy
+    Amazonka.AppConfig.Types.Validator
+    Amazonka.AppConfig.Types.ValidatorType
+    Amazonka.AppConfig.UntagResource
+    Amazonka.AppConfig.UpdateApplication
+    Amazonka.AppConfig.UpdateConfigurationProfile
+    Amazonka.AppConfig.UpdateDeploymentStrategy
+    Amazonka.AppConfig.UpdateEnvironment
+    Amazonka.AppConfig.ValidateConfiguration
+    Amazonka.AppConfig.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

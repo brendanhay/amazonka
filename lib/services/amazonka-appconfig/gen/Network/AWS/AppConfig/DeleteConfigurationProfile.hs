@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.DeleteConfigurationProfile
+-- Module      : Amazonka.AppConfig.DeleteConfigurationProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Delete a configuration profile. Deleting a configuration profile does
 -- not delete a configuration from a host.
-module Network.AWS.AppConfig.DeleteConfigurationProfile
+module Amazonka.AppConfig.DeleteConfigurationProfile
   ( -- * Creating a Request
     DeleteConfigurationProfile (..),
     newDeleteConfigurationProfile,
@@ -37,12 +37,12 @@ module Network.AWS.AppConfig.DeleteConfigurationProfile
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteConfigurationProfile' smart constructor.
 data DeleteConfigurationProfile = DeleteConfigurationProfile'

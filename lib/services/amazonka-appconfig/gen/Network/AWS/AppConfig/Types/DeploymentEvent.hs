@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.Types.DeploymentEvent
+-- Module      : Amazonka.AppConfig.Types.DeploymentEvent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppConfig.Types.DeploymentEvent where
+module Amazonka.AppConfig.Types.DeploymentEvent where
 
-import Network.AWS.AppConfig.Types.DeploymentEventType
-import Network.AWS.AppConfig.Types.TriggeredBy
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppConfig.Types.DeploymentEventType
+import Amazonka.AppConfig.Types.TriggeredBy
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that describes a deployment event.
 --

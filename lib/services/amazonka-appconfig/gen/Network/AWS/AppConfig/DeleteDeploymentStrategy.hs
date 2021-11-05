@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.DeleteDeploymentStrategy
+-- Module      : Amazonka.AppConfig.DeleteDeploymentStrategy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Delete a deployment strategy. Deleting a deployment strategy does not
 -- delete a configuration from a host.
-module Network.AWS.AppConfig.DeleteDeploymentStrategy
+module Amazonka.AppConfig.DeleteDeploymentStrategy
   ( -- * Creating a Request
     DeleteDeploymentStrategy (..),
     newDeleteDeploymentStrategy,
@@ -36,12 +36,12 @@ module Network.AWS.AppConfig.DeleteDeploymentStrategy
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDeploymentStrategy' smart constructor.
 data DeleteDeploymentStrategy = DeleteDeploymentStrategy'

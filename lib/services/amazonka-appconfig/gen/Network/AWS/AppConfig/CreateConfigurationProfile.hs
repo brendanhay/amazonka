@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.CreateConfigurationProfile
+-- Module      : Amazonka.AppConfig.CreateConfigurationProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html Create a Configuration and a Configuration Profile>
 -- in the /AWS AppConfig User Guide/.
-module Network.AWS.AppConfig.CreateConfigurationProfile
+module Amazonka.AppConfig.CreateConfigurationProfile
   ( -- * Creating a Request
     CreateConfigurationProfile (..),
     newCreateConfigurationProfile,
@@ -65,12 +65,12 @@ module Network.AWS.AppConfig.CreateConfigurationProfile
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConfigurationProfile' smart constructor.
 data CreateConfigurationProfile = CreateConfigurationProfile'

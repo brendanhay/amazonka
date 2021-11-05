@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.CreateDeploymentStrategy
+-- Module      : Amazonka.AppConfig.CreateDeploymentStrategy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- the overall duration required, a percentage of targets to receive the
 -- deployment during each interval, an algorithm that defines how
 -- percentage grows, and bake time.
-module Network.AWS.AppConfig.CreateDeploymentStrategy
+module Amazonka.AppConfig.CreateDeploymentStrategy
   ( -- * Creating a Request
     CreateDeploymentStrategy (..),
     newCreateDeploymentStrategy,
@@ -56,12 +56,12 @@ module Network.AWS.AppConfig.CreateDeploymentStrategy
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeploymentStrategy' smart constructor.
 data CreateDeploymentStrategy = CreateDeploymentStrategy'

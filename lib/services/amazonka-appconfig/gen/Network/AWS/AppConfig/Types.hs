@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.Types
+-- Module      : Amazonka.AppConfig.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppConfig.Types
+module Amazonka.AppConfig.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -172,29 +172,29 @@ module Network.AWS.AppConfig.Types
   )
 where
 
-import Network.AWS.AppConfig.Types.Application
-import Network.AWS.AppConfig.Types.ConfigurationProfile
-import Network.AWS.AppConfig.Types.ConfigurationProfileSummary
-import Network.AWS.AppConfig.Types.Deployment
-import Network.AWS.AppConfig.Types.DeploymentEvent
-import Network.AWS.AppConfig.Types.DeploymentEventType
-import Network.AWS.AppConfig.Types.DeploymentState
-import Network.AWS.AppConfig.Types.DeploymentStrategy
-import Network.AWS.AppConfig.Types.DeploymentSummary
-import Network.AWS.AppConfig.Types.Environment
-import Network.AWS.AppConfig.Types.EnvironmentState
-import Network.AWS.AppConfig.Types.GrowthType
-import Network.AWS.AppConfig.Types.HostedConfigurationVersion
-import Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary
-import Network.AWS.AppConfig.Types.Monitor
-import Network.AWS.AppConfig.Types.ReplicateTo
-import Network.AWS.AppConfig.Types.TriggeredBy
-import Network.AWS.AppConfig.Types.Validator
-import Network.AWS.AppConfig.Types.ValidatorType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AppConfig.Types.Application
+import Amazonka.AppConfig.Types.ConfigurationProfile
+import Amazonka.AppConfig.Types.ConfigurationProfileSummary
+import Amazonka.AppConfig.Types.Deployment
+import Amazonka.AppConfig.Types.DeploymentEvent
+import Amazonka.AppConfig.Types.DeploymentEventType
+import Amazonka.AppConfig.Types.DeploymentState
+import Amazonka.AppConfig.Types.DeploymentStrategy
+import Amazonka.AppConfig.Types.DeploymentSummary
+import Amazonka.AppConfig.Types.Environment
+import Amazonka.AppConfig.Types.EnvironmentState
+import Amazonka.AppConfig.Types.GrowthType
+import Amazonka.AppConfig.Types.HostedConfigurationVersion
+import Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
+import Amazonka.AppConfig.Types.Monitor
+import Amazonka.AppConfig.Types.ReplicateTo
+import Amazonka.AppConfig.Types.TriggeredBy
+import Amazonka.AppConfig.Types.Validator
+import Amazonka.AppConfig.Types.ValidatorType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-10-09@ of the Amazon AppConfig SDK configuration.
 defaultService :: Core.Service

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.Lens
+-- Module      : Amazonka.AppConfig.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppConfig.Lens
+module Amazonka.AppConfig.Lens
   ( -- * Operations
 
     -- ** ListEnvironments
@@ -458,48 +458,48 @@ module Network.AWS.AppConfig.Lens
   )
 where
 
-import Network.AWS.AppConfig.CreateApplication
-import Network.AWS.AppConfig.CreateConfigurationProfile
-import Network.AWS.AppConfig.CreateDeploymentStrategy
-import Network.AWS.AppConfig.CreateEnvironment
-import Network.AWS.AppConfig.CreateHostedConfigurationVersion
-import Network.AWS.AppConfig.DeleteApplication
-import Network.AWS.AppConfig.DeleteConfigurationProfile
-import Network.AWS.AppConfig.DeleteDeploymentStrategy
-import Network.AWS.AppConfig.DeleteEnvironment
-import Network.AWS.AppConfig.DeleteHostedConfigurationVersion
-import Network.AWS.AppConfig.GetApplication
-import Network.AWS.AppConfig.GetConfiguration
-import Network.AWS.AppConfig.GetConfigurationProfile
-import Network.AWS.AppConfig.GetDeployment
-import Network.AWS.AppConfig.GetDeploymentStrategy
-import Network.AWS.AppConfig.GetEnvironment
-import Network.AWS.AppConfig.GetHostedConfigurationVersion
-import Network.AWS.AppConfig.ListApplications
-import Network.AWS.AppConfig.ListConfigurationProfiles
-import Network.AWS.AppConfig.ListDeploymentStrategies
-import Network.AWS.AppConfig.ListDeployments
-import Network.AWS.AppConfig.ListEnvironments
-import Network.AWS.AppConfig.ListHostedConfigurationVersions
-import Network.AWS.AppConfig.ListTagsForResource
-import Network.AWS.AppConfig.StartDeployment
-import Network.AWS.AppConfig.StopDeployment
-import Network.AWS.AppConfig.TagResource
-import Network.AWS.AppConfig.Types.Application
-import Network.AWS.AppConfig.Types.ConfigurationProfile
-import Network.AWS.AppConfig.Types.ConfigurationProfileSummary
-import Network.AWS.AppConfig.Types.Deployment
-import Network.AWS.AppConfig.Types.DeploymentEvent
-import Network.AWS.AppConfig.Types.DeploymentStrategy
-import Network.AWS.AppConfig.Types.DeploymentSummary
-import Network.AWS.AppConfig.Types.Environment
-import Network.AWS.AppConfig.Types.HostedConfigurationVersion
-import Network.AWS.AppConfig.Types.HostedConfigurationVersionSummary
-import Network.AWS.AppConfig.Types.Monitor
-import Network.AWS.AppConfig.Types.Validator
-import Network.AWS.AppConfig.UntagResource
-import Network.AWS.AppConfig.UpdateApplication
-import Network.AWS.AppConfig.UpdateConfigurationProfile
-import Network.AWS.AppConfig.UpdateDeploymentStrategy
-import Network.AWS.AppConfig.UpdateEnvironment
-import Network.AWS.AppConfig.ValidateConfiguration
+import Amazonka.AppConfig.CreateApplication
+import Amazonka.AppConfig.CreateConfigurationProfile
+import Amazonka.AppConfig.CreateDeploymentStrategy
+import Amazonka.AppConfig.CreateEnvironment
+import Amazonka.AppConfig.CreateHostedConfigurationVersion
+import Amazonka.AppConfig.DeleteApplication
+import Amazonka.AppConfig.DeleteConfigurationProfile
+import Amazonka.AppConfig.DeleteDeploymentStrategy
+import Amazonka.AppConfig.DeleteEnvironment
+import Amazonka.AppConfig.DeleteHostedConfigurationVersion
+import Amazonka.AppConfig.GetApplication
+import Amazonka.AppConfig.GetConfiguration
+import Amazonka.AppConfig.GetConfigurationProfile
+import Amazonka.AppConfig.GetDeployment
+import Amazonka.AppConfig.GetDeploymentStrategy
+import Amazonka.AppConfig.GetEnvironment
+import Amazonka.AppConfig.GetHostedConfigurationVersion
+import Amazonka.AppConfig.ListApplications
+import Amazonka.AppConfig.ListConfigurationProfiles
+import Amazonka.AppConfig.ListDeploymentStrategies
+import Amazonka.AppConfig.ListDeployments
+import Amazonka.AppConfig.ListEnvironments
+import Amazonka.AppConfig.ListHostedConfigurationVersions
+import Amazonka.AppConfig.ListTagsForResource
+import Amazonka.AppConfig.StartDeployment
+import Amazonka.AppConfig.StopDeployment
+import Amazonka.AppConfig.TagResource
+import Amazonka.AppConfig.Types.Application
+import Amazonka.AppConfig.Types.ConfigurationProfile
+import Amazonka.AppConfig.Types.ConfigurationProfileSummary
+import Amazonka.AppConfig.Types.Deployment
+import Amazonka.AppConfig.Types.DeploymentEvent
+import Amazonka.AppConfig.Types.DeploymentStrategy
+import Amazonka.AppConfig.Types.DeploymentSummary
+import Amazonka.AppConfig.Types.Environment
+import Amazonka.AppConfig.Types.HostedConfigurationVersion
+import Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
+import Amazonka.AppConfig.Types.Monitor
+import Amazonka.AppConfig.Types.Validator
+import Amazonka.AppConfig.UntagResource
+import Amazonka.AppConfig.UpdateApplication
+import Amazonka.AppConfig.UpdateConfigurationProfile
+import Amazonka.AppConfig.UpdateDeploymentStrategy
+import Amazonka.AppConfig.UpdateEnvironment
+import Amazonka.AppConfig.ValidateConfiguration

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppConfig.TagResource
+-- Module      : Amazonka.AppConfig.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- categorize your AppConfig resources. Each tag consists of a key and an
 -- optional value, both of which you define. You can specify a maximum of
 -- 50 tags for a resource.
-module Network.AWS.AppConfig.TagResource
+module Amazonka.AppConfig.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -39,12 +39,12 @@ module Network.AWS.AppConfig.TagResource
   )
 where
 
-import Network.AWS.AppConfig.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppConfig.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

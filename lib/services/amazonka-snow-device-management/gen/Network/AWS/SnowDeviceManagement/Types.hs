@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types
+-- Module      : Amazonka.SnowDeviceManagement.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types
+module Amazonka.SnowDeviceManagement.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -174,34 +174,34 @@ module Network.AWS.SnowDeviceManagement.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.SnowDeviceManagement.Types.AttachmentStatus
-import Network.AWS.SnowDeviceManagement.Types.Capacity
-import Network.AWS.SnowDeviceManagement.Types.Command
-import Network.AWS.SnowDeviceManagement.Types.CpuOptions
-import Network.AWS.SnowDeviceManagement.Types.DeviceSummary
-import Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice
-import Network.AWS.SnowDeviceManagement.Types.ExecutionState
-import Network.AWS.SnowDeviceManagement.Types.ExecutionSummary
-import Network.AWS.SnowDeviceManagement.Types.Instance
-import Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
-import Network.AWS.SnowDeviceManagement.Types.InstanceState
-import Network.AWS.SnowDeviceManagement.Types.InstanceStateName
-import Network.AWS.SnowDeviceManagement.Types.InstanceSummary
-import Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment
-import Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType
-import Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface
-import Network.AWS.SnowDeviceManagement.Types.Reboot
-import Network.AWS.SnowDeviceManagement.Types.ResourceSummary
-import Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier
-import Network.AWS.SnowDeviceManagement.Types.SoftwareInformation
-import Network.AWS.SnowDeviceManagement.Types.TaskState
-import Network.AWS.SnowDeviceManagement.Types.TaskSummary
-import Network.AWS.SnowDeviceManagement.Types.Unlock
-import Network.AWS.SnowDeviceManagement.Types.UnlockState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.SnowDeviceManagement.Types.AttachmentStatus
+import Amazonka.SnowDeviceManagement.Types.Capacity
+import Amazonka.SnowDeviceManagement.Types.Command
+import Amazonka.SnowDeviceManagement.Types.CpuOptions
+import Amazonka.SnowDeviceManagement.Types.DeviceSummary
+import Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice
+import Amazonka.SnowDeviceManagement.Types.ExecutionState
+import Amazonka.SnowDeviceManagement.Types.ExecutionSummary
+import Amazonka.SnowDeviceManagement.Types.Instance
+import Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
+import Amazonka.SnowDeviceManagement.Types.InstanceState
+import Amazonka.SnowDeviceManagement.Types.InstanceStateName
+import Amazonka.SnowDeviceManagement.Types.InstanceSummary
+import Amazonka.SnowDeviceManagement.Types.IpAddressAssignment
+import Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType
+import Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface
+import Amazonka.SnowDeviceManagement.Types.Reboot
+import Amazonka.SnowDeviceManagement.Types.ResourceSummary
+import Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
+import Amazonka.SnowDeviceManagement.Types.SoftwareInformation
+import Amazonka.SnowDeviceManagement.Types.TaskState
+import Amazonka.SnowDeviceManagement.Types.TaskSummary
+import Amazonka.SnowDeviceManagement.Types.Unlock
+import Amazonka.SnowDeviceManagement.Types.UnlockState
 
 -- | API version @2021-08-04@ of the Amazon Snow Device Management SDK configuration.
 defaultService :: Core.Service

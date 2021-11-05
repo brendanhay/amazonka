@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Lens
+-- Module      : Amazonka.SnowDeviceManagement.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Lens
+module Amazonka.SnowDeviceManagement.Lens
   ( -- * Operations
 
     -- ** ListTagsForResource
@@ -218,33 +218,33 @@ module Network.AWS.SnowDeviceManagement.Lens
   )
 where
 
-import Network.AWS.SnowDeviceManagement.CancelTask
-import Network.AWS.SnowDeviceManagement.CreateTask
-import Network.AWS.SnowDeviceManagement.DescribeDevice
-import Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances
-import Network.AWS.SnowDeviceManagement.DescribeExecution
-import Network.AWS.SnowDeviceManagement.DescribeTask
-import Network.AWS.SnowDeviceManagement.ListDeviceResources
-import Network.AWS.SnowDeviceManagement.ListDevices
-import Network.AWS.SnowDeviceManagement.ListExecutions
-import Network.AWS.SnowDeviceManagement.ListTagsForResource
-import Network.AWS.SnowDeviceManagement.ListTasks
-import Network.AWS.SnowDeviceManagement.TagResource
-import Network.AWS.SnowDeviceManagement.Types.Capacity
-import Network.AWS.SnowDeviceManagement.Types.Command
-import Network.AWS.SnowDeviceManagement.Types.CpuOptions
-import Network.AWS.SnowDeviceManagement.Types.DeviceSummary
-import Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice
-import Network.AWS.SnowDeviceManagement.Types.ExecutionSummary
-import Network.AWS.SnowDeviceManagement.Types.Instance
-import Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
-import Network.AWS.SnowDeviceManagement.Types.InstanceState
-import Network.AWS.SnowDeviceManagement.Types.InstanceSummary
-import Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface
-import Network.AWS.SnowDeviceManagement.Types.Reboot
-import Network.AWS.SnowDeviceManagement.Types.ResourceSummary
-import Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier
-import Network.AWS.SnowDeviceManagement.Types.SoftwareInformation
-import Network.AWS.SnowDeviceManagement.Types.TaskSummary
-import Network.AWS.SnowDeviceManagement.Types.Unlock
-import Network.AWS.SnowDeviceManagement.UntagResource
+import Amazonka.SnowDeviceManagement.CancelTask
+import Amazonka.SnowDeviceManagement.CreateTask
+import Amazonka.SnowDeviceManagement.DescribeDevice
+import Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances
+import Amazonka.SnowDeviceManagement.DescribeExecution
+import Amazonka.SnowDeviceManagement.DescribeTask
+import Amazonka.SnowDeviceManagement.ListDeviceResources
+import Amazonka.SnowDeviceManagement.ListDevices
+import Amazonka.SnowDeviceManagement.ListExecutions
+import Amazonka.SnowDeviceManagement.ListTagsForResource
+import Amazonka.SnowDeviceManagement.ListTasks
+import Amazonka.SnowDeviceManagement.TagResource
+import Amazonka.SnowDeviceManagement.Types.Capacity
+import Amazonka.SnowDeviceManagement.Types.Command
+import Amazonka.SnowDeviceManagement.Types.CpuOptions
+import Amazonka.SnowDeviceManagement.Types.DeviceSummary
+import Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice
+import Amazonka.SnowDeviceManagement.Types.ExecutionSummary
+import Amazonka.SnowDeviceManagement.Types.Instance
+import Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
+import Amazonka.SnowDeviceManagement.Types.InstanceState
+import Amazonka.SnowDeviceManagement.Types.InstanceSummary
+import Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface
+import Amazonka.SnowDeviceManagement.Types.Reboot
+import Amazonka.SnowDeviceManagement.Types.ResourceSummary
+import Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
+import Amazonka.SnowDeviceManagement.Types.SoftwareInformation
+import Amazonka.SnowDeviceManagement.Types.TaskSummary
+import Amazonka.SnowDeviceManagement.Types.Unlock
+import Amazonka.SnowDeviceManagement.UntagResource

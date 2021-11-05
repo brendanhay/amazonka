@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.DescribeExecution
+-- Module      : Amazonka.SnowDeviceManagement.DescribeExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Checks the status of a remote task running on one or more target
 -- devices.
-module Network.AWS.SnowDeviceManagement.DescribeExecution
+module Amazonka.SnowDeviceManagement.DescribeExecution
   ( -- * Creating a Request
     DescribeExecution (..),
     newDescribeExecution,
@@ -46,12 +46,12 @@ module Network.AWS.SnowDeviceManagement.DescribeExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SnowDeviceManagement.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newDescribeExecution' smart constructor.
 data DescribeExecution = DescribeExecution'

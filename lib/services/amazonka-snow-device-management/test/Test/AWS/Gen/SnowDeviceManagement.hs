@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SnowDeviceManagement where
 
+import Amazonka.SnowDeviceManagement
 import qualified Data.Proxy as Proxy
-import Network.AWS.SnowDeviceManagement
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SnowDeviceManagement.Internal

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement
+-- Module      : Amazonka.SnowDeviceManagement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2021-08-04@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Web Services Snow Device Management documentation.
-module Network.AWS.SnowDeviceManagement
+module Amazonka.SnowDeviceManagement
   ( -- * Service Configuration
     defaultService,
 
@@ -214,22 +214,22 @@ module Network.AWS.SnowDeviceManagement
   )
 where
 
-import Network.AWS.SnowDeviceManagement.CancelTask
-import Network.AWS.SnowDeviceManagement.CreateTask
-import Network.AWS.SnowDeviceManagement.DescribeDevice
-import Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances
-import Network.AWS.SnowDeviceManagement.DescribeExecution
-import Network.AWS.SnowDeviceManagement.DescribeTask
-import Network.AWS.SnowDeviceManagement.Lens
-import Network.AWS.SnowDeviceManagement.ListDeviceResources
-import Network.AWS.SnowDeviceManagement.ListDevices
-import Network.AWS.SnowDeviceManagement.ListExecutions
-import Network.AWS.SnowDeviceManagement.ListTagsForResource
-import Network.AWS.SnowDeviceManagement.ListTasks
-import Network.AWS.SnowDeviceManagement.TagResource
-import Network.AWS.SnowDeviceManagement.Types
-import Network.AWS.SnowDeviceManagement.UntagResource
-import Network.AWS.SnowDeviceManagement.Waiters
+import Amazonka.SnowDeviceManagement.CancelTask
+import Amazonka.SnowDeviceManagement.CreateTask
+import Amazonka.SnowDeviceManagement.DescribeDevice
+import Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances
+import Amazonka.SnowDeviceManagement.DescribeExecution
+import Amazonka.SnowDeviceManagement.DescribeTask
+import Amazonka.SnowDeviceManagement.Lens
+import Amazonka.SnowDeviceManagement.ListDeviceResources
+import Amazonka.SnowDeviceManagement.ListDevices
+import Amazonka.SnowDeviceManagement.ListExecutions
+import Amazonka.SnowDeviceManagement.ListTagsForResource
+import Amazonka.SnowDeviceManagement.ListTasks
+import Amazonka.SnowDeviceManagement.TagResource
+import Amazonka.SnowDeviceManagement.Types
+import Amazonka.SnowDeviceManagement.UntagResource
+import Amazonka.SnowDeviceManagement.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface
+-- Module      : Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface where
+module Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment
-import Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SnowDeviceManagement.Types.IpAddressAssignment
+import Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType
 
 -- | The details about the physical network interface for the device.
 --

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types.Instance
+-- Module      : Amazonka.SnowDeviceManagement.Types.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types.Instance where
+module Amazonka.SnowDeviceManagement.Types.Instance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SnowDeviceManagement.Types.CpuOptions
-import Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
-import Network.AWS.SnowDeviceManagement.Types.InstanceState
-import Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SnowDeviceManagement.Types.CpuOptions
+import Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
+import Amazonka.SnowDeviceManagement.Types.InstanceState
+import Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
 
 -- | The description of an instance. Currently, Amazon EC2 instances are the
 -- only supported instance type.

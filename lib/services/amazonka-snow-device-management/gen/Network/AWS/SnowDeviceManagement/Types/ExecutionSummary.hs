@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types.ExecutionSummary
+-- Module      : Amazonka.SnowDeviceManagement.Types.ExecutionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types.ExecutionSummary where
+module Amazonka.SnowDeviceManagement.Types.ExecutionSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SnowDeviceManagement.Types.ExecutionState
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SnowDeviceManagement.Types.ExecutionState
 
 -- | The summary of a task execution on a specified device.
 --

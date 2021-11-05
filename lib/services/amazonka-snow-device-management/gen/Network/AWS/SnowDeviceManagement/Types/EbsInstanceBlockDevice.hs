@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice
+-- Module      : Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice where
+module Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SnowDeviceManagement.Types.AttachmentStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SnowDeviceManagement.Types.AttachmentStatus
 
 -- | Describes a parameter used to set up an Amazon Elastic Block Store
 -- (Amazon EBS) volume in a block device mapping.

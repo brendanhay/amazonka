@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SnowDeviceManagement.Types.Command
+-- Module      : Amazonka.SnowDeviceManagement.Types.Command
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SnowDeviceManagement.Types.Command where
+module Amazonka.SnowDeviceManagement.Types.Command where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SnowDeviceManagement.Types.Reboot
-import Network.AWS.SnowDeviceManagement.Types.Unlock
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SnowDeviceManagement.Types.Reboot
+import Amazonka.SnowDeviceManagement.Types.Unlock
 
 -- | The command given to the device to execute.
 --

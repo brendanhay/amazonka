@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SnowDeviceManagement.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SnowDeviceManagement.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SnowDeviceManagement" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SnowDeviceManagement" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,49 +45,49 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SnowDeviceManagement
-    Network.AWS.SnowDeviceManagement.CancelTask
-    Network.AWS.SnowDeviceManagement.CreateTask
-    Network.AWS.SnowDeviceManagement.DescribeDevice
-    Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances
-    Network.AWS.SnowDeviceManagement.DescribeExecution
-    Network.AWS.SnowDeviceManagement.DescribeTask
-    Network.AWS.SnowDeviceManagement.Lens
-    Network.AWS.SnowDeviceManagement.ListDeviceResources
-    Network.AWS.SnowDeviceManagement.ListDevices
-    Network.AWS.SnowDeviceManagement.ListExecutions
-    Network.AWS.SnowDeviceManagement.ListTagsForResource
-    Network.AWS.SnowDeviceManagement.ListTasks
-    Network.AWS.SnowDeviceManagement.TagResource
-    Network.AWS.SnowDeviceManagement.Types
-    Network.AWS.SnowDeviceManagement.Types.AttachmentStatus
-    Network.AWS.SnowDeviceManagement.Types.Capacity
-    Network.AWS.SnowDeviceManagement.Types.Command
-    Network.AWS.SnowDeviceManagement.Types.CpuOptions
-    Network.AWS.SnowDeviceManagement.Types.DeviceSummary
-    Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice
-    Network.AWS.SnowDeviceManagement.Types.ExecutionState
-    Network.AWS.SnowDeviceManagement.Types.ExecutionSummary
-    Network.AWS.SnowDeviceManagement.Types.Instance
-    Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
-    Network.AWS.SnowDeviceManagement.Types.InstanceState
-    Network.AWS.SnowDeviceManagement.Types.InstanceStateName
-    Network.AWS.SnowDeviceManagement.Types.InstanceSummary
-    Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment
-    Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType
-    Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface
-    Network.AWS.SnowDeviceManagement.Types.Reboot
-    Network.AWS.SnowDeviceManagement.Types.ResourceSummary
-    Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier
-    Network.AWS.SnowDeviceManagement.Types.SoftwareInformation
-    Network.AWS.SnowDeviceManagement.Types.TaskState
-    Network.AWS.SnowDeviceManagement.Types.TaskSummary
-    Network.AWS.SnowDeviceManagement.Types.Unlock
-    Network.AWS.SnowDeviceManagement.Types.UnlockState
-    Network.AWS.SnowDeviceManagement.UntagResource
-    Network.AWS.SnowDeviceManagement.Waiters
+    Amazonka.SnowDeviceManagement
+    Amazonka.SnowDeviceManagement.CancelTask
+    Amazonka.SnowDeviceManagement.CreateTask
+    Amazonka.SnowDeviceManagement.DescribeDevice
+    Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances
+    Amazonka.SnowDeviceManagement.DescribeExecution
+    Amazonka.SnowDeviceManagement.DescribeTask
+    Amazonka.SnowDeviceManagement.Lens
+    Amazonka.SnowDeviceManagement.ListDeviceResources
+    Amazonka.SnowDeviceManagement.ListDevices
+    Amazonka.SnowDeviceManagement.ListExecutions
+    Amazonka.SnowDeviceManagement.ListTagsForResource
+    Amazonka.SnowDeviceManagement.ListTasks
+    Amazonka.SnowDeviceManagement.TagResource
+    Amazonka.SnowDeviceManagement.Types
+    Amazonka.SnowDeviceManagement.Types.AttachmentStatus
+    Amazonka.SnowDeviceManagement.Types.Capacity
+    Amazonka.SnowDeviceManagement.Types.Command
+    Amazonka.SnowDeviceManagement.Types.CpuOptions
+    Amazonka.SnowDeviceManagement.Types.DeviceSummary
+    Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice
+    Amazonka.SnowDeviceManagement.Types.ExecutionState
+    Amazonka.SnowDeviceManagement.Types.ExecutionSummary
+    Amazonka.SnowDeviceManagement.Types.Instance
+    Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
+    Amazonka.SnowDeviceManagement.Types.InstanceState
+    Amazonka.SnowDeviceManagement.Types.InstanceStateName
+    Amazonka.SnowDeviceManagement.Types.InstanceSummary
+    Amazonka.SnowDeviceManagement.Types.IpAddressAssignment
+    Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType
+    Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface
+    Amazonka.SnowDeviceManagement.Types.Reboot
+    Amazonka.SnowDeviceManagement.Types.ResourceSummary
+    Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
+    Amazonka.SnowDeviceManagement.Types.SoftwareInformation
+    Amazonka.SnowDeviceManagement.Types.TaskState
+    Amazonka.SnowDeviceManagement.Types.TaskSummary
+    Amazonka.SnowDeviceManagement.Types.Unlock
+    Amazonka.SnowDeviceManagement.Types.UnlockState
+    Amazonka.SnowDeviceManagement.UntagResource
+    Amazonka.SnowDeviceManagement.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

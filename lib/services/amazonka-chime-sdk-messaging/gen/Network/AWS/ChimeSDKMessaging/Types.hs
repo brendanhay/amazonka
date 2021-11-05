@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKMessaging.Types
+-- Module      : Amazonka.ChimeSDKMessaging.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKMessaging.Types
+module Amazonka.ChimeSDKMessaging.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -260,46 +260,46 @@ module Network.AWS.ChimeSDKMessaging.Types
   )
 where
 
-import Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
-import Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships
-import Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
-import Network.AWS.ChimeSDKMessaging.Types.Channel
-import Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelBan
-import Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelFlow
-import Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembership
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessage
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMode
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModerator
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy
-import Network.AWS.ChimeSDKMessaging.Types.ChannelSummary
-import Network.AWS.ChimeSDKMessaging.Types.ErrorCode
-import Network.AWS.ChimeSDKMessaging.Types.FallbackAction
-import Network.AWS.ChimeSDKMessaging.Types.Identity
-import Network.AWS.ChimeSDKMessaging.Types.InvocationType
-import Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration
-import Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint
-import Network.AWS.ChimeSDKMessaging.Types.Processor
-import Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration
-import Network.AWS.ChimeSDKMessaging.Types.SortOrder
-import Network.AWS.ChimeSDKMessaging.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
+import Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships
+import Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
+import Amazonka.ChimeSDKMessaging.Types.Channel
+import Amazonka.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelBan
+import Amazonka.ChimeSDKMessaging.Types.ChannelBanSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelFlow
+import Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembership
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessage
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageCallback
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatus
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
+import Amazonka.ChimeSDKMessaging.Types.ChannelMode
+import Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelModerator
+import Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
+import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
+import Amazonka.ChimeSDKMessaging.Types.ErrorCode
+import Amazonka.ChimeSDKMessaging.Types.FallbackAction
+import Amazonka.ChimeSDKMessaging.Types.Identity
+import Amazonka.ChimeSDKMessaging.Types.InvocationType
+import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
+import Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
+import Amazonka.ChimeSDKMessaging.Types.Processor
+import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
+import Amazonka.ChimeSDKMessaging.Types.SortOrder
+import Amazonka.ChimeSDKMessaging.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-05-15@ of the Amazon Chime SDK Messaging SDK configuration.
 defaultService :: Core.Service

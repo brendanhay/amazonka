@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
+-- Module      : Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists all channels associated with a specified channel flow. You can
 -- associate a channel flow with multiple channels, but you can only
 -- associate a channel with one channel flow. This is a developer API.
-module Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
+module Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
   ( -- * Creating a Request
     ListChannelsAssociatedWithChannelFlow (..),
     newListChannelsAssociatedWithChannelFlow,
@@ -44,12 +44,12 @@ module Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
   )
 where
 
-import Network.AWS.ChimeSDKMessaging.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ChimeSDKMessaging.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannelsAssociatedWithChannelFlow' smart constructor.
 data ListChannelsAssociatedWithChannelFlow = ListChannelsAssociatedWithChannelFlow'

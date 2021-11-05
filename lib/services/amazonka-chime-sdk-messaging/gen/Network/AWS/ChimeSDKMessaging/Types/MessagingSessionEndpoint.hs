@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint
+-- Module      : Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint where
+module Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The websocket endpoint used to connect to Amazon Chime SDK messaging.
 --

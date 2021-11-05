@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKMessaging.Lens
+-- Module      : Amazonka.ChimeSDKMessaging.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKMessaging.Lens
+module Amazonka.ChimeSDKMessaging.Lens
   ( -- * Operations
 
     -- ** DescribeChannelMembership
@@ -487,72 +487,72 @@ module Network.AWS.ChimeSDKMessaging.Lens
   )
 where
 
-import Network.AWS.ChimeSDKMessaging.AssociateChannelFlow
-import Network.AWS.ChimeSDKMessaging.BatchCreateChannelMembership
-import Network.AWS.ChimeSDKMessaging.ChannelFlowCallback
-import Network.AWS.ChimeSDKMessaging.CreateChannel
-import Network.AWS.ChimeSDKMessaging.CreateChannelBan
-import Network.AWS.ChimeSDKMessaging.CreateChannelFlow
-import Network.AWS.ChimeSDKMessaging.CreateChannelMembership
-import Network.AWS.ChimeSDKMessaging.CreateChannelModerator
-import Network.AWS.ChimeSDKMessaging.DeleteChannel
-import Network.AWS.ChimeSDKMessaging.DeleteChannelBan
-import Network.AWS.ChimeSDKMessaging.DeleteChannelFlow
-import Network.AWS.ChimeSDKMessaging.DeleteChannelMembership
-import Network.AWS.ChimeSDKMessaging.DeleteChannelMessage
-import Network.AWS.ChimeSDKMessaging.DeleteChannelModerator
-import Network.AWS.ChimeSDKMessaging.DescribeChannel
-import Network.AWS.ChimeSDKMessaging.DescribeChannelBan
-import Network.AWS.ChimeSDKMessaging.DescribeChannelFlow
-import Network.AWS.ChimeSDKMessaging.DescribeChannelMembership
-import Network.AWS.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
-import Network.AWS.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
-import Network.AWS.ChimeSDKMessaging.DescribeChannelModerator
-import Network.AWS.ChimeSDKMessaging.DisassociateChannelFlow
-import Network.AWS.ChimeSDKMessaging.GetChannelMessage
-import Network.AWS.ChimeSDKMessaging.GetChannelMessageStatus
-import Network.AWS.ChimeSDKMessaging.GetMessagingSessionEndpoint
-import Network.AWS.ChimeSDKMessaging.ListChannelBans
-import Network.AWS.ChimeSDKMessaging.ListChannelFlows
-import Network.AWS.ChimeSDKMessaging.ListChannelMemberships
-import Network.AWS.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
-import Network.AWS.ChimeSDKMessaging.ListChannelMessages
-import Network.AWS.ChimeSDKMessaging.ListChannelModerators
-import Network.AWS.ChimeSDKMessaging.ListChannels
-import Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
-import Network.AWS.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
-import Network.AWS.ChimeSDKMessaging.ListTagsForResource
-import Network.AWS.ChimeSDKMessaging.RedactChannelMessage
-import Network.AWS.ChimeSDKMessaging.SendChannelMessage
-import Network.AWS.ChimeSDKMessaging.TagResource
-import Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
-import Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships
-import Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
-import Network.AWS.ChimeSDKMessaging.Types.Channel
-import Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelBan
-import Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelFlow
-import Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembership
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessage
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
-import Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModerator
-import Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary
-import Network.AWS.ChimeSDKMessaging.Types.ChannelSummary
-import Network.AWS.ChimeSDKMessaging.Types.Identity
-import Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration
-import Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint
-import Network.AWS.ChimeSDKMessaging.Types.Processor
-import Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration
-import Network.AWS.ChimeSDKMessaging.Types.Tag
-import Network.AWS.ChimeSDKMessaging.UntagResource
-import Network.AWS.ChimeSDKMessaging.UpdateChannel
-import Network.AWS.ChimeSDKMessaging.UpdateChannelFlow
-import Network.AWS.ChimeSDKMessaging.UpdateChannelMessage
-import Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker
+import Amazonka.ChimeSDKMessaging.AssociateChannelFlow
+import Amazonka.ChimeSDKMessaging.BatchCreateChannelMembership
+import Amazonka.ChimeSDKMessaging.ChannelFlowCallback
+import Amazonka.ChimeSDKMessaging.CreateChannel
+import Amazonka.ChimeSDKMessaging.CreateChannelBan
+import Amazonka.ChimeSDKMessaging.CreateChannelFlow
+import Amazonka.ChimeSDKMessaging.CreateChannelMembership
+import Amazonka.ChimeSDKMessaging.CreateChannelModerator
+import Amazonka.ChimeSDKMessaging.DeleteChannel
+import Amazonka.ChimeSDKMessaging.DeleteChannelBan
+import Amazonka.ChimeSDKMessaging.DeleteChannelFlow
+import Amazonka.ChimeSDKMessaging.DeleteChannelMembership
+import Amazonka.ChimeSDKMessaging.DeleteChannelMessage
+import Amazonka.ChimeSDKMessaging.DeleteChannelModerator
+import Amazonka.ChimeSDKMessaging.DescribeChannel
+import Amazonka.ChimeSDKMessaging.DescribeChannelBan
+import Amazonka.ChimeSDKMessaging.DescribeChannelFlow
+import Amazonka.ChimeSDKMessaging.DescribeChannelMembership
+import Amazonka.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
+import Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
+import Amazonka.ChimeSDKMessaging.DescribeChannelModerator
+import Amazonka.ChimeSDKMessaging.DisassociateChannelFlow
+import Amazonka.ChimeSDKMessaging.GetChannelMessage
+import Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
+import Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
+import Amazonka.ChimeSDKMessaging.ListChannelBans
+import Amazonka.ChimeSDKMessaging.ListChannelFlows
+import Amazonka.ChimeSDKMessaging.ListChannelMemberships
+import Amazonka.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
+import Amazonka.ChimeSDKMessaging.ListChannelMessages
+import Amazonka.ChimeSDKMessaging.ListChannelModerators
+import Amazonka.ChimeSDKMessaging.ListChannels
+import Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
+import Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
+import Amazonka.ChimeSDKMessaging.ListTagsForResource
+import Amazonka.ChimeSDKMessaging.RedactChannelMessage
+import Amazonka.ChimeSDKMessaging.SendChannelMessage
+import Amazonka.ChimeSDKMessaging.TagResource
+import Amazonka.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
+import Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships
+import Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
+import Amazonka.ChimeSDKMessaging.Types.Channel
+import Amazonka.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelBan
+import Amazonka.ChimeSDKMessaging.Types.ChannelBanSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelFlow
+import Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembership
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessage
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageCallback
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
+import Amazonka.ChimeSDKMessaging.Types.ChannelMessageSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelModerator
+import Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
+import Amazonka.ChimeSDKMessaging.Types.Identity
+import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
+import Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
+import Amazonka.ChimeSDKMessaging.Types.Processor
+import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
+import Amazonka.ChimeSDKMessaging.Types.Tag
+import Amazonka.ChimeSDKMessaging.UntagResource
+import Amazonka.ChimeSDKMessaging.UpdateChannel
+import Amazonka.ChimeSDKMessaging.UpdateChannelFlow
+import Amazonka.ChimeSDKMessaging.UpdateChannelMessage
+import Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker

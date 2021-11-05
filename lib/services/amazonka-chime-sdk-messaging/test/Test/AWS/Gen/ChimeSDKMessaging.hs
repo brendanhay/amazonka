@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ChimeSDKMessaging where
 
+import Amazonka.ChimeSDKMessaging
 import qualified Data.Proxy as Proxy
-import Network.AWS.ChimeSDKMessaging
 import Test.AWS.ChimeSDKMessaging.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOOIDC.Lens
+-- Module      : Amazonka.SSOOIDC.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSOOIDC.Lens
+module Amazonka.SSOOIDC.Lens
   ( -- * Operations
 
     -- ** StartDeviceAuthorization
@@ -58,6 +58,6 @@ module Network.AWS.SSOOIDC.Lens
   )
 where
 
-import Network.AWS.SSOOIDC.CreateToken
-import Network.AWS.SSOOIDC.RegisterClient
-import Network.AWS.SSOOIDC.StartDeviceAuthorization
+import Amazonka.SSOOIDC.CreateToken
+import Amazonka.SSOOIDC.RegisterClient
+import Amazonka.SSOOIDC.StartDeviceAuthorization

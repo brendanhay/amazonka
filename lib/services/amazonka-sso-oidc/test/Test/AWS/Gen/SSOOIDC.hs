@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSOOIDC where
 
+import Amazonka.SSOOIDC
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSOOIDC
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSOOIDC.Internal

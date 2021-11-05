@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SSOOIDC
+-- Module      : Amazonka.SSOOIDC
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- to AWS SSO and other AWS services. For more information about the AWS
 -- SDKs, including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-module Network.AWS.SSOOIDC
+module Amazonka.SSOOIDC
   ( -- * Service Configuration
     defaultService,
 
@@ -104,12 +104,12 @@ module Network.AWS.SSOOIDC
   )
 where
 
-import Network.AWS.SSOOIDC.CreateToken
-import Network.AWS.SSOOIDC.Lens
-import Network.AWS.SSOOIDC.RegisterClient
-import Network.AWS.SSOOIDC.StartDeviceAuthorization
-import Network.AWS.SSOOIDC.Types
-import Network.AWS.SSOOIDC.Waiters
+import Amazonka.SSOOIDC.CreateToken
+import Amazonka.SSOOIDC.Lens
+import Amazonka.SSOOIDC.RegisterClient
+import Amazonka.SSOOIDC.StartDeviceAuthorization
+import Amazonka.SSOOIDC.Types
+import Amazonka.SSOOIDC.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

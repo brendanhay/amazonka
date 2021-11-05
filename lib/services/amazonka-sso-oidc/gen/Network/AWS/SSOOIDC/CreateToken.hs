@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSOOIDC.CreateToken
+-- Module      : Amazonka.SSOOIDC.CreateToken
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates and returns an access token for the authorized client. The
 -- access token issued will be used to fetch short-term credentials for the
 -- assigned roles in the AWS account.
-module Network.AWS.SSOOIDC.CreateToken
+module Amazonka.SSOOIDC.CreateToken
   ( -- * Creating a Request
     CreateToken (..),
     newCreateToken,
@@ -52,12 +52,12 @@ module Network.AWS.SSOOIDC.CreateToken
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSOOIDC.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSOOIDC.Types
 
 -- | /See:/ 'newCreateToken' smart constructor.
 data CreateToken = CreateToken'

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MwAA.Types.Environment
+-- Module      : Amazonka.MwAA.Types.Environment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MwAA.Types.Environment where
+module Amazonka.MwAA.Types.Environment where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MwAA.Types.EnvironmentStatus
-import Network.AWS.MwAA.Types.LastUpdate
-import Network.AWS.MwAA.Types.LoggingConfiguration
-import Network.AWS.MwAA.Types.NetworkConfiguration
-import Network.AWS.MwAA.Types.WebserverAccessMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MwAA.Types.EnvironmentStatus
+import Amazonka.MwAA.Types.LastUpdate
+import Amazonka.MwAA.Types.LoggingConfiguration
+import Amazonka.MwAA.Types.NetworkConfiguration
+import Amazonka.MwAA.Types.WebserverAccessMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MwAA.Lens
+-- Module      : Amazonka.MwAA.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MwAA.Lens
+module Amazonka.MwAA.Lens
   ( -- * Operations
 
     -- ** ListEnvironments
@@ -197,26 +197,26 @@ module Network.AWS.MwAA.Lens
   )
 where
 
-import Network.AWS.MwAA.CreateCliToken
-import Network.AWS.MwAA.CreateEnvironment
-import Network.AWS.MwAA.CreateWebLoginToken
-import Network.AWS.MwAA.DeleteEnvironment
-import Network.AWS.MwAA.GetEnvironment
-import Network.AWS.MwAA.ListEnvironments
-import Network.AWS.MwAA.ListTagsForResource
-import Network.AWS.MwAA.PublishMetrics
-import Network.AWS.MwAA.TagResource
-import Network.AWS.MwAA.Types.Dimension
-import Network.AWS.MwAA.Types.Environment
-import Network.AWS.MwAA.Types.LastUpdate
-import Network.AWS.MwAA.Types.LoggingConfiguration
-import Network.AWS.MwAA.Types.LoggingConfigurationInput
-import Network.AWS.MwAA.Types.MetricDatum
-import Network.AWS.MwAA.Types.ModuleLoggingConfiguration
-import Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput
-import Network.AWS.MwAA.Types.NetworkConfiguration
-import Network.AWS.MwAA.Types.StatisticSet
-import Network.AWS.MwAA.Types.UpdateError
-import Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput
-import Network.AWS.MwAA.UntagResource
-import Network.AWS.MwAA.UpdateEnvironment
+import Amazonka.MwAA.CreateCliToken
+import Amazonka.MwAA.CreateEnvironment
+import Amazonka.MwAA.CreateWebLoginToken
+import Amazonka.MwAA.DeleteEnvironment
+import Amazonka.MwAA.GetEnvironment
+import Amazonka.MwAA.ListEnvironments
+import Amazonka.MwAA.ListTagsForResource
+import Amazonka.MwAA.PublishMetrics
+import Amazonka.MwAA.TagResource
+import Amazonka.MwAA.Types.Dimension
+import Amazonka.MwAA.Types.Environment
+import Amazonka.MwAA.Types.LastUpdate
+import Amazonka.MwAA.Types.LoggingConfiguration
+import Amazonka.MwAA.Types.LoggingConfigurationInput
+import Amazonka.MwAA.Types.MetricDatum
+import Amazonka.MwAA.Types.ModuleLoggingConfiguration
+import Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
+import Amazonka.MwAA.Types.NetworkConfiguration
+import Amazonka.MwAA.Types.StatisticSet
+import Amazonka.MwAA.Types.UpdateError
+import Amazonka.MwAA.Types.UpdateNetworkConfigurationInput
+import Amazonka.MwAA.UntagResource
+import Amazonka.MwAA.UpdateEnvironment

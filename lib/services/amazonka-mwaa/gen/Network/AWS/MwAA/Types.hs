@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MwAA.Types
+-- Module      : Amazonka.MwAA.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MwAA.Types
+module Amazonka.MwAA.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -148,27 +148,27 @@ module Network.AWS.MwAA.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MwAA.Types.Dimension
-import Network.AWS.MwAA.Types.Environment
-import Network.AWS.MwAA.Types.EnvironmentStatus
-import Network.AWS.MwAA.Types.LastUpdate
-import Network.AWS.MwAA.Types.LoggingConfiguration
-import Network.AWS.MwAA.Types.LoggingConfigurationInput
-import Network.AWS.MwAA.Types.LoggingLevel
-import Network.AWS.MwAA.Types.MetricDatum
-import Network.AWS.MwAA.Types.ModuleLoggingConfiguration
-import Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput
-import Network.AWS.MwAA.Types.NetworkConfiguration
-import Network.AWS.MwAA.Types.StatisticSet
-import Network.AWS.MwAA.Types.Unit
-import Network.AWS.MwAA.Types.UpdateError
-import Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput
-import Network.AWS.MwAA.Types.UpdateStatus
-import Network.AWS.MwAA.Types.WebserverAccessMode
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MwAA.Types.Dimension
+import Amazonka.MwAA.Types.Environment
+import Amazonka.MwAA.Types.EnvironmentStatus
+import Amazonka.MwAA.Types.LastUpdate
+import Amazonka.MwAA.Types.LoggingConfiguration
+import Amazonka.MwAA.Types.LoggingConfigurationInput
+import Amazonka.MwAA.Types.LoggingLevel
+import Amazonka.MwAA.Types.MetricDatum
+import Amazonka.MwAA.Types.ModuleLoggingConfiguration
+import Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
+import Amazonka.MwAA.Types.NetworkConfiguration
+import Amazonka.MwAA.Types.StatisticSet
+import Amazonka.MwAA.Types.Unit
+import Amazonka.MwAA.Types.UpdateError
+import Amazonka.MwAA.Types.UpdateNetworkConfigurationInput
+import Amazonka.MwAA.Types.UpdateStatus
+import Amazonka.MwAA.Types.WebserverAccessMode
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-07-01@ of the Amazon MWAA SDK configuration.
 defaultService :: Core.Service

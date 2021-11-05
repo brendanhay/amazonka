@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MwAA.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MwAA.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MwAA" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MwAA" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,40 +45,40 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MwAA
-    Network.AWS.MwAA.CreateCliToken
-    Network.AWS.MwAA.CreateEnvironment
-    Network.AWS.MwAA.CreateWebLoginToken
-    Network.AWS.MwAA.DeleteEnvironment
-    Network.AWS.MwAA.GetEnvironment
-    Network.AWS.MwAA.Lens
-    Network.AWS.MwAA.ListEnvironments
-    Network.AWS.MwAA.ListTagsForResource
-    Network.AWS.MwAA.PublishMetrics
-    Network.AWS.MwAA.TagResource
-    Network.AWS.MwAA.Types
-    Network.AWS.MwAA.Types.Dimension
-    Network.AWS.MwAA.Types.Environment
-    Network.AWS.MwAA.Types.EnvironmentStatus
-    Network.AWS.MwAA.Types.LastUpdate
-    Network.AWS.MwAA.Types.LoggingConfiguration
-    Network.AWS.MwAA.Types.LoggingConfigurationInput
-    Network.AWS.MwAA.Types.LoggingLevel
-    Network.AWS.MwAA.Types.MetricDatum
-    Network.AWS.MwAA.Types.ModuleLoggingConfiguration
-    Network.AWS.MwAA.Types.ModuleLoggingConfigurationInput
-    Network.AWS.MwAA.Types.NetworkConfiguration
-    Network.AWS.MwAA.Types.StatisticSet
-    Network.AWS.MwAA.Types.Unit
-    Network.AWS.MwAA.Types.UpdateError
-    Network.AWS.MwAA.Types.UpdateNetworkConfigurationInput
-    Network.AWS.MwAA.Types.UpdateStatus
-    Network.AWS.MwAA.Types.WebserverAccessMode
-    Network.AWS.MwAA.UntagResource
-    Network.AWS.MwAA.UpdateEnvironment
-    Network.AWS.MwAA.Waiters
+    Amazonka.MwAA
+    Amazonka.MwAA.CreateCliToken
+    Amazonka.MwAA.CreateEnvironment
+    Amazonka.MwAA.CreateWebLoginToken
+    Amazonka.MwAA.DeleteEnvironment
+    Amazonka.MwAA.GetEnvironment
+    Amazonka.MwAA.Lens
+    Amazonka.MwAA.ListEnvironments
+    Amazonka.MwAA.ListTagsForResource
+    Amazonka.MwAA.PublishMetrics
+    Amazonka.MwAA.TagResource
+    Amazonka.MwAA.Types
+    Amazonka.MwAA.Types.Dimension
+    Amazonka.MwAA.Types.Environment
+    Amazonka.MwAA.Types.EnvironmentStatus
+    Amazonka.MwAA.Types.LastUpdate
+    Amazonka.MwAA.Types.LoggingConfiguration
+    Amazonka.MwAA.Types.LoggingConfigurationInput
+    Amazonka.MwAA.Types.LoggingLevel
+    Amazonka.MwAA.Types.MetricDatum
+    Amazonka.MwAA.Types.ModuleLoggingConfiguration
+    Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
+    Amazonka.MwAA.Types.NetworkConfiguration
+    Amazonka.MwAA.Types.StatisticSet
+    Amazonka.MwAA.Types.Unit
+    Amazonka.MwAA.Types.UpdateError
+    Amazonka.MwAA.Types.UpdateNetworkConfigurationInput
+    Amazonka.MwAA.Types.UpdateStatus
+    Amazonka.MwAA.Types.WebserverAccessMode
+    Amazonka.MwAA.UntagResource
+    Amazonka.MwAA.UpdateEnvironment
+    Amazonka.MwAA.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

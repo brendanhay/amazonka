@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MwAA
+-- Module      : Amazonka.MwAA
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- This section contains the Amazon Managed Workflows for Apache Airflow
 -- (MWAA) API reference documentation. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html What Is Amazon MWAA?>.
-module Network.AWS.MwAA
+module Amazonka.MwAA
   ( -- * Service Configuration
     defaultService,
 
@@ -174,20 +174,20 @@ module Network.AWS.MwAA
   )
 where
 
-import Network.AWS.MwAA.CreateCliToken
-import Network.AWS.MwAA.CreateEnvironment
-import Network.AWS.MwAA.CreateWebLoginToken
-import Network.AWS.MwAA.DeleteEnvironment
-import Network.AWS.MwAA.GetEnvironment
-import Network.AWS.MwAA.Lens
-import Network.AWS.MwAA.ListEnvironments
-import Network.AWS.MwAA.ListTagsForResource
-import Network.AWS.MwAA.PublishMetrics
-import Network.AWS.MwAA.TagResource
-import Network.AWS.MwAA.Types
-import Network.AWS.MwAA.UntagResource
-import Network.AWS.MwAA.UpdateEnvironment
-import Network.AWS.MwAA.Waiters
+import Amazonka.MwAA.CreateCliToken
+import Amazonka.MwAA.CreateEnvironment
+import Amazonka.MwAA.CreateWebLoginToken
+import Amazonka.MwAA.DeleteEnvironment
+import Amazonka.MwAA.GetEnvironment
+import Amazonka.MwAA.Lens
+import Amazonka.MwAA.ListEnvironments
+import Amazonka.MwAA.ListTagsForResource
+import Amazonka.MwAA.PublishMetrics
+import Amazonka.MwAA.TagResource
+import Amazonka.MwAA.Types
+import Amazonka.MwAA.UntagResource
+import Amazonka.MwAA.UpdateEnvironment
+import Amazonka.MwAA.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

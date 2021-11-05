@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MwAA where
 
+import Amazonka.MwAA
 import qualified Data.Proxy as Proxy
-import Network.AWS.MwAA
 import Test.AWS.Fixture
 import Test.AWS.MwAA.Internal
 import Test.AWS.Prelude

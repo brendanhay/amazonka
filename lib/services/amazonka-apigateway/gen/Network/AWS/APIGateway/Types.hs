@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.Types
+-- Module      : Amazonka.APIGateway.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types
+module Amazonka.APIGateway.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -468,69 +468,69 @@ module Network.AWS.APIGateway.Types
   )
 where
 
-import Network.AWS.APIGateway.Types.AccessLogSettings
-import Network.AWS.APIGateway.Types.Account
-import Network.AWS.APIGateway.Types.ApiKey
-import Network.AWS.APIGateway.Types.ApiKeySourceType
-import Network.AWS.APIGateway.Types.ApiKeysFormat
-import Network.AWS.APIGateway.Types.ApiStage
-import Network.AWS.APIGateway.Types.Authorizer
-import Network.AWS.APIGateway.Types.AuthorizerType
-import Network.AWS.APIGateway.Types.BasePathMapping
-import Network.AWS.APIGateway.Types.CacheClusterSize
-import Network.AWS.APIGateway.Types.CacheClusterStatus
-import Network.AWS.APIGateway.Types.CanarySettings
-import Network.AWS.APIGateway.Types.ClientCertificate
-import Network.AWS.APIGateway.Types.ConnectionType
-import Network.AWS.APIGateway.Types.ContentHandlingStrategy
-import Network.AWS.APIGateway.Types.Deployment
-import Network.AWS.APIGateway.Types.DeploymentCanarySettings
-import Network.AWS.APIGateway.Types.DocumentationPart
-import Network.AWS.APIGateway.Types.DocumentationPartLocation
-import Network.AWS.APIGateway.Types.DocumentationPartType
-import Network.AWS.APIGateway.Types.DocumentationVersion
-import Network.AWS.APIGateway.Types.DomainName
-import Network.AWS.APIGateway.Types.DomainNameStatus
-import Network.AWS.APIGateway.Types.EndpointConfiguration
-import Network.AWS.APIGateway.Types.EndpointType
-import Network.AWS.APIGateway.Types.GatewayResponse
-import Network.AWS.APIGateway.Types.GatewayResponseType
-import Network.AWS.APIGateway.Types.Integration
-import Network.AWS.APIGateway.Types.IntegrationResponse
-import Network.AWS.APIGateway.Types.IntegrationType
-import Network.AWS.APIGateway.Types.LocationStatusType
-import Network.AWS.APIGateway.Types.Method
-import Network.AWS.APIGateway.Types.MethodResponse
-import Network.AWS.APIGateway.Types.MethodSetting
-import Network.AWS.APIGateway.Types.MethodSnapshot
-import Network.AWS.APIGateway.Types.Model
-import Network.AWS.APIGateway.Types.MutualTlsAuthentication
-import Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput
-import Network.AWS.APIGateway.Types.Op
-import Network.AWS.APIGateway.Types.PatchOperation
-import Network.AWS.APIGateway.Types.PutMode
-import Network.AWS.APIGateway.Types.QuotaPeriodType
-import Network.AWS.APIGateway.Types.QuotaSettings
-import Network.AWS.APIGateway.Types.RequestValidator
-import Network.AWS.APIGateway.Types.Resource
-import Network.AWS.APIGateway.Types.RestApi
-import Network.AWS.APIGateway.Types.SdkConfigurationProperty
-import Network.AWS.APIGateway.Types.SdkType
-import Network.AWS.APIGateway.Types.SecurityPolicy
-import Network.AWS.APIGateway.Types.Stage
-import Network.AWS.APIGateway.Types.StageKey
-import Network.AWS.APIGateway.Types.ThrottleSettings
-import Network.AWS.APIGateway.Types.TlsConfig
-import Network.AWS.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy
-import Network.AWS.APIGateway.Types.Usage
-import Network.AWS.APIGateway.Types.UsagePlan
-import Network.AWS.APIGateway.Types.UsagePlanKey
-import Network.AWS.APIGateway.Types.VpcLink
-import Network.AWS.APIGateway.Types.VpcLinkStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.APIGateway.Types.AccessLogSettings
+import Amazonka.APIGateway.Types.Account
+import Amazonka.APIGateway.Types.ApiKey
+import Amazonka.APIGateway.Types.ApiKeySourceType
+import Amazonka.APIGateway.Types.ApiKeysFormat
+import Amazonka.APIGateway.Types.ApiStage
+import Amazonka.APIGateway.Types.Authorizer
+import Amazonka.APIGateway.Types.AuthorizerType
+import Amazonka.APIGateway.Types.BasePathMapping
+import Amazonka.APIGateway.Types.CacheClusterSize
+import Amazonka.APIGateway.Types.CacheClusterStatus
+import Amazonka.APIGateway.Types.CanarySettings
+import Amazonka.APIGateway.Types.ClientCertificate
+import Amazonka.APIGateway.Types.ConnectionType
+import Amazonka.APIGateway.Types.ContentHandlingStrategy
+import Amazonka.APIGateway.Types.Deployment
+import Amazonka.APIGateway.Types.DeploymentCanarySettings
+import Amazonka.APIGateway.Types.DocumentationPart
+import Amazonka.APIGateway.Types.DocumentationPartLocation
+import Amazonka.APIGateway.Types.DocumentationPartType
+import Amazonka.APIGateway.Types.DocumentationVersion
+import Amazonka.APIGateway.Types.DomainName
+import Amazonka.APIGateway.Types.DomainNameStatus
+import Amazonka.APIGateway.Types.EndpointConfiguration
+import Amazonka.APIGateway.Types.EndpointType
+import Amazonka.APIGateway.Types.GatewayResponse
+import Amazonka.APIGateway.Types.GatewayResponseType
+import Amazonka.APIGateway.Types.Integration
+import Amazonka.APIGateway.Types.IntegrationResponse
+import Amazonka.APIGateway.Types.IntegrationType
+import Amazonka.APIGateway.Types.LocationStatusType
+import Amazonka.APIGateway.Types.Method
+import Amazonka.APIGateway.Types.MethodResponse
+import Amazonka.APIGateway.Types.MethodSetting
+import Amazonka.APIGateway.Types.MethodSnapshot
+import Amazonka.APIGateway.Types.Model
+import Amazonka.APIGateway.Types.MutualTlsAuthentication
+import Amazonka.APIGateway.Types.MutualTlsAuthenticationInput
+import Amazonka.APIGateway.Types.Op
+import Amazonka.APIGateway.Types.PatchOperation
+import Amazonka.APIGateway.Types.PutMode
+import Amazonka.APIGateway.Types.QuotaPeriodType
+import Amazonka.APIGateway.Types.QuotaSettings
+import Amazonka.APIGateway.Types.RequestValidator
+import Amazonka.APIGateway.Types.Resource
+import Amazonka.APIGateway.Types.RestApi
+import Amazonka.APIGateway.Types.SdkConfigurationProperty
+import Amazonka.APIGateway.Types.SdkType
+import Amazonka.APIGateway.Types.SecurityPolicy
+import Amazonka.APIGateway.Types.Stage
+import Amazonka.APIGateway.Types.StageKey
+import Amazonka.APIGateway.Types.ThrottleSettings
+import Amazonka.APIGateway.Types.TlsConfig
+import Amazonka.APIGateway.Types.UnauthorizedCacheControlHeaderStrategy
+import Amazonka.APIGateway.Types.Usage
+import Amazonka.APIGateway.Types.UsagePlan
+import Amazonka.APIGateway.Types.UsagePlanKey
+import Amazonka.APIGateway.Types.VpcLink
+import Amazonka.APIGateway.Types.VpcLinkStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.
 defaultService :: Core.Service

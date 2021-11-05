@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.CreateApiKey
+-- Module      : Amazonka.APIGateway.CreateApiKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Create an ApiKey resource.
 --
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
-module Network.AWS.APIGateway.CreateApiKey
+module Amazonka.APIGateway.CreateApiKey
   ( -- * Creating a Request
     CreateApiKey (..),
     newCreateApiKey,
@@ -56,12 +56,12 @@ module Network.AWS.APIGateway.CreateApiKey
   )
 where
 
-import Network.AWS.APIGateway.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.APIGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Request to create an ApiKey resource.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.TestInvokeAuthorizer
+-- Module      : Amazonka.APIGateway.TestInvokeAuthorizer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer>
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
-module Network.AWS.APIGateway.TestInvokeAuthorizer
+module Amazonka.APIGateway.TestInvokeAuthorizer
   ( -- * Creating a Request
     TestInvokeAuthorizer (..),
     newTestInvokeAuthorizer,
@@ -56,12 +56,12 @@ module Network.AWS.APIGateway.TestInvokeAuthorizer
   )
 where
 
-import Network.AWS.APIGateway.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.APIGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Make a request to simulate the execution of an Authorizer.
 --

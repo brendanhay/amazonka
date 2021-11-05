@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.Types.Integration
+-- Module      : Amazonka.APIGateway.Types.Integration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.Integration where
+module Amazonka.APIGateway.Types.Integration where
 
-import Network.AWS.APIGateway.Types.ConnectionType
-import Network.AWS.APIGateway.Types.ContentHandlingStrategy
-import Network.AWS.APIGateway.Types.IntegrationResponse
-import Network.AWS.APIGateway.Types.IntegrationType
-import Network.AWS.APIGateway.Types.TlsConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.APIGateway.Types.ConnectionType
+import Amazonka.APIGateway.Types.ContentHandlingStrategy
+import Amazonka.APIGateway.Types.IntegrationResponse
+import Amazonka.APIGateway.Types.IntegrationType
+import Amazonka.APIGateway.Types.TlsConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.
 --

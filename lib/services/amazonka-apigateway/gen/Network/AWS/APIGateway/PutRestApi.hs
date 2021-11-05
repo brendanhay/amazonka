@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.PutRestApi
+-- Module      : Amazonka.APIGateway.PutRestApi
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- API with an input of external API definitions. The update can take the
 -- form of merging the supplied definition into the existing API or
 -- overwriting the existing API.
-module Network.AWS.APIGateway.PutRestApi
+module Amazonka.APIGateway.PutRestApi
   ( -- * Creating a Request
     PutRestApi (..),
     newPutRestApi,
@@ -57,12 +57,12 @@ module Network.AWS.APIGateway.PutRestApi
   )
 where
 
-import Network.AWS.APIGateway.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.APIGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A PUT request to update an existing API, with external API definitions
 -- specified as the request body.

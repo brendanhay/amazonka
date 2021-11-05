@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.Types.ConnectionType
+-- Module      : Amazonka.APIGateway.Types.ConnectionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.ConnectionType
+module Amazonka.APIGateway.Types.ConnectionType
   ( ConnectionType
       ( ..,
         ConnectionType_INTERNET,
@@ -26,8 +26,8 @@ module Network.AWS.APIGateway.Types.ConnectionType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype ConnectionType = ConnectionType'
   { fromConnectionType ::

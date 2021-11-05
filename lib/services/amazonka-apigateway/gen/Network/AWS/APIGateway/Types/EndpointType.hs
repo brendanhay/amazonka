@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.Types.EndpointType
+-- Module      : Amazonka.APIGateway.Types.EndpointType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.EndpointType
+module Amazonka.APIGateway.Types.EndpointType
   ( EndpointType
       ( ..,
         EndpointType_EDGE,
@@ -27,8 +27,8 @@ module Network.AWS.APIGateway.Types.EndpointType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The endpoint type. The valid values are @EDGE@ for edge-optimized API
 -- setup, most suitable for mobile applications; @REGIONAL@ for regional

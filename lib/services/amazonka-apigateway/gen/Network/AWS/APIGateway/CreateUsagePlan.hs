@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.CreateUsagePlan
+-- Module      : Amazonka.APIGateway.CreateUsagePlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a usage plan with the throttle and quota limits, as well as the
 -- associated API stages, specified in the payload.
-module Network.AWS.APIGateway.CreateUsagePlan
+module Amazonka.APIGateway.CreateUsagePlan
   ( -- * Creating a Request
     CreateUsagePlan (..),
     newCreateUsagePlan,
@@ -51,12 +51,12 @@ module Network.AWS.APIGateway.CreateUsagePlan
   )
 where
 
-import Network.AWS.APIGateway.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.APIGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The POST request to create a usage plan with the name, description,
 -- throttle limits and quota limits, as well as the associated API stages,

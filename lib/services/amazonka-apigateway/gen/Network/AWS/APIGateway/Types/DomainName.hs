@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.Types.DomainName
+-- Module      : Amazonka.APIGateway.Types.DomainName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.DomainName where
+module Amazonka.APIGateway.Types.DomainName where
 
-import Network.AWS.APIGateway.Types.DomainNameStatus
-import Network.AWS.APIGateway.Types.EndpointConfiguration
-import Network.AWS.APIGateway.Types.MutualTlsAuthentication
-import Network.AWS.APIGateway.Types.SecurityPolicy
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.APIGateway.Types.DomainNameStatus
+import Amazonka.APIGateway.Types.EndpointConfiguration
+import Amazonka.APIGateway.Types.MutualTlsAuthentication
+import Amazonka.APIGateway.Types.SecurityPolicy
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a custom domain name as a user-friendly host name of an API
 -- (RestApi).

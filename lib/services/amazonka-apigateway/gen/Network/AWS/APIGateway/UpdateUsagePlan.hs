@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.APIGateway.UpdateUsagePlan
+-- Module      : Amazonka.APIGateway.UpdateUsagePlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a usage plan of a given plan Id.
-module Network.AWS.APIGateway.UpdateUsagePlan
+module Amazonka.APIGateway.UpdateUsagePlan
   ( -- * Creating a Request
     UpdateUsagePlan (..),
     newUpdateUsagePlan,
@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.UpdateUsagePlan
   )
 where
 
-import Network.AWS.APIGateway.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.APIGateway.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The PATCH request to update a usage plan of a given plan Id.
 --

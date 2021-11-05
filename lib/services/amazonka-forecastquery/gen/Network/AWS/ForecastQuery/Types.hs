@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ForecastQuery.Types
+-- Module      : Amazonka.ForecastQuery.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ForecastQuery.Types
+module Amazonka.ForecastQuery.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -36,12 +36,12 @@ module Network.AWS.ForecastQuery.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ForecastQuery.Types.DataPoint
-import Network.AWS.ForecastQuery.Types.Forecast
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ForecastQuery.Types.DataPoint
+import Amazonka.ForecastQuery.Types.Forecast
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-06-26@ of the Amazon Forecast Query Service SDK configuration.
 defaultService :: Core.Service

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ForecastQuery
+-- Module      : Amazonka.ForecastQuery
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-06-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Provides APIs for creating and managing Amazon Forecast resources.
-module Network.AWS.ForecastQuery
+module Amazonka.ForecastQuery
   ( -- * Service Configuration
     defaultService,
 
@@ -58,10 +58,10 @@ module Network.AWS.ForecastQuery
   )
 where
 
-import Network.AWS.ForecastQuery.Lens
-import Network.AWS.ForecastQuery.QueryForecast
-import Network.AWS.ForecastQuery.Types
-import Network.AWS.ForecastQuery.Waiters
+import Amazonka.ForecastQuery.Lens
+import Amazonka.ForecastQuery.QueryForecast
+import Amazonka.ForecastQuery.Types
+import Amazonka.ForecastQuery.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

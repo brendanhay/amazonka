@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DataSync
+-- Module      : Amazonka.DataSync
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 --
 -- This API interface reference for DataSync contains documentation for a
 -- programming interface that you can use to manage DataSync.
-module Network.AWS.DataSync
+module Amazonka.DataSync
   ( -- * Service Configuration
     defaultService,
 
@@ -399,44 +399,44 @@ module Network.AWS.DataSync
   )
 where
 
-import Network.AWS.DataSync.CancelTaskExecution
-import Network.AWS.DataSync.CreateAgent
-import Network.AWS.DataSync.CreateLocationEfs
-import Network.AWS.DataSync.CreateLocationFsxWindows
-import Network.AWS.DataSync.CreateLocationNfs
-import Network.AWS.DataSync.CreateLocationObjectStorage
-import Network.AWS.DataSync.CreateLocationS3
-import Network.AWS.DataSync.CreateLocationSmb
-import Network.AWS.DataSync.CreateTask
-import Network.AWS.DataSync.DeleteAgent
-import Network.AWS.DataSync.DeleteLocation
-import Network.AWS.DataSync.DeleteTask
-import Network.AWS.DataSync.DescribeAgent
-import Network.AWS.DataSync.DescribeLocationEfs
-import Network.AWS.DataSync.DescribeLocationFsxWindows
-import Network.AWS.DataSync.DescribeLocationNfs
-import Network.AWS.DataSync.DescribeLocationObjectStorage
-import Network.AWS.DataSync.DescribeLocationS3
-import Network.AWS.DataSync.DescribeLocationSmb
-import Network.AWS.DataSync.DescribeTask
-import Network.AWS.DataSync.DescribeTaskExecution
-import Network.AWS.DataSync.Lens
-import Network.AWS.DataSync.ListAgents
-import Network.AWS.DataSync.ListLocations
-import Network.AWS.DataSync.ListTagsForResource
-import Network.AWS.DataSync.ListTaskExecutions
-import Network.AWS.DataSync.ListTasks
-import Network.AWS.DataSync.StartTaskExecution
-import Network.AWS.DataSync.TagResource
-import Network.AWS.DataSync.Types
-import Network.AWS.DataSync.UntagResource
-import Network.AWS.DataSync.UpdateAgent
-import Network.AWS.DataSync.UpdateLocationNfs
-import Network.AWS.DataSync.UpdateLocationObjectStorage
-import Network.AWS.DataSync.UpdateLocationSmb
-import Network.AWS.DataSync.UpdateTask
-import Network.AWS.DataSync.UpdateTaskExecution
-import Network.AWS.DataSync.Waiters
+import Amazonka.DataSync.CancelTaskExecution
+import Amazonka.DataSync.CreateAgent
+import Amazonka.DataSync.CreateLocationEfs
+import Amazonka.DataSync.CreateLocationFsxWindows
+import Amazonka.DataSync.CreateLocationNfs
+import Amazonka.DataSync.CreateLocationObjectStorage
+import Amazonka.DataSync.CreateLocationS3
+import Amazonka.DataSync.CreateLocationSmb
+import Amazonka.DataSync.CreateTask
+import Amazonka.DataSync.DeleteAgent
+import Amazonka.DataSync.DeleteLocation
+import Amazonka.DataSync.DeleteTask
+import Amazonka.DataSync.DescribeAgent
+import Amazonka.DataSync.DescribeLocationEfs
+import Amazonka.DataSync.DescribeLocationFsxWindows
+import Amazonka.DataSync.DescribeLocationNfs
+import Amazonka.DataSync.DescribeLocationObjectStorage
+import Amazonka.DataSync.DescribeLocationS3
+import Amazonka.DataSync.DescribeLocationSmb
+import Amazonka.DataSync.DescribeTask
+import Amazonka.DataSync.DescribeTaskExecution
+import Amazonka.DataSync.Lens
+import Amazonka.DataSync.ListAgents
+import Amazonka.DataSync.ListLocations
+import Amazonka.DataSync.ListTagsForResource
+import Amazonka.DataSync.ListTaskExecutions
+import Amazonka.DataSync.ListTasks
+import Amazonka.DataSync.StartTaskExecution
+import Amazonka.DataSync.TagResource
+import Amazonka.DataSync.Types
+import Amazonka.DataSync.UntagResource
+import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateLocationNfs
+import Amazonka.DataSync.UpdateLocationObjectStorage
+import Amazonka.DataSync.UpdateLocationSmb
+import Amazonka.DataSync.UpdateTask
+import Amazonka.DataSync.UpdateTaskExecution
+import Amazonka.DataSync.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

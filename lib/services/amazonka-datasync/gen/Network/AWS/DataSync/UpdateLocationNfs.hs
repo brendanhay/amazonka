@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.UpdateLocationNfs
+-- Module      : Amazonka.DataSync.UpdateLocationNfs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- Network File System (NFS) access. For information about creating an NFS
 -- location, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html Creating a location for NFS>.
-module Network.AWS.DataSync.UpdateLocationNfs
+module Amazonka.DataSync.UpdateLocationNfs
   ( -- * Creating a Request
     UpdateLocationNfs (..),
     newUpdateLocationNfs,
@@ -44,12 +44,12 @@ module Network.AWS.DataSync.UpdateLocationNfs
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLocationNfs' smart constructor.
 data UpdateLocationNfs = UpdateLocationNfs'

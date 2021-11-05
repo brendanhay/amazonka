@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.CreateLocationSmb
+-- Module      : Amazonka.DataSync.CreateLocationSmb
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Defines a file system on a Server Message Block (SMB) server that can be
 -- read from or written to.
-module Network.AWS.DataSync.CreateLocationSmb
+module Amazonka.DataSync.CreateLocationSmb
   ( -- * Creating a Request
     CreateLocationSmb (..),
     newCreateLocationSmb,
@@ -47,12 +47,12 @@ module Network.AWS.DataSync.CreateLocationSmb
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | CreateLocationSmbRequest
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Lens
+-- Module      : Amazonka.DataSync.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Lens
+module Amazonka.DataSync.Lens
   ( -- * Operations
 
     -- ** UpdateTask
@@ -418,55 +418,55 @@ module Network.AWS.DataSync.Lens
   )
 where
 
-import Network.AWS.DataSync.CancelTaskExecution
-import Network.AWS.DataSync.CreateAgent
-import Network.AWS.DataSync.CreateLocationEfs
-import Network.AWS.DataSync.CreateLocationFsxWindows
-import Network.AWS.DataSync.CreateLocationNfs
-import Network.AWS.DataSync.CreateLocationObjectStorage
-import Network.AWS.DataSync.CreateLocationS3
-import Network.AWS.DataSync.CreateLocationSmb
-import Network.AWS.DataSync.CreateTask
-import Network.AWS.DataSync.DeleteAgent
-import Network.AWS.DataSync.DeleteLocation
-import Network.AWS.DataSync.DeleteTask
-import Network.AWS.DataSync.DescribeAgent
-import Network.AWS.DataSync.DescribeLocationEfs
-import Network.AWS.DataSync.DescribeLocationFsxWindows
-import Network.AWS.DataSync.DescribeLocationNfs
-import Network.AWS.DataSync.DescribeLocationObjectStorage
-import Network.AWS.DataSync.DescribeLocationS3
-import Network.AWS.DataSync.DescribeLocationSmb
-import Network.AWS.DataSync.DescribeTask
-import Network.AWS.DataSync.DescribeTaskExecution
-import Network.AWS.DataSync.ListAgents
-import Network.AWS.DataSync.ListLocations
-import Network.AWS.DataSync.ListTagsForResource
-import Network.AWS.DataSync.ListTaskExecutions
-import Network.AWS.DataSync.ListTasks
-import Network.AWS.DataSync.StartTaskExecution
-import Network.AWS.DataSync.TagResource
-import Network.AWS.DataSync.Types.AgentListEntry
-import Network.AWS.DataSync.Types.Ec2Config
-import Network.AWS.DataSync.Types.FilterRule
-import Network.AWS.DataSync.Types.LocationFilter
-import Network.AWS.DataSync.Types.LocationListEntry
-import Network.AWS.DataSync.Types.NfsMountOptions
-import Network.AWS.DataSync.Types.OnPremConfig
-import Network.AWS.DataSync.Types.Options
-import Network.AWS.DataSync.Types.PrivateLinkConfig
-import Network.AWS.DataSync.Types.S3Config
-import Network.AWS.DataSync.Types.SmbMountOptions
-import Network.AWS.DataSync.Types.TagListEntry
-import Network.AWS.DataSync.Types.TaskExecutionListEntry
-import Network.AWS.DataSync.Types.TaskExecutionResultDetail
-import Network.AWS.DataSync.Types.TaskFilter
-import Network.AWS.DataSync.Types.TaskListEntry
-import Network.AWS.DataSync.Types.TaskSchedule
-import Network.AWS.DataSync.UntagResource
-import Network.AWS.DataSync.UpdateAgent
-import Network.AWS.DataSync.UpdateLocationNfs
-import Network.AWS.DataSync.UpdateLocationObjectStorage
-import Network.AWS.DataSync.UpdateLocationSmb
-import Network.AWS.DataSync.UpdateTask
-import Network.AWS.DataSync.UpdateTaskExecution
+import Amazonka.DataSync.CancelTaskExecution
+import Amazonka.DataSync.CreateAgent
+import Amazonka.DataSync.CreateLocationEfs
+import Amazonka.DataSync.CreateLocationFsxWindows
+import Amazonka.DataSync.CreateLocationNfs
+import Amazonka.DataSync.CreateLocationObjectStorage
+import Amazonka.DataSync.CreateLocationS3
+import Amazonka.DataSync.CreateLocationSmb
+import Amazonka.DataSync.CreateTask
+import Amazonka.DataSync.DeleteAgent
+import Amazonka.DataSync.DeleteLocation
+import Amazonka.DataSync.DeleteTask
+import Amazonka.DataSync.DescribeAgent
+import Amazonka.DataSync.DescribeLocationEfs
+import Amazonka.DataSync.DescribeLocationFsxWindows
+import Amazonka.DataSync.DescribeLocationNfs
+import Amazonka.DataSync.DescribeLocationObjectStorage
+import Amazonka.DataSync.DescribeLocationS3
+import Amazonka.DataSync.DescribeLocationSmb
+import Amazonka.DataSync.DescribeTask
+import Amazonka.DataSync.DescribeTaskExecution
+import Amazonka.DataSync.ListAgents
+import Amazonka.DataSync.ListLocations
+import Amazonka.DataSync.ListTagsForResource
+import Amazonka.DataSync.ListTaskExecutions
+import Amazonka.DataSync.ListTasks
+import Amazonka.DataSync.StartTaskExecution
+import Amazonka.DataSync.TagResource
+import Amazonka.DataSync.Types.AgentListEntry
+import Amazonka.DataSync.Types.Ec2Config
+import Amazonka.DataSync.Types.FilterRule
+import Amazonka.DataSync.Types.LocationFilter
+import Amazonka.DataSync.Types.LocationListEntry
+import Amazonka.DataSync.Types.NfsMountOptions
+import Amazonka.DataSync.Types.OnPremConfig
+import Amazonka.DataSync.Types.Options
+import Amazonka.DataSync.Types.PrivateLinkConfig
+import Amazonka.DataSync.Types.S3Config
+import Amazonka.DataSync.Types.SmbMountOptions
+import Amazonka.DataSync.Types.TagListEntry
+import Amazonka.DataSync.Types.TaskExecutionListEntry
+import Amazonka.DataSync.Types.TaskExecutionResultDetail
+import Amazonka.DataSync.Types.TaskFilter
+import Amazonka.DataSync.Types.TaskListEntry
+import Amazonka.DataSync.Types.TaskSchedule
+import Amazonka.DataSync.UntagResource
+import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateLocationNfs
+import Amazonka.DataSync.UpdateLocationObjectStorage
+import Amazonka.DataSync.UpdateLocationSmb
+import Amazonka.DataSync.UpdateTask
+import Amazonka.DataSync.UpdateTaskExecution

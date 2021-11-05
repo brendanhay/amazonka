@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DataSync.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DataSync.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DataSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DataSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,90 +45,90 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DataSync
-    Network.AWS.DataSync.CancelTaskExecution
-    Network.AWS.DataSync.CreateAgent
-    Network.AWS.DataSync.CreateLocationEfs
-    Network.AWS.DataSync.CreateLocationFsxWindows
-    Network.AWS.DataSync.CreateLocationNfs
-    Network.AWS.DataSync.CreateLocationObjectStorage
-    Network.AWS.DataSync.CreateLocationS3
-    Network.AWS.DataSync.CreateLocationSmb
-    Network.AWS.DataSync.CreateTask
-    Network.AWS.DataSync.DeleteAgent
-    Network.AWS.DataSync.DeleteLocation
-    Network.AWS.DataSync.DeleteTask
-    Network.AWS.DataSync.DescribeAgent
-    Network.AWS.DataSync.DescribeLocationEfs
-    Network.AWS.DataSync.DescribeLocationFsxWindows
-    Network.AWS.DataSync.DescribeLocationNfs
-    Network.AWS.DataSync.DescribeLocationObjectStorage
-    Network.AWS.DataSync.DescribeLocationS3
-    Network.AWS.DataSync.DescribeLocationSmb
-    Network.AWS.DataSync.DescribeTask
-    Network.AWS.DataSync.DescribeTaskExecution
-    Network.AWS.DataSync.Lens
-    Network.AWS.DataSync.ListAgents
-    Network.AWS.DataSync.ListLocations
-    Network.AWS.DataSync.ListTagsForResource
-    Network.AWS.DataSync.ListTaskExecutions
-    Network.AWS.DataSync.ListTasks
-    Network.AWS.DataSync.StartTaskExecution
-    Network.AWS.DataSync.TagResource
-    Network.AWS.DataSync.Types
-    Network.AWS.DataSync.Types.AgentListEntry
-    Network.AWS.DataSync.Types.AgentStatus
-    Network.AWS.DataSync.Types.Atime
-    Network.AWS.DataSync.Types.Ec2Config
-    Network.AWS.DataSync.Types.EndpointType
-    Network.AWS.DataSync.Types.FilterRule
-    Network.AWS.DataSync.Types.FilterType
-    Network.AWS.DataSync.Types.Gid
-    Network.AWS.DataSync.Types.LocationFilter
-    Network.AWS.DataSync.Types.LocationFilterName
-    Network.AWS.DataSync.Types.LocationListEntry
-    Network.AWS.DataSync.Types.LogLevel
-    Network.AWS.DataSync.Types.Mtime
-    Network.AWS.DataSync.Types.NfsMountOptions
-    Network.AWS.DataSync.Types.NfsVersion
-    Network.AWS.DataSync.Types.ObjectStorageServerProtocol
-    Network.AWS.DataSync.Types.OnPremConfig
-    Network.AWS.DataSync.Types.Operator
-    Network.AWS.DataSync.Types.Options
-    Network.AWS.DataSync.Types.OverwriteMode
-    Network.AWS.DataSync.Types.PhaseStatus
-    Network.AWS.DataSync.Types.PosixPermissions
-    Network.AWS.DataSync.Types.PreserveDeletedFiles
-    Network.AWS.DataSync.Types.PreserveDevices
-    Network.AWS.DataSync.Types.PrivateLinkConfig
-    Network.AWS.DataSync.Types.S3Config
-    Network.AWS.DataSync.Types.S3StorageClass
-    Network.AWS.DataSync.Types.SmbMountOptions
-    Network.AWS.DataSync.Types.SmbSecurityDescriptorCopyFlags
-    Network.AWS.DataSync.Types.SmbVersion
-    Network.AWS.DataSync.Types.TagListEntry
-    Network.AWS.DataSync.Types.TaskExecutionListEntry
-    Network.AWS.DataSync.Types.TaskExecutionResultDetail
-    Network.AWS.DataSync.Types.TaskExecutionStatus
-    Network.AWS.DataSync.Types.TaskFilter
-    Network.AWS.DataSync.Types.TaskFilterName
-    Network.AWS.DataSync.Types.TaskListEntry
-    Network.AWS.DataSync.Types.TaskQueueing
-    Network.AWS.DataSync.Types.TaskSchedule
-    Network.AWS.DataSync.Types.TaskStatus
-    Network.AWS.DataSync.Types.TransferMode
-    Network.AWS.DataSync.Types.Uid
-    Network.AWS.DataSync.Types.VerifyMode
-    Network.AWS.DataSync.UntagResource
-    Network.AWS.DataSync.UpdateAgent
-    Network.AWS.DataSync.UpdateLocationNfs
-    Network.AWS.DataSync.UpdateLocationObjectStorage
-    Network.AWS.DataSync.UpdateLocationSmb
-    Network.AWS.DataSync.UpdateTask
-    Network.AWS.DataSync.UpdateTaskExecution
-    Network.AWS.DataSync.Waiters
+    Amazonka.DataSync
+    Amazonka.DataSync.CancelTaskExecution
+    Amazonka.DataSync.CreateAgent
+    Amazonka.DataSync.CreateLocationEfs
+    Amazonka.DataSync.CreateLocationFsxWindows
+    Amazonka.DataSync.CreateLocationNfs
+    Amazonka.DataSync.CreateLocationObjectStorage
+    Amazonka.DataSync.CreateLocationS3
+    Amazonka.DataSync.CreateLocationSmb
+    Amazonka.DataSync.CreateTask
+    Amazonka.DataSync.DeleteAgent
+    Amazonka.DataSync.DeleteLocation
+    Amazonka.DataSync.DeleteTask
+    Amazonka.DataSync.DescribeAgent
+    Amazonka.DataSync.DescribeLocationEfs
+    Amazonka.DataSync.DescribeLocationFsxWindows
+    Amazonka.DataSync.DescribeLocationNfs
+    Amazonka.DataSync.DescribeLocationObjectStorage
+    Amazonka.DataSync.DescribeLocationS3
+    Amazonka.DataSync.DescribeLocationSmb
+    Amazonka.DataSync.DescribeTask
+    Amazonka.DataSync.DescribeTaskExecution
+    Amazonka.DataSync.Lens
+    Amazonka.DataSync.ListAgents
+    Amazonka.DataSync.ListLocations
+    Amazonka.DataSync.ListTagsForResource
+    Amazonka.DataSync.ListTaskExecutions
+    Amazonka.DataSync.ListTasks
+    Amazonka.DataSync.StartTaskExecution
+    Amazonka.DataSync.TagResource
+    Amazonka.DataSync.Types
+    Amazonka.DataSync.Types.AgentListEntry
+    Amazonka.DataSync.Types.AgentStatus
+    Amazonka.DataSync.Types.Atime
+    Amazonka.DataSync.Types.Ec2Config
+    Amazonka.DataSync.Types.EndpointType
+    Amazonka.DataSync.Types.FilterRule
+    Amazonka.DataSync.Types.FilterType
+    Amazonka.DataSync.Types.Gid
+    Amazonka.DataSync.Types.LocationFilter
+    Amazonka.DataSync.Types.LocationFilterName
+    Amazonka.DataSync.Types.LocationListEntry
+    Amazonka.DataSync.Types.LogLevel
+    Amazonka.DataSync.Types.Mtime
+    Amazonka.DataSync.Types.NfsMountOptions
+    Amazonka.DataSync.Types.NfsVersion
+    Amazonka.DataSync.Types.ObjectStorageServerProtocol
+    Amazonka.DataSync.Types.OnPremConfig
+    Amazonka.DataSync.Types.Operator
+    Amazonka.DataSync.Types.Options
+    Amazonka.DataSync.Types.OverwriteMode
+    Amazonka.DataSync.Types.PhaseStatus
+    Amazonka.DataSync.Types.PosixPermissions
+    Amazonka.DataSync.Types.PreserveDeletedFiles
+    Amazonka.DataSync.Types.PreserveDevices
+    Amazonka.DataSync.Types.PrivateLinkConfig
+    Amazonka.DataSync.Types.S3Config
+    Amazonka.DataSync.Types.S3StorageClass
+    Amazonka.DataSync.Types.SmbMountOptions
+    Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags
+    Amazonka.DataSync.Types.SmbVersion
+    Amazonka.DataSync.Types.TagListEntry
+    Amazonka.DataSync.Types.TaskExecutionListEntry
+    Amazonka.DataSync.Types.TaskExecutionResultDetail
+    Amazonka.DataSync.Types.TaskExecutionStatus
+    Amazonka.DataSync.Types.TaskFilter
+    Amazonka.DataSync.Types.TaskFilterName
+    Amazonka.DataSync.Types.TaskListEntry
+    Amazonka.DataSync.Types.TaskQueueing
+    Amazonka.DataSync.Types.TaskSchedule
+    Amazonka.DataSync.Types.TaskStatus
+    Amazonka.DataSync.Types.TransferMode
+    Amazonka.DataSync.Types.Uid
+    Amazonka.DataSync.Types.VerifyMode
+    Amazonka.DataSync.UntagResource
+    Amazonka.DataSync.UpdateAgent
+    Amazonka.DataSync.UpdateLocationNfs
+    Amazonka.DataSync.UpdateLocationObjectStorage
+    Amazonka.DataSync.UpdateLocationSmb
+    Amazonka.DataSync.UpdateTask
+    Amazonka.DataSync.UpdateTaskExecution
+    Amazonka.DataSync.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

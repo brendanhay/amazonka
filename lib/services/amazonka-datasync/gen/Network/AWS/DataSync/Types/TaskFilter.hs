@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Types.TaskFilter
+-- Module      : Amazonka.DataSync.Types.TaskFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Types.TaskFilter where
+module Amazonka.DataSync.Types.TaskFilter where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types.Operator
-import Network.AWS.DataSync.Types.TaskFilterName
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types.Operator
+import Amazonka.DataSync.Types.TaskFilterName
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | You can use API filters to narrow down the list of resources returned by
 -- @ListTasks@. For example, to retrieve all tasks on a source location,

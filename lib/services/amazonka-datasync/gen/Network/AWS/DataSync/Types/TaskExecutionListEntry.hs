@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Types.TaskExecutionListEntry
+-- Module      : Amazonka.DataSync.Types.TaskExecutionListEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Types.TaskExecutionListEntry where
+module Amazonka.DataSync.Types.TaskExecutionListEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types.TaskExecutionStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types.TaskExecutionStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of task executions.
 -- @TaskExecutionListEntry@ returns an array that contains a list of

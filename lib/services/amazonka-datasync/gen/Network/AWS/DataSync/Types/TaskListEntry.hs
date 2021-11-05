@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Types.TaskListEntry
+-- Module      : Amazonka.DataSync.Types.TaskListEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Types.TaskListEntry where
+module Amazonka.DataSync.Types.TaskListEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types.TaskStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types.TaskStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a single entry in a list of tasks. @TaskListEntry@ returns an
 -- array that contains a list of tasks when the

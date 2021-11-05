@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Types
+-- Module      : Amazonka.DataSync.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Types
+module Amazonka.DataSync.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -222,53 +222,53 @@ module Network.AWS.DataSync.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types.AgentListEntry
-import Network.AWS.DataSync.Types.AgentStatus
-import Network.AWS.DataSync.Types.Atime
-import Network.AWS.DataSync.Types.Ec2Config
-import Network.AWS.DataSync.Types.EndpointType
-import Network.AWS.DataSync.Types.FilterRule
-import Network.AWS.DataSync.Types.FilterType
-import Network.AWS.DataSync.Types.Gid
-import Network.AWS.DataSync.Types.LocationFilter
-import Network.AWS.DataSync.Types.LocationFilterName
-import Network.AWS.DataSync.Types.LocationListEntry
-import Network.AWS.DataSync.Types.LogLevel
-import Network.AWS.DataSync.Types.Mtime
-import Network.AWS.DataSync.Types.NfsMountOptions
-import Network.AWS.DataSync.Types.NfsVersion
-import Network.AWS.DataSync.Types.ObjectStorageServerProtocol
-import Network.AWS.DataSync.Types.OnPremConfig
-import Network.AWS.DataSync.Types.Operator
-import Network.AWS.DataSync.Types.Options
-import Network.AWS.DataSync.Types.OverwriteMode
-import Network.AWS.DataSync.Types.PhaseStatus
-import Network.AWS.DataSync.Types.PosixPermissions
-import Network.AWS.DataSync.Types.PreserveDeletedFiles
-import Network.AWS.DataSync.Types.PreserveDevices
-import Network.AWS.DataSync.Types.PrivateLinkConfig
-import Network.AWS.DataSync.Types.S3Config
-import Network.AWS.DataSync.Types.S3StorageClass
-import Network.AWS.DataSync.Types.SmbMountOptions
-import Network.AWS.DataSync.Types.SmbSecurityDescriptorCopyFlags
-import Network.AWS.DataSync.Types.SmbVersion
-import Network.AWS.DataSync.Types.TagListEntry
-import Network.AWS.DataSync.Types.TaskExecutionListEntry
-import Network.AWS.DataSync.Types.TaskExecutionResultDetail
-import Network.AWS.DataSync.Types.TaskExecutionStatus
-import Network.AWS.DataSync.Types.TaskFilter
-import Network.AWS.DataSync.Types.TaskFilterName
-import Network.AWS.DataSync.Types.TaskListEntry
-import Network.AWS.DataSync.Types.TaskQueueing
-import Network.AWS.DataSync.Types.TaskSchedule
-import Network.AWS.DataSync.Types.TaskStatus
-import Network.AWS.DataSync.Types.TransferMode
-import Network.AWS.DataSync.Types.Uid
-import Network.AWS.DataSync.Types.VerifyMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types.AgentListEntry
+import Amazonka.DataSync.Types.AgentStatus
+import Amazonka.DataSync.Types.Atime
+import Amazonka.DataSync.Types.Ec2Config
+import Amazonka.DataSync.Types.EndpointType
+import Amazonka.DataSync.Types.FilterRule
+import Amazonka.DataSync.Types.FilterType
+import Amazonka.DataSync.Types.Gid
+import Amazonka.DataSync.Types.LocationFilter
+import Amazonka.DataSync.Types.LocationFilterName
+import Amazonka.DataSync.Types.LocationListEntry
+import Amazonka.DataSync.Types.LogLevel
+import Amazonka.DataSync.Types.Mtime
+import Amazonka.DataSync.Types.NfsMountOptions
+import Amazonka.DataSync.Types.NfsVersion
+import Amazonka.DataSync.Types.ObjectStorageServerProtocol
+import Amazonka.DataSync.Types.OnPremConfig
+import Amazonka.DataSync.Types.Operator
+import Amazonka.DataSync.Types.Options
+import Amazonka.DataSync.Types.OverwriteMode
+import Amazonka.DataSync.Types.PhaseStatus
+import Amazonka.DataSync.Types.PosixPermissions
+import Amazonka.DataSync.Types.PreserveDeletedFiles
+import Amazonka.DataSync.Types.PreserveDevices
+import Amazonka.DataSync.Types.PrivateLinkConfig
+import Amazonka.DataSync.Types.S3Config
+import Amazonka.DataSync.Types.S3StorageClass
+import Amazonka.DataSync.Types.SmbMountOptions
+import Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags
+import Amazonka.DataSync.Types.SmbVersion
+import Amazonka.DataSync.Types.TagListEntry
+import Amazonka.DataSync.Types.TaskExecutionListEntry
+import Amazonka.DataSync.Types.TaskExecutionResultDetail
+import Amazonka.DataSync.Types.TaskExecutionStatus
+import Amazonka.DataSync.Types.TaskFilter
+import Amazonka.DataSync.Types.TaskFilterName
+import Amazonka.DataSync.Types.TaskListEntry
+import Amazonka.DataSync.Types.TaskQueueing
+import Amazonka.DataSync.Types.TaskSchedule
+import Amazonka.DataSync.Types.TaskStatus
+import Amazonka.DataSync.Types.TransferMode
+import Amazonka.DataSync.Types.Uid
+import Amazonka.DataSync.Types.VerifyMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-09@ of the Amazon DataSync SDK configuration.
 defaultService :: Core.Service

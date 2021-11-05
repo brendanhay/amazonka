@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.DescribeAgent
+-- Module      : Amazonka.DataSync.DescribeAgent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- status (that is, whether the agent is running or not) for an agent. To
 -- specify which agent to describe, use the Amazon Resource Name (ARN) of
 -- the agent in your request.
-module Network.AWS.DataSync.DescribeAgent
+module Amazonka.DataSync.DescribeAgent
   ( -- * Creating a Request
     DescribeAgent (..),
     newDescribeAgent,
@@ -48,12 +48,12 @@ module Network.AWS.DataSync.DescribeAgent
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | DescribeAgent
 --

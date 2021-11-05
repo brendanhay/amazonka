@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.Types.Options
+-- Module      : Amazonka.DataSync.Types.Options
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataSync.Types.Options where
+module Amazonka.DataSync.Types.Options where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types.Atime
-import Network.AWS.DataSync.Types.Gid
-import Network.AWS.DataSync.Types.LogLevel
-import Network.AWS.DataSync.Types.Mtime
-import Network.AWS.DataSync.Types.OverwriteMode
-import Network.AWS.DataSync.Types.PosixPermissions
-import Network.AWS.DataSync.Types.PreserveDeletedFiles
-import Network.AWS.DataSync.Types.PreserveDevices
-import Network.AWS.DataSync.Types.SmbSecurityDescriptorCopyFlags
-import Network.AWS.DataSync.Types.TaskQueueing
-import Network.AWS.DataSync.Types.TransferMode
-import Network.AWS.DataSync.Types.Uid
-import Network.AWS.DataSync.Types.VerifyMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types.Atime
+import Amazonka.DataSync.Types.Gid
+import Amazonka.DataSync.Types.LogLevel
+import Amazonka.DataSync.Types.Mtime
+import Amazonka.DataSync.Types.OverwriteMode
+import Amazonka.DataSync.Types.PosixPermissions
+import Amazonka.DataSync.Types.PreserveDeletedFiles
+import Amazonka.DataSync.Types.PreserveDevices
+import Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags
+import Amazonka.DataSync.Types.TaskQueueing
+import Amazonka.DataSync.Types.TransferMode
+import Amazonka.DataSync.Types.Uid
+import Amazonka.DataSync.Types.VerifyMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the options that are available to control the behavior of a
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>

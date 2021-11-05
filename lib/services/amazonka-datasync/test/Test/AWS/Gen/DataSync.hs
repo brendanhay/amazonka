@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataSync where
 
+import Amazonka.DataSync
 import qualified Data.Proxy as Proxy
-import Network.AWS.DataSync
 import Test.AWS.DataSync.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

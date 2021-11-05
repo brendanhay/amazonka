@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataSync.CancelTaskExecution
+-- Module      : Amazonka.DataSync.CancelTaskExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- complete and consistent. This applies to other unexpected failures that
 -- interrupt a task execution. In all of these cases, DataSync successfully
 -- complete the transfer when you start the next task execution.
-module Network.AWS.DataSync.CancelTaskExecution
+module Amazonka.DataSync.CancelTaskExecution
   ( -- * Creating a Request
     CancelTaskExecution (..),
     newCancelTaskExecution,
@@ -47,12 +47,12 @@ module Network.AWS.DataSync.CancelTaskExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataSync.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataSync.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | CancelTaskExecutionRequest
 --

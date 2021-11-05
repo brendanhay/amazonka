@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.Types.PhoneNumberInformation
+-- Module      : Amazonka.SNS.Types.PhoneNumberInformation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SNS.Types.PhoneNumberInformation where
+module Amazonka.SNS.Types.PhoneNumberInformation where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SNS.Types.NumberCapability
-import Network.AWS.SNS.Types.RouteType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SNS.Types.NumberCapability
+import Amazonka.SNS.Types.RouteType
 
 -- | A list of phone numbers and their metadata.
 --

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SNS where
 
+import Amazonka.SNS
 import qualified Data.Proxy as Proxy
-import Network.AWS.SNS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SNS.Internal

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
+-- Module      : Amazonka.SNS.SetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- For information on configuring attributes for message delivery status,
 -- see
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html Using Amazon SNS Application Attributes for Message Delivery Status>.
-module Network.AWS.SNS.SetPlatformApplicationAttributes
+module Amazonka.SNS.SetPlatformApplicationAttributes
   ( -- * Creating a Request
     SetPlatformApplicationAttributes (..),
     newSetPlatformApplicationAttributes,
@@ -42,12 +42,12 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | Input for SetPlatformApplicationAttributes action.
 --

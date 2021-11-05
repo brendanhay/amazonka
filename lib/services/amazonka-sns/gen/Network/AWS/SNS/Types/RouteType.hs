@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.Types.RouteType
+-- Module      : Amazonka.SNS.Types.RouteType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SNS.Types.RouteType
+module Amazonka.SNS.Types.RouteType
   ( RouteType
       ( ..,
         RouteType_Premium,
@@ -27,8 +27,8 @@ module Network.AWS.SNS.Types.RouteType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Enum listing out all supported route types. The following enum values
 -- are supported. 1. Transactional : Non-marketing traffic 2. Promotional :

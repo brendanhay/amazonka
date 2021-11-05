@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.Types
+-- Module      : Amazonka.SNS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SNS.Types
+module Amazonka.SNS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -114,22 +114,22 @@ module Network.AWS.SNS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SNS.Types.Endpoint
-import Network.AWS.SNS.Types.LanguageCodeString
-import Network.AWS.SNS.Types.MessageAttributeValue
-import Network.AWS.SNS.Types.NumberCapability
-import Network.AWS.SNS.Types.PhoneNumberInformation
-import Network.AWS.SNS.Types.PlatformApplication
-import Network.AWS.SNS.Types.RouteType
-import Network.AWS.SNS.Types.SMSSandboxPhoneNumber
-import Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
-import Network.AWS.SNS.Types.Subscription
-import Network.AWS.SNS.Types.Tag
-import Network.AWS.SNS.Types.Topic
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SNS.Types.Endpoint
+import Amazonka.SNS.Types.LanguageCodeString
+import Amazonka.SNS.Types.MessageAttributeValue
+import Amazonka.SNS.Types.NumberCapability
+import Amazonka.SNS.Types.PhoneNumberInformation
+import Amazonka.SNS.Types.PlatformApplication
+import Amazonka.SNS.Types.RouteType
+import Amazonka.SNS.Types.SMSSandboxPhoneNumber
+import Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
+import Amazonka.SNS.Types.Subscription
+import Amazonka.SNS.Types.Tag
+import Amazonka.SNS.Types.Topic
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-03-31@ of the Amazon Simple Notification Service SDK configuration.
 defaultService :: Core.Service

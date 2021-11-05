@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.Subscribe
+-- Module      : Amazonka.SNS.Subscribe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- subscription response. Confirmation tokens are valid for three days.
 --
 -- This action is throttled at 100 transactions per second (TPS).
-module Network.AWS.SNS.Subscribe
+module Amazonka.SNS.Subscribe
   ( -- * Creating a Request
     Subscribe (..),
     newSubscribe,
@@ -51,12 +51,12 @@ module Network.AWS.SNS.Subscribe
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | Input for Subscribe action.
 --

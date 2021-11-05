@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.DeleteTopic
+-- Module      : Amazonka.SNS.DeleteTopic
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- prevent some messages previously sent to the topic from being delivered
 -- to subscribers. This action is idempotent, so deleting a topic that does
 -- not exist does not result in an error.
-module Network.AWS.SNS.DeleteTopic
+module Amazonka.SNS.DeleteTopic
   ( -- * Creating a Request
     DeleteTopic (..),
     newDeleteTopic,
@@ -38,12 +38,12 @@ module Network.AWS.SNS.DeleteTopic
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | /See:/ 'newDeleteTopic' smart constructor.
 data DeleteTopic = DeleteTopic'

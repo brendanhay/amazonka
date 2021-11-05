@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.OptInPhoneNumber
+-- Module      : Amazonka.SNS.OptInPhoneNumber
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- enables you to resume sending SMS messages to the number.
 --
 -- You can opt in a phone number only once every 30 days.
-module Network.AWS.SNS.OptInPhoneNumber
+module Amazonka.SNS.OptInPhoneNumber
   ( -- * Creating a Request
     OptInPhoneNumber (..),
     newOptInPhoneNumber,
@@ -41,12 +41,12 @@ module Network.AWS.SNS.OptInPhoneNumber
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | Input for the OptInPhoneNumber action.
 --

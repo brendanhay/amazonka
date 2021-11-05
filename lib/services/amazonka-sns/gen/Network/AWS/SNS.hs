@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SNS
+-- Module      : Amazonka.SNS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- your service requests, retrying requests, and handling error responses.
 -- For a list of available SDKs, go to
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-module Network.AWS.SNS
+module Amazonka.SNS
   ( -- * Service Configuration
     defaultService,
 
@@ -409,48 +409,48 @@ module Network.AWS.SNS
   )
 where
 
-import Network.AWS.SNS.AddPermission
-import Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
-import Network.AWS.SNS.ConfirmSubscription
-import Network.AWS.SNS.CreatePlatformApplication
-import Network.AWS.SNS.CreatePlatformEndpoint
-import Network.AWS.SNS.CreateSMSSandboxPhoneNumber
-import Network.AWS.SNS.CreateTopic
-import Network.AWS.SNS.DeleteEndpoint
-import Network.AWS.SNS.DeletePlatformApplication
-import Network.AWS.SNS.DeleteSMSSandboxPhoneNumber
-import Network.AWS.SNS.DeleteTopic
-import Network.AWS.SNS.GetEndpointAttributes
-import Network.AWS.SNS.GetPlatformApplicationAttributes
-import Network.AWS.SNS.GetSMSAttributes
-import Network.AWS.SNS.GetSMSSandboxAccountStatus
-import Network.AWS.SNS.GetSubscriptionAttributes
-import Network.AWS.SNS.GetTopicAttributes
-import Network.AWS.SNS.Lens
-import Network.AWS.SNS.ListEndpointsByPlatformApplication
-import Network.AWS.SNS.ListOriginationNumbers
-import Network.AWS.SNS.ListPhoneNumbersOptedOut
-import Network.AWS.SNS.ListPlatformApplications
-import Network.AWS.SNS.ListSMSSandboxPhoneNumbers
-import Network.AWS.SNS.ListSubscriptions
-import Network.AWS.SNS.ListSubscriptionsByTopic
-import Network.AWS.SNS.ListTagsForResource
-import Network.AWS.SNS.ListTopics
-import Network.AWS.SNS.OptInPhoneNumber
-import Network.AWS.SNS.Publish
-import Network.AWS.SNS.RemovePermission
-import Network.AWS.SNS.SetEndpointAttributes
-import Network.AWS.SNS.SetPlatformApplicationAttributes
-import Network.AWS.SNS.SetSMSAttributes
-import Network.AWS.SNS.SetSubscriptionAttributes
-import Network.AWS.SNS.SetTopicAttributes
-import Network.AWS.SNS.Subscribe
-import Network.AWS.SNS.TagResource
-import Network.AWS.SNS.Types
-import Network.AWS.SNS.Unsubscribe
-import Network.AWS.SNS.UntagResource
-import Network.AWS.SNS.VerifySMSSandboxPhoneNumber
-import Network.AWS.SNS.Waiters
+import Amazonka.SNS.AddPermission
+import Amazonka.SNS.CheckIfPhoneNumberIsOptedOut
+import Amazonka.SNS.ConfirmSubscription
+import Amazonka.SNS.CreatePlatformApplication
+import Amazonka.SNS.CreatePlatformEndpoint
+import Amazonka.SNS.CreateSMSSandboxPhoneNumber
+import Amazonka.SNS.CreateTopic
+import Amazonka.SNS.DeleteEndpoint
+import Amazonka.SNS.DeletePlatformApplication
+import Amazonka.SNS.DeleteSMSSandboxPhoneNumber
+import Amazonka.SNS.DeleteTopic
+import Amazonka.SNS.GetEndpointAttributes
+import Amazonka.SNS.GetPlatformApplicationAttributes
+import Amazonka.SNS.GetSMSAttributes
+import Amazonka.SNS.GetSMSSandboxAccountStatus
+import Amazonka.SNS.GetSubscriptionAttributes
+import Amazonka.SNS.GetTopicAttributes
+import Amazonka.SNS.Lens
+import Amazonka.SNS.ListEndpointsByPlatformApplication
+import Amazonka.SNS.ListOriginationNumbers
+import Amazonka.SNS.ListPhoneNumbersOptedOut
+import Amazonka.SNS.ListPlatformApplications
+import Amazonka.SNS.ListSMSSandboxPhoneNumbers
+import Amazonka.SNS.ListSubscriptions
+import Amazonka.SNS.ListSubscriptionsByTopic
+import Amazonka.SNS.ListTagsForResource
+import Amazonka.SNS.ListTopics
+import Amazonka.SNS.OptInPhoneNumber
+import Amazonka.SNS.Publish
+import Amazonka.SNS.RemovePermission
+import Amazonka.SNS.SetEndpointAttributes
+import Amazonka.SNS.SetPlatformApplicationAttributes
+import Amazonka.SNS.SetSMSAttributes
+import Amazonka.SNS.SetSubscriptionAttributes
+import Amazonka.SNS.SetTopicAttributes
+import Amazonka.SNS.Subscribe
+import Amazonka.SNS.TagResource
+import Amazonka.SNS.Types
+import Amazonka.SNS.Unsubscribe
+import Amazonka.SNS.UntagResource
+import Amazonka.SNS.VerifySMSSandboxPhoneNumber
+import Amazonka.SNS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

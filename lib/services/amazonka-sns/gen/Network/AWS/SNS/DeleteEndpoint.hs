@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.DeleteEndpoint
+-- Module      : Amazonka.SNS.DeleteEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- When you delete an endpoint that is also subscribed to a topic, then you
 -- must also unsubscribe the endpoint from the topic.
-module Network.AWS.SNS.DeleteEndpoint
+module Amazonka.SNS.DeleteEndpoint
   ( -- * Creating a Request
     DeleteEndpoint (..),
     newDeleteEndpoint,
@@ -40,12 +40,12 @@ module Network.AWS.SNS.DeleteEndpoint
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | Input for DeleteEndpoint action.
 --

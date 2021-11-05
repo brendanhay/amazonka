@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SNS.ConfirmSubscription
+-- Module      : Amazonka.SNS.ConfirmSubscription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- token is valid, the action creates a new subscription and returns its
 -- Amazon Resource Name (ARN). This call requires an AWS signature only
 -- when the @AuthenticateOnUnsubscribe@ flag is set to \"true\".
-module Network.AWS.SNS.ConfirmSubscription
+module Amazonka.SNS.ConfirmSubscription
   ( -- * Creating a Request
     ConfirmSubscription (..),
     newConfirmSubscription,
@@ -45,12 +45,12 @@ module Network.AWS.SNS.ConfirmSubscription
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SNS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SNS.Types
 
 -- | Input for ConfirmSubscription action.
 --

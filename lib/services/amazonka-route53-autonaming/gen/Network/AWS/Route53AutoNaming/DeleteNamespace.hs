@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.DeleteNamespace
+-- Module      : Amazonka.Route53AutoNaming.DeleteNamespace
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes a namespace from the current account. If the namespace still
 -- contains one or more services, the request fails.
-module Network.AWS.Route53AutoNaming.DeleteNamespace
+module Amazonka.Route53AutoNaming.DeleteNamespace
   ( -- * Creating a Request
     DeleteNamespace (..),
     newDeleteNamespace,
@@ -40,12 +40,12 @@ module Network.AWS.Route53AutoNaming.DeleteNamespace
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53AutoNaming.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newDeleteNamespace' smart constructor.
 data DeleteNamespace = DeleteNamespace'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53AutoNaming where
 
+import Amazonka.Route53AutoNaming
 import qualified Data.Proxy as Proxy
-import Network.AWS.Route53AutoNaming
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Route53AutoNaming.Internal

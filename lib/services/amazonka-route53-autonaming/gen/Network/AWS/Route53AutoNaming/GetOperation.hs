@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.GetOperation
+-- Module      : Amazonka.Route53AutoNaming.GetOperation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- To get a list of operations that match specified criteria, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html ListOperations>.
-module Network.AWS.Route53AutoNaming.GetOperation
+module Amazonka.Route53AutoNaming.GetOperation
   ( -- * Creating a Request
     GetOperation (..),
     newGetOperation,
@@ -43,12 +43,12 @@ module Network.AWS.Route53AutoNaming.GetOperation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53AutoNaming.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newGetOperation' smart constructor.
 data GetOperation = GetOperation'

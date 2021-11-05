@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.Types.DnsRecord
+-- Module      : Amazonka.Route53AutoNaming.Types.DnsRecord
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.DnsRecord where
+module Amazonka.Route53AutoNaming.Types.DnsRecord where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53AutoNaming.Types.RecordType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53AutoNaming.Types.RecordType
 
 -- | A complex type that contains information about the Route 53 DNS records
 -- that you want Cloud Map to create when you register an instance.

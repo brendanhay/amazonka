@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+-- Module      : Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange where
+module Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
 
 -- | Updated properties for the private DNS namespace.
 --

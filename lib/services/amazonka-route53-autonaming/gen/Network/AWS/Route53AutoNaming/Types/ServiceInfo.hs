@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.Types.ServiceInfo
+-- Module      : Amazonka.Route53AutoNaming.Types.ServiceInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.ServiceInfo where
+module Amazonka.Route53AutoNaming.Types.ServiceInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53AutoNaming.Types.DnsConfig
-import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
-import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
-import Network.AWS.Route53AutoNaming.Types.ServiceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53AutoNaming.Types.DnsConfig
+import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
+import Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig
+import Amazonka.Route53AutoNaming.Types.ServiceType
 
 -- | A complex type that contains information about the specified service.
 --

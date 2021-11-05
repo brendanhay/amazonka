@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.DeregisterInstance
+-- Module      : Amazonka.Route53AutoNaming.DeregisterInstance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deletes the Amazon Route 53 DNS records and health check, if any, that
 -- Cloud Map created for the specified instance.
-module Network.AWS.Route53AutoNaming.DeregisterInstance
+module Amazonka.Route53AutoNaming.DeregisterInstance
   ( -- * Creating a Request
     DeregisterInstance (..),
     newDeregisterInstance,
@@ -41,12 +41,12 @@ module Network.AWS.Route53AutoNaming.DeregisterInstance
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53AutoNaming.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming
+-- Module      : Amazonka.Route53AutoNaming
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -20,7 +20,7 @@
 -- automatically creates DNS records and an optional health check. Clients
 -- that submit public or private DNS queries, or HTTP requests, for the
 -- service receive an answer that contains up to eight healthy records.
-module Network.AWS.Route53AutoNaming
+module Amazonka.Route53AutoNaming
   ( -- * Service Configuration
     defaultService,
 
@@ -423,35 +423,35 @@ module Network.AWS.Route53AutoNaming
   )
 where
 
-import Network.AWS.Route53AutoNaming.CreateHttpNamespace
-import Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
-import Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
-import Network.AWS.Route53AutoNaming.CreateService
-import Network.AWS.Route53AutoNaming.DeleteNamespace
-import Network.AWS.Route53AutoNaming.DeleteService
-import Network.AWS.Route53AutoNaming.DeregisterInstance
-import Network.AWS.Route53AutoNaming.DiscoverInstances
-import Network.AWS.Route53AutoNaming.GetInstance
-import Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
-import Network.AWS.Route53AutoNaming.GetNamespace
-import Network.AWS.Route53AutoNaming.GetOperation
-import Network.AWS.Route53AutoNaming.GetService
-import Network.AWS.Route53AutoNaming.Lens
-import Network.AWS.Route53AutoNaming.ListInstances
-import Network.AWS.Route53AutoNaming.ListNamespaces
-import Network.AWS.Route53AutoNaming.ListOperations
-import Network.AWS.Route53AutoNaming.ListServices
-import Network.AWS.Route53AutoNaming.ListTagsForResource
-import Network.AWS.Route53AutoNaming.RegisterInstance
-import Network.AWS.Route53AutoNaming.TagResource
-import Network.AWS.Route53AutoNaming.Types
-import Network.AWS.Route53AutoNaming.UntagResource
-import Network.AWS.Route53AutoNaming.UpdateHttpNamespace
-import Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
-import Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
-import Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
-import Network.AWS.Route53AutoNaming.UpdateService
-import Network.AWS.Route53AutoNaming.Waiters
+import Amazonka.Route53AutoNaming.CreateHttpNamespace
+import Amazonka.Route53AutoNaming.CreatePrivateDnsNamespace
+import Amazonka.Route53AutoNaming.CreatePublicDnsNamespace
+import Amazonka.Route53AutoNaming.CreateService
+import Amazonka.Route53AutoNaming.DeleteNamespace
+import Amazonka.Route53AutoNaming.DeleteService
+import Amazonka.Route53AutoNaming.DeregisterInstance
+import Amazonka.Route53AutoNaming.DiscoverInstances
+import Amazonka.Route53AutoNaming.GetInstance
+import Amazonka.Route53AutoNaming.GetInstancesHealthStatus
+import Amazonka.Route53AutoNaming.GetNamespace
+import Amazonka.Route53AutoNaming.GetOperation
+import Amazonka.Route53AutoNaming.GetService
+import Amazonka.Route53AutoNaming.Lens
+import Amazonka.Route53AutoNaming.ListInstances
+import Amazonka.Route53AutoNaming.ListNamespaces
+import Amazonka.Route53AutoNaming.ListOperations
+import Amazonka.Route53AutoNaming.ListServices
+import Amazonka.Route53AutoNaming.ListTagsForResource
+import Amazonka.Route53AutoNaming.RegisterInstance
+import Amazonka.Route53AutoNaming.TagResource
+import Amazonka.Route53AutoNaming.Types
+import Amazonka.Route53AutoNaming.UntagResource
+import Amazonka.Route53AutoNaming.UpdateHttpNamespace
+import Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+import Amazonka.Route53AutoNaming.UpdatePrivateDnsNamespace
+import Amazonka.Route53AutoNaming.UpdatePublicDnsNamespace
+import Amazonka.Route53AutoNaming.UpdateService
+import Amazonka.Route53AutoNaming.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

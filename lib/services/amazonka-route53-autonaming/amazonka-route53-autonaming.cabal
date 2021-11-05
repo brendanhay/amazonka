@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53AutoNaming.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Route53AutoNaming.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Route53AutoNaming" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Route53AutoNaming" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,89 +45,89 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Route53AutoNaming
-    Network.AWS.Route53AutoNaming.CreateHttpNamespace
-    Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
-    Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
-    Network.AWS.Route53AutoNaming.CreateService
-    Network.AWS.Route53AutoNaming.DeleteNamespace
-    Network.AWS.Route53AutoNaming.DeleteService
-    Network.AWS.Route53AutoNaming.DeregisterInstance
-    Network.AWS.Route53AutoNaming.DiscoverInstances
-    Network.AWS.Route53AutoNaming.GetInstance
-    Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
-    Network.AWS.Route53AutoNaming.GetNamespace
-    Network.AWS.Route53AutoNaming.GetOperation
-    Network.AWS.Route53AutoNaming.GetService
-    Network.AWS.Route53AutoNaming.Lens
-    Network.AWS.Route53AutoNaming.ListInstances
-    Network.AWS.Route53AutoNaming.ListNamespaces
-    Network.AWS.Route53AutoNaming.ListOperations
-    Network.AWS.Route53AutoNaming.ListServices
-    Network.AWS.Route53AutoNaming.ListTagsForResource
-    Network.AWS.Route53AutoNaming.RegisterInstance
-    Network.AWS.Route53AutoNaming.TagResource
-    Network.AWS.Route53AutoNaming.Types
-    Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
-    Network.AWS.Route53AutoNaming.Types.DnsConfig
-    Network.AWS.Route53AutoNaming.Types.DnsConfigChange
-    Network.AWS.Route53AutoNaming.Types.DnsProperties
-    Network.AWS.Route53AutoNaming.Types.DnsRecord
-    Network.AWS.Route53AutoNaming.Types.FilterCondition
-    Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
-    Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
-    Network.AWS.Route53AutoNaming.Types.HealthCheckType
-    Network.AWS.Route53AutoNaming.Types.HealthStatus
-    Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
-    Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
-    Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
-    Network.AWS.Route53AutoNaming.Types.HttpProperties
-    Network.AWS.Route53AutoNaming.Types.Instance
-    Network.AWS.Route53AutoNaming.Types.InstanceSummary
-    Network.AWS.Route53AutoNaming.Types.Namespace
-    Network.AWS.Route53AutoNaming.Types.NamespaceFilter
-    Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
-    Network.AWS.Route53AutoNaming.Types.NamespaceProperties
-    Network.AWS.Route53AutoNaming.Types.NamespaceSummary
-    Network.AWS.Route53AutoNaming.Types.NamespaceType
-    Network.AWS.Route53AutoNaming.Types.Operation
-    Network.AWS.Route53AutoNaming.Types.OperationFilter
-    Network.AWS.Route53AutoNaming.Types.OperationFilterName
-    Network.AWS.Route53AutoNaming.Types.OperationStatus
-    Network.AWS.Route53AutoNaming.Types.OperationSummary
-    Network.AWS.Route53AutoNaming.Types.OperationTargetType
-    Network.AWS.Route53AutoNaming.Types.OperationType
-    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
-    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
-    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
-    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
-    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
-    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
-    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
-    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
-    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
-    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
-    Network.AWS.Route53AutoNaming.Types.RecordType
-    Network.AWS.Route53AutoNaming.Types.RoutingPolicy
-    Network.AWS.Route53AutoNaming.Types.ServiceChange
-    Network.AWS.Route53AutoNaming.Types.ServiceFilter
-    Network.AWS.Route53AutoNaming.Types.ServiceFilterName
-    Network.AWS.Route53AutoNaming.Types.ServiceInfo
-    Network.AWS.Route53AutoNaming.Types.ServiceSummary
-    Network.AWS.Route53AutoNaming.Types.ServiceType
-    Network.AWS.Route53AutoNaming.Types.ServiceTypeOption
-    Network.AWS.Route53AutoNaming.Types.SOA
-    Network.AWS.Route53AutoNaming.Types.SOAChange
-    Network.AWS.Route53AutoNaming.Types.Tag
-    Network.AWS.Route53AutoNaming.UntagResource
-    Network.AWS.Route53AutoNaming.UpdateHttpNamespace
-    Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
-    Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
-    Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
-    Network.AWS.Route53AutoNaming.UpdateService
-    Network.AWS.Route53AutoNaming.Waiters
+    Amazonka.Route53AutoNaming
+    Amazonka.Route53AutoNaming.CreateHttpNamespace
+    Amazonka.Route53AutoNaming.CreatePrivateDnsNamespace
+    Amazonka.Route53AutoNaming.CreatePublicDnsNamespace
+    Amazonka.Route53AutoNaming.CreateService
+    Amazonka.Route53AutoNaming.DeleteNamespace
+    Amazonka.Route53AutoNaming.DeleteService
+    Amazonka.Route53AutoNaming.DeregisterInstance
+    Amazonka.Route53AutoNaming.DiscoverInstances
+    Amazonka.Route53AutoNaming.GetInstance
+    Amazonka.Route53AutoNaming.GetInstancesHealthStatus
+    Amazonka.Route53AutoNaming.GetNamespace
+    Amazonka.Route53AutoNaming.GetOperation
+    Amazonka.Route53AutoNaming.GetService
+    Amazonka.Route53AutoNaming.Lens
+    Amazonka.Route53AutoNaming.ListInstances
+    Amazonka.Route53AutoNaming.ListNamespaces
+    Amazonka.Route53AutoNaming.ListOperations
+    Amazonka.Route53AutoNaming.ListServices
+    Amazonka.Route53AutoNaming.ListTagsForResource
+    Amazonka.Route53AutoNaming.RegisterInstance
+    Amazonka.Route53AutoNaming.TagResource
+    Amazonka.Route53AutoNaming.Types
+    Amazonka.Route53AutoNaming.Types.CustomHealthStatus
+    Amazonka.Route53AutoNaming.Types.DnsConfig
+    Amazonka.Route53AutoNaming.Types.DnsConfigChange
+    Amazonka.Route53AutoNaming.Types.DnsProperties
+    Amazonka.Route53AutoNaming.Types.DnsRecord
+    Amazonka.Route53AutoNaming.Types.FilterCondition
+    Amazonka.Route53AutoNaming.Types.HealthCheckConfig
+    Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig
+    Amazonka.Route53AutoNaming.Types.HealthCheckType
+    Amazonka.Route53AutoNaming.Types.HealthStatus
+    Amazonka.Route53AutoNaming.Types.HealthStatusFilter
+    Amazonka.Route53AutoNaming.Types.HttpInstanceSummary
+    Amazonka.Route53AutoNaming.Types.HttpNamespaceChange
+    Amazonka.Route53AutoNaming.Types.HttpProperties
+    Amazonka.Route53AutoNaming.Types.Instance
+    Amazonka.Route53AutoNaming.Types.InstanceSummary
+    Amazonka.Route53AutoNaming.Types.Namespace
+    Amazonka.Route53AutoNaming.Types.NamespaceFilter
+    Amazonka.Route53AutoNaming.Types.NamespaceFilterName
+    Amazonka.Route53AutoNaming.Types.NamespaceProperties
+    Amazonka.Route53AutoNaming.Types.NamespaceSummary
+    Amazonka.Route53AutoNaming.Types.NamespaceType
+    Amazonka.Route53AutoNaming.Types.Operation
+    Amazonka.Route53AutoNaming.Types.OperationFilter
+    Amazonka.Route53AutoNaming.Types.OperationFilterName
+    Amazonka.Route53AutoNaming.Types.OperationStatus
+    Amazonka.Route53AutoNaming.Types.OperationSummary
+    Amazonka.Route53AutoNaming.Types.OperationTargetType
+    Amazonka.Route53AutoNaming.Types.OperationType
+    Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+    Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+    Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+    Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+    Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+    Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange
+    Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+    Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+    Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+    Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
+    Amazonka.Route53AutoNaming.Types.RecordType
+    Amazonka.Route53AutoNaming.Types.RoutingPolicy
+    Amazonka.Route53AutoNaming.Types.ServiceChange
+    Amazonka.Route53AutoNaming.Types.ServiceFilter
+    Amazonka.Route53AutoNaming.Types.ServiceFilterName
+    Amazonka.Route53AutoNaming.Types.ServiceInfo
+    Amazonka.Route53AutoNaming.Types.ServiceSummary
+    Amazonka.Route53AutoNaming.Types.ServiceType
+    Amazonka.Route53AutoNaming.Types.ServiceTypeOption
+    Amazonka.Route53AutoNaming.Types.SOA
+    Amazonka.Route53AutoNaming.Types.SOAChange
+    Amazonka.Route53AutoNaming.Types.Tag
+    Amazonka.Route53AutoNaming.UntagResource
+    Amazonka.Route53AutoNaming.UpdateHttpNamespace
+    Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+    Amazonka.Route53AutoNaming.UpdatePrivateDnsNamespace
+    Amazonka.Route53AutoNaming.UpdatePublicDnsNamespace
+    Amazonka.Route53AutoNaming.UpdateService
+    Amazonka.Route53AutoNaming.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.Types.ServiceFilter
+-- Module      : Amazonka.Route53AutoNaming.Types.ServiceFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.ServiceFilter where
+module Amazonka.Route53AutoNaming.Types.ServiceFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53AutoNaming.Types.FilterCondition
-import Network.AWS.Route53AutoNaming.Types.ServiceFilterName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53AutoNaming.Types.FilterCondition
+import Amazonka.Route53AutoNaming.Types.ServiceFilterName
 
 -- | A complex type that lets you specify the namespaces that you want to
 -- list services for.

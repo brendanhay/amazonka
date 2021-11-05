@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.CreateService
+-- Module      : Amazonka.Route53AutoNaming.CreateService
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -47,7 +47,7 @@
 -- using the same namespace and using the same service, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
 -- in the /Cloud Map Developer Guide/.
-module Network.AWS.Route53AutoNaming.CreateService
+module Amazonka.Route53AutoNaming.CreateService
   ( -- * Creating a Request
     CreateService (..),
     newCreateService,
@@ -73,12 +73,12 @@ module Network.AWS.Route53AutoNaming.CreateService
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53AutoNaming.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newCreateService' smart constructor.
 data CreateService = CreateService'

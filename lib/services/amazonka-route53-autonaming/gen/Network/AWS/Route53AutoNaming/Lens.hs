@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53AutoNaming.Lens
+-- Module      : Amazonka.Route53AutoNaming.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Lens
+module Amazonka.Route53AutoNaming.Lens
   ( -- * Operations
 
     -- ** ListServices
@@ -373,64 +373,64 @@ module Network.AWS.Route53AutoNaming.Lens
   )
 where
 
-import Network.AWS.Route53AutoNaming.CreateHttpNamespace
-import Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
-import Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
-import Network.AWS.Route53AutoNaming.CreateService
-import Network.AWS.Route53AutoNaming.DeleteNamespace
-import Network.AWS.Route53AutoNaming.DeleteService
-import Network.AWS.Route53AutoNaming.DeregisterInstance
-import Network.AWS.Route53AutoNaming.DiscoverInstances
-import Network.AWS.Route53AutoNaming.GetInstance
-import Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
-import Network.AWS.Route53AutoNaming.GetNamespace
-import Network.AWS.Route53AutoNaming.GetOperation
-import Network.AWS.Route53AutoNaming.GetService
-import Network.AWS.Route53AutoNaming.ListInstances
-import Network.AWS.Route53AutoNaming.ListNamespaces
-import Network.AWS.Route53AutoNaming.ListOperations
-import Network.AWS.Route53AutoNaming.ListServices
-import Network.AWS.Route53AutoNaming.ListTagsForResource
-import Network.AWS.Route53AutoNaming.RegisterInstance
-import Network.AWS.Route53AutoNaming.TagResource
-import Network.AWS.Route53AutoNaming.Types.DnsConfig
-import Network.AWS.Route53AutoNaming.Types.DnsConfigChange
-import Network.AWS.Route53AutoNaming.Types.DnsProperties
-import Network.AWS.Route53AutoNaming.Types.DnsRecord
-import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
-import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
-import Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
-import Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
-import Network.AWS.Route53AutoNaming.Types.HttpProperties
-import Network.AWS.Route53AutoNaming.Types.Instance
-import Network.AWS.Route53AutoNaming.Types.InstanceSummary
-import Network.AWS.Route53AutoNaming.Types.Namespace
-import Network.AWS.Route53AutoNaming.Types.NamespaceFilter
-import Network.AWS.Route53AutoNaming.Types.NamespaceProperties
-import Network.AWS.Route53AutoNaming.Types.NamespaceSummary
-import Network.AWS.Route53AutoNaming.Types.Operation
-import Network.AWS.Route53AutoNaming.Types.OperationFilter
-import Network.AWS.Route53AutoNaming.Types.OperationSummary
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
-import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
-import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
-import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
-import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
-import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
-import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
-import Network.AWS.Route53AutoNaming.Types.SOA
-import Network.AWS.Route53AutoNaming.Types.SOAChange
-import Network.AWS.Route53AutoNaming.Types.ServiceChange
-import Network.AWS.Route53AutoNaming.Types.ServiceFilter
-import Network.AWS.Route53AutoNaming.Types.ServiceInfo
-import Network.AWS.Route53AutoNaming.Types.ServiceSummary
-import Network.AWS.Route53AutoNaming.Types.Tag
-import Network.AWS.Route53AutoNaming.UntagResource
-import Network.AWS.Route53AutoNaming.UpdateHttpNamespace
-import Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
-import Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
-import Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
-import Network.AWS.Route53AutoNaming.UpdateService
+import Amazonka.Route53AutoNaming.CreateHttpNamespace
+import Amazonka.Route53AutoNaming.CreatePrivateDnsNamespace
+import Amazonka.Route53AutoNaming.CreatePublicDnsNamespace
+import Amazonka.Route53AutoNaming.CreateService
+import Amazonka.Route53AutoNaming.DeleteNamespace
+import Amazonka.Route53AutoNaming.DeleteService
+import Amazonka.Route53AutoNaming.DeregisterInstance
+import Amazonka.Route53AutoNaming.DiscoverInstances
+import Amazonka.Route53AutoNaming.GetInstance
+import Amazonka.Route53AutoNaming.GetInstancesHealthStatus
+import Amazonka.Route53AutoNaming.GetNamespace
+import Amazonka.Route53AutoNaming.GetOperation
+import Amazonka.Route53AutoNaming.GetService
+import Amazonka.Route53AutoNaming.ListInstances
+import Amazonka.Route53AutoNaming.ListNamespaces
+import Amazonka.Route53AutoNaming.ListOperations
+import Amazonka.Route53AutoNaming.ListServices
+import Amazonka.Route53AutoNaming.ListTagsForResource
+import Amazonka.Route53AutoNaming.RegisterInstance
+import Amazonka.Route53AutoNaming.TagResource
+import Amazonka.Route53AutoNaming.Types.DnsConfig
+import Amazonka.Route53AutoNaming.Types.DnsConfigChange
+import Amazonka.Route53AutoNaming.Types.DnsProperties
+import Amazonka.Route53AutoNaming.Types.DnsRecord
+import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
+import Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig
+import Amazonka.Route53AutoNaming.Types.HttpInstanceSummary
+import Amazonka.Route53AutoNaming.Types.HttpNamespaceChange
+import Amazonka.Route53AutoNaming.Types.HttpProperties
+import Amazonka.Route53AutoNaming.Types.Instance
+import Amazonka.Route53AutoNaming.Types.InstanceSummary
+import Amazonka.Route53AutoNaming.Types.Namespace
+import Amazonka.Route53AutoNaming.Types.NamespaceFilter
+import Amazonka.Route53AutoNaming.Types.NamespaceProperties
+import Amazonka.Route53AutoNaming.Types.NamespaceSummary
+import Amazonka.Route53AutoNaming.Types.Operation
+import Amazonka.Route53AutoNaming.Types.OperationFilter
+import Amazonka.Route53AutoNaming.Types.OperationSummary
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+import Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
+import Amazonka.Route53AutoNaming.Types.SOA
+import Amazonka.Route53AutoNaming.Types.SOAChange
+import Amazonka.Route53AutoNaming.Types.ServiceChange
+import Amazonka.Route53AutoNaming.Types.ServiceFilter
+import Amazonka.Route53AutoNaming.Types.ServiceInfo
+import Amazonka.Route53AutoNaming.Types.ServiceSummary
+import Amazonka.Route53AutoNaming.Types.Tag
+import Amazonka.Route53AutoNaming.UntagResource
+import Amazonka.Route53AutoNaming.UpdateHttpNamespace
+import Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+import Amazonka.Route53AutoNaming.UpdatePrivateDnsNamespace
+import Amazonka.Route53AutoNaming.UpdatePublicDnsNamespace
+import Amazonka.Route53AutoNaming.UpdateService

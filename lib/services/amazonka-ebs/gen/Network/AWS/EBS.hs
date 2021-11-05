@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EBS
+-- Module      : Amazonka.EBS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- quotas for the EBS direct APIs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ebs-service.html Amazon Elastic Block Store Endpoints and Quotas>
 -- in the /Amazon Web Services General Reference/.
-module Network.AWS.EBS
+module Amazonka.EBS
   ( -- * Service Configuration
     defaultService,
 
@@ -137,15 +137,15 @@ module Network.AWS.EBS
   )
 where
 
-import Network.AWS.EBS.CompleteSnapshot
-import Network.AWS.EBS.GetSnapshotBlock
-import Network.AWS.EBS.Lens
-import Network.AWS.EBS.ListChangedBlocks
-import Network.AWS.EBS.ListSnapshotBlocks
-import Network.AWS.EBS.PutSnapshotBlock
-import Network.AWS.EBS.StartSnapshot
-import Network.AWS.EBS.Types
-import Network.AWS.EBS.Waiters
+import Amazonka.EBS.CompleteSnapshot
+import Amazonka.EBS.GetSnapshotBlock
+import Amazonka.EBS.Lens
+import Amazonka.EBS.ListChangedBlocks
+import Amazonka.EBS.ListSnapshotBlocks
+import Amazonka.EBS.PutSnapshotBlock
+import Amazonka.EBS.StartSnapshot
+import Amazonka.EBS.Types
+import Amazonka.EBS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

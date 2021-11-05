@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EBS.CompleteSnapshot
+-- Module      : Amazonka.EBS.CompleteSnapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- data have been written to it. Completing the snapshot changes the status
 -- to @completed@. You cannot write new blocks to a snapshot after it has
 -- been completed.
-module Network.AWS.EBS.CompleteSnapshot
+module Amazonka.EBS.CompleteSnapshot
   ( -- * Creating a Request
     CompleteSnapshot (..),
     newCompleteSnapshot,
@@ -46,12 +46,12 @@ module Network.AWS.EBS.CompleteSnapshot
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EBS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EBS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCompleteSnapshot' smart constructor.
 data CompleteSnapshot = CompleteSnapshot'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EBS.Types
+-- Module      : Amazonka.EBS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EBS.Types
+module Amazonka.EBS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -56,16 +56,16 @@ module Network.AWS.EBS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EBS.Types.Block
-import Network.AWS.EBS.Types.ChangedBlock
-import Network.AWS.EBS.Types.ChecksumAggregationMethod
-import Network.AWS.EBS.Types.ChecksumAlgorithm
-import Network.AWS.EBS.Types.Status
-import Network.AWS.EBS.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.EBS.Types.Block
+import Amazonka.EBS.Types.ChangedBlock
+import Amazonka.EBS.Types.ChecksumAggregationMethod
+import Amazonka.EBS.Types.ChecksumAlgorithm
+import Amazonka.EBS.Types.Status
+import Amazonka.EBS.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-11-02@ of the Amazon Elastic Block Store SDK configuration.
 defaultService :: Core.Service

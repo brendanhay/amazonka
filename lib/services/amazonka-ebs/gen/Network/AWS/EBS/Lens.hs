@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EBS.Lens
+-- Module      : Amazonka.EBS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EBS.Lens
+module Amazonka.EBS.Lens
   ( -- * Operations
 
     -- ** StartSnapshot
@@ -108,12 +108,12 @@ module Network.AWS.EBS.Lens
   )
 where
 
-import Network.AWS.EBS.CompleteSnapshot
-import Network.AWS.EBS.GetSnapshotBlock
-import Network.AWS.EBS.ListChangedBlocks
-import Network.AWS.EBS.ListSnapshotBlocks
-import Network.AWS.EBS.PutSnapshotBlock
-import Network.AWS.EBS.StartSnapshot
-import Network.AWS.EBS.Types.Block
-import Network.AWS.EBS.Types.ChangedBlock
-import Network.AWS.EBS.Types.Tag
+import Amazonka.EBS.CompleteSnapshot
+import Amazonka.EBS.GetSnapshotBlock
+import Amazonka.EBS.ListChangedBlocks
+import Amazonka.EBS.ListSnapshotBlocks
+import Amazonka.EBS.PutSnapshotBlock
+import Amazonka.EBS.StartSnapshot
+import Amazonka.EBS.Types.Block
+import Amazonka.EBS.Types.ChangedBlock
+import Amazonka.EBS.Types.Tag

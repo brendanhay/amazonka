@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EBS.StartSnapshot
+-- Module      : Amazonka.EBS.StartSnapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- After creating the snapshot, use
 -- <https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html PutSnapshotBlock>
 -- to write blocks of data to the snapshot.
-module Network.AWS.EBS.StartSnapshot
+module Amazonka.EBS.StartSnapshot
   ( -- * Creating a Request
     StartSnapshot (..),
     newStartSnapshot,
@@ -60,12 +60,12 @@ module Network.AWS.EBS.StartSnapshot
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EBS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EBS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartSnapshot' smart constructor.
 data StartSnapshot = StartSnapshot'

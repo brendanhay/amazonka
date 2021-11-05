@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CostAndUsageReport where
 
+import Amazonka.CostAndUsageReport
 import qualified Data.Proxy as Proxy
-import Network.AWS.CostAndUsageReport
 import Test.AWS.CostAndUsageReport.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

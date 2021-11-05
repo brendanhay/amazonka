@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostAndUsageReport.Types.ReportDefinition
+-- Module      : Amazonka.CostAndUsageReport.Types.ReportDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.ReportDefinition where
+module Amazonka.CostAndUsageReport.Types.ReportDefinition where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostAndUsageReport.Types.AWSRegion
-import Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
-import Network.AWS.CostAndUsageReport.Types.CompressionFormat
-import Network.AWS.CostAndUsageReport.Types.ReportFormat
-import Network.AWS.CostAndUsageReport.Types.ReportVersioning
-import Network.AWS.CostAndUsageReport.Types.SchemaElement
-import Network.AWS.CostAndUsageReport.Types.TimeUnit
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CostAndUsageReport.Types.AWSRegion
+import Amazonka.CostAndUsageReport.Types.AdditionalArtifact
+import Amazonka.CostAndUsageReport.Types.CompressionFormat
+import Amazonka.CostAndUsageReport.Types.ReportFormat
+import Amazonka.CostAndUsageReport.Types.ReportVersioning
+import Amazonka.CostAndUsageReport.Types.SchemaElement
+import Amazonka.CostAndUsageReport.Types.TimeUnit
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The definition of AWS Cost and Usage Report. You can specify the report
 -- name, time unit, report format, compression format, S3 bucket,

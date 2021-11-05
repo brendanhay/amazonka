@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CostAndUsageReport
+-- Module      : Amazonka.CostAndUsageReport
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- The AWS Cost and Usage Report API provides the following endpoint:
 --
 -- -   cur.us-east-1.amazonaws.com
-module Network.AWS.CostAndUsageReport
+module Amazonka.CostAndUsageReport
   ( -- * Service Configuration
     defaultService,
 
@@ -103,13 +103,13 @@ module Network.AWS.CostAndUsageReport
   )
 where
 
-import Network.AWS.CostAndUsageReport.DeleteReportDefinition
-import Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-import Network.AWS.CostAndUsageReport.Lens
-import Network.AWS.CostAndUsageReport.ModifyReportDefinition
-import Network.AWS.CostAndUsageReport.PutReportDefinition
-import Network.AWS.CostAndUsageReport.Types
-import Network.AWS.CostAndUsageReport.Waiters
+import Amazonka.CostAndUsageReport.DeleteReportDefinition
+import Amazonka.CostAndUsageReport.DescribeReportDefinitions
+import Amazonka.CostAndUsageReport.Lens
+import Amazonka.CostAndUsageReport.ModifyReportDefinition
+import Amazonka.CostAndUsageReport.PutReportDefinition
+import Amazonka.CostAndUsageReport.Types
+import Amazonka.CostAndUsageReport.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

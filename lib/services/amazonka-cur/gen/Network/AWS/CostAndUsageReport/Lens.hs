@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostAndUsageReport.Lens
+-- Module      : Amazonka.CostAndUsageReport.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Lens
+module Amazonka.CostAndUsageReport.Lens
   ( -- * Operations
 
     -- ** PutReportDefinition
@@ -53,8 +53,8 @@ module Network.AWS.CostAndUsageReport.Lens
   )
 where
 
-import Network.AWS.CostAndUsageReport.DeleteReportDefinition
-import Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-import Network.AWS.CostAndUsageReport.ModifyReportDefinition
-import Network.AWS.CostAndUsageReport.PutReportDefinition
-import Network.AWS.CostAndUsageReport.Types.ReportDefinition
+import Amazonka.CostAndUsageReport.DeleteReportDefinition
+import Amazonka.CostAndUsageReport.DescribeReportDefinitions
+import Amazonka.CostAndUsageReport.ModifyReportDefinition
+import Amazonka.CostAndUsageReport.PutReportDefinition
+import Amazonka.CostAndUsageReport.Types.ReportDefinition

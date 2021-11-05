@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostAndUsageReport.Types
+-- Module      : Amazonka.CostAndUsageReport.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types
+module Amazonka.CostAndUsageReport.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -61,18 +61,18 @@ module Network.AWS.CostAndUsageReport.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostAndUsageReport.Types.AWSRegion
-import Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
-import Network.AWS.CostAndUsageReport.Types.CompressionFormat
-import Network.AWS.CostAndUsageReport.Types.ReportDefinition
-import Network.AWS.CostAndUsageReport.Types.ReportFormat
-import Network.AWS.CostAndUsageReport.Types.ReportVersioning
-import Network.AWS.CostAndUsageReport.Types.SchemaElement
-import Network.AWS.CostAndUsageReport.Types.TimeUnit
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.CostAndUsageReport.Types.AWSRegion
+import Amazonka.CostAndUsageReport.Types.AdditionalArtifact
+import Amazonka.CostAndUsageReport.Types.CompressionFormat
+import Amazonka.CostAndUsageReport.Types.ReportDefinition
+import Amazonka.CostAndUsageReport.Types.ReportFormat
+import Amazonka.CostAndUsageReport.Types.ReportVersioning
+import Amazonka.CostAndUsageReport.Types.SchemaElement
+import Amazonka.CostAndUsageReport.Types.TimeUnit
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-01-06@ of the Amazon Cost and Usage Report Service SDK configuration.
 defaultService :: Core.Service

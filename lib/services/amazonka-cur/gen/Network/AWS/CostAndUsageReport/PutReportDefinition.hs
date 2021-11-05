@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostAndUsageReport.PutReportDefinition
+-- Module      : Amazonka.CostAndUsageReport.PutReportDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new report using the description that you provide.
-module Network.AWS.CostAndUsageReport.PutReportDefinition
+module Amazonka.CostAndUsageReport.PutReportDefinition
   ( -- * Creating a Request
     PutReportDefinition (..),
     newPutReportDefinition,
@@ -38,12 +38,12 @@ module Network.AWS.CostAndUsageReport.PutReportDefinition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CostAndUsageReport.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CostAndUsageReport.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Creates a Cost and Usage Report.
 --

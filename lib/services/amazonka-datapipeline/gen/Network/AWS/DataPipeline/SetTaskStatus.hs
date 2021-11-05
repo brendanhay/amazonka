@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataPipeline.SetTaskStatus
+-- Module      : Amazonka.DataPipeline.SetTaskStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- runner makes this call regardless of whether the task was sucessful. A
 -- task runner does not need to call @SetTaskStatus@ for tasks that are
 -- canceled by the web service during a call to ReportTaskProgress.
-module Network.AWS.DataPipeline.SetTaskStatus
+module Amazonka.DataPipeline.SetTaskStatus
   ( -- * Creating a Request
     SetTaskStatus (..),
     newSetTaskStatus,
@@ -46,12 +46,12 @@ module Network.AWS.DataPipeline.SetTaskStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataPipeline.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataPipeline.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for SetTaskStatus.
 --

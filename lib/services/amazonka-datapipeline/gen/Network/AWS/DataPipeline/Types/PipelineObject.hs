@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataPipeline.Types.PipelineObject
+-- Module      : Amazonka.DataPipeline.Types.PipelineObject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.PipelineObject where
+module Amazonka.DataPipeline.Types.PipelineObject where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataPipeline.Types.Field
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataPipeline.Types.Field
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a pipeline object. This can be a logical,
 -- physical, or physical attempt pipeline object. The complete set of

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DataPipeline
+-- Module      : Amazonka.DataPipeline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- progress to the web service as it does so. When the task is done, the
 -- task runner reports the final success or failure of the task to the web
 -- service.
-module Network.AWS.DataPipeline
+module Amazonka.DataPipeline
   ( -- * Service Configuration
     defaultService,
 
@@ -246,28 +246,28 @@ module Network.AWS.DataPipeline
   )
 where
 
-import Network.AWS.DataPipeline.ActivatePipeline
-import Network.AWS.DataPipeline.AddTags
-import Network.AWS.DataPipeline.CreatePipeline
-import Network.AWS.DataPipeline.DeactivatePipeline
-import Network.AWS.DataPipeline.DeletePipeline
-import Network.AWS.DataPipeline.DescribeObjects
-import Network.AWS.DataPipeline.DescribePipelines
-import Network.AWS.DataPipeline.EvaluateExpression
-import Network.AWS.DataPipeline.GetPipelineDefinition
-import Network.AWS.DataPipeline.Lens
-import Network.AWS.DataPipeline.ListPipelines
-import Network.AWS.DataPipeline.PollForTask
-import Network.AWS.DataPipeline.PutPipelineDefinition
-import Network.AWS.DataPipeline.QueryObjects
-import Network.AWS.DataPipeline.RemoveTags
-import Network.AWS.DataPipeline.ReportTaskProgress
-import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
-import Network.AWS.DataPipeline.SetStatus
-import Network.AWS.DataPipeline.SetTaskStatus
-import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.ValidatePipelineDefinition
-import Network.AWS.DataPipeline.Waiters
+import Amazonka.DataPipeline.ActivatePipeline
+import Amazonka.DataPipeline.AddTags
+import Amazonka.DataPipeline.CreatePipeline
+import Amazonka.DataPipeline.DeactivatePipeline
+import Amazonka.DataPipeline.DeletePipeline
+import Amazonka.DataPipeline.DescribeObjects
+import Amazonka.DataPipeline.DescribePipelines
+import Amazonka.DataPipeline.EvaluateExpression
+import Amazonka.DataPipeline.GetPipelineDefinition
+import Amazonka.DataPipeline.Lens
+import Amazonka.DataPipeline.ListPipelines
+import Amazonka.DataPipeline.PollForTask
+import Amazonka.DataPipeline.PutPipelineDefinition
+import Amazonka.DataPipeline.QueryObjects
+import Amazonka.DataPipeline.RemoveTags
+import Amazonka.DataPipeline.ReportTaskProgress
+import Amazonka.DataPipeline.ReportTaskRunnerHeartbeat
+import Amazonka.DataPipeline.SetStatus
+import Amazonka.DataPipeline.SetTaskStatus
+import Amazonka.DataPipeline.Types
+import Amazonka.DataPipeline.ValidatePipelineDefinition
+import Amazonka.DataPipeline.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

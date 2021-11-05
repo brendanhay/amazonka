@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
+-- Module      : Amazonka.DataPipeline.GetPipelineDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Gets the definition of the specified pipeline. You can call
 -- @GetPipelineDefinition@ to retrieve the pipeline definition that you
 -- provided using PutPipelineDefinition.
-module Network.AWS.DataPipeline.GetPipelineDefinition
+module Amazonka.DataPipeline.GetPipelineDefinition
   ( -- * Creating a Request
     GetPipelineDefinition (..),
     newGetPipelineDefinition,
@@ -44,12 +44,12 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataPipeline.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataPipeline.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for GetPipelineDefinition.
 --

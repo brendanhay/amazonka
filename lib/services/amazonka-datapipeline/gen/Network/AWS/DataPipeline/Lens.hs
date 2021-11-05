@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataPipeline.Lens
+-- Module      : Amazonka.DataPipeline.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Lens
+module Amazonka.DataPipeline.Lens
   ( -- * Operations
 
     -- ** DescribePipelines
@@ -217,37 +217,37 @@ module Network.AWS.DataPipeline.Lens
   )
 where
 
-import Network.AWS.DataPipeline.ActivatePipeline
-import Network.AWS.DataPipeline.AddTags
-import Network.AWS.DataPipeline.CreatePipeline
-import Network.AWS.DataPipeline.DeactivatePipeline
-import Network.AWS.DataPipeline.DeletePipeline
-import Network.AWS.DataPipeline.DescribeObjects
-import Network.AWS.DataPipeline.DescribePipelines
-import Network.AWS.DataPipeline.EvaluateExpression
-import Network.AWS.DataPipeline.GetPipelineDefinition
-import Network.AWS.DataPipeline.ListPipelines
-import Network.AWS.DataPipeline.PollForTask
-import Network.AWS.DataPipeline.PutPipelineDefinition
-import Network.AWS.DataPipeline.QueryObjects
-import Network.AWS.DataPipeline.RemoveTags
-import Network.AWS.DataPipeline.ReportTaskProgress
-import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
-import Network.AWS.DataPipeline.SetStatus
-import Network.AWS.DataPipeline.SetTaskStatus
-import Network.AWS.DataPipeline.Types.Field
-import Network.AWS.DataPipeline.Types.InstanceIdentity
-import Network.AWS.DataPipeline.Types.Operator
-import Network.AWS.DataPipeline.Types.ParameterAttribute
-import Network.AWS.DataPipeline.Types.ParameterObject
-import Network.AWS.DataPipeline.Types.ParameterValue
-import Network.AWS.DataPipeline.Types.PipelineDescription
-import Network.AWS.DataPipeline.Types.PipelineIdName
-import Network.AWS.DataPipeline.Types.PipelineObject
-import Network.AWS.DataPipeline.Types.Query
-import Network.AWS.DataPipeline.Types.Selector
-import Network.AWS.DataPipeline.Types.Tag
-import Network.AWS.DataPipeline.Types.TaskObject
-import Network.AWS.DataPipeline.Types.ValidationError
-import Network.AWS.DataPipeline.Types.ValidationWarning
-import Network.AWS.DataPipeline.ValidatePipelineDefinition
+import Amazonka.DataPipeline.ActivatePipeline
+import Amazonka.DataPipeline.AddTags
+import Amazonka.DataPipeline.CreatePipeline
+import Amazonka.DataPipeline.DeactivatePipeline
+import Amazonka.DataPipeline.DeletePipeline
+import Amazonka.DataPipeline.DescribeObjects
+import Amazonka.DataPipeline.DescribePipelines
+import Amazonka.DataPipeline.EvaluateExpression
+import Amazonka.DataPipeline.GetPipelineDefinition
+import Amazonka.DataPipeline.ListPipelines
+import Amazonka.DataPipeline.PollForTask
+import Amazonka.DataPipeline.PutPipelineDefinition
+import Amazonka.DataPipeline.QueryObjects
+import Amazonka.DataPipeline.RemoveTags
+import Amazonka.DataPipeline.ReportTaskProgress
+import Amazonka.DataPipeline.ReportTaskRunnerHeartbeat
+import Amazonka.DataPipeline.SetStatus
+import Amazonka.DataPipeline.SetTaskStatus
+import Amazonka.DataPipeline.Types.Field
+import Amazonka.DataPipeline.Types.InstanceIdentity
+import Amazonka.DataPipeline.Types.Operator
+import Amazonka.DataPipeline.Types.ParameterAttribute
+import Amazonka.DataPipeline.Types.ParameterObject
+import Amazonka.DataPipeline.Types.ParameterValue
+import Amazonka.DataPipeline.Types.PipelineDescription
+import Amazonka.DataPipeline.Types.PipelineIdName
+import Amazonka.DataPipeline.Types.PipelineObject
+import Amazonka.DataPipeline.Types.Query
+import Amazonka.DataPipeline.Types.Selector
+import Amazonka.DataPipeline.Types.Tag
+import Amazonka.DataPipeline.Types.TaskObject
+import Amazonka.DataPipeline.Types.ValidationError
+import Amazonka.DataPipeline.Types.ValidationWarning
+import Amazonka.DataPipeline.ValidatePipelineDefinition

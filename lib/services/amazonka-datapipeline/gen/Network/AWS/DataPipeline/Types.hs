@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataPipeline.Types
+-- Module      : Amazonka.DataPipeline.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types
+module Amazonka.DataPipeline.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -127,27 +127,27 @@ module Network.AWS.DataPipeline.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataPipeline.Types.Field
-import Network.AWS.DataPipeline.Types.InstanceIdentity
-import Network.AWS.DataPipeline.Types.Operator
-import Network.AWS.DataPipeline.Types.OperatorType
-import Network.AWS.DataPipeline.Types.ParameterAttribute
-import Network.AWS.DataPipeline.Types.ParameterObject
-import Network.AWS.DataPipeline.Types.ParameterValue
-import Network.AWS.DataPipeline.Types.PipelineDescription
-import Network.AWS.DataPipeline.Types.PipelineIdName
-import Network.AWS.DataPipeline.Types.PipelineObject
-import Network.AWS.DataPipeline.Types.Query
-import Network.AWS.DataPipeline.Types.Selector
-import Network.AWS.DataPipeline.Types.Tag
-import Network.AWS.DataPipeline.Types.TaskObject
-import Network.AWS.DataPipeline.Types.TaskStatus
-import Network.AWS.DataPipeline.Types.ValidationError
-import Network.AWS.DataPipeline.Types.ValidationWarning
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DataPipeline.Types.Field
+import Amazonka.DataPipeline.Types.InstanceIdentity
+import Amazonka.DataPipeline.Types.Operator
+import Amazonka.DataPipeline.Types.OperatorType
+import Amazonka.DataPipeline.Types.ParameterAttribute
+import Amazonka.DataPipeline.Types.ParameterObject
+import Amazonka.DataPipeline.Types.ParameterValue
+import Amazonka.DataPipeline.Types.PipelineDescription
+import Amazonka.DataPipeline.Types.PipelineIdName
+import Amazonka.DataPipeline.Types.PipelineObject
+import Amazonka.DataPipeline.Types.Query
+import Amazonka.DataPipeline.Types.Selector
+import Amazonka.DataPipeline.Types.Tag
+import Amazonka.DataPipeline.Types.TaskObject
+import Amazonka.DataPipeline.Types.TaskStatus
+import Amazonka.DataPipeline.Types.ValidationError
+import Amazonka.DataPipeline.Types.ValidationWarning
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-10-29@ of the Amazon Data Pipeline SDK configuration.
 defaultService :: Core.Service

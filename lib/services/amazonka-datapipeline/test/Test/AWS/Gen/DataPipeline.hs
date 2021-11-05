@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataPipeline where
 
+import Amazonka.DataPipeline
 import qualified Data.Proxy as Proxy
-import Network.AWS.DataPipeline
 import Test.AWS.DataPipeline.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

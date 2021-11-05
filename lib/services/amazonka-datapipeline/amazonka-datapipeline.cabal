@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DataPipeline.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DataPipeline.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DataPipeline" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DataPipeline" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,48 +45,48 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DataPipeline
-    Network.AWS.DataPipeline.ActivatePipeline
-    Network.AWS.DataPipeline.AddTags
-    Network.AWS.DataPipeline.CreatePipeline
-    Network.AWS.DataPipeline.DeactivatePipeline
-    Network.AWS.DataPipeline.DeletePipeline
-    Network.AWS.DataPipeline.DescribeObjects
-    Network.AWS.DataPipeline.DescribePipelines
-    Network.AWS.DataPipeline.EvaluateExpression
-    Network.AWS.DataPipeline.GetPipelineDefinition
-    Network.AWS.DataPipeline.Lens
-    Network.AWS.DataPipeline.ListPipelines
-    Network.AWS.DataPipeline.PollForTask
-    Network.AWS.DataPipeline.PutPipelineDefinition
-    Network.AWS.DataPipeline.QueryObjects
-    Network.AWS.DataPipeline.RemoveTags
-    Network.AWS.DataPipeline.ReportTaskProgress
-    Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
-    Network.AWS.DataPipeline.SetStatus
-    Network.AWS.DataPipeline.SetTaskStatus
-    Network.AWS.DataPipeline.Types
-    Network.AWS.DataPipeline.Types.Field
-    Network.AWS.DataPipeline.Types.InstanceIdentity
-    Network.AWS.DataPipeline.Types.Operator
-    Network.AWS.DataPipeline.Types.OperatorType
-    Network.AWS.DataPipeline.Types.ParameterAttribute
-    Network.AWS.DataPipeline.Types.ParameterObject
-    Network.AWS.DataPipeline.Types.ParameterValue
-    Network.AWS.DataPipeline.Types.PipelineDescription
-    Network.AWS.DataPipeline.Types.PipelineIdName
-    Network.AWS.DataPipeline.Types.PipelineObject
-    Network.AWS.DataPipeline.Types.Query
-    Network.AWS.DataPipeline.Types.Selector
-    Network.AWS.DataPipeline.Types.Tag
-    Network.AWS.DataPipeline.Types.TaskObject
-    Network.AWS.DataPipeline.Types.TaskStatus
-    Network.AWS.DataPipeline.Types.ValidationError
-    Network.AWS.DataPipeline.Types.ValidationWarning
-    Network.AWS.DataPipeline.ValidatePipelineDefinition
-    Network.AWS.DataPipeline.Waiters
+    Amazonka.DataPipeline
+    Amazonka.DataPipeline.ActivatePipeline
+    Amazonka.DataPipeline.AddTags
+    Amazonka.DataPipeline.CreatePipeline
+    Amazonka.DataPipeline.DeactivatePipeline
+    Amazonka.DataPipeline.DeletePipeline
+    Amazonka.DataPipeline.DescribeObjects
+    Amazonka.DataPipeline.DescribePipelines
+    Amazonka.DataPipeline.EvaluateExpression
+    Amazonka.DataPipeline.GetPipelineDefinition
+    Amazonka.DataPipeline.Lens
+    Amazonka.DataPipeline.ListPipelines
+    Amazonka.DataPipeline.PollForTask
+    Amazonka.DataPipeline.PutPipelineDefinition
+    Amazonka.DataPipeline.QueryObjects
+    Amazonka.DataPipeline.RemoveTags
+    Amazonka.DataPipeline.ReportTaskProgress
+    Amazonka.DataPipeline.ReportTaskRunnerHeartbeat
+    Amazonka.DataPipeline.SetStatus
+    Amazonka.DataPipeline.SetTaskStatus
+    Amazonka.DataPipeline.Types
+    Amazonka.DataPipeline.Types.Field
+    Amazonka.DataPipeline.Types.InstanceIdentity
+    Amazonka.DataPipeline.Types.Operator
+    Amazonka.DataPipeline.Types.OperatorType
+    Amazonka.DataPipeline.Types.ParameterAttribute
+    Amazonka.DataPipeline.Types.ParameterObject
+    Amazonka.DataPipeline.Types.ParameterValue
+    Amazonka.DataPipeline.Types.PipelineDescription
+    Amazonka.DataPipeline.Types.PipelineIdName
+    Amazonka.DataPipeline.Types.PipelineObject
+    Amazonka.DataPipeline.Types.Query
+    Amazonka.DataPipeline.Types.Selector
+    Amazonka.DataPipeline.Types.Tag
+    Amazonka.DataPipeline.Types.TaskObject
+    Amazonka.DataPipeline.Types.TaskStatus
+    Amazonka.DataPipeline.Types.ValidationError
+    Amazonka.DataPipeline.Types.ValidationWarning
+    Amazonka.DataPipeline.ValidatePipelineDefinition
+    Amazonka.DataPipeline.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KinesisVideoSignaling
+-- Module      : Amazonka.KinesisVideoSignaling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- establishes a communication channel for discovering peers, transmitting
 -- offers and answers in order to establish peer-to-peer connection in
 -- webRTC technology.
-module Network.AWS.KinesisVideoSignaling
+module Amazonka.KinesisVideoSignaling
   ( -- * Service Configuration
     defaultService,
 
@@ -69,11 +69,11 @@ module Network.AWS.KinesisVideoSignaling
   )
 where
 
-import Network.AWS.KinesisVideoSignaling.GetIceServerConfig
-import Network.AWS.KinesisVideoSignaling.Lens
-import Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster
-import Network.AWS.KinesisVideoSignaling.Types
-import Network.AWS.KinesisVideoSignaling.Waiters
+import Amazonka.KinesisVideoSignaling.GetIceServerConfig
+import Amazonka.KinesisVideoSignaling.Lens
+import Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster
+import Amazonka.KinesisVideoSignaling.Types
+import Amazonka.KinesisVideoSignaling.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisVideoSignaling.Types
+-- Module      : Amazonka.KinesisVideoSignaling.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoSignaling.Types
+module Amazonka.KinesisVideoSignaling.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -37,12 +37,12 @@ module Network.AWS.KinesisVideoSignaling.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisVideoSignaling.Types.IceServer
-import Network.AWS.KinesisVideoSignaling.Types.Service
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisVideoSignaling.Types.IceServer
+import Amazonka.KinesisVideoSignaling.Types.Service
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-04@ of the Amazon Kinesis Video Signaling Channels SDK configuration.
 defaultService :: Core.Service

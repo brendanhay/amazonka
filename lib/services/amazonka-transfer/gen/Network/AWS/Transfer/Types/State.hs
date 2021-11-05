@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types.State
+-- Module      : Amazonka.Transfer.Types.State
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types.State
+module Amazonka.Transfer.Types.State
   ( State
       ( ..,
         State_OFFLINE,
@@ -30,8 +30,8 @@ module Network.AWS.Transfer.Types.State
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the condition of a file transfer protocol-enabled server with
 -- respect to its ability to perform file operations. There are six

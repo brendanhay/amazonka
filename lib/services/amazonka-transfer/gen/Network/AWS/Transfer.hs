@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Transfer
+-- Module      : Amazonka.Transfer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- machine learning, and archiving. Getting started with Amazon Web
 -- Services Transfer Family is easy since there is no infrastructure to buy
 -- and set up.
-module Network.AWS.Transfer
+module Amazonka.Transfer
   ( -- * Service Configuration
     defaultService,
 
@@ -441,41 +441,41 @@ module Network.AWS.Transfer
   )
 where
 
-import Network.AWS.Transfer.CreateAccess
-import Network.AWS.Transfer.CreateServer
-import Network.AWS.Transfer.CreateUser
-import Network.AWS.Transfer.CreateWorkflow
-import Network.AWS.Transfer.DeleteAccess
-import Network.AWS.Transfer.DeleteServer
-import Network.AWS.Transfer.DeleteSshPublicKey
-import Network.AWS.Transfer.DeleteUser
-import Network.AWS.Transfer.DeleteWorkflow
-import Network.AWS.Transfer.DescribeAccess
-import Network.AWS.Transfer.DescribeExecution
-import Network.AWS.Transfer.DescribeSecurityPolicy
-import Network.AWS.Transfer.DescribeServer
-import Network.AWS.Transfer.DescribeUser
-import Network.AWS.Transfer.DescribeWorkflow
-import Network.AWS.Transfer.ImportSshPublicKey
-import Network.AWS.Transfer.Lens
-import Network.AWS.Transfer.ListAccesses
-import Network.AWS.Transfer.ListExecutions
-import Network.AWS.Transfer.ListSecurityPolicies
-import Network.AWS.Transfer.ListServers
-import Network.AWS.Transfer.ListTagsForResource
-import Network.AWS.Transfer.ListUsers
-import Network.AWS.Transfer.ListWorkflows
-import Network.AWS.Transfer.SendWorkflowStepState
-import Network.AWS.Transfer.StartServer
-import Network.AWS.Transfer.StopServer
-import Network.AWS.Transfer.TagResource
-import Network.AWS.Transfer.TestIdentityProvider
-import Network.AWS.Transfer.Types
-import Network.AWS.Transfer.UntagResource
-import Network.AWS.Transfer.UpdateAccess
-import Network.AWS.Transfer.UpdateServer
-import Network.AWS.Transfer.UpdateUser
-import Network.AWS.Transfer.Waiters
+import Amazonka.Transfer.CreateAccess
+import Amazonka.Transfer.CreateServer
+import Amazonka.Transfer.CreateUser
+import Amazonka.Transfer.CreateWorkflow
+import Amazonka.Transfer.DeleteAccess
+import Amazonka.Transfer.DeleteServer
+import Amazonka.Transfer.DeleteSshPublicKey
+import Amazonka.Transfer.DeleteUser
+import Amazonka.Transfer.DeleteWorkflow
+import Amazonka.Transfer.DescribeAccess
+import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeSecurityPolicy
+import Amazonka.Transfer.DescribeServer
+import Amazonka.Transfer.DescribeUser
+import Amazonka.Transfer.DescribeWorkflow
+import Amazonka.Transfer.ImportSshPublicKey
+import Amazonka.Transfer.Lens
+import Amazonka.Transfer.ListAccesses
+import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListSecurityPolicies
+import Amazonka.Transfer.ListServers
+import Amazonka.Transfer.ListTagsForResource
+import Amazonka.Transfer.ListUsers
+import Amazonka.Transfer.ListWorkflows
+import Amazonka.Transfer.SendWorkflowStepState
+import Amazonka.Transfer.StartServer
+import Amazonka.Transfer.StopServer
+import Amazonka.Transfer.TagResource
+import Amazonka.Transfer.TestIdentityProvider
+import Amazonka.Transfer.Types
+import Amazonka.Transfer.UntagResource
+import Amazonka.Transfer.UpdateAccess
+import Amazonka.Transfer.UpdateServer
+import Amazonka.Transfer.UpdateUser
+import Amazonka.Transfer.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

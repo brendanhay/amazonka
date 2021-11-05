@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types
+-- Module      : Amazonka.Transfer.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types
+module Amazonka.Transfer.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -352,58 +352,58 @@ module Network.AWS.Transfer.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Transfer.Types.CopyStepDetails
-import Network.AWS.Transfer.Types.CustomStepDetails
-import Network.AWS.Transfer.Types.CustomStepStatus
-import Network.AWS.Transfer.Types.DeleteStepDetails
-import Network.AWS.Transfer.Types.DescribedAccess
-import Network.AWS.Transfer.Types.DescribedExecution
-import Network.AWS.Transfer.Types.DescribedSecurityPolicy
-import Network.AWS.Transfer.Types.DescribedServer
-import Network.AWS.Transfer.Types.DescribedUser
-import Network.AWS.Transfer.Types.DescribedWorkflow
-import Network.AWS.Transfer.Types.Domain
-import Network.AWS.Transfer.Types.EfsFileLocation
-import Network.AWS.Transfer.Types.EndpointDetails
-import Network.AWS.Transfer.Types.EndpointType
-import Network.AWS.Transfer.Types.ExecutionError
-import Network.AWS.Transfer.Types.ExecutionErrorType
-import Network.AWS.Transfer.Types.ExecutionResults
-import Network.AWS.Transfer.Types.ExecutionStatus
-import Network.AWS.Transfer.Types.ExecutionStepResult
-import Network.AWS.Transfer.Types.FileLocation
-import Network.AWS.Transfer.Types.HomeDirectoryMapEntry
-import Network.AWS.Transfer.Types.HomeDirectoryType
-import Network.AWS.Transfer.Types.IdentityProviderDetails
-import Network.AWS.Transfer.Types.IdentityProviderType
-import Network.AWS.Transfer.Types.InputFileLocation
-import Network.AWS.Transfer.Types.ListedAccess
-import Network.AWS.Transfer.Types.ListedExecution
-import Network.AWS.Transfer.Types.ListedServer
-import Network.AWS.Transfer.Types.ListedUser
-import Network.AWS.Transfer.Types.ListedWorkflow
-import Network.AWS.Transfer.Types.LoggingConfiguration
-import Network.AWS.Transfer.Types.OverwriteExisting
-import Network.AWS.Transfer.Types.PosixProfile
-import Network.AWS.Transfer.Types.Protocol
-import Network.AWS.Transfer.Types.ProtocolDetails
-import Network.AWS.Transfer.Types.S3FileLocation
-import Network.AWS.Transfer.Types.S3InputFileLocation
-import Network.AWS.Transfer.Types.S3Tag
-import Network.AWS.Transfer.Types.ServiceMetadata
-import Network.AWS.Transfer.Types.SshPublicKey
-import Network.AWS.Transfer.Types.State
-import Network.AWS.Transfer.Types.Tag
-import Network.AWS.Transfer.Types.TagStepDetails
-import Network.AWS.Transfer.Types.UserDetails
-import Network.AWS.Transfer.Types.WorkflowDetail
-import Network.AWS.Transfer.Types.WorkflowDetails
-import Network.AWS.Transfer.Types.WorkflowStep
-import Network.AWS.Transfer.Types.WorkflowStepType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Transfer.Types.CopyStepDetails
+import Amazonka.Transfer.Types.CustomStepDetails
+import Amazonka.Transfer.Types.CustomStepStatus
+import Amazonka.Transfer.Types.DeleteStepDetails
+import Amazonka.Transfer.Types.DescribedAccess
+import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedSecurityPolicy
+import Amazonka.Transfer.Types.DescribedServer
+import Amazonka.Transfer.Types.DescribedUser
+import Amazonka.Transfer.Types.DescribedWorkflow
+import Amazonka.Transfer.Types.Domain
+import Amazonka.Transfer.Types.EfsFileLocation
+import Amazonka.Transfer.Types.EndpointDetails
+import Amazonka.Transfer.Types.EndpointType
+import Amazonka.Transfer.Types.ExecutionError
+import Amazonka.Transfer.Types.ExecutionErrorType
+import Amazonka.Transfer.Types.ExecutionResults
+import Amazonka.Transfer.Types.ExecutionStatus
+import Amazonka.Transfer.Types.ExecutionStepResult
+import Amazonka.Transfer.Types.FileLocation
+import Amazonka.Transfer.Types.HomeDirectoryMapEntry
+import Amazonka.Transfer.Types.HomeDirectoryType
+import Amazonka.Transfer.Types.IdentityProviderDetails
+import Amazonka.Transfer.Types.IdentityProviderType
+import Amazonka.Transfer.Types.InputFileLocation
+import Amazonka.Transfer.Types.ListedAccess
+import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedServer
+import Amazonka.Transfer.Types.ListedUser
+import Amazonka.Transfer.Types.ListedWorkflow
+import Amazonka.Transfer.Types.LoggingConfiguration
+import Amazonka.Transfer.Types.OverwriteExisting
+import Amazonka.Transfer.Types.PosixProfile
+import Amazonka.Transfer.Types.Protocol
+import Amazonka.Transfer.Types.ProtocolDetails
+import Amazonka.Transfer.Types.S3FileLocation
+import Amazonka.Transfer.Types.S3InputFileLocation
+import Amazonka.Transfer.Types.S3Tag
+import Amazonka.Transfer.Types.ServiceMetadata
+import Amazonka.Transfer.Types.SshPublicKey
+import Amazonka.Transfer.Types.State
+import Amazonka.Transfer.Types.Tag
+import Amazonka.Transfer.Types.TagStepDetails
+import Amazonka.Transfer.Types.UserDetails
+import Amazonka.Transfer.Types.WorkflowDetail
+import Amazonka.Transfer.Types.WorkflowDetails
+import Amazonka.Transfer.Types.WorkflowStep
+import Amazonka.Transfer.Types.WorkflowStepType
 
 -- | API version @2018-11-05@ of the Amazon Transfer Family SDK configuration.
 defaultService :: Core.Service

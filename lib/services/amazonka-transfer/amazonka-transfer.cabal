@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Transfer.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Transfer.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Transfer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Transfer" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,92 +45,92 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Transfer
-    Network.AWS.Transfer.CreateAccess
-    Network.AWS.Transfer.CreateServer
-    Network.AWS.Transfer.CreateUser
-    Network.AWS.Transfer.CreateWorkflow
-    Network.AWS.Transfer.DeleteAccess
-    Network.AWS.Transfer.DeleteServer
-    Network.AWS.Transfer.DeleteSshPublicKey
-    Network.AWS.Transfer.DeleteUser
-    Network.AWS.Transfer.DeleteWorkflow
-    Network.AWS.Transfer.DescribeAccess
-    Network.AWS.Transfer.DescribeExecution
-    Network.AWS.Transfer.DescribeSecurityPolicy
-    Network.AWS.Transfer.DescribeServer
-    Network.AWS.Transfer.DescribeUser
-    Network.AWS.Transfer.DescribeWorkflow
-    Network.AWS.Transfer.ImportSshPublicKey
-    Network.AWS.Transfer.Lens
-    Network.AWS.Transfer.ListAccesses
-    Network.AWS.Transfer.ListExecutions
-    Network.AWS.Transfer.ListSecurityPolicies
-    Network.AWS.Transfer.ListServers
-    Network.AWS.Transfer.ListTagsForResource
-    Network.AWS.Transfer.ListUsers
-    Network.AWS.Transfer.ListWorkflows
-    Network.AWS.Transfer.SendWorkflowStepState
-    Network.AWS.Transfer.StartServer
-    Network.AWS.Transfer.StopServer
-    Network.AWS.Transfer.TagResource
-    Network.AWS.Transfer.TestIdentityProvider
-    Network.AWS.Transfer.Types
-    Network.AWS.Transfer.Types.CopyStepDetails
-    Network.AWS.Transfer.Types.CustomStepDetails
-    Network.AWS.Transfer.Types.CustomStepStatus
-    Network.AWS.Transfer.Types.DeleteStepDetails
-    Network.AWS.Transfer.Types.DescribedAccess
-    Network.AWS.Transfer.Types.DescribedExecution
-    Network.AWS.Transfer.Types.DescribedSecurityPolicy
-    Network.AWS.Transfer.Types.DescribedServer
-    Network.AWS.Transfer.Types.DescribedUser
-    Network.AWS.Transfer.Types.DescribedWorkflow
-    Network.AWS.Transfer.Types.Domain
-    Network.AWS.Transfer.Types.EfsFileLocation
-    Network.AWS.Transfer.Types.EndpointDetails
-    Network.AWS.Transfer.Types.EndpointType
-    Network.AWS.Transfer.Types.ExecutionError
-    Network.AWS.Transfer.Types.ExecutionErrorType
-    Network.AWS.Transfer.Types.ExecutionResults
-    Network.AWS.Transfer.Types.ExecutionStatus
-    Network.AWS.Transfer.Types.ExecutionStepResult
-    Network.AWS.Transfer.Types.FileLocation
-    Network.AWS.Transfer.Types.HomeDirectoryMapEntry
-    Network.AWS.Transfer.Types.HomeDirectoryType
-    Network.AWS.Transfer.Types.IdentityProviderDetails
-    Network.AWS.Transfer.Types.IdentityProviderType
-    Network.AWS.Transfer.Types.InputFileLocation
-    Network.AWS.Transfer.Types.ListedAccess
-    Network.AWS.Transfer.Types.ListedExecution
-    Network.AWS.Transfer.Types.ListedServer
-    Network.AWS.Transfer.Types.ListedUser
-    Network.AWS.Transfer.Types.ListedWorkflow
-    Network.AWS.Transfer.Types.LoggingConfiguration
-    Network.AWS.Transfer.Types.OverwriteExisting
-    Network.AWS.Transfer.Types.PosixProfile
-    Network.AWS.Transfer.Types.Protocol
-    Network.AWS.Transfer.Types.ProtocolDetails
-    Network.AWS.Transfer.Types.S3FileLocation
-    Network.AWS.Transfer.Types.S3InputFileLocation
-    Network.AWS.Transfer.Types.S3Tag
-    Network.AWS.Transfer.Types.ServiceMetadata
-    Network.AWS.Transfer.Types.SshPublicKey
-    Network.AWS.Transfer.Types.State
-    Network.AWS.Transfer.Types.Tag
-    Network.AWS.Transfer.Types.TagStepDetails
-    Network.AWS.Transfer.Types.UserDetails
-    Network.AWS.Transfer.Types.WorkflowDetail
-    Network.AWS.Transfer.Types.WorkflowDetails
-    Network.AWS.Transfer.Types.WorkflowStep
-    Network.AWS.Transfer.Types.WorkflowStepType
-    Network.AWS.Transfer.UntagResource
-    Network.AWS.Transfer.UpdateAccess
-    Network.AWS.Transfer.UpdateServer
-    Network.AWS.Transfer.UpdateUser
-    Network.AWS.Transfer.Waiters
+    Amazonka.Transfer
+    Amazonka.Transfer.CreateAccess
+    Amazonka.Transfer.CreateServer
+    Amazonka.Transfer.CreateUser
+    Amazonka.Transfer.CreateWorkflow
+    Amazonka.Transfer.DeleteAccess
+    Amazonka.Transfer.DeleteServer
+    Amazonka.Transfer.DeleteSshPublicKey
+    Amazonka.Transfer.DeleteUser
+    Amazonka.Transfer.DeleteWorkflow
+    Amazonka.Transfer.DescribeAccess
+    Amazonka.Transfer.DescribeExecution
+    Amazonka.Transfer.DescribeSecurityPolicy
+    Amazonka.Transfer.DescribeServer
+    Amazonka.Transfer.DescribeUser
+    Amazonka.Transfer.DescribeWorkflow
+    Amazonka.Transfer.ImportSshPublicKey
+    Amazonka.Transfer.Lens
+    Amazonka.Transfer.ListAccesses
+    Amazonka.Transfer.ListExecutions
+    Amazonka.Transfer.ListSecurityPolicies
+    Amazonka.Transfer.ListServers
+    Amazonka.Transfer.ListTagsForResource
+    Amazonka.Transfer.ListUsers
+    Amazonka.Transfer.ListWorkflows
+    Amazonka.Transfer.SendWorkflowStepState
+    Amazonka.Transfer.StartServer
+    Amazonka.Transfer.StopServer
+    Amazonka.Transfer.TagResource
+    Amazonka.Transfer.TestIdentityProvider
+    Amazonka.Transfer.Types
+    Amazonka.Transfer.Types.CopyStepDetails
+    Amazonka.Transfer.Types.CustomStepDetails
+    Amazonka.Transfer.Types.CustomStepStatus
+    Amazonka.Transfer.Types.DeleteStepDetails
+    Amazonka.Transfer.Types.DescribedAccess
+    Amazonka.Transfer.Types.DescribedExecution
+    Amazonka.Transfer.Types.DescribedSecurityPolicy
+    Amazonka.Transfer.Types.DescribedServer
+    Amazonka.Transfer.Types.DescribedUser
+    Amazonka.Transfer.Types.DescribedWorkflow
+    Amazonka.Transfer.Types.Domain
+    Amazonka.Transfer.Types.EfsFileLocation
+    Amazonka.Transfer.Types.EndpointDetails
+    Amazonka.Transfer.Types.EndpointType
+    Amazonka.Transfer.Types.ExecutionError
+    Amazonka.Transfer.Types.ExecutionErrorType
+    Amazonka.Transfer.Types.ExecutionResults
+    Amazonka.Transfer.Types.ExecutionStatus
+    Amazonka.Transfer.Types.ExecutionStepResult
+    Amazonka.Transfer.Types.FileLocation
+    Amazonka.Transfer.Types.HomeDirectoryMapEntry
+    Amazonka.Transfer.Types.HomeDirectoryType
+    Amazonka.Transfer.Types.IdentityProviderDetails
+    Amazonka.Transfer.Types.IdentityProviderType
+    Amazonka.Transfer.Types.InputFileLocation
+    Amazonka.Transfer.Types.ListedAccess
+    Amazonka.Transfer.Types.ListedExecution
+    Amazonka.Transfer.Types.ListedServer
+    Amazonka.Transfer.Types.ListedUser
+    Amazonka.Transfer.Types.ListedWorkflow
+    Amazonka.Transfer.Types.LoggingConfiguration
+    Amazonka.Transfer.Types.OverwriteExisting
+    Amazonka.Transfer.Types.PosixProfile
+    Amazonka.Transfer.Types.Protocol
+    Amazonka.Transfer.Types.ProtocolDetails
+    Amazonka.Transfer.Types.S3FileLocation
+    Amazonka.Transfer.Types.S3InputFileLocation
+    Amazonka.Transfer.Types.S3Tag
+    Amazonka.Transfer.Types.ServiceMetadata
+    Amazonka.Transfer.Types.SshPublicKey
+    Amazonka.Transfer.Types.State
+    Amazonka.Transfer.Types.Tag
+    Amazonka.Transfer.Types.TagStepDetails
+    Amazonka.Transfer.Types.UserDetails
+    Amazonka.Transfer.Types.WorkflowDetail
+    Amazonka.Transfer.Types.WorkflowDetails
+    Amazonka.Transfer.Types.WorkflowStep
+    Amazonka.Transfer.Types.WorkflowStepType
+    Amazonka.Transfer.UntagResource
+    Amazonka.Transfer.UpdateAccess
+    Amazonka.Transfer.UpdateServer
+    Amazonka.Transfer.UpdateUser
+    Amazonka.Transfer.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

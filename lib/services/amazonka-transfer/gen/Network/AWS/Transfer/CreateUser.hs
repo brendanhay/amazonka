@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.CreateUser
+-- Module      : Amazonka.Transfer.CreateUser
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Amazon Web Services Identity and Access Management (IAM) role. You can
 -- also optionally add a session policy, and assign metadata with tags that
 -- can be used to group and search for users.
-module Network.AWS.Transfer.CreateUser
+module Amazonka.Transfer.CreateUser
   ( -- * Creating a Request
     CreateUser (..),
     newCreateUser,
@@ -56,12 +56,12 @@ module Network.AWS.Transfer.CreateUser
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Transfer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'

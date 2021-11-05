@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.DescribeAccess
+-- Module      : Amazonka.Transfer.DescribeAccess
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- The response from this call returns the properties of the access that is
 -- associated with the @ServerId@ value that was specified.
-module Network.AWS.Transfer.DescribeAccess
+module Amazonka.Transfer.DescribeAccess
   ( -- * Creating a Request
     DescribeAccess (..),
     newDescribeAccess,
@@ -46,12 +46,12 @@ module Network.AWS.Transfer.DescribeAccess
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Transfer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDescribeAccess' smart constructor.
 data DescribeAccess = DescribeAccess'

@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types.DescribedServer
+-- Module      : Amazonka.Transfer.Types.DescribedServer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types.DescribedServer where
+module Amazonka.Transfer.Types.DescribedServer where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transfer.Types.Domain
-import Network.AWS.Transfer.Types.EndpointDetails
-import Network.AWS.Transfer.Types.EndpointType
-import Network.AWS.Transfer.Types.IdentityProviderDetails
-import Network.AWS.Transfer.Types.IdentityProviderType
-import Network.AWS.Transfer.Types.Protocol
-import Network.AWS.Transfer.Types.ProtocolDetails
-import Network.AWS.Transfer.Types.State
-import Network.AWS.Transfer.Types.Tag
-import Network.AWS.Transfer.Types.WorkflowDetails
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transfer.Types.Domain
+import Amazonka.Transfer.Types.EndpointDetails
+import Amazonka.Transfer.Types.EndpointType
+import Amazonka.Transfer.Types.IdentityProviderDetails
+import Amazonka.Transfer.Types.IdentityProviderType
+import Amazonka.Transfer.Types.Protocol
+import Amazonka.Transfer.Types.ProtocolDetails
+import Amazonka.Transfer.Types.State
+import Amazonka.Transfer.Types.Tag
+import Amazonka.Transfer.Types.WorkflowDetails
 
 -- | Describes the properties of a file transfer protocol-enabled server that
 -- was specified.

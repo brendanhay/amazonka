@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types.WorkflowStep
+-- Module      : Amazonka.Transfer.Types.WorkflowStep
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types.WorkflowStep where
+module Amazonka.Transfer.Types.WorkflowStep where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transfer.Types.CopyStepDetails
-import Network.AWS.Transfer.Types.CustomStepDetails
-import Network.AWS.Transfer.Types.DeleteStepDetails
-import Network.AWS.Transfer.Types.TagStepDetails
-import Network.AWS.Transfer.Types.WorkflowStepType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transfer.Types.CopyStepDetails
+import Amazonka.Transfer.Types.CustomStepDetails
+import Amazonka.Transfer.Types.DeleteStepDetails
+import Amazonka.Transfer.Types.TagStepDetails
+import Amazonka.Transfer.Types.WorkflowStepType
 
 -- | The basic building block of a workflow.
 --

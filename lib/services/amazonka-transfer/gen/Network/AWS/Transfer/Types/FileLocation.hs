@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types.FileLocation
+-- Module      : Amazonka.Transfer.Types.FileLocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types.FileLocation where
+module Amazonka.Transfer.Types.FileLocation where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Transfer.Types.EfsFileLocation
-import Network.AWS.Transfer.Types.S3FileLocation
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Transfer.Types.EfsFileLocation
+import Amazonka.Transfer.Types.S3FileLocation
 
 -- | Specifies the Amazon S3 or EFS file details to be used in the step.
 --

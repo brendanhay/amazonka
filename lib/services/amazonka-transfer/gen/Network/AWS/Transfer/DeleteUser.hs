@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.DeleteUser
+-- Module      : Amazonka.Transfer.DeleteUser
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- No response returns from this operation.
 --
 -- When you delete a user from a server, the user\'s information is lost.
-module Network.AWS.Transfer.DeleteUser
+module Amazonka.Transfer.DeleteUser
   ( -- * Creating a Request
     DeleteUser (..),
     newDeleteUser,
@@ -41,12 +41,12 @@ module Network.AWS.Transfer.DeleteUser
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Transfer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Transfer.Types
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Lens
+-- Module      : Amazonka.Transfer.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Lens
+module Amazonka.Transfer.Lens
   ( -- * Operations
 
     -- ** UpdateServer
@@ -481,72 +481,72 @@ module Network.AWS.Transfer.Lens
   )
 where
 
-import Network.AWS.Transfer.CreateAccess
-import Network.AWS.Transfer.CreateServer
-import Network.AWS.Transfer.CreateUser
-import Network.AWS.Transfer.CreateWorkflow
-import Network.AWS.Transfer.DeleteAccess
-import Network.AWS.Transfer.DeleteServer
-import Network.AWS.Transfer.DeleteSshPublicKey
-import Network.AWS.Transfer.DeleteUser
-import Network.AWS.Transfer.DeleteWorkflow
-import Network.AWS.Transfer.DescribeAccess
-import Network.AWS.Transfer.DescribeExecution
-import Network.AWS.Transfer.DescribeSecurityPolicy
-import Network.AWS.Transfer.DescribeServer
-import Network.AWS.Transfer.DescribeUser
-import Network.AWS.Transfer.DescribeWorkflow
-import Network.AWS.Transfer.ImportSshPublicKey
-import Network.AWS.Transfer.ListAccesses
-import Network.AWS.Transfer.ListExecutions
-import Network.AWS.Transfer.ListSecurityPolicies
-import Network.AWS.Transfer.ListServers
-import Network.AWS.Transfer.ListTagsForResource
-import Network.AWS.Transfer.ListUsers
-import Network.AWS.Transfer.ListWorkflows
-import Network.AWS.Transfer.SendWorkflowStepState
-import Network.AWS.Transfer.StartServer
-import Network.AWS.Transfer.StopServer
-import Network.AWS.Transfer.TagResource
-import Network.AWS.Transfer.TestIdentityProvider
-import Network.AWS.Transfer.Types.CopyStepDetails
-import Network.AWS.Transfer.Types.CustomStepDetails
-import Network.AWS.Transfer.Types.DeleteStepDetails
-import Network.AWS.Transfer.Types.DescribedAccess
-import Network.AWS.Transfer.Types.DescribedExecution
-import Network.AWS.Transfer.Types.DescribedSecurityPolicy
-import Network.AWS.Transfer.Types.DescribedServer
-import Network.AWS.Transfer.Types.DescribedUser
-import Network.AWS.Transfer.Types.DescribedWorkflow
-import Network.AWS.Transfer.Types.EfsFileLocation
-import Network.AWS.Transfer.Types.EndpointDetails
-import Network.AWS.Transfer.Types.ExecutionError
-import Network.AWS.Transfer.Types.ExecutionResults
-import Network.AWS.Transfer.Types.ExecutionStepResult
-import Network.AWS.Transfer.Types.FileLocation
-import Network.AWS.Transfer.Types.HomeDirectoryMapEntry
-import Network.AWS.Transfer.Types.IdentityProviderDetails
-import Network.AWS.Transfer.Types.InputFileLocation
-import Network.AWS.Transfer.Types.ListedAccess
-import Network.AWS.Transfer.Types.ListedExecution
-import Network.AWS.Transfer.Types.ListedServer
-import Network.AWS.Transfer.Types.ListedUser
-import Network.AWS.Transfer.Types.ListedWorkflow
-import Network.AWS.Transfer.Types.LoggingConfiguration
-import Network.AWS.Transfer.Types.PosixProfile
-import Network.AWS.Transfer.Types.ProtocolDetails
-import Network.AWS.Transfer.Types.S3FileLocation
-import Network.AWS.Transfer.Types.S3InputFileLocation
-import Network.AWS.Transfer.Types.S3Tag
-import Network.AWS.Transfer.Types.ServiceMetadata
-import Network.AWS.Transfer.Types.SshPublicKey
-import Network.AWS.Transfer.Types.Tag
-import Network.AWS.Transfer.Types.TagStepDetails
-import Network.AWS.Transfer.Types.UserDetails
-import Network.AWS.Transfer.Types.WorkflowDetail
-import Network.AWS.Transfer.Types.WorkflowDetails
-import Network.AWS.Transfer.Types.WorkflowStep
-import Network.AWS.Transfer.UntagResource
-import Network.AWS.Transfer.UpdateAccess
-import Network.AWS.Transfer.UpdateServer
-import Network.AWS.Transfer.UpdateUser
+import Amazonka.Transfer.CreateAccess
+import Amazonka.Transfer.CreateServer
+import Amazonka.Transfer.CreateUser
+import Amazonka.Transfer.CreateWorkflow
+import Amazonka.Transfer.DeleteAccess
+import Amazonka.Transfer.DeleteServer
+import Amazonka.Transfer.DeleteSshPublicKey
+import Amazonka.Transfer.DeleteUser
+import Amazonka.Transfer.DeleteWorkflow
+import Amazonka.Transfer.DescribeAccess
+import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeSecurityPolicy
+import Amazonka.Transfer.DescribeServer
+import Amazonka.Transfer.DescribeUser
+import Amazonka.Transfer.DescribeWorkflow
+import Amazonka.Transfer.ImportSshPublicKey
+import Amazonka.Transfer.ListAccesses
+import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListSecurityPolicies
+import Amazonka.Transfer.ListServers
+import Amazonka.Transfer.ListTagsForResource
+import Amazonka.Transfer.ListUsers
+import Amazonka.Transfer.ListWorkflows
+import Amazonka.Transfer.SendWorkflowStepState
+import Amazonka.Transfer.StartServer
+import Amazonka.Transfer.StopServer
+import Amazonka.Transfer.TagResource
+import Amazonka.Transfer.TestIdentityProvider
+import Amazonka.Transfer.Types.CopyStepDetails
+import Amazonka.Transfer.Types.CustomStepDetails
+import Amazonka.Transfer.Types.DeleteStepDetails
+import Amazonka.Transfer.Types.DescribedAccess
+import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedSecurityPolicy
+import Amazonka.Transfer.Types.DescribedServer
+import Amazonka.Transfer.Types.DescribedUser
+import Amazonka.Transfer.Types.DescribedWorkflow
+import Amazonka.Transfer.Types.EfsFileLocation
+import Amazonka.Transfer.Types.EndpointDetails
+import Amazonka.Transfer.Types.ExecutionError
+import Amazonka.Transfer.Types.ExecutionResults
+import Amazonka.Transfer.Types.ExecutionStepResult
+import Amazonka.Transfer.Types.FileLocation
+import Amazonka.Transfer.Types.HomeDirectoryMapEntry
+import Amazonka.Transfer.Types.IdentityProviderDetails
+import Amazonka.Transfer.Types.InputFileLocation
+import Amazonka.Transfer.Types.ListedAccess
+import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedServer
+import Amazonka.Transfer.Types.ListedUser
+import Amazonka.Transfer.Types.ListedWorkflow
+import Amazonka.Transfer.Types.LoggingConfiguration
+import Amazonka.Transfer.Types.PosixProfile
+import Amazonka.Transfer.Types.ProtocolDetails
+import Amazonka.Transfer.Types.S3FileLocation
+import Amazonka.Transfer.Types.S3InputFileLocation
+import Amazonka.Transfer.Types.S3Tag
+import Amazonka.Transfer.Types.ServiceMetadata
+import Amazonka.Transfer.Types.SshPublicKey
+import Amazonka.Transfer.Types.Tag
+import Amazonka.Transfer.Types.TagStepDetails
+import Amazonka.Transfer.Types.UserDetails
+import Amazonka.Transfer.Types.WorkflowDetail
+import Amazonka.Transfer.Types.WorkflowDetails
+import Amazonka.Transfer.Types.WorkflowStep
+import Amazonka.Transfer.UntagResource
+import Amazonka.Transfer.UpdateAccess
+import Amazonka.Transfer.UpdateServer
+import Amazonka.Transfer.UpdateUser

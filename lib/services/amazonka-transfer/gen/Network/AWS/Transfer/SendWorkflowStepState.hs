@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.SendWorkflowStepState
+-- Module      : Amazonka.Transfer.SendWorkflowStepState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- The @ExecutionId@, @WorkflowId@, and @Token@ are passed to the target
 -- resource during execution of a custom step of a workflow. You must
 -- include those with their callback as well as providing a status.
-module Network.AWS.Transfer.SendWorkflowStepState
+module Amazonka.Transfer.SendWorkflowStepState
   ( -- * Creating a Request
     SendWorkflowStepState (..),
     newSendWorkflowStepState,
@@ -45,12 +45,12 @@ module Network.AWS.Transfer.SendWorkflowStepState
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Transfer.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Transfer.Types
 
 -- | /See:/ 'newSendWorkflowStepState' smart constructor.
 data SendWorkflowStepState = SendWorkflowStepState'

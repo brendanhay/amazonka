@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Transfer.Types.IdentityProviderType
+-- Module      : Amazonka.Transfer.Types.IdentityProviderType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transfer.Types.IdentityProviderType
+module Amazonka.Transfer.Types.IdentityProviderType
   ( IdentityProviderType
       ( ..,
         IdentityProviderType_API_GATEWAY,
@@ -27,8 +27,8 @@ module Network.AWS.Transfer.Types.IdentityProviderType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information related to the type of user authentication that is
 -- in use for a file transfer protocol-enabled server\'s users. For

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MarketplaceMetering
+-- Module      : Amazonka.MarketplaceMetering
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -59,7 +59,7 @@
 -- information, see the
 -- /<http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html AWS CloudTrail User Guide>/
 -- .
-module Network.AWS.MarketplaceMetering
+module Amazonka.MarketplaceMetering
   ( -- * Service Configuration
     defaultService,
 
@@ -170,13 +170,13 @@ module Network.AWS.MarketplaceMetering
   )
 where
 
-import Network.AWS.MarketplaceMetering.BatchMeterUsage
-import Network.AWS.MarketplaceMetering.Lens
-import Network.AWS.MarketplaceMetering.MeterUsage
-import Network.AWS.MarketplaceMetering.RegisterUsage
-import Network.AWS.MarketplaceMetering.ResolveCustomer
-import Network.AWS.MarketplaceMetering.Types
-import Network.AWS.MarketplaceMetering.Waiters
+import Amazonka.MarketplaceMetering.BatchMeterUsage
+import Amazonka.MarketplaceMetering.Lens
+import Amazonka.MarketplaceMetering.MeterUsage
+import Amazonka.MarketplaceMetering.RegisterUsage
+import Amazonka.MarketplaceMetering.ResolveCustomer
+import Amazonka.MarketplaceMetering.Types
+import Amazonka.MarketplaceMetering.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

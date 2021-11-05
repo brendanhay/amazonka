@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceMetering.Types
+-- Module      : Amazonka.MarketplaceMetering.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Types
+module Amazonka.MarketplaceMetering.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -68,15 +68,15 @@ module Network.AWS.MarketplaceMetering.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types.Tag
-import Network.AWS.MarketplaceMetering.Types.UsageAllocation
-import Network.AWS.MarketplaceMetering.Types.UsageRecord
-import Network.AWS.MarketplaceMetering.Types.UsageRecordResult
-import Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceMetering.Types.Tag
+import Amazonka.MarketplaceMetering.Types.UsageAllocation
+import Amazonka.MarketplaceMetering.Types.UsageRecord
+import Amazonka.MarketplaceMetering.Types.UsageRecordResult
+import Amazonka.MarketplaceMetering.Types.UsageRecordResultStatus
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-01-14@ of the Amazon Marketplace Metering SDK configuration.
 defaultService :: Core.Service

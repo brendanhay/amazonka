@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceMetering.Lens
+-- Module      : Amazonka.MarketplaceMetering.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Lens
+module Amazonka.MarketplaceMetering.Lens
   ( -- * Operations
 
     -- ** RegisterUsage
@@ -69,11 +69,11 @@ module Network.AWS.MarketplaceMetering.Lens
   )
 where
 
-import Network.AWS.MarketplaceMetering.BatchMeterUsage
-import Network.AWS.MarketplaceMetering.MeterUsage
-import Network.AWS.MarketplaceMetering.RegisterUsage
-import Network.AWS.MarketplaceMetering.ResolveCustomer
-import Network.AWS.MarketplaceMetering.Types.Tag
-import Network.AWS.MarketplaceMetering.Types.UsageAllocation
-import Network.AWS.MarketplaceMetering.Types.UsageRecord
-import Network.AWS.MarketplaceMetering.Types.UsageRecordResult
+import Amazonka.MarketplaceMetering.BatchMeterUsage
+import Amazonka.MarketplaceMetering.MeterUsage
+import Amazonka.MarketplaceMetering.RegisterUsage
+import Amazonka.MarketplaceMetering.ResolveCustomer
+import Amazonka.MarketplaceMetering.Types.Tag
+import Amazonka.MarketplaceMetering.Types.UsageAllocation
+import Amazonka.MarketplaceMetering.Types.UsageRecord
+import Amazonka.MarketplaceMetering.Types.UsageRecordResult

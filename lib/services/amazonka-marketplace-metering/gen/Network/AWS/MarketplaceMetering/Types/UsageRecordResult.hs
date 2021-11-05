@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceMetering.Types.UsageRecordResult
+-- Module      : Amazonka.MarketplaceMetering.Types.UsageRecordResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Types.UsageRecordResult where
+module Amazonka.MarketplaceMetering.Types.UsageRecordResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types.UsageRecord
-import Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceMetering.Types.UsageRecord
+import Amazonka.MarketplaceMetering.Types.UsageRecordResultStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | A UsageRecordResult indicates the status of a given UsageRecord
 -- processed by BatchMeterUsage.

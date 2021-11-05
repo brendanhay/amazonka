@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceMetering.ResolveCustomer
+-- Module      : Amazonka.MarketplaceMetering.ResolveCustomer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- process, the buyer submits a registration token through their browser.
 -- The registration token is resolved through this API to obtain a
 -- CustomerIdentifier and product code.
-module Network.AWS.MarketplaceMetering.ResolveCustomer
+module Amazonka.MarketplaceMetering.ResolveCustomer
   ( -- * Creating a Request
     ResolveCustomer (..),
     newResolveCustomer,
@@ -44,12 +44,12 @@ module Network.AWS.MarketplaceMetering.ResolveCustomer
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceMetering.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains input to the ResolveCustomer operation.
 --

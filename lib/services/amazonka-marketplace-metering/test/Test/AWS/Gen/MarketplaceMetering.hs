@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceMetering where
 
+import Amazonka.MarketplaceMetering
 import qualified Data.Proxy as Proxy
-import Network.AWS.MarketplaceMetering
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceMetering.Internal
 import Test.AWS.Prelude

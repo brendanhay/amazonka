@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.Alarm
+-- Module      : Amazonka.Lightsail.Types.Alarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.Alarm where
+module Amazonka.Lightsail.Types.Alarm where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.AlarmState
-import Network.AWS.Lightsail.Types.ComparisonOperator
-import Network.AWS.Lightsail.Types.ContactProtocol
-import Network.AWS.Lightsail.Types.MetricName
-import Network.AWS.Lightsail.Types.MetricStatistic
-import Network.AWS.Lightsail.Types.MetricUnit
-import Network.AWS.Lightsail.Types.MonitoredResourceInfo
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.TreatMissingData
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.AlarmState
+import Amazonka.Lightsail.Types.ComparisonOperator
+import Amazonka.Lightsail.Types.ContactProtocol
+import Amazonka.Lightsail.Types.MetricName
+import Amazonka.Lightsail.Types.MetricStatistic
+import Amazonka.Lightsail.Types.MetricUnit
+import Amazonka.Lightsail.Types.MonitoredResourceInfo
+import Amazonka.Lightsail.Types.ResourceLocation
+import Amazonka.Lightsail.Types.ResourceType
+import Amazonka.Lightsail.Types.TreatMissingData
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an alarm.
 --

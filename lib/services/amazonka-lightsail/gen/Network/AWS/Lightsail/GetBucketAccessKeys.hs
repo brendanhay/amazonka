@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.GetBucketAccessKeys
+-- Module      : Amazonka.Lightsail.GetBucketAccessKeys
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- key. You can get a secret access key only when you create it from the
 -- response of the CreateBucketAccessKey action. If you lose the secret
 -- access key, you must create a new access key.
-module Network.AWS.Lightsail.GetBucketAccessKeys
+module Amazonka.Lightsail.GetBucketAccessKeys
   ( -- * Creating a Request
     GetBucketAccessKeys (..),
     newGetBucketAccessKeys,
@@ -45,12 +45,12 @@ module Network.AWS.Lightsail.GetBucketAccessKeys
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBucketAccessKeys' smart constructor.
 data GetBucketAccessKeys = GetBucketAccessKeys'

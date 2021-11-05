@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.GetBucketMetricData
+-- Module      : Amazonka.Lightsail.GetBucketMetricData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Metrics report the utilization of a bucket. View and collect metric data
 -- regularly to monitor the number of objects stored in a bucket (including
 -- object versions) and the storage space used by those objects.
-module Network.AWS.Lightsail.GetBucketMetricData
+module Amazonka.Lightsail.GetBucketMetricData
   ( -- * Creating a Request
     GetBucketMetricData (..),
     newGetBucketMetricData,
@@ -51,12 +51,12 @@ module Network.AWS.Lightsail.GetBucketMetricData
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBucketMetricData' smart constructor.
 data GetBucketMetricData = GetBucketMetricData'

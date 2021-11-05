@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.DeleteBucket
+-- Module      : Amazonka.Lightsail.DeleteBucket
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- When you delete your bucket, the bucket name is released and can be
 -- reused for a new bucket in your account or another AWS account.
-module Network.AWS.Lightsail.DeleteBucket
+module Amazonka.Lightsail.DeleteBucket
   ( -- * Creating a Request
     DeleteBucket (..),
     newDeleteBucket,
@@ -43,12 +43,12 @@ module Network.AWS.Lightsail.DeleteBucket
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBucket' smart constructor.
 data DeleteBucket = DeleteBucket'

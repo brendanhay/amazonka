@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.HeaderObject
+-- Module      : Amazonka.Lightsail.Types.HeaderObject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.HeaderObject where
+module Amazonka.Lightsail.Types.HeaderObject where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ForwardValues
-import Network.AWS.Lightsail.Types.HeaderEnum
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.ForwardValues
+import Amazonka.Lightsail.Types.HeaderEnum
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the request headers that a Lightsail distribution bases
 -- caching on.

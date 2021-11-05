@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.InstanceAccessDetails
+-- Module      : Amazonka.Lightsail.Types.InstanceAccessDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.InstanceAccessDetails where
+module Amazonka.Lightsail.Types.InstanceAccessDetails where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.HostKeyAttributes
-import Network.AWS.Lightsail.Types.InstanceAccessProtocol
-import Network.AWS.Lightsail.Types.PasswordData
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.HostKeyAttributes
+import Amazonka.Lightsail.Types.InstanceAccessProtocol
+import Amazonka.Lightsail.Types.PasswordData
+import qualified Amazonka.Prelude as Prelude
 
 -- | The parameters for gaining temporary access to one of your Amazon
 -- Lightsail instances.

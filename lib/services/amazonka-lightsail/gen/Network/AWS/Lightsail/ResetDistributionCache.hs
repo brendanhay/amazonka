@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.ResetDistributionCache
+-- Module      : Amazonka.Lightsail.ResetDistributionCache
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- After resetting the cache, the next time a content request is made, your
 -- distribution pulls, serves, and caches it from the origin.
-module Network.AWS.Lightsail.ResetDistributionCache
+module Amazonka.Lightsail.ResetDistributionCache
   ( -- * Creating a Request
     ResetDistributionCache (..),
     newResetDistributionCache,
@@ -45,12 +45,12 @@ module Network.AWS.Lightsail.ResetDistributionCache
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResetDistributionCache' smart constructor.
 data ResetDistributionCache = ResetDistributionCache'

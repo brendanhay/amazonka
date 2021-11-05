@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.ContactMethod
+-- Module      : Amazonka.Lightsail.Types.ContactMethod
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContactMethod where
+module Amazonka.Lightsail.Types.ContactMethod where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContactMethodStatus
-import Network.AWS.Lightsail.Types.ContactProtocol
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.ContactMethodStatus
+import Amazonka.Lightsail.Types.ContactProtocol
+import Amazonka.Lightsail.Types.ResourceLocation
+import Amazonka.Lightsail.Types.ResourceType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a contact method.
 --

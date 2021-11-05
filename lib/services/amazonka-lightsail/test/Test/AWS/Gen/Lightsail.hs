@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Lightsail where
 
+import Amazonka.Lightsail
 import qualified Data.Proxy as Proxy
-import Network.AWS.Lightsail
 import Test.AWS.Fixture
 import Test.AWS.Lightsail.Internal
 import Test.AWS.Prelude

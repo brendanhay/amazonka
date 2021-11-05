@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.CookieObject
+-- Module      : Amazonka.Lightsail.Types.CookieObject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CookieObject where
+module Amazonka.Lightsail.Types.CookieObject where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ForwardValues
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.ForwardValues
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether an Amazon Lightsail content delivery network (CDN)
 -- distribution forwards cookies to the origin and, if so, which ones.

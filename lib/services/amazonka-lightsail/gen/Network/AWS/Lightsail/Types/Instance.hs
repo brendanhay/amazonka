@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.Instance
+-- Module      : Amazonka.Lightsail.Types.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.Instance where
+module Amazonka.Lightsail.Types.Instance where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.AddOn
-import Network.AWS.Lightsail.Types.InstanceHardware
-import Network.AWS.Lightsail.Types.InstanceNetworking
-import Network.AWS.Lightsail.Types.InstanceState
-import Network.AWS.Lightsail.Types.IpAddressType
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.AddOn
+import Amazonka.Lightsail.Types.InstanceHardware
+import Amazonka.Lightsail.Types.InstanceNetworking
+import Amazonka.Lightsail.Types.InstanceState
+import Amazonka.Lightsail.Types.IpAddressType
+import Amazonka.Lightsail.Types.ResourceLocation
+import Amazonka.Lightsail.Types.ResourceType
+import Amazonka.Lightsail.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance (a virtual private server).
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.DeleteKnownHostKeys
+-- Module      : Amazonka.Lightsail.DeleteKnownHostKeys
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- certificate mismatch or if you are familiar with the new host key or
 -- certificate on the instance. For more information, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP client>.
-module Network.AWS.Lightsail.DeleteKnownHostKeys
+module Amazonka.Lightsail.DeleteKnownHostKeys
   ( -- * Creating a Request
     DeleteKnownHostKeys (..),
     newDeleteKnownHostKeys,
@@ -47,12 +47,12 @@ module Network.AWS.Lightsail.DeleteKnownHostKeys
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteKnownHostKeys' smart constructor.
 data DeleteKnownHostKeys = DeleteKnownHostKeys'

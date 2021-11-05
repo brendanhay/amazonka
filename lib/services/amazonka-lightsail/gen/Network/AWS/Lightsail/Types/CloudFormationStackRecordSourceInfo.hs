@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo
+-- Module      : Amazonka.Lightsail.Types.CloudFormationStackRecordSourceInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo where
+module Amazonka.Lightsail.Types.CloudFormationStackRecordSourceInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.CloudFormationStackRecordSourceType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source of a CloudFormation stack record (i.e., the export
 -- snapshot record).

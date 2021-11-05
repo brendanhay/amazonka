@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.ExportSnapshot
+-- Module      : Amazonka.Lightsail.ExportSnapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 --
 -- Use the @get instance snapshots@ or @get disk snapshots@ operations to
 -- get a list of snapshots that you can export to Amazon EC2.
-module Network.AWS.Lightsail.ExportSnapshot
+module Amazonka.Lightsail.ExportSnapshot
   ( -- * Creating a Request
     ExportSnapshot (..),
     newExportSnapshot,
@@ -58,12 +58,12 @@ module Network.AWS.Lightsail.ExportSnapshot
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportSnapshot' smart constructor.
 data ExportSnapshot = ExportSnapshot'

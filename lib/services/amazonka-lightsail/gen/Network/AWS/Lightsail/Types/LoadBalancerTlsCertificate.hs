@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.LoadBalancerTlsCertificate
+-- Module      : Amazonka.Lightsail.Types.LoadBalancerTlsCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTlsCertificate where
+module Amazonka.Lightsail.Types.LoadBalancerTlsCertificate where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
-import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateFailureReason
-import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
-import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
-import Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateStatus
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateFailureReason
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
+import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateStatus
+import Amazonka.Lightsail.Types.ResourceLocation
+import Amazonka.Lightsail.Types.ResourceType
+import Amazonka.Lightsail.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a load balancer SSL\/TLS certificate.
 --

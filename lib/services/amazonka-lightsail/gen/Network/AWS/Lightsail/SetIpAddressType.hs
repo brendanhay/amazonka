@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.SetIpAddressType
+-- Module      : Amazonka.Lightsail.SetIpAddressType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Use this action to enable dual-stack for a resource, which enables IPv4
 -- and IPv6 for the specified resource. Alternately, you can use this
 -- action to disable dual-stack, and enable IPv4 only.
-module Network.AWS.Lightsail.SetIpAddressType
+module Amazonka.Lightsail.SetIpAddressType
   ( -- * Creating a Request
     SetIpAddressType (..),
     newSetIpAddressType,
@@ -45,12 +45,12 @@ module Network.AWS.Lightsail.SetIpAddressType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetIpAddressType' smart constructor.
 data SetIpAddressType = SetIpAddressType'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.PutAlarm
+-- Module      : Amazonka.Lightsail.PutAlarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 -- When you update an existing alarm, its state is left unchanged, but the
 -- update completely overwrites the previous configuration of the alarm.
 -- The alarm is then evaluated with the updated configuration.
-module Network.AWS.Lightsail.PutAlarm
+module Amazonka.Lightsail.PutAlarm
   ( -- * Creating a Request
     PutAlarm (..),
     newPutAlarm,
@@ -65,12 +65,12 @@ module Network.AWS.Lightsail.PutAlarm
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutAlarm' smart constructor.
 data PutAlarm = PutAlarm'

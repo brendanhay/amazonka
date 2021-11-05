@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.CacheBehaviorPerPath
+-- Module      : Amazonka.Lightsail.Types.CacheBehaviorPerPath
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.CacheBehaviorPerPath where
+module Amazonka.Lightsail.Types.CacheBehaviorPerPath where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.BehaviorEnum
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.BehaviorEnum
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the per-path cache behavior of an Amazon Lightsail content
 -- delivery network (CDN) distribution.

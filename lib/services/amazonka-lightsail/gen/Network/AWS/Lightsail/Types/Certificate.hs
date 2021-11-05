@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.Types.Certificate
+-- Module      : Amazonka.Lightsail.Types.Certificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.Certificate where
+module Amazonka.Lightsail.Types.Certificate where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.CertificateStatus
-import Network.AWS.Lightsail.Types.DomainValidationRecord
-import Network.AWS.Lightsail.Types.RenewalSummary
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types.CertificateStatus
+import Amazonka.Lightsail.Types.DomainValidationRecord
+import Amazonka.Lightsail.Types.RenewalSummary
+import Amazonka.Lightsail.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the full details of an Amazon Lightsail SSL\/TLS certificate.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.UpdateBucketBundle
+-- Module      : Amazonka.Lightsail.UpdateBucketBundle
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- long-term strategy, instead of as a short-term, monthly cost-cutting
 -- measure. Choose a bucket bundle that will provide the bucket with ample
 -- storage space and data transfer for a long time to come.
-module Network.AWS.Lightsail.UpdateBucketBundle
+module Amazonka.Lightsail.UpdateBucketBundle
   ( -- * Creating a Request
     UpdateBucketBundle (..),
     newUpdateBucketBundle,
@@ -57,12 +57,12 @@ module Network.AWS.Lightsail.UpdateBucketBundle
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateBucketBundle' smart constructor.
 data UpdateBucketBundle = UpdateBucketBundle'

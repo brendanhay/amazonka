@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lightsail.GetContainerServiceMetricData
+-- Module      : Amazonka.Lightsail.GetContainerServiceMetricData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Metrics report the utilization of your resources. Monitor and collect
 -- metric data regularly to maintain the reliability, availability, and
 -- performance of your resources.
-module Network.AWS.Lightsail.GetContainerServiceMetricData
+module Amazonka.Lightsail.GetContainerServiceMetricData
   ( -- * Creating a Request
     GetContainerServiceMetricData (..),
     newGetContainerServiceMetricData,
@@ -50,12 +50,12 @@ module Network.AWS.Lightsail.GetContainerServiceMetricData
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Lightsail.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetContainerServiceMetricData' smart constructor.
 data GetContainerServiceMetricData = GetContainerServiceMetricData'

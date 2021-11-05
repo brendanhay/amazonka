@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
+-- Module      : Amazonka.ApplicationCostProfiler.ImportApplicationUsage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- The data must already exist in the S3 location. As part of the action,
 -- AWS Application Cost Profiler copies the object from your S3 bucket to
 -- an S3 bucket owned by Amazon for processing asynchronously.
-module Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
+module Amazonka.ApplicationCostProfiler.ImportApplicationUsage
   ( -- * Creating a Request
     ImportApplicationUsage (..),
     newImportApplicationUsage,
@@ -44,12 +44,12 @@ module Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
   )
 where
 
-import Network.AWS.ApplicationCostProfiler.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.ApplicationCostProfiler.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportApplicationUsage' smart constructor.
 data ImportApplicationUsage = ImportApplicationUsage'

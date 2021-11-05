@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ApplicationCostProfiler
+-- Module      : Amazonka.ApplicationCostProfiler
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 --
 -- For more information about using this service, see the
 -- <https://docs.aws.amazon.com/application-cost-profiler/latest/userguide/introduction.html AWS Application Cost Profiler User Guide>.
-module Network.AWS.ApplicationCostProfiler
+module Amazonka.ApplicationCostProfiler
   ( -- * Service Configuration
     defaultService,
 
@@ -110,15 +110,15 @@ module Network.AWS.ApplicationCostProfiler
   )
 where
 
-import Network.AWS.ApplicationCostProfiler.DeleteReportDefinition
-import Network.AWS.ApplicationCostProfiler.GetReportDefinition
-import Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
-import Network.AWS.ApplicationCostProfiler.Lens
-import Network.AWS.ApplicationCostProfiler.ListReportDefinitions
-import Network.AWS.ApplicationCostProfiler.PutReportDefinition
-import Network.AWS.ApplicationCostProfiler.Types
-import Network.AWS.ApplicationCostProfiler.UpdateReportDefinition
-import Network.AWS.ApplicationCostProfiler.Waiters
+import Amazonka.ApplicationCostProfiler.DeleteReportDefinition
+import Amazonka.ApplicationCostProfiler.GetReportDefinition
+import Amazonka.ApplicationCostProfiler.ImportApplicationUsage
+import Amazonka.ApplicationCostProfiler.Lens
+import Amazonka.ApplicationCostProfiler.ListReportDefinitions
+import Amazonka.ApplicationCostProfiler.PutReportDefinition
+import Amazonka.ApplicationCostProfiler.Types
+import Amazonka.ApplicationCostProfiler.UpdateReportDefinition
+import Amazonka.ApplicationCostProfiler.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

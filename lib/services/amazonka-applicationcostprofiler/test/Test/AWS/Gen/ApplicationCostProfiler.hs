@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ApplicationCostProfiler where
 
+import Amazonka.ApplicationCostProfiler
 import qualified Data.Proxy as Proxy
-import Network.AWS.ApplicationCostProfiler
 import Test.AWS.ApplicationCostProfiler.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

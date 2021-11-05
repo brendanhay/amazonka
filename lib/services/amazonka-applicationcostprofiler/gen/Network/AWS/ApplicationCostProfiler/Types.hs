@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationCostProfiler.Types
+-- Module      : Amazonka.ApplicationCostProfiler.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationCostProfiler.Types
+module Amazonka.ApplicationCostProfiler.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -58,16 +58,16 @@ module Network.AWS.ApplicationCostProfiler.Types
   )
 where
 
-import Network.AWS.ApplicationCostProfiler.Types.Format
-import Network.AWS.ApplicationCostProfiler.Types.ReportDefinition
-import Network.AWS.ApplicationCostProfiler.Types.ReportFrequency
-import Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion
-import Network.AWS.ApplicationCostProfiler.Types.S3Location
-import Network.AWS.ApplicationCostProfiler.Types.SourceS3Location
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ApplicationCostProfiler.Types.Format
+import Amazonka.ApplicationCostProfiler.Types.ReportDefinition
+import Amazonka.ApplicationCostProfiler.Types.ReportFrequency
+import Amazonka.ApplicationCostProfiler.Types.S3BucketRegion
+import Amazonka.ApplicationCostProfiler.Types.S3Location
+import Amazonka.ApplicationCostProfiler.Types.SourceS3Location
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-09-10@ of the Amazon Application Cost Profiler SDK configuration.
 defaultService :: Core.Service

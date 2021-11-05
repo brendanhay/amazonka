@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationCostProfiler.Types.Format
+-- Module      : Amazonka.ApplicationCostProfiler.Types.Format
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationCostProfiler.Types.Format
+module Amazonka.ApplicationCostProfiler.Types.Format
   ( Format
       ( ..,
         Format_CSV,
@@ -26,8 +26,8 @@ module Network.AWS.ApplicationCostProfiler.Types.Format
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Format = Format' {fromFormat :: Core.Text}
   deriving stock

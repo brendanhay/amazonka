@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationCostProfiler.Lens
+-- Module      : Amazonka.ApplicationCostProfiler.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationCostProfiler.Lens
+module Amazonka.ApplicationCostProfiler.Lens
   ( -- * Operations
 
     -- ** ImportApplicationUsage
@@ -82,12 +82,12 @@ module Network.AWS.ApplicationCostProfiler.Lens
   )
 where
 
-import Network.AWS.ApplicationCostProfiler.DeleteReportDefinition
-import Network.AWS.ApplicationCostProfiler.GetReportDefinition
-import Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
-import Network.AWS.ApplicationCostProfiler.ListReportDefinitions
-import Network.AWS.ApplicationCostProfiler.PutReportDefinition
-import Network.AWS.ApplicationCostProfiler.Types.ReportDefinition
-import Network.AWS.ApplicationCostProfiler.Types.S3Location
-import Network.AWS.ApplicationCostProfiler.Types.SourceS3Location
-import Network.AWS.ApplicationCostProfiler.UpdateReportDefinition
+import Amazonka.ApplicationCostProfiler.DeleteReportDefinition
+import Amazonka.ApplicationCostProfiler.GetReportDefinition
+import Amazonka.ApplicationCostProfiler.ImportApplicationUsage
+import Amazonka.ApplicationCostProfiler.ListReportDefinitions
+import Amazonka.ApplicationCostProfiler.PutReportDefinition
+import Amazonka.ApplicationCostProfiler.Types.ReportDefinition
+import Amazonka.ApplicationCostProfiler.Types.S3Location
+import Amazonka.ApplicationCostProfiler.Types.SourceS3Location
+import Amazonka.ApplicationCostProfiler.UpdateReportDefinition

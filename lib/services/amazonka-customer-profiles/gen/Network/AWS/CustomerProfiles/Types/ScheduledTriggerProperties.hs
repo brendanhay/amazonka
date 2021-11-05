@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties
+-- Module      : Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties where
+module Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.DataPullMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.DataPullMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details of a scheduled-trigger flow that you
 -- define. Currently, these settings only apply to the scheduled-trigger

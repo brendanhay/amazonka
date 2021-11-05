@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.MergeProfiles
+-- Module      : Amazonka.CustomerProfiles.MergeProfiles
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -53,7 +53,7 @@
 -- which returns potentially matching profiles, or use it with the results
 -- of another matching system. After profiles have been merged, they cannot
 -- be separated (unmerged).
-module Network.AWS.CustomerProfiles.MergeProfiles
+module Amazonka.CustomerProfiles.MergeProfiles
   ( -- * Creating a Request
     MergeProfiles (..),
     newMergeProfiles,
@@ -74,12 +74,12 @@ module Network.AWS.CustomerProfiles.MergeProfiles
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newMergeProfiles' smart constructor.
 data MergeProfiles = MergeProfiles'

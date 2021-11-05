@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types
+-- Module      : Amazonka.CustomerProfiles.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types
+module Amazonka.CustomerProfiles.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -330,54 +330,54 @@ module Network.AWS.CustomerProfiles.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.Address
-import Network.AWS.CustomerProfiles.Types.ConnectorOperator
-import Network.AWS.CustomerProfiles.Types.DataPullMode
-import Network.AWS.CustomerProfiles.Types.DomainStats
-import Network.AWS.CustomerProfiles.Types.FieldContentType
-import Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds
-import Network.AWS.CustomerProfiles.Types.FlowDefinition
-import Network.AWS.CustomerProfiles.Types.Gender
-import Network.AWS.CustomerProfiles.Types.IncrementalPullConfig
-import Network.AWS.CustomerProfiles.Types.ListDomainItem
-import Network.AWS.CustomerProfiles.Types.ListIntegrationItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem
-import Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator
-import Network.AWS.CustomerProfiles.Types.MarketoSourceProperties
-import Network.AWS.CustomerProfiles.Types.MatchItem
-import Network.AWS.CustomerProfiles.Types.MatchingRequest
-import Network.AWS.CustomerProfiles.Types.MatchingResponse
-import Network.AWS.CustomerProfiles.Types.ObjectFilter
-import Network.AWS.CustomerProfiles.Types.ObjectTypeField
-import Network.AWS.CustomerProfiles.Types.ObjectTypeKey
-import Network.AWS.CustomerProfiles.Types.OperatorPropertiesKeys
-import Network.AWS.CustomerProfiles.Types.PartyType
-import Network.AWS.CustomerProfiles.Types.Profile
-import Network.AWS.CustomerProfiles.Types.S3ConnectorOperator
-import Network.AWS.CustomerProfiles.Types.S3SourceProperties
-import Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator
-import Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties
-import Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties
-import Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator
-import Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties
-import Network.AWS.CustomerProfiles.Types.SourceConnectorProperties
-import Network.AWS.CustomerProfiles.Types.SourceConnectorType
-import Network.AWS.CustomerProfiles.Types.SourceFlowConfig
-import Network.AWS.CustomerProfiles.Types.StandardIdentifier
-import Network.AWS.CustomerProfiles.Types.Task
-import Network.AWS.CustomerProfiles.Types.TaskType
-import Network.AWS.CustomerProfiles.Types.TriggerConfig
-import Network.AWS.CustomerProfiles.Types.TriggerProperties
-import Network.AWS.CustomerProfiles.Types.TriggerType
-import Network.AWS.CustomerProfiles.Types.UpdateAddress
-import Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator
-import Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.Address
+import Amazonka.CustomerProfiles.Types.ConnectorOperator
+import Amazonka.CustomerProfiles.Types.DataPullMode
+import Amazonka.CustomerProfiles.Types.DomainStats
+import Amazonka.CustomerProfiles.Types.FieldContentType
+import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
+import Amazonka.CustomerProfiles.Types.FlowDefinition
+import Amazonka.CustomerProfiles.Types.Gender
+import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+import Amazonka.CustomerProfiles.Types.ListDomainItem
+import Amazonka.CustomerProfiles.Types.ListIntegrationItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
+import Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
+import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
+import Amazonka.CustomerProfiles.Types.MatchItem
+import Amazonka.CustomerProfiles.Types.MatchingRequest
+import Amazonka.CustomerProfiles.Types.MatchingResponse
+import Amazonka.CustomerProfiles.Types.ObjectFilter
+import Amazonka.CustomerProfiles.Types.ObjectTypeField
+import Amazonka.CustomerProfiles.Types.ObjectTypeKey
+import Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
+import Amazonka.CustomerProfiles.Types.PartyType
+import Amazonka.CustomerProfiles.Types.Profile
+import Amazonka.CustomerProfiles.Types.S3ConnectorOperator
+import Amazonka.CustomerProfiles.Types.S3SourceProperties
+import Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
+import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
+import Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
+import Amazonka.CustomerProfiles.Types.ServiceNowConnectorOperator
+import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
+import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
+import Amazonka.CustomerProfiles.Types.SourceConnectorType
+import Amazonka.CustomerProfiles.Types.SourceFlowConfig
+import Amazonka.CustomerProfiles.Types.StandardIdentifier
+import Amazonka.CustomerProfiles.Types.Task
+import Amazonka.CustomerProfiles.Types.TaskType
+import Amazonka.CustomerProfiles.Types.TriggerConfig
+import Amazonka.CustomerProfiles.Types.TriggerProperties
+import Amazonka.CustomerProfiles.Types.TriggerType
+import Amazonka.CustomerProfiles.Types.UpdateAddress
+import Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
+import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-15@ of the Amazon Connect Customer Profiles SDK configuration.
 defaultService :: Core.Service

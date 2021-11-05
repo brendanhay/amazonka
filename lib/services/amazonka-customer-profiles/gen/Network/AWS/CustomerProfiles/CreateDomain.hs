@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.CreateDomain
+-- Module      : Amazonka.CustomerProfiles.CreateDomain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- to enable
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html identity resolution>:
 -- set @Matching@ to true.
-module Network.AWS.CustomerProfiles.CreateDomain
+module Amazonka.CustomerProfiles.CreateDomain
   ( -- * Creating a Request
     CreateDomain (..),
     newCreateDomain,
@@ -63,12 +63,12 @@ module Network.AWS.CustomerProfiles.CreateDomain
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'

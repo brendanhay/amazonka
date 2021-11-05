@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CustomerProfiles
+-- Module      : Amazonka.CustomerProfiles
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- If you\'re new to Amazon Connect , you might find it helpful to also
 -- review the
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html Amazon Connect Administrator Guide>.
-module Network.AWS.CustomerProfiles
+module Amazonka.CustomerProfiles
   ( -- * Service Configuration
     defaultService,
 
@@ -402,39 +402,39 @@ module Network.AWS.CustomerProfiles
   )
 where
 
-import Network.AWS.CustomerProfiles.AddProfileKey
-import Network.AWS.CustomerProfiles.CreateDomain
-import Network.AWS.CustomerProfiles.CreateProfile
-import Network.AWS.CustomerProfiles.DeleteDomain
-import Network.AWS.CustomerProfiles.DeleteIntegration
-import Network.AWS.CustomerProfiles.DeleteProfile
-import Network.AWS.CustomerProfiles.DeleteProfileKey
-import Network.AWS.CustomerProfiles.DeleteProfileObject
-import Network.AWS.CustomerProfiles.DeleteProfileObjectType
-import Network.AWS.CustomerProfiles.GetDomain
-import Network.AWS.CustomerProfiles.GetIntegration
-import Network.AWS.CustomerProfiles.GetMatches
-import Network.AWS.CustomerProfiles.GetProfileObjectType
-import Network.AWS.CustomerProfiles.GetProfileObjectTypeTemplate
-import Network.AWS.CustomerProfiles.Lens
-import Network.AWS.CustomerProfiles.ListAccountIntegrations
-import Network.AWS.CustomerProfiles.ListDomains
-import Network.AWS.CustomerProfiles.ListIntegrations
-import Network.AWS.CustomerProfiles.ListProfileObjectTypeTemplates
-import Network.AWS.CustomerProfiles.ListProfileObjectTypes
-import Network.AWS.CustomerProfiles.ListProfileObjects
-import Network.AWS.CustomerProfiles.ListTagsForResource
-import Network.AWS.CustomerProfiles.MergeProfiles
-import Network.AWS.CustomerProfiles.PutIntegration
-import Network.AWS.CustomerProfiles.PutProfileObject
-import Network.AWS.CustomerProfiles.PutProfileObjectType
-import Network.AWS.CustomerProfiles.SearchProfiles
-import Network.AWS.CustomerProfiles.TagResource
-import Network.AWS.CustomerProfiles.Types
-import Network.AWS.CustomerProfiles.UntagResource
-import Network.AWS.CustomerProfiles.UpdateDomain
-import Network.AWS.CustomerProfiles.UpdateProfile
-import Network.AWS.CustomerProfiles.Waiters
+import Amazonka.CustomerProfiles.AddProfileKey
+import Amazonka.CustomerProfiles.CreateDomain
+import Amazonka.CustomerProfiles.CreateProfile
+import Amazonka.CustomerProfiles.DeleteDomain
+import Amazonka.CustomerProfiles.DeleteIntegration
+import Amazonka.CustomerProfiles.DeleteProfile
+import Amazonka.CustomerProfiles.DeleteProfileKey
+import Amazonka.CustomerProfiles.DeleteProfileObject
+import Amazonka.CustomerProfiles.DeleteProfileObjectType
+import Amazonka.CustomerProfiles.GetDomain
+import Amazonka.CustomerProfiles.GetIntegration
+import Amazonka.CustomerProfiles.GetMatches
+import Amazonka.CustomerProfiles.GetProfileObjectType
+import Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
+import Amazonka.CustomerProfiles.Lens
+import Amazonka.CustomerProfiles.ListAccountIntegrations
+import Amazonka.CustomerProfiles.ListDomains
+import Amazonka.CustomerProfiles.ListIntegrations
+import Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
+import Amazonka.CustomerProfiles.ListProfileObjectTypes
+import Amazonka.CustomerProfiles.ListProfileObjects
+import Amazonka.CustomerProfiles.ListTagsForResource
+import Amazonka.CustomerProfiles.MergeProfiles
+import Amazonka.CustomerProfiles.PutIntegration
+import Amazonka.CustomerProfiles.PutProfileObject
+import Amazonka.CustomerProfiles.PutProfileObjectType
+import Amazonka.CustomerProfiles.SearchProfiles
+import Amazonka.CustomerProfiles.TagResource
+import Amazonka.CustomerProfiles.Types
+import Amazonka.CustomerProfiles.UntagResource
+import Amazonka.CustomerProfiles.UpdateDomain
+import Amazonka.CustomerProfiles.UpdateProfile
+import Amazonka.CustomerProfiles.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

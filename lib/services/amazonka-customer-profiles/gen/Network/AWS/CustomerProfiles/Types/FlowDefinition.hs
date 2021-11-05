@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.FlowDefinition
+-- Module      : Amazonka.CustomerProfiles.Types.FlowDefinition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.FlowDefinition where
+module Amazonka.CustomerProfiles.Types.FlowDefinition where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.SourceFlowConfig
-import Network.AWS.CustomerProfiles.Types.Task
-import Network.AWS.CustomerProfiles.Types.TriggerConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.SourceFlowConfig
+import Amazonka.CustomerProfiles.Types.Task
+import Amazonka.CustomerProfiles.Types.TriggerConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configurations that control how Customer Profiles retrieves data
 -- from the source, Amazon AppFlow. Customer Profiles uses this information

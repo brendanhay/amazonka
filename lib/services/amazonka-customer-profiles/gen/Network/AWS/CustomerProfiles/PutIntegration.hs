@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.PutIntegration
+-- Module      : Amazonka.CustomerProfiles.PutIntegration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- includes Amazon AppFlow and Amazon Connect.
 --
 -- An integration can belong to only one domain.
-module Network.AWS.CustomerProfiles.PutIntegration
+module Amazonka.CustomerProfiles.PutIntegration
   ( -- * Creating a Request
     PutIntegration (..),
     newPutIntegration,
@@ -51,12 +51,12 @@ module Network.AWS.CustomerProfiles.PutIntegration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutIntegration' smart constructor.
 data PutIntegration = PutIntegration'

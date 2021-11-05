@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.ConnectorOperator
+-- Module      : Amazonka.CustomerProfiles.Types.ConnectorOperator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.ConnectorOperator where
+module Amazonka.CustomerProfiles.Types.ConnectorOperator where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator
-import Network.AWS.CustomerProfiles.Types.S3ConnectorOperator
-import Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator
-import Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator
-import Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
+import Amazonka.CustomerProfiles.Types.S3ConnectorOperator
+import Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
+import Amazonka.CustomerProfiles.Types.ServiceNowConnectorOperator
+import Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The operation to be performed on the provided source fields.
 --

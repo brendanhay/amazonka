@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.SourceFlowConfig
+-- Module      : Amazonka.CustomerProfiles.Types.SourceFlowConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.SourceFlowConfig where
+module Amazonka.CustomerProfiles.Types.SourceFlowConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.IncrementalPullConfig
-import Network.AWS.CustomerProfiles.Types.SourceConnectorProperties
-import Network.AWS.CustomerProfiles.Types.SourceConnectorType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
+import Amazonka.CustomerProfiles.Types.SourceConnectorType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the source connector
 -- used in the flow.

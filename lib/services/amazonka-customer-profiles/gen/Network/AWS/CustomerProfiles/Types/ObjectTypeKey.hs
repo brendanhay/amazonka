@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.ObjectTypeKey
+-- Module      : Amazonka.CustomerProfiles.Types.ObjectTypeKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.ObjectTypeKey where
+module Amazonka.CustomerProfiles.Types.ObjectTypeKey where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.StandardIdentifier
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.StandardIdentifier
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines the Key element of a ProfileObject. A Key is a
 -- special element that can be used to search for a customer profile.

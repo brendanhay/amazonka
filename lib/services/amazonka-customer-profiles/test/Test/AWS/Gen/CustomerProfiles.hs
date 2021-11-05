@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CustomerProfiles where
 
+import Amazonka.CustomerProfiles
 import qualified Data.Proxy as Proxy
-import Network.AWS.CustomerProfiles
 import Test.AWS.CustomerProfiles.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

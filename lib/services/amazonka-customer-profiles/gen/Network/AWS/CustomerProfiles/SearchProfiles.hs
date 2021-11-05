@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.SearchProfiles
+-- Module      : Amazonka.CustomerProfiles.SearchProfiles
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Searches for profiles within a specific domain name using name, phone
 -- number, email address, account number, or a custom defined index.
-module Network.AWS.CustomerProfiles.SearchProfiles
+module Amazonka.CustomerProfiles.SearchProfiles
   ( -- * Creating a Request
     SearchProfiles (..),
     newSearchProfiles,
@@ -45,12 +45,12 @@ module Network.AWS.CustomerProfiles.SearchProfiles
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchProfiles' smart constructor.
 data SearchProfiles = SearchProfiles'

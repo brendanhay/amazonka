@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Lens
+-- Module      : Amazonka.CustomerProfiles.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Lens
+module Amazonka.CustomerProfiles.Lens
   ( -- * Operations
 
     -- ** DeleteProfileObjectType
@@ -543,63 +543,63 @@ module Network.AWS.CustomerProfiles.Lens
   )
 where
 
-import Network.AWS.CustomerProfiles.AddProfileKey
-import Network.AWS.CustomerProfiles.CreateDomain
-import Network.AWS.CustomerProfiles.CreateProfile
-import Network.AWS.CustomerProfiles.DeleteDomain
-import Network.AWS.CustomerProfiles.DeleteIntegration
-import Network.AWS.CustomerProfiles.DeleteProfile
-import Network.AWS.CustomerProfiles.DeleteProfileKey
-import Network.AWS.CustomerProfiles.DeleteProfileObject
-import Network.AWS.CustomerProfiles.DeleteProfileObjectType
-import Network.AWS.CustomerProfiles.GetDomain
-import Network.AWS.CustomerProfiles.GetIntegration
-import Network.AWS.CustomerProfiles.GetMatches
-import Network.AWS.CustomerProfiles.GetProfileObjectType
-import Network.AWS.CustomerProfiles.GetProfileObjectTypeTemplate
-import Network.AWS.CustomerProfiles.ListAccountIntegrations
-import Network.AWS.CustomerProfiles.ListDomains
-import Network.AWS.CustomerProfiles.ListIntegrations
-import Network.AWS.CustomerProfiles.ListProfileObjectTypeTemplates
-import Network.AWS.CustomerProfiles.ListProfileObjectTypes
-import Network.AWS.CustomerProfiles.ListProfileObjects
-import Network.AWS.CustomerProfiles.ListTagsForResource
-import Network.AWS.CustomerProfiles.MergeProfiles
-import Network.AWS.CustomerProfiles.PutIntegration
-import Network.AWS.CustomerProfiles.PutProfileObject
-import Network.AWS.CustomerProfiles.PutProfileObjectType
-import Network.AWS.CustomerProfiles.SearchProfiles
-import Network.AWS.CustomerProfiles.TagResource
-import Network.AWS.CustomerProfiles.Types.Address
-import Network.AWS.CustomerProfiles.Types.ConnectorOperator
-import Network.AWS.CustomerProfiles.Types.DomainStats
-import Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds
-import Network.AWS.CustomerProfiles.Types.FlowDefinition
-import Network.AWS.CustomerProfiles.Types.IncrementalPullConfig
-import Network.AWS.CustomerProfiles.Types.ListDomainItem
-import Network.AWS.CustomerProfiles.Types.ListIntegrationItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
-import Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem
-import Network.AWS.CustomerProfiles.Types.MarketoSourceProperties
-import Network.AWS.CustomerProfiles.Types.MatchItem
-import Network.AWS.CustomerProfiles.Types.MatchingRequest
-import Network.AWS.CustomerProfiles.Types.MatchingResponse
-import Network.AWS.CustomerProfiles.Types.ObjectFilter
-import Network.AWS.CustomerProfiles.Types.ObjectTypeField
-import Network.AWS.CustomerProfiles.Types.ObjectTypeKey
-import Network.AWS.CustomerProfiles.Types.Profile
-import Network.AWS.CustomerProfiles.Types.S3SourceProperties
-import Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties
-import Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties
-import Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties
-import Network.AWS.CustomerProfiles.Types.SourceConnectorProperties
-import Network.AWS.CustomerProfiles.Types.SourceFlowConfig
-import Network.AWS.CustomerProfiles.Types.Task
-import Network.AWS.CustomerProfiles.Types.TriggerConfig
-import Network.AWS.CustomerProfiles.Types.TriggerProperties
-import Network.AWS.CustomerProfiles.Types.UpdateAddress
-import Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties
-import Network.AWS.CustomerProfiles.UntagResource
-import Network.AWS.CustomerProfiles.UpdateDomain
-import Network.AWS.CustomerProfiles.UpdateProfile
+import Amazonka.CustomerProfiles.AddProfileKey
+import Amazonka.CustomerProfiles.CreateDomain
+import Amazonka.CustomerProfiles.CreateProfile
+import Amazonka.CustomerProfiles.DeleteDomain
+import Amazonka.CustomerProfiles.DeleteIntegration
+import Amazonka.CustomerProfiles.DeleteProfile
+import Amazonka.CustomerProfiles.DeleteProfileKey
+import Amazonka.CustomerProfiles.DeleteProfileObject
+import Amazonka.CustomerProfiles.DeleteProfileObjectType
+import Amazonka.CustomerProfiles.GetDomain
+import Amazonka.CustomerProfiles.GetIntegration
+import Amazonka.CustomerProfiles.GetMatches
+import Amazonka.CustomerProfiles.GetProfileObjectType
+import Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
+import Amazonka.CustomerProfiles.ListAccountIntegrations
+import Amazonka.CustomerProfiles.ListDomains
+import Amazonka.CustomerProfiles.ListIntegrations
+import Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
+import Amazonka.CustomerProfiles.ListProfileObjectTypes
+import Amazonka.CustomerProfiles.ListProfileObjects
+import Amazonka.CustomerProfiles.ListTagsForResource
+import Amazonka.CustomerProfiles.MergeProfiles
+import Amazonka.CustomerProfiles.PutIntegration
+import Amazonka.CustomerProfiles.PutProfileObject
+import Amazonka.CustomerProfiles.PutProfileObjectType
+import Amazonka.CustomerProfiles.SearchProfiles
+import Amazonka.CustomerProfiles.TagResource
+import Amazonka.CustomerProfiles.Types.Address
+import Amazonka.CustomerProfiles.Types.ConnectorOperator
+import Amazonka.CustomerProfiles.Types.DomainStats
+import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
+import Amazonka.CustomerProfiles.Types.FlowDefinition
+import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+import Amazonka.CustomerProfiles.Types.ListDomainItem
+import Amazonka.CustomerProfiles.Types.ListIntegrationItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
+import Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
+import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
+import Amazonka.CustomerProfiles.Types.MatchItem
+import Amazonka.CustomerProfiles.Types.MatchingRequest
+import Amazonka.CustomerProfiles.Types.MatchingResponse
+import Amazonka.CustomerProfiles.Types.ObjectFilter
+import Amazonka.CustomerProfiles.Types.ObjectTypeField
+import Amazonka.CustomerProfiles.Types.ObjectTypeKey
+import Amazonka.CustomerProfiles.Types.Profile
+import Amazonka.CustomerProfiles.Types.S3SourceProperties
+import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
+import Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
+import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
+import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
+import Amazonka.CustomerProfiles.Types.SourceFlowConfig
+import Amazonka.CustomerProfiles.Types.Task
+import Amazonka.CustomerProfiles.Types.TriggerConfig
+import Amazonka.CustomerProfiles.Types.TriggerProperties
+import Amazonka.CustomerProfiles.Types.UpdateAddress
+import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
+import Amazonka.CustomerProfiles.UntagResource
+import Amazonka.CustomerProfiles.UpdateDomain
+import Amazonka.CustomerProfiles.UpdateProfile

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.AddProfileKey
+-- Module      : Amazonka.CustomerProfiles.AddProfileKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- A profile object can have a single unique key and any number of
 -- additional keys that can be used to identify the profile that it belongs
 -- to.
-module Network.AWS.CustomerProfiles.AddProfileKey
+module Amazonka.CustomerProfiles.AddProfileKey
   ( -- * Creating a Request
     AddProfileKey (..),
     newAddProfileKey,
@@ -48,12 +48,12 @@ module Network.AWS.CustomerProfiles.AddProfileKey
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddProfileKey' smart constructor.
 data AddProfileKey = AddProfileKey'

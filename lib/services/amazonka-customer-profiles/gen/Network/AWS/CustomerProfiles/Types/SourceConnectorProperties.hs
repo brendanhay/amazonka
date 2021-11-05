@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.Types.SourceConnectorProperties
+-- Module      : Amazonka.CustomerProfiles.Types.SourceConnectorProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CustomerProfiles.Types.SourceConnectorProperties where
+module Amazonka.CustomerProfiles.Types.SourceConnectorProperties where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types.MarketoSourceProperties
-import Network.AWS.CustomerProfiles.Types.S3SourceProperties
-import Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties
-import Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties
-import Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
+import Amazonka.CustomerProfiles.Types.S3SourceProperties
+import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
+import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
+import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular Amazon
 -- AppFlow connector. Customer Profiles supports Salesforce, Zendesk,

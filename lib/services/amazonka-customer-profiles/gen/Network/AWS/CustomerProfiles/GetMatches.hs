@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CustomerProfiles.GetMatches
+-- Module      : Amazonka.CustomerProfiles.GetMatches
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -62,7 +62,7 @@
 -- different phone number formats such as __555-010-0000__ and
 -- __+1-555-010-0000__—can be detected as belonging to the same customer
 -- __John Doe__ and merged into a unified profile.
-module Network.AWS.CustomerProfiles.GetMatches
+module Amazonka.CustomerProfiles.GetMatches
   ( -- * Creating a Request
     GetMatches (..),
     newGetMatches,
@@ -85,12 +85,12 @@ module Network.AWS.CustomerProfiles.GetMatches
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.CustomerProfiles.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMatches' smart constructor.
 data GetMatches = GetMatches'

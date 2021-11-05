@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTData.Lens
+-- Module      : Amazonka.IoTData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTData.Lens
+module Amazonka.IoTData.Lens
   ( -- * Operations
 
     -- ** GetThingShadow
@@ -73,11 +73,11 @@ module Network.AWS.IoTData.Lens
   )
 where
 
-import Network.AWS.IoTData.DeleteThingShadow
-import Network.AWS.IoTData.GetRetainedMessage
-import Network.AWS.IoTData.GetThingShadow
-import Network.AWS.IoTData.ListNamedShadowsForThing
-import Network.AWS.IoTData.ListRetainedMessages
-import Network.AWS.IoTData.Publish
-import Network.AWS.IoTData.Types.RetainedMessageSummary
-import Network.AWS.IoTData.UpdateThingShadow
+import Amazonka.IoTData.DeleteThingShadow
+import Amazonka.IoTData.GetRetainedMessage
+import Amazonka.IoTData.GetThingShadow
+import Amazonka.IoTData.ListNamedShadowsForThing
+import Amazonka.IoTData.ListRetainedMessages
+import Amazonka.IoTData.Publish
+import Amazonka.IoTData.Types.RetainedMessageSummary
+import Amazonka.IoTData.UpdateThingShadow

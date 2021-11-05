@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTData.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTData.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,20 +45,20 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTData
-    Network.AWS.IoTData.DeleteThingShadow
-    Network.AWS.IoTData.GetRetainedMessage
-    Network.AWS.IoTData.GetThingShadow
-    Network.AWS.IoTData.Lens
-    Network.AWS.IoTData.ListNamedShadowsForThing
-    Network.AWS.IoTData.ListRetainedMessages
-    Network.AWS.IoTData.Publish
-    Network.AWS.IoTData.Types
-    Network.AWS.IoTData.Types.RetainedMessageSummary
-    Network.AWS.IoTData.UpdateThingShadow
-    Network.AWS.IoTData.Waiters
+    Amazonka.IoTData
+    Amazonka.IoTData.DeleteThingShadow
+    Amazonka.IoTData.GetRetainedMessage
+    Amazonka.IoTData.GetThingShadow
+    Amazonka.IoTData.Lens
+    Amazonka.IoTData.ListNamedShadowsForThing
+    Amazonka.IoTData.ListRetainedMessages
+    Amazonka.IoTData.Publish
+    Amazonka.IoTData.Types
+    Amazonka.IoTData.Types.RetainedMessageSummary
+    Amazonka.IoTData.UpdateThingShadow
+    Amazonka.IoTData.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

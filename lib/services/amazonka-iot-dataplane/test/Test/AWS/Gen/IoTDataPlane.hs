@@ -14,7 +14,7 @@
 module Test.AWS.Gen.IoTDataPlane where
 
 import Data.Proxy
-import Network.AWS.IoTDataPlane
+import Amazonka.IoTDataPlane
 import Test.AWS.Fixture
 import Test.AWS.IoTDataPlane.Internal
 import Test.AWS.Prelude

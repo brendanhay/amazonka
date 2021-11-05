@@ -15,7 +15,7 @@ module Test.AWS.IoTDataPlane
     , fixtures
     ) where
 
-import           Network.AWS.IoTDataPlane
+import           Amazonka.IoTDataPlane
 import           Test.AWS.Gen.IoTDataPlane
 import           Test.Tasty
 

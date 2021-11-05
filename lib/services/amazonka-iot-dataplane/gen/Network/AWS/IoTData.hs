@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTData
+-- Module      : Amazonka.IoTData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- The service name used by
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Amazon Web ServicesSignature Version 4>
 -- to sign requests is: /iotdevicegateway/.
-module Network.AWS.IoTData
+module Amazonka.IoTData
   ( -- * Service Configuration
     defaultService,
 
@@ -122,16 +122,16 @@ module Network.AWS.IoTData
   )
 where
 
-import Network.AWS.IoTData.DeleteThingShadow
-import Network.AWS.IoTData.GetRetainedMessage
-import Network.AWS.IoTData.GetThingShadow
-import Network.AWS.IoTData.Lens
-import Network.AWS.IoTData.ListNamedShadowsForThing
-import Network.AWS.IoTData.ListRetainedMessages
-import Network.AWS.IoTData.Publish
-import Network.AWS.IoTData.Types
-import Network.AWS.IoTData.UpdateThingShadow
-import Network.AWS.IoTData.Waiters
+import Amazonka.IoTData.DeleteThingShadow
+import Amazonka.IoTData.GetRetainedMessage
+import Amazonka.IoTData.GetThingShadow
+import Amazonka.IoTData.Lens
+import Amazonka.IoTData.ListNamedShadowsForThing
+import Amazonka.IoTData.ListRetainedMessages
+import Amazonka.IoTData.Publish
+import Amazonka.IoTData.Types
+import Amazonka.IoTData.UpdateThingShadow
+import Amazonka.IoTData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

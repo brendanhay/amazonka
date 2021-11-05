@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Outposts.Types.Order
+-- Module      : Amazonka.Outposts.Types.Order
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Outposts.Types.Order where
+module Amazonka.Outposts.Types.Order where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Outposts.Types.LineItem
-import Network.AWS.Outposts.Types.OrderStatus
-import Network.AWS.Outposts.Types.PaymentOption
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.LineItem
+import Amazonka.Outposts.Types.OrderStatus
+import Amazonka.Outposts.Types.PaymentOption
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an order.
 --

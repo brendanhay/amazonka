@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Outposts.Lens
+-- Module      : Amazonka.Outposts.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Outposts.Lens
+module Amazonka.Outposts.Lens
   ( -- * Operations
 
     -- ** DeleteOutpost
@@ -134,20 +134,20 @@ module Network.AWS.Outposts.Lens
   )
 where
 
-import Network.AWS.Outposts.CreateOrder
-import Network.AWS.Outposts.CreateOutpost
-import Network.AWS.Outposts.DeleteOutpost
-import Network.AWS.Outposts.DeleteSite
-import Network.AWS.Outposts.GetOutpost
-import Network.AWS.Outposts.GetOutpostInstanceTypes
-import Network.AWS.Outposts.ListOutposts
-import Network.AWS.Outposts.ListSites
-import Network.AWS.Outposts.ListTagsForResource
-import Network.AWS.Outposts.TagResource
-import Network.AWS.Outposts.Types.InstanceTypeItem
-import Network.AWS.Outposts.Types.LineItem
-import Network.AWS.Outposts.Types.LineItemRequest
-import Network.AWS.Outposts.Types.Order
-import Network.AWS.Outposts.Types.Outpost
-import Network.AWS.Outposts.Types.Site
-import Network.AWS.Outposts.UntagResource
+import Amazonka.Outposts.CreateOrder
+import Amazonka.Outposts.CreateOutpost
+import Amazonka.Outposts.DeleteOutpost
+import Amazonka.Outposts.DeleteSite
+import Amazonka.Outposts.GetOutpost
+import Amazonka.Outposts.GetOutpostInstanceTypes
+import Amazonka.Outposts.ListOutposts
+import Amazonka.Outposts.ListSites
+import Amazonka.Outposts.ListTagsForResource
+import Amazonka.Outposts.TagResource
+import Amazonka.Outposts.Types.InstanceTypeItem
+import Amazonka.Outposts.Types.LineItem
+import Amazonka.Outposts.Types.LineItemRequest
+import Amazonka.Outposts.Types.Order
+import Amazonka.Outposts.Types.Outpost
+import Amazonka.Outposts.Types.Site
+import Amazonka.Outposts.UntagResource

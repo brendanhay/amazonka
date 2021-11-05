@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Outposts where
 
+import Amazonka.Outposts
 import qualified Data.Proxy as Proxy
-import Network.AWS.Outposts
 import Test.AWS.Fixture
 import Test.AWS.Outposts.Internal
 import Test.AWS.Prelude

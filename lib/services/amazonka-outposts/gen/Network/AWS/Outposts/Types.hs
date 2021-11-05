@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Outposts.Types
+-- Module      : Amazonka.Outposts.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Outposts.Types
+module Amazonka.Outposts.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -90,19 +90,19 @@ module Network.AWS.Outposts.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Outposts.Types.InstanceTypeItem
-import Network.AWS.Outposts.Types.LineItem
-import Network.AWS.Outposts.Types.LineItemRequest
-import Network.AWS.Outposts.Types.Order
-import Network.AWS.Outposts.Types.OrderStatus
-import Network.AWS.Outposts.Types.Outpost
-import Network.AWS.Outposts.Types.PaymentOption
-import Network.AWS.Outposts.Types.PaymentTerm
-import Network.AWS.Outposts.Types.Site
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.InstanceTypeItem
+import Amazonka.Outposts.Types.LineItem
+import Amazonka.Outposts.Types.LineItemRequest
+import Amazonka.Outposts.Types.Order
+import Amazonka.Outposts.Types.OrderStatus
+import Amazonka.Outposts.Types.Outpost
+import Amazonka.Outposts.Types.PaymentOption
+import Amazonka.Outposts.Types.PaymentTerm
+import Amazonka.Outposts.Types.Site
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-03@ of the Amazon Outposts SDK configuration.
 defaultService :: Core.Service

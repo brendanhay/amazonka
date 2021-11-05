@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Outposts
+-- Module      : Amazonka.Outposts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- applications on premises using the same programming interfaces as in AWS
 -- Regions, while using local compute and storage resources for lower
 -- latency and local data processing needs.
-module Network.AWS.Outposts
+module Amazonka.Outposts
   ( -- * Service Configuration
     defaultService,
 
@@ -151,20 +151,20 @@ module Network.AWS.Outposts
   )
 where
 
-import Network.AWS.Outposts.CreateOrder
-import Network.AWS.Outposts.CreateOutpost
-import Network.AWS.Outposts.DeleteOutpost
-import Network.AWS.Outposts.DeleteSite
-import Network.AWS.Outposts.GetOutpost
-import Network.AWS.Outposts.GetOutpostInstanceTypes
-import Network.AWS.Outposts.Lens
-import Network.AWS.Outposts.ListOutposts
-import Network.AWS.Outposts.ListSites
-import Network.AWS.Outposts.ListTagsForResource
-import Network.AWS.Outposts.TagResource
-import Network.AWS.Outposts.Types
-import Network.AWS.Outposts.UntagResource
-import Network.AWS.Outposts.Waiters
+import Amazonka.Outposts.CreateOrder
+import Amazonka.Outposts.CreateOutpost
+import Amazonka.Outposts.DeleteOutpost
+import Amazonka.Outposts.DeleteSite
+import Amazonka.Outposts.GetOutpost
+import Amazonka.Outposts.GetOutpostInstanceTypes
+import Amazonka.Outposts.Lens
+import Amazonka.Outposts.ListOutposts
+import Amazonka.Outposts.ListSites
+import Amazonka.Outposts.ListTagsForResource
+import Amazonka.Outposts.TagResource
+import Amazonka.Outposts.Types
+import Amazonka.Outposts.UntagResource
+import Amazonka.Outposts.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

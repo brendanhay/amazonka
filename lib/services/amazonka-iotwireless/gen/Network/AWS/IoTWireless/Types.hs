@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.Types
+-- Module      : Amazonka.IoTWireless.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTWireless.Types
+module Amazonka.IoTWireless.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -402,69 +402,69 @@ module Network.AWS.IoTWireless.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types.AbpV1_0_x
-import Network.AWS.IoTWireless.Types.AbpV1_1
-import Network.AWS.IoTWireless.Types.BatteryLevel
-import Network.AWS.IoTWireless.Types.CertificateList
-import Network.AWS.IoTWireless.Types.ConnectionStatus
-import Network.AWS.IoTWireless.Types.Destinations
-import Network.AWS.IoTWireless.Types.DeviceProfile
-import Network.AWS.IoTWireless.Types.DeviceState
-import Network.AWS.IoTWireless.Types.Event
-import Network.AWS.IoTWireless.Types.ExpressionType
-import Network.AWS.IoTWireless.Types.LoRaWANDevice
-import Network.AWS.IoTWireless.Types.LoRaWANDeviceMetadata
-import Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile
-import Network.AWS.IoTWireless.Types.LoRaWANGateway
-import Network.AWS.IoTWireless.Types.LoRaWANGatewayCurrentVersion
-import Network.AWS.IoTWireless.Types.LoRaWANGatewayMetadata
-import Network.AWS.IoTWireless.Types.LoRaWANGatewayVersion
-import Network.AWS.IoTWireless.Types.LoRaWANGetServiceProfileInfo
-import Network.AWS.IoTWireless.Types.LoRaWANListDevice
-import Network.AWS.IoTWireless.Types.LoRaWANSendDataToDevice
-import Network.AWS.IoTWireless.Types.LoRaWANServiceProfile
-import Network.AWS.IoTWireless.Types.LoRaWANUpdateDevice
-import Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
-import Network.AWS.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
-import Network.AWS.IoTWireless.Types.LogLevel
-import Network.AWS.IoTWireless.Types.MessageType
-import Network.AWS.IoTWireless.Types.OtaaV1_0_x
-import Network.AWS.IoTWireless.Types.OtaaV1_1
-import Network.AWS.IoTWireless.Types.PartnerType
-import Network.AWS.IoTWireless.Types.ServiceProfile
-import Network.AWS.IoTWireless.Types.SessionKeysAbpV1_0_x
-import Network.AWS.IoTWireless.Types.SessionKeysAbpV1_1
-import Network.AWS.IoTWireless.Types.SidewalkAccountInfo
-import Network.AWS.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
-import Network.AWS.IoTWireless.Types.SidewalkDevice
-import Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata
-import Network.AWS.IoTWireless.Types.SidewalkListDevice
-import Network.AWS.IoTWireless.Types.SidewalkSendDataToDevice
-import Network.AWS.IoTWireless.Types.SidewalkUpdateAccount
-import Network.AWS.IoTWireless.Types.SigningAlg
-import Network.AWS.IoTWireless.Types.Tag
-import Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
-import Network.AWS.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
-import Network.AWS.IoTWireless.Types.WirelessDeviceEvent
-import Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption
-import Network.AWS.IoTWireless.Types.WirelessDeviceIdType
-import Network.AWS.IoTWireless.Types.WirelessDeviceLogOption
-import Network.AWS.IoTWireless.Types.WirelessDeviceStatistics
-import Network.AWS.IoTWireless.Types.WirelessDeviceType
-import Network.AWS.IoTWireless.Types.WirelessGatewayEvent
-import Network.AWS.IoTWireless.Types.WirelessGatewayEventLogOption
-import Network.AWS.IoTWireless.Types.WirelessGatewayIdType
-import Network.AWS.IoTWireless.Types.WirelessGatewayLogOption
-import Network.AWS.IoTWireless.Types.WirelessGatewayServiceType
-import Network.AWS.IoTWireless.Types.WirelessGatewayStatistics
-import Network.AWS.IoTWireless.Types.WirelessGatewayTaskDefinitionType
-import Network.AWS.IoTWireless.Types.WirelessGatewayTaskStatus
-import Network.AWS.IoTWireless.Types.WirelessGatewayType
-import Network.AWS.IoTWireless.Types.WirelessMetadata
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types.AbpV1_0_x
+import Amazonka.IoTWireless.Types.AbpV1_1
+import Amazonka.IoTWireless.Types.BatteryLevel
+import Amazonka.IoTWireless.Types.CertificateList
+import Amazonka.IoTWireless.Types.ConnectionStatus
+import Amazonka.IoTWireless.Types.Destinations
+import Amazonka.IoTWireless.Types.DeviceProfile
+import Amazonka.IoTWireless.Types.DeviceState
+import Amazonka.IoTWireless.Types.Event
+import Amazonka.IoTWireless.Types.ExpressionType
+import Amazonka.IoTWireless.Types.LoRaWANDevice
+import Amazonka.IoTWireless.Types.LoRaWANDeviceMetadata
+import Amazonka.IoTWireless.Types.LoRaWANDeviceProfile
+import Amazonka.IoTWireless.Types.LoRaWANGateway
+import Amazonka.IoTWireless.Types.LoRaWANGatewayCurrentVersion
+import Amazonka.IoTWireless.Types.LoRaWANGatewayMetadata
+import Amazonka.IoTWireless.Types.LoRaWANGatewayVersion
+import Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo
+import Amazonka.IoTWireless.Types.LoRaWANListDevice
+import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
+import Amazonka.IoTWireless.Types.LoRaWANServiceProfile
+import Amazonka.IoTWireless.Types.LoRaWANUpdateDevice
+import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
+import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
+import Amazonka.IoTWireless.Types.LogLevel
+import Amazonka.IoTWireless.Types.MessageType
+import Amazonka.IoTWireless.Types.OtaaV1_0_x
+import Amazonka.IoTWireless.Types.OtaaV1_1
+import Amazonka.IoTWireless.Types.PartnerType
+import Amazonka.IoTWireless.Types.ServiceProfile
+import Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x
+import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
+import Amazonka.IoTWireless.Types.SidewalkAccountInfo
+import Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
+import Amazonka.IoTWireless.Types.SidewalkDevice
+import Amazonka.IoTWireless.Types.SidewalkDeviceMetadata
+import Amazonka.IoTWireless.Types.SidewalkListDevice
+import Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
+import Amazonka.IoTWireless.Types.SidewalkUpdateAccount
+import Amazonka.IoTWireless.Types.SigningAlg
+import Amazonka.IoTWireless.Types.Tag
+import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
+import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
+import Amazonka.IoTWireless.Types.WirelessDeviceEvent
+import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
+import Amazonka.IoTWireless.Types.WirelessDeviceIdType
+import Amazonka.IoTWireless.Types.WirelessDeviceLogOption
+import Amazonka.IoTWireless.Types.WirelessDeviceStatistics
+import Amazonka.IoTWireless.Types.WirelessDeviceType
+import Amazonka.IoTWireless.Types.WirelessGatewayEvent
+import Amazonka.IoTWireless.Types.WirelessGatewayEventLogOption
+import Amazonka.IoTWireless.Types.WirelessGatewayIdType
+import Amazonka.IoTWireless.Types.WirelessGatewayLogOption
+import Amazonka.IoTWireless.Types.WirelessGatewayServiceType
+import Amazonka.IoTWireless.Types.WirelessGatewayStatistics
+import Amazonka.IoTWireless.Types.WirelessGatewayTaskDefinitionType
+import Amazonka.IoTWireless.Types.WirelessGatewayTaskStatus
+import Amazonka.IoTWireless.Types.WirelessGatewayType
+import Amazonka.IoTWireless.Types.WirelessMetadata
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-11-22@ of the Amazon IoT Wireless SDK configuration.
 defaultService :: Core.Service

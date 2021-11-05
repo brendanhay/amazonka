@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.UpdateLogLevelsByResourceTypes
+-- Module      : Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Set default log level, or log levels by resource types. This can be for
 -- wireless device log options or wireless gateways log options and is used
 -- to control the log messages that\'ll be displayed in CloudWatch.
-module Network.AWS.IoTWireless.UpdateLogLevelsByResourceTypes
+module Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
   ( -- * Creating a Request
     UpdateLogLevelsByResourceTypes (..),
     newUpdateLogLevelsByResourceTypes,
@@ -42,12 +42,12 @@ module Network.AWS.IoTWireless.UpdateLogLevelsByResourceTypes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLogLevelsByResourceTypes' smart constructor.
 data UpdateLogLevelsByResourceTypes = UpdateLogLevelsByResourceTypes'

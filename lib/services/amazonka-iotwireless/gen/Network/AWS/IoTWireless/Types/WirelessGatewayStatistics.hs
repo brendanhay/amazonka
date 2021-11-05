@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.Types.WirelessGatewayStatistics
+-- Module      : Amazonka.IoTWireless.Types.WirelessGatewayStatistics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTWireless.Types.WirelessGatewayStatistics where
+module Amazonka.IoTWireless.Types.WirelessGatewayStatistics where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types.LoRaWANGateway
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types.LoRaWANGateway
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a wireless gateway\'s operation.
 --

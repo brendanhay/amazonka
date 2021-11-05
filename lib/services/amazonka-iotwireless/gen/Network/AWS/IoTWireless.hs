@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTWireless
+-- Module      : Amazonka.IoTWireless
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2020-11-22@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS IoT Wireless API documentation
-module Network.AWS.IoTWireless
+module Amazonka.IoTWireless
   ( -- * Service Configuration
     defaultService,
 
@@ -610,66 +610,66 @@ module Network.AWS.IoTWireless
   )
 where
 
-import Network.AWS.IoTWireless.AssociateAwsAccountWithPartnerAccount
-import Network.AWS.IoTWireless.AssociateWirelessDeviceWithThing
-import Network.AWS.IoTWireless.AssociateWirelessGatewayWithCertificate
-import Network.AWS.IoTWireless.AssociateWirelessGatewayWithThing
-import Network.AWS.IoTWireless.CreateDestination
-import Network.AWS.IoTWireless.CreateDeviceProfile
-import Network.AWS.IoTWireless.CreateServiceProfile
-import Network.AWS.IoTWireless.CreateWirelessDevice
-import Network.AWS.IoTWireless.CreateWirelessGateway
-import Network.AWS.IoTWireless.CreateWirelessGatewayTask
-import Network.AWS.IoTWireless.CreateWirelessGatewayTaskDefinition
-import Network.AWS.IoTWireless.DeleteDestination
-import Network.AWS.IoTWireless.DeleteDeviceProfile
-import Network.AWS.IoTWireless.DeleteServiceProfile
-import Network.AWS.IoTWireless.DeleteWirelessDevice
-import Network.AWS.IoTWireless.DeleteWirelessGateway
-import Network.AWS.IoTWireless.DeleteWirelessGatewayTask
-import Network.AWS.IoTWireless.DeleteWirelessGatewayTaskDefinition
-import Network.AWS.IoTWireless.DisassociateAwsAccountFromPartnerAccount
-import Network.AWS.IoTWireless.DisassociateWirelessDeviceFromThing
-import Network.AWS.IoTWireless.DisassociateWirelessGatewayFromCertificate
-import Network.AWS.IoTWireless.DisassociateWirelessGatewayFromThing
-import Network.AWS.IoTWireless.GetDestination
-import Network.AWS.IoTWireless.GetDeviceProfile
-import Network.AWS.IoTWireless.GetLogLevelsByResourceTypes
-import Network.AWS.IoTWireless.GetPartnerAccount
-import Network.AWS.IoTWireless.GetResourceLogLevel
-import Network.AWS.IoTWireless.GetServiceEndpoint
-import Network.AWS.IoTWireless.GetServiceProfile
-import Network.AWS.IoTWireless.GetWirelessDevice
-import Network.AWS.IoTWireless.GetWirelessDeviceStatistics
-import Network.AWS.IoTWireless.GetWirelessGateway
-import Network.AWS.IoTWireless.GetWirelessGatewayCertificate
-import Network.AWS.IoTWireless.GetWirelessGatewayFirmwareInformation
-import Network.AWS.IoTWireless.GetWirelessGatewayStatistics
-import Network.AWS.IoTWireless.GetWirelessGatewayTask
-import Network.AWS.IoTWireless.GetWirelessGatewayTaskDefinition
-import Network.AWS.IoTWireless.Lens
-import Network.AWS.IoTWireless.ListDestinations
-import Network.AWS.IoTWireless.ListDeviceProfiles
-import Network.AWS.IoTWireless.ListPartnerAccounts
-import Network.AWS.IoTWireless.ListServiceProfiles
-import Network.AWS.IoTWireless.ListTagsForResource
-import Network.AWS.IoTWireless.ListWirelessDevices
-import Network.AWS.IoTWireless.ListWirelessGatewayTaskDefinitions
-import Network.AWS.IoTWireless.ListWirelessGateways
-import Network.AWS.IoTWireless.PutResourceLogLevel
-import Network.AWS.IoTWireless.ResetAllResourceLogLevels
-import Network.AWS.IoTWireless.ResetResourceLogLevel
-import Network.AWS.IoTWireless.SendDataToWirelessDevice
-import Network.AWS.IoTWireless.TagResource
-import Network.AWS.IoTWireless.TestWirelessDevice
-import Network.AWS.IoTWireless.Types
-import Network.AWS.IoTWireless.UntagResource
-import Network.AWS.IoTWireless.UpdateDestination
-import Network.AWS.IoTWireless.UpdateLogLevelsByResourceTypes
-import Network.AWS.IoTWireless.UpdatePartnerAccount
-import Network.AWS.IoTWireless.UpdateWirelessDevice
-import Network.AWS.IoTWireless.UpdateWirelessGateway
-import Network.AWS.IoTWireless.Waiters
+import Amazonka.IoTWireless.AssociateAwsAccountWithPartnerAccount
+import Amazonka.IoTWireless.AssociateWirelessDeviceWithThing
+import Amazonka.IoTWireless.AssociateWirelessGatewayWithCertificate
+import Amazonka.IoTWireless.AssociateWirelessGatewayWithThing
+import Amazonka.IoTWireless.CreateDestination
+import Amazonka.IoTWireless.CreateDeviceProfile
+import Amazonka.IoTWireless.CreateServiceProfile
+import Amazonka.IoTWireless.CreateWirelessDevice
+import Amazonka.IoTWireless.CreateWirelessGateway
+import Amazonka.IoTWireless.CreateWirelessGatewayTask
+import Amazonka.IoTWireless.CreateWirelessGatewayTaskDefinition
+import Amazonka.IoTWireless.DeleteDestination
+import Amazonka.IoTWireless.DeleteDeviceProfile
+import Amazonka.IoTWireless.DeleteServiceProfile
+import Amazonka.IoTWireless.DeleteWirelessDevice
+import Amazonka.IoTWireless.DeleteWirelessGateway
+import Amazonka.IoTWireless.DeleteWirelessGatewayTask
+import Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition
+import Amazonka.IoTWireless.DisassociateAwsAccountFromPartnerAccount
+import Amazonka.IoTWireless.DisassociateWirelessDeviceFromThing
+import Amazonka.IoTWireless.DisassociateWirelessGatewayFromCertificate
+import Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing
+import Amazonka.IoTWireless.GetDestination
+import Amazonka.IoTWireless.GetDeviceProfile
+import Amazonka.IoTWireless.GetLogLevelsByResourceTypes
+import Amazonka.IoTWireless.GetPartnerAccount
+import Amazonka.IoTWireless.GetResourceLogLevel
+import Amazonka.IoTWireless.GetServiceEndpoint
+import Amazonka.IoTWireless.GetServiceProfile
+import Amazonka.IoTWireless.GetWirelessDevice
+import Amazonka.IoTWireless.GetWirelessDeviceStatistics
+import Amazonka.IoTWireless.GetWirelessGateway
+import Amazonka.IoTWireless.GetWirelessGatewayCertificate
+import Amazonka.IoTWireless.GetWirelessGatewayFirmwareInformation
+import Amazonka.IoTWireless.GetWirelessGatewayStatistics
+import Amazonka.IoTWireless.GetWirelessGatewayTask
+import Amazonka.IoTWireless.GetWirelessGatewayTaskDefinition
+import Amazonka.IoTWireless.Lens
+import Amazonka.IoTWireless.ListDestinations
+import Amazonka.IoTWireless.ListDeviceProfiles
+import Amazonka.IoTWireless.ListPartnerAccounts
+import Amazonka.IoTWireless.ListServiceProfiles
+import Amazonka.IoTWireless.ListTagsForResource
+import Amazonka.IoTWireless.ListWirelessDevices
+import Amazonka.IoTWireless.ListWirelessGatewayTaskDefinitions
+import Amazonka.IoTWireless.ListWirelessGateways
+import Amazonka.IoTWireless.PutResourceLogLevel
+import Amazonka.IoTWireless.ResetAllResourceLogLevels
+import Amazonka.IoTWireless.ResetResourceLogLevel
+import Amazonka.IoTWireless.SendDataToWirelessDevice
+import Amazonka.IoTWireless.TagResource
+import Amazonka.IoTWireless.TestWirelessDevice
+import Amazonka.IoTWireless.Types
+import Amazonka.IoTWireless.UntagResource
+import Amazonka.IoTWireless.UpdateDestination
+import Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
+import Amazonka.IoTWireless.UpdatePartnerAccount
+import Amazonka.IoTWireless.UpdateWirelessDevice
+import Amazonka.IoTWireless.UpdateWirelessGateway
+import Amazonka.IoTWireless.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

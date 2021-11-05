@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.PutResourceLogLevel
+-- Module      : Amazonka.IoTWireless.PutResourceLogLevel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Sets the log-level override for a resource-ID and resource-type. This
 -- option can be specified for a wireless gateway or a wireless device. A
 -- limit of 200 log level override can be set per account.
-module Network.AWS.IoTWireless.PutResourceLogLevel
+module Amazonka.IoTWireless.PutResourceLogLevel
   ( -- * Creating a Request
     PutResourceLogLevel (..),
     newPutResourceLogLevel,
@@ -42,12 +42,12 @@ module Network.AWS.IoTWireless.PutResourceLogLevel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourceLogLevel' smart constructor.
 data PutResourceLogLevel = PutResourceLogLevel'

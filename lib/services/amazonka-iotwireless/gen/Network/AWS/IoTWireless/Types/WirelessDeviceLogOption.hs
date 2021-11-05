@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.Types.WirelessDeviceLogOption
+-- Module      : Amazonka.IoTWireless.Types.WirelessDeviceLogOption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTWireless.Types.WirelessDeviceLogOption where
+module Amazonka.IoTWireless.Types.WirelessDeviceLogOption where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types.LogLevel
-import Network.AWS.IoTWireless.Types.WirelessDeviceEventLogOption
-import Network.AWS.IoTWireless.Types.WirelessDeviceType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types.LogLevel
+import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
+import Amazonka.IoTWireless.Types.WirelessDeviceType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The log options for wireless devices and can be used to set log levels
 -- for a specific type of wireless device.

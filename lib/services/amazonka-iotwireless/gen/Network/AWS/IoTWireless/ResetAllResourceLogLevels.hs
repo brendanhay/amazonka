@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.ResetAllResourceLogLevels
+-- Module      : Amazonka.IoTWireless.ResetAllResourceLogLevels
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Removes the log-level overrides for all resources; both wireless devices
 -- and wireless gateways.
-module Network.AWS.IoTWireless.ResetAllResourceLogLevels
+module Amazonka.IoTWireless.ResetAllResourceLogLevels
   ( -- * Creating a Request
     ResetAllResourceLogLevels (..),
     newResetAllResourceLogLevels,
@@ -36,12 +36,12 @@ module Network.AWS.IoTWireless.ResetAllResourceLogLevels
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResetAllResourceLogLevels' smart constructor.
 data ResetAllResourceLogLevels = ResetAllResourceLogLevels'

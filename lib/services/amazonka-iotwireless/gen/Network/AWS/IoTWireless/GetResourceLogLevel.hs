@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.GetResourceLogLevel
+-- Module      : Amazonka.IoTWireless.GetResourceLogLevel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Fetches the log-level override, if any, for a given resource-ID and
 -- resource-type. It can be used for a wireless device or a wireless
 -- gateway.
-module Network.AWS.IoTWireless.GetResourceLogLevel
+module Amazonka.IoTWireless.GetResourceLogLevel
   ( -- * Creating a Request
     GetResourceLogLevel (..),
     newGetResourceLogLevel,
@@ -42,12 +42,12 @@ module Network.AWS.IoTWireless.GetResourceLogLevel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceLogLevel' smart constructor.
 data GetResourceLogLevel = GetResourceLogLevel'

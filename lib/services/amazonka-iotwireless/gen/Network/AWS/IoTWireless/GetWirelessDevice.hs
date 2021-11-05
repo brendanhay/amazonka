@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTWireless.GetWirelessDevice
+-- Module      : Amazonka.IoTWireless.GetWirelessDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a wireless device.
-module Network.AWS.IoTWireless.GetWirelessDevice
+module Amazonka.IoTWireless.GetWirelessDevice
   ( -- * Creating a Request
     GetWirelessDevice (..),
     newGetWirelessDevice,
@@ -49,12 +49,12 @@ module Network.AWS.IoTWireless.GetWirelessDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTWireless.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetWirelessDevice' smart constructor.
 data GetWirelessDevice = GetWirelessDevice'

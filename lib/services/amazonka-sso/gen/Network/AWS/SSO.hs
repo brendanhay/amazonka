@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SSO
+-- Module      : Amazonka.SSO
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- to AWS SSO and other AWS services. For more information about the AWS
 -- SDKs, including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
-module Network.AWS.SSO
+module Amazonka.SSO
   ( -- * Service Configuration
     defaultService,
 
@@ -95,13 +95,13 @@ module Network.AWS.SSO
   )
 where
 
-import Network.AWS.SSO.GetRoleCredentials
-import Network.AWS.SSO.Lens
-import Network.AWS.SSO.ListAccountRoles
-import Network.AWS.SSO.ListAccounts
-import Network.AWS.SSO.Logout
-import Network.AWS.SSO.Types
-import Network.AWS.SSO.Waiters
+import Amazonka.SSO.GetRoleCredentials
+import Amazonka.SSO.Lens
+import Amazonka.SSO.ListAccountRoles
+import Amazonka.SSO.ListAccounts
+import Amazonka.SSO.Logout
+import Amazonka.SSO.Types
+import Amazonka.SSO.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

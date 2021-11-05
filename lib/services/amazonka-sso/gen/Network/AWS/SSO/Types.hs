@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSO.Types
+-- Module      : Amazonka.SSO.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSO.Types
+module Amazonka.SSO.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -45,13 +45,13 @@ module Network.AWS.SSO.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSO.Types.AccountInfo
-import Network.AWS.SSO.Types.RoleCredentials
-import Network.AWS.SSO.Types.RoleInfo
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSO.Types.AccountInfo
+import Amazonka.SSO.Types.RoleCredentials
+import Amazonka.SSO.Types.RoleInfo
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-06-10@ of the Amazon Single Sign-On SDK configuration.
 defaultService :: Core.Service

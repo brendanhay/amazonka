@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSO where
 
+import Amazonka.SSO
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSO
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSO.Internal

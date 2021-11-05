@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SSO.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SSO.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SSO" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SSO" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,19 +45,19 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SSO
-    Network.AWS.SSO.GetRoleCredentials
-    Network.AWS.SSO.Lens
-    Network.AWS.SSO.ListAccountRoles
-    Network.AWS.SSO.ListAccounts
-    Network.AWS.SSO.Logout
-    Network.AWS.SSO.Types
-    Network.AWS.SSO.Types.AccountInfo
-    Network.AWS.SSO.Types.RoleCredentials
-    Network.AWS.SSO.Types.RoleInfo
-    Network.AWS.SSO.Waiters
+    Amazonka.SSO
+    Amazonka.SSO.GetRoleCredentials
+    Amazonka.SSO.Lens
+    Amazonka.SSO.ListAccountRoles
+    Amazonka.SSO.ListAccounts
+    Amazonka.SSO.Logout
+    Amazonka.SSO.Types
+    Amazonka.SSO.Types.AccountInfo
+    Amazonka.SSO.Types.RoleCredentials
+    Amazonka.SSO.Types.RoleInfo
+    Amazonka.SSO.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

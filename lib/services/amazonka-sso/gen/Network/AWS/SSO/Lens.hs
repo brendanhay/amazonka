@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSO.Lens
+-- Module      : Amazonka.SSO.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSO.Lens
+module Amazonka.SSO.Lens
   ( -- * Operations
 
     -- ** Logout
@@ -60,10 +60,10 @@ module Network.AWS.SSO.Lens
   )
 where
 
-import Network.AWS.SSO.GetRoleCredentials
-import Network.AWS.SSO.ListAccountRoles
-import Network.AWS.SSO.ListAccounts
-import Network.AWS.SSO.Logout
-import Network.AWS.SSO.Types.AccountInfo
-import Network.AWS.SSO.Types.RoleCredentials
-import Network.AWS.SSO.Types.RoleInfo
+import Amazonka.SSO.GetRoleCredentials
+import Amazonka.SSO.ListAccountRoles
+import Amazonka.SSO.ListAccounts
+import Amazonka.SSO.Logout
+import Amazonka.SSO.Types.AccountInfo
+import Amazonka.SSO.Types.RoleCredentials
+import Amazonka.SSO.Types.RoleInfo

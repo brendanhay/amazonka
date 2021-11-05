@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.JobDetail
+-- Module      : Amazonka.Batch.Types.JobDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobDetail where
+module Amazonka.Batch.Types.JobDetail where
 
-import Network.AWS.Batch.Types.ArrayPropertiesDetail
-import Network.AWS.Batch.Types.AttemptDetail
-import Network.AWS.Batch.Types.ContainerDetail
-import Network.AWS.Batch.Types.JobDependency
-import Network.AWS.Batch.Types.JobStatus
-import Network.AWS.Batch.Types.JobTimeout
-import Network.AWS.Batch.Types.NodeDetails
-import Network.AWS.Batch.Types.NodeProperties
-import Network.AWS.Batch.Types.PlatformCapability
-import Network.AWS.Batch.Types.RetryStrategy
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Batch.Types.ArrayPropertiesDetail
+import Amazonka.Batch.Types.AttemptDetail
+import Amazonka.Batch.Types.ContainerDetail
+import Amazonka.Batch.Types.JobDependency
+import Amazonka.Batch.Types.JobStatus
+import Amazonka.Batch.Types.JobTimeout
+import Amazonka.Batch.Types.NodeDetails
+import Amazonka.Batch.Types.NodeProperties
+import Amazonka.Batch.Types.PlatformCapability
+import Amazonka.Batch.Types.RetryStrategy
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Batch job.
 --

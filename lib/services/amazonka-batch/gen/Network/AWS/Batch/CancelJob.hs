@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.CancelJob
+-- Module      : Amazonka.Batch.CancelJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- to @STARTING@ or @RUNNING@ aren\'t canceled, but the API operation still
 -- succeeds, even if no job is canceled. These jobs must be terminated with
 -- the TerminateJob operation.
-module Network.AWS.Batch.CancelJob
+module Amazonka.Batch.CancelJob
   ( -- * Creating a Request
     CancelJob (..),
     newCancelJob,
@@ -43,12 +43,12 @@ module Network.AWS.Batch.CancelJob
   )
 where
 
-import Network.AWS.Batch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Batch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for @CancelJob@.
 --

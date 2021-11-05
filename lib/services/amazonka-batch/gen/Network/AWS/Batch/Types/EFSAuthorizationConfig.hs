@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.EFSAuthorizationConfig
+-- Module      : Amazonka.Batch.Types.EFSAuthorizationConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.EFSAuthorizationConfig where
+module Amazonka.Batch.Types.EFSAuthorizationConfig where
 
-import Network.AWS.Batch.Types.EFSAuthorizationConfigIAM
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Batch.Types.EFSAuthorizationConfigIAM
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The authorization configuration details for the Amazon EFS file system.
 --

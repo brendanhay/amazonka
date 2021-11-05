@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.ResourceRequirement
+-- Module      : Amazonka.Batch.Types.ResourceRequirement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.ResourceRequirement where
+module Amazonka.Batch.Types.ResourceRequirement where
 
-import Network.AWS.Batch.Types.ResourceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Batch.Types.ResourceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type and amount of a resource to assign to a container. The
 -- supported resources include @GPU@, @MEMORY@, and @VCPU@.

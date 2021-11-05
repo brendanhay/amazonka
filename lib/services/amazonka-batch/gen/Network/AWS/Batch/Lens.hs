@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Lens
+-- Module      : Amazonka.Batch.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Lens
+module Amazonka.Batch.Lens
   ( -- * Operations
 
     -- ** CreateComputeEnvironment
@@ -495,68 +495,68 @@ module Network.AWS.Batch.Lens
   )
 where
 
-import Network.AWS.Batch.CancelJob
-import Network.AWS.Batch.CreateComputeEnvironment
-import Network.AWS.Batch.CreateJobQueue
-import Network.AWS.Batch.DeleteComputeEnvironment
-import Network.AWS.Batch.DeleteJobQueue
-import Network.AWS.Batch.DeregisterJobDefinition
-import Network.AWS.Batch.DescribeComputeEnvironments
-import Network.AWS.Batch.DescribeJobDefinitions
-import Network.AWS.Batch.DescribeJobQueues
-import Network.AWS.Batch.DescribeJobs
-import Network.AWS.Batch.ListJobs
-import Network.AWS.Batch.ListTagsForResource
-import Network.AWS.Batch.RegisterJobDefinition
-import Network.AWS.Batch.SubmitJob
-import Network.AWS.Batch.TagResource
-import Network.AWS.Batch.TerminateJob
-import Network.AWS.Batch.Types.ArrayProperties
-import Network.AWS.Batch.Types.ArrayPropertiesDetail
-import Network.AWS.Batch.Types.ArrayPropertiesSummary
-import Network.AWS.Batch.Types.AttemptContainerDetail
-import Network.AWS.Batch.Types.AttemptDetail
-import Network.AWS.Batch.Types.ComputeEnvironmentDetail
-import Network.AWS.Batch.Types.ComputeEnvironmentOrder
-import Network.AWS.Batch.Types.ComputeResource
-import Network.AWS.Batch.Types.ComputeResourceUpdate
-import Network.AWS.Batch.Types.ContainerDetail
-import Network.AWS.Batch.Types.ContainerOverrides
-import Network.AWS.Batch.Types.ContainerProperties
-import Network.AWS.Batch.Types.ContainerSummary
-import Network.AWS.Batch.Types.Device
-import Network.AWS.Batch.Types.EFSAuthorizationConfig
-import Network.AWS.Batch.Types.EFSVolumeConfiguration
-import Network.AWS.Batch.Types.Ec2Configuration
-import Network.AWS.Batch.Types.EvaluateOnExit
-import Network.AWS.Batch.Types.FargatePlatformConfiguration
-import Network.AWS.Batch.Types.Host
-import Network.AWS.Batch.Types.JobDefinition
-import Network.AWS.Batch.Types.JobDependency
-import Network.AWS.Batch.Types.JobDetail
-import Network.AWS.Batch.Types.JobQueueDetail
-import Network.AWS.Batch.Types.JobSummary
-import Network.AWS.Batch.Types.JobTimeout
-import Network.AWS.Batch.Types.KeyValuePair
-import Network.AWS.Batch.Types.KeyValuesPair
-import Network.AWS.Batch.Types.LaunchTemplateSpecification
-import Network.AWS.Batch.Types.LinuxParameters
-import Network.AWS.Batch.Types.LogConfiguration
-import Network.AWS.Batch.Types.MountPoint
-import Network.AWS.Batch.Types.NetworkConfiguration
-import Network.AWS.Batch.Types.NetworkInterface
-import Network.AWS.Batch.Types.NodeDetails
-import Network.AWS.Batch.Types.NodeOverrides
-import Network.AWS.Batch.Types.NodeProperties
-import Network.AWS.Batch.Types.NodePropertiesSummary
-import Network.AWS.Batch.Types.NodePropertyOverride
-import Network.AWS.Batch.Types.NodeRangeProperty
-import Network.AWS.Batch.Types.ResourceRequirement
-import Network.AWS.Batch.Types.RetryStrategy
-import Network.AWS.Batch.Types.Secret
-import Network.AWS.Batch.Types.Tmpfs
-import Network.AWS.Batch.Types.Ulimit
-import Network.AWS.Batch.Types.Volume
-import Network.AWS.Batch.UntagResource
-import Network.AWS.Batch.UpdateComputeEnvironment
-import Network.AWS.Batch.UpdateJobQueue
+import Amazonka.Batch.CancelJob
+import Amazonka.Batch.CreateComputeEnvironment
+import Amazonka.Batch.CreateJobQueue
+import Amazonka.Batch.DeleteComputeEnvironment
+import Amazonka.Batch.DeleteJobQueue
+import Amazonka.Batch.DeregisterJobDefinition
+import Amazonka.Batch.DescribeComputeEnvironments
+import Amazonka.Batch.DescribeJobDefinitions
+import Amazonka.Batch.DescribeJobQueues
+import Amazonka.Batch.DescribeJobs
+import Amazonka.Batch.ListJobs
+import Amazonka.Batch.ListTagsForResource
+import Amazonka.Batch.RegisterJobDefinition
+import Amazonka.Batch.SubmitJob
+import Amazonka.Batch.TagResource
+import Amazonka.Batch.TerminateJob
+import Amazonka.Batch.Types.ArrayProperties
+import Amazonka.Batch.Types.ArrayPropertiesDetail
+import Amazonka.Batch.Types.ArrayPropertiesSummary
+import Amazonka.Batch.Types.AttemptContainerDetail
+import Amazonka.Batch.Types.AttemptDetail
+import Amazonka.Batch.Types.ComputeEnvironmentDetail
+import Amazonka.Batch.Types.ComputeEnvironmentOrder
+import Amazonka.Batch.Types.ComputeResource
+import Amazonka.Batch.Types.ComputeResourceUpdate
+import Amazonka.Batch.Types.ContainerDetail
+import Amazonka.Batch.Types.ContainerOverrides
+import Amazonka.Batch.Types.ContainerProperties
+import Amazonka.Batch.Types.ContainerSummary
+import Amazonka.Batch.Types.Device
+import Amazonka.Batch.Types.EFSAuthorizationConfig
+import Amazonka.Batch.Types.EFSVolumeConfiguration
+import Amazonka.Batch.Types.Ec2Configuration
+import Amazonka.Batch.Types.EvaluateOnExit
+import Amazonka.Batch.Types.FargatePlatformConfiguration
+import Amazonka.Batch.Types.Host
+import Amazonka.Batch.Types.JobDefinition
+import Amazonka.Batch.Types.JobDependency
+import Amazonka.Batch.Types.JobDetail
+import Amazonka.Batch.Types.JobQueueDetail
+import Amazonka.Batch.Types.JobSummary
+import Amazonka.Batch.Types.JobTimeout
+import Amazonka.Batch.Types.KeyValuePair
+import Amazonka.Batch.Types.KeyValuesPair
+import Amazonka.Batch.Types.LaunchTemplateSpecification
+import Amazonka.Batch.Types.LinuxParameters
+import Amazonka.Batch.Types.LogConfiguration
+import Amazonka.Batch.Types.MountPoint
+import Amazonka.Batch.Types.NetworkConfiguration
+import Amazonka.Batch.Types.NetworkInterface
+import Amazonka.Batch.Types.NodeDetails
+import Amazonka.Batch.Types.NodeOverrides
+import Amazonka.Batch.Types.NodeProperties
+import Amazonka.Batch.Types.NodePropertiesSummary
+import Amazonka.Batch.Types.NodePropertyOverride
+import Amazonka.Batch.Types.NodeRangeProperty
+import Amazonka.Batch.Types.ResourceRequirement
+import Amazonka.Batch.Types.RetryStrategy
+import Amazonka.Batch.Types.Secret
+import Amazonka.Batch.Types.Tmpfs
+import Amazonka.Batch.Types.Ulimit
+import Amazonka.Batch.Types.Volume
+import Amazonka.Batch.UntagResource
+import Amazonka.Batch.UpdateComputeEnvironment
+import Amazonka.Batch.UpdateJobQueue

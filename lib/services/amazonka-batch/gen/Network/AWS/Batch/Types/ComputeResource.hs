@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.ComputeResource
+-- Module      : Amazonka.Batch.Types.ComputeResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.ComputeResource where
+module Amazonka.Batch.Types.ComputeResource where
 
-import Network.AWS.Batch.Types.CRAllocationStrategy
-import Network.AWS.Batch.Types.CRType
-import Network.AWS.Batch.Types.Ec2Configuration
-import Network.AWS.Batch.Types.LaunchTemplateSpecification
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Batch.Types.CRAllocationStrategy
+import Amazonka.Batch.Types.CRType
+import Amazonka.Batch.Types.Ec2Configuration
+import Amazonka.Batch.Types.LaunchTemplateSpecification
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Batch compute resource. For more information,
 -- see

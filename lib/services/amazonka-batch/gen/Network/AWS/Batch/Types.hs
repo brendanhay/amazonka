@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types
+-- Module      : Amazonka.Batch.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types
+module Amazonka.Batch.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -492,74 +492,74 @@ module Network.AWS.Batch.Types
   )
 where
 
-import Network.AWS.Batch.Types.ArrayJobDependency
-import Network.AWS.Batch.Types.ArrayProperties
-import Network.AWS.Batch.Types.ArrayPropertiesDetail
-import Network.AWS.Batch.Types.ArrayPropertiesSummary
-import Network.AWS.Batch.Types.AssignPublicIp
-import Network.AWS.Batch.Types.AttemptContainerDetail
-import Network.AWS.Batch.Types.AttemptDetail
-import Network.AWS.Batch.Types.CEState
-import Network.AWS.Batch.Types.CEStatus
-import Network.AWS.Batch.Types.CEType
-import Network.AWS.Batch.Types.CRAllocationStrategy
-import Network.AWS.Batch.Types.CRType
-import Network.AWS.Batch.Types.ComputeEnvironmentDetail
-import Network.AWS.Batch.Types.ComputeEnvironmentOrder
-import Network.AWS.Batch.Types.ComputeResource
-import Network.AWS.Batch.Types.ComputeResourceUpdate
-import Network.AWS.Batch.Types.ContainerDetail
-import Network.AWS.Batch.Types.ContainerOverrides
-import Network.AWS.Batch.Types.ContainerProperties
-import Network.AWS.Batch.Types.ContainerSummary
-import Network.AWS.Batch.Types.Device
-import Network.AWS.Batch.Types.DeviceCgroupPermission
-import Network.AWS.Batch.Types.EFSAuthorizationConfig
-import Network.AWS.Batch.Types.EFSAuthorizationConfigIAM
-import Network.AWS.Batch.Types.EFSTransitEncryption
-import Network.AWS.Batch.Types.EFSVolumeConfiguration
-import Network.AWS.Batch.Types.Ec2Configuration
-import Network.AWS.Batch.Types.EvaluateOnExit
-import Network.AWS.Batch.Types.FargatePlatformConfiguration
-import Network.AWS.Batch.Types.Host
-import Network.AWS.Batch.Types.JQState
-import Network.AWS.Batch.Types.JQStatus
-import Network.AWS.Batch.Types.JobDefinition
-import Network.AWS.Batch.Types.JobDefinitionType
-import Network.AWS.Batch.Types.JobDependency
-import Network.AWS.Batch.Types.JobDetail
-import Network.AWS.Batch.Types.JobQueueDetail
-import Network.AWS.Batch.Types.JobStatus
-import Network.AWS.Batch.Types.JobSummary
-import Network.AWS.Batch.Types.JobTimeout
-import Network.AWS.Batch.Types.KeyValuePair
-import Network.AWS.Batch.Types.KeyValuesPair
-import Network.AWS.Batch.Types.LaunchTemplateSpecification
-import Network.AWS.Batch.Types.LinuxParameters
-import Network.AWS.Batch.Types.LogConfiguration
-import Network.AWS.Batch.Types.LogDriver
-import Network.AWS.Batch.Types.MountPoint
-import Network.AWS.Batch.Types.NetworkConfiguration
-import Network.AWS.Batch.Types.NetworkInterface
-import Network.AWS.Batch.Types.NodeDetails
-import Network.AWS.Batch.Types.NodeOverrides
-import Network.AWS.Batch.Types.NodeProperties
-import Network.AWS.Batch.Types.NodePropertiesSummary
-import Network.AWS.Batch.Types.NodePropertyOverride
-import Network.AWS.Batch.Types.NodeRangeProperty
-import Network.AWS.Batch.Types.PlatformCapability
-import Network.AWS.Batch.Types.ResourceRequirement
-import Network.AWS.Batch.Types.ResourceType
-import Network.AWS.Batch.Types.RetryAction
-import Network.AWS.Batch.Types.RetryStrategy
-import Network.AWS.Batch.Types.Secret
-import Network.AWS.Batch.Types.Tmpfs
-import Network.AWS.Batch.Types.Ulimit
-import Network.AWS.Batch.Types.Volume
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Batch.Types.ArrayJobDependency
+import Amazonka.Batch.Types.ArrayProperties
+import Amazonka.Batch.Types.ArrayPropertiesDetail
+import Amazonka.Batch.Types.ArrayPropertiesSummary
+import Amazonka.Batch.Types.AssignPublicIp
+import Amazonka.Batch.Types.AttemptContainerDetail
+import Amazonka.Batch.Types.AttemptDetail
+import Amazonka.Batch.Types.CEState
+import Amazonka.Batch.Types.CEStatus
+import Amazonka.Batch.Types.CEType
+import Amazonka.Batch.Types.CRAllocationStrategy
+import Amazonka.Batch.Types.CRType
+import Amazonka.Batch.Types.ComputeEnvironmentDetail
+import Amazonka.Batch.Types.ComputeEnvironmentOrder
+import Amazonka.Batch.Types.ComputeResource
+import Amazonka.Batch.Types.ComputeResourceUpdate
+import Amazonka.Batch.Types.ContainerDetail
+import Amazonka.Batch.Types.ContainerOverrides
+import Amazonka.Batch.Types.ContainerProperties
+import Amazonka.Batch.Types.ContainerSummary
+import Amazonka.Batch.Types.Device
+import Amazonka.Batch.Types.DeviceCgroupPermission
+import Amazonka.Batch.Types.EFSAuthorizationConfig
+import Amazonka.Batch.Types.EFSAuthorizationConfigIAM
+import Amazonka.Batch.Types.EFSTransitEncryption
+import Amazonka.Batch.Types.EFSVolumeConfiguration
+import Amazonka.Batch.Types.Ec2Configuration
+import Amazonka.Batch.Types.EvaluateOnExit
+import Amazonka.Batch.Types.FargatePlatformConfiguration
+import Amazonka.Batch.Types.Host
+import Amazonka.Batch.Types.JQState
+import Amazonka.Batch.Types.JQStatus
+import Amazonka.Batch.Types.JobDefinition
+import Amazonka.Batch.Types.JobDefinitionType
+import Amazonka.Batch.Types.JobDependency
+import Amazonka.Batch.Types.JobDetail
+import Amazonka.Batch.Types.JobQueueDetail
+import Amazonka.Batch.Types.JobStatus
+import Amazonka.Batch.Types.JobSummary
+import Amazonka.Batch.Types.JobTimeout
+import Amazonka.Batch.Types.KeyValuePair
+import Amazonka.Batch.Types.KeyValuesPair
+import Amazonka.Batch.Types.LaunchTemplateSpecification
+import Amazonka.Batch.Types.LinuxParameters
+import Amazonka.Batch.Types.LogConfiguration
+import Amazonka.Batch.Types.LogDriver
+import Amazonka.Batch.Types.MountPoint
+import Amazonka.Batch.Types.NetworkConfiguration
+import Amazonka.Batch.Types.NetworkInterface
+import Amazonka.Batch.Types.NodeDetails
+import Amazonka.Batch.Types.NodeOverrides
+import Amazonka.Batch.Types.NodeProperties
+import Amazonka.Batch.Types.NodePropertiesSummary
+import Amazonka.Batch.Types.NodePropertyOverride
+import Amazonka.Batch.Types.NodeRangeProperty
+import Amazonka.Batch.Types.PlatformCapability
+import Amazonka.Batch.Types.ResourceRequirement
+import Amazonka.Batch.Types.ResourceType
+import Amazonka.Batch.Types.RetryAction
+import Amazonka.Batch.Types.RetryStrategy
+import Amazonka.Batch.Types.Secret
+import Amazonka.Batch.Types.Tmpfs
+import Amazonka.Batch.Types.Ulimit
+import Amazonka.Batch.Types.Volume
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-08-10@ of the Amazon Batch SDK configuration.
 defaultService :: Core.Service

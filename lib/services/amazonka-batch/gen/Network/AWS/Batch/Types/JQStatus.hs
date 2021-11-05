@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.JQStatus
+-- Module      : Amazonka.Batch.Types.JQStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JQStatus
+module Amazonka.Batch.Types.JQStatus
   ( JQStatus
       ( ..,
         JQStatus_CREATING,
@@ -30,8 +30,8 @@ module Network.AWS.Batch.Types.JQStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype JQStatus = JQStatus'
   { fromJQStatus ::

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.CreateComputeEnvironment
+-- Module      : Amazonka.Batch.CreateComputeEnvironment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -67,7 +67,7 @@
 -- 3.  Remove the earlier compute environment from your job queue.
 --
 -- 4.  Delete the earlier compute environment.
-module Network.AWS.Batch.CreateComputeEnvironment
+module Amazonka.Batch.CreateComputeEnvironment
   ( -- * Creating a Request
     CreateComputeEnvironment (..),
     newCreateComputeEnvironment,
@@ -91,12 +91,12 @@ module Network.AWS.Batch.CreateComputeEnvironment
   )
 where
 
-import Network.AWS.Batch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Batch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for @CreateComputeEnvironment@.
 --

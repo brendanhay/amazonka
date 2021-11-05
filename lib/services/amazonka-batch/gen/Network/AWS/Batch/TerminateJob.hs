@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.TerminateJob
+-- Module      : Amazonka.Batch.TerminateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- @RUNNING@ state are terminated, which causes them to transition to
 -- @FAILED@. Jobs that have not progressed to the @STARTING@ state are
 -- cancelled.
-module Network.AWS.Batch.TerminateJob
+module Amazonka.Batch.TerminateJob
   ( -- * Creating a Request
     TerminateJob (..),
     newTerminateJob,
@@ -42,12 +42,12 @@ module Network.AWS.Batch.TerminateJob
   )
 where
 
-import Network.AWS.Batch.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Batch.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Contains the parameters for @TerminateJob@.
 --

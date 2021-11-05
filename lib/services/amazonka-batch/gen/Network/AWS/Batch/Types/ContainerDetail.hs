@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Batch.Types.ContainerDetail
+-- Module      : Amazonka.Batch.Types.ContainerDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.ContainerDetail where
+module Amazonka.Batch.Types.ContainerDetail where
 
-import Network.AWS.Batch.Types.FargatePlatformConfiguration
-import Network.AWS.Batch.Types.KeyValuePair
-import Network.AWS.Batch.Types.LinuxParameters
-import Network.AWS.Batch.Types.LogConfiguration
-import Network.AWS.Batch.Types.MountPoint
-import Network.AWS.Batch.Types.NetworkConfiguration
-import Network.AWS.Batch.Types.NetworkInterface
-import Network.AWS.Batch.Types.ResourceRequirement
-import Network.AWS.Batch.Types.Secret
-import Network.AWS.Batch.Types.Ulimit
-import Network.AWS.Batch.Types.Volume
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Batch.Types.FargatePlatformConfiguration
+import Amazonka.Batch.Types.KeyValuePair
+import Amazonka.Batch.Types.LinuxParameters
+import Amazonka.Batch.Types.LogConfiguration
+import Amazonka.Batch.Types.MountPoint
+import Amazonka.Batch.Types.NetworkConfiguration
+import Amazonka.Batch.Types.NetworkInterface
+import Amazonka.Batch.Types.ResourceRequirement
+import Amazonka.Batch.Types.Secret
+import Amazonka.Batch.Types.Ulimit
+import Amazonka.Batch.Types.Volume
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing the details of a container that\'s part of a job.
 --

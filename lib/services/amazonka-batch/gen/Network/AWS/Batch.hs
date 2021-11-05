@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Batch
+-- Module      : Amazonka.Batch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- specific workloads. With Batch, there\'s no need to install or manage
 -- batch computing software. This means that you can focus your time and
 -- energy on analyzing results and solving your specific problems.
-module Network.AWS.Batch
+module Amazonka.Batch
   ( -- * Service Configuration
     defaultService,
 
@@ -405,28 +405,28 @@ module Network.AWS.Batch
   )
 where
 
-import Network.AWS.Batch.CancelJob
-import Network.AWS.Batch.CreateComputeEnvironment
-import Network.AWS.Batch.CreateJobQueue
-import Network.AWS.Batch.DeleteComputeEnvironment
-import Network.AWS.Batch.DeleteJobQueue
-import Network.AWS.Batch.DeregisterJobDefinition
-import Network.AWS.Batch.DescribeComputeEnvironments
-import Network.AWS.Batch.DescribeJobDefinitions
-import Network.AWS.Batch.DescribeJobQueues
-import Network.AWS.Batch.DescribeJobs
-import Network.AWS.Batch.Lens
-import Network.AWS.Batch.ListJobs
-import Network.AWS.Batch.ListTagsForResource
-import Network.AWS.Batch.RegisterJobDefinition
-import Network.AWS.Batch.SubmitJob
-import Network.AWS.Batch.TagResource
-import Network.AWS.Batch.TerminateJob
-import Network.AWS.Batch.Types
-import Network.AWS.Batch.UntagResource
-import Network.AWS.Batch.UpdateComputeEnvironment
-import Network.AWS.Batch.UpdateJobQueue
-import Network.AWS.Batch.Waiters
+import Amazonka.Batch.CancelJob
+import Amazonka.Batch.CreateComputeEnvironment
+import Amazonka.Batch.CreateJobQueue
+import Amazonka.Batch.DeleteComputeEnvironment
+import Amazonka.Batch.DeleteJobQueue
+import Amazonka.Batch.DeregisterJobDefinition
+import Amazonka.Batch.DescribeComputeEnvironments
+import Amazonka.Batch.DescribeJobDefinitions
+import Amazonka.Batch.DescribeJobQueues
+import Amazonka.Batch.DescribeJobs
+import Amazonka.Batch.Lens
+import Amazonka.Batch.ListJobs
+import Amazonka.Batch.ListTagsForResource
+import Amazonka.Batch.RegisterJobDefinition
+import Amazonka.Batch.SubmitJob
+import Amazonka.Batch.TagResource
+import Amazonka.Batch.TerminateJob
+import Amazonka.Batch.Types
+import Amazonka.Batch.UntagResource
+import Amazonka.Batch.UpdateComputeEnvironment
+import Amazonka.Batch.UpdateJobQueue
+import Amazonka.Batch.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

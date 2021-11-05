@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Batch where
 
+import Amazonka.Batch
 import qualified Data.Proxy as Proxy
-import Network.AWS.Batch
 import Test.AWS.Batch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

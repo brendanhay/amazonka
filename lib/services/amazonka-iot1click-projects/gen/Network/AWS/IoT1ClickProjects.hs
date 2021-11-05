@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoT1ClickProjects
+-- Module      : Amazonka.IoT1ClickProjects
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-05-14@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The AWS IoT 1-Click Projects API Reference
-module Network.AWS.IoT1ClickProjects
+module Amazonka.IoT1ClickProjects
   ( -- * Service Configuration
     defaultService,
 
@@ -164,25 +164,25 @@ module Network.AWS.IoT1ClickProjects
   )
 where
 
-import Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement
-import Network.AWS.IoT1ClickProjects.CreatePlacement
-import Network.AWS.IoT1ClickProjects.CreateProject
-import Network.AWS.IoT1ClickProjects.DeletePlacement
-import Network.AWS.IoT1ClickProjects.DeleteProject
-import Network.AWS.IoT1ClickProjects.DescribePlacement
-import Network.AWS.IoT1ClickProjects.DescribeProject
-import Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement
-import Network.AWS.IoT1ClickProjects.GetDevicesInPlacement
-import Network.AWS.IoT1ClickProjects.Lens
-import Network.AWS.IoT1ClickProjects.ListPlacements
-import Network.AWS.IoT1ClickProjects.ListProjects
-import Network.AWS.IoT1ClickProjects.ListTagsForResource
-import Network.AWS.IoT1ClickProjects.TagResource
-import Network.AWS.IoT1ClickProjects.Types
-import Network.AWS.IoT1ClickProjects.UntagResource
-import Network.AWS.IoT1ClickProjects.UpdatePlacement
-import Network.AWS.IoT1ClickProjects.UpdateProject
-import Network.AWS.IoT1ClickProjects.Waiters
+import Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement
+import Amazonka.IoT1ClickProjects.CreatePlacement
+import Amazonka.IoT1ClickProjects.CreateProject
+import Amazonka.IoT1ClickProjects.DeletePlacement
+import Amazonka.IoT1ClickProjects.DeleteProject
+import Amazonka.IoT1ClickProjects.DescribePlacement
+import Amazonka.IoT1ClickProjects.DescribeProject
+import Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement
+import Amazonka.IoT1ClickProjects.GetDevicesInPlacement
+import Amazonka.IoT1ClickProjects.Lens
+import Amazonka.IoT1ClickProjects.ListPlacements
+import Amazonka.IoT1ClickProjects.ListProjects
+import Amazonka.IoT1ClickProjects.ListTagsForResource
+import Amazonka.IoT1ClickProjects.TagResource
+import Amazonka.IoT1ClickProjects.Types
+import Amazonka.IoT1ClickProjects.UntagResource
+import Amazonka.IoT1ClickProjects.UpdatePlacement
+import Amazonka.IoT1ClickProjects.UpdateProject
+import Amazonka.IoT1ClickProjects.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

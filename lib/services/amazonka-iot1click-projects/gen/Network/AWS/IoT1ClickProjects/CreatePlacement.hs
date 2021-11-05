@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickProjects.CreatePlacement
+-- Module      : Amazonka.IoT1ClickProjects.CreatePlacement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an empty placement.
-module Network.AWS.IoT1ClickProjects.CreatePlacement
+module Amazonka.IoT1ClickProjects.CreatePlacement
   ( -- * Creating a Request
     CreatePlacement (..),
     newCreatePlacement,
@@ -40,12 +40,12 @@ module Network.AWS.IoT1ClickProjects.CreatePlacement
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT1ClickProjects.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT1ClickProjects.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePlacement' smart constructor.
 data CreatePlacement = CreatePlacement'

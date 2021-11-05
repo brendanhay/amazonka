@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickProjects.Lens
+-- Module      : Amazonka.IoT1ClickProjects.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT1ClickProjects.Lens
+module Amazonka.IoT1ClickProjects.Lens
   ( -- * Operations
 
     -- ** ListProjects
@@ -149,25 +149,25 @@ module Network.AWS.IoT1ClickProjects.Lens
   )
 where
 
-import Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement
-import Network.AWS.IoT1ClickProjects.CreatePlacement
-import Network.AWS.IoT1ClickProjects.CreateProject
-import Network.AWS.IoT1ClickProjects.DeletePlacement
-import Network.AWS.IoT1ClickProjects.DeleteProject
-import Network.AWS.IoT1ClickProjects.DescribePlacement
-import Network.AWS.IoT1ClickProjects.DescribeProject
-import Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement
-import Network.AWS.IoT1ClickProjects.GetDevicesInPlacement
-import Network.AWS.IoT1ClickProjects.ListPlacements
-import Network.AWS.IoT1ClickProjects.ListProjects
-import Network.AWS.IoT1ClickProjects.ListTagsForResource
-import Network.AWS.IoT1ClickProjects.TagResource
-import Network.AWS.IoT1ClickProjects.Types.DeviceTemplate
-import Network.AWS.IoT1ClickProjects.Types.PlacementDescription
-import Network.AWS.IoT1ClickProjects.Types.PlacementSummary
-import Network.AWS.IoT1ClickProjects.Types.PlacementTemplate
-import Network.AWS.IoT1ClickProjects.Types.ProjectDescription
-import Network.AWS.IoT1ClickProjects.Types.ProjectSummary
-import Network.AWS.IoT1ClickProjects.UntagResource
-import Network.AWS.IoT1ClickProjects.UpdatePlacement
-import Network.AWS.IoT1ClickProjects.UpdateProject
+import Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement
+import Amazonka.IoT1ClickProjects.CreatePlacement
+import Amazonka.IoT1ClickProjects.CreateProject
+import Amazonka.IoT1ClickProjects.DeletePlacement
+import Amazonka.IoT1ClickProjects.DeleteProject
+import Amazonka.IoT1ClickProjects.DescribePlacement
+import Amazonka.IoT1ClickProjects.DescribeProject
+import Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement
+import Amazonka.IoT1ClickProjects.GetDevicesInPlacement
+import Amazonka.IoT1ClickProjects.ListPlacements
+import Amazonka.IoT1ClickProjects.ListProjects
+import Amazonka.IoT1ClickProjects.ListTagsForResource
+import Amazonka.IoT1ClickProjects.TagResource
+import Amazonka.IoT1ClickProjects.Types.DeviceTemplate
+import Amazonka.IoT1ClickProjects.Types.PlacementDescription
+import Amazonka.IoT1ClickProjects.Types.PlacementSummary
+import Amazonka.IoT1ClickProjects.Types.PlacementTemplate
+import Amazonka.IoT1ClickProjects.Types.ProjectDescription
+import Amazonka.IoT1ClickProjects.Types.ProjectSummary
+import Amazonka.IoT1ClickProjects.UntagResource
+import Amazonka.IoT1ClickProjects.UpdatePlacement
+import Amazonka.IoT1ClickProjects.UpdateProject

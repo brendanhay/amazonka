@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoT1ClickProjects where
 
+import Amazonka.IoT1ClickProjects
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoT1ClickProjects
 import Test.AWS.Fixture
 import Test.AWS.IoT1ClickProjects.Internal
 import Test.AWS.Prelude

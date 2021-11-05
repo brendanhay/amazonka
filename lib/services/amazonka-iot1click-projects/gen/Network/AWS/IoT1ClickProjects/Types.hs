@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickProjects.Types
+-- Module      : Amazonka.IoT1ClickProjects.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT1ClickProjects.Types
+module Amazonka.IoT1ClickProjects.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -74,16 +74,16 @@ module Network.AWS.IoT1ClickProjects.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT1ClickProjects.Types.DeviceTemplate
-import Network.AWS.IoT1ClickProjects.Types.PlacementDescription
-import Network.AWS.IoT1ClickProjects.Types.PlacementSummary
-import Network.AWS.IoT1ClickProjects.Types.PlacementTemplate
-import Network.AWS.IoT1ClickProjects.Types.ProjectDescription
-import Network.AWS.IoT1ClickProjects.Types.ProjectSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoT1ClickProjects.Types.DeviceTemplate
+import Amazonka.IoT1ClickProjects.Types.PlacementDescription
+import Amazonka.IoT1ClickProjects.Types.PlacementSummary
+import Amazonka.IoT1ClickProjects.Types.PlacementTemplate
+import Amazonka.IoT1ClickProjects.Types.ProjectDescription
+import Amazonka.IoT1ClickProjects.Types.ProjectSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-05-14@ of the Amazon IoT 1-Click Projects Service SDK configuration.
 defaultService :: Core.Service

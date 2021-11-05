@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoT1ClickProjects.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoT1ClickProjects.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoT1ClickProjects" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoT1ClickProjects" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,34 +45,34 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoT1ClickProjects
-    Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement
-    Network.AWS.IoT1ClickProjects.CreatePlacement
-    Network.AWS.IoT1ClickProjects.CreateProject
-    Network.AWS.IoT1ClickProjects.DeletePlacement
-    Network.AWS.IoT1ClickProjects.DeleteProject
-    Network.AWS.IoT1ClickProjects.DescribePlacement
-    Network.AWS.IoT1ClickProjects.DescribeProject
-    Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement
-    Network.AWS.IoT1ClickProjects.GetDevicesInPlacement
-    Network.AWS.IoT1ClickProjects.Lens
-    Network.AWS.IoT1ClickProjects.ListPlacements
-    Network.AWS.IoT1ClickProjects.ListProjects
-    Network.AWS.IoT1ClickProjects.ListTagsForResource
-    Network.AWS.IoT1ClickProjects.TagResource
-    Network.AWS.IoT1ClickProjects.Types
-    Network.AWS.IoT1ClickProjects.Types.DeviceTemplate
-    Network.AWS.IoT1ClickProjects.Types.PlacementDescription
-    Network.AWS.IoT1ClickProjects.Types.PlacementSummary
-    Network.AWS.IoT1ClickProjects.Types.PlacementTemplate
-    Network.AWS.IoT1ClickProjects.Types.ProjectDescription
-    Network.AWS.IoT1ClickProjects.Types.ProjectSummary
-    Network.AWS.IoT1ClickProjects.UntagResource
-    Network.AWS.IoT1ClickProjects.UpdatePlacement
-    Network.AWS.IoT1ClickProjects.UpdateProject
-    Network.AWS.IoT1ClickProjects.Waiters
+    Amazonka.IoT1ClickProjects
+    Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement
+    Amazonka.IoT1ClickProjects.CreatePlacement
+    Amazonka.IoT1ClickProjects.CreateProject
+    Amazonka.IoT1ClickProjects.DeletePlacement
+    Amazonka.IoT1ClickProjects.DeleteProject
+    Amazonka.IoT1ClickProjects.DescribePlacement
+    Amazonka.IoT1ClickProjects.DescribeProject
+    Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement
+    Amazonka.IoT1ClickProjects.GetDevicesInPlacement
+    Amazonka.IoT1ClickProjects.Lens
+    Amazonka.IoT1ClickProjects.ListPlacements
+    Amazonka.IoT1ClickProjects.ListProjects
+    Amazonka.IoT1ClickProjects.ListTagsForResource
+    Amazonka.IoT1ClickProjects.TagResource
+    Amazonka.IoT1ClickProjects.Types
+    Amazonka.IoT1ClickProjects.Types.DeviceTemplate
+    Amazonka.IoT1ClickProjects.Types.PlacementDescription
+    Amazonka.IoT1ClickProjects.Types.PlacementSummary
+    Amazonka.IoT1ClickProjects.Types.PlacementTemplate
+    Amazonka.IoT1ClickProjects.Types.ProjectDescription
+    Amazonka.IoT1ClickProjects.Types.ProjectSummary
+    Amazonka.IoT1ClickProjects.UntagResource
+    Amazonka.IoT1ClickProjects.UpdatePlacement
+    Amazonka.IoT1ClickProjects.UpdateProject
+    Amazonka.IoT1ClickProjects.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

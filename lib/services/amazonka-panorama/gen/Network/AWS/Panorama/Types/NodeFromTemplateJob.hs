@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Panorama.Types.NodeFromTemplateJob
+-- Module      : Amazonka.Panorama.Types.NodeFromTemplateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Panorama.Types.NodeFromTemplateJob where
+module Amazonka.Panorama.Types.NodeFromTemplateJob where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Panorama.Types.NodeFromTemplateJobStatus
-import Network.AWS.Panorama.Types.TemplateType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Panorama.Types.NodeFromTemplateJobStatus
+import Amazonka.Panorama.Types.TemplateType
+import qualified Amazonka.Prelude as Prelude
 
 -- | A job to create a camera stream node.
 --

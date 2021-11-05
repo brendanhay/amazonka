@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Panorama
+-- Module      : Amazonka.Panorama
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 -- service, see
 -- <https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html What is AWS Panorama?>
 -- in the /AWS Panorama Developer Guide/.
-module Network.AWS.Panorama
+module Amazonka.Panorama
   ( -- * Service Configuration
     defaultService,
 
@@ -433,42 +433,42 @@ module Network.AWS.Panorama
   )
 where
 
-import Network.AWS.Panorama.CreateApplicationInstance
-import Network.AWS.Panorama.CreateJobForDevices
-import Network.AWS.Panorama.CreateNodeFromTemplateJob
-import Network.AWS.Panorama.CreatePackage
-import Network.AWS.Panorama.CreatePackageImportJob
-import Network.AWS.Panorama.DeleteDevice
-import Network.AWS.Panorama.DeletePackage
-import Network.AWS.Panorama.DeregisterPackageVersion
-import Network.AWS.Panorama.DescribeApplicationInstance
-import Network.AWS.Panorama.DescribeApplicationInstanceDetails
-import Network.AWS.Panorama.DescribeDevice
-import Network.AWS.Panorama.DescribeDeviceJob
-import Network.AWS.Panorama.DescribeNode
-import Network.AWS.Panorama.DescribeNodeFromTemplateJob
-import Network.AWS.Panorama.DescribePackage
-import Network.AWS.Panorama.DescribePackageImportJob
-import Network.AWS.Panorama.DescribePackageVersion
-import Network.AWS.Panorama.Lens
-import Network.AWS.Panorama.ListApplicationInstanceDependencies
-import Network.AWS.Panorama.ListApplicationInstanceNodeInstances
-import Network.AWS.Panorama.ListApplicationInstances
-import Network.AWS.Panorama.ListDevices
-import Network.AWS.Panorama.ListDevicesJobs
-import Network.AWS.Panorama.ListNodeFromTemplateJobs
-import Network.AWS.Panorama.ListNodes
-import Network.AWS.Panorama.ListPackageImportJobs
-import Network.AWS.Panorama.ListPackages
-import Network.AWS.Panorama.ListTagsForResource
-import Network.AWS.Panorama.ProvisionDevice
-import Network.AWS.Panorama.RegisterPackageVersion
-import Network.AWS.Panorama.RemoveApplicationInstance
-import Network.AWS.Panorama.TagResource
-import Network.AWS.Panorama.Types
-import Network.AWS.Panorama.UntagResource
-import Network.AWS.Panorama.UpdateDeviceMetadata
-import Network.AWS.Panorama.Waiters
+import Amazonka.Panorama.CreateApplicationInstance
+import Amazonka.Panorama.CreateJobForDevices
+import Amazonka.Panorama.CreateNodeFromTemplateJob
+import Amazonka.Panorama.CreatePackage
+import Amazonka.Panorama.CreatePackageImportJob
+import Amazonka.Panorama.DeleteDevice
+import Amazonka.Panorama.DeletePackage
+import Amazonka.Panorama.DeregisterPackageVersion
+import Amazonka.Panorama.DescribeApplicationInstance
+import Amazonka.Panorama.DescribeApplicationInstanceDetails
+import Amazonka.Panorama.DescribeDevice
+import Amazonka.Panorama.DescribeDeviceJob
+import Amazonka.Panorama.DescribeNode
+import Amazonka.Panorama.DescribeNodeFromTemplateJob
+import Amazonka.Panorama.DescribePackage
+import Amazonka.Panorama.DescribePackageImportJob
+import Amazonka.Panorama.DescribePackageVersion
+import Amazonka.Panorama.Lens
+import Amazonka.Panorama.ListApplicationInstanceDependencies
+import Amazonka.Panorama.ListApplicationInstanceNodeInstances
+import Amazonka.Panorama.ListApplicationInstances
+import Amazonka.Panorama.ListDevices
+import Amazonka.Panorama.ListDevicesJobs
+import Amazonka.Panorama.ListNodeFromTemplateJobs
+import Amazonka.Panorama.ListNodes
+import Amazonka.Panorama.ListPackageImportJobs
+import Amazonka.Panorama.ListPackages
+import Amazonka.Panorama.ListTagsForResource
+import Amazonka.Panorama.ProvisionDevice
+import Amazonka.Panorama.RegisterPackageVersion
+import Amazonka.Panorama.RemoveApplicationInstance
+import Amazonka.Panorama.TagResource
+import Amazonka.Panorama.Types
+import Amazonka.Panorama.UntagResource
+import Amazonka.Panorama.UpdateDeviceMetadata
+import Amazonka.Panorama.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

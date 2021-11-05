@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Panorama.Lens
+-- Module      : Amazonka.Panorama.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Panorama.Lens
+module Amazonka.Panorama.Lens
   ( -- * Operations
 
     -- ** UpdateDeviceMetadata
@@ -513,67 +513,67 @@ module Network.AWS.Panorama.Lens
   )
 where
 
-import Network.AWS.Panorama.CreateApplicationInstance
-import Network.AWS.Panorama.CreateJobForDevices
-import Network.AWS.Panorama.CreateNodeFromTemplateJob
-import Network.AWS.Panorama.CreatePackage
-import Network.AWS.Panorama.CreatePackageImportJob
-import Network.AWS.Panorama.DeleteDevice
-import Network.AWS.Panorama.DeletePackage
-import Network.AWS.Panorama.DeregisterPackageVersion
-import Network.AWS.Panorama.DescribeApplicationInstance
-import Network.AWS.Panorama.DescribeApplicationInstanceDetails
-import Network.AWS.Panorama.DescribeDevice
-import Network.AWS.Panorama.DescribeDeviceJob
-import Network.AWS.Panorama.DescribeNode
-import Network.AWS.Panorama.DescribeNodeFromTemplateJob
-import Network.AWS.Panorama.DescribePackage
-import Network.AWS.Panorama.DescribePackageImportJob
-import Network.AWS.Panorama.DescribePackageVersion
-import Network.AWS.Panorama.ListApplicationInstanceDependencies
-import Network.AWS.Panorama.ListApplicationInstanceNodeInstances
-import Network.AWS.Panorama.ListApplicationInstances
-import Network.AWS.Panorama.ListDevices
-import Network.AWS.Panorama.ListDevicesJobs
-import Network.AWS.Panorama.ListNodeFromTemplateJobs
-import Network.AWS.Panorama.ListNodes
-import Network.AWS.Panorama.ListPackageImportJobs
-import Network.AWS.Panorama.ListPackages
-import Network.AWS.Panorama.ListTagsForResource
-import Network.AWS.Panorama.ProvisionDevice
-import Network.AWS.Panorama.RegisterPackageVersion
-import Network.AWS.Panorama.RemoveApplicationInstance
-import Network.AWS.Panorama.TagResource
-import Network.AWS.Panorama.Types.ApplicationInstance
-import Network.AWS.Panorama.Types.Device
-import Network.AWS.Panorama.Types.DeviceJob
-import Network.AWS.Panorama.Types.DeviceJobConfig
-import Network.AWS.Panorama.Types.EthernetPayload
-import Network.AWS.Panorama.Types.EthernetStatus
-import Network.AWS.Panorama.Types.Job
-import Network.AWS.Panorama.Types.JobResourceTags
-import Network.AWS.Panorama.Types.ManifestOverridesPayload
-import Network.AWS.Panorama.Types.ManifestPayload
-import Network.AWS.Panorama.Types.NetworkPayload
-import Network.AWS.Panorama.Types.NetworkStatus
-import Network.AWS.Panorama.Types.Node
-import Network.AWS.Panorama.Types.NodeFromTemplateJob
-import Network.AWS.Panorama.Types.NodeInputPort
-import Network.AWS.Panorama.Types.NodeInstance
-import Network.AWS.Panorama.Types.NodeInterface
-import Network.AWS.Panorama.Types.NodeOutputPort
-import Network.AWS.Panorama.Types.OTAJobConfig
-import Network.AWS.Panorama.Types.OutPutS3Location
-import Network.AWS.Panorama.Types.PackageImportJob
-import Network.AWS.Panorama.Types.PackageImportJobInputConfig
-import Network.AWS.Panorama.Types.PackageImportJobOutput
-import Network.AWS.Panorama.Types.PackageImportJobOutputConfig
-import Network.AWS.Panorama.Types.PackageListItem
-import Network.AWS.Panorama.Types.PackageObject
-import Network.AWS.Panorama.Types.PackageVersionInputConfig
-import Network.AWS.Panorama.Types.PackageVersionOutputConfig
-import Network.AWS.Panorama.Types.S3Location
-import Network.AWS.Panorama.Types.StaticIpConnectionInfo
-import Network.AWS.Panorama.Types.StorageLocation
-import Network.AWS.Panorama.UntagResource
-import Network.AWS.Panorama.UpdateDeviceMetadata
+import Amazonka.Panorama.CreateApplicationInstance
+import Amazonka.Panorama.CreateJobForDevices
+import Amazonka.Panorama.CreateNodeFromTemplateJob
+import Amazonka.Panorama.CreatePackage
+import Amazonka.Panorama.CreatePackageImportJob
+import Amazonka.Panorama.DeleteDevice
+import Amazonka.Panorama.DeletePackage
+import Amazonka.Panorama.DeregisterPackageVersion
+import Amazonka.Panorama.DescribeApplicationInstance
+import Amazonka.Panorama.DescribeApplicationInstanceDetails
+import Amazonka.Panorama.DescribeDevice
+import Amazonka.Panorama.DescribeDeviceJob
+import Amazonka.Panorama.DescribeNode
+import Amazonka.Panorama.DescribeNodeFromTemplateJob
+import Amazonka.Panorama.DescribePackage
+import Amazonka.Panorama.DescribePackageImportJob
+import Amazonka.Panorama.DescribePackageVersion
+import Amazonka.Panorama.ListApplicationInstanceDependencies
+import Amazonka.Panorama.ListApplicationInstanceNodeInstances
+import Amazonka.Panorama.ListApplicationInstances
+import Amazonka.Panorama.ListDevices
+import Amazonka.Panorama.ListDevicesJobs
+import Amazonka.Panorama.ListNodeFromTemplateJobs
+import Amazonka.Panorama.ListNodes
+import Amazonka.Panorama.ListPackageImportJobs
+import Amazonka.Panorama.ListPackages
+import Amazonka.Panorama.ListTagsForResource
+import Amazonka.Panorama.ProvisionDevice
+import Amazonka.Panorama.RegisterPackageVersion
+import Amazonka.Panorama.RemoveApplicationInstance
+import Amazonka.Panorama.TagResource
+import Amazonka.Panorama.Types.ApplicationInstance
+import Amazonka.Panorama.Types.Device
+import Amazonka.Panorama.Types.DeviceJob
+import Amazonka.Panorama.Types.DeviceJobConfig
+import Amazonka.Panorama.Types.EthernetPayload
+import Amazonka.Panorama.Types.EthernetStatus
+import Amazonka.Panorama.Types.Job
+import Amazonka.Panorama.Types.JobResourceTags
+import Amazonka.Panorama.Types.ManifestOverridesPayload
+import Amazonka.Panorama.Types.ManifestPayload
+import Amazonka.Panorama.Types.NetworkPayload
+import Amazonka.Panorama.Types.NetworkStatus
+import Amazonka.Panorama.Types.Node
+import Amazonka.Panorama.Types.NodeFromTemplateJob
+import Amazonka.Panorama.Types.NodeInputPort
+import Amazonka.Panorama.Types.NodeInstance
+import Amazonka.Panorama.Types.NodeInterface
+import Amazonka.Panorama.Types.NodeOutputPort
+import Amazonka.Panorama.Types.OTAJobConfig
+import Amazonka.Panorama.Types.OutPutS3Location
+import Amazonka.Panorama.Types.PackageImportJob
+import Amazonka.Panorama.Types.PackageImportJobInputConfig
+import Amazonka.Panorama.Types.PackageImportJobOutput
+import Amazonka.Panorama.Types.PackageImportJobOutputConfig
+import Amazonka.Panorama.Types.PackageListItem
+import Amazonka.Panorama.Types.PackageObject
+import Amazonka.Panorama.Types.PackageVersionInputConfig
+import Amazonka.Panorama.Types.PackageVersionOutputConfig
+import Amazonka.Panorama.Types.S3Location
+import Amazonka.Panorama.Types.StaticIpConnectionInfo
+import Amazonka.Panorama.Types.StorageLocation
+import Amazonka.Panorama.UntagResource
+import Amazonka.Panorama.UpdateDeviceMetadata

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Panorama where
 
+import Amazonka.Panorama
 import qualified Data.Proxy as Proxy
-import Network.AWS.Panorama
 import Test.AWS.Fixture
 import Test.AWS.Panorama.Internal
 import Test.AWS.Prelude

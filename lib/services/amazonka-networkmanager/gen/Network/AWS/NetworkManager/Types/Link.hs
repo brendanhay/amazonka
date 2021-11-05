@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.Types.Link
+-- Module      : Amazonka.NetworkManager.Types.Link
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkManager.Types.Link where
+module Amazonka.NetworkManager.Types.Link where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types.Bandwidth
-import Network.AWS.NetworkManager.Types.LinkState
-import Network.AWS.NetworkManager.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types.Bandwidth
+import Amazonka.NetworkManager.Types.LinkState
+import Amazonka.NetworkManager.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a link.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.CreateConnection
+-- Module      : Amazonka.NetworkManager.CreateConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- or virtual appliance that connects to a third-party appliance in a VPC,
 -- or a physical appliance that connects to another physical appliance in
 -- an on-premises network.
-module Network.AWS.NetworkManager.CreateConnection
+module Amazonka.NetworkManager.CreateConnection
   ( -- * Creating a Request
     CreateConnection (..),
     newCreateConnection,
@@ -48,12 +48,12 @@ module Network.AWS.NetworkManager.CreateConnection
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'

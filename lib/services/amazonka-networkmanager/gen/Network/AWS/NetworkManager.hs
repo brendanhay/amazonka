@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.NetworkManager
+-- Module      : Amazonka.NetworkManager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- The Network Manager APIs are supported in the US West (Oregon) Region
 -- only. You must specify the @us-west-2@ Region in all requests made to
 -- Network Manager.
-module Network.AWS.NetworkManager
+module Amazonka.NetworkManager
   ( -- * Service Configuration
     defaultService,
 
@@ -349,44 +349,44 @@ module Network.AWS.NetworkManager
   )
 where
 
-import Network.AWS.NetworkManager.AssociateCustomerGateway
-import Network.AWS.NetworkManager.AssociateLink
-import Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer
-import Network.AWS.NetworkManager.CreateConnection
-import Network.AWS.NetworkManager.CreateDevice
-import Network.AWS.NetworkManager.CreateGlobalNetwork
-import Network.AWS.NetworkManager.CreateLink
-import Network.AWS.NetworkManager.CreateSite
-import Network.AWS.NetworkManager.DeleteConnection
-import Network.AWS.NetworkManager.DeleteDevice
-import Network.AWS.NetworkManager.DeleteGlobalNetwork
-import Network.AWS.NetworkManager.DeleteLink
-import Network.AWS.NetworkManager.DeleteSite
-import Network.AWS.NetworkManager.DeregisterTransitGateway
-import Network.AWS.NetworkManager.DescribeGlobalNetworks
-import Network.AWS.NetworkManager.DisassociateCustomerGateway
-import Network.AWS.NetworkManager.DisassociateLink
-import Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer
-import Network.AWS.NetworkManager.GetConnections
-import Network.AWS.NetworkManager.GetCustomerGatewayAssociations
-import Network.AWS.NetworkManager.GetDevices
-import Network.AWS.NetworkManager.GetLinkAssociations
-import Network.AWS.NetworkManager.GetLinks
-import Network.AWS.NetworkManager.GetSites
-import Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations
-import Network.AWS.NetworkManager.GetTransitGatewayRegistrations
-import Network.AWS.NetworkManager.Lens
-import Network.AWS.NetworkManager.ListTagsForResource
-import Network.AWS.NetworkManager.RegisterTransitGateway
-import Network.AWS.NetworkManager.TagResource
-import Network.AWS.NetworkManager.Types
-import Network.AWS.NetworkManager.UntagResource
-import Network.AWS.NetworkManager.UpdateConnection
-import Network.AWS.NetworkManager.UpdateDevice
-import Network.AWS.NetworkManager.UpdateGlobalNetwork
-import Network.AWS.NetworkManager.UpdateLink
-import Network.AWS.NetworkManager.UpdateSite
-import Network.AWS.NetworkManager.Waiters
+import Amazonka.NetworkManager.AssociateCustomerGateway
+import Amazonka.NetworkManager.AssociateLink
+import Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.CreateConnection
+import Amazonka.NetworkManager.CreateDevice
+import Amazonka.NetworkManager.CreateGlobalNetwork
+import Amazonka.NetworkManager.CreateLink
+import Amazonka.NetworkManager.CreateSite
+import Amazonka.NetworkManager.DeleteConnection
+import Amazonka.NetworkManager.DeleteDevice
+import Amazonka.NetworkManager.DeleteGlobalNetwork
+import Amazonka.NetworkManager.DeleteLink
+import Amazonka.NetworkManager.DeleteSite
+import Amazonka.NetworkManager.DeregisterTransitGateway
+import Amazonka.NetworkManager.DescribeGlobalNetworks
+import Amazonka.NetworkManager.DisassociateCustomerGateway
+import Amazonka.NetworkManager.DisassociateLink
+import Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.GetConnections
+import Amazonka.NetworkManager.GetCustomerGatewayAssociations
+import Amazonka.NetworkManager.GetDevices
+import Amazonka.NetworkManager.GetLinkAssociations
+import Amazonka.NetworkManager.GetLinks
+import Amazonka.NetworkManager.GetSites
+import Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
+import Amazonka.NetworkManager.GetTransitGatewayRegistrations
+import Amazonka.NetworkManager.Lens
+import Amazonka.NetworkManager.ListTagsForResource
+import Amazonka.NetworkManager.RegisterTransitGateway
+import Amazonka.NetworkManager.TagResource
+import Amazonka.NetworkManager.Types
+import Amazonka.NetworkManager.UntagResource
+import Amazonka.NetworkManager.UpdateConnection
+import Amazonka.NetworkManager.UpdateDevice
+import Amazonka.NetworkManager.UpdateGlobalNetwork
+import Amazonka.NetworkManager.UpdateLink
+import Amazonka.NetworkManager.UpdateSite
+import Amazonka.NetworkManager.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

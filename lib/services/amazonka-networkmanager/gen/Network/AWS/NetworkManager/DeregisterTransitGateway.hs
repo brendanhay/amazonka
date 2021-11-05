@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.DeregisterTransitGateway
+-- Module      : Amazonka.NetworkManager.DeregisterTransitGateway
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deregisters a transit gateway from your global network. This action does
 -- not delete your transit gateway, or modify any of its attachments. This
 -- action removes any customer gateway associations.
-module Network.AWS.NetworkManager.DeregisterTransitGateway
+module Amazonka.NetworkManager.DeregisterTransitGateway
   ( -- * Creating a Request
     DeregisterTransitGateway (..),
     newDeregisterTransitGateway,
@@ -42,12 +42,12 @@ module Network.AWS.NetworkManager.DeregisterTransitGateway
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterTransitGateway' smart constructor.
 data DeregisterTransitGateway = DeregisterTransitGateway'

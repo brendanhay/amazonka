@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.NetworkManager.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.NetworkManager.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.NetworkManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.NetworkManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,70 +45,70 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.NetworkManager
-    Network.AWS.NetworkManager.AssociateCustomerGateway
-    Network.AWS.NetworkManager.AssociateLink
-    Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer
-    Network.AWS.NetworkManager.CreateConnection
-    Network.AWS.NetworkManager.CreateDevice
-    Network.AWS.NetworkManager.CreateGlobalNetwork
-    Network.AWS.NetworkManager.CreateLink
-    Network.AWS.NetworkManager.CreateSite
-    Network.AWS.NetworkManager.DeleteConnection
-    Network.AWS.NetworkManager.DeleteDevice
-    Network.AWS.NetworkManager.DeleteGlobalNetwork
-    Network.AWS.NetworkManager.DeleteLink
-    Network.AWS.NetworkManager.DeleteSite
-    Network.AWS.NetworkManager.DeregisterTransitGateway
-    Network.AWS.NetworkManager.DescribeGlobalNetworks
-    Network.AWS.NetworkManager.DisassociateCustomerGateway
-    Network.AWS.NetworkManager.DisassociateLink
-    Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer
-    Network.AWS.NetworkManager.GetConnections
-    Network.AWS.NetworkManager.GetCustomerGatewayAssociations
-    Network.AWS.NetworkManager.GetDevices
-    Network.AWS.NetworkManager.GetLinkAssociations
-    Network.AWS.NetworkManager.GetLinks
-    Network.AWS.NetworkManager.GetSites
-    Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations
-    Network.AWS.NetworkManager.GetTransitGatewayRegistrations
-    Network.AWS.NetworkManager.Lens
-    Network.AWS.NetworkManager.ListTagsForResource
-    Network.AWS.NetworkManager.RegisterTransitGateway
-    Network.AWS.NetworkManager.TagResource
-    Network.AWS.NetworkManager.Types
-    Network.AWS.NetworkManager.Types.AWSLocation
-    Network.AWS.NetworkManager.Types.Bandwidth
-    Network.AWS.NetworkManager.Types.Connection
-    Network.AWS.NetworkManager.Types.ConnectionState
-    Network.AWS.NetworkManager.Types.CustomerGatewayAssociation
-    Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState
-    Network.AWS.NetworkManager.Types.Device
-    Network.AWS.NetworkManager.Types.DeviceState
-    Network.AWS.NetworkManager.Types.GlobalNetwork
-    Network.AWS.NetworkManager.Types.GlobalNetworkState
-    Network.AWS.NetworkManager.Types.Link
-    Network.AWS.NetworkManager.Types.LinkAssociation
-    Network.AWS.NetworkManager.Types.LinkAssociationState
-    Network.AWS.NetworkManager.Types.LinkState
-    Network.AWS.NetworkManager.Types.Location
-    Network.AWS.NetworkManager.Types.Site
-    Network.AWS.NetworkManager.Types.SiteState
-    Network.AWS.NetworkManager.Types.Tag
-    Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation
-    Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
-    Network.AWS.NetworkManager.Types.TransitGatewayRegistration
-    Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState
-    Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason
-    Network.AWS.NetworkManager.UntagResource
-    Network.AWS.NetworkManager.UpdateConnection
-    Network.AWS.NetworkManager.UpdateDevice
-    Network.AWS.NetworkManager.UpdateGlobalNetwork
-    Network.AWS.NetworkManager.UpdateLink
-    Network.AWS.NetworkManager.UpdateSite
-    Network.AWS.NetworkManager.Waiters
+    Amazonka.NetworkManager
+    Amazonka.NetworkManager.AssociateCustomerGateway
+    Amazonka.NetworkManager.AssociateLink
+    Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
+    Amazonka.NetworkManager.CreateConnection
+    Amazonka.NetworkManager.CreateDevice
+    Amazonka.NetworkManager.CreateGlobalNetwork
+    Amazonka.NetworkManager.CreateLink
+    Amazonka.NetworkManager.CreateSite
+    Amazonka.NetworkManager.DeleteConnection
+    Amazonka.NetworkManager.DeleteDevice
+    Amazonka.NetworkManager.DeleteGlobalNetwork
+    Amazonka.NetworkManager.DeleteLink
+    Amazonka.NetworkManager.DeleteSite
+    Amazonka.NetworkManager.DeregisterTransitGateway
+    Amazonka.NetworkManager.DescribeGlobalNetworks
+    Amazonka.NetworkManager.DisassociateCustomerGateway
+    Amazonka.NetworkManager.DisassociateLink
+    Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
+    Amazonka.NetworkManager.GetConnections
+    Amazonka.NetworkManager.GetCustomerGatewayAssociations
+    Amazonka.NetworkManager.GetDevices
+    Amazonka.NetworkManager.GetLinkAssociations
+    Amazonka.NetworkManager.GetLinks
+    Amazonka.NetworkManager.GetSites
+    Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
+    Amazonka.NetworkManager.GetTransitGatewayRegistrations
+    Amazonka.NetworkManager.Lens
+    Amazonka.NetworkManager.ListTagsForResource
+    Amazonka.NetworkManager.RegisterTransitGateway
+    Amazonka.NetworkManager.TagResource
+    Amazonka.NetworkManager.Types
+    Amazonka.NetworkManager.Types.AWSLocation
+    Amazonka.NetworkManager.Types.Bandwidth
+    Amazonka.NetworkManager.Types.Connection
+    Amazonka.NetworkManager.Types.ConnectionState
+    Amazonka.NetworkManager.Types.CustomerGatewayAssociation
+    Amazonka.NetworkManager.Types.CustomerGatewayAssociationState
+    Amazonka.NetworkManager.Types.Device
+    Amazonka.NetworkManager.Types.DeviceState
+    Amazonka.NetworkManager.Types.GlobalNetwork
+    Amazonka.NetworkManager.Types.GlobalNetworkState
+    Amazonka.NetworkManager.Types.Link
+    Amazonka.NetworkManager.Types.LinkAssociation
+    Amazonka.NetworkManager.Types.LinkAssociationState
+    Amazonka.NetworkManager.Types.LinkState
+    Amazonka.NetworkManager.Types.Location
+    Amazonka.NetworkManager.Types.Site
+    Amazonka.NetworkManager.Types.SiteState
+    Amazonka.NetworkManager.Types.Tag
+    Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation
+    Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
+    Amazonka.NetworkManager.Types.TransitGatewayRegistration
+    Amazonka.NetworkManager.Types.TransitGatewayRegistrationState
+    Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
+    Amazonka.NetworkManager.UntagResource
+    Amazonka.NetworkManager.UpdateConnection
+    Amazonka.NetworkManager.UpdateDevice
+    Amazonka.NetworkManager.UpdateGlobalNetwork
+    Amazonka.NetworkManager.UpdateLink
+    Amazonka.NetworkManager.UpdateSite
+    Amazonka.NetworkManager.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.Types
+-- Module      : Amazonka.NetworkManager.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkManager.Types
+module Amazonka.NetworkManager.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -188,33 +188,33 @@ module Network.AWS.NetworkManager.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types.AWSLocation
-import Network.AWS.NetworkManager.Types.Bandwidth
-import Network.AWS.NetworkManager.Types.Connection
-import Network.AWS.NetworkManager.Types.ConnectionState
-import Network.AWS.NetworkManager.Types.CustomerGatewayAssociation
-import Network.AWS.NetworkManager.Types.CustomerGatewayAssociationState
-import Network.AWS.NetworkManager.Types.Device
-import Network.AWS.NetworkManager.Types.DeviceState
-import Network.AWS.NetworkManager.Types.GlobalNetwork
-import Network.AWS.NetworkManager.Types.GlobalNetworkState
-import Network.AWS.NetworkManager.Types.Link
-import Network.AWS.NetworkManager.Types.LinkAssociation
-import Network.AWS.NetworkManager.Types.LinkAssociationState
-import Network.AWS.NetworkManager.Types.LinkState
-import Network.AWS.NetworkManager.Types.Location
-import Network.AWS.NetworkManager.Types.Site
-import Network.AWS.NetworkManager.Types.SiteState
-import Network.AWS.NetworkManager.Types.Tag
-import Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation
-import Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
-import Network.AWS.NetworkManager.Types.TransitGatewayRegistration
-import Network.AWS.NetworkManager.Types.TransitGatewayRegistrationState
-import Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types.AWSLocation
+import Amazonka.NetworkManager.Types.Bandwidth
+import Amazonka.NetworkManager.Types.Connection
+import Amazonka.NetworkManager.Types.ConnectionState
+import Amazonka.NetworkManager.Types.CustomerGatewayAssociation
+import Amazonka.NetworkManager.Types.CustomerGatewayAssociationState
+import Amazonka.NetworkManager.Types.Device
+import Amazonka.NetworkManager.Types.DeviceState
+import Amazonka.NetworkManager.Types.GlobalNetwork
+import Amazonka.NetworkManager.Types.GlobalNetworkState
+import Amazonka.NetworkManager.Types.Link
+import Amazonka.NetworkManager.Types.LinkAssociation
+import Amazonka.NetworkManager.Types.LinkAssociationState
+import Amazonka.NetworkManager.Types.LinkState
+import Amazonka.NetworkManager.Types.Location
+import Amazonka.NetworkManager.Types.Site
+import Amazonka.NetworkManager.Types.SiteState
+import Amazonka.NetworkManager.Types.Tag
+import Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation
+import Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociationState
+import Amazonka.NetworkManager.Types.TransitGatewayRegistration
+import Amazonka.NetworkManager.Types.TransitGatewayRegistrationState
+import Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-07-05@ of the Amazon Network Manager SDK configuration.
 defaultService :: Core.Service

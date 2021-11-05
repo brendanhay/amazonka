@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.DisassociateLink
+-- Module      : Amazonka.NetworkManager.DisassociateLink
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Disassociates an existing device from a link. You must first
 -- disassociate any customer gateways that are associated with the link.
-module Network.AWS.NetworkManager.DisassociateLink
+module Amazonka.NetworkManager.DisassociateLink
   ( -- * Creating a Request
     DisassociateLink (..),
     newDisassociateLink,
@@ -42,12 +42,12 @@ module Network.AWS.NetworkManager.DisassociateLink
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateLink' smart constructor.
 data DisassociateLink = DisassociateLink'

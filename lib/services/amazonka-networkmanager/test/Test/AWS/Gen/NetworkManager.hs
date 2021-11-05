@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.NetworkManager where
 
+import Amazonka.NetworkManager
 import qualified Data.Proxy as Proxy
-import Network.AWS.NetworkManager
 import Test.AWS.Fixture
 import Test.AWS.NetworkManager.Internal
 import Test.AWS.Prelude

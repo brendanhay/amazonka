@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.Lens
+-- Module      : Amazonka.NetworkManager.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.NetworkManager.Lens
+module Amazonka.NetworkManager.Lens
   ( -- * Operations
 
     -- ** GetLinkAssociations
@@ -405,52 +405,52 @@ module Network.AWS.NetworkManager.Lens
   )
 where
 
-import Network.AWS.NetworkManager.AssociateCustomerGateway
-import Network.AWS.NetworkManager.AssociateLink
-import Network.AWS.NetworkManager.AssociateTransitGatewayConnectPeer
-import Network.AWS.NetworkManager.CreateConnection
-import Network.AWS.NetworkManager.CreateDevice
-import Network.AWS.NetworkManager.CreateGlobalNetwork
-import Network.AWS.NetworkManager.CreateLink
-import Network.AWS.NetworkManager.CreateSite
-import Network.AWS.NetworkManager.DeleteConnection
-import Network.AWS.NetworkManager.DeleteDevice
-import Network.AWS.NetworkManager.DeleteGlobalNetwork
-import Network.AWS.NetworkManager.DeleteLink
-import Network.AWS.NetworkManager.DeleteSite
-import Network.AWS.NetworkManager.DeregisterTransitGateway
-import Network.AWS.NetworkManager.DescribeGlobalNetworks
-import Network.AWS.NetworkManager.DisassociateCustomerGateway
-import Network.AWS.NetworkManager.DisassociateLink
-import Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer
-import Network.AWS.NetworkManager.GetConnections
-import Network.AWS.NetworkManager.GetCustomerGatewayAssociations
-import Network.AWS.NetworkManager.GetDevices
-import Network.AWS.NetworkManager.GetLinkAssociations
-import Network.AWS.NetworkManager.GetLinks
-import Network.AWS.NetworkManager.GetSites
-import Network.AWS.NetworkManager.GetTransitGatewayConnectPeerAssociations
-import Network.AWS.NetworkManager.GetTransitGatewayRegistrations
-import Network.AWS.NetworkManager.ListTagsForResource
-import Network.AWS.NetworkManager.RegisterTransitGateway
-import Network.AWS.NetworkManager.TagResource
-import Network.AWS.NetworkManager.Types.AWSLocation
-import Network.AWS.NetworkManager.Types.Bandwidth
-import Network.AWS.NetworkManager.Types.Connection
-import Network.AWS.NetworkManager.Types.CustomerGatewayAssociation
-import Network.AWS.NetworkManager.Types.Device
-import Network.AWS.NetworkManager.Types.GlobalNetwork
-import Network.AWS.NetworkManager.Types.Link
-import Network.AWS.NetworkManager.Types.LinkAssociation
-import Network.AWS.NetworkManager.Types.Location
-import Network.AWS.NetworkManager.Types.Site
-import Network.AWS.NetworkManager.Types.Tag
-import Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation
-import Network.AWS.NetworkManager.Types.TransitGatewayRegistration
-import Network.AWS.NetworkManager.Types.TransitGatewayRegistrationStateReason
-import Network.AWS.NetworkManager.UntagResource
-import Network.AWS.NetworkManager.UpdateConnection
-import Network.AWS.NetworkManager.UpdateDevice
-import Network.AWS.NetworkManager.UpdateGlobalNetwork
-import Network.AWS.NetworkManager.UpdateLink
-import Network.AWS.NetworkManager.UpdateSite
+import Amazonka.NetworkManager.AssociateCustomerGateway
+import Amazonka.NetworkManager.AssociateLink
+import Amazonka.NetworkManager.AssociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.CreateConnection
+import Amazonka.NetworkManager.CreateDevice
+import Amazonka.NetworkManager.CreateGlobalNetwork
+import Amazonka.NetworkManager.CreateLink
+import Amazonka.NetworkManager.CreateSite
+import Amazonka.NetworkManager.DeleteConnection
+import Amazonka.NetworkManager.DeleteDevice
+import Amazonka.NetworkManager.DeleteGlobalNetwork
+import Amazonka.NetworkManager.DeleteLink
+import Amazonka.NetworkManager.DeleteSite
+import Amazonka.NetworkManager.DeregisterTransitGateway
+import Amazonka.NetworkManager.DescribeGlobalNetworks
+import Amazonka.NetworkManager.DisassociateCustomerGateway
+import Amazonka.NetworkManager.DisassociateLink
+import Amazonka.NetworkManager.DisassociateTransitGatewayConnectPeer
+import Amazonka.NetworkManager.GetConnections
+import Amazonka.NetworkManager.GetCustomerGatewayAssociations
+import Amazonka.NetworkManager.GetDevices
+import Amazonka.NetworkManager.GetLinkAssociations
+import Amazonka.NetworkManager.GetLinks
+import Amazonka.NetworkManager.GetSites
+import Amazonka.NetworkManager.GetTransitGatewayConnectPeerAssociations
+import Amazonka.NetworkManager.GetTransitGatewayRegistrations
+import Amazonka.NetworkManager.ListTagsForResource
+import Amazonka.NetworkManager.RegisterTransitGateway
+import Amazonka.NetworkManager.TagResource
+import Amazonka.NetworkManager.Types.AWSLocation
+import Amazonka.NetworkManager.Types.Bandwidth
+import Amazonka.NetworkManager.Types.Connection
+import Amazonka.NetworkManager.Types.CustomerGatewayAssociation
+import Amazonka.NetworkManager.Types.Device
+import Amazonka.NetworkManager.Types.GlobalNetwork
+import Amazonka.NetworkManager.Types.Link
+import Amazonka.NetworkManager.Types.LinkAssociation
+import Amazonka.NetworkManager.Types.Location
+import Amazonka.NetworkManager.Types.Site
+import Amazonka.NetworkManager.Types.Tag
+import Amazonka.NetworkManager.Types.TransitGatewayConnectPeerAssociation
+import Amazonka.NetworkManager.Types.TransitGatewayRegistration
+import Amazonka.NetworkManager.Types.TransitGatewayRegistrationStateReason
+import Amazonka.NetworkManager.UntagResource
+import Amazonka.NetworkManager.UpdateConnection
+import Amazonka.NetworkManager.UpdateDevice
+import Amazonka.NetworkManager.UpdateGlobalNetwork
+import Amazonka.NetworkManager.UpdateLink
+import Amazonka.NetworkManager.UpdateSite

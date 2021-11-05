@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.NetworkManager.AssociateLink
+-- Module      : Amazonka.NetworkManager.AssociateLink
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Associates a link to a device. A device can be associated to multiple
 -- links and a link can be associated to multiple devices. The device and
 -- link must be in the same global network and the same site.
-module Network.AWS.NetworkManager.AssociateLink
+module Amazonka.NetworkManager.AssociateLink
   ( -- * Creating a Request
     AssociateLink (..),
     newAssociateLink,
@@ -43,12 +43,12 @@ module Network.AWS.NetworkManager.AssociateLink
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.NetworkManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateLink' smart constructor.
 data AssociateLink = AssociateLink'

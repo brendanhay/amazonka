@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.DeleteRepository
+-- Module      : Amazonka.ECR.DeleteRepository
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a repository. If the repository contains images, you must either
 -- delete all images in the repository or use the @force@ option to delete
 -- the repository.
-module Network.AWS.ECR.DeleteRepository
+module Amazonka.ECR.DeleteRepository
   ( -- * Creating a Request
     DeleteRepository (..),
     newDeleteRepository,
@@ -43,12 +43,12 @@ module Network.AWS.ECR.DeleteRepository
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'

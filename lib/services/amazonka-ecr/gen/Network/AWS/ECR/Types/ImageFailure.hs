@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.Types.ImageFailure
+-- Module      : Amazonka.ECR.Types.ImageFailure
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageFailure where
+module Amazonka.ECR.Types.ImageFailure where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types.ImageFailureCode
-import Network.AWS.ECR.Types.ImageIdentifier
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types.ImageFailureCode
+import Amazonka.ECR.Types.ImageIdentifier
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image failure.
 --

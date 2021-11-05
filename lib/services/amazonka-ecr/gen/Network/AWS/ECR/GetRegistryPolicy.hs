@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.GetRegistryPolicy
+-- Module      : Amazonka.ECR.GetRegistryPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the permissions policy for a registry.
-module Network.AWS.ECR.GetRegistryPolicy
+module Amazonka.ECR.GetRegistryPolicy
   ( -- * Creating a Request
     GetRegistryPolicy (..),
     newGetRegistryPolicy,
@@ -37,12 +37,12 @@ module Network.AWS.ECR.GetRegistryPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRegistryPolicy' smart constructor.
 data GetRegistryPolicy = GetRegistryPolicy'

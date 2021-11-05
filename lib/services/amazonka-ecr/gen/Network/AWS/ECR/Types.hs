@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.Types
+-- Module      : Amazonka.ECR.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types
+module Amazonka.ECR.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -274,49 +274,49 @@ module Network.AWS.ECR.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types.Attribute
-import Network.AWS.ECR.Types.AuthorizationData
-import Network.AWS.ECR.Types.DescribeImagesFilter
-import Network.AWS.ECR.Types.EncryptionConfiguration
-import Network.AWS.ECR.Types.EncryptionType
-import Network.AWS.ECR.Types.FindingSeverity
-import Network.AWS.ECR.Types.Image
-import Network.AWS.ECR.Types.ImageActionType
-import Network.AWS.ECR.Types.ImageDetail
-import Network.AWS.ECR.Types.ImageFailure
-import Network.AWS.ECR.Types.ImageFailureCode
-import Network.AWS.ECR.Types.ImageIdentifier
-import Network.AWS.ECR.Types.ImageReplicationStatus
-import Network.AWS.ECR.Types.ImageScanFinding
-import Network.AWS.ECR.Types.ImageScanFindings
-import Network.AWS.ECR.Types.ImageScanFindingsSummary
-import Network.AWS.ECR.Types.ImageScanStatus
-import Network.AWS.ECR.Types.ImageScanningConfiguration
-import Network.AWS.ECR.Types.ImageTagMutability
-import Network.AWS.ECR.Types.Layer
-import Network.AWS.ECR.Types.LayerAvailability
-import Network.AWS.ECR.Types.LayerFailure
-import Network.AWS.ECR.Types.LayerFailureCode
-import Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter
-import Network.AWS.ECR.Types.LifecyclePolicyPreviewResult
-import Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
-import Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
-import Network.AWS.ECR.Types.LifecyclePolicyRuleAction
-import Network.AWS.ECR.Types.ListImagesFilter
-import Network.AWS.ECR.Types.ReplicationConfiguration
-import Network.AWS.ECR.Types.ReplicationDestination
-import Network.AWS.ECR.Types.ReplicationRule
-import Network.AWS.ECR.Types.ReplicationStatus
-import Network.AWS.ECR.Types.Repository
-import Network.AWS.ECR.Types.RepositoryFilter
-import Network.AWS.ECR.Types.RepositoryFilterType
-import Network.AWS.ECR.Types.ScanStatus
-import Network.AWS.ECR.Types.Tag
-import Network.AWS.ECR.Types.TagStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types.Attribute
+import Amazonka.ECR.Types.AuthorizationData
+import Amazonka.ECR.Types.DescribeImagesFilter
+import Amazonka.ECR.Types.EncryptionConfiguration
+import Amazonka.ECR.Types.EncryptionType
+import Amazonka.ECR.Types.FindingSeverity
+import Amazonka.ECR.Types.Image
+import Amazonka.ECR.Types.ImageActionType
+import Amazonka.ECR.Types.ImageDetail
+import Amazonka.ECR.Types.ImageFailure
+import Amazonka.ECR.Types.ImageFailureCode
+import Amazonka.ECR.Types.ImageIdentifier
+import Amazonka.ECR.Types.ImageReplicationStatus
+import Amazonka.ECR.Types.ImageScanFinding
+import Amazonka.ECR.Types.ImageScanFindings
+import Amazonka.ECR.Types.ImageScanFindingsSummary
+import Amazonka.ECR.Types.ImageScanStatus
+import Amazonka.ECR.Types.ImageScanningConfiguration
+import Amazonka.ECR.Types.ImageTagMutability
+import Amazonka.ECR.Types.Layer
+import Amazonka.ECR.Types.LayerAvailability
+import Amazonka.ECR.Types.LayerFailure
+import Amazonka.ECR.Types.LayerFailureCode
+import Amazonka.ECR.Types.LifecyclePolicyPreviewFilter
+import Amazonka.ECR.Types.LifecyclePolicyPreviewResult
+import Amazonka.ECR.Types.LifecyclePolicyPreviewStatus
+import Amazonka.ECR.Types.LifecyclePolicyPreviewSummary
+import Amazonka.ECR.Types.LifecyclePolicyRuleAction
+import Amazonka.ECR.Types.ListImagesFilter
+import Amazonka.ECR.Types.ReplicationConfiguration
+import Amazonka.ECR.Types.ReplicationDestination
+import Amazonka.ECR.Types.ReplicationRule
+import Amazonka.ECR.Types.ReplicationStatus
+import Amazonka.ECR.Types.Repository
+import Amazonka.ECR.Types.RepositoryFilter
+import Amazonka.ECR.Types.RepositoryFilterType
+import Amazonka.ECR.Types.ScanStatus
+import Amazonka.ECR.Types.Tag
+import Amazonka.ECR.Types.TagStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-09-21@ of the Amazon EC2 Container Registry SDK configuration.
 defaultService :: Core.Service

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ECR where
 
+import Amazonka.ECR
 import qualified Data.Proxy as Proxy
-import Network.AWS.ECR
 import Test.AWS.ECR.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

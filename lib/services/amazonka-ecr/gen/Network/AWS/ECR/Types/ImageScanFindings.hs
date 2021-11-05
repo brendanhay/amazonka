@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.Types.ImageScanFindings
+-- Module      : Amazonka.ECR.Types.ImageScanFindings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageScanFindings where
+module Amazonka.ECR.Types.ImageScanFindings where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types.FindingSeverity
-import Network.AWS.ECR.Types.ImageScanFinding
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types.FindingSeverity
+import Amazonka.ECR.Types.ImageScanFinding
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an image scan.
 --

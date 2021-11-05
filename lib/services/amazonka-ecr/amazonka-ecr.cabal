@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ECR.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ECR.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ECR" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ECR" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,86 +45,86 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ECR
-    Network.AWS.ECR.BatchCheckLayerAvailability
-    Network.AWS.ECR.BatchDeleteImage
-    Network.AWS.ECR.BatchGetImage
-    Network.AWS.ECR.CompleteLayerUpload
-    Network.AWS.ECR.CreateRepository
-    Network.AWS.ECR.DeleteLifecyclePolicy
-    Network.AWS.ECR.DeleteRegistryPolicy
-    Network.AWS.ECR.DeleteRepository
-    Network.AWS.ECR.DeleteRepositoryPolicy
-    Network.AWS.ECR.DescribeImageReplicationStatus
-    Network.AWS.ECR.DescribeImages
-    Network.AWS.ECR.DescribeImageScanFindings
-    Network.AWS.ECR.DescribeRegistry
-    Network.AWS.ECR.DescribeRepositories
-    Network.AWS.ECR.GetAuthorizationToken
-    Network.AWS.ECR.GetDownloadUrlForLayer
-    Network.AWS.ECR.GetLifecyclePolicy
-    Network.AWS.ECR.GetLifecyclePolicyPreview
-    Network.AWS.ECR.GetRegistryPolicy
-    Network.AWS.ECR.GetRepositoryPolicy
-    Network.AWS.ECR.InitiateLayerUpload
-    Network.AWS.ECR.Lens
-    Network.AWS.ECR.ListImages
-    Network.AWS.ECR.ListTagsForResource
-    Network.AWS.ECR.PutImage
-    Network.AWS.ECR.PutImageScanningConfiguration
-    Network.AWS.ECR.PutImageTagMutability
-    Network.AWS.ECR.PutLifecyclePolicy
-    Network.AWS.ECR.PutRegistryPolicy
-    Network.AWS.ECR.PutReplicationConfiguration
-    Network.AWS.ECR.SetRepositoryPolicy
-    Network.AWS.ECR.StartImageScan
-    Network.AWS.ECR.StartLifecyclePolicyPreview
-    Network.AWS.ECR.TagResource
-    Network.AWS.ECR.Types
-    Network.AWS.ECR.Types.Attribute
-    Network.AWS.ECR.Types.AuthorizationData
-    Network.AWS.ECR.Types.DescribeImagesFilter
-    Network.AWS.ECR.Types.EncryptionConfiguration
-    Network.AWS.ECR.Types.EncryptionType
-    Network.AWS.ECR.Types.FindingSeverity
-    Network.AWS.ECR.Types.Image
-    Network.AWS.ECR.Types.ImageActionType
-    Network.AWS.ECR.Types.ImageDetail
-    Network.AWS.ECR.Types.ImageFailure
-    Network.AWS.ECR.Types.ImageFailureCode
-    Network.AWS.ECR.Types.ImageIdentifier
-    Network.AWS.ECR.Types.ImageReplicationStatus
-    Network.AWS.ECR.Types.ImageScanFinding
-    Network.AWS.ECR.Types.ImageScanFindings
-    Network.AWS.ECR.Types.ImageScanFindingsSummary
-    Network.AWS.ECR.Types.ImageScanningConfiguration
-    Network.AWS.ECR.Types.ImageScanStatus
-    Network.AWS.ECR.Types.ImageTagMutability
-    Network.AWS.ECR.Types.Layer
-    Network.AWS.ECR.Types.LayerAvailability
-    Network.AWS.ECR.Types.LayerFailure
-    Network.AWS.ECR.Types.LayerFailureCode
-    Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter
-    Network.AWS.ECR.Types.LifecyclePolicyPreviewResult
-    Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
-    Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
-    Network.AWS.ECR.Types.LifecyclePolicyRuleAction
-    Network.AWS.ECR.Types.ListImagesFilter
-    Network.AWS.ECR.Types.ReplicationConfiguration
-    Network.AWS.ECR.Types.ReplicationDestination
-    Network.AWS.ECR.Types.ReplicationRule
-    Network.AWS.ECR.Types.ReplicationStatus
-    Network.AWS.ECR.Types.Repository
-    Network.AWS.ECR.Types.RepositoryFilter
-    Network.AWS.ECR.Types.RepositoryFilterType
-    Network.AWS.ECR.Types.ScanStatus
-    Network.AWS.ECR.Types.Tag
-    Network.AWS.ECR.Types.TagStatus
-    Network.AWS.ECR.UntagResource
-    Network.AWS.ECR.UploadLayerPart
-    Network.AWS.ECR.Waiters
+    Amazonka.ECR
+    Amazonka.ECR.BatchCheckLayerAvailability
+    Amazonka.ECR.BatchDeleteImage
+    Amazonka.ECR.BatchGetImage
+    Amazonka.ECR.CompleteLayerUpload
+    Amazonka.ECR.CreateRepository
+    Amazonka.ECR.DeleteLifecyclePolicy
+    Amazonka.ECR.DeleteRegistryPolicy
+    Amazonka.ECR.DeleteRepository
+    Amazonka.ECR.DeleteRepositoryPolicy
+    Amazonka.ECR.DescribeImageReplicationStatus
+    Amazonka.ECR.DescribeImages
+    Amazonka.ECR.DescribeImageScanFindings
+    Amazonka.ECR.DescribeRegistry
+    Amazonka.ECR.DescribeRepositories
+    Amazonka.ECR.GetAuthorizationToken
+    Amazonka.ECR.GetDownloadUrlForLayer
+    Amazonka.ECR.GetLifecyclePolicy
+    Amazonka.ECR.GetLifecyclePolicyPreview
+    Amazonka.ECR.GetRegistryPolicy
+    Amazonka.ECR.GetRepositoryPolicy
+    Amazonka.ECR.InitiateLayerUpload
+    Amazonka.ECR.Lens
+    Amazonka.ECR.ListImages
+    Amazonka.ECR.ListTagsForResource
+    Amazonka.ECR.PutImage
+    Amazonka.ECR.PutImageScanningConfiguration
+    Amazonka.ECR.PutImageTagMutability
+    Amazonka.ECR.PutLifecyclePolicy
+    Amazonka.ECR.PutRegistryPolicy
+    Amazonka.ECR.PutReplicationConfiguration
+    Amazonka.ECR.SetRepositoryPolicy
+    Amazonka.ECR.StartImageScan
+    Amazonka.ECR.StartLifecyclePolicyPreview
+    Amazonka.ECR.TagResource
+    Amazonka.ECR.Types
+    Amazonka.ECR.Types.Attribute
+    Amazonka.ECR.Types.AuthorizationData
+    Amazonka.ECR.Types.DescribeImagesFilter
+    Amazonka.ECR.Types.EncryptionConfiguration
+    Amazonka.ECR.Types.EncryptionType
+    Amazonka.ECR.Types.FindingSeverity
+    Amazonka.ECR.Types.Image
+    Amazonka.ECR.Types.ImageActionType
+    Amazonka.ECR.Types.ImageDetail
+    Amazonka.ECR.Types.ImageFailure
+    Amazonka.ECR.Types.ImageFailureCode
+    Amazonka.ECR.Types.ImageIdentifier
+    Amazonka.ECR.Types.ImageReplicationStatus
+    Amazonka.ECR.Types.ImageScanFinding
+    Amazonka.ECR.Types.ImageScanFindings
+    Amazonka.ECR.Types.ImageScanFindingsSummary
+    Amazonka.ECR.Types.ImageScanningConfiguration
+    Amazonka.ECR.Types.ImageScanStatus
+    Amazonka.ECR.Types.ImageTagMutability
+    Amazonka.ECR.Types.Layer
+    Amazonka.ECR.Types.LayerAvailability
+    Amazonka.ECR.Types.LayerFailure
+    Amazonka.ECR.Types.LayerFailureCode
+    Amazonka.ECR.Types.LifecyclePolicyPreviewFilter
+    Amazonka.ECR.Types.LifecyclePolicyPreviewResult
+    Amazonka.ECR.Types.LifecyclePolicyPreviewStatus
+    Amazonka.ECR.Types.LifecyclePolicyPreviewSummary
+    Amazonka.ECR.Types.LifecyclePolicyRuleAction
+    Amazonka.ECR.Types.ListImagesFilter
+    Amazonka.ECR.Types.ReplicationConfiguration
+    Amazonka.ECR.Types.ReplicationDestination
+    Amazonka.ECR.Types.ReplicationRule
+    Amazonka.ECR.Types.ReplicationStatus
+    Amazonka.ECR.Types.Repository
+    Amazonka.ECR.Types.RepositoryFilter
+    Amazonka.ECR.Types.RepositoryFilterType
+    Amazonka.ECR.Types.ScanStatus
+    Amazonka.ECR.Types.Tag
+    Amazonka.ECR.Types.TagStatus
+    Amazonka.ECR.UntagResource
+    Amazonka.ECR.UploadLayerPart
+    Amazonka.ECR.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

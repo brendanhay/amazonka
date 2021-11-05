@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ECR
+-- Module      : Amazonka.ECR
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ecr.html Amazon ECR endpoints>
 -- in the /Amazon Web Services General Reference/.
-module Network.AWS.ECR
+module Amazonka.ECR
   ( -- * Service Configuration
     defaultService,
 
@@ -492,44 +492,44 @@ module Network.AWS.ECR
   )
 where
 
-import Network.AWS.ECR.BatchCheckLayerAvailability
-import Network.AWS.ECR.BatchDeleteImage
-import Network.AWS.ECR.BatchGetImage
-import Network.AWS.ECR.CompleteLayerUpload
-import Network.AWS.ECR.CreateRepository
-import Network.AWS.ECR.DeleteLifecyclePolicy
-import Network.AWS.ECR.DeleteRegistryPolicy
-import Network.AWS.ECR.DeleteRepository
-import Network.AWS.ECR.DeleteRepositoryPolicy
-import Network.AWS.ECR.DescribeImageReplicationStatus
-import Network.AWS.ECR.DescribeImageScanFindings
-import Network.AWS.ECR.DescribeImages
-import Network.AWS.ECR.DescribeRegistry
-import Network.AWS.ECR.DescribeRepositories
-import Network.AWS.ECR.GetAuthorizationToken
-import Network.AWS.ECR.GetDownloadUrlForLayer
-import Network.AWS.ECR.GetLifecyclePolicy
-import Network.AWS.ECR.GetLifecyclePolicyPreview
-import Network.AWS.ECR.GetRegistryPolicy
-import Network.AWS.ECR.GetRepositoryPolicy
-import Network.AWS.ECR.InitiateLayerUpload
-import Network.AWS.ECR.Lens
-import Network.AWS.ECR.ListImages
-import Network.AWS.ECR.ListTagsForResource
-import Network.AWS.ECR.PutImage
-import Network.AWS.ECR.PutImageScanningConfiguration
-import Network.AWS.ECR.PutImageTagMutability
-import Network.AWS.ECR.PutLifecyclePolicy
-import Network.AWS.ECR.PutRegistryPolicy
-import Network.AWS.ECR.PutReplicationConfiguration
-import Network.AWS.ECR.SetRepositoryPolicy
-import Network.AWS.ECR.StartImageScan
-import Network.AWS.ECR.StartLifecyclePolicyPreview
-import Network.AWS.ECR.TagResource
-import Network.AWS.ECR.Types
-import Network.AWS.ECR.UntagResource
-import Network.AWS.ECR.UploadLayerPart
-import Network.AWS.ECR.Waiters
+import Amazonka.ECR.BatchCheckLayerAvailability
+import Amazonka.ECR.BatchDeleteImage
+import Amazonka.ECR.BatchGetImage
+import Amazonka.ECR.CompleteLayerUpload
+import Amazonka.ECR.CreateRepository
+import Amazonka.ECR.DeleteLifecyclePolicy
+import Amazonka.ECR.DeleteRegistryPolicy
+import Amazonka.ECR.DeleteRepository
+import Amazonka.ECR.DeleteRepositoryPolicy
+import Amazonka.ECR.DescribeImageReplicationStatus
+import Amazonka.ECR.DescribeImageScanFindings
+import Amazonka.ECR.DescribeImages
+import Amazonka.ECR.DescribeRegistry
+import Amazonka.ECR.DescribeRepositories
+import Amazonka.ECR.GetAuthorizationToken
+import Amazonka.ECR.GetDownloadUrlForLayer
+import Amazonka.ECR.GetLifecyclePolicy
+import Amazonka.ECR.GetLifecyclePolicyPreview
+import Amazonka.ECR.GetRegistryPolicy
+import Amazonka.ECR.GetRepositoryPolicy
+import Amazonka.ECR.InitiateLayerUpload
+import Amazonka.ECR.Lens
+import Amazonka.ECR.ListImages
+import Amazonka.ECR.ListTagsForResource
+import Amazonka.ECR.PutImage
+import Amazonka.ECR.PutImageScanningConfiguration
+import Amazonka.ECR.PutImageTagMutability
+import Amazonka.ECR.PutLifecyclePolicy
+import Amazonka.ECR.PutRegistryPolicy
+import Amazonka.ECR.PutReplicationConfiguration
+import Amazonka.ECR.SetRepositoryPolicy
+import Amazonka.ECR.StartImageScan
+import Amazonka.ECR.StartLifecyclePolicyPreview
+import Amazonka.ECR.TagResource
+import Amazonka.ECR.Types
+import Amazonka.ECR.UntagResource
+import Amazonka.ECR.UploadLayerPart
+import Amazonka.ECR.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

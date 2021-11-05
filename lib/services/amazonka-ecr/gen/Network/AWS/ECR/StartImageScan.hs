@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.StartImageScan
+-- Module      : Amazonka.ECR.StartImageScan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- image was scanned on initial push. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html Image scanning>
 -- in the /Amazon Elastic Container Registry User Guide/.
-module Network.AWS.ECR.StartImageScan
+module Amazonka.ECR.StartImageScan
   ( -- * Creating a Request
     StartImageScan (..),
     newStartImageScan,
@@ -48,12 +48,12 @@ module Network.AWS.ECR.StartImageScan
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartImageScan' smart constructor.
 data StartImageScan = StartImageScan'

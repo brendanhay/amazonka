@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ECR.StartLifecyclePolicyPreview
+-- Module      : Amazonka.ECR.StartLifecyclePolicyPreview
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Starts a preview of a lifecycle policy for the specified repository.
 -- This allows you to see the results before associating the lifecycle
 -- policy with the repository.
-module Network.AWS.ECR.StartLifecyclePolicyPreview
+module Amazonka.ECR.StartLifecyclePolicyPreview
   ( -- * Creating a Request
     StartLifecyclePolicyPreview (..),
     newStartLifecyclePolicyPreview,
@@ -46,12 +46,12 @@ module Network.AWS.ECR.StartLifecyclePolicyPreview
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ECR.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartLifecyclePolicyPreview' smart constructor.
 data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'

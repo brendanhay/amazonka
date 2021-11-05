@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SQS.Types
+-- Module      : Amazonka.SQS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types
+module Amazonka.SQS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -126,23 +126,23 @@ module Network.AWS.SQS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SQS.Types.BatchResultErrorEntry
-import Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
-import Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
-import Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
-import Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
-import Network.AWS.SQS.Types.Message
-import Network.AWS.SQS.Types.MessageAttribute
-import Network.AWS.SQS.Types.MessageAttributeValue
-import Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
-import Network.AWS.SQS.Types.MessageSystemAttributeValue
-import Network.AWS.SQS.Types.QueueAttributeName
-import Network.AWS.SQS.Types.SendMessageBatchRequestEntry
-import Network.AWS.SQS.Types.SendMessageBatchResultEntry
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SQS.Types.BatchResultErrorEntry
+import Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
+import Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
+import Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
+import Amazonka.SQS.Types.DeleteMessageBatchResultEntry
+import Amazonka.SQS.Types.Message
+import Amazonka.SQS.Types.MessageAttribute
+import Amazonka.SQS.Types.MessageAttributeValue
+import Amazonka.SQS.Types.MessageSystemAttributeNameForSends
+import Amazonka.SQS.Types.MessageSystemAttributeValue
+import Amazonka.SQS.Types.QueueAttributeName
+import Amazonka.SQS.Types.SendMessageBatchRequestEntry
+import Amazonka.SQS.Types.SendMessageBatchResultEntry
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-11-05@ of the Amazon Simple Queue Service SDK configuration.
 defaultService :: Core.Service

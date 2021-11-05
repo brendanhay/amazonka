@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SQS
+-- Module      : Amazonka.SQS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 -- -   /Amazon Web Services General Reference/
 --
 --     -   <https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
-module Network.AWS.SQS
+module Amazonka.SQS
   ( -- * Service Configuration
     defaultService,
 
@@ -283,29 +283,29 @@ module Network.AWS.SQS
   )
 where
 
-import Network.AWS.SQS.AddPermission
-import Network.AWS.SQS.ChangeMessageVisibility
-import Network.AWS.SQS.ChangeMessageVisibilityBatch
-import Network.AWS.SQS.CreateQueue
-import Network.AWS.SQS.DeleteMessage
-import Network.AWS.SQS.DeleteMessageBatch
-import Network.AWS.SQS.DeleteQueue
-import Network.AWS.SQS.GetQueueAttributes
-import Network.AWS.SQS.GetQueueUrl
-import Network.AWS.SQS.Lens
-import Network.AWS.SQS.ListDeadLetterSourceQueues
-import Network.AWS.SQS.ListQueueTags
-import Network.AWS.SQS.ListQueues
-import Network.AWS.SQS.PurgeQueue
-import Network.AWS.SQS.ReceiveMessage
-import Network.AWS.SQS.RemovePermission
-import Network.AWS.SQS.SendMessage
-import Network.AWS.SQS.SendMessageBatch
-import Network.AWS.SQS.SetQueueAttributes
-import Network.AWS.SQS.TagQueue
-import Network.AWS.SQS.Types
-import Network.AWS.SQS.UntagQueue
-import Network.AWS.SQS.Waiters
+import Amazonka.SQS.AddPermission
+import Amazonka.SQS.ChangeMessageVisibility
+import Amazonka.SQS.ChangeMessageVisibilityBatch
+import Amazonka.SQS.CreateQueue
+import Amazonka.SQS.DeleteMessage
+import Amazonka.SQS.DeleteMessageBatch
+import Amazonka.SQS.DeleteQueue
+import Amazonka.SQS.GetQueueAttributes
+import Amazonka.SQS.GetQueueUrl
+import Amazonka.SQS.Lens
+import Amazonka.SQS.ListDeadLetterSourceQueues
+import Amazonka.SQS.ListQueueTags
+import Amazonka.SQS.ListQueues
+import Amazonka.SQS.PurgeQueue
+import Amazonka.SQS.ReceiveMessage
+import Amazonka.SQS.RemovePermission
+import Amazonka.SQS.SendMessage
+import Amazonka.SQS.SendMessageBatch
+import Amazonka.SQS.SetQueueAttributes
+import Amazonka.SQS.TagQueue
+import Amazonka.SQS.Types
+import Amazonka.SQS.UntagQueue
+import Amazonka.SQS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

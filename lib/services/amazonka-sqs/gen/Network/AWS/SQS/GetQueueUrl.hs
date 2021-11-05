@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SQS.GetQueueUrl
+-- Module      : Amazonka.SQS.GetQueueUrl
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- @ AddPermission @ or see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue>
 -- in the /Amazon SQS Developer Guide/.
-module Network.AWS.SQS.GetQueueUrl
+module Amazonka.SQS.GetQueueUrl
   ( -- * Creating a Request
     GetQueueUrl (..),
     newGetQueueUrl,
@@ -48,12 +48,12 @@ module Network.AWS.SQS.GetQueueUrl
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SQS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SQS.Types
 
 -- |
 --

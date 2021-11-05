@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SQS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SQS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SQS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SQS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,45 +45,45 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SQS
-    Network.AWS.SQS.AddPermission
-    Network.AWS.SQS.ChangeMessageVisibility
-    Network.AWS.SQS.ChangeMessageVisibilityBatch
-    Network.AWS.SQS.CreateQueue
-    Network.AWS.SQS.DeleteMessage
-    Network.AWS.SQS.DeleteMessageBatch
-    Network.AWS.SQS.DeleteQueue
-    Network.AWS.SQS.GetQueueAttributes
-    Network.AWS.SQS.GetQueueUrl
-    Network.AWS.SQS.Lens
-    Network.AWS.SQS.ListDeadLetterSourceQueues
-    Network.AWS.SQS.ListQueues
-    Network.AWS.SQS.ListQueueTags
-    Network.AWS.SQS.PurgeQueue
-    Network.AWS.SQS.ReceiveMessage
-    Network.AWS.SQS.RemovePermission
-    Network.AWS.SQS.SendMessage
-    Network.AWS.SQS.SendMessageBatch
-    Network.AWS.SQS.SetQueueAttributes
-    Network.AWS.SQS.TagQueue
-    Network.AWS.SQS.Types
-    Network.AWS.SQS.Types.BatchResultErrorEntry
-    Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
-    Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
-    Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
-    Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
-    Network.AWS.SQS.Types.Message
-    Network.AWS.SQS.Types.MessageAttribute
-    Network.AWS.SQS.Types.MessageAttributeValue
-    Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
-    Network.AWS.SQS.Types.MessageSystemAttributeValue
-    Network.AWS.SQS.Types.QueueAttributeName
-    Network.AWS.SQS.Types.SendMessageBatchRequestEntry
-    Network.AWS.SQS.Types.SendMessageBatchResultEntry
-    Network.AWS.SQS.UntagQueue
-    Network.AWS.SQS.Waiters
+    Amazonka.SQS
+    Amazonka.SQS.AddPermission
+    Amazonka.SQS.ChangeMessageVisibility
+    Amazonka.SQS.ChangeMessageVisibilityBatch
+    Amazonka.SQS.CreateQueue
+    Amazonka.SQS.DeleteMessage
+    Amazonka.SQS.DeleteMessageBatch
+    Amazonka.SQS.DeleteQueue
+    Amazonka.SQS.GetQueueAttributes
+    Amazonka.SQS.GetQueueUrl
+    Amazonka.SQS.Lens
+    Amazonka.SQS.ListDeadLetterSourceQueues
+    Amazonka.SQS.ListQueues
+    Amazonka.SQS.ListQueueTags
+    Amazonka.SQS.PurgeQueue
+    Amazonka.SQS.ReceiveMessage
+    Amazonka.SQS.RemovePermission
+    Amazonka.SQS.SendMessage
+    Amazonka.SQS.SendMessageBatch
+    Amazonka.SQS.SetQueueAttributes
+    Amazonka.SQS.TagQueue
+    Amazonka.SQS.Types
+    Amazonka.SQS.Types.BatchResultErrorEntry
+    Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
+    Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
+    Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
+    Amazonka.SQS.Types.DeleteMessageBatchResultEntry
+    Amazonka.SQS.Types.Message
+    Amazonka.SQS.Types.MessageAttribute
+    Amazonka.SQS.Types.MessageAttributeValue
+    Amazonka.SQS.Types.MessageSystemAttributeNameForSends
+    Amazonka.SQS.Types.MessageSystemAttributeValue
+    Amazonka.SQS.Types.QueueAttributeName
+    Amazonka.SQS.Types.SendMessageBatchRequestEntry
+    Amazonka.SQS.Types.SendMessageBatchResultEntry
+    Amazonka.SQS.UntagQueue
+    Amazonka.SQS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SQS.ChangeMessageVisibility
+-- Module      : Amazonka.SQS.ChangeMessageVisibility
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -77,7 +77,7 @@
 -- it is received, the visibility timeout for the message reverts to the
 -- original timeout value (not to the value you set using the
 -- @ChangeMessageVisibility@ action) the next time the message is received.
-module Network.AWS.SQS.ChangeMessageVisibility
+module Amazonka.SQS.ChangeMessageVisibility
   ( -- * Creating a Request
     ChangeMessageVisibility (..),
     newChangeMessageVisibility,
@@ -93,12 +93,12 @@ module Network.AWS.SQS.ChangeMessageVisibility
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SQS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SQS.Types
 
 -- | /See:/ 'newChangeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'

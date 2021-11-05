@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SQS.DeleteMessage
+-- Module      : Amazonka.SQS.DeleteMessage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- be returned to you during a subsequent receive request. You should
 -- ensure that your application is idempotent, so that receiving a message
 -- more than once does not cause issues.
-module Network.AWS.SQS.DeleteMessage
+module Amazonka.SQS.DeleteMessage
   ( -- * Creating a Request
     DeleteMessage (..),
     newDeleteMessage,
@@ -57,12 +57,12 @@ module Network.AWS.SQS.DeleteMessage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SQS.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SQS.Types
 
 -- |
 --

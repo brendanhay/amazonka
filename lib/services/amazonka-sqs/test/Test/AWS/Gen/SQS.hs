@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SQS where
 
+import Amazonka.SQS
 import qualified Data.Proxy as Proxy
-import Network.AWS.SQS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SQS.Internal

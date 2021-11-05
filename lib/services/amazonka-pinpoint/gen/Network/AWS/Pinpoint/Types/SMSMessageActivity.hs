@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.SMSMessageActivity
+-- Module      : Amazonka.Pinpoint.Types.SMSMessageActivity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SMSMessageActivity where
+module Amazonka.Pinpoint.Types.SMSMessageActivity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.JourneySMSMessage
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.JourneySMSMessage
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings for an SMS activity in a journey. This type of
 -- activity sends a text message to participants.

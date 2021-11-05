@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.DirectMessageConfiguration
+-- Module      : Amazonka.Pinpoint.Types.DirectMessageConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.DirectMessageConfiguration where
+module Amazonka.Pinpoint.Types.DirectMessageConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ADMMessage
-import Network.AWS.Pinpoint.Types.APNSMessage
-import Network.AWS.Pinpoint.Types.BaiduMessage
-import Network.AWS.Pinpoint.Types.DefaultMessage
-import Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage
-import Network.AWS.Pinpoint.Types.EmailMessage
-import Network.AWS.Pinpoint.Types.GCMMessage
-import Network.AWS.Pinpoint.Types.SMSMessage
-import Network.AWS.Pinpoint.Types.VoiceMessage
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.ADMMessage
+import Amazonka.Pinpoint.Types.APNSMessage
+import Amazonka.Pinpoint.Types.BaiduMessage
+import Amazonka.Pinpoint.Types.DefaultMessage
+import Amazonka.Pinpoint.Types.DefaultPushNotificationMessage
+import Amazonka.Pinpoint.Types.EmailMessage
+import Amazonka.Pinpoint.Types.GCMMessage
+import Amazonka.Pinpoint.Types.SMSMessage
+import Amazonka.Pinpoint.Types.VoiceMessage
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings and content for the default message and any
 -- default messages that you tailored for specific channels.

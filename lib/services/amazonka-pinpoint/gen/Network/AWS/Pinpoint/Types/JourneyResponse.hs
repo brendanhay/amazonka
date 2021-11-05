@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.JourneyResponse
+-- Module      : Amazonka.Pinpoint.Types.JourneyResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyResponse where
+module Amazonka.Pinpoint.Types.JourneyResponse where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Activity
-import Network.AWS.Pinpoint.Types.JourneyChannelSettings
-import Network.AWS.Pinpoint.Types.JourneyLimits
-import Network.AWS.Pinpoint.Types.JourneySchedule
-import Network.AWS.Pinpoint.Types.QuietTime
-import Network.AWS.Pinpoint.Types.StartCondition
-import Network.AWS.Pinpoint.Types.State
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.Activity
+import Amazonka.Pinpoint.Types.JourneyChannelSettings
+import Amazonka.Pinpoint.Types.JourneyLimits
+import Amazonka.Pinpoint.Types.JourneySchedule
+import Amazonka.Pinpoint.Types.QuietTime
+import Amazonka.Pinpoint.Types.StartCondition
+import Amazonka.Pinpoint.Types.State
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status, configuration, and other settings
 -- for a journey.

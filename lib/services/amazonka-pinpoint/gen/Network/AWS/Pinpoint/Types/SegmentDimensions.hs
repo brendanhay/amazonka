@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.SegmentDimensions
+-- Module      : Amazonka.Pinpoint.Types.SegmentDimensions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SegmentDimensions where
+module Amazonka.Pinpoint.Types.SegmentDimensions where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.AttributeDimension
-import Network.AWS.Pinpoint.Types.MetricDimension
-import Network.AWS.Pinpoint.Types.SegmentBehaviors
-import Network.AWS.Pinpoint.Types.SegmentDemographics
-import Network.AWS.Pinpoint.Types.SegmentLocation
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.AttributeDimension
+import Amazonka.Pinpoint.Types.MetricDimension
+import Amazonka.Pinpoint.Types.SegmentBehaviors
+import Amazonka.Pinpoint.Types.SegmentDemographics
+import Amazonka.Pinpoint.Types.SegmentLocation
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the dimension settings for a segment.
 --

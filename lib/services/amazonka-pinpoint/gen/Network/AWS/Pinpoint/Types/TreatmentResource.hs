@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.TreatmentResource
+-- Module      : Amazonka.Pinpoint.Types.TreatmentResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TreatmentResource where
+module Amazonka.Pinpoint.Types.TreatmentResource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignState
-import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
-import Network.AWS.Pinpoint.Types.MessageConfiguration
-import Network.AWS.Pinpoint.Types.Schedule
-import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.CampaignState
+import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
+import Amazonka.Pinpoint.Types.MessageConfiguration
+import Amazonka.Pinpoint.Types.Schedule
+import Amazonka.Pinpoint.Types.TemplateConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the settings for a campaign treatment. A /treatment/ is a
 -- variation of a campaign that\'s used for A\/B testing of a campaign.

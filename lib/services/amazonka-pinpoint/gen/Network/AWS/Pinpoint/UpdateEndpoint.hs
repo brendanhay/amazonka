@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.UpdateEndpoint
+-- Module      : Amazonka.Pinpoint.UpdateEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- this operation to define custom attributes for an endpoint. If an update
 -- includes one or more values for a custom attribute, Amazon Pinpoint
 -- replaces (overwrites) any existing values with the new values.
-module Network.AWS.Pinpoint.UpdateEndpoint
+module Amazonka.Pinpoint.UpdateEndpoint
   ( -- * Creating a Request
     UpdateEndpoint (..),
     newUpdateEndpoint,
@@ -45,12 +45,12 @@ module Network.AWS.Pinpoint.UpdateEndpoint
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'

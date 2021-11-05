@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.CreateSegment
+-- Module      : Amazonka.Pinpoint.CreateSegment
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a new segment for an application or updates the configuration,
 -- dimension, and other settings for an existing segment that\'s associated
 -- with an application.
-module Network.AWS.Pinpoint.CreateSegment
+module Amazonka.Pinpoint.CreateSegment
   ( -- * Creating a Request
     CreateSegment (..),
     newCreateSegment,
@@ -42,12 +42,12 @@ module Network.AWS.Pinpoint.CreateSegment
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSegment' smart constructor.
 data CreateSegment = CreateSegment'

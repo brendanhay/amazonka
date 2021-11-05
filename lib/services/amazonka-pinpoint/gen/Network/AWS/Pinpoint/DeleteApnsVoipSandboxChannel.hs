@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.DeleteApnsVoipSandboxChannel
+-- Module      : Amazonka.Pinpoint.DeleteApnsVoipSandboxChannel
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Disables the APNs VoIP sandbox channel for an application and deletes
 -- any existing settings for the channel.
-module Network.AWS.Pinpoint.DeleteApnsVoipSandboxChannel
+module Amazonka.Pinpoint.DeleteApnsVoipSandboxChannel
   ( -- * Creating a Request
     DeleteApnsVoipSandboxChannel (..),
     newDeleteApnsVoipSandboxChannel,
@@ -40,12 +40,12 @@ module Network.AWS.Pinpoint.DeleteApnsVoipSandboxChannel
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteApnsVoipSandboxChannel' smart constructor.
 data DeleteApnsVoipSandboxChannel = DeleteApnsVoipSandboxChannel'

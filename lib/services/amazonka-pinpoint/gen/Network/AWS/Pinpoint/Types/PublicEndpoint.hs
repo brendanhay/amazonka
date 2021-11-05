@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.PublicEndpoint
+-- Module      : Amazonka.Pinpoint.Types.PublicEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.PublicEndpoint where
+module Amazonka.Pinpoint.Types.PublicEndpoint where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ChannelType
-import Network.AWS.Pinpoint.Types.EndpointDemographic
-import Network.AWS.Pinpoint.Types.EndpointLocation
-import Network.AWS.Pinpoint.Types.EndpointUser
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.ChannelType
+import Amazonka.Pinpoint.Types.EndpointDemographic
+import Amazonka.Pinpoint.Types.EndpointLocation
+import Amazonka.Pinpoint.Types.EndpointUser
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the properties and attributes of an endpoint that\'s
 -- associated with an event.

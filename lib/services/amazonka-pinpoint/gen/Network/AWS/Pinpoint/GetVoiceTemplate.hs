@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.GetVoiceTemplate
+-- Module      : Amazonka.Pinpoint.GetVoiceTemplate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Retrieves the content and settings of a message template for messages
 -- that are sent through the voice channel.
-module Network.AWS.Pinpoint.GetVoiceTemplate
+module Amazonka.Pinpoint.GetVoiceTemplate
   ( -- * Creating a Request
     GetVoiceTemplate (..),
     newGetVoiceTemplate,
@@ -41,12 +41,12 @@ module Network.AWS.Pinpoint.GetVoiceTemplate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceTemplate' smart constructor.
 data GetVoiceTemplate = GetVoiceTemplate'

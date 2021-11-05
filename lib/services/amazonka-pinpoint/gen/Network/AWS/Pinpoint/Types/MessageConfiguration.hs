@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.MessageConfiguration
+-- Module      : Amazonka.Pinpoint.Types.MessageConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MessageConfiguration where
+module Amazonka.Pinpoint.Types.MessageConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignCustomMessage
-import Network.AWS.Pinpoint.Types.CampaignEmailMessage
-import Network.AWS.Pinpoint.Types.CampaignInAppMessage
-import Network.AWS.Pinpoint.Types.CampaignSmsMessage
-import Network.AWS.Pinpoint.Types.Message
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.CampaignCustomMessage
+import Amazonka.Pinpoint.Types.CampaignEmailMessage
+import Amazonka.Pinpoint.Types.CampaignInAppMessage
+import Amazonka.Pinpoint.Types.CampaignSmsMessage
+import Amazonka.Pinpoint.Types.Message
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the message configuration settings for a campaign.
 --

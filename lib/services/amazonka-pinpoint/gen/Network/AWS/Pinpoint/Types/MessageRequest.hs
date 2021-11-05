@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.MessageRequest
+-- Module      : Amazonka.Pinpoint.Types.MessageRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MessageRequest where
+module Amazonka.Pinpoint.Types.MessageRequest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.AddressConfiguration
-import Network.AWS.Pinpoint.Types.DirectMessageConfiguration
-import Network.AWS.Pinpoint.Types.EndpointSendConfiguration
-import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.AddressConfiguration
+import Amazonka.Pinpoint.Types.DirectMessageConfiguration
+import Amazonka.Pinpoint.Types.EndpointSendConfiguration
+import Amazonka.Pinpoint.Types.TemplateConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for a message.
 --

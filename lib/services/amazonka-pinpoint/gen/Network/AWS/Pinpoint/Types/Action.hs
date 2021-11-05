@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.Action
+-- Module      : Amazonka.Pinpoint.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Action
+module Amazonka.Pinpoint.Types.Action
   ( Action
       ( ..,
         Action_DEEP_LINK,
@@ -27,8 +27,8 @@ module Network.AWS.Pinpoint.Types.Action
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Action = Action' {fromAction :: Core.Text}
   deriving stock

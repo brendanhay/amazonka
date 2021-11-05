@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.SimpleCondition
+-- Module      : Amazonka.Pinpoint.Types.SimpleCondition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SimpleCondition where
+module Amazonka.Pinpoint.Types.SimpleCondition where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventCondition
-import Network.AWS.Pinpoint.Types.SegmentCondition
-import Network.AWS.Pinpoint.Types.SegmentDimensions
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.EventCondition
+import Amazonka.Pinpoint.Types.SegmentCondition
+import Amazonka.Pinpoint.Types.SegmentDimensions
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a condition to evaluate for an activity in a journey.
 --

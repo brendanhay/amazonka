@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.UpdateTemplateActiveVersion
+-- Module      : Amazonka.Pinpoint.UpdateTemplateActiveVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Changes the status of a specific version of a message template to
 -- /active/.
-module Network.AWS.Pinpoint.UpdateTemplateActiveVersion
+module Amazonka.Pinpoint.UpdateTemplateActiveVersion
   ( -- * Creating a Request
     UpdateTemplateActiveVersion (..),
     newUpdateTemplateActiveVersion,
@@ -42,12 +42,12 @@ module Network.AWS.Pinpoint.UpdateTemplateActiveVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTemplateActiveVersion' smart constructor.
 data UpdateTemplateActiveVersion = UpdateTemplateActiveVersion'

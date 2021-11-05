@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.Activity
+-- Module      : Amazonka.Pinpoint.Types.Activity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Activity where
+module Amazonka.Pinpoint.Types.Activity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ConditionalSplitActivity
-import Network.AWS.Pinpoint.Types.ContactCenterActivity
-import Network.AWS.Pinpoint.Types.CustomMessageActivity
-import Network.AWS.Pinpoint.Types.EmailMessageActivity
-import Network.AWS.Pinpoint.Types.HoldoutActivity
-import Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity
-import Network.AWS.Pinpoint.Types.PushMessageActivity
-import Network.AWS.Pinpoint.Types.RandomSplitActivity
-import Network.AWS.Pinpoint.Types.SMSMessageActivity
-import Network.AWS.Pinpoint.Types.WaitActivity
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.ConditionalSplitActivity
+import Amazonka.Pinpoint.Types.ContactCenterActivity
+import Amazonka.Pinpoint.Types.CustomMessageActivity
+import Amazonka.Pinpoint.Types.EmailMessageActivity
+import Amazonka.Pinpoint.Types.HoldoutActivity
+import Amazonka.Pinpoint.Types.MultiConditionalSplitActivity
+import Amazonka.Pinpoint.Types.PushMessageActivity
+import Amazonka.Pinpoint.Types.RandomSplitActivity
+import Amazonka.Pinpoint.Types.SMSMessageActivity
+import Amazonka.Pinpoint.Types.WaitActivity
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for an activity in a
 -- journey.

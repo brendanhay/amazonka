@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pinpoint where
 
+import Amazonka.Pinpoint
 import qualified Data.Proxy as Proxy
-import Network.AWS.Pinpoint
 import Test.AWS.Fixture
 import Test.AWS.Pinpoint.Internal
 import Test.AWS.Prelude

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.WriteCampaignRequest
+-- Module      : Amazonka.Pinpoint.Types.WriteCampaignRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.WriteCampaignRequest where
+module Amazonka.Pinpoint.Types.WriteCampaignRequest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignHook
-import Network.AWS.Pinpoint.Types.CampaignLimits
-import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
-import Network.AWS.Pinpoint.Types.MessageConfiguration
-import Network.AWS.Pinpoint.Types.Schedule
-import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import Network.AWS.Pinpoint.Types.WriteTreatmentResource
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.CampaignHook
+import Amazonka.Pinpoint.Types.CampaignLimits
+import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
+import Amazonka.Pinpoint.Types.MessageConfiguration
+import Amazonka.Pinpoint.Types.Schedule
+import Amazonka.Pinpoint.Types.TemplateConfiguration
+import Amazonka.Pinpoint.Types.WriteTreatmentResource
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for a campaign.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.EventsBatch
+-- Module      : Amazonka.Pinpoint.Types.EventsBatch
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EventsBatch where
+module Amazonka.Pinpoint.Types.EventsBatch where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Event
-import Network.AWS.Pinpoint.Types.PublicEndpoint
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.Event
+import Amazonka.Pinpoint.Types.PublicEndpoint
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a batch of endpoints and events to process.
 --

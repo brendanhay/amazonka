@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.ApplicationSettingsResource
+-- Module      : Amazonka.Pinpoint.Types.ApplicationSettingsResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ApplicationSettingsResource where
+module Amazonka.Pinpoint.Types.ApplicationSettingsResource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignHook
-import Network.AWS.Pinpoint.Types.CampaignLimits
-import Network.AWS.Pinpoint.Types.QuietTime
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.CampaignHook
+import Amazonka.Pinpoint.Types.CampaignLimits
+import Amazonka.Pinpoint.Types.QuietTime
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an application, including the default
 -- settings for an application.

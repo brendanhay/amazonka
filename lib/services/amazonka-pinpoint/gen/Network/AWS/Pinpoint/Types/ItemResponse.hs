@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pinpoint.Types.ItemResponse
+-- Module      : Amazonka.Pinpoint.Types.ItemResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ItemResponse where
+module Amazonka.Pinpoint.Types.ItemResponse where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EndpointItemResponse
-import Network.AWS.Pinpoint.Types.EventItemResponse
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Pinpoint.Types.EndpointItemResponse
+import Amazonka.Pinpoint.Types.EventItemResponse
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the results of a request to create or update
 -- an endpoint that\'s associated with an event.

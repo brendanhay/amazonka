@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.ListConfigurationRevisions
+-- Module      : Amazonka.MQ.ListConfigurationRevisions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all revisions for the specified configuration.
-module Network.AWS.MQ.ListConfigurationRevisions
+module Amazonka.MQ.ListConfigurationRevisions
   ( -- * Creating a Request
     ListConfigurationRevisions (..),
     newListConfigurationRevisions,
@@ -44,12 +44,12 @@ module Network.AWS.MQ.ListConfigurationRevisions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConfigurationRevisions' smart constructor.
 data ListConfigurationRevisions = ListConfigurationRevisions'

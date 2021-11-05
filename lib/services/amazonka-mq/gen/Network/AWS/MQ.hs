@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MQ
+-- Module      : Amazonka.MQ
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- cloud. A message broker allows software applications and components to
 -- communicate using various programming languages, operating systems, and
 -- formal messaging protocols.
-module Network.AWS.MQ
+module Amazonka.MQ
   ( -- * Service Configuration
     defaultService,
 
@@ -291,31 +291,31 @@ module Network.AWS.MQ
   )
 where
 
-import Network.AWS.MQ.CreateBroker
-import Network.AWS.MQ.CreateConfiguration
-import Network.AWS.MQ.CreateTags
-import Network.AWS.MQ.CreateUser
-import Network.AWS.MQ.DeleteBroker
-import Network.AWS.MQ.DeleteTags
-import Network.AWS.MQ.DeleteUser
-import Network.AWS.MQ.DescribeBroker
-import Network.AWS.MQ.DescribeBrokerEngineTypes
-import Network.AWS.MQ.DescribeBrokerInstanceOptions
-import Network.AWS.MQ.DescribeConfiguration
-import Network.AWS.MQ.DescribeConfigurationRevision
-import Network.AWS.MQ.DescribeUser
-import Network.AWS.MQ.Lens
-import Network.AWS.MQ.ListBrokers
-import Network.AWS.MQ.ListConfigurationRevisions
-import Network.AWS.MQ.ListConfigurations
-import Network.AWS.MQ.ListTags
-import Network.AWS.MQ.ListUsers
-import Network.AWS.MQ.RebootBroker
-import Network.AWS.MQ.Types
-import Network.AWS.MQ.UpdateBroker
-import Network.AWS.MQ.UpdateConfiguration
-import Network.AWS.MQ.UpdateUser
-import Network.AWS.MQ.Waiters
+import Amazonka.MQ.CreateBroker
+import Amazonka.MQ.CreateConfiguration
+import Amazonka.MQ.CreateTags
+import Amazonka.MQ.CreateUser
+import Amazonka.MQ.DeleteBroker
+import Amazonka.MQ.DeleteTags
+import Amazonka.MQ.DeleteUser
+import Amazonka.MQ.DescribeBroker
+import Amazonka.MQ.DescribeBrokerEngineTypes
+import Amazonka.MQ.DescribeBrokerInstanceOptions
+import Amazonka.MQ.DescribeConfiguration
+import Amazonka.MQ.DescribeConfigurationRevision
+import Amazonka.MQ.DescribeUser
+import Amazonka.MQ.Lens
+import Amazonka.MQ.ListBrokers
+import Amazonka.MQ.ListConfigurationRevisions
+import Amazonka.MQ.ListConfigurations
+import Amazonka.MQ.ListTags
+import Amazonka.MQ.ListUsers
+import Amazonka.MQ.RebootBroker
+import Amazonka.MQ.Types
+import Amazonka.MQ.UpdateBroker
+import Amazonka.MQ.UpdateConfiguration
+import Amazonka.MQ.UpdateUser
+import Amazonka.MQ.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

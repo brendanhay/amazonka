@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.Lens
+-- Module      : Amazonka.MQ.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Lens
+module Amazonka.MQ.Lens
   ( -- * Operations
 
     -- ** CreateConfiguration
@@ -382,46 +382,46 @@ module Network.AWS.MQ.Lens
   )
 where
 
-import Network.AWS.MQ.CreateBroker
-import Network.AWS.MQ.CreateConfiguration
-import Network.AWS.MQ.CreateTags
-import Network.AWS.MQ.CreateUser
-import Network.AWS.MQ.DeleteBroker
-import Network.AWS.MQ.DeleteTags
-import Network.AWS.MQ.DeleteUser
-import Network.AWS.MQ.DescribeBroker
-import Network.AWS.MQ.DescribeBrokerEngineTypes
-import Network.AWS.MQ.DescribeBrokerInstanceOptions
-import Network.AWS.MQ.DescribeConfiguration
-import Network.AWS.MQ.DescribeConfigurationRevision
-import Network.AWS.MQ.DescribeUser
-import Network.AWS.MQ.ListBrokers
-import Network.AWS.MQ.ListConfigurationRevisions
-import Network.AWS.MQ.ListConfigurations
-import Network.AWS.MQ.ListTags
-import Network.AWS.MQ.ListUsers
-import Network.AWS.MQ.RebootBroker
-import Network.AWS.MQ.Types.AvailabilityZone
-import Network.AWS.MQ.Types.BrokerEngineType
-import Network.AWS.MQ.Types.BrokerInstance
-import Network.AWS.MQ.Types.BrokerInstanceOption
-import Network.AWS.MQ.Types.BrokerSummary
-import Network.AWS.MQ.Types.Configuration
-import Network.AWS.MQ.Types.ConfigurationId
-import Network.AWS.MQ.Types.ConfigurationRevision
-import Network.AWS.MQ.Types.Configurations
-import Network.AWS.MQ.Types.EncryptionOptions
-import Network.AWS.MQ.Types.EngineVersion
-import Network.AWS.MQ.Types.LdapServerMetadataInput
-import Network.AWS.MQ.Types.LdapServerMetadataOutput
-import Network.AWS.MQ.Types.Logs
-import Network.AWS.MQ.Types.LogsSummary
-import Network.AWS.MQ.Types.PendingLogs
-import Network.AWS.MQ.Types.SanitizationWarning
-import Network.AWS.MQ.Types.User
-import Network.AWS.MQ.Types.UserPendingChanges
-import Network.AWS.MQ.Types.UserSummary
-import Network.AWS.MQ.Types.WeeklyStartTime
-import Network.AWS.MQ.UpdateBroker
-import Network.AWS.MQ.UpdateConfiguration
-import Network.AWS.MQ.UpdateUser
+import Amazonka.MQ.CreateBroker
+import Amazonka.MQ.CreateConfiguration
+import Amazonka.MQ.CreateTags
+import Amazonka.MQ.CreateUser
+import Amazonka.MQ.DeleteBroker
+import Amazonka.MQ.DeleteTags
+import Amazonka.MQ.DeleteUser
+import Amazonka.MQ.DescribeBroker
+import Amazonka.MQ.DescribeBrokerEngineTypes
+import Amazonka.MQ.DescribeBrokerInstanceOptions
+import Amazonka.MQ.DescribeConfiguration
+import Amazonka.MQ.DescribeConfigurationRevision
+import Amazonka.MQ.DescribeUser
+import Amazonka.MQ.ListBrokers
+import Amazonka.MQ.ListConfigurationRevisions
+import Amazonka.MQ.ListConfigurations
+import Amazonka.MQ.ListTags
+import Amazonka.MQ.ListUsers
+import Amazonka.MQ.RebootBroker
+import Amazonka.MQ.Types.AvailabilityZone
+import Amazonka.MQ.Types.BrokerEngineType
+import Amazonka.MQ.Types.BrokerInstance
+import Amazonka.MQ.Types.BrokerInstanceOption
+import Amazonka.MQ.Types.BrokerSummary
+import Amazonka.MQ.Types.Configuration
+import Amazonka.MQ.Types.ConfigurationId
+import Amazonka.MQ.Types.ConfigurationRevision
+import Amazonka.MQ.Types.Configurations
+import Amazonka.MQ.Types.EncryptionOptions
+import Amazonka.MQ.Types.EngineVersion
+import Amazonka.MQ.Types.LdapServerMetadataInput
+import Amazonka.MQ.Types.LdapServerMetadataOutput
+import Amazonka.MQ.Types.Logs
+import Amazonka.MQ.Types.LogsSummary
+import Amazonka.MQ.Types.PendingLogs
+import Amazonka.MQ.Types.SanitizationWarning
+import Amazonka.MQ.Types.User
+import Amazonka.MQ.Types.UserPendingChanges
+import Amazonka.MQ.Types.UserSummary
+import Amazonka.MQ.Types.WeeklyStartTime
+import Amazonka.MQ.UpdateBroker
+import Amazonka.MQ.UpdateConfiguration
+import Amazonka.MQ.UpdateUser

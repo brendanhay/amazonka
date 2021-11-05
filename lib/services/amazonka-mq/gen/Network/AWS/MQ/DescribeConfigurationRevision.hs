@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.DescribeConfigurationRevision
+-- Module      : Amazonka.MQ.DescribeConfigurationRevision
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns the specified configuration revision for the specified
 -- configuration.
-module Network.AWS.MQ.DescribeConfigurationRevision
+module Amazonka.MQ.DescribeConfigurationRevision
   ( -- * Creating a Request
     DescribeConfigurationRevision (..),
     newDescribeConfigurationRevision,
@@ -44,12 +44,12 @@ module Network.AWS.MQ.DescribeConfigurationRevision
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConfigurationRevision' smart constructor.
 data DescribeConfigurationRevision = DescribeConfigurationRevision'

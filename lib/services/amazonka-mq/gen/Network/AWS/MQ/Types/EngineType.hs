@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.Types.EngineType
+-- Module      : Amazonka.MQ.Types.EngineType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.EngineType
+module Amazonka.MQ.Types.EngineType
   ( EngineType
       ( ..,
         EngineType_ACTIVEMQ,
@@ -26,8 +26,8 @@ module Network.AWS.MQ.Types.EngineType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type of broker engine. Amazon MQ supports ActiveMQ and RabbitMQ.
 newtype EngineType = EngineType'

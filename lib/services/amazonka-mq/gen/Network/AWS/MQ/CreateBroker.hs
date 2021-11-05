@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.CreateBroker
+-- Module      : Amazonka.MQ.CreateBroker
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -60,7 +60,7 @@
 -- and
 -- <https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface Never Modify or Delete the Amazon MQ Elastic Network Interface>
 -- in the /Amazon MQ Developer Guide/.
-module Network.AWS.MQ.CreateBroker
+module Amazonka.MQ.CreateBroker
   ( -- * Creating a Request
     CreateBroker (..),
     newCreateBroker,
@@ -97,12 +97,12 @@ module Network.AWS.MQ.CreateBroker
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Creates a broker using the specified properties.
 --

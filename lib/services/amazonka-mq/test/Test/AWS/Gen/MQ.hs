@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MQ where
 
+import Amazonka.MQ
 import qualified Data.Proxy as Proxy
-import Network.AWS.MQ
 import Test.AWS.Fixture
 import Test.AWS.MQ.Internal
 import Test.AWS.Prelude

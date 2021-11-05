@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.Types.BrokerSummary
+-- Module      : Amazonka.MQ.Types.BrokerSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.BrokerSummary where
+module Amazonka.MQ.Types.BrokerSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.BrokerState
-import Network.AWS.MQ.Types.DeploymentMode
-import Network.AWS.MQ.Types.EngineType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types.BrokerState
+import Amazonka.MQ.Types.DeploymentMode
+import Amazonka.MQ.Types.EngineType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about all brokers.
 --

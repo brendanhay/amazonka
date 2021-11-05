@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.Types.SanitizationWarning
+-- Module      : Amazonka.MQ.Types.SanitizationWarning
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.SanitizationWarning where
+module Amazonka.MQ.Types.SanitizationWarning where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.SanitizationWarningReason
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types.SanitizationWarningReason
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about the XML element or attribute that was
 -- sanitized in the configuration.

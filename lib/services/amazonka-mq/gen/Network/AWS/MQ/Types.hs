@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MQ.Types
+-- Module      : Amazonka.MQ.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types
+module Amazonka.MQ.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -220,39 +220,39 @@ module Network.AWS.MQ.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.AuthenticationStrategy
-import Network.AWS.MQ.Types.AvailabilityZone
-import Network.AWS.MQ.Types.BrokerEngineType
-import Network.AWS.MQ.Types.BrokerInstance
-import Network.AWS.MQ.Types.BrokerInstanceOption
-import Network.AWS.MQ.Types.BrokerState
-import Network.AWS.MQ.Types.BrokerStorageType
-import Network.AWS.MQ.Types.BrokerSummary
-import Network.AWS.MQ.Types.ChangeType
-import Network.AWS.MQ.Types.Configuration
-import Network.AWS.MQ.Types.ConfigurationId
-import Network.AWS.MQ.Types.ConfigurationRevision
-import Network.AWS.MQ.Types.Configurations
-import Network.AWS.MQ.Types.DayOfWeek
-import Network.AWS.MQ.Types.DeploymentMode
-import Network.AWS.MQ.Types.EncryptionOptions
-import Network.AWS.MQ.Types.EngineType
-import Network.AWS.MQ.Types.EngineVersion
-import Network.AWS.MQ.Types.LdapServerMetadataInput
-import Network.AWS.MQ.Types.LdapServerMetadataOutput
-import Network.AWS.MQ.Types.Logs
-import Network.AWS.MQ.Types.LogsSummary
-import Network.AWS.MQ.Types.PendingLogs
-import Network.AWS.MQ.Types.SanitizationWarning
-import Network.AWS.MQ.Types.SanitizationWarningReason
-import Network.AWS.MQ.Types.User
-import Network.AWS.MQ.Types.UserPendingChanges
-import Network.AWS.MQ.Types.UserSummary
-import Network.AWS.MQ.Types.WeeklyStartTime
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types.AuthenticationStrategy
+import Amazonka.MQ.Types.AvailabilityZone
+import Amazonka.MQ.Types.BrokerEngineType
+import Amazonka.MQ.Types.BrokerInstance
+import Amazonka.MQ.Types.BrokerInstanceOption
+import Amazonka.MQ.Types.BrokerState
+import Amazonka.MQ.Types.BrokerStorageType
+import Amazonka.MQ.Types.BrokerSummary
+import Amazonka.MQ.Types.ChangeType
+import Amazonka.MQ.Types.Configuration
+import Amazonka.MQ.Types.ConfigurationId
+import Amazonka.MQ.Types.ConfigurationRevision
+import Amazonka.MQ.Types.Configurations
+import Amazonka.MQ.Types.DayOfWeek
+import Amazonka.MQ.Types.DeploymentMode
+import Amazonka.MQ.Types.EncryptionOptions
+import Amazonka.MQ.Types.EngineType
+import Amazonka.MQ.Types.EngineVersion
+import Amazonka.MQ.Types.LdapServerMetadataInput
+import Amazonka.MQ.Types.LdapServerMetadataOutput
+import Amazonka.MQ.Types.Logs
+import Amazonka.MQ.Types.LogsSummary
+import Amazonka.MQ.Types.PendingLogs
+import Amazonka.MQ.Types.SanitizationWarning
+import Amazonka.MQ.Types.SanitizationWarningReason
+import Amazonka.MQ.Types.User
+import Amazonka.MQ.Types.UserPendingChanges
+import Amazonka.MQ.Types.UserSummary
+import Amazonka.MQ.Types.WeeklyStartTime
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon MQ SDK configuration.
 defaultService :: Core.Service

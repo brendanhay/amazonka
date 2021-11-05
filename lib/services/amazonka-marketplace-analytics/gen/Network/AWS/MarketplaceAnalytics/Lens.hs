@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceAnalytics.Lens
+-- Module      : Amazonka.MarketplaceAnalytics.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceAnalytics.Lens
+module Amazonka.MarketplaceAnalytics.Lens
   ( -- * Operations
 
     -- ** StartSupportDataExport
@@ -40,5 +40,5 @@ module Network.AWS.MarketplaceAnalytics.Lens
   )
 where
 
-import Network.AWS.MarketplaceAnalytics.GenerateDataSet
-import Network.AWS.MarketplaceAnalytics.StartSupportDataExport
+import Amazonka.MarketplaceAnalytics.GenerateDataSet
+import Amazonka.MarketplaceAnalytics.StartSupportDataExport

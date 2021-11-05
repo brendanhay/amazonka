@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MarketplaceAnalytics where
 
+import Amazonka.MarketplaceAnalytics
 import qualified Data.Proxy as Proxy
-import Network.AWS.MarketplaceAnalytics
 import Test.AWS.Fixture
 import Test.AWS.MarketplaceAnalytics.Internal
 import Test.AWS.Prelude

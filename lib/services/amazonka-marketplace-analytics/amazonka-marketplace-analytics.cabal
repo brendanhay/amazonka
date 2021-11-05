@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MarketplaceAnalytics.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MarketplaceAnalytics.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MarketplaceAnalytics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MarketplaceAnalytics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,16 +45,16 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MarketplaceAnalytics
-    Network.AWS.MarketplaceAnalytics.GenerateDataSet
-    Network.AWS.MarketplaceAnalytics.Lens
-    Network.AWS.MarketplaceAnalytics.StartSupportDataExport
-    Network.AWS.MarketplaceAnalytics.Types
-    Network.AWS.MarketplaceAnalytics.Types.DataSetType
-    Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType
-    Network.AWS.MarketplaceAnalytics.Waiters
+    Amazonka.MarketplaceAnalytics
+    Amazonka.MarketplaceAnalytics.GenerateDataSet
+    Amazonka.MarketplaceAnalytics.Lens
+    Amazonka.MarketplaceAnalytics.StartSupportDataExport
+    Amazonka.MarketplaceAnalytics.Types
+    Amazonka.MarketplaceAnalytics.Types.DataSetType
+    Amazonka.MarketplaceAnalytics.Types.SupportDataSetType
+    Amazonka.MarketplaceAnalytics.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

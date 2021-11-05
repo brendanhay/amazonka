@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MarketplaceAnalytics
+-- Module      : Amazonka.MarketplaceAnalytics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2015-07-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Provides AWS Marketplace business intelligence data on-demand.
-module Network.AWS.MarketplaceAnalytics
+module Amazonka.MarketplaceAnalytics
   ( -- * Service Configuration
     defaultService,
 
@@ -50,11 +50,11 @@ module Network.AWS.MarketplaceAnalytics
   )
 where
 
-import Network.AWS.MarketplaceAnalytics.GenerateDataSet
-import Network.AWS.MarketplaceAnalytics.Lens
-import Network.AWS.MarketplaceAnalytics.StartSupportDataExport
-import Network.AWS.MarketplaceAnalytics.Types
-import Network.AWS.MarketplaceAnalytics.Waiters
+import Amazonka.MarketplaceAnalytics.GenerateDataSet
+import Amazonka.MarketplaceAnalytics.Lens
+import Amazonka.MarketplaceAnalytics.StartSupportDataExport
+import Amazonka.MarketplaceAnalytics.Types
+import Amazonka.MarketplaceAnalytics.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

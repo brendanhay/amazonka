@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MarketplaceAnalytics.GenerateDataSet
+-- Module      : Amazonka.MarketplaceAnalytics.GenerateDataSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- permissions policy providing Allow permissions for the following
 -- actions: s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes,
 -- sns:Publish, iam:GetRolePolicy.
-module Network.AWS.MarketplaceAnalytics.GenerateDataSet
+module Amazonka.MarketplaceAnalytics.GenerateDataSet
   ( -- * Creating a Request
     GenerateDataSet (..),
     newGenerateDataSet,
@@ -56,12 +56,12 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceAnalytics.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MarketplaceAnalytics.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Container for the parameters to the GenerateDataSet operation.
 --
